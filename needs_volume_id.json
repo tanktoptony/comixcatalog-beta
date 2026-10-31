@@ -6406,24 +6406,6 @@
     "retry_after": "2026-09-21T14:00:38.555210+00:00"
   },
   {
-    "name": "Animal Man by Grant Morrison",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 19963,
-        "name": "Animal Man",
-        "publisher": "DC Comics",
-        "start_year": 1991
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-31T13:25:17.745091+00:00",
-    "retry_after": "2026-11-03T13:25:17.745112+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "King in Black: Handbook",
     "publisher": "Marvel Comics",
     "year": 2021,
@@ -31738,24 +31720,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-09-28T19:04:37.588042+00:00",
     "retry_after": "2026-09-29T19:04:37.588048+00:00"
-  },
-  {
-    "name": "Conan the Barbarian by Jim Zub",
-    "publisher": "Marvel Comics",
-    "year": 2021,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 115185,
-        "name": "Conan the Barbarian ",
-        "publisher": "Gotham Entertainment Group",
-        "start_year": 2003
-      }
-    ],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-30T16:04:41.888358+00:00",
-    "retry_after": "2026-11-13T16:04:41.888376+00:00",
-    "search_hydrated": true
   },
   {
     "name": "Captain Canuck",
@@ -85778,168 +85742,6 @@
     "search_hydrated": true
   },
   {
-    "name": "In Rage",
-    "publisher": "CFD Productions",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 88863,
-        "name": "In Rage",
-        "publisher": "Creative Force Designs",
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T15:35:18.949537+00:00",
-    "retry_after": "2026-10-31T15:35:18.949539+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Marvel Team-Up Winter Special",
-    "publisher": "Marvel Comics",
-    "year": 1980,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 52549,
-        "name": "Marvel Team-Up Winter Special",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1980
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T15:43:23.146210+00:00",
-    "retry_after": "2026-10-31T15:43:23.146228+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Kick-Ass 2 Prelude: Hit Girl",
-    "publisher": "Marvel Comics",
-    "year": 2013,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 58598,
-        "name": "Kick-Ass 2 Prelude: Hit-Girl",
-        "publisher": "Icon Books",
-        "start_year": 2013
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T15:43:23.146267+00:00",
-    "retry_after": "2026-10-31T15:43:23.146272+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "They Called Us Enemy – Expanded Edition",
-    "publisher": "IDW Publishing",
-    "year": 2020,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 129898,
-        "name": "They Called Us Enemy: Expanded Edition",
-        "publisher": "Top Shelf",
-        "start_year": 2020
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T15:43:23.146340+00:00",
-    "retry_after": "2026-10-31T15:43:23.146343+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "The Lost Boy",
-    "publisher": "Dark Horse Comics",
-    "year": 2013,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 67715,
-        "name": "The Lost Boy",
-        "publisher": "Scholastic Book Services",
-        "start_year": 2013
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T15:43:23.146363+00:00",
-    "retry_after": "2026-10-31T15:43:23.146365+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Corriere dei Ragazzi",
-    "publisher": "Dell Comics",
-    "year": 1973,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 32469,
-        "name": "Corriere dei Ragazzi",
-        "publisher": "Corriere Della Sera",
-        "start_year": 1972
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T15:43:31.619055+00:00",
-    "retry_after": "2026-10-31T15:43:31.619073+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Tom and Jerry Present the Two Mouseketeers",
-    "publisher": "Marvel Comics",
-    "year": 1955,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 64345,
-        "name": "Tom and Jerry Present the Two Mouseketeers",
-        "publisher": "Magazine Management",
-        "start_year": null
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T15:43:31.619164+00:00",
-    "retry_after": "2026-10-31T15:43:31.619171+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Joe Palooka Presents the Funsational Humphrey",
-    "publisher": "Marvel Comics",
-    "year": 1952,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 156763,
-        "name": "Joe Palooka Presents the Funsational Humphrey",
-        "publisher": "Magazine Management",
-        "start_year": 1952
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T15:43:31.619203+00:00",
-    "retry_after": "2026-10-31T15:43:31.619207+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Mad Classics",
-    "publisher": "EC Comics",
-    "year": 2005,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 18767,
-        "name": "Mad Classics",
-        "publisher": "DC Comics",
-        "start_year": 2007
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T15:43:31.619232+00:00",
-    "retry_after": "2026-10-31T15:43:31.619235+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Daredevil No.1 Halloween Comic Extravaganza 2021",
     "publisher": "Marvel Comics",
     "year": 2021,
@@ -86055,78 +85857,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Anti-Crime Squad",
-    "publisher": "Marvel Comics",
-    "year": 1952,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 52652,
-        "name": "Anti Crime Squad",
-        "publisher": "Magazine Management",
-        "start_year": 1952
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T16:12:43.931750+00:00",
-    "retry_after": "2026-10-31T16:12:43.931767+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "I Vendicatori",
-    "publisher": "Marvel Comics",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 151292,
-        "name": "I Vendicatori",
-        "publisher": "Panini Comics",
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T16:12:43.931798+00:00",
-    "retry_after": "2026-10-31T16:12:43.931802+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "MegaManga",
-    "publisher": "Fantagraphics",
-    "year": 2003,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 173763,
-        "name": "MegaManga",
-        "publisher": "Eros Comix",
-        "start_year": 2003
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T16:12:43.931825+00:00",
-    "retry_after": "2026-10-31T16:12:43.931828+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Marvel Mix",
-    "publisher": "Marvel Comics",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 57055,
-        "name": "Marvel Mix",
-        "publisher": "Panini Comics",
-        "start_year": 1996
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T16:12:43.931885+00:00",
-    "retry_after": "2026-10-31T16:12:43.931888+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Fantastic Four: Antithesis Treasury Edition",
     "publisher": "Marvel Comics",
     "year": 2021,
@@ -86164,24 +85894,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-30T17:08:43.089655+00:00",
     "retry_after": "2026-10-31T17:08:43.089673+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Phil Corrigan Secret Agent X9",
-    "publisher": "Atlas Comics",
-    "year": 1950,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 161990,
-        "name": "Phil Corrigan Secret Agent X9 ",
-        "publisher": "Atlas Publications Pty. Ltd.",
-        "start_year": null
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T17:13:05.650786+00:00",
-    "retry_after": "2026-10-31T17:13:05.650806+00:00",
     "search_hydrated": true
   },
   {
@@ -86269,24 +85981,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Justice League Dark: The New 52 Omnibus",
-    "publisher": "DC Comics",
-    "year": 2021,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 156318,
-        "name": "Justice League Dark: The New 52 Omnibus",
-        "publisher": "DC Comics",
-        "start_year": null
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T21:05:57.103146+00:00",
-    "retry_after": "2026-10-31T21:05:57.103171+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "King in Black: Wiccan and Hulkling",
     "publisher": "Marvel Comics",
     "year": 2021,
@@ -86319,24 +86013,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T00:11:55.396148+00:00",
     "retry_after": "2026-11-01T00:11:55.396150+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Mouse Guard: Baldwin the Brave & Other Tales",
-    "publisher": "BOOM! Studios",
-    "year": 2014,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 78073,
-        "name": "Mouse Guard: Baldwin the Brave & Other Tales",
-        "publisher": "Archaia",
-        "start_year": 2014
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T00:11:55.396185+00:00",
-    "retry_after": "2026-11-01T00:11:55.396187+00:00",
     "search_hydrated": true
   },
   {
@@ -86405,24 +86081,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Marvel: June 1962 Omnibus",
-    "publisher": "Marvel Comics",
-    "year": 2021,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 144796,
-        "name": "Marvel: June 1962 Omnibus",
-        "publisher": "Marvel",
-        "start_year": null
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T00:31:17.397918+00:00",
-    "retry_after": "2026-11-01T00:31:17.397943+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Mighty Marvel Masterworks: Thor",
     "publisher": "Marvel Comics",
     "year": 2021,
@@ -86442,24 +86100,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T01:05:00.353918+00:00",
     "retry_after": "2026-11-01T01:05:00.353920+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Milestone Compendium",
-    "publisher": "DC Comics",
-    "year": 2021,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 149028,
-        "name": "Milestone Compendium",
-        "publisher": "DC Comics",
-        "start_year": 2022
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T01:06:20.755602+00:00",
-    "retry_after": "2026-11-01T01:06:20.755618+00:00",
     "search_hydrated": true
   },
   {
@@ -86901,24 +86541,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Teen Titans Raven",
-    "publisher": "DC Comics",
-    "year": 2021,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 119882,
-        "name": "Teen Titans: Raven",
-        "publisher": "DC Comics",
-        "start_year": 2019
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T07:07:44.691424+00:00",
-    "retry_after": "2026-11-01T07:07:44.691447+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Space Ghost Volume Two: The Council of Doom",
     "publisher": "Dynamite Entertainment",
     "year": 2025,
@@ -87013,24 +86635,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T08:08:26.600964+00:00",
     "retry_after": "2026-11-01T08:08:26.600968+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Big Book of Bart Simpson",
-    "publisher": "Titan Comics",
-    "year": 2002,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 62660,
-        "name": "Big Book of Bart Simpson",
-        "publisher": "HarperCollins",
-        "start_year": 2002
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T08:13:40.939091+00:00",
-    "retry_after": "2026-11-01T08:13:40.939107+00:00",
     "search_hydrated": true
   },
   {
@@ -87222,24 +86826,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T11:06:18.659958+00:00",
     "retry_after": "2026-11-01T11:06:18.659959+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "The Simpsons Comics Simpsorama",
-    "publisher": "Titan Comics",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 65122,
-        "name": "Simpsons Comics: Simpsorama",
-        "publisher": "HarperCollins",
-        "start_year": 1996
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T11:11:37.140611+00:00",
-    "retry_after": "2026-11-01T11:11:37.140613+00:00",
     "search_hydrated": true
   },
   {
@@ -87435,24 +87021,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T13:26:09.473939+00:00",
     "retry_after": "2026-11-01T13:26:09.473954+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Batman 100 Project",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 132285,
-        "name": "The Batman 100 Project",
-        "publisher": "Hero Initiative",
-        "start_year": 2020
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T13:26:09.474037+00:00",
-    "retry_after": "2026-11-01T13:26:09.474039+00:00",
     "search_hydrated": true
   },
   {

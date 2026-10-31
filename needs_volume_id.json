@@ -27507,8 +27507,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T12:01:35.086613+00:00",
-    "retry_after": "2026-11-01T12:01:35.086615+00:00",
+    "last_attempt_at": "2026-10-31T13:02:00.173356+00:00",
+    "retry_after": "2026-11-01T13:02:00.173362+00:00",
     "search_hydrated": true
   },
   {
@@ -43590,8 +43590,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T12:01:35.086549+00:00",
-    "retry_after": "2026-11-01T12:01:35.086566+00:00",
+    "last_attempt_at": "2026-10-31T13:02:00.173222+00:00",
+    "retry_after": "2026-11-01T13:02:00.173239+00:00",
     "search_hydrated": true
   },
   {
@@ -51493,8 +51493,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T12:01:35.086590+00:00",
-    "retry_after": "2026-11-01T12:01:35.086593+00:00",
+    "last_attempt_at": "2026-10-31T13:02:00.173294+00:00",
+    "retry_after": "2026-11-01T13:02:00.173303+00:00",
     "search_hydrated": true
   },
   {
@@ -78305,9 +78305,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T12:06:31.565012+00:00",
-    "retry_after": "2026-10-31T12:06:31.565030+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T13:05:26.849724+00:00",
+    "retry_after": "2026-11-07T13:05:26.849740+00:00",
     "search_hydrated": true
   },
   {
@@ -78316,17 +78316,23 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T12:06:31.565060+00:00",
-    "retry_after": "2026-10-31T12:06:31.565064+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T13:05:26.849772+00:00",
+    "retry_after": "2026-11-07T13:05:26.849776+00:00",
     "search_hydrated": true
   },
   {
     "name": "Superman: Year One",
     "publisher": "DC Comics",
     "year": 2025,
-    "reason": "series_hint_year_mismatch",
+    "reason": "multiple_candidates",
     "candidates": [
+      {
+        "id": 119775,
+        "name": "Superman Year One",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      },
       {
         "id": 122621,
         "name": "Superman: Year One",
@@ -78334,9 +78340,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T12:06:32.775085+00:00",
-    "retry_after": "2026-10-31T12:06:32.775097+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T13:05:26.849819+00:00",
+    "retry_after": "2026-11-07T13:05:26.849823+00:00",
     "search_hydrated": true
   },
   {
@@ -78345,9 +78351,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T12:06:31.565100+00:00",
-    "retry_after": "2026-10-31T12:06:31.565103+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T13:05:26.849841+00:00",
+    "retry_after": "2026-11-07T13:05:26.849844+00:00",
     "search_hydrated": true
   },
   {
@@ -78356,9 +78362,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T12:06:31.565122+00:00",
-    "retry_after": "2026-10-31T12:06:31.565124+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T13:05:26.849861+00:00",
+    "retry_after": "2026-11-07T13:05:26.849864+00:00",
     "search_hydrated": true
   },
   {
@@ -78367,9 +78373,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T12:06:31.565139+00:00",
-    "retry_after": "2026-10-31T12:06:31.565142+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T13:05:26.849880+00:00",
+    "retry_after": "2026-11-07T13:05:26.849882+00:00",
     "search_hydrated": true
   },
   {
@@ -85692,9 +85698,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T13:05:26.029894+00:00",
-    "retry_after": "2026-10-31T13:05:26.029896+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T13:05:46.381001+00:00",
+    "retry_after": "2026-11-03T13:05:46.381017+00:00",
     "search_hydrated": true
   },
   {
@@ -85703,9 +85709,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T13:05:26.029906+00:00",
-    "retry_after": "2026-10-31T13:05:26.029908+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T13:05:46.381040+00:00",
+    "retry_after": "2026-11-03T13:05:46.381043+00:00",
     "search_hydrated": true
   },
   {
@@ -85714,9 +85720,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T13:10:06.344687+00:00",
-    "retry_after": "2026-10-31T13:10:06.344704+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T13:10:26.427052+00:00",
+    "retry_after": "2026-11-03T13:10:26.427066+00:00",
     "search_hydrated": true
   },
   {
@@ -87361,6 +87367,64 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T12:10:50.098684+00:00",
     "retry_after": "2026-11-01T12:10:50.098686+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute DC The New Frontier 15th Anniversary Edition",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T13:05:46.381101+00:00",
+    "retry_after": "2026-11-01T13:05:46.381105+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Dark Knight",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 22760,
+        "name": "Absolute Dark Knight",
+        "publisher": "DC Comics",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T13:05:49.692325+00:00",
+    "retry_after": "2026-11-01T13:05:49.692349+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Transmetropolitan",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 82474,
+        "name": "Absolute Transmetropolitan",
+        "publisher": "DC Comics",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T13:05:56.184369+00:00",
+    "retry_after": "2026-11-01T13:05:56.184392+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "House of Penance Library Edition",
+    "publisher": "Dark Horse Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T13:10:26.427115+00:00",
+    "retry_after": "2026-11-01T13:10:26.427119+00:00",
     "search_hydrated": true
   }
 ]

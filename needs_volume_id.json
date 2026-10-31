@@ -8290,9 +8290,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T19:03:27.631586+00:00",
-    "retry_after": "2026-10-31T19:03:27.631589+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T19:05:23.593102+00:00",
+    "retry_after": "2026-11-07T19:05:23.593105+00:00",
     "search_hydrated": true
   },
   {
@@ -27500,8 +27500,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T18:13:52.458355+00:00",
-    "retry_after": "2026-11-01T18:13:52.458357+00:00",
+    "last_attempt_at": "2026-10-31T19:01:59.989835+00:00",
+    "retry_after": "2026-11-01T19:01:59.989837+00:00",
     "search_hydrated": true
   },
   {
@@ -31698,9 +31698,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T19:04:17.955116+00:00",
-    "retry_after": "2026-10-31T19:04:17.955119+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T19:05:23.593122+00:00",
+    "retry_after": "2026-11-07T19:05:23.593125+00:00",
     "search_hydrated": true
   },
   {
@@ -43555,8 +43555,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T18:13:52.458294+00:00",
-    "retry_after": "2026-11-01T18:13:52.458311+00:00",
+    "last_attempt_at": "2026-10-31T19:01:59.989772+00:00",
+    "retry_after": "2026-11-01T19:01:59.989786+00:00",
     "search_hydrated": true
   },
   {
@@ -51458,8 +51458,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T18:13:52.458334+00:00",
-    "retry_after": "2026-11-01T18:13:52.458336+00:00",
+    "last_attempt_at": "2026-10-31T19:01:59.989810+00:00",
+    "retry_after": "2026-11-01T19:01:59.989813+00:00",
     "search_hydrated": true
   },
   {
@@ -78908,9 +78908,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T19:03:27.631325+00:00",
-    "retry_after": "2026-10-31T19:03:27.631372+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T19:05:23.593040+00:00",
+    "retry_after": "2026-11-07T19:05:23.593055+00:00",
     "search_hydrated": true
   },
   {
@@ -78926,9 +78926,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T19:03:28.831099+00:00",
-    "retry_after": "2026-10-31T19:03:28.831114+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T19:05:24.419630+00:00",
+    "retry_after": "2026-11-07T19:05:24.419642+00:00",
     "search_hydrated": true
   },
   {
@@ -87642,6 +87642,61 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T18:21:29.179377+00:00",
     "retry_after": "2026-11-01T18:21:29.179379+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC's 1st Issue Specials",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T19:06:01.418368+00:00",
+    "retry_after": "2026-11-01T19:06:01.418384+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deadpool: Hey, It's Deadpool!",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T19:07:08.438046+00:00",
+    "retry_after": "2026-11-01T19:07:08.438059+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Detective Comics #1027 The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T19:07:08.438086+00:00",
+    "retry_after": "2026-11-01T19:07:08.438088+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ultimate Comics Avengers vs. New Ultimates: Death of Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T19:07:34.423808+00:00",
+    "retry_after": "2026-11-01T19:07:34.423825+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Crusader #1 (Advanced Reader Copy)",
+    "publisher": "Mad Cave Studios",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T19:07:34.423842+00:00",
+    "retry_after": "2026-11-01T19:07:34.423845+00:00",
     "search_hydrated": true
   }
 ]

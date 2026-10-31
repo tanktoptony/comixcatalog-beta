@@ -20908,9 +20908,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T11:05:55.131189+00:00",
-    "retry_after": "2026-10-31T11:05:55.131208+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T11:11:37.140543+00:00",
+    "retry_after": "2026-11-03T11:11:37.140562+00:00",
     "search_hydrated": true
   },
   {
@@ -27507,8 +27507,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T10:07:11.270907+00:00",
-    "retry_after": "2026-11-01T10:07:11.270908+00:00",
+    "last_attempt_at": "2026-10-31T11:01:35.417454+00:00",
+    "retry_after": "2026-11-01T11:01:35.417456+00:00",
     "search_hydrated": true
   },
   {
@@ -34122,9 +34122,10 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-01T10:01:22.242485+00:00",
-    "retry_after": "2026-10-04T10:01:22.242501+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T11:06:18.659970+00:00",
+    "retry_after": "2026-11-07T11:06:18.659971+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Moon Knight: Legacy",
@@ -43589,8 +43590,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T10:07:11.270844+00:00",
-    "retry_after": "2026-11-01T10:07:11.270862+00:00",
+    "last_attempt_at": "2026-10-31T11:01:35.417395+00:00",
+    "retry_after": "2026-11-01T11:01:35.417411+00:00",
     "search_hydrated": true
   },
   {
@@ -51492,8 +51493,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T10:07:11.270885+00:00",
-    "retry_after": "2026-11-01T10:07:11.270887+00:00",
+    "last_attempt_at": "2026-10-31T11:01:35.417433+00:00",
+    "retry_after": "2026-11-01T11:01:35.417436+00:00",
     "search_hydrated": true
   },
   {
@@ -85658,9 +85659,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T11:05:55.131234+00:00",
-    "retry_after": "2026-10-31T11:05:55.131236+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T11:11:37.140578+00:00",
+    "retry_after": "2026-11-03T11:11:37.140581+00:00",
     "search_hydrated": true
   },
   {
@@ -87094,6 +87095,146 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T10:10:37.269577+00:00",
     "retry_after": "2026-11-01T10:10:37.269593+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "V for Vendetta Book and Mask Set",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T11:04:59.753709+00:00",
+    "retry_after": "2026-11-01T11:04:59.753723+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Venom by Michelinie and McFarlane Gallery Edition",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T11:04:59.753742+00:00",
+    "retry_after": "2026-11-01T11:04:59.753745+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Warlock by Jim Starlin Gallery Edition",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T11:04:59.811210+00:00",
+    "retry_after": "2026-11-01T11:04:59.811219+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Avengers",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 2128,
+        "name": "The Avengers",
+        "publisher": "Marvel",
+        "start_year": 1963
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T11:05:00.523671+00:00",
+    "retry_after": "2026-11-01T11:05:00.523686+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wonder Woman",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18208,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 2006
+      },
+      {
+        "id": 153611,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 2023
+      },
+      {
+        "id": 18525,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 1942
+      },
+      {
+        "id": 3824,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 1987
+      },
+      {
+        "id": 91774,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 42953,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 99063,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 160507,
+        "name": "Wonder Woman",
+        "publisher": "DC Comics",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T11:06:18.659924+00:00",
+    "retry_after": "2026-11-01T11:06:18.659942+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wonder Woman: 80 Years of the Amazon Warrior The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T11:06:18.659958+00:00",
+    "retry_after": "2026-11-01T11:06:18.659959+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Simpsorama",
+    "publisher": "Titan Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65122,
+        "name": "Simpsons Comics: Simpsorama",
+        "publisher": "HarperCollins",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T11:11:37.140611+00:00",
+    "retry_after": "2026-11-01T11:11:37.140613+00:00",
     "search_hydrated": true
   }
 ]

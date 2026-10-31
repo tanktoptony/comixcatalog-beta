@@ -27516,8 +27516,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T13:21:17.326007+00:00",
-    "retry_after": "2026-11-01T13:21:17.326009+00:00",
+    "last_attempt_at": "2026-10-31T14:02:04.616621+00:00",
+    "retry_after": "2026-11-01T14:02:04.616623+00:00",
     "search_hydrated": true
   },
   {
@@ -43589,8 +43589,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T13:21:17.325940+00:00",
-    "retry_after": "2026-11-01T13:21:17.325954+00:00",
+    "last_attempt_at": "2026-10-31T14:02:04.616544+00:00",
+    "retry_after": "2026-11-01T14:02:04.616560+00:00",
     "search_hydrated": true
   },
   {
@@ -51492,8 +51492,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T13:21:17.325980+00:00",
-    "retry_after": "2026-11-01T13:21:17.325983+00:00",
+    "last_attempt_at": "2026-10-31T14:02:04.616590+00:00",
+    "retry_after": "2026-11-01T14:02:04.616593+00:00",
     "search_hydrated": true
   },
   {
@@ -60120,9 +60120,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T14:01:33.865257+00:00",
-    "retry_after": "2026-10-31T14:01:33.865274+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T14:01:57.642708+00:00",
+    "retry_after": "2026-11-07T14:01:57.642726+00:00",
     "search_hydrated": true
   },
   {
@@ -85737,9 +85737,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T14:05:14.366023+00:00",
-    "retry_after": "2026-10-31T14:05:14.366035+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T14:05:40.006305+00:00",
+    "retry_after": "2026-11-03T14:05:40.006322+00:00",
     "search_hydrated": true
   },
   {
@@ -85748,9 +85748,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T14:09:48.137783+00:00",
-    "retry_after": "2026-10-31T14:09:48.137799+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T14:10:36.473569+00:00",
+    "retry_after": "2026-11-03T14:10:36.473587+00:00",
     "search_hydrated": true
   },
   {
@@ -87453,6 +87453,82 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T13:26:09.474037+00:00",
     "retry_after": "2026-11-01T13:26:09.474039+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Moon Is Following Us",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 159852,
+        "name": "The Moon is Following Us",
+        "publisher": "Image",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T14:05:27.917496+00:00",
+    "retry_after": "2026-11-01T14:05:27.917515+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: Broken City",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 32206,
+        "name": "Batman: Broken City",
+        "publisher": "DC Comics",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T14:06:08.706598+00:00",
+    "retry_after": "2026-11-01T14:06:08.706622+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: Gotham by Gaslight The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T14:06:18.363778+00:00",
+    "retry_after": "2026-11-01T14:06:18.363796+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: Detective Comics",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 121066,
+        "name": "Batman: Detective Comics",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T14:06:26.679239+00:00",
+    "retry_after": "2026-11-01T14:06:26.679256+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Teenage Mutant Ninja Turtles Annual 2020",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T14:10:36.473655+00:00",
+    "retry_after": "2026-11-01T14:10:36.473659+00:00",
     "search_hydrated": true
   }
 ]

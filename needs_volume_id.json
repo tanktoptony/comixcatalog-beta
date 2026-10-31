@@ -27498,8 +27498,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T15:02:05.652095+00:00",
-    "retry_after": "2026-11-01T15:02:05.652099+00:00",
+    "last_attempt_at": "2026-10-31T16:03:21.008743+00:00",
+    "retry_after": "2026-11-01T16:03:21.008746+00:00",
     "search_hydrated": true
   },
   {
@@ -43553,8 +43553,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T15:02:05.652016+00:00",
-    "retry_after": "2026-11-01T15:02:05.652028+00:00",
+    "last_attempt_at": "2026-10-31T16:03:21.008664+00:00",
+    "retry_after": "2026-11-01T16:03:21.008679+00:00",
     "search_hydrated": true
   },
   {
@@ -51456,8 +51456,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T15:02:05.652059+00:00",
-    "retry_after": "2026-11-01T15:02:05.652063+00:00",
+    "last_attempt_at": "2026-10-31T16:03:21.008708+00:00",
+    "retry_after": "2026-11-01T16:03:21.008712+00:00",
     "search_hydrated": true
   },
   {
@@ -85736,9 +85736,9 @@
         "start_year": 2007
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T15:09:40.225271+00:00",
-    "retry_after": "2026-10-31T15:09:40.225290+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T16:12:35.038846+00:00",
+    "retry_after": "2026-11-03T16:12:35.038860+00:00",
     "search_hydrated": true
   },
   {
@@ -85747,9 +85747,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T16:04:41.888453+00:00",
-    "retry_after": "2026-10-31T16:04:41.888456+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T16:06:41.716010+00:00",
+    "retry_after": "2026-11-03T16:06:41.716024+00:00",
     "search_hydrated": true
   },
   {
@@ -85765,9 +85765,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T16:05:18.027082+00:00",
-    "retry_after": "2026-10-31T16:05:18.027100+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T16:06:43.391923+00:00",
+    "retry_after": "2026-11-03T16:06:43.391935+00:00",
     "search_hydrated": true
   },
   {
@@ -85776,9 +85776,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T16:06:39.885647+00:00",
-    "retry_after": "2026-10-31T16:06:39.885664+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T16:06:59.061508+00:00",
+    "retry_after": "2026-11-03T16:06:59.061521+00:00",
     "search_hydrated": true
   },
   {
@@ -85787,9 +85787,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T16:06:39.885713+00:00",
-    "retry_after": "2026-10-31T16:06:39.885715+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T16:06:59.061544+00:00",
+    "retry_after": "2026-11-03T16:06:59.061548+00:00",
     "search_hydrated": true
   },
   {
@@ -85811,9 +85811,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T16:06:39.885760+00:00",
-    "retry_after": "2026-10-31T16:06:39.885762+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T16:06:59.061600+00:00",
+    "retry_after": "2026-11-03T16:06:59.061604+00:00",
     "search_hydrated": true
   },
   {
@@ -87281,6 +87281,150 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T15:12:15.643184+00:00",
     "retry_after": "2026-11-01T15:12:15.643187+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Black Panther and the Agents of Wakanda",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 121415,
+        "name": "Black Panther and the Agents of Wakanda",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T16:08:25.770981+00:00",
+    "retry_after": "2026-11-01T16:08:25.770996+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mouse Guard: Baldwin the Brave & Other Tales",
+    "publisher": "BOOM! Studios",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78073,
+        "name": "Mouse Guard: Baldwin the Brave & Other Tales",
+        "publisher": "Archaia",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T16:12:35.038895+00:00",
+    "retry_after": "2026-11-01T16:12:35.038900+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62660,
+        "name": "Big Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T16:12:35.038926+00:00",
+    "retry_after": "2026-11-01T16:12:35.038929+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Simpsorama",
+    "publisher": "Titan Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65122,
+        "name": "Simpsons Comics: Simpsorama",
+        "publisher": "HarperCollins",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T16:12:35.038951+00:00",
+    "retry_after": "2026-11-01T16:12:35.038954+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Anti-Crime Squad",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52652,
+        "name": "Anti Crime Squad",
+        "publisher": "Magazine Management",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T16:12:43.237314+00:00",
+    "retry_after": "2026-11-01T16:12:43.237328+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I Vendicatori",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 151292,
+        "name": "I Vendicatori",
+        "publisher": "Panini Comics",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T16:12:43.237361+00:00",
+    "retry_after": "2026-11-01T16:12:43.237366+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "MegaManga",
+    "publisher": "Fantagraphics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 173763,
+        "name": "MegaManga",
+        "publisher": "Eros Comix",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T16:12:43.237391+00:00",
+    "retry_after": "2026-11-01T16:12:43.237394+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Mix",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57055,
+        "name": "Marvel Mix",
+        "publisher": "Panini Comics",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T16:12:43.237422+00:00",
+    "retry_after": "2026-11-01T16:12:43.237426+00:00",
     "search_hydrated": true
   }
 ]

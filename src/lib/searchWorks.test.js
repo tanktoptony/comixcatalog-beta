@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { foldWorks, summarizeEditions } from "./searchWorks.js";
+import { editionGroup, foldWorks, summarizeEditions } from "./searchWorks.js";
 
 test("summarizeEditions groups WicDiv editions and orders their covers", () => {
   const work = { id: "work-id", title: "The Wicked + The Divine" };
@@ -24,16 +24,16 @@ test("summarizeEditions groups WicDiv editions and orders their covers", () => {
   assert.equal(result.total_books, 20);
   assert.deepEqual(result.groups.map((group) => group.label), ["TPB", "HC", "Compendium", "Specials"]);
   assert.deepEqual(result.groups[0], {
-    label: "TPB", books: 9, series_count: 1, series_id: "tpb", cover_path: "tpb.jpg", href: "/series/tpb",
+    label: "TPB", books: 9, series_count: 1, series_id: "tpb", cover_path: "tpb.jpg", href: "/work/work-id?tab=tpb",
   });
   assert.equal(result.groups[1].books, 4);
-  assert.equal(result.groups[2].href, "/series/compendium");
+  assert.equal(result.groups[2].href, "/work/work-id?tab=compendium");
   assert.deepEqual(result.groups[3], {
-    label: "Specials", books: 6, series_count: 6, series_id: null, cover_path: "special-455.jpg", href: "/series/work-id",
+    label: "Specials", books: 6, series_count: 6, series_id: null, cover_path: "special-455.jpg", href: "/work/work-id?tab=specials",
   });
 });
 
-test("summarizeEditions links several TPB series to a format search", () => {
+test("summarizeEditions links several TPB series to the work tab", () => {
   const result = summarizeEditions({
     work: { id: "work-id", title: "Saga & Friends" },
     editions: [1, 2].map((gcdId) => ({
@@ -46,7 +46,12 @@ test("summarizeEditions links several TPB series to a format search", () => {
       format: { publishing_format: "collected edition", binding: "trade paperback" },
     })),
   });
-  assert.equal(result.groups[0].href, "/search?q=Saga%20%26%20Friends%20tpb");
+  assert.equal(result.groups[0].href, "/work/work-id?tab=tpb");
+});
+
+test("editionGroup provides stable labels and slugs", () => {
+  assert.deepEqual(editionGroup({ title: "Absolute Batman", role: "collected", format: { publishing_format: "collected edition", binding: "hardcover" } }), { label: "Absolute", slug: "absolute" });
+  assert.deepEqual(editionGroup({ title: "Annual", role: "special", format: {} }), { label: "Specials", slug: "specials" });
 });
 
 test("foldWorks removes editions whose work is present and keeps orphaned editions", () => {

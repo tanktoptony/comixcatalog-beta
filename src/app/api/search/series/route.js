@@ -640,7 +640,7 @@ const legacyCachedSeriesSearch = unstable_cache(
     if (measured.degraded) throw new DegradedSearchError(measured);
     return measured;
   },
-  ["search-series-v4"],
+  ["search-series-v5"],
   { revalidate: SEARCH_CACHE_REVALIDATE_SECONDS, tags: ["search"] }
 );
 
@@ -717,7 +717,7 @@ export async function getCachedSeriesSearch(q, { limit = 12, timing = null, runs
   const askedYear = parsed.year ?? null;
   const { result, state } = await cachedSearchTerm(getServiceClient(), {
     kind: "series",
-    key: `v4|${askedYear == null ? normalizedTerm : `${normalizedTerm}|${askedYear}`}`,
+    key: `v5|${askedYear == null ? normalizedTerm : `${normalizedTerm}|${askedYear}`}`,
     compute: () => computeSeriesTerm(normalizedTerm, askedYear),
     schedule: after,
     fallback: () => legacyCachedSeriesSearch(normalizedTerm, askedYear).catch((error) => {

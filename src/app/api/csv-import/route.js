@@ -1,3 +1,4 @@
+// Legacy endpoint. The current batched importer lives under /api/import/*.
 import { NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase/service";
 import Papa from "papaparse";

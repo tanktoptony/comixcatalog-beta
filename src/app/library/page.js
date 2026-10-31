@@ -322,8 +322,6 @@ function LibraryPageContent() {
     setComicIndex(loadSavedHydration(user?.id ?? null));
     setMarketValues(readLocal(`hydrate:mv:${user?.id}`) ?? {});
   }
-  const [csvResult, setCsvResult] = useState(null);
-  const [selectedFile, setSelectedFile] = useState(null);
   const [mobileValueOpen, setMobileValueOpen] = useState(false);
   const [gradeData, setGradeData] = useState({});
 
@@ -628,21 +626,6 @@ function LibraryPageContent() {
     } finally {
       setCsvExporting(false);
     }
-  }
-
-  async function handleCsvImport(e) {
-    e.preventDefault();
-    const file = e.currentTarget.elements.file?.files?.[0] || selectedFile;
-    if (!file || !user) return;
-    if (!file.name.endsWith(".csv")) {
-      setCsvResult({ created: 0, reused: 0, skipped: 0, errors: [{ row: "-", message: "Invalid file type" }] });
-      return;
-    }
-    const fd = new FormData();
-    fd.append("file", file);
-    const res = await authedFetch("/api/csv-import", { method: "POST", body: fd });
-    const json = await res.json();
-    setCsvResult(json.results || null);
   }
 
   // The database turns a for_sale status into a marketplace listing; this
@@ -1341,9 +1324,6 @@ function LibraryPageContent() {
         shareCopied={shareCopied}
         ownerId={user.id}
         username={profile?.username}
-        handleCsvImport={handleCsvImport}
-        selectedFile={selectedFile}
-        setSelectedFile={setSelectedFile}
         handleExportCsv={handleExportCsv}
         handleExportPdf={handleExportPdf}
         csvExporting={csvExporting}
@@ -1480,25 +1460,9 @@ function LibraryPageContent() {
         </div>
 
         {!isPublicPreview && (
-        <form id="csv-import" onSubmit={handleCsvImport} className="library-upload-bar">
-          <label className={`library-secondary-btn ${selectedFile ? "ready" : ""}`}>
-            {selectedFile ? "CSV Ready ✓" : "Choose CSV"}
-            <input
-              type="file"
-              name="file"
-              accept=".csv"
-              hidden
-              onChange={(e) => setSelectedFile(e.target.files[0] || null)}
-            />
-          </label>
-          <button
-            type="submit"
-            className="library-secondary-btn"
-            title="Up to 200 rows per upload"
-          >
-            Upload CSV
-          </button>
-        </form>
+        <div id="csv-import" className="library-upload-bar">
+          <Link href="/switch" className="library-secondary-btn">Import from CLZ, League or a spreadsheet</Link>
+        </div>
         )}
       </section>
 
@@ -1892,30 +1856,6 @@ function LibraryPageContent() {
                 local entry - your catalog-linked row keeps the cover art and metadata.
               </li>
             </ul>
-          )}
-        </section>
-      )}
-
-      {csvResult && (
-        <section className="library-import-summary">
-          <div className="library-import-title">Import Summary</div>
-          <div className="library-import-grid">
-            <div>Created: {csvResult.created}</div>
-            <div>Reused: {csvResult.reused}</div>
-            <div>Skipped: {csvResult.skipped}</div>
-          </div>
-          {csvResult.errors?.length > 0 && (
-            <div className="library-import-errors">
-              <strong>Errors ({csvResult.errors.length})</strong>
-              <ul>
-                {csvResult.errors.slice(0, 5).map((err, i) => (
-                  <li key={i}>Row {err.row}: {err.message}</li>
-                ))}
-              </ul>
-              {csvResult.errors.length > 5 && (
-                <div className="library-import-note">Showing first 5 errors…</div>
-              )}
-            </div>
           )}
         </section>
       )}

@@ -104,9 +104,9 @@ export default function FirstRunLibrary() {
             <strong>Scan covers</strong>
             <span>Use your camera to identify covers and add the matches.</span>
           </Link>
-          <Link href="/library#csv-import" className="first-run-path-card">
-            <strong>Import a spreadsheet</strong>
-            <span>Upload a CSV to bring in a list you already keep.</span>
+          <Link href="/switch" className="first-run-path-card">
+            <strong>Import from CLZ, League or a spreadsheet</strong>
+            <span>Bring over your collection, grades, slabs and notes.</span>
           </Link>
         </div>
       </div>

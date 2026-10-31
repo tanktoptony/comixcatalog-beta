@@ -24777,9 +24777,10 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-26T03:14:23.684634+00:00",
-    "retry_after": "2026-09-29T03:14:23.684650+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T20:06:16.324987+00:00",
+    "retry_after": "2026-11-07T20:06:16.325004+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Star Wars Reads Free Sampler",
@@ -27500,8 +27501,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T19:01:59.989835+00:00",
-    "retry_after": "2026-11-01T19:01:59.989837+00:00",
+    "last_attempt_at": "2026-10-31T20:02:18.448992+00:00",
+    "retry_after": "2026-11-01T20:02:18.448995+00:00",
     "search_hydrated": true
   },
   {
@@ -39791,9 +39792,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T19:06:42.263780+00:00",
-    "retry_after": "2026-10-31T19:06:42.263794+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T20:05:41.084018+00:00",
+    "retry_after": "2026-11-07T20:05:41.084035+00:00",
     "search_hydrated": true
   },
   {
@@ -40116,9 +40117,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T19:06:42.263816+00:00",
-    "retry_after": "2026-10-31T19:06:42.263819+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T20:05:41.084086+00:00",
+    "retry_after": "2026-11-07T20:05:41.084092+00:00",
     "search_hydrated": true
   },
   {
@@ -43555,8 +43556,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T19:01:59.989772+00:00",
-    "retry_after": "2026-11-01T19:01:59.989786+00:00",
+    "last_attempt_at": "2026-10-31T20:02:18.448914+00:00",
+    "retry_after": "2026-11-01T20:02:18.448928+00:00",
     "search_hydrated": true
   },
   {
@@ -51458,8 +51459,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T19:01:59.989810+00:00",
-    "retry_after": "2026-11-01T19:01:59.989813+00:00",
+    "last_attempt_at": "2026-10-31T20:02:18.448957+00:00",
+    "retry_after": "2026-11-01T20:02:18.448961+00:00",
     "search_hydrated": true
   },
   {
@@ -85899,9 +85900,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T19:05:50.000816+00:00",
-    "retry_after": "2026-10-31T19:05:50.000819+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T20:05:41.084114+00:00",
+    "retry_after": "2026-11-03T20:05:41.084117+00:00",
     "search_hydrated": true
   },
   {
@@ -87697,6 +87698,50 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T19:07:34.423842+00:00",
     "retry_after": "2026-11-01T19:07:34.423845+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ditko Is... Strange King-Size",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T20:05:41.084148+00:00",
+    "retry_after": "2026-11-01T20:05:41.084151+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Dollar Comics: Batman / Huntress: Cry for Blood 1",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T20:05:41.084177+00:00",
+    "retry_after": "2026-11-01T20:05:41.084180+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ferro City The Medusa Key",
+    "publisher": "Image Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T20:06:53.883601+00:00",
+    "retry_after": "2026-11-01T20:06:53.883617+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman / Batman: Absolute Power 1 (2025 Edition)",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T20:06:53.883641+00:00",
+    "retry_after": "2026-11-01T20:06:53.883645+00:00",
     "search_hydrated": true
   }
 ]

@@ -7756,9 +7756,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T10:05:05.977089+00:00",
-    "retry_after": "2026-10-31T10:05:05.977091+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T10:10:36.273143+00:00",
+    "retry_after": "2026-11-07T10:10:36.273144+00:00",
     "search_hydrated": true
   },
   {
@@ -7848,10 +7848,12 @@
     "name": "Untold Tales of Spider-Man: The Complete Collection",
     "publisher": "Marvel Comics",
     "year": 2021,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555678+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T10:13:43.029627+00:00",
+    "retry_after": "2026-11-03T10:13:43.029645+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Best of 2000AD",
@@ -27505,8 +27507,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T09:02:15.624029+00:00",
-    "retry_after": "2026-11-01T09:02:15.624033+00:00",
+    "last_attempt_at": "2026-10-31T10:07:11.270907+00:00",
+    "retry_after": "2026-11-01T10:07:11.270908+00:00",
     "search_hydrated": true
   },
   {
@@ -37840,9 +37842,10 @@
         "start_year": 1968
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T16:03:43.293036+00:00",
-    "retry_after": "2026-10-04T16:03:43.293047+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T10:11:30.785243+00:00",
+    "retry_after": "2026-11-03T10:11:30.785260+00:00",
+    "search_hydrated": true
   },
   {
     "name": "X-O Manowar",
@@ -43586,8 +43589,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T09:02:15.623936+00:00",
-    "retry_after": "2026-11-01T09:02:15.623956+00:00",
+    "last_attempt_at": "2026-10-31T10:07:11.270844+00:00",
+    "retry_after": "2026-11-01T10:07:11.270862+00:00",
     "search_hydrated": true
   },
   {
@@ -51489,8 +51492,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T09:02:15.623992+00:00",
-    "retry_after": "2026-11-01T09:02:15.623996+00:00",
+    "last_attempt_at": "2026-10-31T10:07:11.270885+00:00",
+    "retry_after": "2026-11-01T10:07:11.270887+00:00",
     "search_hydrated": true
   },
   {
@@ -62798,9 +62801,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T09:07:20.575980+00:00",
-    "retry_after": "2026-10-31T09:07:20.575993+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T10:10:38.181637+00:00",
+    "retry_after": "2026-11-03T10:10:38.181651+00:00",
     "search_hydrated": true
   },
   {
@@ -78004,9 +78007,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T10:05:05.976901+00:00",
-    "retry_after": "2026-10-31T10:05:05.976916+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T10:10:36.273063+00:00",
+    "retry_after": "2026-11-07T10:10:36.273081+00:00",
     "search_hydrated": true
   },
   {
@@ -78015,9 +78018,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T10:05:05.976945+00:00",
-    "retry_after": "2026-10-31T10:05:05.976950+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T10:10:36.273105+00:00",
+    "retry_after": "2026-11-07T10:10:36.273107+00:00",
     "search_hydrated": true
   },
   {
@@ -78026,9 +78029,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T10:05:05.976967+00:00",
-    "retry_after": "2026-10-31T10:05:05.976970+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T10:10:36.273118+00:00",
+    "retry_after": "2026-11-07T10:10:36.273120+00:00",
     "search_hydrated": true
   },
   {
@@ -85622,9 +85625,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T09:07:25.849896+00:00",
-    "retry_after": "2026-10-31T09:07:25.849912+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T10:10:36.273207+00:00",
+    "retry_after": "2026-11-03T10:10:36.273209+00:00",
     "search_hydrated": true
   },
   {
@@ -85644,9 +85647,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T10:07:07.410580+00:00",
-    "retry_after": "2026-10-31T10:07:07.410623+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T10:18:03.029544+00:00",
+    "retry_after": "2026-11-03T10:18:03.029563+00:00",
     "search_hydrated": true
   },
   {
@@ -87062,6 +87065,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T09:10:18.680671+00:00",
     "retry_after": "2026-11-01T09:10:18.680674+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Ultimates: The Complete Collection",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T10:10:36.273223+00:00",
+    "retry_after": "2026-11-01T10:10:36.273224+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "No/One",
+    "publisher": "Image Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 148891,
+        "name": "No/One",
+        "publisher": "Image",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T10:10:37.269577+00:00",
+    "retry_after": "2026-11-01T10:10:37.269593+00:00",
     "search_hydrated": true
   }
 ]

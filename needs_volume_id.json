@@ -27498,8 +27498,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T14:02:04.616621+00:00",
-    "retry_after": "2026-11-01T14:02:04.616623+00:00",
+    "last_attempt_at": "2026-10-31T15:02:05.652095+00:00",
+    "retry_after": "2026-11-01T15:02:05.652099+00:00",
     "search_hydrated": true
   },
   {
@@ -43553,8 +43553,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T14:02:04.616544+00:00",
-    "retry_after": "2026-11-01T14:02:04.616560+00:00",
+    "last_attempt_at": "2026-10-31T15:02:05.652016+00:00",
+    "retry_after": "2026-11-01T15:02:05.652028+00:00",
     "search_hydrated": true
   },
   {
@@ -51456,8 +51456,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T14:02:04.616590+00:00",
-    "retry_after": "2026-11-01T14:02:04.616593+00:00",
+    "last_attempt_at": "2026-10-31T15:02:05.652059+00:00",
+    "retry_after": "2026-11-01T15:02:05.652063+00:00",
     "search_hydrated": true
   },
   {
@@ -78369,9 +78369,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T14:05:36.398287+00:00",
-    "retry_after": "2026-10-31T14:05:36.398305+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T15:05:30.710403+00:00",
+    "retry_after": "2026-11-07T15:05:30.710407+00:00",
     "search_hydrated": true
   },
   {
@@ -78380,9 +78380,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T14:05:36.398336+00:00",
-    "retry_after": "2026-10-31T14:05:36.398340+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T15:05:30.710425+00:00",
+    "retry_after": "2026-11-07T15:05:30.710428+00:00",
     "search_hydrated": true
   },
   {
@@ -78398,9 +78398,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T14:05:36.963916+00:00",
-    "retry_after": "2026-10-31T14:05:36.963931+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T15:05:31.460263+00:00",
+    "retry_after": "2026-11-07T15:05:31.460273+00:00",
     "search_hydrated": true
   },
   {
@@ -87097,6 +87097,190 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T14:10:36.473655+00:00",
     "retry_after": "2026-11-01T14:10:36.473659+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "In Rage",
+    "publisher": "CFD Productions",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88863,
+        "name": "In Rage",
+        "publisher": "Creative Force Designs",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T15:02:01.403481+00:00",
+    "retry_after": "2026-11-01T15:02:01.403486+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Knull: Coming to the Light",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T15:05:30.710360+00:00",
+    "retry_after": "2026-11-01T15:05:30.710373+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: Last Knight on Earth (Barnes & Noble Exclusive Edition)",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T15:05:30.710510+00:00",
+    "retry_after": "2026-11-01T15:05:30.710516+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Team-Up Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52549,
+        "name": "Marvel Team-Up Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T15:12:07.637855+00:00",
+    "retry_after": "2026-11-01T15:12:07.637869+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kick-Ass 2 Prelude: Hit Girl",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58598,
+        "name": "Kick-Ass 2 Prelude: Hit-Girl",
+        "publisher": "Icon Books",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T15:12:07.637909+00:00",
+    "retry_after": "2026-11-01T15:12:07.637913+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "They Called Us Enemy – Expanded Edition",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129898,
+        "name": "They Called Us Enemy: Expanded Edition",
+        "publisher": "Top Shelf",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T15:12:07.637986+00:00",
+    "retry_after": "2026-11-01T15:12:07.637990+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Lost Boy",
+    "publisher": "Dark Horse Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 67715,
+        "name": "The Lost Boy",
+        "publisher": "Scholastic Book Services",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T15:12:07.638013+00:00",
+    "retry_after": "2026-11-01T15:12:07.638016+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Corriere dei Ragazzi",
+    "publisher": "Dell Comics",
+    "year": 1973,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32469,
+        "name": "Corriere dei Ragazzi",
+        "publisher": "Corriere Della Sera",
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T15:12:15.643040+00:00",
+    "retry_after": "2026-11-01T15:12:15.643054+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tom and Jerry Present the Two Mouseketeers",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64345,
+        "name": "Tom and Jerry Present the Two Mouseketeers",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T15:12:15.643119+00:00",
+    "retry_after": "2026-11-01T15:12:15.643124+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Joe Palooka Presents the Funsational Humphrey",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 156763,
+        "name": "Joe Palooka Presents the Funsational Humphrey",
+        "publisher": "Magazine Management",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T15:12:15.643157+00:00",
+    "retry_after": "2026-11-01T15:12:15.643161+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mad Classics",
+    "publisher": "EC Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18767,
+        "name": "Mad Classics",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T15:12:15.643184+00:00",
+    "retry_after": "2026-11-01T15:12:15.643187+00:00",
     "search_hydrated": true
   }
 ]

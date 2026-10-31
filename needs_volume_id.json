@@ -6226,9 +6226,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T22:22:15.080490+00:00",
-    "retry_after": "2026-10-31T22:22:15.080492+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T23:05:28.710434+00:00",
+    "retry_after": "2026-11-07T23:05:28.710438+00:00",
     "search_hydrated": true
   },
   {
@@ -27503,8 +27503,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T22:14:38.408577+00:00",
-    "retry_after": "2026-11-01T22:14:38.408580+00:00",
+    "last_attempt_at": "2026-10-31T23:02:07.945578+00:00",
+    "retry_after": "2026-11-01T23:02:07.945581+00:00",
     "search_hydrated": true
   },
   {
@@ -40084,9 +40084,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T22:22:15.080424+00:00",
-    "retry_after": "2026-10-31T22:22:15.080427+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T23:05:28.710387+00:00",
+    "retry_after": "2026-11-07T23:05:28.710403+00:00",
     "search_hydrated": true
   },
   {
@@ -43558,8 +43558,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T22:14:38.408502+00:00",
-    "retry_after": "2026-11-01T22:14:38.408513+00:00",
+    "last_attempt_at": "2026-10-31T23:02:07.945502+00:00",
+    "retry_after": "2026-11-01T23:02:07.945514+00:00",
     "search_hydrated": true
   },
   {
@@ -51461,8 +51461,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T22:14:38.408543+00:00",
-    "retry_after": "2026-11-01T22:14:38.408547+00:00",
+    "last_attempt_at": "2026-10-31T23:02:07.945543+00:00",
+    "retry_after": "2026-11-01T23:02:07.945547+00:00",
     "search_hydrated": true
   },
   {
@@ -87799,6 +87799,72 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T22:20:19.744759+00:00",
     "retry_after": "2026-11-01T22:20:19.744774+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Famous First Edition: New Fun #1",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T23:05:28.710524+00:00",
+    "retry_after": "2026-11-01T23:05:28.710528+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Final Crisis Omnibus",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T23:07:11.207151+00:00",
+    "retry_after": "2026-11-01T23:07:11.207166+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Generation Zero: Gods Among Us",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T23:07:11.207232+00:00",
+    "retry_after": "2026-11-01T23:07:11.207236+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Green Lantern: 80 Years of the Emerald Knight The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T23:07:49.463806+00:00",
+    "retry_after": "2026-11-01T23:07:49.463818+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Trek #500",
+    "publisher": "IDW Publishing",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T23:08:15.857595+00:00",
+    "retry_after": "2026-11-01T23:08:15.857609+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Fantagraphics Catalogue",
+    "publisher": "Fantagraphics",
+    "year": 1989,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T23:08:15.857630+00:00",
+    "retry_after": "2026-11-01T23:08:15.857634+00:00",
     "search_hydrated": true
   }
 ]

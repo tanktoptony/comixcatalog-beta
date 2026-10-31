@@ -27503,8 +27503,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T06:41:51.327472+00:00",
-    "retry_after": "2026-11-01T06:41:51.327475+00:00",
+    "last_attempt_at": "2026-10-31T07:01:33.431258+00:00",
+    "retry_after": "2026-11-01T07:01:33.431260+00:00",
     "search_hydrated": true
   },
   {
@@ -40099,9 +40099,10 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-04T23:44:51.411536+00:00",
-    "retry_after": "2026-10-05T23:44:51.411551+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T07:04:55.941769+00:00",
+    "retry_after": "2026-11-03T07:04:55.941785+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Manifest Destiny Deluxe Edition",
@@ -43583,8 +43584,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T06:41:51.327387+00:00",
-    "retry_after": "2026-11-01T06:41:51.327403+00:00",
+    "last_attempt_at": "2026-10-31T07:01:33.431191+00:00",
+    "retry_after": "2026-11-01T07:01:33.431207+00:00",
     "search_hydrated": true
   },
   {
@@ -51486,8 +51487,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T06:41:51.327435+00:00",
-    "retry_after": "2026-11-01T06:41:51.327439+00:00",
+    "last_attempt_at": "2026-10-31T07:01:33.431231+00:00",
+    "retry_after": "2026-11-01T07:01:33.431235+00:00",
     "search_hydrated": true
   },
   {
@@ -85537,9 +85538,9 @@
         "start_year": 1994
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T07:05:44.528783+00:00",
-    "retry_after": "2026-10-31T07:05:44.528796+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T07:11:54.040053+00:00",
+    "retry_after": "2026-11-03T07:11:54.040070+00:00",
     "search_hydrated": true
   },
   {
@@ -85548,9 +85549,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T07:05:44.528820+00:00",
-    "retry_after": "2026-10-31T07:05:44.528822+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T07:11:54.040090+00:00",
+    "retry_after": "2026-11-03T07:11:54.040093+00:00",
     "search_hydrated": true
   },
   {
@@ -86857,6 +86858,82 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T06:52:01.547774+00:00",
     "retry_after": "2026-11-01T06:52:01.547778+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superboy and the Legion of Super-Heroes (Tabloid Edition)",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T07:04:55.941809+00:00",
+    "retry_after": "2026-11-01T07:04:55.941811+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: Up in the Sky",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 126482,
+        "name": "Superman: Up In the Sky",
+        "publisher": "DC Comics",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T07:06:46.499371+00:00",
+    "retry_after": "2026-11-01T07:06:46.499387+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tales from the DC Dark Multiverse",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 125285,
+        "name": "Tales From the DC Dark Multiverse",
+        "publisher": "DC Comics",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T07:07:06.508637+00:00",
+    "retry_after": "2026-11-01T07:07:06.508653+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Teen Titans Raven",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 119882,
+        "name": "Teen Titans: Raven",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T07:07:44.691424+00:00",
+    "retry_after": "2026-11-01T07:07:44.691447+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Space Ghost Volume Two: The Council of Doom",
+    "publisher": "Dynamite Entertainment",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T07:11:54.040116+00:00",
+    "retry_after": "2026-11-01T07:11:54.040118+00:00",
     "search_hydrated": true
   }
 ]

@@ -6456,10 +6456,12 @@
     "name": "The Trials of Loki: Marvel Tales",
     "publisher": "Marvel Comics",
     "year": 2021,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555232+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T09:06:05.025657+00:00",
+    "retry_after": "2026-11-03T09:06:05.025659+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Gen 13 3D",
@@ -27503,8 +27505,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T08:02:06.634676+00:00",
-    "retry_after": "2026-11-01T08:02:06.634679+00:00",
+    "last_attempt_at": "2026-10-31T09:02:15.624029+00:00",
+    "retry_after": "2026-11-01T09:02:15.624033+00:00",
     "search_hydrated": true
   },
   {
@@ -43584,8 +43586,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T08:02:06.634594+00:00",
-    "retry_after": "2026-11-01T08:02:06.634607+00:00",
+    "last_attempt_at": "2026-10-31T09:02:15.623936+00:00",
+    "retry_after": "2026-11-01T09:02:15.623956+00:00",
     "search_hydrated": true
   },
   {
@@ -51487,8 +51489,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T08:02:06.634638+00:00",
-    "retry_after": "2026-11-01T08:02:06.634643+00:00",
+    "last_attempt_at": "2026-10-31T09:02:15.623992+00:00",
+    "retry_after": "2026-11-01T09:02:15.623996+00:00",
     "search_hydrated": true
   },
   {
@@ -77692,9 +77694,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T08:05:19.330216+00:00",
-    "retry_after": "2026-10-31T08:05:19.330234+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T09:05:43.316829+00:00",
+    "retry_after": "2026-11-07T09:05:43.316845+00:00",
     "search_hydrated": true
   },
   {
@@ -77710,9 +77712,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T08:05:20.130671+00:00",
-    "retry_after": "2026-10-31T08:05:20.130686+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T09:05:45.008707+00:00",
+    "retry_after": "2026-11-07T09:05:45.008724+00:00",
     "search_hydrated": true
   },
   {
@@ -77728,9 +77730,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T08:05:20.427159+00:00",
-    "retry_after": "2026-10-31T08:05:20.427175+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T09:05:45.189463+00:00",
+    "retry_after": "2026-11-07T09:05:45.189478+00:00",
     "search_hydrated": true
   },
   {
@@ -77807,9 +77809,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T08:05:19.330299+00:00",
-    "retry_after": "2026-10-31T08:05:19.330302+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T09:05:43.316956+00:00",
+    "retry_after": "2026-11-07T09:05:43.316963+00:00",
     "search_hydrated": true
   },
   {
@@ -77825,9 +77827,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T08:05:20.587261+00:00",
-    "retry_after": "2026-10-31T08:05:20.587277+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T09:05:45.373614+00:00",
+    "retry_after": "2026-11-07T09:05:45.373629+00:00",
     "search_hydrated": true
   },
   {
@@ -77836,9 +77838,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T08:05:19.330322+00:00",
-    "retry_after": "2026-10-31T08:05:19.330324+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T09:05:43.316991+00:00",
+    "retry_after": "2026-11-07T09:05:43.316993+00:00",
     "search_hydrated": true
   },
   {
@@ -77847,9 +77849,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T08:05:19.330335+00:00",
-    "retry_after": "2026-10-31T08:05:19.330337+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T09:05:43.317008+00:00",
+    "retry_after": "2026-11-07T09:05:43.317011+00:00",
     "search_hydrated": true
   },
   {
@@ -77858,9 +77860,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T08:05:19.330350+00:00",
-    "retry_after": "2026-10-31T08:05:19.330351+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T09:05:43.317028+00:00",
+    "retry_after": "2026-11-07T09:05:43.317031+00:00",
     "search_hydrated": true
   },
   {
@@ -77869,9 +77871,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T08:05:19.330361+00:00",
-    "retry_after": "2026-10-31T08:05:19.330362+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T09:05:43.317045+00:00",
+    "retry_after": "2026-11-07T09:05:43.317047+00:00",
     "search_hydrated": true
   },
   {
@@ -77904,9 +77906,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T08:05:40.416628+00:00",
-    "retry_after": "2026-10-31T08:05:40.416645+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T09:06:05.025409+00:00",
+    "retry_after": "2026-11-07T09:06:05.025424+00:00",
     "search_hydrated": true
   },
   {
@@ -77915,9 +77917,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T08:05:40.416662+00:00",
-    "retry_after": "2026-10-31T08:05:40.416665+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T09:06:05.025446+00:00",
+    "retry_after": "2026-11-07T09:06:05.025449+00:00",
     "search_hydrated": true
   },
   {
@@ -77933,9 +77935,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T08:05:20.785956+00:00",
-    "retry_after": "2026-10-31T08:05:20.785972+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T09:05:45.552317+00:00",
+    "retry_after": "2026-11-07T09:05:45.552332+00:00",
     "search_hydrated": true
   },
   {
@@ -77944,9 +77946,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T09:05:11.648547+00:00",
-    "retry_after": "2026-10-31T09:05:11.648565+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T09:06:05.025493+00:00",
+    "retry_after": "2026-11-07T09:06:05.025495+00:00",
     "search_hydrated": true
   },
   {
@@ -77962,9 +77964,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T09:05:12.627991+00:00",
-    "retry_after": "2026-10-31T09:05:12.628007+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T09:06:06.982941+00:00",
+    "retry_after": "2026-11-07T09:06:06.982961+00:00",
     "search_hydrated": true
   },
   {
@@ -77980,9 +77982,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T09:05:12.705045+00:00",
-    "retry_after": "2026-10-31T09:05:12.705060+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T09:06:07.131068+00:00",
+    "retry_after": "2026-11-07T09:06:07.131083+00:00",
     "search_hydrated": true
   },
   {
@@ -85555,24 +85557,6 @@
     "search_hydrated": true
   },
   {
-    "name": "The Avengers",
-    "publisher": "Marvel Comics",
-    "year": 2023,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 2128,
-        "name": "The Avengers",
-        "publisher": "Marvel",
-        "start_year": 1963
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T09:04:41.139791+00:00",
-    "retry_after": "2026-10-31T09:04:41.139807+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Nita Hawes' Nightmare Blog",
     "publisher": "Image Comics",
     "year": 2022,
@@ -85585,9 +85569,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T09:04:41.812296+00:00",
-    "retry_after": "2026-10-31T09:04:41.812312+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T09:06:07.852492+00:00",
+    "retry_after": "2026-11-03T09:06:07.852506+00:00",
     "search_hydrated": true
   },
   {
@@ -85609,9 +85593,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T09:04:57.388647+00:00",
-    "retry_after": "2026-10-31T09:04:57.388662+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T09:06:05.025622+00:00",
+    "retry_after": "2026-11-03T09:06:05.025626+00:00",
     "search_hydrated": true
   },
   {
@@ -85627,9 +85611,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T09:05:20.499971+00:00",
-    "retry_after": "2026-10-31T09:05:20.499986+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T09:06:08.181000+00:00",
+    "retry_after": "2026-11-03T09:06:08.181015+00:00",
     "search_hydrated": true
   },
   {
@@ -85649,9 +85633,9 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T09:08:42.110704+00:00",
-    "retry_after": "2026-10-31T09:08:42.110724+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T09:10:18.680588+00:00",
+    "retry_after": "2026-11-03T09:10:18.680605+00:00",
     "search_hydrated": true
   },
   {
@@ -87049,6 +87033,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T08:13:40.939132+00:00",
     "retry_after": "2026-11-01T08:13:40.939136+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Hate Ball",
+    "publisher": "Fantagraphics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T09:10:18.680641+00:00",
+    "retry_after": "2026-11-01T09:10:18.680645+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Will Eisner's John Law: Dead Man Walking",
+    "publisher": "IDW Publishing",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 170564,
+        "name": "Will Eisner's John Law: Dead Man Walking",
+        "publisher": null,
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T09:10:18.680671+00:00",
+    "retry_after": "2026-11-01T09:10:18.680674+00:00",
     "search_hydrated": true
   }
 ]

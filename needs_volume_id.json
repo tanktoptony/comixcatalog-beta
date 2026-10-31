@@ -6858,10 +6858,12 @@
     "name": "Star Wars: War of the Bounty Hunters Alpha Director's Cut",
     "publisher": "Marvel Comics",
     "year": 2021,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555348+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T06:46:24.633020+00:00",
+    "retry_after": "2026-11-03T06:46:24.633035+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The Walking Dead #1 Wizard World St. Louis Comicon Exclusive",
@@ -25576,9 +25578,10 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-26T15:04:01.615659+00:00",
-    "retry_after": "2026-09-29T15:04:01.615674+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T06:45:20.948609+00:00",
+    "retry_after": "2026-11-07T06:45:20.948612+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Savage Dragon / Teenage Mutant Ninja Turtle Crossover Ash Can",
@@ -27500,8 +27503,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T06:01:59.753489+00:00",
-    "retry_after": "2026-11-01T06:01:59.753493+00:00",
+    "last_attempt_at": "2026-10-31T06:41:51.327472+00:00",
+    "retry_after": "2026-11-01T06:41:51.327475+00:00",
     "search_hydrated": true
   },
   {
@@ -43580,8 +43583,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T06:01:59.753408+00:00",
-    "retry_after": "2026-11-01T06:01:59.753421+00:00",
+    "last_attempt_at": "2026-10-31T06:41:51.327387+00:00",
+    "retry_after": "2026-11-01T06:41:51.327403+00:00",
     "search_hydrated": true
   },
   {
@@ -51483,8 +51486,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T06:01:59.753452+00:00",
-    "retry_after": "2026-11-01T06:01:59.753456+00:00",
+    "last_attempt_at": "2026-10-31T06:41:51.327435+00:00",
+    "retry_after": "2026-11-01T06:41:51.327439+00:00",
     "search_hydrated": true
   },
   {
@@ -77677,9 +77680,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T06:07:52.295613+00:00",
-    "retry_after": "2026-10-31T06:07:52.295614+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T06:45:20.948406+00:00",
+    "retry_after": "2026-11-07T06:45:20.948422+00:00",
     "search_hydrated": true
   },
   {
@@ -86763,6 +86766,97 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T06:05:41.407430+00:00",
     "retry_after": "2026-11-01T06:05:41.407432+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars Legends: Rise of the Sith Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T06:45:20.948576+00:00",
+    "retry_after": "2026-11-01T06:45:20.948581+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars: The High Republic No.1 Halloween Comic Extravaganza 2021",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T06:45:20.948638+00:00",
+    "retry_after": "2026-11-01T06:45:20.948640+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 145364,
+        "name": "Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T06:45:22.327927+00:00",
+    "retry_after": "2026-11-01T06:45:22.327941+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Static",
+    "publisher": "DC Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 5215,
+        "name": "Static",
+        "publisher": "DC Comics",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T06:46:38.079712+00:00",
+    "retry_after": "2026-11-01T06:46:38.079735+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Summoner's War: Legacy",
+    "publisher": "Image Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T06:47:48.486820+00:00",
+    "retry_after": "2026-11-01T06:47:48.486836+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Backlash / Spider-Man TPB",
+    "publisher": "Image Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T06:52:01.547720+00:00",
+    "retry_after": "2026-11-01T06:52:01.547736+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Man: Matters of Life and Death",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T06:52:01.547774+00:00",
+    "retry_after": "2026-11-01T06:52:01.547778+00:00",
     "search_hydrated": true
   }
 ]

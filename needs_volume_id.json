@@ -6409,10 +6409,19 @@
     "name": "Animal Man by Grant Morrison",
     "publisher": "DC Comics",
     "year": 2020,
-    "reason": "publisher_mismatch",
-    "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555213+00:00"
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 19963,
+        "name": "Animal Man",
+        "publisher": "DC Comics",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T13:25:17.745091+00:00",
+    "retry_after": "2026-11-03T13:25:17.745112+00:00",
+    "search_hydrated": true
   },
   {
     "name": "King in Black: Handbook",
@@ -27507,8 +27516,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T13:02:00.173356+00:00",
-    "retry_after": "2026-11-01T13:02:00.173362+00:00",
+    "last_attempt_at": "2026-10-31T13:21:17.326007+00:00",
+    "retry_after": "2026-11-01T13:21:17.326009+00:00",
     "search_hydrated": true
   },
   {
@@ -28678,16 +28687,6 @@
     "attempts": 5,
     "last_attempt_at": "2026-10-25T12:09:25.861641+00:00",
     "retry_after": "2026-11-24T12:09:25.861657+00:00"
-  },
-  {
-    "name": "Amazing Spider-Man: The Daily Bugle",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T07:03:10.469279+00:00",
-    "retry_after": "2026-10-01T07:03:10.469288+00:00"
   },
   {
     "name": "Alraune",
@@ -43590,8 +43589,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T13:02:00.173222+00:00",
-    "retry_after": "2026-11-01T13:02:00.173239+00:00",
+    "last_attempt_at": "2026-10-31T13:21:17.325940+00:00",
+    "retry_after": "2026-11-01T13:21:17.325954+00:00",
     "search_hydrated": true
   },
   {
@@ -51493,8 +51492,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T13:02:00.173294+00:00",
-    "retry_after": "2026-11-01T13:02:00.173303+00:00",
+    "last_attempt_at": "2026-10-31T13:21:17.325980+00:00",
+    "retry_after": "2026-11-01T13:21:17.325983+00:00",
     "search_hydrated": true
   },
   {
@@ -87425,6 +87424,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T13:10:26.427115+00:00",
     "retry_after": "2026-11-01T13:10:26.427119+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Aquaman: Deadly Waters The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T13:26:09.473939+00:00",
+    "retry_after": "2026-11-01T13:26:09.473954+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman 100 Project",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 132285,
+        "name": "The Batman 100 Project",
+        "publisher": "Hero Initiative",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T13:26:09.474037+00:00",
+    "retry_after": "2026-11-01T13:26:09.474039+00:00",
     "search_hydrated": true
   }
 ]

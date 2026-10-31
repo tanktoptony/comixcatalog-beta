@@ -27500,8 +27500,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T03:02:09.864353+00:00",
-    "retry_after": "2026-11-01T03:02:09.864356+00:00",
+    "last_attempt_at": "2026-10-31T04:02:02.434148+00:00",
+    "retry_after": "2026-11-01T04:02:02.434152+00:00",
     "search_hydrated": true
   },
   {
@@ -43580,8 +43580,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T03:02:09.864271+00:00",
-    "retry_after": "2026-11-01T03:02:09.864283+00:00",
+    "last_attempt_at": "2026-10-31T04:02:02.434068+00:00",
+    "retry_after": "2026-11-01T04:02:02.434080+00:00",
     "search_hydrated": true
   },
   {
@@ -51483,8 +51483,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T03:02:09.864315+00:00",
-    "retry_after": "2026-11-01T03:02:09.864320+00:00",
+    "last_attempt_at": "2026-10-31T04:02:02.434112+00:00",
+    "retry_after": "2026-11-01T04:02:02.434117+00:00",
     "search_hydrated": true
   },
   {
@@ -85412,9 +85412,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T03:06:19.713289+00:00",
-    "retry_after": "2026-10-31T03:06:19.713307+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T04:05:28.833748+00:00",
+    "retry_after": "2026-11-03T04:05:28.833764+00:00",
     "search_hydrated": true
   },
   {
@@ -85430,9 +85430,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T03:06:19.964708+00:00",
-    "retry_after": "2026-10-31T03:06:19.964728+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T04:05:29.151667+00:00",
+    "retry_after": "2026-11-03T04:05:29.151684+00:00",
     "search_hydrated": true
   },
   {
@@ -85448,9 +85448,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T03:06:22.935474+00:00",
-    "retry_after": "2026-10-31T03:06:22.935493+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T04:05:27.276626+00:00",
+    "retry_after": "2026-11-03T04:05:27.276642+00:00",
     "search_hydrated": true
   },
   {
@@ -86566,6 +86566,70 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T03:10:09.369841+00:00",
     "retry_after": "2026-11-01T03:10:09.369844+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ororo: Before the Storm",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18075,
+        "name": "Ororo: Before the Storm",
+        "publisher": "Marvel",
+        "start_year": 2005
+      },
+      {
+        "id": 38779,
+        "name": "Ororo: Before the Storm",
+        "publisher": "Marvel",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T04:07:47.789362+00:00",
+    "retry_after": "2026-11-01T04:07:47.789378+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Pulp",
+    "publisher": "Image Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 129107,
+        "name": "Pulp",
+        "publisher": "Image",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T04:09:56.492815+00:00",
+    "retry_after": "2026-11-01T04:09:56.492829+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Reptil: Brink of Extinction",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T04:10:11.023793+00:00",
+    "retry_after": "2026-11-01T04:10:11.023809+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Panorama de la bande dessinée érotique clandestine",
+    "publisher": "Dynamite Entertainment",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T04:14:21.703518+00:00",
+    "retry_after": "2026-11-01T04:14:21.703534+00:00",
     "search_hydrated": true
   }
 ]

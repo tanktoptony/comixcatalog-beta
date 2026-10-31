@@ -57,7 +57,7 @@ export default function LibraryMobileBar(props) {
     isPublicPreview, tab, setTab, counts, stats, valueOpen, setValueOpen,
     search, setSearch, publisherFilter, setPublisherFilter, availablePublishers,
     sortBy, setSortBy, filteredCount, viewMode, updateViewMode, handleShare,
-    shareCopied, ownerId, username, handleCsvImport, selectedFile, setSelectedFile,
+    shareCopied, ownerId, username,
     handleExportCsv, handleExportPdf, csvExporting, pdfExporting,
     handleCatalogAudit, catalogAuditing, setAllForSale, bulkSaleBusy,
   } = props;
@@ -108,7 +108,7 @@ export default function LibraryMobileBar(props) {
         {counts.owned > counts.forSale && <div className="library-mobile-action-label">Sell</div>}
         {counts.owned > counts.forSale && <button type="button" className="library-mobile-action" disabled={bulkSaleBusy} onClick={() => run(() => setAllForSale(true))}><ActionIcon name="sell" />{bulkSaleBusy ? "Listing..." : "List everything for sale"}</button>}
         <div className="library-mobile-action-label">Import and export</div>
-        <form onSubmit={(event) => { handleCsvImport(event); closeSheet(); }} className="library-mobile-import"><label className="library-mobile-action"><ActionIcon name="importCsv" />{selectedFile ? selectedFile.name : "Import a CSV"}<input type="file" name="file" accept=".csv" hidden onChange={(event) => setSelectedFile(event.target.files[0] || null)} /></label>{selectedFile && <button type="submit" className="library-mobile-action"><ActionIcon name="importCsv" />Upload CSV</button>}</form>
+        <Link href="/switch" className="library-mobile-action" onClick={closeSheet}><ActionIcon name="importCsv" />Import from CLZ, League or a spreadsheet</Link>
         <button type="button" className="library-mobile-action" disabled={csvExporting} onClick={() => run(handleExportCsv)}><ActionIcon name="exportCsv" />{csvExporting ? "Exporting..." : "Export CSV"}</button>
         <button type="button" className="library-mobile-action" disabled={pdfExporting} onClick={() => run(handleExportPdf)}><ActionIcon name="pdf" />{pdfExporting ? "Generating..." : "Export PDF"}</button>
         <button type="button" className="library-mobile-action" disabled={catalogAuditing} onClick={() => run(handleCatalogAudit)}><ActionIcon name="link" />{catalogAuditing ? "Scanning..." : "Link books to the catalog"}</button>

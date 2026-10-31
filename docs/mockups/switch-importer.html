@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Switch Importer Mockup</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&display=swap">
+<style>
+  /* Site tokens copied from globals.css (--cc-*), gold CTA from the live header. */
+  :root {
+    --bg: #090c11; --surface: #11161d; --surface-2: #171d26; --line: #2b3444; --line-soft: rgba(255,255,255,.08);
+    --text: #eef2f7; --muted: #a4aebb; --gold: #f4cf3f; --gold-soft: #ecd48c; --navy: #0b1e6b;
+    --good: #6fcf8a; --warn: #f0a85a; --display: "Big Shoulders Display", Impact, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: linear-gradient(to bottom, rgba(31,78,168,.06), transparent 220px), var(--bg); color: var(--text); font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .site-head { display: flex; align-items: center; gap: 14px; padding: 14px 24px; border-bottom: 1px solid var(--line-soft); }
+  .site-head img { width: 34px; height: 34px; border-radius: 8px; background: #fdfbf9; }
+  .site-head b { font-weight: 900; letter-spacing: .04em; }
+  .site-head .search { flex: 1; max-width: 520px; margin-left: 40px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 9px 14px; color: #6d7887; }
+  .screens { max-width: 1120px; margin: 0 auto; padding: 32px 16px 64px; display: grid; gap: 40px; }
+  .label { font: 600 12px/1 ui-monospace, Consolas, monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 10px; }
+  .label::after { content: ""; flex: 1; height: 1px; background: var(--line-soft); }
+  .screen { display: grid; gap: 22px; }
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+  h1, h2 { margin: 0; font-weight: 800; line-height: 1.15; color: #fff; }
+  h1 { font-size: clamp(28px, 4vw, 40px); }
+  h2 { font-size: clamp(24px, 3vw, 30px); }
+  .sub { color: var(--muted); max-width: 62ch; margin: 0; font-size: 16px; }
+  .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 20px; }
+  .apps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .app { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; gap: 4px; }
+  .app b { font-size: 16px; }
+  .app span { color: var(--muted); font-size: 13px; }
+  .app.on { border: 2px solid var(--gold); background: #17160f; }
+  .steps { margin: 0; padding-left: 22px; display: grid; gap: 8px; }
+  .steps li::marker { color: var(--gold); font-weight: 800; }
+  .two { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 16px; align-items: stretch; }
+  .drop { border: 2px dashed #4a5568; border-radius: 16px; display: grid; place-items: center; text-align: center; padding: 28px 18px; gap: 8px; background: rgba(244,207,63,.03); }
+  .drop .icon { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: rgba(244,207,63,.14); color: var(--gold); font-size: 22px; font-weight: 800; }
+  .drop b { font-size: 17px; }
+  .drop small { color: var(--muted); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; padding: 12px 22px; font-weight: 800; font-size: 15px; border: 0; }
+  .btn.gold { background: var(--gold); color: var(--navy); }
+  .btn.ghost { border: 1px solid var(--line); color: var(--text); background: transparent; }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .map { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .map th { text-align: left; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 700; padding: 0 10px 10px; }
+  .map td { padding: 9px 10px; border-top: 1px solid var(--line-soft); vertical-align: middle; }
+  .map td.theirs { font-family: ui-monospace, Consolas, monospace; font-size: 13px; color: #cdd5df; }
+  .map td.sample { color: var(--muted); }
+  .select { display: inline-flex; align-items: center; justify-content: space-between; gap: 10px; min-width: 150px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font-weight: 600; }
+  .select::after { content: "\25BE"; color: var(--muted); font-size: 12px; }
+  .select.ok { border-color: rgba(111,207,138,.45); }
+  .select.off { color: var(--muted); font-weight: 500; }
+  .tick { color: var(--good); font-weight: 800; margin-right: 6px; }
+  .books { display: grid; gap: 10px; }
+  .book { display: grid; grid-template-columns: 46px minmax(0, 1fr) auto; gap: 12px; align-items: center; background: var(--surface-2); border: 1px solid var(--line-soft); border-radius: 12px; padding: 8px 12px 8px 8px; }
+  .book img { width: 46px; height: 70px; object-fit: cover; border-radius: 4px; display: block; }
+  .book b { display: block; }
+  .book span { color: var(--muted); font-size: 13px; }
+  .chip { font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+  .chip.good { color: var(--good); background: rgba(111,207,138,.12); border: 1px solid rgba(111,207,138,.4); }
+  .chip.warn { color: var(--warn); background: rgba(240,168,90,.12); border: 1px solid rgba(240,168,90,.4); }
+  .big { font-family: var(--display); font-weight: 900; font-size: 64px; line-height: .9; color: var(--gold); letter-spacing: .01em; }
+  .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; gap: 6px; align-content: start; }
+  .stat .n { font-family: var(--display); font-weight: 800; font-size: 38px; line-height: 1; }
+  .stat.good .n { color: var(--good); } .stat.warn .n { color: var(--warn); } .stat.miss .n { color: var(--muted); }
+  .stat p { margin: 0; color: var(--muted); font-size: 14px; }
+  .stat a { color: var(--gold); font-weight: 700; font-size: 14px; text-decoration: none; }
+  .carried { display: flex; flex-wrap: wrap; gap: 8px; }
+  .carried span { background: var(--surface-2); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font-size: 13px; }
+  .carried b { color: var(--gold); }
+  .example { font-size: 12px; color: #6d7887; }
+  @media (max-width: 760px) {
+    .apps, .stats, .two { grid-template-columns: minmax(0, 1fr); }
+    .site-head .search { display: none; }
+    .map th:nth-child(3), .map td:nth-child(3) { display: none; }
+    .select { min-width: 0; }
+  }
+</style>
+</head>
+<body>
+<header class="site-head"><img src="https://www.comixcatalog.com/img/logos/cc_badge.png" alt=""><b>COMIXCATALOG</b><div class="search">Search comics</div></header>
+<main class="screens">
+
+  <div class="label">Screen 1 · /switch</div>
+  <section class="screen">
+    <div class="eyebrow">Switch to ComixCatalog</div>
+    <h1>Bring your books. Skip the typing.</h1>
+    <p class="sub">Export from the app you use now, drop the file here, and we match every book to our catalog. Grades, slabs and cert numbers come with it.</p>
+    <div class="apps">
+      <div class="app on"><b>CLZ Comics</b><span>Export from CLZ Cloud</span></div>
+      <div class="app"><b>League of Comic Geeks</b><span>Export from My Collection</span></div>
+      <div class="app"><b>Any spreadsheet</b><span>A CSV with series and issue</span></div>
+    </div>
+    <div class="two">
+      <div class="panel">
+        <b>Get your file from CLZ</b>
+        <ol class="steps" style="margin-top:12px">
+          <li>On a computer, sign in to CLZ Cloud. Using the phone app? Sync to CLZ Cloud first.</li>
+          <li>Open the menu at the top left and choose <b>Export to CSV/TXT</b>.</li>
+          <li>Leave every field selected and click <b>Export</b>.</li>
+        </ol>
+      </div>
+      <div class="drop">
+        <div class="icon">+</div>
+        <b>Drop your CSV here</b>
+        <small>or <u>choose a file</u> · CSV or TXT · big collections are fine, we import in batches</small>
+      </div>
+    </div>
+  </section>
+
+  <div class="label">Screen 2 · check the columns</div>
+  <section class="screen">
+    <h2>Check the columns</h2>
+    <p class="sub">We matched 10 of your 12 columns. Fix any guess, or leave it as is.</p>
+    <div class="two">
+      <div class="panel" style="padding:16px 10px">
+        <table class="map">
+          <thead><tr><th>Your column</th><th>Goes to</th><th>First row</th></tr></thead>
+          <tbody>
+            <tr><td class="theirs">Series</td><td><span class="select ok"><span><span class="tick">&#10003;</span>Series</span></span></td><td class="sample">X-Men</td></tr>
+            <tr><td class="theirs">Issue</td><td><span class="select ok"><span><span class="tick">&#10003;</span>Issue</span></span></td><td class="sample">1</td></tr>
+            <tr><td class="theirs">Publisher</td><td><span class="select ok"><span><span class="tick">&#10003;</span>Publisher</span></span></td><td class="sample">Marvel</td></tr>
+            <tr><td class="theirs">Release Date</td><td><span class="select ok"><span><span class="tick">&#10003;</span>Year</span></span></td><td class="sample">Oct 1991</td></tr>
+            <tr><td class="theirs">Grade</td><td><span class="select ok"><span><span class="tick">&#10003;</span>Grade</span></span></td><td class="sample">9.8</td></tr>
+            <tr><td class="theirs">Grading Company</td><td><span class="select ok"><span><span class="tick">&#10003;</span>Slab company</span></span></td><td class="sample">CGC</td></tr>
+            <tr><td class="theirs">Slab Certification Number</td><td><span class="select ok"><span><span class="tick">&#10003;</span>Cert number</span></span></td><td class="sample">4012345001</td></tr>
+            <tr><td class="theirs">Purchase Price</td><td><span class="select ok"><span><span class="tick">&#10003;</span>Price paid</span></span></td><td class="sample">$40.00</td></tr>
+            <tr><td class="theirs">Variant Description</td><td><span class="select ok"><span><span class="tick">&#10003;</span>Variant</span></span></td><td class="sample">Gatefold cover</td></tr>
+            <tr><td class="theirs">Notes</td><td><span class="select ok"><span><span class="tick">&#10003;</span>Notes</span></span></td><td class="sample">From Graham Crackers</td></tr>
+            <tr><td class="theirs">Storage Box</td><td><span class="select off"><span>Don't import</span></span></td><td class="sample">Box 3</td></tr>
+            <tr><td class="theirs">Signed by</td><td><span class="select off"><span>Don't import</span></span></td><td class="sample"></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="panel" style="display:grid;gap:14px;align-content:start">
+        <b>First books we found</b>
+        <div class="books">
+          <div class="book"><img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/x-men/vol-4605/34784-rubicon.jpg" alt=""><div><b>X-Men (1991) #1</b><span>CGC 9.8 · cert 4012345001</span></div><span class="chip good">Matched</span></div>
+          <div class="book"><img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spawn/vol-4937/35666-questions-pt-1.jpeg" alt=""><div><b>Spawn (1992) #1</b><span>Very Fine · paid $6.00</span></div><span class="chip good">Matched</span></div>
+          <div class="book"><img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/saga/vol-46568/321297-chapter-one.jpg" alt=""><div><b>Saga #1</b><span>Two volumes share this title</span></div><span class="chip warn">Pick one</span></div>
+        </div>
+        <div class="row"><span class="btn gold">Import 812 books</span><span class="btn ghost">Back</span></div>
+        <span class="example">Example data</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="label">Screen 3 · done</div>
+  <section class="screen">
+    <div class="big">768 of 812</div>
+    <h2>books are in. Welcome to ComixCatalog.</h2>
+    <div class="stats">
+      <div class="stat good"><span class="n">768</span><p>Matched to the catalog. Covers, values and run tracking are on.</p><a href="#">See your collection &rarr;</a></div>
+      <div class="stat warn"><span class="n">31</span><p>Need a pick. More than one volume shares the title, so you choose.</p><a href="#">Pick volumes &rarr;</a></div>
+      <div class="stat miss"><span class="n">13</span><p>Not in our catalog yet. Request them and we'll add them.</p><a href="#">See the 13 &rarr;</a></div>
+    </div>
+    <div class="carried"><span>Came with them:</span><span><b>214</b> grades</span><span><b>57</b> slabs with cert numbers</span><span><b>390</b> prices paid</span><span><b>22</b> variants</span></div>
+    <div class="row"><span class="btn gold">Find what you're missing</span><span class="btn ghost">Download a report of this import</span></div>
+    <span class="example">Example data</span>
+  </section>
+
+</main>
+</body>
+</html>

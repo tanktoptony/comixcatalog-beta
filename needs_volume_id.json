@@ -6775,9 +6775,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T03:05:04.242882+00:00",
-    "retry_after": "2026-10-31T03:05:04.242884+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T03:05:59.347331+00:00",
+    "retry_after": "2026-11-03T03:05:59.347335+00:00",
     "search_hydrated": true
   },
   {
@@ -22653,9 +22653,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T03:05:04.242857+00:00",
-    "retry_after": "2026-10-31T03:05:04.242859+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T03:05:59.347257+00:00",
+    "retry_after": "2026-11-03T03:05:59.347273+00:00",
     "search_hydrated": true
   },
   {
@@ -27500,8 +27500,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T02:02:34.988606+00:00",
-    "retry_after": "2026-11-01T02:02:34.988609+00:00",
+    "last_attempt_at": "2026-10-31T03:02:09.864353+00:00",
+    "retry_after": "2026-11-01T03:02:09.864356+00:00",
     "search_hydrated": true
   },
   {
@@ -43580,8 +43580,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T02:02:34.988536+00:00",
-    "retry_after": "2026-11-01T02:02:34.988552+00:00",
+    "last_attempt_at": "2026-10-31T03:02:09.864271+00:00",
+    "retry_after": "2026-11-01T03:02:09.864283+00:00",
     "search_hydrated": true
   },
   {
@@ -51483,8 +51483,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T02:02:34.988579+00:00",
-    "retry_after": "2026-11-01T02:02:34.988582+00:00",
+    "last_attempt_at": "2026-10-31T03:02:09.864315+00:00",
+    "retry_after": "2026-11-01T03:02:09.864320+00:00",
     "search_hydrated": true
   },
   {
@@ -77301,9 +77301,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T03:05:09.009607+00:00",
-    "retry_after": "2026-10-31T03:05:09.009622+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T03:05:38.304583+00:00",
+    "retry_after": "2026-11-07T03:05:38.304599+00:00",
     "search_hydrated": true
   },
   {
@@ -77319,9 +77319,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T03:05:09.840826+00:00",
-    "retry_after": "2026-10-31T03:05:09.840842+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T03:05:39.647748+00:00",
+    "retry_after": "2026-11-07T03:05:39.647759+00:00",
     "search_hydrated": true
   },
   {
@@ -77337,9 +77337,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T03:05:09.979374+00:00",
-    "retry_after": "2026-10-31T03:05:09.979389+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T03:05:39.728290+00:00",
+    "retry_after": "2026-11-07T03:05:39.728299+00:00",
     "search_hydrated": true
   },
   {
@@ -77348,9 +77348,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T03:05:09.009655+00:00",
-    "retry_after": "2026-10-31T03:05:09.009658+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T03:05:38.304643+00:00",
+    "retry_after": "2026-11-07T03:05:38.304647+00:00",
     "search_hydrated": true
   },
   {
@@ -77359,9 +77359,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T03:05:09.009667+00:00",
-    "retry_after": "2026-10-31T03:05:09.009669+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T03:05:38.304663+00:00",
+    "retry_after": "2026-11-07T03:05:38.304666+00:00",
     "search_hydrated": true
   },
   {
@@ -77370,9 +77370,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T03:05:09.009676+00:00",
-    "retry_after": "2026-10-31T03:05:09.009678+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T03:05:38.304678+00:00",
+    "retry_after": "2026-11-07T03:05:38.304681+00:00",
     "search_hydrated": true
   },
   {
@@ -77381,9 +77381,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T03:05:09.009684+00:00",
-    "retry_after": "2026-10-31T03:05:09.009686+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T03:05:38.304694+00:00",
+    "retry_after": "2026-11-07T03:05:38.304696+00:00",
     "search_hydrated": true
   },
   {
@@ -85150,9 +85150,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T02:05:22.249043+00:00",
-    "retry_after": "2026-10-31T02:05:22.249045+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T03:05:38.304710+00:00",
+    "retry_after": "2026-11-03T03:05:38.304712+00:00",
     "search_hydrated": true
   },
   {
@@ -85161,9 +85161,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T02:05:22.249055+00:00",
-    "retry_after": "2026-10-31T02:05:22.249057+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T03:05:38.304724+00:00",
+    "retry_after": "2026-11-03T03:05:38.304726+00:00",
     "search_hydrated": true
   },
   {
@@ -85212,9 +85212,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T03:05:04.242892+00:00",
-    "retry_after": "2026-10-31T03:05:04.242893+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T03:05:59.347351+00:00",
+    "retry_after": "2026-11-03T03:05:59.347354+00:00",
     "search_hydrated": true
   },
   {
@@ -85223,9 +85223,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T03:05:04.242901+00:00",
-    "retry_after": "2026-10-31T03:05:04.242903+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T03:05:59.347367+00:00",
+    "retry_after": "2026-11-03T03:05:59.347370+00:00",
     "search_hydrated": true
   },
   {
@@ -85234,9 +85234,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T03:05:04.242909+00:00",
-    "retry_after": "2026-10-31T03:05:04.242910+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T03:05:59.347382+00:00",
+    "retry_after": "2026-11-03T03:05:59.347385+00:00",
     "search_hydrated": true
   },
   {
@@ -85252,9 +85252,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T03:05:05.670227+00:00",
-    "retry_after": "2026-10-31T03:05:05.670245+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T03:05:40.189827+00:00",
+    "retry_after": "2026-11-03T03:05:40.189844+00:00",
     "search_hydrated": true
   },
   {
@@ -85264,34 +85264,10 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 7205,
+        "id": 160861,
         "name": "Batgirl",
         "publisher": "DC Comics",
-        "start_year": 2000
-      },
-      {
-        "id": 22245,
-        "name": "Batgirl",
-        "publisher": "DC Comics",
-        "start_year": 2008
-      },
-      {
-        "id": 27457,
-        "name": "Batgirl",
-        "publisher": "DC Comics",
-        "start_year": 2009
-      },
-      {
-        "id": 42604,
-        "name": "Batgirl",
-        "publisher": "DC Comics",
-        "start_year": 2011
-      },
-      {
-        "id": 50413,
-        "name": "Batgirl",
-        "publisher": "DC Comics",
-        "start_year": 2012
+        "start_year": 2025
       },
       {
         "id": 82483,
@@ -85300,10 +85276,28 @@
         "start_year": 2015
       },
       {
+        "id": 7205,
+        "name": "Batgirl",
+        "publisher": "DC Comics",
+        "start_year": 2000
+      },
+      {
         "id": 92542,
         "name": "Batgirl",
         "publisher": "DC Comics",
         "start_year": 2016
+      },
+      {
+        "id": 42604,
+        "name": "Batgirl",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 27457,
+        "name": "Batgirl",
+        "publisher": "DC Comics",
+        "start_year": 2009
       },
       {
         "id": 100119,
@@ -85312,10 +85306,16 @@
         "start_year": 2017
       },
       {
-        "id": 160861,
+        "id": 22245,
         "name": "Batgirl",
         "publisher": "DC Comics",
-        "start_year": 2025
+        "start_year": 2008
+      },
+      {
+        "id": 50413,
+        "name": "Batgirl",
+        "publisher": "DC Comics",
+        "start_year": 2012
       },
       {
         "id": 167372,
@@ -85324,9 +85324,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T03:05:24.924898+00:00",
-    "retry_after": "2026-10-31T03:05:24.924917+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T03:05:59.347470+00:00",
+    "retry_after": "2026-11-03T03:05:59.347474+00:00",
     "search_hydrated": true
   },
   {
@@ -85335,9 +85335,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T03:05:24.924951+00:00",
-    "retry_after": "2026-10-31T03:05:24.924952+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T03:05:59.347490+00:00",
+    "retry_after": "2026-11-03T03:05:59.347493+00:00",
     "search_hydrated": true
   },
   {
@@ -85346,9 +85346,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T03:05:24.924960+00:00",
-    "retry_after": "2026-10-31T03:05:24.924962+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T03:05:59.347506+00:00",
+    "retry_after": "2026-11-03T03:05:59.347509+00:00",
     "search_hydrated": true
   },
   {
@@ -85370,9 +85370,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T03:05:24.925017+00:00",
-    "retry_after": "2026-10-31T03:05:24.925018+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T03:05:59.347539+00:00",
+    "retry_after": "2026-11-03T03:05:59.347542+00:00",
     "search_hydrated": true
   },
   {
@@ -85394,9 +85394,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T03:05:24.925031+00:00",
-    "retry_after": "2026-10-31T03:05:24.925032+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T03:05:59.347565+00:00",
+    "retry_after": "2026-11-03T03:05:59.347567+00:00",
     "search_hydrated": true
   },
   {
@@ -85466,9 +85466,9 @@
         "start_year": 1976
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T03:08:33.524567+00:00",
-    "retry_after": "2026-10-31T03:08:33.524588+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T03:10:09.369760+00:00",
+    "retry_after": "2026-11-03T03:10:09.369776+00:00",
     "search_hydrated": true
   },
   {
@@ -85477,9 +85477,9 @@
     "year": 2007,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-30T03:08:33.524612+00:00",
-    "retry_after": "2026-10-31T03:08:33.524615+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T03:10:09.369806+00:00",
+    "retry_after": "2026-11-03T03:10:09.369810+00:00",
     "search_hydrated": true
   },
   {
@@ -86555,6 +86555,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T02:06:21.587166+00:00",
     "retry_after": "2026-11-01T02:06:21.587169+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Thor No. 351 [Marvel Legends Reprint]",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T03:10:09.369841+00:00",
+    "retry_after": "2026-11-01T03:10:09.369844+00:00",
     "search_hydrated": true
   }
 ]

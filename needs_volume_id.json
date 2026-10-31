@@ -6400,10 +6400,12 @@
     "name": "DC Graphic Novels for Young Adults Box Set",
     "publisher": "DC Comics",
     "year": 2020,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555210+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T18:21:09.555594+00:00",
+    "retry_after": "2026-11-03T18:21:09.555596+00:00",
+    "search_hydrated": true
   },
   {
     "name": "King in Black: Handbook",
@@ -27485,21 +27487,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
-      {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T18:02:19.917139+00:00",
-    "retry_after": "2026-11-01T18:02:19.917141+00:00",
+    "last_attempt_at": "2026-10-31T18:13:52.458355+00:00",
+    "retry_after": "2026-11-01T18:13:52.458357+00:00",
     "search_hydrated": true
   },
   {
@@ -43553,8 +43555,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T18:02:19.916990+00:00",
-    "retry_after": "2026-11-01T18:02:19.917008+00:00",
+    "last_attempt_at": "2026-10-31T18:13:52.458294+00:00",
+    "retry_after": "2026-11-01T18:13:52.458311+00:00",
     "search_hydrated": true
   },
   {
@@ -51456,8 +51458,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T18:02:19.917114+00:00",
-    "retry_after": "2026-11-01T18:02:19.917116+00:00",
+    "last_attempt_at": "2026-10-31T18:13:52.458334+00:00",
+    "retry_after": "2026-11-01T18:13:52.458336+00:00",
     "search_hydrated": true
   },
   {
@@ -63036,24 +63038,19 @@
     "name": "Criminal Deluxe Edition",
     "publisher": "Image Comics",
     "year": 2020,
-    "reason": "publisher_mismatch",
+    "reason": "series_hint_year_mismatch",
     "candidates": [
-      {
-        "id": 168685,
-        "name": "Criminal Deluxe Edition",
-        "publisher": null,
-        "start_year": 2025
-      },
       {
         "id": 52029,
         "name": "Criminal: The Deluxe Edition",
-        "publisher": null,
+        "publisher": "Image",
         "start_year": 2009
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-22T02:15:57.477956+00:00",
-    "retry_after": "2026-10-23T02:15:57.477971+00:00"
+    "last_attempt_at": "2026-10-31T18:20:39.159559+00:00",
+    "retry_after": "2026-11-01T18:20:39.159584+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Herbert West",
@@ -87526,6 +87523,125 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T18:07:08.451412+00:00",
     "retry_after": "2026-11-01T18:07:08.451430+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Captain America: Winter Soldier - The Complete Collection",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T18:17:33.842583+00:00",
+    "retry_after": "2026-11-01T18:17:33.842600+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Captain America by Jack Kirby Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 41260,
+        "name": "Captain America by Jack Kirby Omnibus",
+        "publisher": "Marvel",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T18:17:59.916891+00:00",
+    "retry_after": "2026-11-01T18:17:59.916932+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Conan the Barbarian: The Original Marvel Years Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T18:20:31.714098+00:00",
+    "retry_after": "2026-11-01T18:20:31.714115+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Crisis on Infinite Earths Box Set",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T18:20:31.714161+00:00",
+    "retry_after": "2026-11-01T18:20:31.714163+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Crisis on Infinite Earths: Paragons Rising The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T18:20:31.714172+00:00",
+    "retry_after": "2026-11-01T18:20:31.714174+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Daredevil: The Man without Fear",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 5000,
+        "name": "Daredevil: The Man Without Fear",
+        "publisher": "Marvel",
+        "start_year": 1993
+      },
+      {
+        "id": 21193,
+        "name": "Daredevil: The Man Without Fear",
+        "publisher": "Marvel",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T18:20:31.714212+00:00",
+    "retry_after": "2026-11-01T18:20:31.714214+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Graphic Novels for Kids Box Set",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T18:21:09.555562+00:00",
+    "retry_after": "2026-11-01T18:21:09.555578+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Walking Dead #19 15th Anniversary",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T18:21:29.179344+00:00",
+    "retry_after": "2026-11-01T18:21:29.179361+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Ryan's Porn Basket",
+    "publisher": "Fantagraphics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T18:21:29.179377+00:00",
+    "retry_after": "2026-11-01T18:21:29.179379+00:00",
     "search_hydrated": true
   }
 ]

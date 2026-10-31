@@ -7075,10 +7075,12 @@
     "name": "Locke & Key / The Sandman Universe: Hell & Gone",
     "publisher": "DC Comics",
     "year": 2021,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555423+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T00:28:57.399331+00:00",
+    "retry_after": "2026-11-03T00:28:57.399333+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Sins of Sinister Dominion",
@@ -7730,9 +7732,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T00:05:20.308159+00:00",
-    "retry_after": "2026-10-31T00:05:20.308161+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T00:28:57.399251+00:00",
+    "retry_after": "2026-11-07T00:28:57.399269+00:00",
     "search_hydrated": true
   },
   {
@@ -7833,9 +7835,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T00:05:20.308212+00:00",
-    "retry_after": "2026-10-31T00:05:20.308213+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T00:28:57.399292+00:00",
+    "retry_after": "2026-11-07T00:28:57.399296+00:00",
     "search_hydrated": true
   },
   {
@@ -27497,8 +27499,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T00:01:34.273390+00:00",
-    "retry_after": "2026-11-01T00:01:34.273393+00:00",
+    "last_attempt_at": "2026-10-31T00:25:32.374335+00:00",
+    "retry_after": "2026-11-01T00:25:32.374338+00:00",
     "search_hydrated": true
   },
   {
@@ -43577,8 +43579,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T00:01:34.273323+00:00",
-    "retry_after": "2026-11-01T00:01:34.273337+00:00",
+    "last_attempt_at": "2026-10-31T00:25:32.374253+00:00",
+    "retry_after": "2026-11-01T00:25:32.374271+00:00",
     "search_hydrated": true
   },
   {
@@ -51479,8 +51481,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T00:01:34.273363+00:00",
-    "retry_after": "2026-11-01T00:01:34.273366+00:00",
+    "last_attempt_at": "2026-10-31T00:25:32.374301+00:00",
+    "retry_after": "2026-11-01T00:25:32.374305+00:00",
     "search_hydrated": true
   },
   {
@@ -86336,6 +86338,89 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T00:11:55.396185+00:00",
     "retry_after": "2026-11-01T00:11:55.396187+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Leone, Notes on a Life",
+    "publisher": "Image Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T00:28:57.399312+00:00",
+    "retry_after": "2026-11-01T00:28:57.399315+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC vs. Vampires: World War V",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 159245,
+        "name": "DC vs. Vampires: World War V",
+        "publisher": "DC Comics",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T00:28:58.278498+00:00",
+    "retry_after": "2026-11-01T00:28:58.278515+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Meow",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 155869,
+        "name": "Marvel Meow",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T00:30:24.059451+00:00",
+    "retry_after": "2026-11-01T00:30:24.059475+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Treasury Edition",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 2694,
+        "name": "Marvel Treasury Edition",
+        "publisher": "Marvel",
+        "start_year": 1974
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T00:30:24.059506+00:00",
+    "retry_after": "2026-11-01T00:30:24.059509+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel: June 1962 Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 144796,
+        "name": "Marvel: June 1962 Omnibus",
+        "publisher": "Marvel",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T00:31:17.397918+00:00",
+    "retry_after": "2026-11-01T00:31:17.397943+00:00",
     "search_hydrated": true
   }
 ]

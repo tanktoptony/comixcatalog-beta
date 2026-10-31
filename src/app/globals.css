@@ -13965,6 +13965,60 @@ select.input {
 .series-volume-item em { color: var(--cc-gold); font-size: .68rem; font-style: normal; font-weight: 800; white-space: nowrap; }
 .series-volume-item > span:last-child { color: var(--cc-text-muted); font-size: .68rem; white-space: nowrap; }
 .series-all-runs { display: inline-block; margin-top: 13px; color: var(--cc-gold); font-size: .76rem; font-weight: 800; }
+
+/* Work page: every collected edition of a run. Spacing is deliberate:
+   new members land here from the search chips, so nothing is crammed. */
+.work-page { min-width: 0; }
+.work-hero { margin-bottom: 44px; }
+.work-hero-blurb { max-width: 620px; margin: 14px 0 0; color: var(--cc-text-muted); font-size: 1rem; line-height: 1.6; }
+.work-stats { display: flex; flex-wrap: wrap; gap: 14px 44px; margin: 26px 0 0; }
+.work-stats > div { display: flex; flex-direction: column-reverse; gap: 4px; }
+.work-stats dt { color: var(--cc-text-muted); font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.work-stats dd { margin: 0; color: var(--cc-text); font-family: var(--font-display); font-size: 2.1rem; font-weight: 800; line-height: 1; }
+.work-stats .work-stats-owned { color: var(--cc-gold); }
+.work-tabs { display: flex; flex-wrap: wrap; gap: 10px; padding-bottom: 18px; border-bottom: 1px solid var(--cc-line); }
+.work-tabs button { display: inline-flex; min-height: 44px; align-items: center; gap: 8px; padding: 0 20px; border: 1px solid var(--cc-line); border-radius: 999px; background: transparent; color: var(--cc-text); font: inherit; font-size: .92rem; font-weight: 700; white-space: nowrap; cursor: pointer; transition: border-color .15s ease, background .15s ease; }
+.work-tabs button:hover { border-color: color-mix(in srgb, var(--cc-gold) 55%, var(--cc-line)); }
+.work-tabs button small { color: var(--cc-text-muted); font-size: .82rem; font-weight: 600; }
+.work-tabs button[aria-selected="true"] { border-color: var(--cc-gold); background: var(--cc-gold); color: #17130a; }
+.work-tabs button[aria-selected="true"] small { color: #3b2f0d; }
+.work-tabs button:focus-visible { outline: 3px solid color-mix(in srgb, var(--cc-gold) 70%, transparent); outline-offset: 3px; }
+.work-panel { margin-top: 32px; }
+.work-panel-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; margin-bottom: 20px; }
+.work-panel-heading h2 { margin: 0; color: var(--cc-text); font-family: var(--font-display); font-size: 1.7rem; }
+.work-panel-heading p { margin: 0; color: var(--cc-text-muted); font-size: .92rem; }
+.work-book-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 440px), 1fr)); gap: 18px; margin: 0; padding: 0; list-style: none; }
+.work-book { display: grid; grid-template-columns: 84px minmax(0, 1fr); align-items: start; gap: 22px; padding: 20px; border: 1px solid color-mix(in srgb, var(--cc-line) 75%, transparent); border-radius: 16px; background: rgba(255,255,255,.03); transition: border-color .18s ease, background .18s ease; }
+.work-book:hover { border-color: color-mix(in srgb, var(--cc-line) 50%, var(--cc-gold)); background: rgba(255,255,255,.045); }
+.work-book-cover,.work-book-cover img,.work-cover-placeholder { display: block; width: 84px; height: 126px; border-radius: 6px; }
+.work-book-cover img { object-fit: cover; box-shadow: 0 8px 20px rgba(0,0,0,.35); }
+.work-cover-placeholder { border: 1px solid var(--cc-line); background: var(--cc-surface-2); }
+.work-book-copy { display: flex; min-width: 0; min-height: 126px; flex-direction: column; overflow-wrap: anywhere; }
+.work-book-label { color: var(--cc-text); font-size: 1.08rem; font-weight: 800; line-height: 1.3; }
+.work-book-title { margin-top: 6px; color: var(--cc-text); font-size: .98rem; line-height: 1.4; }
+.work-book-year { margin-top: 6px; color: var(--cc-text-muted); font-size: .88rem; }
+.work-owned-pill,.work-wanted-pill { display: inline-flex; min-height: 24px; align-items: center; padding: 2px 10px; border: 1px solid color-mix(in srgb, var(--cc-gold) 55%, transparent); border-radius: 999px; color: var(--cc-gold); font-size: .8rem; font-weight: 700; vertical-align: middle; }
+.work-owned-pill { margin-left: 10px; }
+.work-wanted-pill { align-self: center; }
+.work-book-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 16px; }
+.work-btn { display: inline-flex; min-height: 40px; align-items: center; justify-content: center; padding: 0 16px; border: 1px solid color-mix(in srgb, var(--cc-gold) 55%, transparent); border-radius: 10px; background: transparent; color: var(--cc-gold); font: inherit; font-size: .88rem; font-weight: 700; text-decoration: none; cursor: pointer; transition: background .15s ease; }
+.work-btn:hover { background: color-mix(in srgb, var(--cc-gold) 12%, transparent); }
+.work-btn--primary { border-color: var(--cc-gold); background: var(--cc-gold); color: #17130a; }
+.work-btn--primary:hover { background: var(--cc-gold-soft); }
+.work-btn--quiet { border-color: var(--cc-line); color: var(--cc-text-muted); }
+.work-btn:focus-visible { outline: 3px solid color-mix(in srgb, var(--cc-gold) 70%, transparent); outline-offset: 2px; }
+.work-all-issues { display: inline-flex; min-height: 46px; align-items: center; margin-top: 28px; padding: 0 22px; border-radius: 10px; background: var(--cc-gold); color: #17130a; font-weight: 800; text-decoration: none; }
+@media (max-width: 640px) {
+  .work-hero { margin-bottom: 32px; }
+  .work-stats { gap: 12px 32px; }
+  .work-tabs { flex-wrap: nowrap; margin-inline: -16px; padding-inline: 16px; overflow-x: auto; scrollbar-width: none; }
+  .work-tabs::-webkit-scrollbar { display: none; }
+  .work-book-list { gap: 14px; }
+  .work-book { grid-template-columns: 64px minmax(0, 1fr); gap: 16px; padding: 16px; }
+  .work-book-cover,.work-book-cover img,.work-cover-placeholder { width: 64px; height: 96px; }
+  .work-book-copy { min-height: 96px; }
+  .work-book-actions > .work-btn { flex: 1 1 0; }
+}
 @media (max-width: 720px) {
   .series-public-hero { grid-template-columns: 1fr; }
   .series-cover-stack { width: 180px; margin-right: auto; margin-left: auto; }

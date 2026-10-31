@@ -125,12 +125,14 @@ async function main() {
     for (const row of rows) publishers.set(Number(row.gcd_id), row);
   }
 
-  eligible.sort((a, b) => {
-    const aCountry = publishers.get(series.get(a.seriesId)?.publisher_gcd_id)?.country;
-    const bCountry = publishers.get(series.get(b.seriesId)?.publisher_gcd_id)?.country;
-    return Number(bCountry === "us") - Number(aCountry === "us") || b.missing - a.missing;
-  });
-  const targets = eligible.slice(0, LIMIT).map((row) => {
+  // US runs only (2026-10-31). The US partial runs were all walked inside
+  // the done ledger's 30 days, so the lane skipped them and spent every hour
+  // on a 3,458-issue Danish weekly whose date-numbered covers land
+  // series-only and can't show on an issue page.
+  const usOnly = eligible.filter((row) =>
+    publishers.get(series.get(row.seriesId)?.publisher_gcd_id)?.country === "us");
+  usOnly.sort((a, b) => b.missing - a.missing);
+  const targets = usOnly.slice(0, LIMIT).map((row) => {
     const metadata = series.get(row.seriesId);
     const publisher = publishers.get(metadata?.publisher_gcd_id);
     return {

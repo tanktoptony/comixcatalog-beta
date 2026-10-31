@@ -7399,10 +7399,12 @@
     "name": "Dr. Strange, Surgeon Supreme",
     "publisher": "Marvel Comics",
     "year": 2020,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555514+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-10-31T22:18:41.851869+00:00",
+    "retry_after": "2026-11-03T22:18:41.851884+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Batman: Overdrive / Batman Tales: Once Upon a Crime (Special Edition)",
@@ -27501,8 +27503,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T22:02:18.976514+00:00",
-    "retry_after": "2026-11-01T22:02:18.976517+00:00",
+    "last_attempt_at": "2026-10-31T22:14:38.408577+00:00",
+    "retry_after": "2026-11-01T22:14:38.408580+00:00",
     "search_hydrated": true
   },
   {
@@ -43556,8 +43558,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T22:02:18.976436+00:00",
-    "retry_after": "2026-11-01T22:02:18.976449+00:00",
+    "last_attempt_at": "2026-10-31T22:14:38.408502+00:00",
+    "retry_after": "2026-11-01T22:14:38.408513+00:00",
     "search_hydrated": true
   },
   {
@@ -51459,8 +51461,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T22:02:18.976479+00:00",
-    "retry_after": "2026-11-01T22:02:18.976483+00:00",
+    "last_attempt_at": "2026-10-31T22:14:38.408543+00:00",
+    "retry_after": "2026-11-01T22:14:38.408547+00:00",
     "search_hydrated": true
   },
   {
@@ -79460,9 +79462,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T22:06:43.782802+00:00",
-    "retry_after": "2026-10-31T22:06:43.782822+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T22:18:03.895847+00:00",
+    "retry_after": "2026-11-07T22:18:03.895863+00:00",
     "search_hydrated": true
   },
   {
@@ -79478,9 +79480,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T22:06:45.403761+00:00",
-    "retry_after": "2026-10-31T22:06:45.403779+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T22:18:04.728508+00:00",
+    "retry_after": "2026-11-07T22:18:04.728523+00:00",
     "search_hydrated": true
   },
   {
@@ -79496,9 +79498,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T22:07:04.925852+00:00",
-    "retry_after": "2026-10-31T22:07:04.925868+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T22:18:04.823823+00:00",
+    "retry_after": "2026-11-07T22:18:04.823839+00:00",
     "search_hydrated": true
   },
   {
@@ -87775,6 +87777,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T22:06:39.395650+00:00",
     "retry_after": "2026-11-01T22:06:39.395654+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Eternals by Gaiman & Romita Jr.",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T22:19:53.370068+00:00",
+    "retry_after": "2026-11-01T22:19:53.370082+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Fantastic Four Vol. 1 No. 247 [Marvel Legends Reprint]",
+    "publisher": "Marvel Comics",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T22:20:19.744759+00:00",
+    "retry_after": "2026-11-01T22:20:19.744774+00:00",
     "search_hydrated": true
   }
 ]

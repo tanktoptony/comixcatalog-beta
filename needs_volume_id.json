@@ -27501,8 +27501,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T20:02:18.448992+00:00",
-    "retry_after": "2026-11-01T20:02:18.448995+00:00",
+    "last_attempt_at": "2026-10-31T21:02:15.304603+00:00",
+    "retry_after": "2026-11-01T21:02:15.304606+00:00",
     "search_hydrated": true
   },
   {
@@ -43556,8 +43556,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T20:02:18.448914+00:00",
-    "retry_after": "2026-11-01T20:02:18.448928+00:00",
+    "last_attempt_at": "2026-10-31T21:02:15.304521+00:00",
+    "retry_after": "2026-11-01T21:02:15.304537+00:00",
     "search_hydrated": true
   },
   {
@@ -51459,8 +51459,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T20:02:18.448957+00:00",
-    "retry_after": "2026-11-01T20:02:18.448961+00:00",
+    "last_attempt_at": "2026-10-31T21:02:15.304568+00:00",
+    "retry_after": "2026-11-01T21:02:15.304571+00:00",
     "search_hydrated": true
   },
   {
@@ -78938,9 +78938,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T20:05:41.081313+00:00",
-    "retry_after": "2026-10-31T20:05:41.081330+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T21:05:40.596696+00:00",
+    "retry_after": "2026-11-07T21:05:40.596711+00:00",
     "search_hydrated": true
   },
   {
@@ -78949,9 +78949,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T20:05:41.081354+00:00",
-    "retry_after": "2026-10-31T20:05:41.081358+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T21:05:40.596735+00:00",
+    "retry_after": "2026-11-07T21:05:40.596739+00:00",
     "search_hydrated": true
   },
   {
@@ -78967,9 +78967,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T20:05:42.344026+00:00",
-    "retry_after": "2026-10-31T20:05:42.344042+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T21:05:41.468409+00:00",
+    "retry_after": "2026-11-07T21:05:41.468428+00:00",
     "search_hydrated": true
   },
   {
@@ -78985,9 +78985,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T20:05:42.344082+00:00",
-    "retry_after": "2026-10-31T20:05:42.344086+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T21:05:41.468472+00:00",
+    "retry_after": "2026-11-07T21:05:41.468475+00:00",
     "search_hydrated": true
   },
   {
@@ -79014,9 +79014,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T20:05:42.559651+00:00",
-    "retry_after": "2026-10-31T20:05:42.559666+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T21:05:41.600214+00:00",
+    "retry_after": "2026-11-07T21:05:41.600228+00:00",
     "search_hydrated": true
   },
   {
@@ -79032,9 +79032,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T20:05:42.721978+00:00",
-    "retry_after": "2026-10-31T20:05:42.721992+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T21:05:41.753704+00:00",
+    "retry_after": "2026-11-07T21:05:41.753718+00:00",
     "search_hydrated": true
   },
   {
@@ -79062,9 +79062,9 @@
         "start_year": 2008
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T20:05:41.081437+00:00",
-    "retry_after": "2026-10-31T20:05:41.081441+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T21:05:40.596820+00:00",
+    "retry_after": "2026-11-07T21:05:40.596824+00:00",
     "search_hydrated": true
   },
   {
@@ -79073,9 +79073,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T20:05:41.081457+00:00",
-    "retry_after": "2026-10-31T20:05:41.081460+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T21:05:40.596841+00:00",
+    "retry_after": "2026-11-07T21:05:40.596844+00:00",
     "search_hydrated": true
   },
   {
@@ -79084,9 +79084,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T20:05:41.081475+00:00",
-    "retry_after": "2026-10-31T20:05:41.081478+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T21:05:40.596860+00:00",
+    "retry_after": "2026-11-07T21:05:40.596863+00:00",
     "search_hydrated": true
   },
   {
@@ -79204,9 +79204,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T20:05:41.081492+00:00",
-    "retry_after": "2026-10-31T20:05:41.081495+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T21:05:40.596878+00:00",
+    "retry_after": "2026-11-07T21:05:40.596880+00:00",
     "search_hydrated": true
   },
   {
@@ -79215,9 +79215,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T20:06:01.464949+00:00",
-    "retry_after": "2026-10-31T20:06:01.464963+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T21:06:02.193090+00:00",
+    "retry_after": "2026-11-07T21:06:02.193106+00:00",
     "search_hydrated": true
   },
   {
@@ -79226,9 +79226,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T20:06:01.464987+00:00",
-    "retry_after": "2026-10-31T20:06:01.464991+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T21:06:02.193131+00:00",
+    "retry_after": "2026-11-07T21:06:02.193134+00:00",
     "search_hydrated": true
   },
   {
@@ -79270,9 +79270,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T21:05:28.194766+00:00",
-    "retry_after": "2026-10-31T21:05:28.194782+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T21:06:02.193161+00:00",
+    "retry_after": "2026-11-07T21:06:02.193164+00:00",
     "search_hydrated": true
   },
   {
@@ -79281,9 +79281,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T21:05:28.194805+00:00",
-    "retry_after": "2026-10-31T21:05:28.194809+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T21:06:02.193177+00:00",
+    "retry_after": "2026-11-07T21:06:02.193180+00:00",
     "search_hydrated": true
   },
   {
@@ -79292,9 +79292,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T21:05:28.194829+00:00",
-    "retry_after": "2026-10-31T21:05:28.194833+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T21:06:02.193191+00:00",
+    "retry_after": "2026-11-07T21:06:02.193194+00:00",
     "search_hydrated": true
   },
   {
@@ -79303,9 +79303,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T21:05:28.194847+00:00",
-    "retry_after": "2026-10-31T21:05:28.194850+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T21:06:02.193205+00:00",
+    "retry_after": "2026-11-07T21:06:02.193207+00:00",
     "search_hydrated": true
   },
   {
@@ -79314,9 +79314,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T21:05:28.194866+00:00",
-    "retry_after": "2026-10-31T21:05:28.194869+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T21:06:02.193222+00:00",
+    "retry_after": "2026-11-07T21:06:02.193224+00:00",
     "search_hydrated": true
   },
   {
@@ -79332,9 +79332,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T21:05:29.232367+00:00",
-    "retry_after": "2026-10-31T21:05:29.232382+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T21:06:03.886618+00:00",
+    "retry_after": "2026-11-07T21:06:03.886635+00:00",
     "search_hydrated": true
   },
   {
@@ -79350,9 +79350,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T21:05:29.436894+00:00",
-    "retry_after": "2026-10-31T21:05:29.436907+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-10-31T21:06:04.034599+00:00",
+    "retry_after": "2026-11-07T21:06:04.034613+00:00",
     "search_hydrated": true
   },
   {
@@ -87742,6 +87742,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T20:06:53.883641+00:00",
     "retry_after": "2026-11-01T20:06:53.883645+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Adventures with the DC Super-Heroes: Energy Safety & Efficiency",
+    "publisher": "DC Comics",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-10-31T21:06:14.461502+00:00",
+    "retry_after": "2026-11-01T21:06:14.461517+00:00",
     "search_hydrated": true
   }
 ]

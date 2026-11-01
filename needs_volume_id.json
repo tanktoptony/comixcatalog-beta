@@ -8104,10 +8104,12 @@
     "name": "Marvel's Greatest Creators: Avengers - The Origin of Mantis!",
     "publisher": "Marvel Comics",
     "year": 2019,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555746+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T22:10:55.645565+00:00",
+    "retry_after": "2026-11-04T22:10:55.645583+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Hulk Modern Era Epic Collection",
@@ -12734,9 +12736,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-21T14:02:50.746889+00:00",
-    "retry_after": "2026-09-24T14:02:50.746906+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T22:10:59.778658+00:00",
+    "retry_after": "2026-11-08T22:10:59.778661+00:00",
+    "search_hydrated": true
   },
   {
     "name": "True Believers: Shattered Empire",
@@ -12896,9 +12899,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-21T14:02:58.374147+00:00",
-    "retry_after": "2026-09-24T14:02:58.374163+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T22:10:55.645625+00:00",
+    "retry_after": "2026-11-08T22:10:55.645628+00:00",
+    "search_hydrated": true
   },
   {
     "name": "It's a Cracked World",
@@ -14634,9 +14638,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T11:01:30.548017+00:00",
-    "retry_after": "2026-09-22T11:01:30.548033+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T22:10:55.645643+00:00",
+    "retry_after": "2026-11-04T22:10:55.645646+00:00",
+    "search_hydrated": true
   },
   {
     "name": "M-G-M's Tom & Jerry's Toy Fair",
@@ -14806,9 +14811,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T12:03:25.991241+00:00",
-    "retry_after": "2026-09-22T12:03:25.991255+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T22:10:59.778614+00:00",
+    "retry_after": "2026-11-04T22:10:59.778632+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Superman Fights the Prankster and Puzzler's Perilous Plots",
@@ -21701,9 +21707,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-24T14:08:25.037087+00:00",
-    "retry_after": "2026-09-27T14:08:25.037105+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T22:10:55.645607+00:00",
+    "retry_after": "2026-11-08T22:10:55.645610+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Marvel Masterworks: The Avengers - Barnes & Noble Edition",
@@ -27501,26 +27508,26 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
-      {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
       {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-01T20:21:33.106485+00:00",
-    "retry_after": "2026-11-02T20:21:33.106488+00:00",
+    "last_attempt_at": "2026-11-01T22:02:13.238113+00:00",
+    "retry_after": "2026-11-02T22:02:13.238116+00:00",
     "search_hydrated": true
   },
   {
@@ -43080,9 +43087,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-09T13:00:54.719798+00:00",
-    "retry_after": "2026-10-12T13:00:54.719814+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T22:10:55.645660+00:00",
+    "retry_after": "2026-11-08T22:10:55.645663+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Tegami Bachi, Letter Bee",
@@ -43563,7 +43571,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43581,8 +43589,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-01T20:21:33.106402+00:00",
-    "retry_after": "2026-11-02T20:21:33.106417+00:00",
+    "last_attempt_at": "2026-11-01T22:02:13.238028+00:00",
+    "retry_after": "2026-11-02T22:02:13.238045+00:00",
     "search_hydrated": true
   },
   {
@@ -51486,8 +51494,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-01T20:21:33.106449+00:00",
-    "retry_after": "2026-11-02T20:21:33.106452+00:00",
+    "last_attempt_at": "2026-11-01T22:02:13.238077+00:00",
+    "retry_after": "2026-11-02T22:02:13.238080+00:00",
     "search_hydrated": true
   },
   {
@@ -57198,9 +57206,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-25T21:05:58.020468+00:00",
-    "retry_after": "2026-11-01T21:05:58.020475+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-01T22:10:30.050442+00:00",
+    "retry_after": "2026-11-15T22:10:30.050460+00:00",
     "search_hydrated": true
   },
   {
@@ -82116,9 +82124,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-29T21:06:01.939955+00:00",
-    "retry_after": "2026-11-01T21:06:01.939959+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T22:10:35.106313+00:00",
+    "retry_after": "2026-11-08T22:10:35.106330+00:00",
     "search_hydrated": true
   },
   {
@@ -82134,9 +82142,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-29T21:06:02.114567+00:00",
-    "retry_after": "2026-11-01T21:06:02.114583+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T22:10:35.366234+00:00",
+    "retry_after": "2026-11-08T22:10:35.366250+00:00",
     "search_hydrated": true
   },
   {
@@ -82145,9 +82153,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-29T21:06:00.190372+00:00",
-    "retry_after": "2026-11-01T21:06:00.190374+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T22:10:30.050586+00:00",
+    "retry_after": "2026-11-08T22:10:30.050591+00:00",
     "search_hydrated": true
   },
   {
@@ -82169,9 +82177,9 @@
         "start_year": 2002
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-29T21:06:02.978143+00:00",
-    "retry_after": "2026-11-01T21:06:02.978160+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T22:10:30.050631+00:00",
+    "retry_after": "2026-11-08T22:10:30.050635+00:00",
     "search_hydrated": true
   },
   {
@@ -82180,9 +82188,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-29T21:38:04.127447+00:00",
-    "retry_after": "2026-11-01T21:38:04.127466+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T22:10:30.050672+00:00",
+    "retry_after": "2026-11-08T22:10:30.050675+00:00",
     "search_hydrated": true
   },
   {
@@ -82198,9 +82206,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-29T21:38:05.983615+00:00",
-    "retry_after": "2026-11-01T21:38:05.983634+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T22:10:35.500113+00:00",
+    "retry_after": "2026-11-08T22:10:35.500129+00:00",
     "search_hydrated": true
   },
   {
@@ -82216,9 +82224,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-29T21:38:06.257196+00:00",
-    "retry_after": "2026-11-01T21:38:06.257214+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T22:10:56.453592+00:00",
+    "retry_after": "2026-11-08T22:10:56.453610+00:00",
     "search_hydrated": true
   },
   {
@@ -87664,9 +87672,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T22:06:39.395611+00:00",
-    "retry_after": "2026-11-01T22:06:39.395627+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T22:11:09.789255+00:00",
+    "retry_after": "2026-11-04T22:11:09.789277+00:00",
     "search_hydrated": true
   },
   {
@@ -87675,9 +87683,9 @@
     "year": 2001,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T22:06:39.395650+00:00",
-    "retry_after": "2026-11-01T22:06:39.395654+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T22:11:09.789302+00:00",
+    "retry_after": "2026-11-04T22:11:09.789306+00:00",
     "search_hydrated": true
   },
   {
@@ -89509,6 +89517,78 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-01T21:18:17.927804+00:00",
     "retry_after": "2026-11-02T21:18:17.927808+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Visionaries: John Romita Sr.",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 41312,
+        "name": "Marvel Visionaries: John Romita Sr.",
+        "publisher": "Marvel",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T22:10:56.809232+00:00",
+    "retry_after": "2026-11-02T22:10:56.809238+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Visionaries: Roy Thomas",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 41353,
+        "name": "Marvel Visionaries: Roy Thomas",
+        "publisher": "Marvel",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T22:10:56.809257+00:00",
+    "retry_after": "2026-11-02T22:10:56.809259+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Visionaries: Stan Lee",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 41316,
+        "name": "Marvel Visionaries: Stan Lee",
+        "publisher": "Marvel",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T22:10:56.809274+00:00",
+    "retry_after": "2026-11-02T22:10:56.809276+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Visionaries: Steve Ditko",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 41318,
+        "name": "Marvel Visionaries: Steve Ditko",
+        "publisher": "Marvel",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T22:10:56.809523+00:00",
+    "retry_after": "2026-11-02T22:10:56.809526+00:00",
     "search_hydrated": true
   }
 ]

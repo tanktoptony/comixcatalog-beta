@@ -7,9 +7,11 @@ name: Trade volume match (hourly)
 # volumes/ request per title, most-reprinted works first; the ledger
 # (trade-volume-ledger.json) skips titles checked in the last 30 days.
 #
-# 60 requests at 8 s keeps a run near 8 minutes: it shares the
+# 150 requests at 4 s keeps a run near 10 minutes: it shares the
 # ingest-data-writes lock with cover-ingest.yml and gap-probe.yml (all three
 # write gap-pinned.json), so a long run would delay the hourly ingest.
+# ComicVine allows ~200 requests/hour per resource; this uses volumes/,
+# which the ingest doesn't, and stays well under one request a second.
 # :40 so it never starts with the ingest's :00 or gap-probe's :20.
 
 on:
@@ -53,7 +55,7 @@ jobs:
       - run: npm ci --no-audit --no-fund
 
       - name: Match trade volumes
-        run: node scripts/matchTradeVolumes.js --apply --max-calls=60 --sleep=8
+        run: node scripts/matchTradeVolumes.js --apply --max-calls=150 --sleep=4
 
       # A new cover clears that edition's stored chip pick (DB trigger), and
       # editions never appear as search cards, so nothing else refills it

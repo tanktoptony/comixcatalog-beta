@@ -59,8 +59,10 @@ jobs:
       # editions never appear as search cards, so nothing else refills it
       # until the weekly run. Only unchecked rows are touched.
       - name: Refill edition chip covers
-        run: node scripts/precomputeSeriesCardCovers.js --editions --limit=500 --apply
-        continue-on-error: true
+        run: |
+          if ! node scripts/precomputeSeriesCardCovers.js --editions --limit=500 --apply; then
+            echo "::warning::Edition chip cover refill failed; the weekly refresh retries it."
+          fi
 
       - name: Commit ledger and gap-pinned additions
         run: |

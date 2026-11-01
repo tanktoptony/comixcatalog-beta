@@ -6302,10 +6302,12 @@
     "name": "Maestro: Future Imperfect - Marvel Tales",
     "publisher": "Marvel Comics",
     "year": 2020,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555180+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T05:05:56.265824+00:00",
+    "retry_after": "2026-11-04T05:05:56.265827+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Earth-Prime: Stargirl",
@@ -7032,9 +7034,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-29T04:06:23.326279+00:00",
-    "retry_after": "2026-11-01T04:06:23.326296+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T05:05:37.994978+00:00",
+    "retry_after": "2026-11-08T05:05:37.994981+00:00",
     "search_hydrated": true
   },
   {
@@ -27503,8 +27505,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-01T04:01:55.988389+00:00",
-    "retry_after": "2026-11-02T04:01:55.988393+00:00",
+    "last_attempt_at": "2026-11-01T05:02:10.801688+00:00",
+    "retry_after": "2026-11-02T05:02:10.801690+00:00",
     "search_hydrated": true
   },
   {
@@ -27700,9 +27702,10 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-27T17:02:38.181859+00:00",
-    "retry_after": "2026-09-30T17:02:38.181877+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T05:05:56.265804+00:00",
+    "retry_after": "2026-11-08T05:05:56.265807+00:00",
+    "search_hydrated": true
   },
   {
     "name": "1111",
@@ -43560,8 +43563,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-01T04:01:55.988282+00:00",
-    "retry_after": "2026-11-02T04:01:55.988298+00:00",
+    "last_attempt_at": "2026-11-01T05:02:10.801615+00:00",
+    "retry_after": "2026-11-02T05:02:10.801632+00:00",
     "search_hydrated": true
   },
   {
@@ -51463,8 +51466,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-01T04:01:55.988329+00:00",
-    "retry_after": "2026-11-02T04:01:55.988332+00:00",
+    "last_attempt_at": "2026-11-01T05:02:10.801659+00:00",
+    "retry_after": "2026-11-02T05:02:10.801662+00:00",
     "search_hydrated": true
   },
   {
@@ -80257,9 +80260,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-29T04:05:17.724423+00:00",
-    "retry_after": "2026-11-01T04:05:17.724442+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T05:05:37.994849+00:00",
+    "retry_after": "2026-11-08T05:05:37.994869+00:00",
     "search_hydrated": true
   },
   {
@@ -80268,9 +80271,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-29T04:05:17.724466+00:00",
-    "retry_after": "2026-11-01T04:05:17.724469+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T05:05:37.994905+00:00",
+    "retry_after": "2026-11-08T05:05:37.994910+00:00",
     "search_hydrated": true
   },
   {
@@ -80279,9 +80282,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-29T04:05:17.724480+00:00",
-    "retry_after": "2026-11-01T04:05:17.724482+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T05:05:37.994929+00:00",
+    "retry_after": "2026-11-08T05:05:37.994932+00:00",
     "search_hydrated": true
   },
   {
@@ -80290,9 +80293,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-29T04:05:17.724490+00:00",
-    "retry_after": "2026-11-01T04:05:17.724492+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T05:05:37.994946+00:00",
+    "retry_after": "2026-11-08T05:05:37.994949+00:00",
     "search_hydrated": true
   },
   {
@@ -80301,9 +80304,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-29T04:05:17.724500+00:00",
-    "retry_after": "2026-11-01T04:05:17.724518+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T05:05:37.994962+00:00",
+    "retry_after": "2026-11-08T05:05:37.994965+00:00",
     "search_hydrated": true
   },
   {
@@ -86226,9 +86229,9 @@
         "start_year": 2005
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T04:07:47.789362+00:00",
-    "retry_after": "2026-11-01T04:07:47.789378+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T05:05:37.995031+00:00",
+    "retry_after": "2026-11-04T05:05:37.995035+00:00",
     "search_hydrated": true
   },
   {
@@ -86244,9 +86247,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T04:09:56.492815+00:00",
-    "retry_after": "2026-11-01T04:09:56.492829+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T05:05:39.293576+00:00",
+    "retry_after": "2026-11-04T05:05:39.293594+00:00",
     "search_hydrated": true
   },
   {
@@ -86255,9 +86258,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T04:10:11.023793+00:00",
-    "retry_after": "2026-11-01T04:10:11.023809+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T05:05:37.995090+00:00",
+    "retry_after": "2026-11-04T05:05:37.995093+00:00",
     "search_hydrated": true
   },
   {
@@ -86266,9 +86269,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T04:14:21.703518+00:00",
-    "retry_after": "2026-11-01T04:14:21.703534+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T05:06:28.391219+00:00",
+    "retry_after": "2026-11-04T05:06:28.391238+00:00",
     "search_hydrated": true
   },
   {
@@ -86284,9 +86287,9 @@
         "start_year": 2002
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T05:05:14.430731+00:00",
-    "retry_after": "2026-11-01T05:05:14.430759+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T05:05:39.293641+00:00",
+    "retry_after": "2026-11-04T05:05:39.293644+00:00",
     "search_hydrated": true
   },
   {
@@ -88010,6 +88013,60 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-01T04:06:48.500360+00:00",
     "retry_after": "2026-11-02T04:06:48.500365+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Last of the Independents",
+    "publisher": "Image Comics",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36979,
+        "name": "Last of the Independents",
+        "publisher": "AiT/Planet Lar",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T05:05:56.265716+00:00",
+    "retry_after": "2026-11-02T05:05:56.265735+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Killadelphia",
+    "publisher": "Image Comics",
+    "year": 2020,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 123105,
+        "name": "Killadelphia",
+        "publisher": "Image",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T05:05:57.976510+00:00",
+    "retry_after": "2026-11-02T05:05:57.976527+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel 2021 Calendar",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 144820,
+        "name": "Marvel 2021 Calendar",
+        "publisher": "Marvel",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T05:06:18.322971+00:00",
+    "retry_after": "2026-11-02T05:06:18.322988+00:00",
     "search_hydrated": true
   }
 ]

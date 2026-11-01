@@ -27503,8 +27503,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T23:02:07.945578+00:00",
-    "retry_after": "2026-11-01T23:02:07.945581+00:00",
+    "last_attempt_at": "2026-11-01T00:01:46.335305+00:00",
+    "retry_after": "2026-11-02T00:01:46.335307+00:00",
     "search_hydrated": true
   },
   {
@@ -43558,8 +43558,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T23:02:07.945502+00:00",
-    "retry_after": "2026-11-01T23:02:07.945514+00:00",
+    "last_attempt_at": "2026-11-01T00:01:46.335243+00:00",
+    "retry_after": "2026-11-02T00:01:46.335261+00:00",
     "search_hydrated": true
   },
   {
@@ -51461,8 +51461,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-10-31T23:02:07.945543+00:00",
-    "retry_after": "2026-11-01T23:02:07.945547+00:00",
+    "last_attempt_at": "2026-11-01T00:01:46.335283+00:00",
+    "retry_after": "2026-11-02T00:01:46.335285+00:00",
     "search_hydrated": true
   },
   {
@@ -79509,9 +79509,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T23:03:18.583815+00:00",
-    "retry_after": "2026-10-31T23:03:18.583817+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T00:01:46.335317+00:00",
+    "retry_after": "2026-11-08T00:01:46.335319+00:00",
     "search_hydrated": true
   },
   {
@@ -79520,9 +79520,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T23:07:14.987726+00:00",
-    "retry_after": "2026-10-31T23:07:14.987745+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T00:05:10.941137+00:00",
+    "retry_after": "2026-11-08T00:05:10.941156+00:00",
     "search_hydrated": true
   },
   {
@@ -79531,9 +79531,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T23:07:14.987826+00:00",
-    "retry_after": "2026-10-31T23:07:14.987830+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T00:05:10.941217+00:00",
+    "retry_after": "2026-11-08T00:05:10.941219+00:00",
     "search_hydrated": true
   },
   {
@@ -79542,9 +79542,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T23:07:32.500626+00:00",
-    "retry_after": "2026-10-31T23:07:32.500642+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T00:05:10.941264+00:00",
+    "retry_after": "2026-11-08T00:05:10.941266+00:00",
     "search_hydrated": true
   },
   {
@@ -79566,9 +79566,9 @@
         "start_year": 1989
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T23:07:32.500687+00:00",
-    "retry_after": "2026-10-31T23:07:32.500690+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T00:05:10.941300+00:00",
+    "retry_after": "2026-11-08T00:05:10.941302+00:00",
     "search_hydrated": true
   },
   {
@@ -79584,9 +79584,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T23:07:20.119380+00:00",
-    "retry_after": "2026-10-31T23:07:20.119398+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T00:05:11.705147+00:00",
+    "retry_after": "2026-11-08T00:05:11.705166+00:00",
     "search_hydrated": true
   },
   {
@@ -79602,9 +79602,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T23:07:33.312809+00:00",
-    "retry_after": "2026-10-31T23:07:33.312829+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T00:05:11.972016+00:00",
+    "retry_after": "2026-11-08T00:05:11.972035+00:00",
     "search_hydrated": true
   },
   {
@@ -79620,9 +79620,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T23:07:33.645226+00:00",
-    "retry_after": "2026-10-31T23:07:33.645244+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T00:05:12.274702+00:00",
+    "retry_after": "2026-11-08T00:05:12.274724+00:00",
     "search_hydrated": true
   },
   {
@@ -79632,21 +79632,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 93649,
-        "name": "Black Panther: A Nation Under Our Feet",
-        "publisher": "Marvel",
-        "start_year": 2016
-      },
-      {
         "id": 103222,
         "name": "Black Panther: A Nation Under Our Feet",
         "publisher": "Marvel",
         "start_year": 2017
+      },
+      {
+        "id": 93649,
+        "name": "Black Panther: A Nation Under Our Feet",
+        "publisher": "Marvel",
+        "start_year": 2016
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T23:07:32.500729+00:00",
-    "retry_after": "2026-10-31T23:07:32.500731+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T00:05:10.941340+00:00",
+    "retry_after": "2026-11-08T00:05:10.941341+00:00",
     "search_hydrated": true
   },
   {
@@ -87865,6 +87865,50 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-31T23:08:15.857630+00:00",
     "retry_after": "2026-11-01T23:08:15.857634+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Guardians of the Galaxy: Somebody's Got to Do It",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T00:05:10.941359+00:00",
+    "retry_after": "2026-11-02T00:05:10.941361+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Heroes in Crisis: The Price and Other Stories",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T00:06:56.043793+00:00",
+    "retry_after": "2026-11-02T00:06:56.043810+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Teenage Mutant Ninja Turtle: Road to 100",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T00:07:19.575368+00:00",
+    "retry_after": "2026-11-02T00:07:19.575384+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Man: Doctor Octopus",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T00:07:19.575400+00:00",
+    "retry_after": "2026-11-02T00:07:19.575402+00:00",
     "search_hydrated": true
   }
 ]

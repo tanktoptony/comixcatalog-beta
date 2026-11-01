@@ -18846,9 +18846,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-23T19:00:50.745058+00:00",
-    "retry_after": "2026-09-26T19:00:50.745073+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T20:18:04.634510+00:00",
+    "retry_after": "2026-11-08T20:18:04.634512+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Walking Dead",
@@ -27500,26 +27501,26 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
-      {
-        "id": 2930,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1977
-      },
       {
         "id": 116293,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-01T19:01:58.191492+00:00",
-    "retry_after": "2026-11-02T19:01:58.191494+00:00",
+    "last_attempt_at": "2026-11-01T20:11:11.677825+00:00",
+    "retry_after": "2026-11-02T20:11:11.677828+00:00",
     "search_hydrated": true
   },
   {
@@ -43562,7 +43563,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43580,8 +43581,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-01T19:01:58.191431+00:00",
-    "retry_after": "2026-11-02T19:01:58.191448+00:00",
+    "last_attempt_at": "2026-11-01T20:11:11.677778+00:00",
+    "retry_after": "2026-11-02T20:11:11.677794+00:00",
     "search_hydrated": true
   },
   {
@@ -63065,18 +63066,18 @@
     "name": "Criminal Deluxe Edition",
     "publisher": "Image Comics",
     "year": 2020,
-    "reason": "series_hint_year_mismatch",
+    "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 52029,
-        "name": "Criminal: The Deluxe Edition",
-        "publisher": "Image",
-        "start_year": 2009
+        "id": 168685,
+        "name": "Criminal Deluxe Edition",
+        "publisher": "Verlag Schreiber & Leser",
+        "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T18:20:39.159559+00:00",
-    "retry_after": "2026-11-01T18:20:39.159584+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T20:17:45.148858+00:00",
+    "retry_after": "2026-11-04T20:17:45.148861+00:00",
     "search_hydrated": true
   },
   {
@@ -82097,9 +82098,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-29T20:05:24.327051+00:00",
-    "retry_after": "2026-11-01T20:05:24.327064+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T20:17:47.153471+00:00",
+    "retry_after": "2026-11-08T20:17:47.153487+00:00",
     "search_hydrated": true
   },
   {
@@ -87452,9 +87453,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T18:17:59.916891+00:00",
-    "retry_after": "2026-11-01T18:17:59.916932+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T20:17:47.601719+00:00",
+    "retry_after": "2026-11-04T20:17:47.601722+00:00",
     "search_hydrated": true
   },
   {
@@ -87463,9 +87464,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T18:20:31.714098+00:00",
-    "retry_after": "2026-11-01T18:20:31.714115+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T20:17:45.148800+00:00",
+    "retry_after": "2026-11-04T20:17:45.148816+00:00",
     "search_hydrated": true
   },
   {
@@ -87474,9 +87475,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T18:20:31.714161+00:00",
-    "retry_after": "2026-11-01T18:20:31.714163+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T20:17:45.148875+00:00",
+    "retry_after": "2026-11-04T20:17:45.148877+00:00",
     "search_hydrated": true
   },
   {
@@ -87485,9 +87486,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T18:20:31.714172+00:00",
-    "retry_after": "2026-11-01T18:20:31.714174+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T20:17:45.148888+00:00",
+    "retry_after": "2026-11-04T20:17:45.148890+00:00",
     "search_hydrated": true
   },
   {
@@ -87509,9 +87510,9 @@
         "start_year": 2003
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T18:20:31.714212+00:00",
-    "retry_after": "2026-11-01T18:20:31.714214+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T20:17:45.148915+00:00",
+    "retry_after": "2026-11-04T20:17:45.148917+00:00",
     "search_hydrated": true
   },
   {
@@ -87520,9 +87521,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T18:21:09.555562+00:00",
-    "retry_after": "2026-11-01T18:21:09.555578+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T20:17:45.148927+00:00",
+    "retry_after": "2026-11-04T20:17:45.148929+00:00",
     "search_hydrated": true
   },
   {
@@ -87553,9 +87554,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T19:06:01.418368+00:00",
-    "retry_after": "2026-11-01T19:06:01.418384+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T20:17:45.148938+00:00",
+    "retry_after": "2026-11-04T20:17:45.148939+00:00",
     "search_hydrated": true
   },
   {
@@ -87564,9 +87565,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T19:07:08.438046+00:00",
-    "retry_after": "2026-11-01T19:07:08.438059+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T20:18:04.634438+00:00",
+    "retry_after": "2026-11-04T20:18:04.634454+00:00",
     "search_hydrated": true
   },
   {
@@ -87575,9 +87576,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T19:07:08.438086+00:00",
-    "retry_after": "2026-11-01T19:07:08.438088+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T20:18:04.634472+00:00",
+    "retry_after": "2026-11-04T20:18:04.634474+00:00",
     "search_hydrated": true
   },
   {
@@ -87608,9 +87609,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T20:05:41.084148+00:00",
-    "retry_after": "2026-11-01T20:05:41.084151+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T20:18:04.634486+00:00",
+    "retry_after": "2026-11-04T20:18:04.634487+00:00",
     "search_hydrated": true
   },
   {
@@ -87619,9 +87620,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T20:05:41.084177+00:00",
-    "retry_after": "2026-11-01T20:05:41.084180+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T20:18:04.634497+00:00",
+    "retry_after": "2026-11-04T20:18:04.634499+00:00",
     "search_hydrated": true
   },
   {
@@ -87630,9 +87631,9 @@
     "year": 2007,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T20:06:53.883601+00:00",
-    "retry_after": "2026-11-01T20:06:53.883617+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T20:18:14.177268+00:00",
+    "retry_after": "2026-11-04T20:18:14.177284+00:00",
     "search_hydrated": true
   },
   {
@@ -87641,9 +87642,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T20:06:53.883641+00:00",
-    "retry_after": "2026-11-01T20:06:53.883645+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T20:18:14.177302+00:00",
+    "retry_after": "2026-11-04T20:18:14.177305+00:00",
     "search_hydrated": true
   },
   {
@@ -89401,6 +89402,102 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-01T18:10:50.247586+00:00",
     "retry_after": "2026-11-02T18:10:50.247588+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Universe: The End",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18641,
+        "name": "Marvel Universe: The End",
+        "publisher": "Marvel",
+        "start_year": 2003
+      },
+      {
+        "id": 36500,
+        "name": "Marvel Universe: The End",
+        "publisher": "Marvel",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T20:18:04.634541+00:00",
+    "retry_after": "2026-11-02T20:18:04.634543+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Visionaries: Chris Claremont",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 41277,
+        "name": "Marvel Visionaries: Chris Claremont",
+        "publisher": "Marvel",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T20:18:05.028258+00:00",
+    "retry_after": "2026-11-02T20:18:05.028270+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Visionaries: Jack Kirby",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 41342,
+        "name": "Marvel Visionaries: Jack Kirby",
+        "publisher": "Marvel",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T20:18:05.028285+00:00",
+    "retry_after": "2026-11-02T20:18:05.028288+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Visionaries: John Buscema",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 41309,
+        "name": "Marvel Visionaries: John Buscema",
+        "publisher": "Marvel",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T20:18:05.028301+00:00",
+    "retry_after": "2026-11-02T20:18:05.028302+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Visionaries: John Romita Jr.",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 41311,
+        "name": "Marvel Visionaries: John Romita Jr.",
+        "publisher": "Marvel",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T20:18:05.028315+00:00",
+    "retry_after": "2026-11-02T20:18:05.028316+00:00",
     "search_hydrated": true
   }
 ]

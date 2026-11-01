@@ -57,7 +57,7 @@ The March GCD import's garbled accented text was repaired from the GCD dump on O
 - Issue URLs keep the selected edition while work-level sections join through the base issue.
 - Series pages show when a run continues in another series or is collected elsewhere. These relationships come from `series_links`.
 - Edition and special series are mapped to their underlying works in `series_editions`, rebuilt weekly from issue-level reprint data with a title fallback.
-- `/api/search/series?works=1` folds editions into their work and returns an `editions` summary; the header search dropdown opts in.
+- `/api/search/series?works=1` folds editions into their work and returns an `editions` summary; the header search dropdown and the /search results page opt in. The results page filters works and issues client-side by Format, Decade and Publisher (`src/lib/searchFacets.js`, Discogs-style counts).
 - The full GCD dump import is still in progress. Do not treat test-load counts in the vision spec as final production counts.
 
 ## 5. Marketplace transactions

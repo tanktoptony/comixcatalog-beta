@@ -4,6 +4,9 @@ export const SEARCH_CACHE_REVALIDATE_SECONDS = 600;
 // client refetch must ask for the same number).
 export const SERIES_SHELF_SIZE = 8;
 
+// Work entries shown on the search results page.
+export const SEARCH_WORKS_SIZE = 24;
+
 export function normalizeSearchCacheTerm(value) {
   return String(value ?? "")
     .trim()

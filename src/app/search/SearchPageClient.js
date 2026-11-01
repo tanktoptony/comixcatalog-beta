@@ -15,9 +15,11 @@ import { coverThumb } from "@/lib/coverThumb";
 import ComicResultCard from "@/components/ComicResultCard";
 import CoverScanner from "@/components/CoverScanner";
 import { compareIssueNumbers, normalizeTitle } from "@/lib/coverMatch";
-import { SERIES_SHELF_SIZE } from "@/lib/searchCache";
+import { SEARCH_WORKS_SIZE } from "@/lib/searchCache";
+import { buildFacets, filterResults } from "@/lib/searchFacets";
 
 const PAGE_SIZE = 36;
+const emptySelection = () => ({ formats: new Set(), decades: new Set(), publishers: new Set() });
 
 function resolveCoverUrl(rawCover) {
   if (!rawCover) return null;
@@ -38,6 +40,11 @@ function formatYearRange(start, end) {
   if (!s) return "";
   if (!e || e === s) return String(s);
   return `${s}–${e}`;
+}
+
+function editionCountLabel(work) {
+  const count = (work?.editions?.groups ?? []).reduce((sum, group) => sum + (Number(group.series_count) || 0), 0);
+  return `${count} edition${count === 1 ? "" : "s"}`;
 }
 
 function mapSupabaseComic(row) {
@@ -120,7 +127,8 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
   const skipComicsFetchFor = useRef(initialComics ? initialQuery : null);
   const skipSeriesFetchFor = useRef(initialSeries ? initialQuery : null);
 
-  const [publisherFilter, setPublisherFilter] = useState(null);
+  const [selected, setSelected] = useState(emptySelection);
+  const [filtersOpen, setFiltersOpen] = useState(false);
   const [collectionFilter, setCollectionFilter] = useState("all");
 
   const [isLoading, setIsLoading] = useState(false);
@@ -230,7 +238,8 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
     setPage(0);
     setHasMore(true);
     setLoadError(null);
-    setPublisherFilter(null);
+    setSelected(emptySelection());
+    setFiltersOpen(false);
     setSupabaseComics([]);
     setSeriesResults([]);
     setIsFirstLoad(Boolean(term));
@@ -250,7 +259,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
     const timeout = setTimeout(async () => {
       try {
         const res = await fetch(
-          `/api/search/series?q=${encodeURIComponent(term)}&limit=${SERIES_SHELF_SIZE}`,
+          `/api/search/series?q=${encodeURIComponent(term)}&works=1&limit=${SEARCH_WORKS_SIZE}`,
           { cache: "no-store" }
         );
         if (!res.ok) throw new Error(`Series request failed: ${res.status}`);
@@ -338,41 +347,39 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
   }, [mappedComics, seriesResults]);
 
   // ── Dynamic publisher list from current results ──────────────────────────────
-  const availablePublishers = useMemo(() => {
-    const counts = {};
-    for (const item of orderedComics) {
-      const pub = (item.publisher || "").trim();
-      if (!pub) continue;
-      counts[pub] = (counts[pub] || 0) + 1;
-    }
-    return Object.entries(counts)
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, 10)
-      .map(([name]) => name);
-  }, [orderedComics]);
+  const filtered = useMemo(
+    () => filterResults({ works: seriesResults, issues: orderedComics, selected }),
+    [seriesResults, orderedComics, selected]
+  );
+  const facets = useMemo(
+    () => buildFacets({ works: seriesResults, issues: orderedComics, selected }),
+    [seriesResults, orderedComics, selected]
+  );
 
   // ── Apply collection/wishlist filters only (server already handled query+publisher) ──
   const results = useMemo(() => {
-    let filtered = orderedComics;
-
-    // Publisher filter (client-side on current page's results)
-    if (publisherFilter) {
-      filtered = filtered.filter((item) =>
-        String(item.publisher || "").toLowerCase().includes(publisherFilter.toLowerCase())
-      );
-    }
+    let issues = filtered.issues;
 
     if (collectionFilter === "collection") {
-      filtered = filtered.filter((item) => collectionIds.has(item.id));
+      issues = issues.filter((item) => collectionIds.has(item.id));
     } else if (collectionFilter === "wishlist") {
-      filtered = filtered.filter((item) => wishlistIds.has(item.id));
+      issues = issues.filter((item) => wishlistIds.has(item.id));
     }
 
-    return filtered;
-  }, [orderedComics, publisherFilter, collectionFilter, collectionIds, wishlistIds]);
+    return issues;
+  }, [filtered.issues, collectionFilter, collectionIds, wishlistIds]);
 
-  const togglePublisher = useCallback((pub) => {
-    setPublisherFilter((prev) => (prev === pub ? null : pub));
+  const selectedCount = selected.formats.size + selected.decades.size + selected.publishers.size;
+  const showIssues = selected.formats.size === 0 || selected.formats.has("issues");
+  const nothingMatches = selectedCount > 0 && filtered.works.length === 0 && filtered.issues.length === 0;
+  const clearFilters = useCallback(() => setSelected(emptySelection()), []);
+  const toggleFacet = useCallback((facet, key) => {
+    setSelected((current) => {
+      const next = { ...current, [facet]: new Set(current[facet]) };
+      if (next[facet].has(key)) next[facet].delete(key);
+      else next[facet].add(key);
+      return next;
+    });
   }, []);
 
   const toggleCollection = useCallback((val) => {
@@ -396,6 +403,35 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
       <h1 className="hero-title">Find Comics</h1>
 
       {/* The search input is the header's — see SearchQueryContext. */}
+
+      {!isFirstLoad && (
+        <button type="button" className="search-filters-toggle work-btn work-btn--quiet" aria-expanded={filtersOpen} aria-controls="search-filter-rail" onClick={() => setFiltersOpen((open) => !open)}>
+          Filters{selectedCount ? ` · ${selectedCount}` : ""}
+        </button>
+      )}
+
+      <div className="search-layout">
+        {!isFirstLoad && (
+          <aside id="search-filter-rail" className={`search-filters ${filtersOpen ? "is-open" : ""}`}>
+            <div className="search-filters-header">
+              <strong>Filters</strong>
+              {selectedCount > 0 && <button type="button" onClick={clearFilters}>Clear all</button>}
+            </div>
+            {Object.entries(facets).map(([facet, options]) => options.length > 0 && (
+              <fieldset key={facet}>
+                <legend>{facet === "formats" ? "Format" : facet === "decades" ? "Decade" : "Publisher"}</legend>
+                {options.map((option) => (
+                  <label key={option.key}>
+                    <input type="checkbox" checked={option.on} onChange={() => toggleFacet(facet, option.key)} />
+                    <span>{option.label}</span>
+                    <small>{option.count.toLocaleString("en-US")}</small>
+                  </label>
+                ))}
+              </fieldset>
+            ))}
+          </aside>
+        )}
+        <div className="search-results-main">
 
       {showEveryRun && fullRuns.term === term && topRuns.length > 0 && (
         <div className="search-runs-end">
@@ -423,11 +459,53 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
       )}
 
       {/* Series suggestions — grouped by title, divider between groups */}
-      {seriesResults.length > 0 && (
-        <div style={{ marginBottom: "20px" }}>
-          <h3 className="section-label">Series</h3>
+      {filtered.works.length > 0 && (() => {
+        const featured = filtered.works[0]?.editions?.groups?.length ? filtered.works[0] : null;
+        const remaining = featured ? filtered.works.slice(1) : filtered.works;
+        return (
+        <section className="search-works-section">
+          <div className="search-section-heading">
+            <h2>Works</h2>
+            <span>{filtered.works.length} work{filtered.works.length === 1 ? "" : "s"}</span>
+          </div>
+          {featured && (
+            <article className="search-work-feature">
+              <div className="search-work-feature-cover">
+                {featured.cover && <img src={coverThumb(featured.cover)} alt={featured.title || ""} />}
+              </div>
+              <div className="search-work-feature-body">
+                <div>
+                  <h3>{featured.title || "Untitled Series"}</h3>
+                  <p>{[
+                    featured.publisher?.name || "Unknown Publisher",
+                    formatYearRange(featured.year_start, featured.year_end),
+                    `${Number(featured.issue_count) || 0} issue${Number(featured.issue_count) === 1 ? "" : "s"}`,
+                    editionCountLabel(featured),
+                  ].filter(Boolean).join(" · ")}</p>
+                </div>
+                <div className="search-edition-grid">
+                  {featured.showRun && (
+                    <Link prefetch={false} href={`/series/${featured.id}`} className="search-edition-chip" onClick={() => trackEvent("search_result_click", { result_type: "work_feature", result_id: featured.id, search_term: term })}>
+                      {featured.cover ? <img src={coverThumb(featured.cover)} alt="" /> : <span className="search-edition-placeholder" />}
+                      <span><strong>Single issues</strong><small>{Number(featured.issue_count) || 0} issue{Number(featured.issue_count) === 1 ? "" : "s"}</small></span>
+                    </Link>
+                  )}
+                  {featured.visibleGroups.map((group) => (
+                    <Link prefetch={false} key={group.label} href={group.href} className="search-edition-chip" onClick={() => trackEvent("search_result_click", { result_type: "work_edition", result_id: featured.id, edition_group: group.label, search_term: term })}>
+                      {group.cover ? <img src={coverThumb(group.cover)} alt="" /> : <span className="search-edition-placeholder" />}
+                      <span><strong>{group.label}</strong><small>{group.books} book{Number(group.books) === 1 ? "" : "s"}</small></span>
+                    </Link>
+                  ))}
+                </div>
+                <div className="search-work-actions">
+                  <Link prefetch={false} href={`/work/${featured.id}`} className="work-btn work-btn--primary" onClick={() => trackEvent("search_result_click", { result_type: "work_all_editions", result_id: featured.id, search_term: term })}>See all editions</Link>
+                  <Link prefetch={false} href={`/series/${featured.id}`} className="work-btn work-btn--quiet" onClick={() => trackEvent("search_result_click", { result_type: "work_feature", result_id: featured.id, search_term: term })}>Open the run</Link>
+                </div>
+              </div>
+            </article>
+          )}
           <div className="comic-grid search-series-grid">
-            {seriesResults.filter((s) => s?.id).map((s) => {
+            {remaining.filter((s) => s?.id).map((s) => {
                     const yearLabel = formatYearRange(s.year_start, s.year_end);
                     return (
                       <Link prefetch={false}
@@ -460,33 +538,27 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
                             .filter(Boolean)
                             .join(" · ")}
                         </div>
+                        {s.editions?.groups?.length > 0 && <div className="search-card-editions">
+                          + {editionCountLabel(s)}
+                        </div>}
                       </Link>
                     );
                   })}
           </div>
-        </div>
-      )}
+        </section>
+        );
+      })()}
 
+      {nothingMatches && <div className="search-filter-empty">
+        <p>Nothing matches these filters.</p>
+        <button type="button" className="work-btn work-btn--quiet" onClick={clearFilters}>Clear filters</button>
+      </div>}
+
+      {showIssues && <>
       <h2 className="section-label search-issues-heading">Issues</h2>
 
       {/* Filter bar */}
       <div className="filter-bar">
-        {/* Dynamic publisher filters from actual results */}
-        {availablePublishers.map((pub) => (
-          <button
-            key={pub}
-            className={`filter-btn ${publisherFilter === pub ? "active" : ""}`}
-            onClick={() => togglePublisher(pub)}
-          >
-            {pub}
-          </button>
-        ))}
-
-        {/* Divider if publishers exist */}
-        {availablePublishers.length > 0 && (
-          <span style={{ width: 1, background: "rgba(255,255,255,0.1)", margin: "0 4px" }} />
-        )}
-
         <button
           className={`filter-btn ${collectionFilter === "collection" ? "active" : ""}`}
           onClick={() => toggleCollection("collection")}
@@ -514,12 +586,11 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
         <p className="muted">
           {results.length} result{results.length === 1 ? "" : "s"}
           {` for "${shownQuery}"`}
-          {publisherFilter ? ` · ${publisherFilter}` : ""}
         </p>
       )}
 
       {/* Empty state */}
-      {!isLoading && !loadError && !isFirstLoad && results.length === 0 && (
+      {!isLoading && !loadError && !isFirstLoad && orderedComics.length === 0 && seriesResults.length === 0 && (
         <div>
           <EmptyState
             icon="🔍"
@@ -748,6 +819,9 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
           </p>
         </div>
       )}
+      </>}
+        </div>
+      </div>
     </section>
   );
 }

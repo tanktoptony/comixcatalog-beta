@@ -129,6 +129,13 @@ jobs:
 
       - name: Search variety tests
         run: npm run test:search-variety
+
+      - name: Search works tests
+        run: |
+          npm run test:search-facets
+          npm run test:search-works
+          npm run test:work-page
+
       - name: Password policy tests
         run: npm run test:password-policy
 

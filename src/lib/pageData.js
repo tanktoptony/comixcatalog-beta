@@ -1,7 +1,7 @@
 import { unstable_cache } from "next/cache";
 import { getCachedComicsSearch } from "@/app/api/search/comics/route";
 import { getCachedSeriesSearch } from "@/app/api/search/series/route";
-import { SERIES_SHELF_SIZE } from "@/lib/searchCache";
+import { SEARCH_WORKS_SIZE } from "@/lib/searchCache";
 import { GET as seriesGET } from "@/app/api/series/[id]/route";
 import { GET as issueGET } from "@/app/api/issues/[id]/route";
 import { GET as publicProfileGET } from "@/app/api/public-profile/route";
@@ -55,7 +55,7 @@ const settle = (p) =>
 export async function getInitialSearch(q) {
   const [comicResult, seriesResult] = await Promise.all([
     settle(getCachedComicsSearch(q, { limit: SEARCH_PAGE_SIZE, offset: 0 })),
-    settle(getCachedSeriesSearch(q, { limit: SERIES_SHELF_SIZE })),
+    settle(getCachedSeriesSearch(q, { limit: SEARCH_WORKS_SIZE, works: true })),
   ]);
   return {
     comics: comicResult?.comics ?? null,

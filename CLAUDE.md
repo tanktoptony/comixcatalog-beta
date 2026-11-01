@@ -385,7 +385,7 @@ Three bugs fixed:
 
 ### Pull list (shipped November 2026)
 
-Collectors can follow catalog series from their series pages and use `/pull-list` to see issues as dated covers land in the catalog, grouped week by week. Resolved issues can be added to the collection or wantlist in one tap. "Coming soon" lists only issues with an exact future GCD on-sale date (`gcd_issue_details.on_sale_date`), never `gcd_issues.key_date`, which is usually the cover date about two months after the shops; the section hides when GCD has none. Alerts and cost totals are outside v1. Issue numbers resolve through `matchIssue`, which reads GCD's legacy "40 (340)" form.
+Collectors can follow catalog series from their series pages and use `/pull-list` to see issues as dated covers land in the catalog, grouped week by week. Resolved issues can be added to the collection or wantlist in one tap. "Coming soon" lists only issues with an exact future GCD on-sale date (`gcd_issue_details.on_sale_date`), never `gcd_issues.key_date`, which is usually the cover date about two months after the shops; the section hides when GCD has none. Alerts and cost totals are outside v1. Issue numbers resolve through `matchIssue`, which reads GCD's legacy "40 (340)" form. The live GCD refresh checks unmatched recent covers first and records variant/base fields plus issue details; series discovery first probes the GCD series ids just past our newest one (GCD's series list is sorted by name and has no ordering or name filter), then continues its alphabetical cursor walk.
 
 ### Phase 3 — Daily Engagement (sequenced after Phase 2, no fixed date)
 - Portfolio value tracking with over-time charts (Phase 2's `market_comps` snapshots feed this directly)

@@ -1,3 +1,6 @@
+// Updated 2026-11-01: every run first probes the GCD series ids just past the
+// newest one we have (probeNewestSeries), so a new series no longer waits up
+// to a month for the alphabetical 234k-series walk to reach its name.
 import dotenv from "dotenv";
 import fs from "node:fs";
 import path from "node:path";
@@ -80,7 +83,10 @@ async function importPageRows(rows) {
     const gcdId = gcdIdFromUrl(row.api_url, "series");
     const publisherGcdId = gcdIdFromUrl(row.publisher, "publisher");
     const publisher = publishers.get(publisherGcdId);
-    if (!publisher) throw new Error(`gcd_publishers has no row for publisher ${publisherGcdId} on series ${gcdId}`);
+    if (!publisher) {
+      console.warn(`Skipping series ${gcdId}: gcd_publishers has no row for publisher ${publisherGcdId}.`);
+      continue;
+    }
     const issues = provisionalIssueRows(row);
     const gcdSeriesValues = {
       gcd_id: gcdId,
@@ -108,6 +114,70 @@ async function importPageRows(rows) {
   return { missing: missing.length, eligible: eligible.length };
 }
 
+// Newest series by id. GCD's /api/series/ list is sorted by name and takes
+// no ordering or name filter (checked 2026-11-01), so the page walk reaches a
+// new series only when the alphabet does. New series get sequential ids, so
+// each run fetches the unknown ids just past the newest one we have (ids
+// already in gcd_series cost no request). A trailing run of 404s means we
+// are at GCD's frontier: the cursor stays on the first missing id and the
+// frontier is checked again after FRONTIER_WAIT_MS, with one look-ahead id so
+// a block of deleted ids cannot stall the probe.
+const PROBE_START = 241227; // one past the 2026-10-10 dump's highest series id
+const PROBE_PER_RUN = Number(args.probe ?? 6);
+const FRONTIER_STREAK = 3;
+const FRONTIER_WAIT_MS = 6 * 60 * 60 * 1000;
+
+async function seriesJsonOrNull(id) {
+  const response = await fetch(`https://www.comics.org/api/series/${id}/?format=json`, { headers: { Accept: "application/json", "User-Agent": "ComixCatalog gcd-series-discovery; contact via repo" } });
+  if (response.status === 429) throw new RateLimited(`GCD rate limited series discovery. Retry-After: ${response.headers.get("retry-after") ?? "unknown"}s`);
+  if (response.status === 404) return null;
+  if (!response.ok) throw new Error(`${response.status} ${response.statusText} for series ${id}`);
+  return response.json();
+}
+
+async function probeNewestSeries(cursor) {
+  if (cursor.probe_frontier_at && Date.now() - Date.parse(cursor.probe_frontier_at) < FRONTIER_WAIT_MS) {
+    console.log(`Newest-id probe: at GCD's frontier (${cursor.probe_next_id}) since ${cursor.probe_frontier_at}; next check later.`);
+    return;
+  }
+  let id = Number(cursor.probe_next_id || PROBE_START);
+  const { data, error } = await supabase.from("gcd_series").select("gcd_id").gte("gcd_id", id).order("gcd_id", { ascending: true }).range(0, 999);
+  if (error) throw error;
+  const known = new Set((data ?? []).map((row) => Number(row.gcd_id)));
+  let fetched = 0;
+  let imported = 0;
+  let streakStart = null;
+  while (fetched < PROBE_PER_RUN) {
+    if (known.has(id)) { streakStart = null; id += 1; continue; }
+    const json = await seriesJsonOrNull(id);
+    fetched += 1;
+    if (json) {
+      const counts = await importPageRows([json]);
+      imported += counts.eligible;
+      streakStart = null;
+    } else if (streakStart == null) {
+      streakStart = id;
+    }
+    id += 1;
+    await sleep(SLEEP_MS);
+  }
+  let atFrontier = streakStart != null && id - streakStart >= FRONTIER_STREAK;
+  if (atFrontier) {
+    // Look ahead once: a hit past the streak means a block of deleted ids,
+    // not the frontier, so the probe jumps past it.
+    const ahead = id + PROBE_PER_RUN * 2;
+    if (!known.has(ahead) && await seriesJsonOrNull(ahead)) {
+      atFrontier = false;
+      streakStart = null;
+      id = ahead;
+    }
+  }
+  cursor.probe_next_id = atFrontier ? streakStart : id;
+  cursor.probe_frontier_at = atFrontier ? new Date().toISOString() : null;
+  writeCursor(cursor);
+  console.log(`Newest-id probe: ${fetched} fetched, ${imported} imported, next id ${cursor.probe_next_id}${atFrontier ? " (frontier)" : ""}.`);
+}
+
 async function main() {
   if (MAX_PAGES !== Infinity && (!Number.isInteger(MAX_PAGES) || MAX_PAGES < 1)) throw new Error("--max-pages must be a positive integer");
   const publisherCursor = readJson(PUBLISHER_CURSOR_FILE, {});
@@ -116,8 +186,9 @@ async function main() {
     return;
   }
   const cursor = readJson(CURSOR_FILE, { next_page: 1, started_at: null, completed_at: null });
+  await probeNewestSeries(cursor);
   if (cursor.completed_at) {
-    console.log(`Series discovery completed ${cursor.completed_at}; no new full walk is scheduled.`);
+    console.log(`Series discovery completed ${cursor.completed_at}; newest-id probe finished.`);
     return;
   }
   cursor.started_at ||= new Date().toISOString();

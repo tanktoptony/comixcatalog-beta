@@ -1,3 +1,6 @@
+# Updated 2026-11-01: GCD series resolution tries title forms both with and
+# without a leading "The". ComicVine's "The Punisher" otherwise failed to
+# find GCD's "Punisher" (2026, gcd 234204) for new-release covers #8 and #9.
 import argparse
 import csv
 import io
@@ -1694,10 +1697,17 @@ def _resolve_series_gcd_id(
         except Exception:
             return []
 
+    def _title_forms(title: str) -> list[str]:
+        without_the = re.sub(r"^the\s+", "", title, flags=re.IGNORECASE)
+        return list(dict.fromkeys((title, without_the, f"The {without_the}")))
+
     candidates = []
     for nm in (target_name, cv_volume_name):
         if nm:
-            candidates = _query(nm)
+            candidates = []
+            for form in _title_forms(nm):
+                candidates.extend(_query(form))
+            candidates = list({int(row["gcd_id"]): row for row in candidates}.values())
             if candidates:
                 break
 

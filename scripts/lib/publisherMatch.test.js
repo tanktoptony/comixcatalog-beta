@@ -40,6 +40,17 @@ test("title+publisher+year selects one conservative lower-overlap match", () => 
   assert.equal(result?.reason, "title+publisher+year");
 });
 
+test("title+publisher+year ignores a leading The", () => {
+  const result = chooseSkippedCandidate({
+    skipReason: "no_candidate", volumeTitle: "The Punisher", volumePublisher: "Marvel", startYear: 2025,
+    candidates: [
+      { gcdId: 234204, overlap: 0.60, publisherName: "Marvel Comics", name: "Punisher", yearBegan: 2026 },
+    ],
+  });
+  assert.equal(result?.winner.gcdId, 234204);
+  assert.equal(result?.reason, "title+publisher+year");
+});
+
 test("Nightwing resolves to the 2016 DC run", () => {
   const result = chooseSkippedCandidate({
     skipReason: "no_candidate", volumeTitle: "Nightwing", volumePublisher: "DC Comics", startYear: 2016,

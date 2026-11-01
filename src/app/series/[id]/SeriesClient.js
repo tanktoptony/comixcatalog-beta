@@ -1,11 +1,14 @@
 "use client";
 
+/* eslint-disable @next/next/no-img-element */
+
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { useLibrary } from "@/context/LibraryContext";
 import { trackEvent } from "@/lib/analytics";
+import { authedFetch } from "@/lib/apiClient";
 import AdSlot from "@/components/AdSlot";
 import { SLOT } from "@/lib/houseAds";
 import { coverThumb } from "@/lib/coverThumb";
@@ -91,7 +94,52 @@ export default function SeriesClient({ initialSeries = null, initialOwnMode = fa
   const [rangeStartId, setRangeStartId] = useState(null);
   const [selectingRange, setSelectingRange] = useState(false);
   const [runAdding, setRunAdding] = useState(false);
+  const [onPullList, setOnPullList] = useState(false);
+  const [pullListLoading, setPullListLoading] = useState(false);
+  const [pullListError, setPullListError] = useState(null);
   const markingMode = Boolean(user && ownMode);
+
+  useEffect(() => {
+    if (authLoading || !user || !series?.gcd_id) return;
+    let active = true;
+    authedFetch(`/api/pull-list?series_gcd_id=${Number(series.gcd_id)}`, { cache: "no-store" })
+      .then(async (response) => {
+        const body = await response.json();
+        if (!response.ok) throw new Error(body.error || "Could not check your pull list.");
+        if (active) setOnPullList(Boolean(body.following));
+      })
+      .catch((error) => {
+        console.error("Pull list status failed:", error);
+        if (active) setPullListError(error.message);
+      })
+      .finally(() => {
+        if (active) setPullListLoading(false);
+      });
+    return () => { active = false; };
+  }, [authLoading, series?.gcd_id, user]);
+
+  async function togglePullList() {
+    if (!series?.gcd_id || pullListLoading) return;
+    const previous = onPullList;
+    setOnPullList(!previous);
+    setPullListLoading(true);
+    setPullListError(null);
+    try {
+      const response = await authedFetch("/api/pull-list", {
+        method: previous ? "DELETE" : "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ series_gcd_id: Number(series.gcd_id) }),
+      });
+      const body = await response.json();
+      if (!response.ok) throw new Error(body.error || "Could not update your pull list.");
+      setOnPullList(Boolean(body.following));
+    } catch (error) {
+      setOnPullList(previous);
+      setPullListError(error.message);
+    } finally {
+      setPullListLoading(false);
+    }
+  }
 
   async function updateIssueLibrary(issueId, status) {
     try {
@@ -363,7 +411,29 @@ export default function SeriesClient({ initialSeries = null, initialOwnMode = fa
               <div><strong>{yearCount ?? "?"}</strong><span>{yearCount === 1 ? "year" : "years"}, {series.year_start && series.year_end ? `${series.year_start} to ${series.year_end}` : yearLabel}</span></div>
               {Number(series.member_stats?.owners) >= 3 ? <div><strong>{series.member_stats.owners}</strong><span>members own {series.member_stats.copies} copies</span></div> : Number(series.reprint_count) > 0 ? <div><strong>{Number(series.reprint_count).toLocaleString("en-US")}</strong><span>reprints worldwide</span></div> : null}
             </div>
-            <div className="series-hero-actions"><Link href="#issues" className="series-primary-action">Add issues I own</Link></div>
+            <div className="series-hero-actions">
+              <Link href="#issues" className="series-primary-action">
+                Add issues I own
+              </Link>
+              {!authLoading && series.gcd_id && (user ? (
+                <button
+                  type="button"
+                  className={`series-pull-list-action${onPullList ? " is-on" : ""}`}
+                  onClick={togglePullList}
+                  disabled={pullListLoading}
+                >
+                  {onPullList ? "✓ On your pull list" : "+ Add to pull list"}
+                </button>
+              ) : (
+                <Link
+                  href={`/signup?next=${encodeURIComponent(`/series/${id}`)}`}
+                  className="series-pull-list-action"
+                >
+                  + Add to pull list
+                </Link>
+              ))}
+            </div>
+            {pullListError && <p className="series-pull-list-error" role="alert">{pullListError}</p>}
           </div>
         </div>
 

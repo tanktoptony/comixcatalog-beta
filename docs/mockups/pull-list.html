@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pull List Mockup</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&display=swap">
+<style>
+  /* Site tokens copied from globals.css (--cc-*), gold CTA from the live header. Same base as the switch mockup. */
+  :root {
+    --bg: #090c11; --surface: #11161d; --surface-2: #171d26; --line: #2b3444; --line-soft: rgba(255,255,255,.08);
+    --text: #eef2f7; --muted: #a4aebb; --gold: #f4cf3f; --navy: #0b1e6b; --good: #6fcf8a;
+    --display: "Big Shoulders Display", Impact, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: linear-gradient(to bottom, rgba(31,78,168,.06), transparent 220px), var(--bg); color: var(--text); font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .site-head { display: flex; align-items: center; gap: 14px; padding: 14px 24px; border-bottom: 1px solid var(--line-soft); }
+  .site-head img { width: 34px; height: 34px; border-radius: 8px; background: #fdfbf9; }
+  .site-head b { font-weight: 900; letter-spacing: .04em; }
+  .site-head .search { flex: 1; max-width: 520px; margin-left: 40px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 9px 14px; color: #6d7887; }
+  .site-head .nav { margin-left: auto; display: flex; gap: 18px; color: var(--muted); font-weight: 600; font-size: 14px; }
+  .site-head .nav .on { color: var(--gold); }
+  .screens { max-width: 1120px; margin: 0 auto; padding: 32px 16px 64px; display: grid; gap: 40px; }
+  .label { font: 600 12px/1 ui-monospace, Consolas, monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 10px; }
+  .label::after { content: ""; flex: 1; height: 1px; background: var(--line-soft); }
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+  h1, h2, h3 { margin: 0; font-weight: 800; line-height: 1.15; color: #fff; }
+  h1 { font-size: clamp(28px, 4vw, 40px); }
+  h3 { font-size: 15px; letter-spacing: .02em; }
+  .sub { color: var(--muted); max-width: 62ch; margin: 0; font-size: 16px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; border-radius: 999px; padding: 10px 18px; font-weight: 800; font-size: 14px; border: 0; white-space: nowrap; }
+  .btn.gold { background: var(--gold); color: var(--navy); }
+  .btn.ghost { border: 1px solid var(--line); color: var(--text); background: transparent; }
+  .btn.on { border: 1px solid rgba(111,207,138,.5); color: var(--good); background: rgba(111,207,138,.1); }
+  .btn.sm { padding: 6px 12px; font-size: 13px; }
+
+  /* Screen 1: series header strip */
+  .serieshead { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 20px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+  .serieshead img { width: 120px; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 6px; display: block; }
+  .serieshead .meta { display: grid; gap: 8px; }
+  .serieshead .meta .info { color: var(--muted); }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .callout { font-size: 13px; color: var(--muted); }
+
+  /* Screen 2: the pull list page */
+  .layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 20px; align-items: start; }
+  .week { display: grid; gap: 12px; }
+  .weekhead { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; border-bottom: 1px solid var(--line-soft); padding-bottom: 6px; }
+  .weekhead b { font-family: var(--display); font-weight: 800; font-size: 26px; letter-spacing: .02em; text-transform: uppercase; }
+  .weekhead span { color: var(--muted); font-size: 13px; }
+  .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+  .issue { display: grid; gap: 8px; align-content: start; }
+  .issue img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 6px; border: 1px solid var(--line-soft); display: block; }
+  .issue b { font-size: 14px; line-height: 1.25; }
+  .issue span { color: var(--muted); font-size: 12px; }
+  .issue .acts { display: flex; gap: 6px; }
+  .issue .acts .btn { flex: 1; padding: 6px 8px; font-size: 12px; }
+  .issue.got img { opacity: .55; }
+  .side { display: grid; gap: 14px; }
+  .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 16px; display: grid; gap: 10px; }
+  .series-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; }
+  .series-list li { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 7px 0; border-top: 1px solid var(--line-soft); font-size: 14px; }
+  .series-list li:first-child { border-top: 0; }
+  .series-list .x { color: #6d7887; font-size: 16px; }
+  .soon { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; font-size: 14px; }
+  .soon li { display: flex; justify-content: space-between; gap: 10px; }
+  .soon li span { color: var(--muted); }
+  .addbox { background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; color: #6d7887; font-size: 14px; }
+  .example { font-size: 12px; color: #6d7887; }
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: minmax(0, 1fr); }
+    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .site-head .search, .site-head .nav { display: none; }
+    .serieshead { grid-template-columns: 84px minmax(0, 1fr); }
+    .serieshead img { width: 84px; }
+  }
+</style>
+</head>
+<body>
+<header class="site-head"><img src="https://www.comixcatalog.com/img/logos/cc_badge.png" alt=""><b>COMIXCATALOG</b><div class="search">Search comics</div><div class="nav"><span>Library</span><span class="on">Pull list</span><span>Marketplace</span></div></header>
+<main class="screens">
+
+  <div class="label">Screen 1 · any series page</div>
+  <section class="serieshead">
+    <img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/transformers/vol-153968/1196670-issue-37.jpg" alt="">
+    <div class="meta">
+      <h1>Transformers (2023)</h1>
+      <span class="info">Image · 37 issues · you own 12 of 37</span>
+      <div class="row"><span class="btn gold">+ Add to pull list</span><span class="btn ghost">Find what you're missing</span></div>
+      <div class="row"><span class="btn on">&#10003; On your pull list</span><span class="callout">After you tap it. Tap again to take it off.</span></div>
+    </div>
+  </section>
+
+  <div class="label">Screen 2 · /pull-list</div>
+  <section style="display:grid;gap:22px">
+    <div style="display:grid;gap:8px">
+      <div class="eyebrow">Your pull list</div>
+      <h1>New on your list</h1>
+      <p class="sub">New issues from the series you follow, as they land in the catalog. Tap Got it to add one to your collection, or Want to put it on your wantlist.</p>
+    </div>
+    <div class="layout">
+      <div style="display:grid;gap:26px">
+        <div class="week">
+          <div class="weekhead"><b>Out Oct 21</b><span>4 on your list</span></div>
+          <div class="grid">
+            <div class="issue"><img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/x-men-united/vol-170960/1197318-blood-debts.jpg" alt=""><b>X-Men United #8</b><span>Marvel</span><div class="acts"><span class="btn gold">Got it</span><span class="btn ghost">Want</span></div></div>
+            <div class="issue"><img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/king-spawn/vol-138562/1197272-issue-60.jpg" alt=""><b>King Spawn #60</b><span>Image</span><div class="acts"><span class="btn gold">Got it</span><span class="btn ghost">Want</span></div></div>
+            <div class="issue"><img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/absolute-green-arrow/vol-172003/1197225-issue-6.jpg" alt=""><b>Absolute Green Arrow #6</b><span>DC</span><div class="acts"><span class="btn gold">Got it</span><span class="btn ghost">Want</span></div></div>
+            <div class="issue got"><img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/miles-morales-spider-man/vol-175739/1197280-issue-3.jpg" alt=""><b>Miles Morales: Spider-Man #3</b><span>Marvel</span><div class="acts"><span class="btn on">&#10003; In your collection</span></div></div>
+          </div>
+        </div>
+        <div class="week">
+          <div class="weekhead"><b>Out Oct 14</b><span>4 on your list</span></div>
+          <div class="grid">
+            <div class="issue got"><img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/x-men/vol-158814/1196677-siege.jpg" alt=""><b>X-Men #39</b><span>Marvel</span><div class="acts"><span class="btn on">&#10003; In your collection</span></div></div>
+            <div class="issue got"><img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/transformers/vol-153968/1196670-issue-37.jpg" alt=""><b>Transformers #37</b><span>Image</span><div class="acts"><span class="btn on">&#10003; In your collection</span></div></div>
+            <div class="issue"><img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/the-amazing-spider-man/vol-163325/1196593-issue-1001.jpg" alt=""><b>Amazing Spider-Man #1001</b><span>Marvel</span><div class="acts"><span class="btn gold">Got it</span><span class="btn ghost">Want</span></div></div>
+            <div class="issue"><img src="https://wlrcxnzdywzxgrcqvctc.supabase.co/storage/v1/object/public/canonical-covers/comicvine/spawn-77/vol-176909/1196654-issue-2.jpg" alt=""><b>Spawn '77 #2</b><span>Image</span><div class="acts"><span class="btn gold">Got it</span><span class="btn ghost">Want</span></div></div>
+          </div>
+        </div>
+      </div>
+      <aside class="side">
+        <div class="panel">
+          <h3>Your series (8)</h3>
+          <ul class="series-list">
+            <li>Transformers (2023)<span class="x">&times;</span></li>
+            <li>X-Men (2024)<span class="x">&times;</span></li>
+            <li>X-Men United<span class="x">&times;</span></li>
+            <li>The Amazing Spider-Man (2025)<span class="x">&times;</span></li>
+            <li>Miles Morales: Spider-Man<span class="x">&times;</span></li>
+            <li>King Spawn<span class="x">&times;</span></li>
+            <li>Spawn '77<span class="x">&times;</span></li>
+            <li>Absolute Green Arrow<span class="x">&times;</span></li>
+          </ul>
+          <div class="addbox">+ Add a series</div>
+        </div>
+        <div class="panel">
+          <h3>Coming in November</h3>
+          <ul class="soon">
+            <li>X-Men #40<span>Nov</span></li>
+            <li>Transformers #38<span>Nov</span></li>
+            <li>King Spawn #61<span>Nov</span></li>
+          </ul>
+          <span class="example">Month only until the exact day is known.</span>
+        </div>
+        <span class="example">Example data</span>
+      </aside>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

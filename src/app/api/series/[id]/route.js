@@ -580,6 +580,7 @@ export async function GET(req, context) {
       degraded,
       series: {
         id: series.id,
+        gcd_id: series.gcd_id,
         title: series.title ?? "Untitled Series",
         publisher: resolvedPublisher,
         issue_count: mappedIssues.length,

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getAuthedUser } from "@/lib/authServer";
 import { getServiceClient } from "@/lib/supabase/service";
-import { chooseSeries, issueKey, matchIssue, normalizeKey } from "@/lib/csvImport/matchRow";
+import { chooseSeries, issueKey, issueNumberOrFilter, matchIssue, normalizeKey } from "@/lib/csvImport/matchRow";
 import { narrowHolders } from "@/lib/import/import";
 
 const ROW_CAP = 200;
@@ -102,19 +102,25 @@ export async function POST(req) {
     const issuesBySeries = new Map();
     for (const { ids, numbers } of groups.values()) {
       const spellings = [...numbers];
+      // 25 spellings per query keeps the or-filter (three conditions each,
+      // GCD's legacy "40 (340)" form included) well inside URL limits.
       for (let start = 0; start < ids.length; start += 100) {
         const idChunk = ids.slice(start, start + 100);
-        for (let from = 0; ; from += 1000) {
-          const { data, error } = await supabase.from("gcd_issues").select("gcd_id,series_gcd_id,issue_number,key_date")
-            .in("series_gcd_id", idChunk).in("issue_number", spellings).is("variant_of_gcd_id", null)
-            .order("gcd_id").range(from, from + 999);
-          if (error) throw new Error(`Could not read issues: ${error.message}`);
-          for (const issue of data ?? []) {
-            const id = Number(issue.series_gcd_id);
-            if (!issuesBySeries.has(id)) issuesBySeries.set(id, []);
-            issuesBySeries.get(id).push(issue);
+        for (let at = 0; at < spellings.length; at += 25) {
+          const filter = issueNumberOrFilter(spellings.slice(at, at + 25));
+          if (!filter) continue;
+          for (let from = 0; ; from += 1000) {
+            const { data, error } = await supabase.from("gcd_issues").select("gcd_id,series_gcd_id,issue_number,key_date")
+              .in("series_gcd_id", idChunk).or(filter).is("variant_of_gcd_id", null)
+              .order("gcd_id").range(from, from + 999);
+            if (error) throw new Error(`Could not read issues: ${error.message}`);
+            for (const issue of data ?? []) {
+              const id = Number(issue.series_gcd_id);
+              if (!issuesBySeries.has(id)) issuesBySeries.set(id, []);
+              issuesBySeries.get(id).push(issue);
+            }
+            if ((data?.length ?? 0) < 1000) break;
           }
-          if ((data?.length ?? 0) < 1000) break;
         }
       }
     }

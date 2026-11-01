@@ -27503,8 +27503,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-01T03:02:10.486408+00:00",
-    "retry_after": "2026-11-02T03:02:10.486412+00:00",
+    "last_attempt_at": "2026-11-01T04:01:55.988389+00:00",
+    "retry_after": "2026-11-02T04:01:55.988393+00:00",
     "search_hydrated": true
   },
   {
@@ -27610,9 +27610,10 @@
         "start_year": 2012
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T06:03:27.276198+00:00",
-    "retry_after": "2026-10-01T06:03:27.276213+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T04:06:48.500283+00:00",
+    "retry_after": "2026-11-02T04:06:48.500298+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Uncanny X-Force: The Dark Angel Saga",
@@ -40436,9 +40437,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-29T03:07:08.524412+00:00",
-    "retry_after": "2026-11-01T03:07:08.524429+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T04:05:15.365844+00:00",
+    "retry_after": "2026-11-08T04:05:15.365861+00:00",
     "search_hydrated": true
   },
   {
@@ -43559,8 +43560,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-01T03:02:10.486312+00:00",
-    "retry_after": "2026-11-02T03:02:10.486325+00:00",
+    "last_attempt_at": "2026-11-01T04:01:55.988282+00:00",
+    "retry_after": "2026-11-02T04:01:55.988298+00:00",
     "search_hydrated": true
   },
   {
@@ -51462,8 +51463,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-01T03:02:10.486367+00:00",
-    "retry_after": "2026-11-02T03:02:10.486373+00:00",
+    "last_attempt_at": "2026-11-01T04:01:55.988329+00:00",
+    "retry_after": "2026-11-02T04:01:55.988332+00:00",
     "search_hydrated": true
   },
   {
@@ -86190,9 +86191,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T02:06:21.587166+00:00",
-    "retry_after": "2026-11-01T02:06:21.587169+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T04:05:16.608780+00:00",
+    "retry_after": "2026-11-04T04:05:16.608784+00:00",
     "search_hydrated": true
   },
   {
@@ -86201,9 +86202,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T03:10:09.369841+00:00",
-    "retry_after": "2026-11-01T03:10:09.369844+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T04:08:32.221406+00:00",
+    "retry_after": "2026-11-04T04:08:32.221422+00:00",
     "search_hydrated": true
   },
   {
@@ -87998,6 +87999,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-01T03:05:54.553525+00:00",
     "retry_after": "2026-11-02T03:05:54.553529+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Justice League of America: The Nail The Complete Collection",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T04:06:48.500360+00:00",
+    "retry_after": "2026-11-02T04:06:48.500365+00:00",
     "search_hydrated": true
   }
 ]

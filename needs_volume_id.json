@@ -6331,10 +6331,12 @@
     "name": "Iron Man: Road to Iron Man 2020 Halloween Comic Fest 2019",
     "publisher": "Marvel Comics",
     "year": 2019,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555186+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T15:58:10.713151+00:00",
+    "retry_after": "2026-11-04T15:58:10.713153+00:00",
+    "search_hydrated": true
   },
   {
     "name": "True Believers: The Criminally Insane - Klaw",
@@ -9444,10 +9446,12 @@
     "name": "Ghosts Giant",
     "publisher": "DC Comics",
     "year": 2019,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556073+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T15:57:49.832328+00:00",
+    "retry_after": "2026-11-04T15:57:49.832330+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Casper the Friendly Ghost",
@@ -10418,7 +10422,9 @@
       }
     ],
     "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556202+00:00"
+    "last_attempt_at": "2026-11-01T15:57:49.832285+00:00",
+    "retry_after": "2026-11-02T15:57:49.832288+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Blondie",
@@ -14364,9 +14370,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T07:02:25.778999+00:00",
-    "retry_after": "2026-09-22T07:02:25.779014+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T15:57:49.832315+00:00",
+    "retry_after": "2026-11-04T15:57:49.832318+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The Walking Dead #1 Wizard World Austin Comicon Exclusive",
@@ -22313,9 +22320,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-23T22:00:45.111427+00:00",
-    "retry_after": "2026-09-24T22:00:45.111445+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T15:57:49.832117+00:00",
+    "retry_after": "2026-11-04T15:57:49.832137+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Marvel Masterworks: The Avengers",
@@ -27509,8 +27517,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-01T15:02:09.348410+00:00",
-    "retry_after": "2026-11-02T15:02:09.348414+00:00",
+    "last_attempt_at": "2026-11-01T15:49:28.756685+00:00",
+    "retry_after": "2026-11-02T15:49:28.756688+00:00",
     "search_hydrated": true
   },
   {
@@ -43569,8 +43577,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-01T15:02:09.348305+00:00",
-    "retry_after": "2026-11-02T15:02:09.348322+00:00",
+    "last_attempt_at": "2026-11-01T15:49:28.756602+00:00",
+    "retry_after": "2026-11-02T15:49:28.756622+00:00",
     "search_hydrated": true
   },
   {
@@ -51474,8 +51482,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-01T15:02:09.348353+00:00",
-    "retry_after": "2026-11-02T15:02:09.348356+00:00",
+    "last_attempt_at": "2026-11-01T15:49:28.756653+00:00",
+    "retry_after": "2026-11-02T15:49:28.756656+00:00",
     "search_hydrated": true
   },
   {
@@ -66001,29 +66009,6 @@
     "retry_after": "2026-10-23T09:15:58.016158+00:00"
   },
   {
-    "name": "Hey Kids! Comics!",
-    "publisher": "Image Comics",
-    "year": 2019,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 112686,
-        "name": "Hey Kids! Comics!",
-        "publisher": null,
-        "start_year": 2018
-      },
-      {
-        "id": 117061,
-        "name": "Hey Kids! Comics!",
-        "publisher": null,
-        "start_year": 2019
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T09:15:59.509035+00:00",
-    "retry_after": "2026-10-23T09:15:59.509049+00:00"
-  },
-  {
     "name": "Deathstalker",
     "publisher": "Vault Comics",
     "year": 2024,
@@ -69658,29 +69643,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-24T09:24:11.567144+00:00",
     "retry_after": "2026-10-27T09:24:11.567159+00:00"
-  },
-  {
-    "name": "Infinite Dark",
-    "publisher": "Image Comics",
-    "year": 2019,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 114248,
-        "name": "Infinite Dark",
-        "publisher": null,
-        "start_year": 2018
-      },
-      {
-        "id": 117587,
-        "name": "Infinite Dark",
-        "publisher": null,
-        "start_year": 2019
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T10:48:15.380459+00:00",
-    "retry_after": "2026-10-27T10:48:15.380474+00:00"
   },
   {
     "name": "Poupée",
@@ -87141,9 +87103,9 @@
         "start_year": 1980
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T15:12:07.637855+00:00",
-    "retry_after": "2026-11-01T15:12:07.637869+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T15:58:32.096475+00:00",
+    "retry_after": "2026-11-04T15:58:32.096495+00:00",
     "search_hydrated": true
   },
   {
@@ -87159,9 +87121,9 @@
         "start_year": 2013
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T15:12:07.637909+00:00",
-    "retry_after": "2026-11-01T15:12:07.637913+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T15:58:32.096534+00:00",
+    "retry_after": "2026-11-04T15:58:32.096538+00:00",
     "search_hydrated": true
   },
   {
@@ -87177,9 +87139,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T15:12:07.637986+00:00",
-    "retry_after": "2026-11-01T15:12:07.637990+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T15:58:32.096628+00:00",
+    "retry_after": "2026-11-04T15:58:32.096631+00:00",
     "search_hydrated": true
   },
   {
@@ -87195,9 +87157,9 @@
         "start_year": 2013
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T15:12:07.638013+00:00",
-    "retry_after": "2026-11-01T15:12:07.638016+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T15:58:32.096653+00:00",
+    "retry_after": "2026-11-04T15:58:32.096655+00:00",
     "search_hydrated": true
   },
   {
@@ -87213,9 +87175,9 @@
         "start_year": 1972
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T15:12:15.643040+00:00",
-    "retry_after": "2026-11-01T15:12:15.643054+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T15:58:40.275868+00:00",
+    "retry_after": "2026-11-04T15:58:40.275888+00:00",
     "search_hydrated": true
   },
   {
@@ -87231,9 +87193,9 @@
         "start_year": null
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T15:12:15.643119+00:00",
-    "retry_after": "2026-11-01T15:12:15.643124+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T15:58:40.275959+00:00",
+    "retry_after": "2026-11-04T15:58:40.275963+00:00",
     "search_hydrated": true
   },
   {
@@ -87249,9 +87211,9 @@
         "start_year": 1952
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T15:12:15.643157+00:00",
-    "retry_after": "2026-11-01T15:12:15.643161+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T15:58:40.275987+00:00",
+    "retry_after": "2026-11-04T15:58:40.275990+00:00",
     "search_hydrated": true
   },
   {
@@ -87267,9 +87229,9 @@
         "start_year": 2007
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T15:12:15.643184+00:00",
-    "retry_after": "2026-11-01T15:12:15.643187+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T15:58:40.276010+00:00",
+    "retry_after": "2026-11-04T15:58:40.276013+00:00",
     "search_hydrated": true
   },
   {
@@ -89148,6 +89110,223 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-01T15:11:32.572413+00:00",
     "retry_after": "2026-11-02T15:11:32.572419+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ditko Is... Amazing! King-Size",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T15:57:49.832193+00:00",
+    "retry_after": "2026-11-02T15:57:49.832196+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Dollar Comics: Crisis on Infinite Earths 1",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T15:57:49.832210+00:00",
+    "retry_after": "2026-11-02T15:57:49.832212+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Fantastic Four: Prodigal Sun",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 120005,
+        "name": "Fantastic Four: The Prodigal Sun",
+        "publisher": "Marvel",
+        "start_year": 2019
+      },
+      {
+        "id": 122671,
+        "name": "Fantastic Four: The Prodigal Sun",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T15:57:49.832256+00:00",
+    "retry_after": "2026-11-02T15:57:49.832259+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Flashpoint Box Set",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T15:57:49.832300+00:00",
+    "retry_after": "2026-11-02T15:57:49.832302+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Die",
+    "publisher": "Image Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 115725,
+        "name": "Die",
+        "publisher": "Image",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T15:57:52.145598+00:00",
+    "retry_after": "2026-11-02T15:57:52.145617+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Exorsisters",
+    "publisher": "Image Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 114388,
+        "name": "Exorsisters",
+        "publisher": "Image",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T15:57:52.310408+00:00",
+    "retry_after": "2026-11-02T15:57:52.310426+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Heavy Liquid",
+    "publisher": "Image Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19317,
+        "name": "Heavy Liquid",
+        "publisher": "DC Comics",
+        "start_year": 1999
+      },
+      {
+        "id": 28562,
+        "name": "Heavy Liquid",
+        "publisher": "DC Comics",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T15:58:10.712982+00:00",
+    "retry_after": "2026-11-02T15:58:10.713003+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Heroes in Crisis: The Price and Other Stories",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T15:58:10.713028+00:00",
+    "retry_after": "2026-11-02T15:58:10.713031+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "High Crimes",
+    "publisher": "Image Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54875,
+        "name": "High Crimes",
+        "publisher": "MonkeyBrain Comics",
+        "start_year": 2013
+      },
+      {
+        "id": 83181,
+        "name": "High Crimes",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T15:58:10.713078+00:00",
+    "retry_after": "2026-11-02T15:58:10.713080+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Hulk: World War Hulk",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T15:58:10.713115+00:00",
+    "retry_after": "2026-11-02T15:58:10.713117+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "House of Whispers",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 113487,
+        "name": "House of Whispers",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T15:58:16.400205+00:00",
+    "retry_after": "2026-11-02T15:58:16.400227+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Hulk: The End",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 32228,
+        "name": "Hulk: The End",
+        "publisher": "Marvel",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T15:58:16.400476+00:00",
+    "retry_after": "2026-11-02T15:58:16.400480+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Iron Man: Extremis",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 30846,
+        "name": "Iron Man: Extremis",
+        "publisher": "Marvel",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T15:58:24.373892+00:00",
+    "retry_after": "2026-11-02T15:58:24.373919+00:00",
     "search_hydrated": true
   }
 ]

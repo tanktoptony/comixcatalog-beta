@@ -5974,7 +5974,9 @@
       }
     ],
     "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555063+00:00"
+    "last_attempt_at": "2026-11-01T10:09:55.089852+00:00",
+    "retry_after": "2026-11-02T10:09:55.089854+00:00",
+    "search_hydrated": true
   },
   {
     "name": "True Believers: X-Men - Havok",
@@ -6268,15 +6270,6 @@
     "retry_after": "2026-09-21T14:00:38.555159+00:00"
   },
   {
-    "name": "True Believers: The Criminally Insane - Mandarin",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "reason": "publisher_mismatch",
-    "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555162+00:00"
-  },
-  {
     "name": "Stella",
     "publisher": "Dynamite Entertainment",
     "year": 2016,
@@ -6438,9 +6431,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-29T09:31:33.697511+00:00",
-    "retry_after": "2026-11-01T09:31:33.697530+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T10:09:55.089730+00:00",
+    "retry_after": "2026-11-08T10:09:55.089765+00:00",
     "search_hydrated": true
   },
   {
@@ -6670,9 +6663,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-29T10:06:42.585000+00:00",
-    "retry_after": "2026-11-01T10:06:42.585002+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T10:09:55.089795+00:00",
+    "retry_after": "2026-11-08T10:09:55.089796+00:00",
     "search_hydrated": true
   },
   {
@@ -6974,9 +6967,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-29T10:04:52.673995+00:00",
-    "retry_after": "2026-11-01T10:04:52.673997+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T10:09:55.089782+00:00",
+    "retry_after": "2026-11-08T10:09:55.089785+00:00",
     "search_hydrated": true
   },
   {
@@ -7272,9 +7265,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-29T10:08:23.013906+00:00",
-    "retry_after": "2026-11-01T10:08:23.013923+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T10:09:55.089814+00:00",
+    "retry_after": "2026-11-08T10:09:55.089816+00:00",
     "search_hydrated": true
   },
   {
@@ -16630,16 +16623,6 @@
     "retry_after": "2026-09-26T02:12:24.567006+00:00"
   },
   {
-    "name": "True Believers: Annihilation - Super-Adaptoid",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-23T02:12:25.104499+00:00",
-    "retry_after": "2026-09-26T02:12:25.104515+00:00"
-  },
-  {
     "name": "WildStorms Player's Guide & WildStorms: The Expandable Super-Hero Collectible Card Game",
     "publisher": "Image Comics",
     "year": 1996,
@@ -25165,9 +25148,10 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-26T09:10:51.666898+00:00",
-    "retry_after": "2026-09-29T09:10:51.666913+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T10:09:55.089879+00:00",
+    "retry_after": "2026-11-08T10:09:55.089881+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Planet of the Apes: Sins of the Father",
@@ -27523,8 +27507,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-01T09:01:45.431479+00:00",
-    "retry_after": "2026-11-02T09:01:45.431482+00:00",
+    "last_attempt_at": "2026-11-01T10:01:36.246798+00:00",
+    "retry_after": "2026-11-02T10:01:36.246799+00:00",
     "search_hydrated": true
   },
   {
@@ -43582,8 +43566,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-01T09:01:45.431399+00:00",
-    "retry_after": "2026-11-02T09:01:45.431415+00:00",
+    "last_attempt_at": "2026-11-01T10:01:36.246718+00:00",
+    "retry_after": "2026-11-02T10:01:36.246730+00:00",
     "search_hydrated": true
   },
   {
@@ -46382,9 +46366,10 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-15T12:17:07.817022+00:00",
-    "retry_after": "2026-10-22T12:17:07.817039+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-11-01T10:10:13.678380+00:00",
+    "retry_after": "2026-11-15T10:10:13.678398+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Super Tiny Dragon Arms Stand Alone Special",
@@ -51485,8 +51470,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-01T09:01:45.431445+00:00",
-    "retry_after": "2026-11-02T09:01:45.431448+00:00",
+    "last_attempt_at": "2026-11-01T10:01:36.246769+00:00",
+    "retry_after": "2026-11-02T10:01:36.246772+00:00",
     "search_hydrated": true
   },
   {
@@ -56607,9 +56592,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-29T10:06:42.585018+00:00",
-    "retry_after": "2026-11-01T10:06:42.585020+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T10:09:55.089805+00:00",
+    "retry_after": "2026-11-08T10:09:55.089807+00:00",
     "search_hydrated": true
   },
   {
@@ -81013,9 +80998,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-29T09:29:52.145592+00:00",
-    "retry_after": "2026-11-01T09:29:52.145604+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-01T10:09:55.214121+00:00",
+    "retry_after": "2026-11-08T10:09:55.214137+00:00",
     "search_hydrated": true
   },
   {
@@ -88474,6 +88459,145 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-01T09:10:33.845074+00:00",
     "retry_after": "2026-11-02T09:10:33.845077+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Walking Dead \"The Alien\"",
+    "publisher": "Image Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T10:09:55.089862+00:00",
+    "retry_after": "2026-11-02T10:09:55.089864+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Thor Director's Cut",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T10:09:55.089870+00:00",
+    "retry_after": "2026-11-02T10:09:55.089871+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Venom Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T10:10:13.678443+00:00",
+    "retry_after": "2026-11-02T10:10:13.678445+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Venom: Rex",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T10:10:13.678452+00:00",
+    "retry_after": "2026-11-02T10:10:13.678454+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vision",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 107670,
+        "name": "Vision",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 5335,
+        "name": "Vision",
+        "publisher": "Marvel",
+        "start_year": 1994
+      },
+      {
+        "id": 85793,
+        "name": "Vision",
+        "publisher": "Marvel",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T10:10:13.678484+00:00",
+    "retry_after": "2026-11-02T10:10:13.678486+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Uncanny X-Men: X-Men Disassembled",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 117768,
+        "name": "Uncanny X-Men: X-Men Disassembled",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T10:10:21.032877+00:00",
+    "retry_after": "2026-11-02T10:10:21.032895+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wolverine: Enemy of the State",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 30230,
+        "name": "Wolverine: Enemy of the State",
+        "publisher": "Marvel",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T10:10:32.140933+00:00",
+    "retry_after": "2026-11-02T10:10:32.140960+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wonder Woman and Justice League Dark: The Witching Hour",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 118654,
+        "name": "Wonder Woman and Justice League Dark: The Witching Hour",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T10:10:32.353347+00:00",
+    "retry_after": "2026-11-02T10:10:32.353363+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Watchmen (New Edition)",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T10:10:40.422136+00:00",
+    "retry_after": "2026-11-02T10:10:40.422153+00:00",
     "search_hydrated": true
   }
 ]

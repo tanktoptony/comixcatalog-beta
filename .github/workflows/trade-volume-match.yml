@@ -13,6 +13,13 @@ name: Trade volume match (hourly)
 # :40 so it never starts with the ingest's :00 or gap-probe's :20.
 
 on:
+  # GitHub's own schedule fired this only every 4-7 hours (10 runs in the
+  # first 36 h, 2026-10-29 to 11-01), the same flakiness cover-ingest.yml
+  # works around with an external trigger. Following cover-ingest's hourly
+  # runs gives a real hourly cadence; the cron stays as a backup.
+  workflow_run:
+    workflows: ["Cover ingest"]
+    types: [completed]
   schedule:
     - cron: '40 * * * *'
   workflow_dispatch: {}
@@ -47,6 +54,13 @@ jobs:
 
       - name: Match trade volumes
         run: node scripts/matchTradeVolumes.js --apply --max-calls=60 --sleep=8
+
+      # A new cover clears that edition's stored chip pick (DB trigger), and
+      # editions never appear as search cards, so nothing else refills it
+      # until the weekly run. Only unchecked rows are touched.
+      - name: Refill edition chip covers
+        run: node scripts/precomputeSeriesCardCovers.js --editions --limit=500 --apply
+        continue-on-error: true
 
       - name: Commit ledger and gap-pinned additions
         run: |

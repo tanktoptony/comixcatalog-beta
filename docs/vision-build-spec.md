@@ -54,6 +54,8 @@ Production facts below were measured with read-only queries on 2026-10-14; rerun
 ### 3.3 Release calendar (needed before any pull list)
 - `release_calendar(id, source, source_issue_id, gcd_issue_id null, release_date, confidence, fetched_at)`: ComicVine `store_date` and GCD `on_sale_date` stored side by side with provenance; resolution to `gcd_issue_id` reuses the new-issue matcher. Monitor coverage for 3 Wednesdays (share of the week's releases with a resolved gcd id) before building the pull list UI. If coverage is under 80%, the pull list does not ship.
 
+**Status (2026-11):** Pull list v1 shipped on the owner's 2026-10-27 approval, ahead of the three-week calendar gate. It lists issues as they land in the catalog from `canonical_covers.in_store_date`; production measurement found about 90% of new releases attached to series already present in the catalog. Exact upcoming days remain out of scope, so upcoming issues are shown by month only.
+
 ### 3.4 Values
 - Out of this build: value movers, low/median/high, "cost to finish". Shown instead: the existing estimate labeled "Estimated from current asking prices", with the sample size. Revisit when sold comps exist (eBay Marketplace Insights or a licensed source), stored as dated observations by base issue, grade bucket and source.
 

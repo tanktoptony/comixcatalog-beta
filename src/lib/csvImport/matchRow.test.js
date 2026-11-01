@@ -11,6 +11,7 @@ import {
   publisherMatches,
   issueKey,
   matchIssue,
+  issueNumberOrFilter,
   chooseSeries,
   ambiguityMessage,
 } from "./matchRow.js";
@@ -152,4 +153,17 @@ test("distinct years still get the release_year advice", () => {
   ]);
   assert.match(msg, /Add a release_year column/);
   assert.match(msg, /1992, 2014/);
+});
+
+test("matchIssue reads GCD's legacy numbering", () => {
+  const xmen = [{ gcd_id: 1, issue_number: "39 (339)" }, { gcd_id: 2, issue_number: "40 (340)" }, { gcd_id: 3, issue_number: "4" }];
+  assert.equal(matchIssue(xmen, "40")?.gcd_id, 2);
+  assert.equal(matchIssue(xmen, "340")?.gcd_id, 2);
+  assert.equal(matchIssue(xmen, "4")?.gcd_id, 3);
+  assert.equal(matchIssue(xmen, "41"), null);
+});
+
+test("issueNumberOrFilter asks for exact and legacy spellings, skipping unsafe ones", () => {
+  assert.equal(issueNumberOrFilter(["40"]), 'issue_number.eq."40",issue_number.like."40 (*",issue_number.like."* (40)"');
+  assert.equal(issueNumberOrFilter(['4"0', "a,b", ""]), "");
 });

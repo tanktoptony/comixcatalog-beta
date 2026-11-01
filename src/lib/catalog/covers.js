@@ -20,6 +20,11 @@ const PICK_COLUMNS = [
 ].join(", ");
 const SERIES_COLUMNS = PICK_COLUMNS;
 
+export function canonicalCoverUrl(storagePath, supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL) {
+  if (!storagePath || !supabaseUrl) return null;
+  return `${String(supabaseUrl).replace(/\/$/, "")}/storage/v1/object/public/canonical-covers/${storagePath}`;
+}
+
 function chunks(values) {
   const out = [];
   for (let index = 0; index < values.length; index += CHUNK_SIZE) {

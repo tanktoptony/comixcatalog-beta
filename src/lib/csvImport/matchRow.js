@@ -67,7 +67,24 @@ export function matchIssue(issues, issueNumber) {
     (i) => String(i.issue_number ?? "").trim().toLowerCase() === want.raw
   );
   if (exact) return exact;
-  return (issues ?? []).find((i) => issueKey(i.issue_number).reduced === want.reduced) ?? null;
+  const reduced = (issues ?? []).find((i) => issueKey(i.issue_number).reduced === want.reduced);
+  if (reduced) return reduced;
+  // GCD writes legacy-numbered runs as "40 (340)" (X-Men 2024, ASM 2025).
+  // A plain "40" means the run's own number; "340" means the legacy one.
+  const legacy = (issues ?? []).map((i) => ({ i, m: String(i.issue_number ?? "").match(/^\s*([^()]+?)\s*\(\s*([^()]+?)\s*\)\s*$/) }))
+    .filter(({ m }) => m);
+  return legacy.find(({ m }) => issueKey(m[1]).reduced === want.reduced)?.i
+    ?? legacy.find(({ m }) => issueKey(m[2]).reduced === want.reduced)?.i
+    ?? null;
+}
+
+// A PostgREST or-filter that fetches every row an issue number could match,
+// including GCD's legacy form "40 (340)", in one query. Numbers with
+// characters that would break the filter syntax are left out (they still
+// match exactly through the caller's other rows, or not at all).
+export function issueNumberOrFilter(numbers) {
+  const safe = [...new Set((numbers ?? []).map((n) => String(n ?? "").trim()).filter((n) => n && /^[A-Za-z0-9.\-/ ]+$/.test(n)))];
+  return safe.flatMap((n) => [`issue_number.eq."${n}"`, `issue_number.like."${n} (*"`, `issue_number.like."* (${n})"`]).join(",");
 }
 
 // A year, or null. Never 0.

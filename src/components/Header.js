@@ -16,7 +16,7 @@ import { inboxAriaLabel, inboxBadgeTotal } from "@/lib/inboxNotifications";
 import { coverThumb } from "@/lib/coverThumb";
 import InviteButton from "@/components/InviteButton";
 import { authedFetch } from "@/lib/apiClient";
-import { CircleHelp, Inbox, LibraryBig, Package, Store, Users } from "lucide-react";
+import { CircleHelp, Inbox, LibraryBig, ListChecks, Package, Store, Users } from "lucide-react";
 
 const NAV_ICON_PROPS = { size: 20, strokeWidth: 1.75, "aria-hidden": true };
 
@@ -726,6 +726,16 @@ export default function Header() {
             >
               <LibraryBig {...NAV_ICON_PROPS} />
             </Link>
+            <Link
+              href="/pull-list"
+              className="nav-icon-btn"
+              onClick={closeMenu}
+              aria-label="Pull list"
+              data-label="Pull list"
+              aria-current={routeIsCurrent(pathname, "/pull-list") ? "page" : undefined}
+            >
+              <ListChecks {...NAV_ICON_PROPS} />
+            </Link>
             <InboxNavButton current={routeIsCurrent(pathname, "/inbox")} />
             <UserMenu
               ref={userMenuRef}
@@ -882,6 +892,14 @@ const UserMenu = forwardRef(function UserMenu(
             onClick={handleItem()}
           >
             Manage Collection
+          </Link>
+          <Link
+            href="/pull-list"
+            className="user-menu-item"
+            role="menuitem"
+            onClick={handleItem()}
+          >
+            Pull list
           </Link>
           <Link
             href="/people"

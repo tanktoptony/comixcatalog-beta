@@ -30,7 +30,7 @@ export function publisherMatches(cvPublisher, gcdPublisherName) {
 }
 
 export function normalizeSeriesName(value) {
-  return String(value ?? "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  return String(value ?? "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().replace(/^the\s+/, "");
 }
 
 export function chooseSkippedCandidate({ skipReason, volumeTitle, volumePublisher, startYear,

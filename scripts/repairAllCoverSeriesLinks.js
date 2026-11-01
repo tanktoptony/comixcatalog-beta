@@ -1,3 +1,6 @@
+// Updated 2026-11-01: title candidate lookup treats a leading "The" as
+// optional. ComicVine's "The Punisher" covers (#8 and #9) otherwise missed
+// GCD's "Punisher" (2026, gcd 234204) and kept a null series_gcd_id.
 // Catalog-wide generalization of propagateGcdIdByCvVolume.js (fixes volumes
 // already split across multiple series_gcd_id values) and
 // repairFeaturedSeriesCoverage.js (fixes volumes entirely on ONE wrong
@@ -400,16 +403,23 @@ async function run() {
   console.log(`Distinct series_title values needing candidate expansion: ${titles.length}`);
 
   const candidatesByTitle = new Map();
+  const titleForms = (title) => {
+    const withoutThe = title.replace(/^the\s+/i, "");
+    return [...new Set([title, withoutThe, `The ${withoutThe}`])];
+  };
+  const lookupTitles = [...new Set(titles.flatMap(titleForms))];
   const seriesMeta = new Map();
-  for (let i = 0; i < titles.length; i += 200) {
-    const chunk = titles.slice(i, i + 200);
+  for (let i = 0; i < lookupTitles.length; i += 200) {
+    const chunk = lookupTitles.slice(i, i + 200);
     // Paged: 200 common titles can match well over 1000 gcd_series rows.
     const data = await fetchAllPages(() =>
       supabase.from("gcd_series").select("gcd_id, name, year_began, year_ended, publisher_gcd_id").in("name", chunk).order("name").order("gcd_id")
     );
     for (const row of data) {
-      if (!candidatesByTitle.has(row.name)) candidatesByTitle.set(row.name, []);
-      candidatesByTitle.get(row.name).push(row.gcd_id);
+      for (const form of titleForms(row.name)) {
+        if (!candidatesByTitle.has(form)) candidatesByTitle.set(form, []);
+        candidatesByTitle.get(form).push(row.gcd_id);
+      }
       seriesMeta.set(row.gcd_id, row);
     }
   }

@@ -1,3 +1,7 @@
+// Updated 2026-11-01: unmatched recent covers run first, and every fetched
+// issue records its variant relationship plus exact live issue details.
+// X-Men (2024) was missing #40 and two variants while its release-day cover
+// waited unattached; post-dump inserts also left 2,590 base ids null.
 // Targeted top-up of gcd_issues from GCD's own live API - NOT a fresh bulk
 // dump. Our gcd_issues mirror was populated once from an old GCD Postgres
 // dump and never refreshed, so ongoing series silently fall behind (e.g.
@@ -31,6 +35,8 @@ import { orderActiveTargets, pickBestCandidate, readCursor, rotate, writeCursor 
 import { fetchRecentComicVineIssues } from "./lib/cvRecentReleases.js";
 import { fetchAllPages } from "../src/lib/supabase/fetchAllPages.js";
 import { catalogBarcodeRow, insertCatalogBarcode } from "./lib/gcdBarcodes.js";
+import { issueIdFromUrl, issueRowsFromJson, unmatchedCoverSeries, variantFieldsFromSeriesJson } from "./lib/gcdIssueRefresh.js";
+import { issueNumberOrFilter } from "../src/lib/csvImport/matchRow.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
@@ -48,6 +54,7 @@ const args = Object.fromEntries(
 );
 const DRY_RUN = Boolean(args["dry-run"]);
 const LIST_ONLY = Boolean(args["list-only"]);
+const REPAIR_VARIANTS = Boolean(args["repair-variants"]);
 const USE_CURSOR = !args["no-cursor"];
 // 700ms tripped a 429 (Retry-After ~52min) well under 100 requests in
 // testing on 2026-08-10. 2000ms is a more conservative starting point, not
@@ -116,19 +123,6 @@ async function fetchJson(url, tries = 2) {
     throw new Error(`${res.status} ${res.statusText} for ${url}`);
   }
   throw new Error(`Failed after ${tries} attempts: ${url}`);
-}
-
-function issueIdFromUrl(url) {
-  const m = url.match(/\/api\/issue\/(\d+)\//);
-  return m ? Number(m[1]) : null;
-}
-
-// The top-level `title` field on the issue API is frequently blank; the real
-// story title lives in story_set. Prefer the first "comic story" entry.
-function resolveTitle(issueJson) {
-  if (issueJson.title) return issueJson.title;
-  const story = (issueJson.story_set ?? []).find((s) => s.type === "comic story" && s.title);
-  return story?.title ?? null;
 }
 
 // PostgREST caps a read at 1000 rows and gives no indication that it
@@ -246,6 +240,57 @@ async function getRecentGcdIds() {
   return ids;
 }
 
+// Series the unmatched source checked recently. A cover whose number GCD
+// will never carry (or hasn't indexed yet) would otherwise cost a series
+// request on every run and starve real new issues of GCD's ~30-request
+// budget, so a series is rechecked only after UNMATCHED_RECHECK_MS.
+const UNMATCHED_FILE = path.resolve(__dirname, "../gcd-unmatched-checked.json");
+const UNMATCHED_RECHECK_MS = 12 * 60 * 60 * 1000;
+function readUnmatchedChecked() {
+  try { return JSON.parse(fs.readFileSync(UNMATCHED_FILE, "utf8")); } catch { return {}; }
+}
+function writeUnmatchedChecked(checked) {
+  const cutoff = Date.now() - 30 * 24 * 60 * 60 * 1000;
+  const kept = Object.fromEntries(Object.entries(checked).filter(([, at]) => Date.parse(at) > cutoff).sort(([a], [b]) => Number(a) - Number(b)));
+  fs.writeFileSync(UNMATCHED_FILE, `${JSON.stringify(kept, null, 2)}\n`);
+}
+
+async function getUnmatchedGcdIds(checked) {
+  const covers = await fetchAllPages(() => supabase.from("canonical_covers")
+    .select("id, series_gcd_id, issue_number, in_store_date, series_title")
+    .gte("in_store_date", isoDaysAgo(30)).not("series_gcd_id", "is", null)
+    .order("in_store_date", { ascending: false }).order("id", { ascending: false }), "id");
+  // Only the issue numbers the covers carry are fetched (legacy "40 (340)"
+  // forms included), never whole issue lists: long runs made this minutes.
+  const numbersBySeries = new Map();
+  for (const cover of covers) {
+    const id = Number(cover.series_gcd_id);
+    if (!numbersBySeries.has(id)) numbersBySeries.set(id, new Set());
+    if (cover.issue_number) numbersBySeries.get(id).add(String(cover.issue_number).trim());
+  }
+  const issuesBySeries = new Map();
+  for (const chunk of chunks([...numbersBySeries.keys()], 50)) {
+    const numbers = [...new Set(chunk.flatMap((id) => [...numbersBySeries.get(id)]))];
+    for (let at = 0; at < numbers.length; at += 25) {
+      const filter = issueNumberOrFilter(numbers.slice(at, at + 25));
+      if (!filter) continue;
+      const rows = await fetchAllPages(() => supabase.from("gcd_issues")
+        .select("gcd_id, series_gcd_id, issue_number, variant_of_gcd_id")
+        .in("series_gcd_id", chunk).or(filter).order("gcd_id"), "gcd_id");
+      for (const row of rows) {
+        const id = Number(row.series_gcd_id);
+        if (!issuesBySeries.has(id)) issuesBySeries.set(id, []);
+        issuesBySeries.get(id).push(row);
+      }
+    }
+  }
+  const result = unmatchedCoverSeries(covers, issuesBySeries);
+  console.log(`  e.g. ${result.covers.slice(0, 12).map((c) => `${c.series_title} #${c.issue_number} (${c.series_gcd_id})`).join(" | ")}`);
+  const due = result.seriesIds.filter((id) => !(checked[id] && Date.now() - Date.parse(checked[id]) < UNMATCHED_RECHECK_MS));
+  console.log(`Unmatched source (30 days): ${result.covers.length} covers | ${result.seriesIds.length} distinct GCD series | ${due.length} due (others checked in the last 12h).`);
+  return due;
+}
+
 async function getTargetGcdIds() {
   if (args["gcd-ids"]) {
     return String(args["gcd-ids"]).split(",").map((s) => Number(s.trim())).filter(Boolean);
@@ -263,6 +308,21 @@ async function getTargetGcdIds() {
   throw new Error("Provide --gcd-ids=1,2,3, --source=active, or --source=featured");
 }
 
+async function loadKnownBaseChain(parentId) {
+  const known = new Map();
+  let current = parentId;
+  while (current && !known.has(current)) {
+    const { data: row, error } = await supabase.from("gcd_issues")
+      .select("gcd_id, base_gcd_issue_id, variant_of_gcd_id").eq("gcd_id", current).maybeSingle();
+    if (error) throw error;
+    if (!row) break;
+    known.set(Number(row.gcd_id), row);
+    if (row.base_gcd_issue_id || !row.variant_of_gcd_id) break;
+    current = Number(row.variant_of_gcd_id);
+  }
+  return known;
+}
+
 async function refreshOne(seriesGcdId) {
   const seriesJson = await fetchJson(`https://www.comics.org/api/series/${seriesGcdId}/?format=json`);
   await sleep(SLEEP_MS);
@@ -275,7 +335,7 @@ async function refreshOne(seriesGcdId) {
   "gcd_id");
   const localSet = new Set((localRows ?? []).map((r) => Number(r.gcd_id)));
 
-  const missing = remoteIds.filter((id) => !localSet.has(id));
+  const missing = remoteIds.filter((id) => !localSet.has(id)).sort((a, b) => a - b);
 
   console.log(`\n=== ${seriesJson.name} (gcd_id ${seriesGcdId}) ===`);
   console.log(`  GCD live: ${remoteSet.size} issue rows | local: ${localSet.size} | missing: ${missing.length}`);
@@ -306,17 +366,15 @@ async function refreshOne(seriesGcdId) {
     }
     await sleep(SLEEP_MS);
 
-    const { error: upsertErr } = await supabase
-      .from("gcd_issues")
-      .upsert({
-        gcd_id: issueId,
-        series_gcd_id: seriesGcdId,
-        issue_number: issueJson.number ?? null,
-        title: resolveTitle(issueJson),
-        publication_date: issueJson.publication_date || null,
-        key_date: issueJson.key_date || null,
-      }, { onConflict: "gcd_id" });
+    const parentId = issueIdFromUrl(issueJson.variant_of);
+    let known;
+    try { known = parentId ? await loadKnownBaseChain(parentId) : new Map(); }
+    catch (error) { console.error(`    base lookup failed for issue ${issueId}: ${describeError(error)}`); continue; }
+    const rows = issueRowsFromJson(issueId, seriesGcdId, issueJson, known);
+    const { error: upsertErr } = await supabase.from("gcd_issues").upsert(rows.issue, { onConflict: "gcd_id" });
     if (upsertErr) { console.error(`    upsert failed for issue ${issueId}: ${describeError(upsertErr)}`); continue; }
+    const { error: detailsError } = await supabase.from("gcd_issue_details").upsert(rows.details, { onConflict: "gcd_issue_id" });
+    if (detailsError) { console.error(`    details upsert failed for issue ${issueId}: ${describeError(detailsError)}`); continue; }
     const barcodeRow = catalogBarcodeRow(issueId, issueJson.barcode);
     if (barcodeRow) {
       try {
@@ -333,6 +391,64 @@ async function refreshOne(seriesGcdId) {
   // Complete only when every missing issue was fetched; a series cut short by
   // the per-invocation issue cap is resumed next run, not skipped.
   return { series: seriesJson.name, gcdId: seriesGcdId, missing: missing.length, inserted, complete: issuesToFetch.length === missing.length };
+}
+
+async function repairVariants() {
+  const rows = await fetchAllPages(() => supabase.from("gcd_issues")
+    .select("gcd_id, series_gcd_id, issue_number, base_gcd_issue_id")
+    .is("base_gcd_issue_id", null).order("gcd_id", { ascending: false }), "gcd_id");
+  const counts = new Map();
+  for (const row of rows) {
+    const key = `${row.series_gcd_id}::${row.issue_number}`;
+    counts.set(key, (counts.get(key) ?? 0) + 1);
+  }
+  rows.sort((a, b) => {
+    const aDup = counts.get(`${a.series_gcd_id}::${a.issue_number}`) > 1 ? 1 : 0;
+    const bDup = counts.get(`${b.series_gcd_id}::${b.issue_number}`) > 1 ? 1 : 0;
+    return bDup - aDup || Number(b.gcd_id) - Number(a.gcd_id);
+  });
+  // One series request repairs every broken row in that series: GCD's
+  // issue_descriptors mark variants ("40 (340) [Pere Pérez Cover]"), so the
+  // 2,587 rows left on 2026-11-01 cost ~633 requests instead of 2,587. A row
+  // the descriptors can't place (no same-number base) falls back to its own
+  // issue request. --max-series caps series per run (default 15).
+  const seriesOrder = [...new Set(rows.map((row) => Number(row.series_gcd_id)))];
+  const maxSeries = Number(args["max-series"] ?? 15);
+  const selectedSeries = seriesOrder.slice(0, maxSeries);
+  console.log(`Repair variants: ${rows.length} unrepaired rows in ${seriesOrder.length} series; processing ${selectedSeries.length} series, duplicate-number series first.`);
+  let repaired = 0;
+  for (const seriesId of selectedSeries) {
+    const seriesRows = rows.filter((row) => Number(row.series_gcd_id) === seriesId);
+    const seriesJson = await fetchJson(`https://www.comics.org/api/series/${seriesId}/?format=json`);
+    await sleep(SLEEP_MS);
+    const fields = variantFieldsFromSeriesJson(seriesJson);
+    for (const row of seriesRows) {
+      try {
+        let update = fields.get(Number(row.gcd_id));
+        if (!update) {
+          const json = await fetchJson(`https://www.comics.org/api/issue/${row.gcd_id}/?format=json`);
+          await sleep(SLEEP_MS);
+          const parentId = issueIdFromUrl(json.variant_of);
+          const known = parentId ? await loadKnownBaseChain(parentId) : new Map();
+          const projected = issueRowsFromJson(row.gcd_id, row.series_gcd_id, json, known);
+          const { error: detailError } = await supabase.from("gcd_issue_details").upsert(projected.details, { onConflict: "gcd_issue_id" });
+          if (detailError) throw detailError;
+          update = projected.issue;
+        }
+        const { error: issueError } = await supabase.from("gcd_issues").update({
+          variant_of_gcd_id: update.variant_of_gcd_id,
+          variant_name: update.variant_name,
+          base_gcd_issue_id: update.base_gcd_issue_id,
+        }).eq("gcd_id", row.gcd_id);
+        if (issueError) throw issueError;
+        repaired++;
+      } catch (error) {
+        if (error instanceof RateLimited) throw error;
+        console.error(`  repair failed for issue ${row.gcd_id}: ${describeError(error)}`);
+      }
+    }
+  }
+  console.log(`Repair complete: ${repaired} rows updated across ${selectedSeries.length} series.`);
 }
 
 // series.issue_count_cached only moved when weekly-refresh rotated around to
@@ -360,6 +476,13 @@ Refreshing cached counts for ${ids.length} series that gained issues.`);
 }
 
 async function run() {
+  if (REPAIR_VARIANTS) {
+    try { await repairVariants(); } catch (error) {
+      if (error instanceof RateLimited) { console.error(error.message); process.exitCode = 3; return; }
+      throw error;
+    }
+    return;
+  }
   const all = await getTargetGcdIds();
   if (LIST_ONLY) {
     if (args["contains"] != null) {
@@ -372,7 +495,9 @@ async function run() {
   const rotating = USE_CURSOR && !args["gcd-ids"];
   const cursor = rotating ? readCursor(CURSOR_FILE, fs) : null;
   const ordered = rotating ? rotate(all, cursor) : all;
-  const ids = ordered.slice(0, MAX_SERIES);
+  const unmatchedChecked = readUnmatchedChecked();
+  const unmatched = args.source === "active" && !args["gcd-ids"] ? await getUnmatchedGcdIds(unmatchedChecked) : [];
+  const ids = [...unmatched, ...ordered.filter((id) => !unmatched.includes(id))].slice(0, MAX_SERIES);
 
   if (rotating) {
     if (cursor == null) {
@@ -401,7 +526,8 @@ async function run() {
         console.log(`  Series ${id} not finished this run; the next run resumes it.`);
         break;
       }
-      lastCompleted = id;
+      if (unmatched.includes(id)) unmatchedChecked[id] = new Date().toISOString();
+      else lastCompleted = id;
     } catch (err) {
       if (err instanceof RateLimited) {
         rateLimited = true;
@@ -415,6 +541,8 @@ async function run() {
       lastCompleted = id;
     }
   }
+
+  if (unmatched.length && !DRY_RUN) writeUnmatchedChecked(unmatchedChecked);
 
   // Resume after the last finished series, so a series cut short by a 429 or
   // --max-issues is picked up first next run. A dry run must not move it.

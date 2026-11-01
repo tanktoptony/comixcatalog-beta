@@ -5892,10 +5892,22 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
+        "id": 33766,
+        "name": "Scream!",
+        "publisher": "IPC Magazines Ltd.",
+        "start_year": 1984
+      },
+      {
         "id": 48812,
         "name": "The Scream",
         "publisher": "Dark Horse Comics",
         "start_year": 2008
+      },
+      {
+        "id": 53664,
+        "name": "Scream!",
+        "publisher": "Chick Publications",
+        "start_year": 2002
       },
       {
         "id": 11075,
@@ -5910,8 +5922,10 @@
         "start_year": 2007
       }
     ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555048+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T08:55:40.537103+00:00",
+    "retry_after": "2026-11-04T08:55:40.537106+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Nurses Monsters and Hotrodders",
@@ -7303,10 +7317,12 @@
     "name": "Teen Titans Go! / DC Super Hero Girls Giant",
     "publisher": "DC Comics",
     "year": 2020,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555487+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T08:56:08.642542+00:00",
+    "retry_after": "2026-11-04T08:56:08.642545+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Protectors Inc. Trade Paperback",
@@ -7392,10 +7408,12 @@
     "name": "SFSX (Safe Sex)",
     "publisher": "Image Comics",
     "year": 2020,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555511+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T08:56:07.753351+00:00",
+    "retry_after": "2026-11-04T08:56:07.753369+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Dr. Strange, Surgeon Supreme",
@@ -27505,8 +27523,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-01T08:01:38.270451+00:00",
-    "retry_after": "2026-11-02T08:01:38.270453+00:00",
+    "last_attempt_at": "2026-11-01T08:47:19.955140+00:00",
+    "retry_after": "2026-11-02T08:47:19.955143+00:00",
     "search_hydrated": true
   },
   {
@@ -30508,9 +30526,10 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-27T20:02:20.672999+00:00",
-    "retry_after": "2026-09-28T20:02:20.673015+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T08:55:40.536869+00:00",
+    "retry_after": "2026-11-04T08:55:40.536885+00:00",
+    "search_hydrated": true
   },
   {
     "name": "X-Force and Spider-Man: Sabotage",
@@ -43563,8 +43582,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-01T08:01:38.270401+00:00",
-    "retry_after": "2026-11-02T08:01:38.270412+00:00",
+    "last_attempt_at": "2026-11-01T08:47:19.955064+00:00",
+    "retry_after": "2026-11-02T08:47:19.955076+00:00",
     "search_hydrated": true
   },
   {
@@ -51466,8 +51485,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-01T08:01:38.270432+00:00",
-    "retry_after": "2026-11-02T08:01:38.270434+00:00",
+    "last_attempt_at": "2026-11-01T08:47:19.955105+00:00",
+    "retry_after": "2026-11-02T08:47:19.955109+00:00",
     "search_hydrated": true
   },
   {
@@ -86648,9 +86667,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-31T08:13:40.939132+00:00",
-    "retry_after": "2026-11-01T08:13:40.939136+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-01T08:56:29.211399+00:00",
+    "retry_after": "2026-11-04T08:56:29.211416+00:00",
     "search_hydrated": true
   },
   {
@@ -88078,6 +88097,201 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-01T08:10:41.322742+00:00",
     "retry_after": "2026-11-02T08:10:41.322744+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "New Warriors Classic Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T08:55:40.536907+00:00",
+    "retry_after": "2026-11-02T08:55:40.536911+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Nightwing the Prince of Gotham Omnibus",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T08:55:40.536926+00:00",
+    "retry_after": "2026-11-02T08:55:40.536929+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Nightwing: Year One The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T08:55:40.536942+00:00",
+    "retry_after": "2026-11-02T08:55:40.536945+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Paul is Dead: When the Beatles Lost McCartney",
+    "publisher": "Image Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T08:55:40.536994+00:00",
+    "retry_after": "2026-11-02T08:55:40.536997+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Previously in Marvel Comics Recap Guide",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T08:55:40.537010+00:00",
+    "retry_after": "2026-11-02T08:55:40.537012+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Comics: The World Outside Your Window",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 119858,
+        "name": "Marvel Comics: The World Outside Your Window",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T08:55:41.571321+00:00",
+    "retry_after": "2026-11-02T08:55:41.571337+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Scarlet",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 118528,
+        "name": "Scarlet",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T08:55:47.166116+00:00",
+    "retry_after": "2026-11-02T08:55:47.166131+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Shazam!: The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T08:56:07.753393+00:00",
+    "retry_after": "2026-11-02T08:56:07.753396+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars: Darth Vader by Greg Pak",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T08:56:08.642428+00:00",
+    "retry_after": "2026-11-02T08:56:08.642443+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Stormbreakers Sketchbook",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T08:56:08.642475+00:00",
+    "retry_after": "2026-11-02T08:56:08.642479+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Supergirl: Cosmic Adventures in the 8th Grade",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 24489,
+        "name": "Supergirl: Cosmic Adventures in the 8th Grade",
+        "publisher": "DC Comics",
+        "start_year": 2009
+      },
+      {
+        "id": 73860,
+        "name": "Supergirl: Cosmic Adventures in the 8th Grade",
+        "publisher": "DC Comics",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T08:56:08.642519+00:00",
+    "retry_after": "2026-11-02T08:56:08.642522+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Teen Titans: Raven and Beast Boy Box Set",
+    "publisher": "DC Comics",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T08:56:08.642559+00:00",
+    "retry_after": "2026-11-02T08:56:08.642561+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Silver Surfer: Parable",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 27377,
+        "name": "Silver Surfer: Parable",
+        "publisher": "Marvel",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T08:56:09.168027+00:00",
+    "retry_after": "2026-11-02T08:56:09.168043+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Man: Kraven's Last Hunt",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 28024,
+        "name": "Spider-Man: Kraven's Last Hunt",
+        "publisher": "Marvel",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-01T08:56:09.168241+00:00",
+    "retry_after": "2026-11-02T08:56:09.168245+00:00",
     "search_hydrated": true
   }
 ]

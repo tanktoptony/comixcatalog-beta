@@ -1,5 +1,16 @@
 [
   {
+    "name": "Amazing Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2021,
+    "volume_id": null,
+    "series_gcd_id": 172683,
+    "newest_release": "2026-10-08",
+    "missing": [
+      "73"
+    ]
+  },
+  {
     "name": "Overkiller",
     "publisher": "Cosmic Lion Productions",
     "year": 2026,
@@ -8,6 +19,17 @@
     "newest_release": "2026-10-07",
     "missing": [
       "1"
+    ]
+  },
+  {
+    "name": "Starhenge, Book Two: A Kiss for Atticus",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "volume_id": null,
+    "series_gcd_id": 238755,
+    "newest_release": "2026-10-07",
+    "missing": [
+      "4"
     ]
   },
   {
@@ -85,6 +107,17 @@
     "newest_release": "2026-11-00",
     "missing": [
       "7 [Carmine Di Giandomenico Cover]"
+    ]
+  },
+  {
+    "name": "Miles Morales: Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "volume_id": 175739,
+    "series_gcd_id": 238556,
+    "newest_release": "2026-11-00",
+    "missing": [
+      "2 (326)"
     ]
   },
   {

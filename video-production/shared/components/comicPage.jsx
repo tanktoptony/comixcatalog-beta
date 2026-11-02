@@ -14,6 +14,17 @@ import { resolveAsset } from "../timeline.js";
 export const PAGE = { paper: "#f7f2e4", ink: "#0a0a0a", line: 7 };
 export const lettering = "'Bangers', 'Impact', sans-serif";
 
+// Two looks, so a Short never passes for a full episode at a glance (Tony,
+// 2026-11-02). Episodes are a cream page with gold captions and the navy bar.
+// Shorts ("one-shots", a comic's standalone single issue) are a black page
+// with white panel rules, red captions and a red bar. Red is the site's
+// --x-red-burst.
+export const THEMES = {
+  episode: { paper: PAGE.paper, dots: "rgba(0,0,0,.07)", rule: PAGE.ink, ruleWidth: PAGE.line, caption: brand.gold, captionText: PAGE.ink, captionShadow: PAGE.ink, barBadge: brand.blue, barBody: brand.bg, barAccent: brand.gold, barSub: brand.gold },
+  short: { paper: PAGE.ink, dots: "rgba(255,255,255,.06)", rule: "#fff", ruleWidth: 4, caption: brand.red, captionText: "#fff", captionShadow: "#fff", barBadge: PAGE.ink, barBody: brand.red, barAccent: "#fff", barSub: "#fff" },
+};
+const Theme = React.createContext(THEMES.episode);
+
 export function useComicFonts() {
   const [h] = useState(() => delayRender("comic fonts"));
   useEffect(() => {
@@ -32,12 +43,16 @@ export function art(episode, [asset, width, height, trimTop = 0]) {
   return { src: staticFile(file), size: [width, height], trimTop };
 }
 
-// Cream page with faint print dots. Everything else sits on it.
-export function Paper({ children }) {
-  return <AbsoluteFill style={{ backgroundColor: PAGE.paper }}>
-    <AbsoluteFill style={{ backgroundImage: "radial-gradient(circle, rgba(0,0,0,.07) 1.1px, transparent 1.5px)", backgroundSize: "6px 6px" }} />
-    {children}
-  </AbsoluteFill>;
+// The page, with faint print dots. Everything else sits on it and takes its
+// colors from the theme.
+export function Paper({ theme = "episode", children }) {
+  const t = THEMES[theme];
+  return <Theme.Provider value={t}>
+    <AbsoluteFill style={{ backgroundColor: t.paper }}>
+      <AbsoluteFill style={{ backgroundImage: `radial-gradient(circle, ${t.dots} 1.1px, transparent 1.5px)`, backgroundSize: "6px 6px" }} />
+      {children}
+    </AbsoluteFill>
+  </Theme.Provider>;
 }
 
 function bounds(points) {
@@ -50,6 +65,7 @@ function bounds(points) {
 // the polygon's bounding box; `focus` is the point of the source image (0 to 1)
 // to center on and `zoom` scales past a plain cover fit.
 export function Panel({ points, image, focus = [0.5, 0.5], zoom = 1, children }) {
+  const t = React.useContext(Theme);
   const b = bounds(points);
   const [sw, sh] = image.size;
   const trim = sh * image.trimTop;
@@ -64,16 +80,19 @@ export function Panel({ points, image, focus = [0.5, 0.5], zoom = 1, children })
       {children}
     </AbsoluteFill>
     <svg width="100%" height="100%" style={{ position: "absolute", inset: 0 }}>
-      <polygon points={points.map((p) => p.join(",")).join(" ")} fill="none" stroke={PAGE.ink} strokeWidth={PAGE.line} strokeLinejoin="miter" />
+      <polygon points={points.map((p) => p.join(",")).join(" ")} fill="none" stroke={t.rule} strokeWidth={t.ruleWidth} strokeLinejoin="miter" />
     </svg>
   </>;
 }
 
 const line = (l) => (typeof l === "string" ? { text: l } : l);
 
-// Narration caption: lettered box, gold by default (the site's --x-gold).
-export function Caption({ lines, size = 84, pos, rotate = -2, bg = brand.gold, color = PAGE.ink }) {
-  return <div style={{ position: "absolute", ...pos, transform: `rotate(${rotate}deg)`, background: bg, border: `5px solid ${PAGE.ink}`, boxShadow: `7px 7px 0 ${PAGE.ink}`, padding: "12px 24px 4px" }}>
+// Narration caption: lettered box in the theme's caption color. `note` is the
+// white secondary box (names, a fact) on either theme.
+export function Caption({ lines, size = 84, pos, rotate = -2, note = false }) {
+  const t = React.useContext(Theme);
+  const bg = note ? "#fff" : t.caption, color = note ? PAGE.ink : t.captionText;
+  return <div style={{ position: "absolute", ...pos, transform: `rotate(${rotate}deg)`, background: bg, border: `5px solid ${PAGE.ink}`, boxShadow: `7px 7px 0 ${t.captionShadow}`, padding: "12px 24px 4px" }}>
     {lines.map(line).map((l, i) => <div key={i} style={{ fontFamily: lettering, fontSize: l.size ?? size, lineHeight: 0.95, letterSpacing: ".015em", color: l.color ?? color, whiteSpace: "nowrap" }}>{l.text}</div>)}
   </div>;
 }
@@ -104,13 +123,14 @@ export function Balloon({ x, y, w, h, tail, lines, size = 64, color = PAGE.ink }
 
 // The brand, kept to one small bar in a corner: badge, series, ComixCatalog.
 export function CornerBar({ title, sub, pos = { left: 0, top: 0 }, scale = 1 }) {
-  return <div style={{ position: "absolute", ...pos, transform: `scale(${scale})`, transformOrigin: "left top", display: "flex", alignItems: "stretch", height: 66, boxShadow: `6px 6px 0 ${PAGE.ink}`, border: `4px solid ${PAGE.ink}` }}>
-    <div style={{ background: brand.blue, display: "flex", alignItems: "center", padding: "0 8px" }}>
+  const t = React.useContext(Theme);
+  return <div style={{ position: "absolute", ...pos, transform: `scale(${scale})`, transformOrigin: "left top", display: "flex", alignItems: "stretch", height: 66, boxShadow: `6px 6px 0 ${t.captionShadow}`, border: `4px solid ${PAGE.ink}` }}>
+    <div style={{ background: t.barBadge, display: "flex", alignItems: "center", padding: "0 8px" }}>
       <Img src={staticFile("brand/badge-transparent.png")} style={{ height: 52, width: "auto" }} />
     </div>
-    <div style={{ background: brand.bg, borderLeft: `6px solid ${brand.gold}`, padding: "6px 16px 2px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+    <div style={{ background: t.barBody, borderLeft: `6px solid ${t.barAccent}`, padding: "6px 16px 2px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
       <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 30, lineHeight: 0.95, color: "#fff", textTransform: "uppercase", letterSpacing: ".02em", whiteSpace: "nowrap" }}>{title}</div>
-      <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 17, lineHeight: 1.1, color: brand.gold, textTransform: "uppercase", letterSpacing: ".14em", whiteSpace: "nowrap" }}>{sub}</div>
+      <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 17, lineHeight: 1.1, color: t.barSub, textTransform: "uppercase", letterSpacing: ".14em", whiteSpace: "nowrap" }}>{sub}</div>
     </div>
   </div>;
 }

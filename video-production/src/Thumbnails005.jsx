@@ -64,7 +64,7 @@ export function Thumb005PageNames() {
     <Panel points={[[714, 16], [1264, 16], [1264, 340], [690, 340]]} image={img("album")} focus={[0.58, 0.4]} />
     <Panel points={[[689, 354], [1264, 354], [1264, 704], [664, 704]]} image={img("s1")} focus={[0.47, 0.34]} zoom={1.5} />
     <Caption lines={["The songs", "name names."]} size={100} pos={{ left: 36, bottom: 40 }} />
-    <Caption lines={["Matthew · Maria · Patrick", "Newo · Norris · Larry · Mariah"]} size={34} bg="#fff" rotate={1.5} pos={{ right: 34, top: 292 }} />
+    <Caption lines={["Matthew · Maria · Patrick", "Newo · Norris · Larry · Mariah"]} size={34} note rotate={1.5} pos={{ right: 34, top: 292 }} />
     <CornerBar {...bar} pos={{ left: 30, top: 30 }} />
   </Paper>;
 }
@@ -94,43 +94,46 @@ export function Thumb005PageTenSongs() {
   </Paper>;
 }
 
-// Shorts thumbnails, 1080x1920. Words sit in the middle of the frame, clear
+// Shorts thumbnails, 1080x1920, on the "short" theme (black page, red
+// captions, ONE-SHOT bar) so they never look like an episode. Fewer, bigger
+// panels than the episode pages. Words sit in the middle of the frame, clear
 // of the title and view count YouTube lays over the bottom.
+const shortBar = { title: "One-Shot", sub: "The Amory Wars · ComixCatalog" };
+
 export function Short005CastListThumb() {
   useComicFonts();
-  return <Paper>
-    <Panel points={[[24, 24], [1056, 24], [1056, 600], [24, 660]]} image={img("album")} focus={[0.58, 0.38]} />
-    <Panel points={[[24, 678], [1056, 618], [1056, 1230], [24, 1290]]} image={img("ii3")} focus={[0.48, 0.62]} />
-    <Panel points={[[24, 1308], [1056, 1248], [1056, 1896], [24, 1896]]} image={img("s4")} focus={[0.55, 0.49]} zoom={1.2} />
-    <Caption lines={["The lyrics", "have a", "cast list"]} size={140} pos={{ left: 60, top: 230 }} rotate={-3} />
-    <Caption lines={["Matthew · Maria", "Patrick · Newo", "Norris · Larry · Mariah"]} size={60} bg="#fff" rotate={-2} pos={{ left: 50, top: 1110 }} />
-    <CornerBar {...bar} pos={{ left: 48, top: 48 }} scale={1.35} />
+  return <Paper theme="short">
+    <Panel points={[[24, 24], [1056, 24], [1056, 1150], [24, 1210]]} image={img("ii3")} focus={[0.48, 0.6]} />
+    <Panel points={[[24, 1226], [1056, 1166], [1056, 1896], [24, 1896]]} image={img("album")} focus={[0.58, 0.45]} />
+    <Caption lines={["The lyrics", "have a", "cast list"]} size={140} pos={{ left: 56, top: 760 }} rotate={-5} />
+    <Caption lines={["Matthew · Maria", "Patrick · Newo", "Norris · Larry · Mariah"]} size={60} note rotate={2} pos={{ right: 50, top: 1300 }} />
+    <CornerBar {...shortBar} pos={{ left: 48, top: 48 }} scale={1.35} />
   </Paper>;
 }
 
 export function Short005CoupleThumb() {
   useComicFonts();
-  return <Paper>
-    <Caption lines={["The original", "Coheed & Cambria"]} size={122} pos={{ left: 40, top: 170 }} rotate={-2} />
+  return <Paper theme="short">
+    <Caption lines={["The original", "Coheed & Cambria"]} size={122} pos={{ left: 40, top: 170 }} rotate={-4} />
     <Panel points={[[24, 440], [1056, 410], [1056, 1896], [24, 1896]]} image={img("s4")} focus={[0.55, 0.62]} zoom={1.25} />
     <Balloon x={520} y={1230} w={510} h={330} tail={[690, 780]} lines={["The band's", "named", "after us!"]} size={86} />
-    <CornerBar {...bar} pos={{ left: 48, top: 40 }} scale={1.35} />
+    <CornerBar {...shortBar} pos={{ left: 48, top: 40 }} scale={1.35} />
   </Paper>;
 }
 
 export function Short005JesseThumb() {
   useComicFonts();
-  return <Paper>
+  return <Paper theme="short">
     {/* Model sheets, not the #5 cover: they're the art that names Jesse and
         Mariah, and the cover's logo runs through Mariah's face. */}
     <Panel points={[[24, 24], [530, 24], [515, 1100], [24, 1100]]} image={img("inferno")} focus={[0.42, 0.5]} />
     <Panel points={[[544, 24], [1056, 24], [1056, 1100], [529, 1100]]} image={img("mariah")} focus={[0.45, 0.5]} />
-    <Panel points={[[24, 1114], [1056, 1114], [1056, 1896], [24, 1896]]} image={img("ii2")} focus={[0.5, 0.55]} zoom={1.1} />
-    <Caption lines={["Jesse, the Inferno"]} size={54} bg="#fff" rotate={-2} pos={{ left: 44, top: 740 }} />
-    <Caption lines={["His wife, Mariah"]} size={54} bg="#fff" rotate={2} pos={{ right: 44, top: 740 }} />
-    <Caption lines={["My favorite", "Coheed character"]} size={112} pos={{ left: 44, top: 860 }} rotate={-3} />
-    <Caption lines={["He gave his brother", "one hour."]} size={64} bg="#fff" rotate={-1.5} pos={{ right: 50, top: 1480 }} />
-    <CornerBar {...bar} pos={{ left: 48, top: 48 }} scale={1.35} />
+    <Panel points={[[24, 1116], [1056, 1116], [1056, 1896], [24, 1896]]} image={img("ii2")} focus={[0.5, 0.55]} zoom={1.1} />
+    <Caption lines={["Jesse, the Inferno"]} size={54} note rotate={-2} pos={{ left: 44, top: 740 }} />
+    <Caption lines={["His wife, Mariah"]} size={54} note rotate={2} pos={{ right: 44, top: 740 }} />
+    <Caption lines={["My favorite", "Coheed character"]} size={112} pos={{ left: 44, top: 860 }} rotate={-5} />
+    <Caption lines={["He gave his brother", "one hour."]} size={64} note rotate={-1.5} pos={{ right: 50, top: 1480 }} />
+    <CornerBar {...shortBar} pos={{ left: 48, top: 48 }} scale={1.35} />
   </Paper>;
 }
 

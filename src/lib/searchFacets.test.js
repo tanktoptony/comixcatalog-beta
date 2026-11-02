@@ -33,7 +33,7 @@ test("facet counts apply other facets but not their own", () => {
     works: [work, { ...work, id: "dc", publisher: { name: "DC" }, year_start: 1987, year_end: 1987 }],
     issues: [], selected,
   });
-  assert.deepEqual(facets.publishers.map(({ key, count }) => [key, count]), [["dc", 1], ["image comics", 1]]);
+  assert.deepEqual(facets.publishers.map(({ key, count }) => [key, count]), [["dc comics", 1], ["image comics", 1]]);
   assert.deepEqual(facets.decades.map(({ key }) => key), ["2020s", "2010s"]);
 });
 
@@ -51,4 +51,13 @@ test("issues are hidden when a non-issue format is selected", () => {
   const result = filterResults({ works: [work], issues: [{ id: "issue", year: 2018, publisher: "Image Comics" }], selected });
   assert.equal(result.works.length, 1);
   assert.equal(result.issues.length, 0);
+});
+
+test("publisher spellings of one company count as one option", () => {
+  const facets = buildFacets({
+    works: [{ ...work, publisher: { name: "DC Comics" } }],
+    issues: [{ id: "a", publisher: "DC", year: 2025 }, { id: "b", publisher: "DC Comics ", year: 2025 }],
+    selected: empty(),
+  });
+  assert.deepEqual(facets.publishers.map(({ label, count }) => [label, count]), [["DC Comics", 3]]);
 });

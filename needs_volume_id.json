@@ -27528,8 +27528,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T15:01:58.550724+00:00",
-    "retry_after": "2026-11-03T15:01:58.550726+00:00",
+    "last_attempt_at": "2026-11-02T16:02:47.232391+00:00",
+    "retry_after": "2026-11-03T16:02:47.232393+00:00",
     "search_hydrated": true
   },
   {
@@ -43609,8 +43609,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T15:01:58.550670+00:00",
-    "retry_after": "2026-11-03T15:01:58.550682+00:00",
+    "last_attempt_at": "2026-11-02T16:02:47.232327+00:00",
+    "retry_after": "2026-11-03T16:02:47.232342+00:00",
     "search_hydrated": true
   },
   {
@@ -51341,9 +51341,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T15:10:51.873082+00:00",
-    "retry_after": "2026-11-02T15:10:51.873085+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T16:11:03.153769+00:00",
+    "retry_after": "2026-11-05T16:11:03.153771+00:00",
     "search_hydrated": true
   },
   {
@@ -51524,8 +51524,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T15:01:58.550703+00:00",
-    "retry_after": "2026-11-03T15:01:58.550705+00:00",
+    "last_attempt_at": "2026-11-02T16:02:47.232367+00:00",
+    "retry_after": "2026-11-03T16:02:47.232369+00:00",
     "search_hydrated": true
   },
   {
@@ -83603,9 +83603,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T15:39:11.231248+00:00",
-    "retry_after": "2026-11-02T15:39:11.231251+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T16:10:39.691303+00:00",
+    "retry_after": "2026-11-09T16:10:39.691319+00:00",
     "search_hydrated": true
   },
   {
@@ -83621,9 +83621,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T16:04:43.146704+00:00",
-    "retry_after": "2026-11-02T16:04:43.146723+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T16:10:43.159424+00:00",
+    "retry_after": "2026-11-09T16:10:43.159440+00:00",
     "search_hydrated": true
   },
   {
@@ -83632,9 +83632,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T15:39:11.231275+00:00",
-    "retry_after": "2026-11-02T15:39:11.231277+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T16:10:39.691337+00:00",
+    "retry_after": "2026-11-09T16:10:39.691340+00:00",
     "search_hydrated": true
   },
   {
@@ -83643,9 +83643,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T15:39:11.231287+00:00",
-    "retry_after": "2026-11-02T15:39:11.231289+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T16:10:39.691353+00:00",
+    "retry_after": "2026-11-09T16:10:39.691355+00:00",
     "search_hydrated": true
   },
   {
@@ -83654,9 +83654,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T15:39:11.231299+00:00",
-    "retry_after": "2026-11-02T15:39:11.231301+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T16:10:39.691364+00:00",
+    "retry_after": "2026-11-09T16:10:39.691366+00:00",
     "search_hydrated": true
   },
   {
@@ -83676,9 +83676,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T15:39:11.231319+00:00",
-    "retry_after": "2026-11-02T15:39:11.231321+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T16:10:39.691383+00:00",
+    "retry_after": "2026-11-09T16:10:39.691385+00:00",
     "search_hydrated": true
   },
   {
@@ -83694,9 +83694,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T16:04:44.699074+00:00",
-    "retry_after": "2026-11-02T16:04:44.699092+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T16:10:43.437045+00:00",
+    "retry_after": "2026-11-09T16:10:43.437060+00:00",
     "search_hydrated": true
   },
   {
@@ -88952,9 +88952,9 @@
         "start_year": 2001
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T15:10:51.872901+00:00",
-    "retry_after": "2026-11-02T15:10:51.872917+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T16:11:03.153656+00:00",
+    "retry_after": "2026-11-05T16:11:03.153671+00:00",
     "search_hydrated": true
   },
   {
@@ -88963,9 +88963,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T15:10:51.872954+00:00",
-    "retry_after": "2026-11-02T15:10:51.872957+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T16:11:03.153699+00:00",
+    "retry_after": "2026-11-05T16:11:03.153701+00:00",
     "search_hydrated": true
   },
   {
@@ -88987,9 +88987,9 @@
         "start_year": 2004
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T15:10:51.873000+00:00",
-    "retry_after": "2026-11-02T15:10:51.873003+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T16:11:03.153731+00:00",
+    "retry_after": "2026-11-05T16:11:03.153733+00:00",
     "search_hydrated": true
   },
   {
@@ -88998,9 +88998,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T15:10:51.873019+00:00",
-    "retry_after": "2026-11-02T15:10:51.873022+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T16:11:03.153744+00:00",
+    "retry_after": "2026-11-05T16:11:03.153746+00:00",
     "search_hydrated": true
   },
   {
@@ -89010,21 +89010,21 @@
     "reason": "multiple_same_start_year_tied",
     "candidates": [
       {
-        "id": 116067,
+        "id": 117581,
         "name": "Defenders: The Best Defense",
         "publisher": "Marvel",
         "start_year": 2019
       },
       {
-        "id": 117581,
+        "id": 116067,
         "name": "Defenders: The Best Defense",
         "publisher": "Marvel",
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T15:10:51.873110+00:00",
-    "retry_after": "2026-11-02T15:10:51.873112+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T16:11:03.153787+00:00",
+    "retry_after": "2026-11-05T16:11:03.153789+00:00",
     "search_hydrated": true
   },
   {
@@ -89033,9 +89033,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T15:10:51.873126+00:00",
-    "retry_after": "2026-11-02T15:10:51.873129+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T16:11:03.153799+00:00",
+    "retry_after": "2026-11-05T16:11:03.153801+00:00",
     "search_hydrated": true
   },
   {
@@ -89057,9 +89057,9 @@
         "start_year": 2003
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T15:11:32.572338+00:00",
-    "retry_after": "2026-11-02T15:11:32.572354+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T16:11:14.912958+00:00",
+    "retry_after": "2026-11-05T16:11:14.912975+00:00",
     "search_hydrated": true
   },
   {
@@ -89068,9 +89068,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T15:11:32.572413+00:00",
-    "retry_after": "2026-11-02T15:11:32.572419+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T16:11:14.912995+00:00",
+    "retry_after": "2026-11-05T16:11:14.912998+00:00",
     "search_hydrated": true
   },
   {
@@ -89143,9 +89143,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T15:57:52.145598+00:00",
-    "retry_after": "2026-11-02T15:57:52.145617+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T16:11:05.028694+00:00",
+    "retry_after": "2026-11-05T16:11:05.028709+00:00",
     "search_hydrated": true
   },
   {
@@ -91736,6 +91736,64 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-02T15:10:58.589454+00:00",
     "retry_after": "2026-11-03T15:10:58.589469+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Nomen Omen",
+    "publisher": "Image Comics",
+    "year": 2020,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 121709,
+        "name": "Nomen Omen",
+        "publisher": "Image",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T16:11:04.566955+00:00",
+    "retry_after": "2026-11-03T16:11:04.566969+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Captain America by Ta-Nehisi Coates",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 126037,
+        "name": "Captain America by Ta-Nehisi Coates",
+        "publisher": "Marvel",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T16:11:04.875677+00:00",
+    "retry_after": "2026-11-03T16:11:04.875692+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Street Fighter: The Novel",
+    "publisher": "UDON",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T16:11:14.913011+00:00",
+    "retry_after": "2026-11-03T16:11:14.913013+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Manga Classics: Les Miserables",
+    "publisher": "UDON",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T16:11:14.913023+00:00",
+    "retry_after": "2026-11-03T16:11:14.913025+00:00",
     "search_hydrated": true
   }
 ]

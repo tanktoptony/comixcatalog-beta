@@ -105,8 +105,8 @@ export function Root() {
       <Composition id="ChannelSting" component={ChannelSting} durationInFrames={Math.round(2.5 * VIDEO.fps)} fps={VIDEO.fps} width={VIDEO.width} height={VIDEO.height} />
       <Composition id="FoundersStory" component={FoundersStory} durationInFrames={1} fps={30} width={1080} height={1920} defaultProps={{ left: 71 }} />
       <Composition id="ChannelBanner" component={ChannelBanner} durationInFrames={1} fps={30} width={2560} height={1440} />
-      {THUMBNAILS.map(([id, component]) => (
-        <Composition key={id} id={id} component={component} durationInFrames={1} fps={30} width={1280} height={720} />
+      {THUMBNAILS.map(([id, component, size = { width: 1280, height: 720 }]) => (
+        <Composition key={id} id={id} component={component} durationInFrames={1} fps={30} width={size.width} height={size.height} />
       ))}
       <Composition id="Dossier001Reveal" component={Dossier001Reveal} durationInFrames={150} fps={30} width={1920} height={1080} />
       <Composition id="Dossier001Cosmic" component={Dossier001Cosmic} durationInFrames={120} fps={30} width={1920} height={1080} defaultProps={{ overlay: "cosmic" }} />

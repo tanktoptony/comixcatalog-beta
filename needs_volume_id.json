@@ -16707,9 +16707,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-26T12:07:33.100426+00:00",
-    "retry_after": "2026-11-02T12:07:33.100427+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-02T12:12:14.194513+00:00",
+    "retry_after": "2026-11-16T12:12:14.194516+00:00",
     "search_hydrated": true
   },
   {
@@ -27528,8 +27528,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T11:02:49.088860+00:00",
-    "retry_after": "2026-11-03T11:02:49.088863+00:00",
+    "last_attempt_at": "2026-11-02T12:03:55.244249+00:00",
+    "retry_after": "2026-11-03T12:03:55.244253+00:00",
     "search_hydrated": true
   },
   {
@@ -35738,9 +35738,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-26T12:06:48.450952+00:00",
-    "retry_after": "2026-11-02T12:06:48.450956+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-02T12:12:14.194492+00:00",
+    "retry_after": "2026-11-16T12:12:14.194496+00:00",
     "search_hydrated": true
   },
   {
@@ -39302,9 +39302,10 @@
         "start_year": 2011
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-05T13:00:53.964443+00:00",
-    "retry_after": "2026-10-08T13:00:53.964460+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T12:12:45.919342+00:00",
+    "retry_after": "2026-11-03T12:12:45.919356+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Superman Adventures Preview Edition",
@@ -43607,8 +43608,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T11:02:49.088785+00:00",
-    "retry_after": "2026-11-03T11:02:49.088805+00:00",
+    "last_attempt_at": "2026-11-02T12:03:55.244138+00:00",
+    "retry_after": "2026-11-03T12:03:55.244173+00:00",
     "search_hydrated": true
   },
   {
@@ -51522,8 +51523,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T11:02:49.088832+00:00",
-    "retry_after": "2026-11-03T11:02:49.088835+00:00",
+    "last_attempt_at": "2026-11-02T12:03:55.244213+00:00",
+    "retry_after": "2026-11-03T12:03:55.244217+00:00",
     "search_hydrated": true
   },
   {
@@ -58320,9 +58321,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-26T12:06:48.450889+00:00",
-    "retry_after": "2026-11-02T12:06:48.450910+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-02T12:12:14.194457+00:00",
+    "retry_after": "2026-11-16T12:12:14.194470+00:00",
     "search_hydrated": true
   },
   {
@@ -69728,35 +69729,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-24T10:48:17.114553+00:00",
     "retry_after": "2026-10-27T10:48:17.114569+00:00"
-  },
-  {
-    "name": "Elsewhere",
-    "publisher": "Image Comics",
-    "year": 2018,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 124713,
-        "name": "Elsewhere",
-        "publisher": null,
-        "start_year": 2020
-      },
-      {
-        "id": 103231,
-        "name": "Elsewhere",
-        "publisher": null,
-        "start_year": 2017
-      },
-      {
-        "id": 107501,
-        "name": "Elsewhere",
-        "publisher": null,
-        "start_year": 2018
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T10:48:17.870098+00:00",
-    "retry_after": "2026-10-27T10:48:17.870115+00:00"
   },
   {
     "name": "Dracula",
@@ -83223,9 +83195,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T12:05:07.441530+00:00",
-    "retry_after": "2026-11-02T12:05:07.441531+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T12:12:14.194556+00:00",
+    "retry_after": "2026-11-09T12:12:14.194559+00:00",
     "search_hydrated": true
   },
   {
@@ -83270,9 +83242,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T12:04:47.197936+00:00",
-    "retry_after": "2026-11-02T12:04:47.197938+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T12:12:14.194572+00:00",
+    "retry_after": "2026-11-09T12:12:14.194575+00:00",
     "search_hydrated": true
   },
   {
@@ -88514,9 +88486,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T10:10:32.353347+00:00",
-    "retry_after": "2026-11-02T10:10:32.353363+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T12:12:18.485944+00:00",
+    "retry_after": "2026-11-05T12:12:18.485953+00:00",
     "search_hydrated": true
   },
   {
@@ -88543,9 +88515,9 @@
         "start_year": 2001
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T11:10:50.420366+00:00",
-    "retry_after": "2026-11-02T11:10:50.420391+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T12:12:18.486007+00:00",
+    "retry_after": "2026-11-05T12:12:18.486010+00:00",
     "search_hydrated": true
   },
   {
@@ -88561,9 +88533,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T11:10:50.605611+00:00",
-    "retry_after": "2026-11-02T11:10:50.605630+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T12:12:36.550889+00:00",
+    "retry_after": "2026-11-05T12:12:36.550899+00:00",
     "search_hydrated": true
   },
   {
@@ -88594,9 +88566,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T12:10:56.367468+00:00",
-    "retry_after": "2026-11-02T12:10:56.367471+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T12:12:34.440202+00:00",
+    "retry_after": "2026-11-05T12:12:34.440217+00:00",
     "search_hydrated": true
   },
   {
@@ -88612,9 +88584,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T12:11:09.615067+00:00",
-    "retry_after": "2026-11-02T12:11:09.615079+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T12:12:36.819215+00:00",
+    "retry_after": "2026-11-05T12:12:36.819225+00:00",
     "search_hydrated": true
   },
   {
@@ -88630,9 +88602,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T12:11:09.736976+00:00",
-    "retry_after": "2026-11-02T12:11:09.736988+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T12:12:36.928509+00:00",
+    "retry_after": "2026-11-05T12:12:36.928517+00:00",
     "search_hydrated": true
   },
   {
@@ -91478,6 +91450,167 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-02T11:11:47.252233+00:00",
     "retry_after": "2026-11-03T11:11:47.252235+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Fantastic Four: The World's Greatest Comics Magazine",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 30423,
+        "name": "Fantastic Four: The World's Greatest Comics Magazine",
+        "publisher": "Marvel",
+        "start_year": 2001
+      },
+      {
+        "id": 42995,
+        "name": "Fantastic Four: The World's Greatest Comics Magazine",
+        "publisher": "Marvel",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T12:12:34.440295+00:00",
+    "retry_after": "2026-11-03T12:12:34.440299+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Evolution",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 106121,
+        "name": "Evolution",
+        "publisher": "Image",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T12:12:43.140016+00:00",
+    "retry_after": "2026-11-03T12:12:43.140028+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gasolina",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 104474,
+        "name": "Gasolina",
+        "publisher": "Image",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T12:12:43.271553+00:00",
+    "retry_after": "2026-11-03T12:12:43.271563+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Generations",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 106290,
+        "name": "Generations",
+        "publisher": "Marvel",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T12:12:43.516986+00:00",
+    "retry_after": "2026-11-03T12:12:43.517001+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ghost Station Zero",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 103235,
+        "name": "Ghost Station Zero",
+        "publisher": "Image",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T12:12:43.626127+00:00",
+    "retry_after": "2026-11-03T12:12:43.626137+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Green Arrow: The Archer's Quest",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 43505,
+        "name": "Green Arrow: The Archer's Quest",
+        "publisher": "DC Comics",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T12:12:45.919393+00:00",
+    "retry_after": "2026-11-03T12:12:45.919396+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "X-Men Classic #47 [JC Penney Marvel Vintage Pack]",
+    "publisher": "Marvel Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T12:12:55.022270+00:00",
+    "retry_after": "2026-11-03T12:12:55.022286+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Bratty Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62713,
+        "name": "Big Bratty Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T12:12:55.022340+00:00",
+    "retry_after": "2026-11-03T12:12:55.022345+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Links",
+    "publisher": "VIZ Media",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148145,
+        "name": "Links",
+        "publisher": "Milky Way Ediciones",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T12:12:55.022372+00:00",
+    "retry_after": "2026-11-03T12:12:55.022376+00:00",
     "search_hydrated": true
   }
 ]

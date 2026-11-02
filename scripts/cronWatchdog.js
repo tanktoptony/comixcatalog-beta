@@ -43,6 +43,8 @@ const WATCHED = [
   // that failure cheaper to hit.
   { file: "gcd-issue-refresh.yml", maxAgeHours: 12 },
   { file: "gcd-publisher-sync.yml", maxAgeHours: 6 },
+  // Weekly Monday analytics import, with one day of scheduling slack.
+  { file: "youtube-weekly.yml", maxAgeHours: 24 * 8 },
 ];
 
 const DRY_RUN = process.argv.includes("--dry-run");

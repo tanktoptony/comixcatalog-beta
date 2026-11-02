@@ -158,6 +158,7 @@ API for whether a run was ever created.**
 | `instagram-post.yml` | — | posts an issue to Instagram | **never audited. The founder asked for an "Instagram bot refinement" and never specified what. Ask, do not guess.** |
 | `gcd-issue-refresh.yml` | every 3h `45 */3 * * *` | tops up `gcd_issues` for recent-release, member-owned, and featured series from comics.org's live API | active union was 316 series on 2026-10-05. **GCD's budget is ~30 requests per run and resets hourly**, so at 8 runs a day a check-only rotation takes about 1.4 days (it was 11+ days at the old daily cadence) and missing-issue fetches extend it. A 429 is exit 3 and expected. Rotation cursor lives in `gcd-refresh-cursor.json` |
 | `gcd-publisher-sync.yml` | `:15` on hours not used by issue refresh | incrementally mirrors GCD publishers, then walks GCD series pages for missing English-language US/Canadian catalog rows | publisher work finishes first; series discovery resumes from `gcd-series-discovery-cursor.json`; each 50-row list page supplies series metadata and provisional issue IDs without extra GCD requests; a 429 is exit 3 and expected; no phase deletes rows |
+| `youtube-weekly.yml` | Monday 11:00 UTC | imports the last two completed weeks of channel and per-video YouTube analytics before the traction digest | an expired or revoked token surfaces as `invalid_grant`; rerun `node scripts/youtubeAuth.js` and update the GitHub secrets |
 | `snapshot-collection-value.yml`, `pr-ci.yml` | — | value snapshots, PR checks | |
 
 ---

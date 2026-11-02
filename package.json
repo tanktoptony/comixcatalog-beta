@@ -97,7 +97,7 @@
     "covers:match-trades": "node scripts/matchTradeVolumes.js",
     "test:search-rpc": "node --test src/lib/searchRpc.test.js",
     "test:search-current-run": "node --test src/lib/searchCurrentRun.test.js",
-    "test:search-facets": "node --test src/lib/searchFacets.test.js",
+    "test:search-facets": "node --test src/lib/searchFacets.test.js src/lib/publisherNames.test.js",
     "test:search-works": "node --test src/lib/searchWorks.test.js",
     "test:work-page": "node --test src/lib/workPage.test.js",
     "test:orders": "node --test src/lib/orders.test.js src/lib/orderRows.test.js",

@@ -88,6 +88,24 @@ jobs:
 
       - run: npm ci --no-audit --no-fund
 
+      # Runs first, capped at about 8 GCD requests (4 series requests plus at
+      # most 4 per-issue fallbacks), so the refresh below still gets most of
+      # the ~30-request hourly budget. As a later step gated on "the refresh
+      # was not rate-limited" it never ran: the refresh ends on a 429 nearly
+      # every run (live 2026-11-01/02). The refresh runs whatever this step
+      # does; a 429 there costs nothing.
+      - name: Repair post-dump variant relationships
+        run: |
+          set +e
+          node scripts/refreshGcdIssuesFromApi.js --repair-variants --max-series=4 --max-fallbacks=4
+          code=$?
+          set -e
+          if [ "$code" -eq 3 ]; then
+            echo "GCD rate-limited the variant repair pass (expected)."
+            exit 0
+          fi
+          exit "$code"
+
       # Exit 3 = GCD returned 429, which is the expected end of nearly every
       # run (the budget is ~29 requests and the featured list is 78 series),
       # so it is translated to success. Every other non-zero exit is a real
@@ -109,19 +127,6 @@ jobs:
           if [ "$code" -eq 3 ]; then
             echo "GCD rate-limited this run (expected). The cursor records where to resume."
             echo "ratelimited=true" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          exit "$code"
-
-      - name: Repair post-dump variant relationships
-        if: steps.refresh.outputs.ratelimited != 'true'
-        run: |
-          set +e
-          node scripts/refreshGcdIssuesFromApi.js --repair-variants --max-series=15
-          code=$?
-          set -e
-          if [ "$code" -eq 3 ]; then
-            echo "GCD rate-limited the variant repair pass (expected)."
             exit 0
           fi
           exit "$code"

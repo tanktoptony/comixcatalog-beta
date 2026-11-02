@@ -6284,10 +6284,12 @@
     "name": "True Believers: X-Men - Bishop",
     "publisher": "Marvel Comics",
     "year": 2019,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555170+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T04:10:18.615568+00:00",
+    "retry_after": "2026-11-05T04:10:18.615570+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Captain America Goes to War Against Drugs [Pioneer]",
@@ -7583,10 +7585,12 @@
     "name": "True Believers: Conan - The Tower of the Elephant",
     "publisher": "Marvel Comics",
     "year": 2019,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555577+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T04:09:53.010272+00:00",
+    "retry_after": "2026-11-05T04:09:53.010274+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Agent 47",
@@ -12588,16 +12592,6 @@
     "retry_after": "2026-09-24T14:02:34.883277+00:00"
   },
   {
-    "name": "True Believers: Star Wars - The Original Marvel Years",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-21T14:02:35.418381+00:00",
-    "retry_after": "2026-09-24T14:02:35.418396+00:00"
-  },
-  {
     "name": "The Lost World of the Warlord",
     "publisher": "DC Comics",
     "year": 1983,
@@ -14425,9 +14419,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T09:01:32.116384+00:00",
-    "retry_after": "2026-09-22T09:01:32.116402+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T04:10:18.615560+00:00",
+    "retry_after": "2026-11-05T04:10:18.615561+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Wonder Woman: Year One",
@@ -16338,9 +16333,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-23T00:15:07.893452+00:00",
-    "retry_after": "2026-09-26T00:15:07.893471+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T04:09:53.010281+00:00",
+    "retry_after": "2026-11-09T04:09:53.010282+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Ray Bradbury Comics: Trilogy of Terror",
@@ -19393,9 +19389,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-24T00:00:44.787914+00:00",
-    "retry_after": "2026-09-27T00:00:44.787923+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T04:09:53.010291+00:00",
+    "retry_after": "2026-11-09T04:09:53.010292+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Valiant Pullbox Preview: Ivar, Timewalker",
@@ -25391,9 +25388,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-26T13:00:45.845199+00:00",
-    "retry_after": "2026-09-29T13:00:45.845217+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T04:10:18.615533+00:00",
+    "retry_after": "2026-11-09T04:10:18.615534+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Silver Surfer",
@@ -27500,26 +27498,26 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
-      {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
       {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T03:10:28.361230+00:00",
-    "retry_after": "2026-11-03T03:10:28.361234+00:00",
+    "last_attempt_at": "2026-11-02T04:01:32.942282+00:00",
+    "retry_after": "2026-11-03T04:01:32.942283+00:00",
     "search_hydrated": true
   },
   {
@@ -27601,12 +27599,6 @@
         "start_year": 1987
       },
       {
-        "id": 42590,
-        "name": "Justice League International",
-        "publisher": "DC Comics",
-        "start_year": 2011
-      },
-      {
         "id": 4966,
         "name": "Justice League International",
         "publisher": "DC Comics",
@@ -27619,15 +27611,21 @@
         "start_year": 2009
       },
       {
+        "id": 42590,
+        "name": "Justice League International",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
         "id": 55320,
         "name": "Justice League International",
         "publisher": "DC Comics",
         "start_year": 2012
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T04:06:48.500283+00:00",
-    "retry_after": "2026-11-02T04:06:48.500298+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T04:09:53.010185+00:00",
+    "retry_after": "2026-11-05T04:09:53.010202+00:00",
     "search_hydrated": true
   },
   {
@@ -32129,9 +32127,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-03T02:00:58.625994+00:00",
-    "retry_after": "2026-10-10T02:00:58.626012+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-11-02T04:10:18.615503+00:00",
+    "retry_after": "2026-11-16T04:10:18.615505+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Michael Turner Presents: Aspen The Extended Edition",
@@ -36700,16 +36699,6 @@
     "retry_after": "2026-10-05T23:01:10.086082+00:00"
   },
   {
-    "name": "True Believers: Fantastic Four - Molecule Man",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-03T00:01:22.891112+00:00",
-    "retry_after": "2026-10-06T00:01:22.891120+00:00"
-  },
-  {
     "name": "DC Silent Tales",
     "publisher": "DC Comics",
     "year": 2023,
@@ -37068,9 +37057,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-03T01:02:01.527119+00:00",
-    "retry_after": "2026-10-06T01:02:01.527134+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T04:10:18.615524+00:00",
+    "retry_after": "2026-11-09T04:10:18.615525+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Champions by Jim Zub",
@@ -37462,9 +37452,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T08:00:40.098150+00:00",
-    "retry_after": "2026-10-04T08:00:40.098167+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T04:09:53.010307+00:00",
+    "retry_after": "2026-11-05T04:09:53.010309+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Superman Annual",
@@ -38721,9 +38712,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-05T09:44:31.210311+00:00",
-    "retry_after": "2026-10-08T09:44:31.210326+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T04:10:18.615514+00:00",
+    "retry_after": "2026-11-09T04:10:18.615515+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Inspector Gadget Annual",
@@ -39188,9 +39180,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-05T13:00:48.516422+00:00",
-    "retry_after": "2026-10-08T13:00:48.516442+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T04:10:18.615542+00:00",
+    "retry_after": "2026-11-09T04:10:18.615543+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Ultimate X-Men Epic Collection",
@@ -39209,9 +39202,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-05T13:00:50.334455+00:00",
-    "retry_after": "2026-10-08T13:00:50.334474+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T04:09:53.010241+00:00",
+    "retry_after": "2026-11-09T04:09:53.010243+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The Marvel Comics Illustrated Version of Star Trek",
@@ -43569,7 +43563,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43587,8 +43581,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T03:10:28.361176+00:00",
-    "retry_after": "2026-11-03T03:10:28.361189+00:00",
+    "last_attempt_at": "2026-11-02T04:01:32.942220+00:00",
+    "retry_after": "2026-11-03T04:01:32.942238+00:00",
     "search_hydrated": true
   },
   {
@@ -44809,9 +44803,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-15T02:15:57.519123+00:00",
-    "retry_after": "2026-10-22T02:15:57.519138+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-11-02T04:09:53.010262+00:00",
+    "retry_after": "2026-11-16T04:09:53.010264+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The Avengers: Menace of the Mole Man!",
@@ -51501,8 +51496,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T02:01:53.549162+00:00",
-    "retry_after": "2026-11-03T02:01:53.549164+00:00",
+    "last_attempt_at": "2026-11-02T04:01:32.942261+00:00",
+    "retry_after": "2026-11-03T04:01:32.942263+00:00",
     "search_hydrated": true
   },
   {
@@ -54397,9 +54392,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-18T22:11:36.466423+00:00",
-    "retry_after": "2026-10-21T22:11:36.466440+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T04:10:18.615455+00:00",
+    "retry_after": "2026-11-09T04:10:18.615473+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Succubus",
@@ -57146,9 +57142,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-20T21:02:05.899814+00:00",
-    "retry_after": "2026-10-23T21:02:05.899829+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T04:10:18.615491+00:00",
+    "retry_after": "2026-11-09T04:10:18.615493+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Gundero",
@@ -87924,9 +87921,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T04:06:48.500360+00:00",
-    "retry_after": "2026-11-02T04:06:48.500365+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T04:09:53.010226+00:00",
+    "retry_after": "2026-11-05T04:09:53.010228+00:00",
     "search_hydrated": true
   },
   {
@@ -90583,6 +90580,58 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-02T03:18:48.460523+00:00",
     "retry_after": "2026-11-03T03:18:48.460539+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "True Believers: Conan - The Devil-God of Bal-Sagoth!",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T04:09:53.010251+00:00",
+    "retry_after": "2026-11-03T04:09:53.010253+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman Year One (Special Edition)",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T04:10:31.477555+00:00",
+    "retry_after": "2026-11-03T04:10:31.477573+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Year One: Batman / Ra's Al Ghul",
+    "publisher": "Titan Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21686,
+        "name": "Year One: Batman/Ra's al Ghul",
+        "publisher": "DC Comics",
+        "start_year": 2006
+      },
+      {
+        "id": 40196,
+        "name": "Year One: Batman/Ra's Al Ghul",
+        "publisher": "DC Comics",
+        "start_year": 2006
+      },
+      {
+        "id": 124157,
+        "name": "Year One: Batman/Ra's Al Ghul",
+        "publisher": "Play Press",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T04:10:31.477612+00:00",
+    "retry_after": "2026-11-03T04:10:31.477614+00:00",
     "search_hydrated": true
   }
 ]

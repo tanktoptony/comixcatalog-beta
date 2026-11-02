@@ -76,6 +76,8 @@ __pycache__/
 /scripts/fixtures/valuation-calibration-sample.json
 /.ambiguous-pins-done.json
 content/newsletter/.preview.html
+youtube-token.json
+client_secret*.json
 
 # buildCoverThumbs.js progress
 .cover-thumbs/

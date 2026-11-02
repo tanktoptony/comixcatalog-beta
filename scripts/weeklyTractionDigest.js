@@ -2,6 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import { pathToFileURL } from "node:url";
 import { resendBatch } from "../src/lib/newsletter.js";
 import { TEST_ACCOUNT_USERNAMES } from "../src/lib/traction.js";
+import { youtubeDigestHtml } from "../src/lib/youtubeStats.js";
 
 export function digestHtml(report) {
   const latest = report.cohorts.at(-2) || {};
@@ -17,7 +18,21 @@ async function main() {
   const client = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, { auth: { persistSession: false } });
   const { data, error } = await client.rpc("traction_report", { p_excluded_usernames: TEST_ACCOUNT_USERNAMES });
   if (error) throw error;
-  const html = digestHtml(data);
+  let html = digestHtml(data);
+  try {
+    const { data: weeks, error: weeksError } = await client.from("youtube_weekly_channel_stats").select("*").order("week_start", { ascending: false }).limit(2);
+    if (weeksError) throw weeksError;
+    const latest = weeks?.[0];
+    let topVideos = [];
+    if (latest) {
+      const { data: videos, error: videosError } = await client.from("youtube_weekly_video_stats").select("*").eq("week_start", latest.week_start).order("views", { ascending: false }).limit(5);
+      if (videosError) throw videosError;
+      topVideos = videos || [];
+    }
+    html += youtubeDigestHtml({ thisWeek: latest, lastWeek: weeks?.[1], topVideos });
+  } catch (error) {
+    console.error(`YouTube digest section skipped: ${error.message}`);
+  }
   if (process.argv.includes("--dry-run")) { console.log(html); return; }
   if (!process.env.REPORTS_NOTIFY_EMAIL) throw new Error("REPORTS_NOTIFY_EMAIL is not set");
   await resendBatch([{ to: process.env.REPORTS_NOTIFY_EMAIL, subject: "ComixCatalog weekly traction", html }]);

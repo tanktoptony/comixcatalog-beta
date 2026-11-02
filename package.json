@@ -64,6 +64,7 @@
     "test:default-avatar": "node --test src/lib/defaultAvatar.test.js",
     "test:avatar-url": "node --test src/lib/defaultAvatar.test.js",
     "test:activation-nudges": "node --test src/lib/activationNudges.test.js",
+    "test:youtube-stats": "node --test src/lib/youtubeStats.test.js",
     "test:disposable-email": "node --test src/lib/disposableEmail.test.js",
     "test:founding-claim": "node --test src/lib/foundingClaim.test.js",
     "test:uptime-check": "node --test scripts/uptimeCheck.test.js",

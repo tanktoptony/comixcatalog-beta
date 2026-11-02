@@ -1,0 +1,37 @@
+name: Weekly YouTube analytics
+
+on:
+  schedule:
+    - cron: "0 11 * * 1"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Read and print stats without writing to Supabase
+        type: boolean
+        default: false
+
+concurrency:
+  group: youtube-weekly
+
+permissions:
+  contents: read
+
+jobs:
+  analytics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Import YouTube analytics
+        run: node scripts/youtubeWeekly.js ${{ inputs.dry_run && '--dry-run' || '' }}
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}

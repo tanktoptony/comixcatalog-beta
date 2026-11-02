@@ -5975,9 +5975,9 @@
         "start_year": 1994
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T10:09:55.089852+00:00",
-    "retry_after": "2026-11-02T10:09:55.089854+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T10:11:01.546796+00:00",
+    "retry_after": "2026-11-05T10:11:01.546803+00:00",
     "search_hydrated": true
   },
   {
@@ -27528,8 +27528,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T09:02:28.036545+00:00",
-    "retry_after": "2026-11-03T09:02:28.036548+00:00",
+    "last_attempt_at": "2026-11-02T10:02:18.571865+00:00",
+    "retry_after": "2026-11-03T10:02:18.571868+00:00",
     "search_hydrated": true
   },
   {
@@ -35309,9 +35309,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-26T09:50:48.625158+00:00",
-    "retry_after": "2026-11-02T09:50:48.625160+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-02T10:10:37.605808+00:00",
+    "retry_after": "2026-11-16T10:10:37.605826+00:00",
     "search_hydrated": true
   },
   {
@@ -35360,9 +35360,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-26T10:04:37.092317+00:00",
-    "retry_after": "2026-11-02T10:04:37.092333+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-02T10:10:37.605871+00:00",
+    "retry_after": "2026-11-16T10:10:37.605874+00:00",
     "search_hydrated": true
   },
   {
@@ -43607,8 +43607,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T09:02:28.036474+00:00",
-    "retry_after": "2026-11-03T09:02:28.036488+00:00",
+    "last_attempt_at": "2026-11-02T10:02:18.571785+00:00",
+    "retry_after": "2026-11-03T10:02:18.571801+00:00",
     "search_hydrated": true
   },
   {
@@ -51522,8 +51522,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T09:02:28.036515+00:00",
-    "retry_after": "2026-11-03T09:02:28.036518+00:00",
+    "last_attempt_at": "2026-11-02T10:02:18.571830+00:00",
+    "retry_after": "2026-11-03T10:02:18.571834+00:00",
     "search_hydrated": true
   },
   {
@@ -52648,9 +52648,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-26T09:51:55.371344+00:00",
-    "retry_after": "2026-11-02T09:51:55.371363+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-02T10:10:37.605851+00:00",
+    "retry_after": "2026-11-16T10:10:37.605855+00:00",
     "search_hydrated": true
   },
   {
@@ -88139,9 +88139,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T08:56:08.642475+00:00",
-    "retry_after": "2026-11-02T08:56:08.642479+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T10:10:37.605937+00:00",
+    "retry_after": "2026-11-05T10:10:37.605940+00:00",
     "search_hydrated": true
   },
   {
@@ -88163,9 +88163,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T08:56:08.642519+00:00",
-    "retry_after": "2026-11-02T08:56:08.642522+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T10:10:37.605979+00:00",
+    "retry_after": "2026-11-05T10:10:37.605982+00:00",
     "search_hydrated": true
   },
   {
@@ -88174,9 +88174,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T08:56:08.642559+00:00",
-    "retry_after": "2026-11-02T08:56:08.642561+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T10:10:37.605997+00:00",
+    "retry_after": "2026-11-05T10:10:37.606000+00:00",
     "search_hydrated": true
   },
   {
@@ -88221,33 +88221,27 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T09:10:19.645853+00:00",
-    "retry_after": "2026-11-02T09:10:19.645857+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T10:11:00.912492+00:00",
+    "retry_after": "2026-11-05T10:11:00.912509+00:00",
     "search_hydrated": true
   },
   {
     "name": "The Battle",
     "publisher": "Marvel Comics",
     "year": 2020,
-    "reason": "publisher_mismatch",
+    "reason": "series_hint_year_mismatch",
     "candidates": [
       {
-        "id": 47842,
-        "name": "The Battle",
-        "publisher": "Chick Publications",
-        "start_year": 1972
-      },
-      {
-        "id": 95977,
-        "name": "The Battle",
-        "publisher": "Europe Comics",
-        "start_year": 2015
+        "id": 1423,
+        "name": "Battle",
+        "publisher": "Marvel",
+        "start_year": 1951
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T09:10:19.645897+00:00",
-    "retry_after": "2026-11-02T09:10:19.645900+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T10:11:03.146933+00:00",
+    "retry_after": "2026-11-05T10:11:03.146947+00:00",
     "search_hydrated": true
   },
   {
@@ -88256,9 +88250,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T09:10:19.645917+00:00",
-    "retry_after": "2026-11-02T09:10:19.645920+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T10:11:00.912563+00:00",
+    "retry_after": "2026-11-05T10:11:00.912566+00:00",
     "search_hydrated": true
   },
   {
@@ -88267,9 +88261,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T09:10:20.294206+00:00",
-    "retry_after": "2026-11-02T09:10:20.294222+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T10:11:01.546526+00:00",
+    "retry_after": "2026-11-05T10:11:01.546543+00:00",
     "search_hydrated": true
   },
   {
@@ -88327,9 +88321,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T09:10:20.294356+00:00",
-    "retry_after": "2026-11-02T09:10:20.294360+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T10:11:01.546680+00:00",
+    "retry_after": "2026-11-05T10:11:01.546684+00:00",
     "search_hydrated": true
   },
   {
@@ -88345,9 +88339,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T09:10:24.728997+00:00",
-    "retry_after": "2026-11-02T09:10:24.729011+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T10:11:03.442279+00:00",
+    "retry_after": "2026-11-05T10:11:03.442296+00:00",
     "search_hydrated": true
   },
   {
@@ -88363,9 +88357,9 @@
         "start_year": 1977
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T09:10:24.729078+00:00",
-    "retry_after": "2026-11-02T09:10:24.729082+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T10:11:03.442333+00:00",
+    "retry_after": "2026-11-05T10:11:03.442337+00:00",
     "search_hydrated": true
   },
   {
@@ -88381,9 +88375,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T09:10:24.882466+00:00",
-    "retry_after": "2026-11-02T09:10:24.882481+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T10:11:03.572517+00:00",
+    "retry_after": "2026-11-05T10:11:03.572533+00:00",
     "search_hydrated": true
   },
   {
@@ -88403,9 +88397,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T10:09:55.089862+00:00",
-    "retry_after": "2026-11-02T10:09:55.089864+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T10:11:01.546820+00:00",
+    "retry_after": "2026-11-05T10:11:01.546822+00:00",
     "search_hydrated": true
   },
   {
@@ -88531,9 +88525,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T10:10:40.422136+00:00",
-    "retry_after": "2026-11-02T10:10:40.422153+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T10:11:13.254322+00:00",
+    "retry_after": "2026-11-05T10:11:13.254339+00:00",
     "search_hydrated": true
   },
   {
@@ -91444,6 +91438,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-02T09:11:24.955010+00:00",
     "retry_after": "2026-11-03T09:11:24.955015+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gli Albi dei Super-Eroi",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34647,
+        "name": "Gli Albi dei Super-Eroi",
+        "publisher": "Editoriale Corno",
+        "start_year": 1973
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T10:11:13.254386+00:00",
+    "retry_after": "2026-11-03T10:11:13.254391+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Universe vs. the Masters of the Universe",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T10:11:13.254422+00:00",
+    "retry_after": "2026-11-03T10:11:13.254426+00:00",
     "search_hydrated": true
   }
 ]

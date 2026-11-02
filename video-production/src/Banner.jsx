@@ -9,6 +9,7 @@ import { AbsoluteFill, Img, continueRender, delayRender, staticFile } from "remo
 import "@fontsource/big-shoulders/800.css";
 import "@fontsource/inter/700.css";
 import { brand, fonts } from "../shared/brand.js";
+import { Caption, Panel, Paper, art, useComicFonts } from "../shared/components/comicPage.jsx";
 
 const CLASSICS = [
   "action-comics-1", "the-amazing-spider-man-1", "detective-comics-27", "giant-size-x-men-1", "fantastic-four-1",
@@ -91,4 +92,61 @@ export function ChannelBanner() {
       </div>
     </AbsoluteFill>
   );
+}
+
+// Comic-page banner (Tony, 2026-11-02: "less AI looking", the site's tagline,
+// heroes from the first episodes behind it). Same kit as the thumbnails: a
+// printed page, ink-ruled panels, one lettered caption, no glows. The middle
+// tier is the strip desktops show (y 508-931): a roll call of heroes from
+// Episodes 001-003 either side of the title panel, which sits inside the
+// phone-safe box (x 507-2053). The top and bottom tiers only show on TVs.
+// Art: public/brand/banner-heroes, copied from the episode-001..003 assets.
+// Looked up at render, so a checkout without these files only fails this still.
+const hero = (file, width, height, trimTop = 0) => art("brand", [`brand/banner-heroes/${file}`, width, height, trimTop]);
+const covers = () => ({
+  ironMan: hero("iron-man-290-1993.jpg", 600, 923, 0.27), // Ep 003
+  phoenix: hero("x-men-135-1980.jpg", 565, 861, 0.28), // Ep 001
+  jimLee: hero("x-men-001-1991-variant-3.jpg", 1280, 1983, 0.3), // Ep 001, 003
+  surfer: hero("silver-surfer-075-1992.jpg", 400, 623, 0.28), // Ep 003
+  ff: hero("fantastic-four-570-1998.jpg", 900, 1366, 0.3), // Ep 002
+  xmen1963: hero("x-men-001-1963.jpg", 1008, 1496, 0.34), // Ep 001
+  gatefold: hero("x-men-001-1991-variant-1.jpg", 5760, 2306), // Ep 003
+  avengers: hero("avengers-350-1992.jpg", 931, 1523, 0.3), // Ep 003
+  dofp: hero("x-men-141-1981.jpg", 556, 865, 0.35), // Ep 001
+  secretWars: hero("secret-wars-001-2015.jpg", 2450, 3726, 0.2), // Ep 002
+  hox: hero("house-of-x-001-2019.jpg", 994, 1528, 0.22), // Ep 002
+  prime: hero("prime-001-1993.jpg", 400, 587, 0.26), // Ep 003
+  phoenixMustDie: hero("x-men-137-1980.jpg", 560, 865, 0.3), // Ep 001
+});
+
+export function ChannelBannerComic() {
+  useComicFonts();
+  const COVERS = covers();
+  return <Paper>
+    {/* TV-only top tier. */}
+    <Panel points={[[16, 24], [640, 24], [628, 496], [16, 496]]} image={COVERS.xmen1963} focus={[0.5, 0.65]} />
+    <Panel points={[[654, 24], [1906, 24], [1920, 496], [642, 496]]} image={COVERS.gatefold} focus={[0.25, 0.42]} zoom={2} />
+    <Panel points={[[1920, 24], [2544, 24], [2544, 496], [1934, 496]]} image={COVERS.avengers} focus={[0.5, 0.6]} />
+
+    {/* Desktop strip: the roll call and the title panel. */}
+    <Panel points={[[16, 524], [248, 524], [236, 916], [16, 916]]} image={COVERS.ironMan} focus={[0.53, 0.42]} zoom={1.65} />
+    <Panel points={[[262, 524], [492, 524], [504, 916], [250, 916]]} image={COVERS.phoenix} focus={[0.47, 0.42]} zoom={2.2} />
+    <Panel points={[[506, 524], [736, 524], [736, 916], [518, 916]]} image={COVERS.jimLee} focus={[0.52, 0.75]} zoom={2.4} />
+    <Panel points={[[750, 524], [1810, 524], [1810, 916], [750, 916]]} fill={brand.blue}>
+      <AbsoluteFill style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,.07) 1.8px, transparent 2.3px)", backgroundSize: "10px 10px" }} />
+    </Panel>
+    <Panel points={[[1824, 524], [2054, 524], [2042, 916], [1824, 916]]} image={COVERS.jimLee} focus={[0.28, 0.43]} zoom={2.4} />
+    <Panel points={[[2068, 524], [2300, 524], [2312, 916], [2056, 916]]} image={COVERS.surfer} focus={[0.45, 0.47]} zoom={1.6} />
+    <Panel points={[[2314, 524], [2544, 524], [2544, 916], [2326, 916]]} image={COVERS.ff} focus={[0.65, 0.68]} zoom={2.2} />
+    <Img src={staticFile("brand/badge-transparent.png")} style={{ position: "absolute", left: 792, top: 572, height: 296 }} />
+    <Img src={staticFile("brand/wordmark-transparent.png")} style={{ position: "absolute", left: 1090, top: 556, height: 206 }} />
+    <Caption lines={["Catalog. Collect. Connect."]} size={64} pos={{ left: 1082, top: 790 }} />
+
+    {/* TV-only bottom tier. */}
+    <Panel points={[[16, 944], [520, 944], [508, 1416], [16, 1416]]} image={COVERS.dofp} focus={[0.42, 0.66]} zoom={1.35} />
+    <Panel points={[[534, 944], [1040, 944], [1052, 1416], [522, 1416]]} image={COVERS.secretWars} focus={[0.55, 0.5]} zoom={1.35} />
+    <Panel points={[[1054, 944], [1530, 944], [1530, 1416], [1066, 1416]]} image={COVERS.hox} focus={[0.5, 0.5]} zoom={1.25} />
+    <Panel points={[[1544, 944], [2040, 944], [2028, 1416], [1544, 1416]]} image={COVERS.prime} focus={[0.45, 0.45]} />
+    <Panel points={[[2054, 944], [2544, 944], [2544, 1416], [2042, 1416]]} image={COVERS.phoenixMustDie} focus={[0.55, 0.58]} zoom={1.25} />
+  </Paper>;
 }

@@ -61,22 +61,26 @@ function bounds(points) {
   return { x, y, w: Math.max(...xs) - x, h: Math.max(...ys) - y };
 }
 
-// A panel is a polygon in canvas pixels with an ink border. The art covers
-// the polygon's bounding box; `focus` is the point of the source image (0 to 1)
-// to center on and `zoom` scales past a plain cover fit.
-export function Panel({ points, image, focus = [0.5, 0.5], zoom = 1, children }) {
-  const t = React.useContext(Theme);
-  const b = bounds(points);
+function cover(b, image, focus, zoom) {
   const [sw, sh] = image.size;
   const trim = sh * image.trimTop;
   const fit = Math.max(b.w / sw, b.h / (sh - trim)) * zoom;
   const dw = sw * fit, dh = sh * fit;
   const left = Math.min(b.x, Math.max(b.x + b.w - dw, b.x + b.w / 2 - focus[0] * dw));
   const top = Math.min(b.y - trim * fit, Math.max(b.y + b.h - dh, b.y + b.h / 2 - focus[1] * dh));
+  return { position: "absolute", left, top, width: dw, height: dh };
+}
+
+// A panel is a polygon in canvas pixels with an ink border. The art covers
+// the polygon's bounding box; `focus` is the point of the source image (0 to 1)
+// to center on and `zoom` scales past a plain cover fit. A panel with `fill`
+// and no image is a flat color panel (a title panel).
+export function Panel({ points, image, fill, focus = [0.5, 0.5], zoom = 1, children }) {
+  const t = React.useContext(Theme);
   const poly = points.map(([x, y]) => `${x}px ${y}px`).join(", ");
   return <>
-    <AbsoluteFill style={{ clipPath: `polygon(${poly})` }}>
-      <Img src={image.src} style={{ position: "absolute", left, top, width: dw, height: dh }} />
+    <AbsoluteFill style={{ clipPath: `polygon(${poly})`, background: fill }}>
+      {image && <Img src={image.src} style={cover(bounds(points), image, focus, zoom)} />}
       {children}
     </AbsoluteFill>
     <svg width="100%" height="100%" style={{ position: "absolute", inset: 0 }}>

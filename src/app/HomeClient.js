@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import FeaturedCarousel from "@/components/FeaturedCarousel";
@@ -9,6 +9,7 @@ import ExcitedStrip from "@/components/ExcitedStrip";
 import { coverThumb } from "@/lib/coverThumb";
 import HomeDispatch from "@/components/HomeDispatch";
 import { trackEvent } from "@/lib/analytics";
+import YourShelf from "@/components/shelf/YourShelf";
 
 // "217,000+" / "2.5M+": rounded down so the strip never overstates.
 function proofNumber(n, fallback) {
@@ -24,7 +25,7 @@ export default function HomeClient({
   dispatch = null,
   excited = [],
 }) {
-  const { user } = useAuth();
+  const { user, loading: authLoading, isFounding } = useAuth();
   const router = useRouter();
   const [heroQuery, setHeroQuery] = useState("");
   // Pending until the results page has actually rendered, so the button
@@ -48,8 +49,16 @@ export default function HomeClient({
     startSearch(() => router.push(q ? `/search?q=${encodeURIComponent(q)}` : "/search"));
   }
 
+  useEffect(() => {
+    if (!authLoading && !user) {
+      delete document.documentElement.dataset.signedIn;
+      delete document.documentElement.dataset.shelfReady;
+    }
+  }, [authLoading, user]);
+
   return (
     <>
+      {user ? <YourShelf /> : <>
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section className="lp-hero">
         <div className="lp-hero-content">
@@ -146,6 +155,7 @@ export default function HomeClient({
           <span className="lp-proof-label">covers archived</span>
         </div>
       </section>
+      </>}
 
       <ExcitedStrip picks={excited} />
 
@@ -162,7 +172,7 @@ export default function HomeClient({
       />
 
       {/* ── FEATURE TRIPTYCH ─────────────────────────────────── */}
-      <section className="lp-features">
+      {!user && <section className="lp-features">
         <div className="lp-feature">
           <div className="lp-feature-icon">◈</div>
           <h3>Catalog</h3>
@@ -189,10 +199,10 @@ export default function HomeClient({
             <Link href="/marketplace">Browse listings →</Link>
           </p>
         </div>
-      </section>
+      </section>}
 
       {/* ── FOUNDING COLLECTOR ───────────────────────────────── */}
-      <section className="lp-founding">
+      {(!user || !isFounding) && <section className="lp-founding">
         <div className="lp-founding-inner">
           <p className="lp-founding-kicker">Limited · The first 100 only</p>
           <h2 className="lp-founding-h2">Founding Collector</h2>
@@ -208,7 +218,7 @@ export default function HomeClient({
             See the founding offer →
           </Link>
         </div>
-      </section>
+      </section>}
 
     </>
   );

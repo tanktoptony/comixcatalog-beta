@@ -130,7 +130,9 @@ export const viewport = {
 export default async function RootLayout({ children }) {
   const foundingRemaining = await getFoundingRemaining();
   return (
-    <html lang="en">
+    // suppressHydrationWarning: the home page's pre-paint script sets
+    // data-signed-in on <html> before React hydrates (src/app/page.js).
+    <html lang="en" suppressHydrationWarning>
       <body className={`page-shell ${displayFont.variable}`}>
         <a className="skip-link" href="#main-content">Skip to main content</a>
         {GA_ENABLED && (

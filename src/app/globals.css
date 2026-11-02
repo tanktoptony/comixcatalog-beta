@@ -2531,6 +2531,15 @@ input[type="file"] {
   overflow: hidden;
   position: relative;
 }
+
+.signed-in-shelf-skeleton { display: none; width: min(1280px, calc(100% - 48px)); margin: 32px auto; grid-template-columns: 2fr 1fr; gap: 24px; }
+.signed-in-shelf-skeleton > div { min-height: 310px; border: 1px solid var(--cc-line); border-radius: 16px; background: var(--cc-surface); }
+html[data-signed-in="1"]:not([data-shelf-ready="1"]) .signed-in-shelf-skeleton { display: grid; }
+html[data-signed-in="1"]:not([data-shelf-ready="1"]) .lp-hero,
+html[data-signed-in="1"]:not([data-shelf-ready="1"]) .lp-proof,
+html[data-signed-in="1"]:not([data-shelf-ready="1"]) .lp-features { display: none; }
+@media (max-width: 800px) { .signed-in-shelf-skeleton { grid-template-columns: 1fr; } }
+@media (max-width: 420px) { .signed-in-shelf-skeleton { width: calc(100% - 24px); margin-top: 20px; } }
 @media (max-width: 860px) {
   .lp-hero {
     grid-template-columns: 1fr;
@@ -13651,6 +13660,8 @@ select.input {
 .issue-value-card { display: grid; gap: 6px; margin: 0 0 14px; padding: 18px; border: 1px solid var(--cc-line); border-radius: 14px; background: var(--cc-surface); }
 .issue-value-card strong { color: var(--cc-gold); font-family: var(--font-display); font-size: 2.25rem; line-height: 1; }
 .issue-value-card small { color: var(--cc-text-muted); }
+.issue-community-counts { display: grid; gap: 4px; padding: 14px 16px; border: 1px solid var(--cc-line); border-radius: 12px; color: var(--cc-text); background: var(--cc-surface); font-size: 0.86rem; line-height: 1.45; }
+.issue-community-counts small { color: var(--cc-text-muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; }
 .issue-kicker { color: var(--cc-text-muted); font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .issue-market-actions { display: flex; gap: 10px; margin: 0 0 20px; flex-wrap: wrap; }
 .issue-market-actions .add-comic-btn { flex: 1 1 150px; text-align: center; text-decoration: none; }

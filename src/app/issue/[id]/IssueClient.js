@@ -396,6 +396,7 @@ export default function IssueClient({ initialIssue = null }) {
         <div className="issue-detail-hero">
           <div className="issue-hero-cover">
             <div className="issue-cover-frame">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={shownCover || "/fallback-cover.png"}
                 alt={`${issueTitle}${issue.release_year ? ` (${issue.release_year})` : ""} cover`}
@@ -564,6 +565,18 @@ export default function IssueClient({ initialIssue = null }) {
                   <span className="issue-kicker">Estimated from current asking prices</span>
                   <strong>{money(issue.market.estimate)}</strong>
                   {issue.market.sample_size > 0 && <small>{issue.market.sample_size} listing{issue.market.sample_size === 1 ? "" : "s"} sampled</small>}
+                </div>
+              )}
+              {issue.community && (
+                <div className="issue-community-counts">
+                  <span>
+                    {[
+                      issue.community.have != null ? `${issue.community.have} collectors have this` : null,
+                      issue.community.want != null ? `${issue.community.want} want it` : null,
+                      issue.community.for_sale != null ? `${issue.community.for_sale} for sale` : null,
+                    ].filter(Boolean).join(" · ")}
+                  </span>
+                  <small>Updated daily</small>
                 </div>
               )}
               <div className="issue-rail-collection">

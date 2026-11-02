@@ -139,20 +139,23 @@ async function run() {
     valueById.set(item.id, result.value ?? 0);
   }
 
-  const byUser = new Map(); // user_id -> { totalValue, ownedCount }
+  const byUser = new Map(); // user_id -> { totalValue, ownedCount, pricedCount }
   for (const item of owned) {
-    const entry = byUser.get(item.user_id) ?? { totalValue: 0, ownedCount: 0 };
-    entry.totalValue += valueById.get(item.id) ?? 0;
+    const entry = byUser.get(item.user_id) ?? { totalValue: 0, ownedCount: 0, pricedCount: 0 };
+    const value = valueById.get(item.id) ?? 0;
+    entry.totalValue += value;
     entry.ownedCount += 1;
+    if (value > 0) entry.pricedCount += 1;
     byUser.set(item.user_id, entry);
   }
 
   const snapshotDate = new Date().toISOString().slice(0, 10);
-  const rowsToUpsert = [...byUser.entries()].map(([user_id, { totalValue, ownedCount }]) => ({
+  const rowsToUpsert = [...byUser.entries()].map(([user_id, { totalValue, ownedCount, pricedCount }]) => ({
     user_id,
     snapshot_date: snapshotDate,
     total_value: roundCurrency(totalValue),
     owned_count: ownedCount,
+    priced_count: pricedCount,
   }));
 
   console.log(`\nUsers with owned items: ${rowsToUpsert.length}`);

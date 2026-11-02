@@ -7,7 +7,8 @@
 
 import test from "node:test";
 import assert from "node:assert/strict";
-import { combineBarcodeParts, createDuplicateDebouncer, normalizeUpc, isValidUpc, parseUpc, upcProblem, describeSubmission } from "./printings.js";
+import fs from "node:fs";
+import { barcodeHasSupplement, combineBarcodeParts, createDuplicateDebouncer, ZXING_WASM_VERSION, normalizeUpc, isValidUpc, parseUpc, upcProblem, describeSubmission } from "./printings.js";
 
 const BASE = "759606083121"; // 12 digits
 const EAN = "9771234567898"; // 13 digits
@@ -63,6 +64,18 @@ test("a separately decoded five digit add-on joins the UPC", () => {
 
 test("a separately decoded two digit add-on joins the UPC", () => {
   assert.equal(combineBarcodeParts(["071486024583", "12"]), "07148602458312");
+});
+
+test("a read with the add-on beats main-only reads in the same window", () => {
+  // zxing-wasm reports the EAN-13 form with the add-on joined on.
+  assert.equal(combineBarcodeParts([`0${BASE}`, `0${BASE}00111`, BASE]), `${BASE}00111`);
+});
+
+test("a read window knows when it has the add-on", () => {
+  assert.equal(barcodeHasSupplement([BASE, BASE]), false);
+  assert.equal(barcodeHasSupplement([BASE, "00111"]), true);
+  assert.equal(barcodeHasSupplement([`${BASE}00111`]), true);
+  assert.equal(barcodeHasSupplement(["0714860245831"]), false);
 });
 
 test("a partial one digit add-on is discarded", () => {
@@ -162,4 +175,10 @@ test("a report describes itself with whichever halves it has", () => {
     describeSubmission({ printingName: "Cover B", upc: "7 59606 08312 1" }),
     `Cover B (${BASE})`
   );
+});
+
+test("the served barcode reader matches the installed zxing-wasm", () => {
+  const pkg = JSON.parse(fs.readFileSync(new URL("../../package.json", import.meta.url), "utf8"));
+  assert.equal(pkg.dependencies["zxing-wasm"], ZXING_WASM_VERSION);
+  assert.ok(fs.existsSync(new URL(`../../public/zxing-reader-${ZXING_WASM_VERSION}.wasm`, import.meta.url)));
 });

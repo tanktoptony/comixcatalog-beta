@@ -2182,6 +2182,10 @@ function LibraryPageContent() {
                               tooltip = "No recent sales data yet - showing era-based cover-price floor. Real comps will replace this once eBay data is fetched.";
                               label = "cover price";
                             }
+                            if (mv.regular_cover) {
+                              tooltip = `${tooltip}. No recent sales of this variant, so this is the regular cover's value.`;
+                              label = `regular cover, ${label}`;
+                            }
                             return (
                               <>
                                 <span>•</span>

@@ -65,8 +65,21 @@ export function combineBarcodeParts(values = []) {
   const normalized = values.map(normalizeUpc).filter(Boolean);
   const base = normalized.find((value) => value.length === 12 || value.length === 13);
   const supplement = normalized.find((value) => value.length === 2 || value.length === 5);
-  const combined = base && supplement ? `${base}${supplement}` : normalized.find((value) => VALID_LENGTHS.has(value.length));
+  // Otherwise the longest whole read wins: a window often holds main-only
+  // frames next to one that caught the add-on too.
+  const whole = normalized.filter((value) => VALID_LENGTHS.has(value.length)).sort((a, b) => b.length - a.length)[0];
+  const combined = base && supplement ? `${base}${supplement}` : whole;
   return combined && isValidUpc(combined) ? normalizeUpc(combined) : null;
+}
+
+// The barcode reader's .wasm is served from /public/zxing-reader-<version>.wasm.
+// It must match the zxing-wasm version in package.json (a test checks both).
+export const ZXING_WASM_VERSION = "3.1.6";
+
+// True once a read includes the 2- or 5-digit add-on, either joined to the
+// main code or decoded on its own. The add-on is what names the exact issue.
+export function barcodeHasSupplement(values = []) {
+  return values.map(normalizeUpc).some((value) => [2, 5, 14, 15, 17, 18].includes(value.length));
 }
 
 export function createDuplicateDebouncer(windowMs = 3000) {

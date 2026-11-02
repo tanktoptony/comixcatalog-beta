@@ -13642,6 +13642,7 @@ select.input {
 .issue-primary-cta { border-color: var(--cc-gold) !important; background: var(--cc-gold) !important; color: #11161d !important; }
 .issue-action-error { color: #ff8a80; font-size: .82rem; }
 .issue-collection-actions { display: none !important; }
+.issue-version-switch { display: grid; gap: 10px; padding: 14px; border: 1px solid var(--cc-gold); border-radius: 12px; background: var(--cc-surface); color: var(--cc-text); font-size: .88rem; }
 .issue-credit-note { margin-left: 2px; color: var(--cc-text-muted); font-size: .65em; }
 .issue-editing-list { display: grid; gap: 7px; }
 .issue-editing-list > span { display: grid; }

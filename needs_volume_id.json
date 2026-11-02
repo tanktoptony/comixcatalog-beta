@@ -20867,9 +20867,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-24T10:00:42.589589+00:00",
-    "retry_after": "2026-09-27T10:00:42.589605+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T07:36:30.334663+00:00",
+    "retry_after": "2026-11-09T07:36:30.334666+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Evil Ernie Retailer Preview",
@@ -27525,8 +27526,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T07:01:41.660188+00:00",
-    "retry_after": "2026-11-03T07:01:41.660190+00:00",
+    "last_attempt_at": "2026-11-02T07:27:49.107064+00:00",
+    "retry_after": "2026-11-03T07:27:49.107067+00:00",
     "search_hydrated": true
   },
   {
@@ -36484,9 +36485,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-03T01:02:09.559538+00:00",
-    "retry_after": "2026-10-06T01:02:09.559553+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T07:36:09.828051+00:00",
+    "retry_after": "2026-11-09T07:36:09.828055+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Black Panther Prelude",
@@ -43601,8 +43603,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T07:01:41.660133+00:00",
-    "retry_after": "2026-11-03T07:01:41.660148+00:00",
+    "last_attempt_at": "2026-11-02T07:27:49.106985+00:00",
+    "retry_after": "2026-11-03T07:27:49.106998+00:00",
     "search_hydrated": true
   },
   {
@@ -51516,8 +51518,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T07:01:41.660170+00:00",
-    "retry_after": "2026-11-03T07:01:41.660172+00:00",
+    "last_attempt_at": "2026-11-02T07:27:49.107029+00:00",
+    "retry_after": "2026-11-03T07:27:49.107032+00:00",
     "search_hydrated": true
   },
   {
@@ -56847,9 +56849,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-20T18:18:01.777164+00:00",
-    "retry_after": "2026-10-23T18:18:01.777179+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T07:36:30.334632+00:00",
+    "retry_after": "2026-11-09T07:36:30.334634+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Action Comics nº1 (Fac-Símile)",
@@ -91036,6 +91039,243 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-02T07:11:15.331708+00:00",
     "retry_after": "2026-11-03T07:11:15.331726+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: Europa",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 86094,
+        "name": "Batman: Europa",
+        "publisher": "DC Comics",
+        "start_year": 2015
+      },
+      {
+        "id": 89578,
+        "name": "Batman: Europa",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T07:36:09.827984+00:00",
+    "retry_after": "2026-11-03T07:36:09.828001+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: The Dark Knight - Master Race",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T07:36:09.828071+00:00",
+    "retry_after": "2026-11-03T07:36:09.828073+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Black Panther: Shuri - The Deadliest of the Species",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T07:36:09.828088+00:00",
+    "retry_after": "2026-11-03T07:36:09.828091+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Captain America / Black Panther: Flags of Our Fathers",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 36229,
+        "name": "Captain America/Black Panther: Flags of Our Fathers",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 171881,
+        "name": "Captain America/Black Panther: Flags of Our Fathers",
+        "publisher": "Marvel",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T07:36:09.828128+00:00",
+    "retry_after": "2026-11-03T07:36:09.828131+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Captain Marvel: Carol Danvers - The Ms. Marvel Years",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T07:36:09.828146+00:00",
+    "retry_after": "2026-11-03T07:36:09.828148+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Captain Marvel: Ms. Marvel - A Hero Is Born Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T07:36:09.828160+00:00",
+    "retry_after": "2026-11-03T07:36:09.828163+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: Haunted Knight",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 31743,
+        "name": "Batman: Haunted Knight",
+        "publisher": "DC Comics",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T07:36:10.439703+00:00",
+    "retry_after": "2026-11-03T07:36:10.439718+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Black Panther: Soul of a Machine",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 106261,
+        "name": "Black Panther: Soul of A Machine",
+        "publisher": "Marvel",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T07:36:10.528693+00:00",
+    "retry_after": "2026-11-03T07:36:10.528706+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Challengers of the Unknown by Jack Kirby",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 69015,
+        "name": "Challengers of the Unknown by Jack Kirby",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T07:36:10.529043+00:00",
+    "retry_after": "2026-11-03T07:36:10.529049+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Chronicles of Hate Collected Edition",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T07:36:30.334504+00:00",
+    "retry_after": "2026-11-03T07:36:30.334519+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Clover Honey",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T07:36:30.334541+00:00",
+    "retry_after": "2026-11-03T07:36:30.334545+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Conan Chronicles Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T07:36:30.334560+00:00",
+    "retry_after": "2026-11-03T07:36:30.334563+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Crossroad Blues",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T07:36:30.334615+00:00",
+    "retry_after": "2026-11-03T07:36:30.334618+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Curse Words Summer Special",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T07:36:30.334646+00:00",
+    "retry_after": "2026-11-03T07:36:30.334648+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Conspiracy",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 6208,
+        "name": "Conspiracy",
+        "publisher": "Marvel",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T07:36:31.834486+00:00",
+    "retry_after": "2026-11-03T07:36:31.834501+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cowboy Ninja Viking",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 28823,
+        "name": "Cowboy Ninja Viking",
+        "publisher": "Image",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T07:36:31.834531+00:00",
+    "retry_after": "2026-11-03T07:36:31.834534+00:00",
     "search_hydrated": true
   }
 ]

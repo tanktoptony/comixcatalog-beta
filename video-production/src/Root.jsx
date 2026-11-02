@@ -9,8 +9,9 @@ import { THUMBNAILS_002 } from "./Thumbnails002.jsx";
 import { THUMBNAILS_003 } from "./Thumbnails003.jsx";
 import { THUMBNAILS_004 } from "./Thumbnails004.jsx";
 import { THUMBNAILS_005 } from "./Thumbnails005.jsx";
+import { THUMBNAILS_006 } from "./Thumbnails006.jsx";
 import { ShortClip } from "./Shorts.jsx";
-import { ChannelBanner } from "./Banner.jsx";
+import { ChannelBanner, ChannelBannerComic } from "./Banner.jsx";
 import { ChannelIntro, ChannelSting } from "./ChannelIntro.jsx";
 import { FoundersStory } from "./FoundersStory.jsx";
 import { SHORTS, END_CARD, shortRange } from "../shorts.js";
@@ -20,6 +21,8 @@ import { narrationWords as narrationWords003 } from "../episode-003/timeline.js"
 import { narrationWords as narrationWords004 } from "../episode-004/timeline.js";
 import { shortsWords as shortsWords005 } from "../episode-005/shorts-timeline.js";
 import { fixWords as fixWords005 } from "../episode-005/fixWords.js";
+import { shortsWords as shortsWords006 } from "../episode-006/shorts-timeline.js";
+import { Dossier001Reveal, Dossier001Cosmic, Dossier001Front, Dossier001Back, Dossier001FrontFrame, Dossier001FrontArt, Dossier001FrontLettering, Dossier001BackFrame, Dossier001BackMeters, Dossier001BackLettering } from "./Dossier006.jsx";
 
 const shortDetails = {
   "episode-001-v3": {
@@ -42,6 +45,10 @@ const shortDetails = {
     words: fixWords005(shortsWords005),
     endCardTitle: "The Amory Wars, Part 2: The Second Stage Turbine Blade",
   },
+  "episode-006-shorts": {
+    words: shortsWords006,
+    endCardTitle: "The Power Index · Power Profile #001: Doctor Doom",
+  },
 };
 
 // YouTube thumbnails (scripts/thumbs.mjs).
@@ -53,6 +60,7 @@ export const THUMBNAILS = [
   ...THUMBNAILS_003,
   ...THUMBNAILS_004,
   ...THUMBNAILS_005,
+  ...THUMBNAILS_006,
 ];
 
 export function Root() {
@@ -97,9 +105,15 @@ export function Root() {
       <Composition id="ChannelSting" component={ChannelSting} durationInFrames={Math.round(2.5 * VIDEO.fps)} fps={VIDEO.fps} width={VIDEO.width} height={VIDEO.height} />
       <Composition id="FoundersStory" component={FoundersStory} durationInFrames={1} fps={30} width={1080} height={1920} defaultProps={{ left: 71 }} />
       <Composition id="ChannelBanner" component={ChannelBanner} durationInFrames={1} fps={30} width={2560} height={1440} />
-      {THUMBNAILS.map(([id, component]) => (
-        <Composition key={id} id={id} component={component} durationInFrames={1} fps={30} width={1280} height={720} />
+      <Composition id="ChannelBannerComic" component={ChannelBannerComic} durationInFrames={1} fps={30} width={2560} height={1440} />
+      {THUMBNAILS.map(([id, component, size = { width: 1280, height: 720 }]) => (
+        <Composition key={id} id={id} component={component} durationInFrames={1} fps={30} width={size.width} height={size.height} />
       ))}
+      <Composition id="Dossier001Reveal" component={Dossier001Reveal} durationInFrames={150} fps={30} width={1920} height={1080} />
+      <Composition id="Dossier001Cosmic" component={Dossier001Cosmic} durationInFrames={120} fps={30} width={1920} height={1080} defaultProps={{ overlay: "cosmic" }} />
+      <Composition id="Dossier001Beyonder" component={Dossier001Cosmic} durationInFrames={120} fps={30} width={1920} height={1080} defaultProps={{ overlay: "beyonder" }} />
+      <Composition id="Dossier001GodEmperor" component={Dossier001Cosmic} durationInFrames={120} fps={30} width={1920} height={1080} defaultProps={{ overlay: "godEmperor" }} />
+      {[["Dossier001Front", Dossier001Front], ["Dossier001Back", Dossier001Back], ["Dossier001FrontFrame", Dossier001FrontFrame], ["Dossier001FrontArt", Dossier001FrontArt], ["Dossier001FrontLettering", Dossier001FrontLettering], ["Dossier001BackFrame", Dossier001BackFrame], ["Dossier001BackMeters", Dossier001BackMeters], ["Dossier001BackLettering", Dossier001BackLettering]].map(([id, component]) => <Composition key={id} id={id} component={component} durationInFrames={1} fps={30} width={1000} height={1400} />)}
     </>
   );
 }

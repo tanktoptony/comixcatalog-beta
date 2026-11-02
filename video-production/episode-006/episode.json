@@ -1,0 +1,73 @@
+{
+  "id": "episode-006",
+  "number": 6,
+  "slug": "power-index-doctor-doom",
+  "titleOptions": [
+    "How Powerful Is Doctor Doom, Really? | The Power Index",
+    "Doctor Doom's Power Level, Straight From the Comics",
+    "Power Profile #001: Doctor Doom (Stats, Feats and What to Read)"
+  ],
+  "narrator": "tony-heygen",
+  "utmCampaign": "powerindex01",
+  "publish": "Sun Nov 8, 2026",
+  "sections": [
+    { "id": "01", "chapter": "Cold open" },
+    { "id": "02", "chapter": "How the card works" },
+    { "id": "03", "chapter": "The man in the mask" },
+    { "id": "04", "chapter": "A: the armor and the numbers" },
+    { "id": "05", "chapter": "Sorcery" },
+    { "id": "06", "chapter": "B: Doom with a plan" },
+    { "id": "07", "chapter": "C: the Power Cosmic" },
+    { "id": "08", "chapter": "C: Secret Wars, 1984" },
+    { "id": "09", "chapter": "C: God Emperor Doom" },
+    { "id": "10", "chapter": "What actually beats Doom" },
+    { "id": "11", "chapter": "Collector's corner" },
+    { "id": "12", "chapter": "Ending" }
+  ],
+  "books": [
+    ["Fantastic Four (1961): #5, #10, #57 to #60, #84 to #87", "82582822-1b0c-4e57-bb24-2f9ec25c6373"],
+    ["Books of Doom (2006) #1 to #6", "32f911aa-dbbe-43ba-b2b7-5035dc0909d3"],
+    ["Doctor Strange and Doctor Doom: Triumph and Torment (1989)", "e4376985-b2a9-4b1f-9f2d-8e36fca7baee"],
+    ["Marvel Graphic Novel: Emperor Doom (1987)", "fbb2fea0-09f0-4516-bc3a-c9fc95e50f7e"],
+    ["Marvel Super-Heroes Secret Wars (1984) #1 to #12", "510b2557-b30e-4492-8f29-07ceac6ef47d"],
+    ["Secret Wars (2015) #1 to #9", "3b27768e-6bb1-4815-814f-4bea16b37f3a"],
+    ["Blood Hunt (2024) #4 and #5", "b3ce5edb-3d50-4fae-8ae9-2d67cfa19ab1"],
+    ["One World Under Doom (2025)", "4e48a9ef-610f-4931-97d6-612b9b49bd49"]
+  ],
+  "tags": [
+    "doctor doom", "victor von doom", "doctor doom power level", "how powerful is doctor doom", "marvel power grid",
+    "fantastic four", "silver surfer", "secret wars", "god emperor doom", "books of doom", "triumph and torment",
+    "emperor doom", "blood hunt", "one world under doom", "sorcerer supreme", "marvel comics", "comic books",
+    "the power index", "comixcatalog"
+  ],
+  "descriptionIntro": "How powerful is Doctor Doom on a normal day? This is the first Power Profile in The Power Index: Marvel's own power grid for Doom, our sorcery rating, and what changes when he has a plan or borrows cosmic power. Fantastic Four #5, Books of Doom, Triumph and Torment, the Silver Surfer heist in Fantastic Four #57 to #60, both Secret Wars, and five books to start with.",
+  "pinnedComment": "What's your favorite Doom moment? And which character should get the next Power Profile?",
+  "credits": [
+    "Power grid, height, weight and quoted lines: Marvel.com, Victor von Doom profile.",
+    "Cover art is the property of Marvel and the original artists, shown for commentary and review. Covers via ComicVine.",
+    "Music: \"Rollin at 5\" and \"Funkorama\" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/"
+  ],
+  "shorts": [
+    {
+      "id": "Short006NotIronMan",
+      "title": "Doctor Doom is not Iron Man with a cape #doctordoom #marvel",
+      "hook": "Doom isn't Iron Man with a cape",
+      "description": "In Triumph and Torment (1989), Doom switches off the tech in his gauntlets and comes in second for the Sorcerer Supreme title with magic alone. Full Power Profile on the channel.",
+      "schedule": "Tue Nov 10, 2026"
+    },
+    {
+      "id": "Short006SilverSurfer",
+      "title": "Doctor Doom stole the Silver Surfer's powers with a castle tour #doctordoom #silversurfer",
+      "hook": "He stole the Silver Surfer's powers",
+      "description": "Fantastic Four #57 to #60 (1966 to 1967). Doom drains the Power Cosmic, and Reed beats him by making him mad. Full Power Profile on the channel.",
+      "schedule": "Thu Nov 12, 2026"
+    },
+    {
+      "id": "Short006GodEmperor",
+      "title": "Why God Emperor Doom doesn't count #doctordoom #secretwars",
+      "hook": "Why God Emperor Doom doesn't count",
+      "description": "Marvel's power grid rates Doom in his armor. The Beyonder's power in 1984 and the Beyonders' power in 2015 were borrowed, so on our card they're an overlay, not the baseline. Full Power Profile on the channel.",
+      "schedule": "Sat Nov 14, 2026"
+    }
+  ]
+}

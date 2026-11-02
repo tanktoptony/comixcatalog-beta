@@ -16,7 +16,7 @@ const FRAMED_MOVES = {
   driftLeft: (p) => ({ scale: 1.04, x: 22 - 44 * p }),
   driftRight: (p) => ({ scale: 1.04, x: -22 + 44 * p }),
 };
-const FULL_FRAME = new Set(["panDown", "panUp", "focus", "focusOut", "panAcross"]);
+const FULL_FRAME = new Set(["panDown", "panUp", "focus", "focusOut", "panAcross", "zoomTo"]);
 
 // A single cover. Framed treatments show the whole cover in a panel over its
 // own blurred art; full-frame treatments travel across the art itself.
@@ -55,6 +55,8 @@ export function CoverFull({ asset, treatment = "slowPush", focus, kicker, title,
 //   focus             whole-width view easing into focus {x, y, zoom}
 //   focusOut          start on focus {x, y, zoom}, pull back to the whole width
 //   panAcross         hold a zoomed band at focus.y and travel left to right
+//   zoomTo            like focus, but starts on the band at focus.y (not the cover's
+//                     middle), so the subject is in frame from the first frame
 export function KenBurnsCover({ asset, treatment = "panDown", focus, kicker, title, sub, number, captionAlign = "left" }) {
   const p = useProgress();
   const W = 1920;
@@ -77,7 +79,8 @@ export function KenBurnsCover({ asset, treatment = "panDown", focus, kicker, tit
   } else {
     const t = treatment === "focusOut" ? 1 - p : p;
     scale = interpolate(t, [0, 1], [1, f.zoom]);
-    y = interpolate(t, [0, 1], [-(coverH / 2 - 540), -(f.y * coverH * f.zoom - 540)]);
+    const startY = treatment === "zoomTo" ? f.y * coverH : coverH / 2;
+    y = interpolate(t, [0, 1], [-(startY - 540), -(f.y * coverH * f.zoom - 540)]);
     x = interpolate(t, [0, 1], [0, -(f.x * W * f.zoom - 960)]);
     clampXY();
   }

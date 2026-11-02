@@ -9,6 +9,7 @@ import { AbsoluteFill, Img, continueRender, delayRender, staticFile } from "remo
 import "@fontsource/big-shoulders/800.css";
 import "@fontsource/inter/700.css";
 import { brand, fonts } from "../shared/brand.js";
+import { Caption, Panel, Paper, art, useComicFonts } from "../shared/components/comicPage.jsx";
 
 const CLASSICS = [
   "action-comics-1", "the-amazing-spider-man-1", "detective-comics-27", "giant-size-x-men-1", "fantastic-four-1",
@@ -91,4 +92,64 @@ export function ChannelBanner() {
       </div>
     </AbsoluteFill>
   );
+}
+
+// Comic-page banner (Tony, 2026-11-02: "less AI looking", the site's tagline,
+// heroes behind it, mostly DC and Image with a couple of X-Men, no indies).
+// Same kit as the thumbnails: a printed page, ink-ruled panels, one lettered
+// caption, no glows. The middle tier is the strip desktops show (y 508-931):
+// a roll call of close-ups either side of the title panel, which sits inside
+// the phone-safe box (x 507-2053). The top and bottom tiers only show on TVs.
+// Art: public/brand/banner-heroes, copied from the episode assets and the
+// catalog's canonical-covers bucket.
+// Looked up at render, so a checkout without these files only fails this still.
+const hero = (file, width, height, trimTop = 0) => art("brand", [`brand/banner-heroes/${file}`, width, height, trimTop]);
+const covers = () => ({
+  dragon: hero("savage-dragon-001-1993.jpg", 658, 1004, 0.32), // Image
+  phoenix: hero("x-men-135-1980.jpg", 565, 861, 0.28), // Marvel, Ep 001
+  wolverine: hero("x-men-001-1991-variant-3.jpg", 1280, 1983, 0.3), // Marvel, Ep 001, 003
+  coheed: hero("amory-wars-sstb-004-2007.jpg", 1280, 1920, 0.18), // Image, Ep 004, 005
+  darkKnight: hero("batman-the-dark-knight-returns-1.jpg", 640, 983), // DC
+  flash: hero("showcase-4.jpg", 1099, 1600, 0.355), // DC
+  action: hero("action-comics-1.jpg", 400, 621, 0.36), // DC
+  wildcats: hero("wildcats-001-1992.jpg", 3972, 6078, 0.32), // Image
+  wonderWoman: hero("wonder-woman-001-1987.jpg", 352, 517, 0.22), // DC
+  spawn: hero("spawn-1.jpg", 655, 1013, 0.31), // Image
+  killingJoke: hero("killing-joke-1988.jpg", 456, 700), // DC
+  einstein: hero("mp-einstein-gateway-panel.jpg", 1170, 432), // Image, Ep 002
+  invincible: hero("invincible-001-2003.jpg", 600, 934, 0.22), // Image
+  kingdomCome: hero("kingdom-come-001-1996.jpg", 956, 1462, 0.36), // DC
+});
+
+export function ChannelBannerComic() {
+  useComicFonts();
+  const COVERS = covers();
+  return <Paper>
+    {/* TV-only top tier. */}
+    <Panel points={[[16, 24], [640, 24], [628, 496], [16, 496]]} image={COVERS.darkKnight} focus={[0.47, 0.42]} />
+    <Panel points={[[654, 24], [1270, 24], [1282, 496], [642, 496]]} image={COVERS.wildcats} focus={[0.5, 0.45]} />
+    <Panel points={[[1284, 24], [1906, 24], [1906, 496], [1296, 496]]} image={COVERS.wonderWoman} focus={[0.5, 0.5]} />
+    <Panel points={[[1920, 24], [2544, 24], [2544, 496], [1920, 496]]} image={COVERS.spawn} focus={[0.5, 0.45]} />
+
+    {/* Desktop strip: the roll call and the title panel. */}
+    <Panel points={[[16, 524], [248, 524], [236, 916], [16, 916]]} image={COVERS.dragon} focus={[0.35, 0.5]} zoom={1.6} />
+    <Panel points={[[262, 524], [492, 524], [504, 916], [250, 916]]} image={COVERS.phoenix} focus={[0.47, 0.42]} zoom={2.2} />
+    <Panel points={[[506, 524], [736, 524], [736, 916], [518, 916]]} image={COVERS.wolverine} focus={[0.52, 0.75]} zoom={2.4} />
+    <Panel points={[[750, 524], [1810, 524], [1810, 916], [750, 916]]} fill={brand.blue}>
+      <AbsoluteFill style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,.07) 1.8px, transparent 2.3px)", backgroundSize: "10px 10px" }} />
+    </Panel>
+    {/* #4 cover faces: Coheed about (0.48, 0.44), Cambria (0.62, 0.40). */}
+    <Panel points={[[1824, 524], [2054, 524], [2042, 916], [1824, 916]]} image={COVERS.coheed} focus={[0.55, 0.46]} zoom={2.8} />
+    <Panel points={[[2068, 524], [2300, 524], [2312, 916], [2056, 916]]} image={COVERS.killingJoke} focus={[0.7, 0.33]} zoom={1.8} />
+    <Panel points={[[2314, 524], [2544, 524], [2544, 916], [2326, 916]]} image={COVERS.flash} focus={[0.2, 0.52]} zoom={2} />
+    <Img src={staticFile("brand/badge-transparent.png")} style={{ position: "absolute", left: 792, top: 572, height: 296 }} />
+    <Img src={staticFile("brand/wordmark-transparent.png")} style={{ position: "absolute", left: 1090, top: 556, height: 206 }} />
+    <Caption lines={["Catalog. Collect. Connect."]} size={64} pos={{ left: 1082, top: 790 }} />
+
+    {/* TV-only bottom tier. */}
+    <Panel points={[[16, 944], [520, 944], [508, 1416], [16, 1416]]} image={COVERS.action} focus={[0.5, 0.6]} />
+    <Panel points={[[534, 944], [1300, 944], [1312, 1416], [522, 1416]]} image={COVERS.einstein} focus={[0.25, 0.4]} />
+    <Panel points={[[1314, 944], [1830, 944], [1830, 1416], [1326, 1416]]} image={COVERS.invincible} focus={[0.4, 0.5]} />
+    <Panel points={[[1844, 944], [2544, 944], [2544, 1416], [1844, 1416]]} image={COVERS.kingdomCome} focus={[0.5, 0.5]} />
+  </Paper>;
 }

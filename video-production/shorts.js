@@ -126,6 +126,27 @@ export const SHORTS = [
     toBeat: "Short 3 end",
     hook: "He opens fire on his brother's ship",
   },
+  {
+    id: "Short006NotIronMan",
+    episode: "episode-006-shorts",
+    fromBeat: "Short 1 start",
+    toBeat: "Short 1 end",
+    hook: "Doom isn't Iron Man with a cape",
+  },
+  {
+    id: "Short006SilverSurfer",
+    episode: "episode-006-shorts",
+    fromBeat: "Short 2 start",
+    toBeat: "Short 2 end",
+    hook: "He stole the Silver Surfer's powers",
+  },
+  {
+    id: "Short006GodEmperor",
+    episode: "episode-006-shorts",
+    fromBeat: "Short 3 start",
+    toBeat: "Short 3 end",
+    hook: "Why God Emperor Doom doesn't count",
+  },
 ];
 
 // Seconds of each clip. The clip stops just before the next beat.

@@ -14283,9 +14283,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T06:00:36.201472+00:00",
-    "retry_after": "2026-09-22T06:00:36.201487+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T06:10:20.384636+00:00",
+    "retry_after": "2026-11-05T06:10:20.384639+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Nina's New & Improved All-Time Greatest Collector's Item Classic Comics",
@@ -27524,8 +27525,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T05:01:49.944395+00:00",
-    "retry_after": "2026-11-03T05:01:49.944397+00:00",
+    "last_attempt_at": "2026-11-02T06:02:01.281417+00:00",
+    "retry_after": "2026-11-03T06:02:01.281420+00:00",
     "search_hydrated": true
   },
   {
@@ -28479,9 +28480,10 @@
         "start_year": 2013
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T06:03:31.337741+00:00",
-    "retry_after": "2026-10-01T06:03:31.337758+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T06:10:49.122941+00:00",
+    "retry_after": "2026-11-03T06:10:49.122945+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Trial of the Amazons",
@@ -33240,11 +33242,19 @@
     "name": "Astonishing X-Men by Charles Soule",
     "publisher": "Marvel Comics",
     "year": 2018,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-03T14:04:38.903368+00:00",
-    "retry_after": "2026-10-10T14:04:38.903384+00:00"
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 59353,
+        "name": "Astonishing X-Men",
+        "publisher": "Marvel",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 4,
+    "last_attempt_at": "2026-11-02T06:10:50.766475+00:00",
+    "retry_after": "2026-11-16T06:10:50.766479+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Year One: Batman / Ra's al Ghul",
@@ -40033,9 +40043,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-04T23:03:22.184471+00:00",
-    "retry_after": "2026-10-05T23:03:22.184487+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T06:10:20.384616+00:00",
+    "retry_after": "2026-11-05T06:10:20.384619+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Robo-Hunter: The Droid Files",
@@ -43590,8 +43601,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T05:01:49.944336+00:00",
-    "retry_after": "2026-11-03T05:01:49.944351+00:00",
+    "last_attempt_at": "2026-11-02T06:02:01.281346+00:00",
+    "retry_after": "2026-11-03T06:02:01.281361+00:00",
     "search_hydrated": true
   },
   {
@@ -51505,8 +51516,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T05:01:49.944374+00:00",
-    "retry_after": "2026-11-03T05:01:49.944376+00:00",
+    "last_attempt_at": "2026-11-02T06:02:01.281387+00:00",
+    "retry_after": "2026-11-03T06:02:01.281390+00:00",
     "search_hydrated": true
   },
   {
@@ -68918,18 +68929,19 @@
     "name": "Angelic",
     "publisher": "Image Comics",
     "year": 2018,
-    "reason": "publisher_mismatch",
+    "reason": "series_hint_year_mismatch",
     "candidates": [
       {
         "id": 104453,
         "name": "Angelic",
-        "publisher": null,
+        "publisher": "Image",
         "start_year": 2017
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T04:23:53.028074+00:00",
-    "retry_after": "2026-10-27T04:23:53.028090+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T06:10:50.766136+00:00",
+    "retry_after": "2026-11-03T06:10:50.766152+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Chicago",
@@ -90734,6 +90746,250 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-02T05:10:53.390619+00:00",
     "retry_after": "2026-11-03T05:10:53.390641+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "3Floyds: Alpha King",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T06:10:18.954817+00:00",
+    "retry_after": "2026-11-03T06:10:18.954834+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Batman: The Killing Joke The 30th Anniversary Edition",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T06:10:18.954860+00:00",
+    "retry_after": "2026-11-03T06:10:18.954864+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Wildcats by Jim Lee",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T06:10:20.384442+00:00",
+    "retry_after": "2026-11-03T06:10:20.384459+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "All-Star Superman",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 32640,
+        "name": "All Star Superman",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      },
+      {
+        "id": 43166,
+        "name": "All Star Superman",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 18139,
+        "name": "All Star Superman",
+        "publisher": "DC Comics",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T06:10:20.384571+00:00",
+    "retry_after": "2026-11-03T06:10:20.384576+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "X-Men: Fallen Angels",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 42928,
+        "name": "X-Men: Fallen Angels",
+        "publisher": "Marvel",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T06:10:20.848840+00:00",
+    "retry_after": "2026-11-03T06:10:20.848857+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Amazing Spider-Man by David Michelinie & Todd McFarlane Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 42441,
+        "name": "Amazing Spider-Man by David Michelinie & Todd McFarlane Omnibus",
+        "publisher": "Marvel",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T06:10:30.654018+00:00",
+    "retry_after": "2026-11-03T06:10:30.654038+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Amazing Spider-Man: Family Business",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 72837,
+        "name": "Amazing Spider-Man: Family Business",
+        "publisher": "Marvel",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T06:10:30.654095+00:00",
+    "retry_after": "2026-11-03T06:10:30.654099+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Anarky: The Complete Series",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T06:10:49.122834+00:00",
+    "retry_after": "2026-11-03T06:10:49.122851+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ant-Man and Wasp \" Home Insecurity\"",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T06:10:49.122892+00:00",
+    "retry_after": "2026-11-03T06:10:49.122896+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Aquaman: War for the Throne - Walmart Exclusive Edition",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T06:10:49.122962+00:00",
+    "retry_after": "2026-11-03T06:10:49.122965+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Avengers & the Infinity Gauntlet",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 35001,
+        "name": "Avengers and the Infinity Gauntlet",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 39533,
+        "name": "Avengers and the Infinity Gauntlet",
+        "publisher": "Marvel",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T06:10:50.081148+00:00",
+    "retry_after": "2026-11-03T06:10:50.081181+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Avengers Forever",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 140532,
+        "name": "Avengers Forever",
+        "publisher": "Marvel",
+        "start_year": 2022
+      },
+      {
+        "id": 11015,
+        "name": "Avengers: Forever",
+        "publisher": "Marvel",
+        "start_year": 1998
+      },
+      {
+        "id": 28054,
+        "name": "Avengers Forever",
+        "publisher": "Marvel",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T06:10:50.081223+00:00",
+    "retry_after": "2026-11-03T06:10:50.081227+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Avengers West Coast Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T06:10:50.081245+00:00",
+    "retry_after": "2026-11-03T06:10:50.081248+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Barrier",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 86428,
+        "name": "Barrier",
+        "publisher": "Panelsyndicate",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T06:10:50.081275+00:00",
+    "retry_after": "2026-11-03T06:10:50.081278+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Amazing Spider-Man Vol. 1 No. 252 [Spider-Man Classics Reprint]",
+    "publisher": "Marvel Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T06:11:00.232189+00:00",
+    "retry_after": "2026-11-03T06:11:00.232205+00:00",
     "search_hydrated": true
   }
 ]

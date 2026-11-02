@@ -74,9 +74,15 @@ jobs:
       COMICVINE_API_KEY: ${{ secrets.COMICVINE_API_KEY }}
 
     steps:
+      # Check out the branch tip when the job starts, not the commit the
+      # run was queued at: runs wait on the ingest-data-writes lock, and a
+      # queued run's default checkout predates the files the run ahead of
+      # it just pushed, so its commit step conflicted on gap-pinned.json
+      # (3 trade-match and 7 gap-probe failures, Oct 23 to Nov 1).
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.ref }}
 
       - uses: actions/setup-node@v4
         with:

@@ -27528,8 +27528,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T00:02:50.714863+00:00",
-    "retry_after": "2026-11-03T00:02:50.714865+00:00",
+    "last_attempt_at": "2026-11-02T00:32:33.755592+00:00",
+    "retry_after": "2026-11-03T00:32:33.755596+00:00",
     "search_hydrated": true
   },
   {
@@ -40195,9 +40195,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-05T00:02:27.787821+00:00",
-    "retry_after": "2026-10-06T00:02:27.787837+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T00:41:28.341336+00:00",
+    "retry_after": "2026-11-05T00:41:28.341340+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Higher Earth",
@@ -43594,8 +43595,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T00:02:50.714792+00:00",
-    "retry_after": "2026-11-03T00:02:50.714807+00:00",
+    "last_attempt_at": "2026-11-02T00:32:33.755516+00:00",
+    "retry_after": "2026-11-03T00:32:33.755528+00:00",
     "search_hydrated": true
   },
   {
@@ -48665,11 +48666,19 @@
     "name": "Runaways by Rainbow Rowell",
     "publisher": "Marvel Comics",
     "year": 2019,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-13T20:24:13.413590+00:00",
-    "retry_after": "2026-10-16T20:24:13.413605+00:00"
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 18060,
+        "name": "Runaways",
+        "publisher": "Marvel",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T00:41:08.627600+00:00",
+    "retry_after": "2026-11-09T00:41:08.627604+00:00",
+    "search_hydrated": true
   },
   {
     "name": "O Melhor de Os Jetsons",
@@ -51499,8 +51508,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T00:02:50.714835+00:00",
-    "retry_after": "2026-11-03T00:02:50.714838+00:00",
+    "last_attempt_at": "2026-11-02T00:32:33.755557+00:00",
+    "retry_after": "2026-11-03T00:32:33.755561+00:00",
     "search_hydrated": true
   },
   {
@@ -89764,6 +89773,236 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-02T00:11:49.849592+00:00",
     "retry_after": "2026-11-03T00:11:49.849594+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Runaways: Pride & Joy",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 28015,
+        "name": "Runaways: Pride and Joy",
+        "publisher": "Marvel",
+        "start_year": 2009
+      },
+      {
+        "id": 54558,
+        "name": "Runaways: Pride and Joy",
+        "publisher": "Marvel",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T00:40:54.135096+00:00",
+    "retry_after": "2026-11-03T00:40:54.135111+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Nightwing by Peter J. Tomasi",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 166178,
+        "name": "Nightwing",
+        "publisher": "DC Comics",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T00:40:57.555036+00:00",
+    "retry_after": "2026-11-03T00:40:57.555050+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Outer Darkness",
+    "publisher": "Image Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 115073,
+        "name": "Outer Darkness",
+        "publisher": "Image",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T00:40:57.714368+00:00",
+    "retry_after": "2026-11-03T00:40:57.714377+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Prince of Cats",
+    "publisher": "Image Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 95231,
+        "name": "Prince of Cats",
+        "publisher": "Image",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T00:40:59.161356+00:00",
+    "retry_after": "2026-11-03T00:40:59.161378+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Prodigy",
+    "publisher": "Image Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 115757,
+        "name": "Prodigy",
+        "publisher": "Image",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T00:40:59.305330+00:00",
+    "retry_after": "2026-11-03T00:40:59.305338+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Red Hood: Outlaw",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 114293,
+        "name": "Red Hood: Outlaw",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T00:41:08.627548+00:00",
+    "retry_after": "2026-11-03T00:41:08.627562+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "SFSX (Safe Sex)",
+    "publisher": "Image Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T00:41:28.341301+00:00",
+    "retry_after": "2026-11-03T00:41:28.341316+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Shazam! The Monster Society of Evil",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T00:41:28.341354+00:00",
+    "retry_after": "2026-11-03T00:41:28.341357+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Silver Surfer: Parable 30th Anniversary Edition",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T00:41:28.341381+00:00",
+    "retry_after": "2026-11-03T00:41:28.341384+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Six Days: The Incredible Story of D-Day's Lost Chapter",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T00:41:28.341405+00:00",
+    "retry_after": "2026-11-03T00:41:28.341408+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "S.H.I.E.L.D. by Hickman & Weaver: The Human Machine",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 112464,
+        "name": "S.H.I.E.L.D. by Hickman & Weaver: The Human Machine",
+        "publisher": "Marvel",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T00:41:30.406072+00:00",
+    "retry_after": "2026-11-03T00:41:30.406084+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "September Mourning",
+    "publisher": "Image Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 102274,
+        "name": "September Mourning",
+        "publisher": "Image",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T00:41:30.406115+00:00",
+    "retry_after": "2026-11-03T00:41:30.406118+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Shuri",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 114421,
+        "name": "Shuri",
+        "publisher": "Marvel",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T00:41:30.531311+00:00",
+    "retry_after": "2026-11-03T00:41:30.531325+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spawn Origins Collection",
+    "publisher": "Image Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 38558,
+        "name": "Spawn Origins Collection",
+        "publisher": "Image",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T00:41:34.582137+00:00",
+    "retry_after": "2026-11-03T00:41:34.582188+00:00",
     "search_hydrated": true
   }
 ]

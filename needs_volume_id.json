@@ -19707,16 +19707,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Peter Parker: Spectacular Spider-Man Annual",
-    "publisher": "Marvel Comics",
-    "year": 2018,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-24T01:08:03.406680+00:00",
-    "retry_after": "2026-09-27T01:08:03.406710+00:00"
-  },
-  {
     "name": "Bella at the Bar",
     "publisher": "Rebellion",
     "year": 2018,
@@ -22607,9 +22597,10 @@
     "year": 1986,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T01:01:29.317398+00:00",
-    "retry_after": "2026-09-25T01:01:29.317410+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T20:02:00.233315+00:00",
+    "retry_after": "2026-11-05T20:02:00.233332+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The Transformers #1 Hundred Penny Press",
@@ -24712,9 +24703,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-26T02:18:03.960505+00:00",
-    "retry_after": "2026-09-29T02:18:03.960521+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T20:11:07.234423+00:00",
+    "retry_after": "2026-11-09T20:11:07.234439+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Marvel Comics Illustrated Version of The Avengers",
@@ -26808,9 +26800,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T02:03:28.640249+00:00",
-    "retry_after": "2026-10-01T02:03:28.640265+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T20:10:23.476574+00:00",
+    "retry_after": "2026-11-09T20:10:23.476576+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Aliens - L'intrus",
@@ -27499,13 +27492,13 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T18:06:32.045881+00:00",
-    "retry_after": "2026-11-09T18:06:32.045883+00:00",
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T20:12:11.330328+00:00",
+    "retry_after": "2026-11-03T20:12:11.330331+00:00",
     "search_hydrated": true
   },
   {
@@ -27528,8 +27521,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T19:01:50.712895+00:00",
-    "retry_after": "2026-11-03T19:01:50.712897+00:00",
+    "last_attempt_at": "2026-11-02T20:02:03.853302+00:00",
+    "retry_after": "2026-11-03T20:02:03.853304+00:00",
     "search_hydrated": true
   },
   {
@@ -34146,9 +34139,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-01T10:01:22.762720+00:00",
-    "retry_after": "2026-10-04T10:01:22.762735+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T20:10:23.476563+00:00",
+    "retry_after": "2026-11-09T20:10:23.476565+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Fantastic Four Annual",
@@ -41566,9 +41560,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-10T04:00:54.001187+00:00",
-    "retry_after": "2026-10-17T04:00:54.001203+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-11-02T20:11:07.234603+00:00",
+    "retry_after": "2026-11-16T20:11:07.234605+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Batman versus Predator [Regular]",
@@ -43612,8 +43607,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T19:01:50.712828+00:00",
-    "retry_after": "2026-11-03T19:01:50.712842+00:00",
+    "last_attempt_at": "2026-11-02T20:02:03.853236+00:00",
+    "retry_after": "2026-11-03T20:02:03.853252+00:00",
     "search_hydrated": true
   },
   {
@@ -51531,8 +51526,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T19:01:50.712870+00:00",
-    "retry_after": "2026-11-03T19:01:50.712872+00:00",
+    "last_attempt_at": "2026-11-02T20:02:03.853277+00:00",
+    "retry_after": "2026-11-03T20:02:03.853279+00:00",
     "search_hydrated": true
   },
   {
@@ -67907,9 +67902,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-26T20:07:11.769841+00:00",
-    "retry_after": "2026-11-02T20:07:11.769843+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-02T20:10:23.476378+00:00",
+    "retry_after": "2026-11-16T20:10:23.476393+00:00",
     "search_hydrated": true
   },
   {
@@ -84304,9 +84299,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T20:05:24.593874+00:00",
-    "retry_after": "2026-11-02T20:05:24.593875+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T20:10:23.476511+00:00",
+    "retry_after": "2026-11-09T20:10:23.476514+00:00",
     "search_hydrated": true
   },
   {
@@ -84315,9 +84310,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T20:05:24.593883+00:00",
-    "retry_after": "2026-11-02T20:05:24.593884+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T20:10:23.476526+00:00",
+    "retry_after": "2026-11-09T20:10:23.476529+00:00",
     "search_hydrated": true
   },
   {
@@ -84326,9 +84321,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T20:05:24.593891+00:00",
-    "retry_after": "2026-11-02T20:05:24.593892+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T20:10:23.476538+00:00",
+    "retry_after": "2026-11-09T20:10:23.476540+00:00",
     "search_hydrated": true
   },
   {
@@ -91968,6 +91963,124 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-02T19:10:31.839806+00:00",
     "retry_after": "2026-11-03T19:10:31.839808+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "New Teen Titans: The Judas Contract The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T20:11:07.234480+00:00",
+    "retry_after": "2026-11-03T20:11:07.234483+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Robin: Year One",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 9134,
+        "name": "Robin: Year One",
+        "publisher": "DC Comics",
+        "start_year": 2000
+      },
+      {
+        "id": 40963,
+        "name": "Robin: Year One",
+        "publisher": "DC Comics",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T20:11:07.234586+00:00",
+    "retry_after": "2026-11-03T20:11:07.234589+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Powers",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 6472,
+        "name": "Powers",
+        "publisher": "Image",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T20:11:26.204588+00:00",
+    "retry_after": "2026-11-03T20:11:26.204608+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Punchline",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 131822,
+        "name": "Punchline",
+        "publisher": "DC Comics",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T20:11:26.204636+00:00",
+    "retry_after": "2026-11-03T20:11:26.204638+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Redlands",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 103405,
+        "name": "Redlands",
+        "publisher": "Image",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T20:11:26.363992+00:00",
+    "retry_after": "2026-11-03T20:11:26.364008+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Millennium Edition: All Star Comics No. 3",
+    "publisher": "DC Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T20:11:35.620308+00:00",
+    "retry_after": "2026-11-03T20:11:35.620325+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Doctor Who Magazine",
+    "publisher": "Marvel Comics",
+    "year": 1985,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26877,
+        "name": "Doctor Who Magazine",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T20:12:11.330265+00:00",
+    "retry_after": "2026-11-03T20:12:11.330283+00:00",
     "search_hydrated": true
   }
 ]

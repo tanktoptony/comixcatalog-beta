@@ -430,10 +430,12 @@
     "name": "True Believers: Conan - Queen of the Black Coast!",
     "publisher": "Marvel Comics",
     "year": 2019,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.553994+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T03:18:30.382893+00:00",
+    "retry_after": "2026-11-05T03:18:30.382896+00:00",
+    "search_hydrated": true
   },
   {
     "name": "What If? Spider-Man Back in Black",
@@ -7596,15 +7598,6 @@
     "retry_after": "2026-09-21T14:00:38.555580+00:00"
   },
   {
-    "name": "True Believers: Captain Marvel - Ms. Marvel",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "reason": "publisher_mismatch",
-    "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555583+00:00"
-  },
-  {
     "name": "Midlife (Or How to Hero at Fifty!)",
     "publisher": "Image Comics",
     "year": 2024,
@@ -7804,10 +7797,12 @@
     "name": "True Believers: Conan - Resurrection",
     "publisher": "Marvel Comics",
     "year": 2019,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555662+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T03:18:30.382907+00:00",
+    "retry_after": "2026-11-05T03:18:30.382909+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Shazam! (Special Edition)",
@@ -8168,10 +8163,12 @@
     "name": "True Believers: Conan - Curse of the Golden Skull!",
     "publisher": "Marvel Comics",
     "year": 2019,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555770+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T03:18:30.382878+00:00",
+    "retry_after": "2026-11-05T03:18:30.382881+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Espers Interface",
@@ -27503,26 +27500,26 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
-      {
-        "id": 2930,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1977
-      },
       {
         "id": 116293,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T02:01:53.549182+00:00",
-    "retry_after": "2026-11-03T02:01:53.549184+00:00",
+    "last_attempt_at": "2026-11-02T03:10:28.361230+00:00",
+    "retry_after": "2026-11-03T03:10:28.361234+00:00",
     "search_hydrated": true
   },
   {
@@ -33407,9 +33404,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-03T20:00:43.756091+00:00",
-    "retry_after": "2026-10-10T20:00:43.756109+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-11-02T03:18:00.466225+00:00",
+    "retry_after": "2026-11-16T03:18:00.466228+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The Question by Dennis O'Neil and Denys Cowan Omnibus",
@@ -43571,7 +43569,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43589,8 +43587,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T02:01:53.549130+00:00",
-    "retry_after": "2026-11-03T02:01:53.549142+00:00",
+    "last_attempt_at": "2026-11-02T03:10:28.361176+00:00",
+    "retry_after": "2026-11-03T03:10:28.361189+00:00",
     "search_hydrated": true
   },
   {
@@ -55911,9 +55909,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T05:25:26.733769+00:00",
-    "retry_after": "2026-10-20T05:25:26.733789+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T03:18:30.382854+00:00",
+    "retry_after": "2026-11-05T03:18:30.382856+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Black Jack Special: Operation Down Under",
@@ -82524,9 +82523,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T03:05:04.242722+00:00",
-    "retry_after": "2026-11-02T03:05:04.242741+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T03:18:00.466011+00:00",
+    "retry_after": "2026-11-09T03:18:00.466024+00:00",
     "search_hydrated": true
   },
   {
@@ -82535,9 +82534,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T03:05:04.242767+00:00",
-    "retry_after": "2026-11-02T03:05:04.242769+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T03:18:00.466053+00:00",
+    "retry_after": "2026-11-09T03:18:00.466057+00:00",
     "search_hydrated": true
   },
   {
@@ -82546,9 +82545,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T03:05:04.242812+00:00",
-    "retry_after": "2026-11-02T03:05:04.242814+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T03:18:00.466109+00:00",
+    "retry_after": "2026-11-09T03:18:00.466112+00:00",
     "search_hydrated": true
   },
   {
@@ -82564,9 +82563,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T03:05:04.963079+00:00",
-    "retry_after": "2026-11-02T03:05:04.963096+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T03:18:01.547646+00:00",
+    "retry_after": "2026-11-09T03:18:01.547656+00:00",
     "search_hydrated": true
   },
   {
@@ -87896,10 +87895,10 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 82203,
+        "id": 4596,
         "name": "The Infinity Gauntlet",
         "publisher": "Marvel",
-        "start_year": 2015
+        "start_year": 1991
       },
       {
         "id": 30365,
@@ -87908,15 +87907,15 @@
         "start_year": 2006
       },
       {
-        "id": 4596,
+        "id": 82203,
         "name": "The Infinity Gauntlet",
         "publisher": "Marvel",
-        "start_year": 1991
+        "start_year": 2015
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T03:05:54.553525+00:00",
-    "retry_after": "2026-11-02T03:05:54.553529+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T03:18:00.466153+00:00",
+    "retry_after": "2026-11-05T03:18:00.466156+00:00",
     "search_hydrated": true
   },
   {
@@ -90489,6 +90488,101 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-02T02:10:32.870658+00:00",
     "retry_after": "2026-11-03T02:10:32.870675+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Thanos Wars: Infinity Origin Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T03:18:00.466193+00:00",
+    "retry_after": "2026-11-03T03:18:00.466196+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Trials of Shazam!: The Complete Series",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T03:18:00.466210+00:00",
+    "retry_after": "2026-11-03T03:18:00.466212+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Thor & Loki: Blood Brothers",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 39356,
+        "name": "Thor & Loki: Blood Brothers",
+        "publisher": "Marvel",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T03:18:03.386732+00:00",
+    "retry_after": "2026-11-03T03:18:03.386750+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Thor by Kieron Gillen: The Complete Collection",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T03:18:30.382742+00:00",
+    "retry_after": "2026-11-03T03:18:30.382758+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Thor: The God Butcher",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T03:18:30.382780+00:00",
+    "retry_after": "2026-11-03T03:18:30.382784+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Timely's Greatest: The Golden Age Sub-Mariner by Bill Everett - The Post-War Years Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T03:18:30.382804+00:00",
+    "retry_after": "2026-11-03T03:18:30.382807+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Timely's Greatest: The Golden Age Sub-Mariner by Bill Everett - The Pre-War Years Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T03:18:30.382823+00:00",
+    "retry_after": "2026-11-03T03:18:30.382826+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Halloween Ashcan 2005 [Spider-Man Halloween Ashcan 2005]",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T03:18:48.460523+00:00",
+    "retry_after": "2026-11-03T03:18:48.460539+00:00",
     "search_hydrated": true
   }
 ]

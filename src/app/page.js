@@ -22,13 +22,25 @@ export default async function HomePage() {
     getExcitedPicks(),
   ]);
   const heroWall = await getHeroWall(featuredResult);
+  let projectRef = "";
+  try {
+    projectRef = new URL(process.env.NEXT_PUBLIC_SUPABASE_URL).hostname.split(".")[0];
+  } catch {
+    projectRef = "";
+  }
+  const storageKey = `sb-${projectRef}-auth-token`;
+  const authHint = `(function(){try{var s=JSON.parse(localStorage.getItem(${JSON.stringify(storageKey)})||"null");if(s&&s.user&&s.user.id)document.documentElement.dataset.signedIn="1";}catch(e){}})();`;
   return (
-    <HomeClient
-      featured={featuredResult.slice(0, 12)}
-      heroWall={heroWall}
-      stats={home.stats}
-      dispatch={home}
-      excited={excited}
-    />
+    <>
+      <script dangerouslySetInnerHTML={{ __html: authHint }} />
+      <div className="signed-in-shelf-skeleton" aria-hidden="true"><div /><div /></div>
+      <HomeClient
+        featured={featuredResult.slice(0, 12)}
+        heroWall={heroWall}
+        stats={home.stats}
+        dispatch={home}
+        excited={excited}
+      />
+    </>
   );
 }

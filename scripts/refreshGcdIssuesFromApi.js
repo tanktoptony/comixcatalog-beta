@@ -22,6 +22,7 @@
 //   node scripts/refreshGcdIssuesFromApi.js --source=featured [--max-series=20]
 //   node scripts/refreshGcdIssuesFromApi.js --gcd-ids=217177 --dry-run
 //   node scripts/refreshGcdIssuesFromApi.js --source=featured --no-cursor
+//   node scripts/refreshGcdIssuesFromApi.js --repair-variants [--max-series=15] [--max-fallbacks=4]
 
 import dotenv from "dotenv";
 import { spawnSync } from "node:child_process";
@@ -411,12 +412,21 @@ async function repairVariants() {
   // issue_descriptors mark variants ("40 (340) [Pere Pérez Cover]"), so the
   // 2,587 rows left on 2026-11-01 cost ~633 requests instead of 2,587. A row
   // the descriptors can't place (no same-number base) falls back to its own
-  // issue request. --max-series caps series per run (default 15).
+  // issue request. --max-series caps series per run (default 15), and
+  // --max-fallbacks caps those per-issue requests (default unlimited).
+  //
+  // 2026-11-02: as a step after the refresh, gated on "not rate-limited", it
+  // never ran: the refresh ends on a 429 nearly every run. The workflow now
+  // runs it first with small caps, so its share of the ~30-request hourly
+  // budget is bounded and the refresh still gets the rest.
   const seriesOrder = [...new Set(rows.map((row) => Number(row.series_gcd_id)))];
   const maxSeries = Number(args["max-series"] ?? 15);
+  const maxFallbacks = Number(args["max-fallbacks"] ?? Infinity);
   const selectedSeries = seriesOrder.slice(0, maxSeries);
   console.log(`Repair variants: ${rows.length} unrepaired rows in ${seriesOrder.length} series; processing ${selectedSeries.length} series, duplicate-number series first.`);
   let repaired = 0;
+  let fallbacks = 0;
+  let deferred = 0;
   for (const seriesId of selectedSeries) {
     const seriesRows = rows.filter((row) => Number(row.series_gcd_id) === seriesId);
     const seriesJson = await fetchJson(`https://www.comics.org/api/series/${seriesId}/?format=json`);
@@ -425,7 +435,12 @@ async function repairVariants() {
     for (const row of seriesRows) {
       try {
         let update = fields.get(Number(row.gcd_id));
+        if (!update && fallbacks >= maxFallbacks) {
+          deferred++;
+          continue;
+        }
         if (!update) {
+          fallbacks++;
           const json = await fetchJson(`https://www.comics.org/api/issue/${row.gcd_id}/?format=json`);
           await sleep(SLEEP_MS);
           const parentId = issueIdFromUrl(json.variant_of);
@@ -448,7 +463,7 @@ async function repairVariants() {
       }
     }
   }
-  console.log(`Repair complete: ${repaired} rows updated across ${selectedSeries.length} series.`);
+  console.log(`Repair complete: ${repaired} rows updated across ${selectedSeries.length} series${deferred ? `; ${deferred} rows left for a later run (per-issue cap)` : ""}.`);
 }
 
 // series.issue_count_cached only moved when weekly-refresh rotated around to

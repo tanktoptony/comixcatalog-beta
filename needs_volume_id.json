@@ -6393,10 +6393,12 @@
     "name": "Spider-Man Behind-the-Scenes Edition",
     "publisher": "Marvel Comics",
     "year": 2019,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555202+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T01:11:43.606405+00:00",
+    "retry_after": "2026-11-05T01:11:43.606407+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Villains Giant",
@@ -7683,15 +7685,6 @@
     ],
     "attempts": 1,
     "retry_after": "2026-09-21T14:00:38.555606+00:00"
-  },
-  {
-    "name": "Star Wars: Age of Republic - Anakin Skywalker",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "reason": "publisher_mismatch",
-    "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555609+00:00"
   },
   {
     "name": "The Marvel Comics Illustrated Version of Captain America",
@@ -27528,8 +27521,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T00:32:33.755592+00:00",
-    "retry_after": "2026-11-03T00:32:33.755596+00:00",
+    "last_attempt_at": "2026-11-02T01:03:26.915529+00:00",
+    "retry_after": "2026-11-03T01:03:26.915531+00:00",
     "search_hydrated": true
   },
   {
@@ -40386,9 +40379,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-05T04:02:51.678436+00:00",
-    "retry_after": "2026-10-06T04:02:51.678448+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T01:11:43.606426+00:00",
+    "retry_after": "2026-11-05T01:11:43.606428+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Dennis the Menace - Just for Fun",
@@ -43595,8 +43589,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T00:32:33.755516+00:00",
-    "retry_after": "2026-11-03T00:32:33.755528+00:00",
+    "last_attempt_at": "2026-11-02T01:03:26.915471+00:00",
+    "retry_after": "2026-11-03T01:03:26.915487+00:00",
     "search_hydrated": true
   },
   {
@@ -51477,9 +51471,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-16T03:15:46.520215+00:00",
-    "retry_after": "2026-10-17T03:15:46.520233+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T01:11:43.606486+00:00",
+    "retry_after": "2026-11-05T01:11:43.606487+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Oni Press Starter Pack",
@@ -51508,8 +51503,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T00:32:33.755557+00:00",
-    "retry_after": "2026-11-03T00:32:33.755561+00:00",
+    "last_attempt_at": "2026-11-02T01:03:26.915509+00:00",
+    "retry_after": "2026-11-03T01:03:26.915511+00:00",
     "search_hydrated": true
   },
   {
@@ -52183,9 +52178,10 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-17T18:52:34.981867+00:00",
-    "retry_after": "2026-10-20T18:52:34.981885+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T01:11:43.606476+00:00",
+    "retry_after": "2026-11-09T01:11:43.606478+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Agente Cãofidencial",
@@ -87841,9 +87837,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T01:05:39.288858+00:00",
-    "retry_after": "2026-11-02T01:05:39.288861+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T01:12:29.402448+00:00",
+    "retry_after": "2026-11-05T01:12:29.402466+00:00",
     "search_hydrated": true
   },
   {
@@ -90003,6 +89999,340 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-02T00:41:34.582137+00:00",
     "retry_after": "2026-11-03T00:41:34.582188+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Man & the League of Realms",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T01:11:43.606369+00:00",
+    "retry_after": "2026-11-03T01:11:43.606387+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Men",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 49395,
+        "name": "Spider-Men",
+        "publisher": "Marvel",
+        "start_year": 2012
+      },
+      {
+        "id": 54011,
+        "name": "Spider-Men",
+        "publisher": "Marvel",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T01:11:43.606458+00:00",
+    "retry_after": "2026-11-03T01:11:43.606459+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Gwen: Ghost-Spider",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 114734,
+        "name": "Spider-Gwen: Ghost-Spider",
+        "publisher": "Marvel",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T01:11:45.484704+00:00",
+    "retry_after": "2026-11-03T01:11:45.484721+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Man: Sinister Six",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 29734,
+        "name": "Spider-Man: Sinister Six",
+        "publisher": "Marvel",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T01:11:45.484770+00:00",
+    "retry_after": "2026-11-03T01:11:45.484772+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Super Sons",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 98910,
+        "name": "Super Sons",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T01:11:55.249886+00:00",
+    "retry_after": "2026-11-03T01:11:55.249905+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Supergirl",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 3113,
+        "name": "Supergirl",
+        "publisher": "DC Comics",
+        "start_year": 1982
+      },
+      {
+        "id": 18012,
+        "name": "Supergirl",
+        "publisher": "DC Comics",
+        "start_year": 2005
+      },
+      {
+        "id": 116516,
+        "name": "Supergirl",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 5263,
+        "name": "Supergirl",
+        "publisher": "DC Comics",
+        "start_year": 1994
+      },
+      {
+        "id": 42949,
+        "name": "Supergirl",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 164287,
+        "name": "Supergirl",
+        "publisher": "DC Comics",
+        "start_year": 2025
+      },
+      {
+        "id": 43513,
+        "name": "Supergirl",
+        "publisher": "DC Comics",
+        "start_year": 1998
+      },
+      {
+        "id": 5766,
+        "name": "Supergirl",
+        "publisher": "DC Comics",
+        "start_year": 1996
+      },
+      {
+        "id": 93948,
+        "name": "Supergirl",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 2555,
+        "name": "Supergirl",
+        "publisher": "DC Comics",
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T01:12:17.245307+00:00",
+    "retry_after": "2026-11-03T01:12:17.245323+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: Action Comics: The Oz Effect",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T01:12:17.245510+00:00",
+    "retry_after": "2026-11-03T01:12:17.245512+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: Secret Origin The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T01:12:17.245521+00:00",
+    "retry_after": "2026-11-03T01:12:17.245522+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: World Against Superman",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T01:12:17.245529+00:00",
+    "retry_after": "2026-11-03T01:12:17.245530+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: Year One (Barnes & Noble Exclusive Edition)",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T01:12:17.245549+00:00",
+    "retry_after": "2026-11-03T01:12:17.245551+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Swamp Thing: Protector of the Green",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T01:12:17.245557+00:00",
+    "retry_after": "2026-11-03T01:12:17.245559+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Swamp Thing: Roots of Terror The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T01:12:17.245565+00:00",
+    "retry_after": "2026-11-03T01:12:17.245567+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Teen Titans",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 10414,
+        "name": "Teen Titans",
+        "publisher": "DC Comics",
+        "start_year": 2003
+      },
+      {
+        "id": 43004,
+        "name": "Teen Titans",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 19986,
+        "name": "Teen Titans",
+        "publisher": "DC Comics",
+        "start_year": 1996
+      },
+      {
+        "id": 75697,
+        "name": "Teen Titans",
+        "publisher": "DC Comics",
+        "start_year": 2014
+      },
+      {
+        "id": 176699,
+        "name": "Teen Titans",
+        "publisher": "DC Comics",
+        "start_year": 2026
+      },
+      {
+        "id": 95242,
+        "name": "Teen Titans",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 2279,
+        "name": "Teen Titans",
+        "publisher": "DC Comics",
+        "start_year": 1966
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T01:12:17.245649+00:00",
+    "retry_after": "2026-11-03T01:12:17.245664+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman Giant",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 111995,
+        "name": "Superman Giant",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T01:12:18.168997+00:00",
+    "retry_after": "2026-11-03T01:12:18.169016+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Michael T. Gilbert's Strange Brew",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 1982,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T01:12:29.402484+00:00",
+    "retry_after": "2026-11-03T01:12:29.402486+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Avengers: The Korvac Saga",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 26335,
+        "name": "Avengers: The Korvac Saga",
+        "publisher": "Marvel",
+        "start_year": 1991
+      },
+      {
+        "id": 31927,
+        "name": "Avengers: The Korvac Saga",
+        "publisher": "Marvel",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T01:12:29.402526+00:00",
+    "retry_after": "2026-11-03T01:12:29.402528+00:00",
     "search_hydrated": true
   }
 ]

@@ -6894,10 +6894,12 @@
     "name": "Daredevil by Mark Waid & Chris Samnee Omnibus",
     "publisher": "Marvel Comics",
     "year": 2018,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555354+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T08:17:47.828587+00:00",
+    "retry_after": "2026-11-05T08:17:47.828588+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The Legion of Forgettable Supervillains",
@@ -27508,26 +27510,26 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
-      {
-        "id": 2930,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1977
-      },
       {
         "id": 116293,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T07:27:49.107064+00:00",
-    "retry_after": "2026-11-03T07:27:49.107067+00:00",
+    "last_attempt_at": "2026-11-02T08:10:09.466349+00:00",
+    "retry_after": "2026-11-03T08:10:09.466352+00:00",
     "search_hydrated": true
   },
   {
@@ -28212,9 +28214,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-27T20:02:19.103156+00:00",
-    "retry_after": "2026-09-30T20:02:19.103172+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T08:18:13.413106+00:00",
+    "retry_after": "2026-11-09T08:18:13.413107+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Power Rangers Archive Deluxe Edition",
@@ -42279,9 +42282,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-08T16:06:59.821844+00:00",
-    "retry_after": "2026-10-11T16:06:59.821861+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T08:18:14.433934+00:00",
+    "retry_after": "2026-11-09T08:18:14.433947+00:00",
+    "search_hydrated": true
   },
   {
     "name": "B.C. Great Zot, I'm Beautiful",
@@ -43585,7 +43589,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43603,8 +43607,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T07:27:49.106985+00:00",
-    "retry_after": "2026-11-03T07:27:49.106998+00:00",
+    "last_attempt_at": "2026-11-02T08:10:09.466301+00:00",
+    "retry_after": "2026-11-03T08:10:09.466320+00:00",
     "search_hydrated": true
   },
   {
@@ -55354,9 +55358,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-26T08:01:21.478170+00:00",
-    "retry_after": "2026-11-02T08:01:21.478186+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-02T08:10:09.466367+00:00",
+    "retry_after": "2026-11-16T08:10:09.466368+00:00",
     "search_hydrated": true
   },
   {
@@ -57206,9 +57210,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-20T22:39:09.252185+00:00",
-    "retry_after": "2026-10-23T22:39:09.252203+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T08:18:13.413061+00:00",
+    "retry_after": "2026-11-09T08:18:13.413076+00:00",
+    "search_hydrated": true
   },
   {
     "name": "DC Finest Presents Superman: Time and Time Again Superman Day Special Edition",
@@ -82870,9 +82875,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T08:12:04.517383+00:00",
-    "retry_after": "2026-11-02T08:12:04.517396+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T08:17:48.754998+00:00",
+    "retry_after": "2026-11-09T08:17:48.755000+00:00",
     "search_hydrated": true
   },
   {
@@ -82881,9 +82886,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T08:12:03.509331+00:00",
-    "retry_after": "2026-11-02T08:12:03.509334+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T08:17:47.828517+00:00",
+    "retry_after": "2026-11-09T08:17:47.828535+00:00",
     "search_hydrated": true
   },
   {
@@ -82892,9 +82897,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T08:12:03.509346+00:00",
-    "retry_after": "2026-11-02T08:12:03.509349+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T08:17:47.828550+00:00",
+    "retry_after": "2026-11-09T08:17:47.828552+00:00",
     "search_hydrated": true
   },
   {
@@ -82914,9 +82919,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T08:12:03.509361+00:00",
-    "retry_after": "2026-11-02T08:12:03.509363+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T08:17:47.828563+00:00",
+    "retry_after": "2026-11-09T08:17:47.828564+00:00",
     "search_hydrated": true
   },
   {
@@ -82925,9 +82930,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T08:12:03.509375+00:00",
-    "retry_after": "2026-11-02T08:12:03.509377+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T08:17:47.828573+00:00",
+    "retry_after": "2026-11-09T08:17:47.828574+00:00",
     "search_hydrated": true
   },
   {
@@ -88010,9 +88015,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T08:10:41.322742+00:00",
-    "retry_after": "2026-11-02T08:10:41.322744+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T08:18:27.133254+00:00",
+    "retry_after": "2026-11-05T08:18:27.133271+00:00",
     "search_hydrated": true
   },
   {
@@ -91276,6 +91281,158 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-02T07:36:31.834531+00:00",
     "retry_after": "2026-11-03T07:36:31.834534+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Comics the Art of Darwyn Cooke",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T08:17:47.828608+00:00",
+    "retry_after": "2026-11-03T08:17:47.828610+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Dark Nights: Metal",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 103508,
+        "name": "Dark Nights: Metal",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T08:17:49.287835+00:00",
+    "retry_after": "2026-11-03T08:17:49.287850+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deadpool and Co. Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T08:18:13.413091+00:00",
+    "retry_after": "2026-11-03T08:18:13.413093+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deathstroke: The New 52 Omnibus",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T08:18:14.433974+00:00",
+    "retry_after": "2026-11-03T08:18:14.433976+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Detective Comics Annual",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 108243,
+        "name": "Detective Comics Annual",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 3993,
+        "name": "Detective Comics Annual",
+        "publisher": "DC Comics",
+        "start_year": 1988
+      },
+      {
+        "id": 51613,
+        "name": "Detective Comics Annual",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T08:18:14.434017+00:00",
+    "retry_after": "2026-11-03T08:18:14.434019+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Elisabeth Dumn Against the Devils in Suits",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T08:18:14.434055+00:00",
+    "retry_after": "2026-11-03T08:18:14.434057+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Doctor Strange by Donny Cates",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 118378,
+        "name": "Doctor Strange by Donny Cates",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T08:18:15.148336+00:00",
+    "retry_after": "2026-11-03T08:18:15.148346+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Doctor Strange by Mark Waid",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 155525,
+        "name": "Doctor Strange By Mark Waid",
+        "publisher": "Marvel",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T08:18:15.148498+00:00",
+    "retry_after": "2026-11-03T08:18:15.148500+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Ballad of Halo Jones",
+    "publisher": "Titan Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 60959,
+        "name": "The Ballad of Halo Jones",
+        "publisher": "Rebellion",
+        "start_year": 2013
+      },
+      {
+        "id": 110906,
+        "name": "The Ballad of Halo Jones",
+        "publisher": "Rebellion",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T08:18:27.133310+00:00",
+    "retry_after": "2026-11-03T08:18:27.133312+00:00",
     "search_hydrated": true
   }
 ]

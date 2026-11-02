@@ -107,7 +107,7 @@ export async function getMarketValuesBulk({
     mapLimit(chunked(issueIds, ISSUE_CHUNK), 1, (chunk) => readAll(() =>
       supabase
         .from("gcd_issues")
-        .select("gcd_id, series_gcd_id, key_date, publication_date")
+        .select("gcd_id, series_gcd_id, key_date, publication_date, variant_of_gcd_id")
         .in("gcd_id", chunk)
         .order("gcd_id", { ascending: true })
     )),
@@ -152,23 +152,64 @@ export async function getMarketValuesBulk({
     for (const row of series.rows) seriesById.set(Number(row.gcd_id), row);
   }
 
+  const issueContext = (item, issueRow) => {
+    const seriesRow = issueRow ? seriesById.get(Number(issueRow.series_gcd_id)) : null;
+    return {
+      seriesTitle: seriesRow?.title ?? null,
+      issueYear: issueYearFrom(issueRow) ?? item.release_year ?? null,
+      seriesStartYear: seriesRow?.year_start_cached ?? null,
+    };
+  };
+  const needsRegularCover = [];
   for (const item of list) {
     if (!item?.collection_id) continue;
     const issueRow = issueById.get(Number(item.gcd_issue_id));
-    const seriesRow = issueRow ? seriesById.get(Number(issueRow.series_gcd_id)) : null;
-    out.set(
-      item.collection_id,
-      valueFromComps({
-        comps: compsByIssue.get(Number(item.gcd_issue_id)) ?? [],
+    const value = valueFromComps({
+      comps: compsByIssue.get(Number(item.gcd_issue_id)) ?? [],
+      item,
+      issue: issueContext(item, issueRow),
+      minSamples,
+    });
+    out.set(item.collection_id, value);
+    if (value.source !== "market-comp" && issueRow?.variant_of_gcd_id != null) needsRegularCover.push({ item, issueRow });
+  }
+
+  // A copy moved to a variant version has few comps of its own (455 of
+  // 38,023 on 2026-11-02 sat on variant issues). Rather than drop to the
+  // cover-price floor, it shows the regular cover's value, flagged so the
+  // library can say so.
+  if (needsRegularCover.length) {
+    const baseIds = [...new Set(needsRegularCover.map(({ issueRow }) => Number(issueRow.variant_of_gcd_id)))];
+    const baseComps = new Map();
+    const reads = await mapLimit(chunked(baseIds, COMP_ISSUE_CHUNK), COMP_CONCURRENCY, (chunk) => readAll(() =>
+      supabase
+        .from("market_comps")
+        .select("gcd_issue_id, grade_bucket, grade_numeric, sold_price, sold_date, source, listing_title")
+        .in("gcd_issue_id", chunk)
+        .gte("sold_date", sinceIso)
+        .order("id", { ascending: true })
+    ));
+    for (const comps of reads) {
+      if (comps.error) {
+        console.error("getMarketValuesBulk regular-cover comp fetch failed:", comps.error);
+        if (throwOnReadError) throw comps.error;
+        return out;
+      }
+      for (const row of comps.rows) {
+        const key = Number(row.gcd_issue_id);
+        if (!baseComps.has(key)) baseComps.set(key, []);
+        baseComps.get(key).push(row);
+      }
+    }
+    for (const { item, issueRow } of needsRegularCover) {
+      const value = valueFromComps({
+        comps: baseComps.get(Number(issueRow.variant_of_gcd_id)) ?? [],
         item,
-        issue: {
-          seriesTitle: seriesRow?.title ?? null,
-          issueYear: issueYearFrom(issueRow) ?? item.release_year ?? null,
-          seriesStartYear: seriesRow?.year_start_cached ?? null,
-        },
+        issue: issueContext(item, issueRow),
         minSamples,
-      })
-    );
+      });
+      if (value.source === "market-comp") out.set(item.collection_id, { ...value, regular_cover: true });
+    }
   }
   return out;
 }

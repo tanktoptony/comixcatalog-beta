@@ -118,7 +118,7 @@ function ReprintList({ title, items }) {
 
 export default function IssueClient({ initialIssue = null }) {
   const { id } = useParams();
-  const { collections, collectionIds, wishlistIds, addToCollection, addAnotherCopy, removeFromCollection } =
+  const { collections, collectionIds, wishlistIds, addToCollection, addAnotherCopy, removeFromCollection, refreshLibrary } =
     useLibrary();
 
   const [issue, setIssue] = useState(initialIssue);
@@ -131,6 +131,7 @@ export default function IssueClient({ initialIssue = null }) {
   const [selectedCover, setSelectedCover] = useState(null);
   const [variantLabel, setVariantLabel] = useState("");
   const [variantSaveState, setVariantSaveState] = useState(null);
+  const [versionSwitchState, setVersionSwitchState] = useState(null);
   const [gradeData, setGradeData] = useState(null);
   const [mutationError, setMutationError] = useState(null);
   const [showAds, setShowAds] = useState(false);
@@ -216,6 +217,37 @@ export default function IssueClient({ initialIssue = null }) {
     ?? null;
   const copyCount = countCopies(issueRows);
 
+  // A copy of this issue saved under another version (usually the base
+  // edition). Moving it here gives the library this version's cover and
+  // barcode, and values it from this version's sales. Listed copies stay
+  // put: their marketplace listing names the issue they were listed as.
+  const versionIds = new Set((issue?.versions ?? []).map((version) => version.gcdId));
+  const currentGcdId = Number(String(issue?.id || "").replace(/^gcd-/, ""));
+  const otherVersionRow = user && !inCollection && issue?.source === "gcd" && versionIds.size > 1
+    ? collections?.find((row) => row.status === "owned" && versionIds.has(Number(row.gcd_issue_id)) && Number(row.gcd_issue_id) !== currentGcdId) ?? null
+    : null;
+  const otherVersionName = otherVersionRow
+    ? issue.versions.find((version) => version.gcdId === Number(otherVersionRow.gcd_issue_id))?.name ?? "another version"
+    : null;
+
+  async function switchCopyToVersion() {
+    if (!otherVersionRow) return;
+    setVersionSwitchState("saving");
+    const { error } = await getSupabaseClient()
+      .from("user_collections")
+      .update({ gcd_issue_id: currentGcdId })
+      .eq("id", otherVersionRow.id)
+      .eq("status", "owned");
+    if (error) {
+      console.error("Version switch failed:", error);
+      setVersionSwitchState("error");
+      return;
+    }
+    trackEvent("issue_version_switch", { from: Number(otherVersionRow.gcd_issue_id), to: currentGcdId });
+    await refreshLibrary({ background: true });
+    setVersionSwitchState(null);
+  }
+
   async function runMutation(mutation) {
     setMutationError(null);
     const result = await mutation();
@@ -257,6 +289,10 @@ export default function IssueClient({ initialIssue = null }) {
         .update(payload)
         .eq("id", collectionRow.id);
       if (error) throw error;
+      // The library reads the copy's cover from its own loaded list, so
+      // reload it; otherwise the old cover showed until a full refresh.
+      if (selectedCover) setGradeData((prev) => ({ ...prev, user_cover_url: selectedCover }));
+      await refreshLibrary({ background: true });
       setVariantSaveState("saved");
     } catch (error) {
       console.error("Variant selection save failed:", error);
@@ -532,7 +568,8 @@ export default function IssueClient({ initialIssue = null }) {
               )}
               <div className="issue-rail-collection">
               {!user && <><Link href={`/signup?next=${encodeURIComponent(`/issue/${id}`)}`} className="add-comic-btn issue-primary-cta">Add to collection</Link><Link href={`/signup?next=${encodeURIComponent(`/issue/${id}`)}`} className="add-comic-btn">Add to wantlist</Link></>}
-              {user && !inCollection && !inWishlist && <><button className="add-comic-btn issue-primary-cta" onClick={() => runMutation(() => addToCollection(libraryId, "owned"))}>Add to collection</button><button className="add-comic-btn" onClick={() => runMutation(() => addToCollection(libraryId, "wishlist"))}>Add to wantlist</button></>}
+              {otherVersionRow && <div className="issue-version-switch"><span>You own the {otherVersionName} of this issue. Is your copy this one?</span><button type="button" className="add-comic-btn issue-primary-cta" onClick={switchCopyToVersion} disabled={versionSwitchState === "saving"}>{versionSwitchState === "saving" ? "Switching..." : "Switch my copy to this version"}</button>{versionSwitchState === "error" && <span className="issue-action-error">Could not switch your copy.</span>}</div>}
+              {user && !inCollection && !inWishlist && <><button className={`add-comic-btn${otherVersionRow ? "" : " issue-primary-cta"}`} onClick={() => runMutation(() => addToCollection(libraryId, "owned"))}>Add to collection</button><button className="add-comic-btn" onClick={() => runMutation(() => addToCollection(libraryId, "wishlist"))}>Add to wantlist</button></>}
               {user && inCollection && <><span className="pill pill-collection">{copyCount > 1 ? `${copyCount} copies owned` : "In collection"}</span><button className="add-comic-btn" onClick={() => { setAddCopyLabel(""); setAddCopyOpen(true); }}>+ Add another copy</button><button className="add-comic-btn" onClick={() => runMutation(() => removeFromCollection(libraryId, { scope: "latest-copy" }))}>{copyCount > 1 ? "Remove 1 copy" : "Remove from collection"}</button></>}
               {user && inWishlist && <><span className="pill pill-wishlist">On wantlist</span><button className="add-comic-btn" onClick={() => runMutation(() => removeFromCollection(libraryId, { scope: "wishlist" }))}>Remove from wantlist</button></>}
               {issue.listings?.length > 0 && <a href="#forsale" className="add-comic-btn">Buy a copy</a>}
@@ -596,7 +633,7 @@ export default function IssueClient({ initialIssue = null }) {
 
         {issue.versions?.length > 1 && (
           <section className="issue-discogs-section issue-versions-section">
-            <div className="issue-section-heading"><h2>Versions</h2><span>Base edition and known variants</span></div>
+            <div className="issue-section-heading"><h2>Versions</h2><span>Own a different version? Open it to switch your copy.</span></div>
             <div className="issue-table-box"><table className="issue-discogs-table"><thead><tr><th>Version</th><th>On sale</th><th>Price</th><th>Barcode / ID</th></tr></thead><tbody>
               {issue.versions.map((version) => <tr key={version.gcdId} className={version.gcdId === issue.edition_gcd_issue_id ? "is-selected" : ""}>
                 <td><Link href={`/issue/gcd-${issue.base_gcd_issue_id}?edition=${version.gcdId}`}>{version.name}</Link></td>

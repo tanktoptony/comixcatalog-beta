@@ -115,8 +115,6 @@
     "@sentry/nextjs": "^10.74.0",
     "@supabase/ssr": "^0.8.0",
     "@supabase/supabase-js": "^2.86.0",
-    "@zxing/browser": "^0.1.5",
-    "@zxing/library": "^0.21.3",
     "better-sqlite3": "^12.5.0",
     "cheerio": "^1.1.2",
     "cross-env": "^10.1.0",
@@ -133,7 +131,8 @@
     "sharp": "^0.35.4",
     "sql.js": "^1.13.0",
     "stripe": "^22.1.0",
-    "wa-sqlite": "^1.0.0"
+    "wa-sqlite": "^1.0.0",
+    "zxing-wasm": "3.1.6"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.17",

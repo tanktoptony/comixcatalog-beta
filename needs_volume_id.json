@@ -27528,8 +27528,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T13:02:08.627044+00:00",
-    "retry_after": "2026-11-03T13:02:08.627047+00:00",
+    "last_attempt_at": "2026-11-02T14:02:05.516428+00:00",
+    "retry_after": "2026-11-03T14:02:05.516432+00:00",
     "search_hydrated": true
   },
   {
@@ -43608,8 +43608,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T13:02:08.626966+00:00",
-    "retry_after": "2026-11-03T13:02:08.626981+00:00",
+    "last_attempt_at": "2026-11-02T14:02:05.516353+00:00",
+    "retry_after": "2026-11-03T14:02:05.516365+00:00",
     "search_hydrated": true
   },
   {
@@ -51523,8 +51523,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T13:02:08.627010+00:00",
-    "retry_after": "2026-11-03T13:02:08.627014+00:00",
+    "last_attempt_at": "2026-11-02T14:02:05.516395+00:00",
+    "retry_after": "2026-11-03T14:02:05.516398+00:00",
     "search_hydrated": true
   },
   {
@@ -83472,9 +83472,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T14:05:13.521523+00:00",
-    "retry_after": "2026-11-02T14:05:13.521544+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T14:10:23.638140+00:00",
+    "retry_after": "2026-11-09T14:10:23.638156+00:00",
     "search_hydrated": true
   },
   {
@@ -83483,9 +83483,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T14:05:13.521567+00:00",
-    "retry_after": "2026-11-02T14:05:13.521570+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T14:10:23.638178+00:00",
+    "retry_after": "2026-11-09T14:10:23.638183+00:00",
     "search_hydrated": true
   },
   {
@@ -83494,9 +83494,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T14:05:13.521585+00:00",
-    "retry_after": "2026-11-02T14:05:13.521588+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T14:10:23.638198+00:00",
+    "retry_after": "2026-11-09T14:10:23.638201+00:00",
     "search_hydrated": true
   },
   {
@@ -83505,9 +83505,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T14:05:13.521601+00:00",
-    "retry_after": "2026-11-02T14:05:13.521604+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T14:10:23.638214+00:00",
+    "retry_after": "2026-11-09T14:10:23.638217+00:00",
     "search_hydrated": true
   },
   {
@@ -83516,9 +83516,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T14:05:13.521615+00:00",
-    "retry_after": "2026-11-02T14:05:13.521617+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T14:10:23.638229+00:00",
+    "retry_after": "2026-11-09T14:10:23.638232+00:00",
     "search_hydrated": true
   },
   {
@@ -83540,9 +83540,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T14:05:13.521653+00:00",
-    "retry_after": "2026-11-02T14:05:13.521657+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T14:10:23.638269+00:00",
+    "retry_after": "2026-11-09T14:10:23.638271+00:00",
     "search_hydrated": true
   },
   {
@@ -83551,9 +83551,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T14:05:13.521699+00:00",
-    "retry_after": "2026-11-02T14:05:13.521702+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T14:10:23.638309+00:00",
+    "retry_after": "2026-11-09T14:10:23.638312+00:00",
     "search_hydrated": true
   },
   {
@@ -83569,9 +83569,9 @@
         "start_year": 2001
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T14:05:14.199609+00:00",
-    "retry_after": "2026-11-02T14:05:14.199620+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-02T14:10:25.296758+00:00",
+    "retry_after": "2026-11-09T14:10:25.296762+00:00",
     "search_hydrated": true
   },
   {
@@ -88624,9 +88624,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T13:10:15.004984+00:00",
-    "retry_after": "2026-11-02T13:10:15.004987+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T14:10:42.228185+00:00",
+    "retry_after": "2026-11-05T14:10:42.228201+00:00",
     "search_hydrated": true
   },
   {
@@ -88635,9 +88635,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T13:10:32.657132+00:00",
-    "retry_after": "2026-11-02T13:10:32.657147+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T14:10:42.228248+00:00",
+    "retry_after": "2026-11-05T14:10:42.228252+00:00",
     "search_hydrated": true
   },
   {
@@ -88646,9 +88646,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T13:10:32.657168+00:00",
-    "retry_after": "2026-11-02T13:10:32.657171+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T14:10:42.228268+00:00",
+    "retry_after": "2026-11-05T14:10:42.228270+00:00",
     "search_hydrated": true
   },
   {
@@ -88657,9 +88657,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T13:10:32.657185+00:00",
-    "retry_after": "2026-11-02T13:10:32.657187+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T14:10:42.228283+00:00",
+    "retry_after": "2026-11-05T14:10:42.228286+00:00",
     "search_hydrated": true
   },
   {
@@ -88669,21 +88669,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 27384,
-        "name": "Batman: Hush",
-        "publisher": "DC Comics",
-        "start_year": 2009
-      },
-      {
         "id": 35076,
         "name": "Batman: Hush",
         "publisher": "DC Comics",
         "start_year": 2003
+      },
+      {
+        "id": 27384,
+        "name": "Batman: Hush",
+        "publisher": "DC Comics",
+        "start_year": 2009
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T13:10:32.657245+00:00",
-    "retry_after": "2026-11-02T13:10:32.657248+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T14:10:42.228338+00:00",
+    "retry_after": "2026-11-05T14:10:42.228341+00:00",
     "search_hydrated": true
   },
   {
@@ -88699,9 +88699,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T13:10:32.657273+00:00",
-    "retry_after": "2026-11-02T13:10:32.657276+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T14:10:42.228367+00:00",
+    "retry_after": "2026-11-05T14:10:42.228370+00:00",
     "search_hydrated": true
   },
   {
@@ -88717,9 +88717,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T13:10:33.482392+00:00",
-    "retry_after": "2026-11-02T13:10:33.482409+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T14:10:42.667974+00:00",
+    "retry_after": "2026-11-05T14:10:42.667987+00:00",
     "search_hydrated": true
   },
   {
@@ -88735,9 +88735,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T13:10:40.291917+00:00",
-    "retry_after": "2026-11-02T13:10:40.291931+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T14:10:42.842899+00:00",
+    "retry_after": "2026-11-05T14:10:42.842915+00:00",
     "search_hydrated": true
   },
   {
@@ -88753,9 +88753,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T13:10:40.292000+00:00",
-    "retry_after": "2026-11-02T13:10:40.292004+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-02T14:10:42.843204+00:00",
+    "retry_after": "2026-11-05T14:10:42.843211+00:00",
     "search_hydrated": true
   },
   {
@@ -91635,6 +91635,70 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-02T13:11:01.542767+00:00",
     "retry_after": "2026-11-03T13:11:01.542770+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Green Monk: Blood of Martyrs",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T14:10:42.228411+00:00",
+    "retry_after": "2026-11-03T14:10:42.228414+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "???????: ???? ????????????",
+    "publisher": "BOOM! Studios",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 172641,
+        "name": "!",
+        "publisher": "Alpha Polis",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T14:10:51.869511+00:00",
+    "retry_after": "2026-11-03T14:10:51.869527+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Adventures of Huckleberry Finn",
+    "publisher": "UDON",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 55864,
+        "name": "The Adventures of Huckleberry Finn",
+        "publisher": "Campfire",
+        "start_year": 2009
+      },
+      {
+        "id": 70962,
+        "name": "The Adventures of Huckleberry Finn",
+        "publisher": "Malibu",
+        "start_year": 1990
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T14:10:51.869569+00:00",
+    "retry_after": "2026-11-03T14:10:51.869574+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Stories of Edgar Allan Poe",
+    "publisher": "UDON",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-02T14:10:51.869592+00:00",
+    "retry_after": "2026-11-03T14:10:51.869595+00:00",
     "search_hydrated": true
   }
 ]

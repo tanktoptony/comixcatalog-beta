@@ -7097,9 +7097,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-31T00:28:57.399331+00:00",
-    "retry_after": "2026-11-03T00:28:57.399333+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-03T01:19:37.117987+00:00",
+    "retry_after": "2026-11-10T01:19:37.117989+00:00",
     "search_hydrated": true
   },
   {
@@ -10377,9 +10377,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-31T00:05:23.993491+00:00",
-    "retry_after": "2026-11-03T00:05:23.993494+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-03T01:19:37.117963+00:00",
+    "retry_after": "2026-11-10T01:19:37.117967+00:00",
     "search_hydrated": true
   },
   {
@@ -16544,9 +16544,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-27T01:15:08.785830+00:00",
-    "retry_after": "2026-11-03T01:15:08.785833+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-03T01:19:37.117814+00:00",
+    "retry_after": "2026-11-17T01:19:37.117816+00:00",
     "search_hydrated": true
   },
   {
@@ -17106,9 +17106,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-27T01:15:08.785813+00:00",
-    "retry_after": "2026-11-03T01:15:08.785815+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-03T01:19:37.117792+00:00",
+    "retry_after": "2026-11-17T01:19:37.117796+00:00",
     "search_hydrated": true
   },
   {
@@ -19701,9 +19701,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-27T01:15:08.785847+00:00",
-    "retry_after": "2026-11-03T01:15:08.785849+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-03T01:19:37.117831+00:00",
+    "retry_after": "2026-11-17T01:19:37.117834+00:00",
     "search_hydrated": true
   },
   {
@@ -25491,9 +25491,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T23:11:22.318661+00:00",
-    "retry_after": "2026-11-02T23:11:22.318663+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-03T01:19:57.313104+00:00",
+    "retry_after": "2026-11-06T01:19:57.313108+00:00",
     "search_hydrated": true
   },
   {
@@ -27498,32 +27498,32 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T23:11:04.866307+00:00",
-    "retry_after": "2026-11-03T23:11:04.866319+00:00",
+    "last_attempt_at": "2026-11-03T01:20:28.576374+00:00",
+    "retry_after": "2026-11-04T01:20:28.576390+00:00",
     "search_hydrated": true
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
-      {
-        "id": 2930,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1977
-      },
       {
         "id": 116293,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T23:01:52.111152+00:00",
-    "retry_after": "2026-11-03T23:01:52.111154+00:00",
+    "last_attempt_at": "2026-11-03T01:14:50.041242+00:00",
+    "retry_after": "2026-11-04T01:14:50.041247+00:00",
     "search_hydrated": true
   },
   {
@@ -35653,9 +35653,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-27T01:15:08.785772+00:00",
-    "retry_after": "2026-11-03T01:15:08.785776+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-03T01:19:37.117752+00:00",
+    "retry_after": "2026-11-17T01:19:37.117767+00:00",
     "search_hydrated": true
   },
   {
@@ -43592,7 +43592,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43610,8 +43610,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T23:01:52.111101+00:00",
-    "retry_after": "2026-11-03T23:01:52.111112+00:00",
+    "last_attempt_at": "2026-11-03T01:14:50.041186+00:00",
+    "retry_after": "2026-11-04T01:14:50.041201+00:00",
     "search_hydrated": true
   },
   {
@@ -84925,9 +84925,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-31T00:05:23.993379+00:00",
-    "retry_after": "2026-11-03T00:05:23.993382+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-03T01:19:37.117874+00:00",
+    "retry_after": "2026-11-10T01:19:37.117877+00:00",
     "search_hydrated": true
   },
   {
@@ -89606,9 +89606,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T23:10:54.333542+00:00",
-    "retry_after": "2026-11-02T23:10:54.333543+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-03T01:19:37.118003+00:00",
+    "retry_after": "2026-11-06T01:19:37.118005+00:00",
     "search_hydrated": true
   },
   {
@@ -89617,9 +89617,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T23:11:22.318580+00:00",
-    "retry_after": "2026-11-02T23:11:22.318583+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-03T01:19:57.313004+00:00",
+    "retry_after": "2026-11-06T01:19:57.313021+00:00",
     "search_hydrated": true
   },
   {
@@ -89628,9 +89628,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T23:11:22.318679+00:00",
-    "retry_after": "2026-11-02T23:11:22.318681+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-03T01:19:57.313138+00:00",
+    "retry_after": "2026-11-06T01:19:57.313141+00:00",
     "search_hydrated": true
   },
   {
@@ -89652,9 +89652,9 @@
         "start_year": 1998
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T23:11:22.318695+00:00",
-    "retry_after": "2026-11-02T23:11:22.318696+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-03T01:19:57.313167+00:00",
+    "retry_after": "2026-11-06T01:19:57.313170+00:00",
     "search_hydrated": true
   },
   {
@@ -89670,9 +89670,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T23:11:23.225376+00:00",
-    "retry_after": "2026-11-02T23:11:23.225393+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-03T01:19:59.514347+00:00",
+    "retry_after": "2026-11-06T01:19:59.514363+00:00",
     "search_hydrated": true
   },
   {
@@ -89688,9 +89688,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T23:11:23.386764+00:00",
-    "retry_after": "2026-11-02T23:11:23.386781+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-03T01:19:59.667038+00:00",
+    "retry_after": "2026-11-06T01:19:59.667052+00:00",
     "search_hydrated": true
   },
   {
@@ -89706,9 +89706,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T23:11:23.712993+00:00",
-    "retry_after": "2026-11-02T23:11:23.713010+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-03T01:19:59.936663+00:00",
+    "retry_after": "2026-11-06T01:19:59.936678+00:00",
     "search_hydrated": true
   },
   {
@@ -89724,9 +89724,9 @@
         "start_year": 2005
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-01T23:11:23.713180+00:00",
-    "retry_after": "2026-11-02T23:11:23.713182+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-03T01:19:59.936924+00:00",
+    "retry_after": "2026-11-06T01:19:59.936932+00:00",
     "search_hydrated": true
   },
   {
@@ -89806,9 +89806,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T00:40:57.555036+00:00",
-    "retry_after": "2026-11-03T00:40:57.555050+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-03T01:19:59.936964+00:00",
+    "retry_after": "2026-11-06T01:19:59.936967+00:00",
     "search_hydrated": true
   },
   {
@@ -89824,9 +89824,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T00:40:57.714368+00:00",
-    "retry_after": "2026-11-03T00:40:57.714377+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-03T01:20:00.073490+00:00",
+    "retry_after": "2026-11-06T01:20:00.073506+00:00",
     "search_hydrated": true
   },
   {
@@ -92316,6 +92316,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-02T23:10:39.855242+00:00",
     "retry_after": "2026-11-03T23:10:39.855256+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Little Book of Horror: The War of the Worlds",
+    "publisher": "IDW Publishing",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-03T01:20:09.200357+00:00",
+    "retry_after": "2026-11-04T01:20:09.200373+00:00",
     "search_hydrated": true
   }
 ]

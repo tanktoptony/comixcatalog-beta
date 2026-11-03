@@ -6423,9 +6423,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-31T18:21:09.555594+00:00",
-    "retry_after": "2026-11-03T18:21:09.555596+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-03T21:15:56.599648+00:00",
+    "retry_after": "2026-11-10T21:15:56.599664+00:00",
     "search_hydrated": true
   },
   {
@@ -27498,8 +27498,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T20:19:06.883283+00:00",
-    "retry_after": "2026-11-04T20:19:06.883295+00:00",
+    "last_attempt_at": "2026-11-03T21:20:38.270549+00:00",
+    "retry_after": "2026-11-04T21:20:38.270563+00:00",
     "search_hydrated": true
   },
   {
@@ -27522,8 +27522,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T20:02:59.243837+00:00",
-    "retry_after": "2026-11-04T20:02:59.243841+00:00",
+    "last_attempt_at": "2026-11-03T21:02:37.062283+00:00",
+    "retry_after": "2026-11-04T21:02:37.062286+00:00",
     "search_hydrated": true
   },
   {
@@ -43569,8 +43569,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T20:02:59.243694+00:00",
-    "retry_after": "2026-11-04T20:02:59.243710+00:00",
+    "last_attempt_at": "2026-11-03T21:02:37.062169+00:00",
+    "retry_after": "2026-11-04T21:02:37.062185+00:00",
     "search_hydrated": true
   },
   {
@@ -51470,8 +51470,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T20:02:59.243794+00:00",
-    "retry_after": "2026-11-04T20:02:59.243799+00:00",
+    "last_attempt_at": "2026-11-03T21:02:37.062249+00:00",
+    "retry_after": "2026-11-04T21:02:37.062253+00:00",
     "search_hydrated": true
   },
   {
@@ -90983,9 +90983,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T21:12:09.054063+00:00",
-    "retry_after": "2026-11-03T21:12:09.054080+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-03T21:20:23.253426+00:00",
+    "retry_after": "2026-11-06T21:20:23.253442+00:00",
     "search_hydrated": true
   },
   {
@@ -91567,6 +91567,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-03T20:18:57.228178+00:00",
     "retry_after": "2026-11-04T20:18:57.228189+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel's Greatest Comics: Fantastic Four #52",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-03T21:20:23.253499+00:00",
+    "retry_after": "2026-11-04T21:20:23.253503+00:00",
     "search_hydrated": true
   }
 ]

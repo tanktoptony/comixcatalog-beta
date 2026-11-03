@@ -6791,9 +6791,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-31T03:05:59.347331+00:00",
-    "retry_after": "2026-11-03T03:05:59.347335+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-03T04:12:31.835942+00:00",
+    "retry_after": "2026-11-10T04:12:31.835944+00:00",
     "search_hydrated": true
   },
   {
@@ -22665,9 +22665,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-31T03:05:59.347257+00:00",
-    "retry_after": "2026-11-03T03:05:59.347273+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-03T04:12:31.835916+00:00",
+    "retry_after": "2026-11-10T04:12:31.835918+00:00",
     "search_hydrated": true
   },
   {
@@ -27498,13 +27498,13 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T01:20:28.576374+00:00",
-    "retry_after": "2026-11-04T01:20:28.576390+00:00",
+    "last_attempt_at": "2026-11-03T04:13:13.036995+00:00",
+    "retry_after": "2026-11-04T04:13:13.037008+00:00",
     "search_hydrated": true
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27522,8 +27522,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T01:14:50.041242+00:00",
-    "retry_after": "2026-11-04T01:14:50.041247+00:00",
+    "last_attempt_at": "2026-11-03T04:02:34.819646+00:00",
+    "retry_after": "2026-11-04T04:02:34.819648+00:00",
     "search_hydrated": true
   },
   {
@@ -43592,7 +43592,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43610,8 +43610,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T01:14:50.041186+00:00",
-    "retry_after": "2026-11-04T01:14:50.041201+00:00",
+    "last_attempt_at": "2026-11-03T04:02:34.819557+00:00",
+    "retry_after": "2026-11-04T04:02:34.819573+00:00",
     "search_hydrated": true
   },
   {
@@ -51529,8 +51529,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-02T23:01:52.111133+00:00",
-    "retry_after": "2026-11-03T23:01:52.111135+00:00",
+    "last_attempt_at": "2026-11-03T04:02:34.819623+00:00",
+    "retry_after": "2026-11-04T04:02:34.819625+00:00",
     "search_hydrated": true
   },
   {
@@ -85107,9 +85107,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-31T03:05:38.304710+00:00",
-    "retry_after": "2026-11-03T03:05:38.304712+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-03T04:12:31.835837+00:00",
+    "retry_after": "2026-11-10T04:12:31.835854+00:00",
     "search_hydrated": true
   },
   {
@@ -85118,9 +85118,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-31T03:05:38.304724+00:00",
-    "retry_after": "2026-11-03T03:05:38.304726+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-03T04:12:31.835869+00:00",
+    "retry_after": "2026-11-10T04:12:31.835871+00:00",
     "search_hydrated": true
   },
   {
@@ -85136,9 +85136,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-31T02:06:23.251331+00:00",
-    "retry_after": "2026-11-03T02:06:23.251347+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-03T04:12:41.333050+00:00",
+    "retry_after": "2026-11-10T04:12:41.333062+00:00",
     "search_hydrated": true
   },
   {
@@ -85169,9 +85169,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-31T03:05:59.347351+00:00",
-    "retry_after": "2026-11-03T03:05:59.347354+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-03T04:12:31.835953+00:00",
+    "retry_after": "2026-11-10T04:12:31.835955+00:00",
     "search_hydrated": true
   },
   {
@@ -85180,9 +85180,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-31T03:05:59.347367+00:00",
-    "retry_after": "2026-11-03T03:05:59.347370+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-03T04:12:31.835963+00:00",
+    "retry_after": "2026-11-10T04:12:31.835965+00:00",
     "search_hydrated": true
   },
   {
@@ -85209,9 +85209,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-31T03:05:40.189827+00:00",
-    "retry_after": "2026-11-03T03:05:40.189844+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-03T04:12:41.455066+00:00",
+    "retry_after": "2026-11-10T04:12:41.455077+00:00",
     "search_hydrated": true
   },
   {
@@ -92349,6 +92349,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-03T02:17:51.337902+00:00",
     "retry_after": "2026-11-04T02:17:51.337907+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tits ! Tits ! Tits !",
+    "publisher": "Dynamite Entertainment",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167384,
+        "name": "Tits! Tits! Tits!",
+        "publisher": "Dynamite (France)",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-03T04:12:59.370023+00:00",
+    "retry_after": "2026-11-04T04:12:59.370040+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "De vlucht van Boris",
+    "publisher": "BOOM! Studios",
+    "year": 1946,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-03T04:12:59.370092+00:00",
+    "retry_after": "2026-11-04T04:12:59.370095+00:00",
     "search_hydrated": true
   }
 ]

@@ -399,16 +399,19 @@ jobs:
       # those. Each cover that lands links the CV issue to its GCD issue, and
       # scripts/importKeyIssuesFromCrawl.js turns that link into a key_issues
       # row on its next run. Took 15 of backfill's 30 calls.
+      # 10-minute cap (was 5, 2026-11-03): the first run filed only three
+      # volumes in 4 minutes because image uploads, not API calls, are the
+      # cost. Recent runs take 12-30 of the 55-minute job, so this fits.
       - name: Ingest key-issue targets
         id: lane_keys
         if: hashFiles('gap-keys.json') != ''
         continue-on-error: true
         run: |
           set +e
-          timeout --kill-after=60s 5m python comicvine_api_to_supabase.py --targets gap-keys.json --skip-existing --missing-only --max-search-calls 15 --vol-sleep 1.0 --max-minutes 4
+          timeout --kill-after=60s 10m python comicvine_api_to_supabase.py --targets gap-keys.json --skip-existing --missing-only --max-search-calls 15 --vol-sleep 1.0 --max-minutes 9
           code=$?
           if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
-            echo "Lane hit its 5-minute cap. The ledger picks it up next hour."
+            echo "Lane hit its 10-minute cap. The ledger picks it up next hour."
             exit 0
           fi
           exit "$code"

@@ -27498,32 +27498,32 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T15:15:55.232892+00:00",
-    "retry_after": "2026-11-04T15:15:55.232908+00:00",
+    "last_attempt_at": "2026-11-03T17:18:24.116297+00:00",
+    "retry_after": "2026-11-04T17:18:24.116300+00:00",
     "search_hydrated": true
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
-      {
-        "id": 2930,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1977
-      },
       {
         "id": 116293,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T16:05:06.361092+00:00",
-    "retry_after": "2026-11-04T16:05:06.361111+00:00",
+    "last_attempt_at": "2026-11-03T17:02:13.047169+00:00",
+    "retry_after": "2026-11-04T17:02:13.047170+00:00",
     "search_hydrated": true
   },
   {
@@ -35048,9 +35048,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-27T17:06:08.113486+00:00",
-    "retry_after": "2026-11-03T17:06:08.113489+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-03T17:13:37.671175+00:00",
+    "retry_after": "2026-11-17T17:13:37.671177+00:00",
     "search_hydrated": true
   },
   {
@@ -38588,9 +38588,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-27T17:06:08.113471+00:00",
-    "retry_after": "2026-11-03T17:06:08.113473+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-03T17:13:37.671141+00:00",
+    "retry_after": "2026-11-17T17:13:37.671159+00:00",
     "search_hydrated": true
   },
   {
@@ -43551,26 +43551,26 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
-      {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
       {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T16:05:06.361150+00:00",
-    "retry_after": "2026-11-04T16:05:06.361154+00:00",
+    "last_attempt_at": "2026-11-03T17:02:13.047087+00:00",
+    "retry_after": "2026-11-04T17:02:13.047106+00:00",
     "search_hydrated": true
   },
   {
@@ -51465,13 +51465,13 @@
   },
   {
     "name": "Scud: The Disposable Assassin",
-    "publisher": "Fireman Press",
+    "publisher": "Fireman Press, Ltd",
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T16:05:07.885128+00:00",
-    "retry_after": "2026-11-04T16:05:07.885148+00:00",
+    "last_attempt_at": "2026-11-03T17:02:13.047149+00:00",
+    "retry_after": "2026-11-04T17:02:13.047151+00:00",
     "search_hydrated": true
   },
   {
@@ -91376,6 +91376,107 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-03T16:10:36.924416+00:00",
     "retry_after": "2026-11-04T16:10:36.924420+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "In Rage",
+    "publisher": "CFD Productions",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88863,
+        "name": "In Rage",
+        "publisher": "Creative Force Designs",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-03T17:01:58.278562+00:00",
+    "retry_after": "2026-11-04T17:01:58.278580+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Gwen Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 136828,
+        "name": "Spider-Gwen Omnibus",
+        "publisher": "Marvel",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-03T17:13:41.251949+00:00",
+    "retry_after": "2026-11-04T17:13:41.251951+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tits ! Tits ! Tits !",
+    "publisher": "Dynamite Entertainment",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167384,
+        "name": "Tits! Tits! Tits!",
+        "publisher": "Dynamite (France)",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-03T17:17:56.246498+00:00",
+    "retry_after": "2026-11-04T17:17:56.246517+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deadworld: The Last Siesta",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75600,
+        "name": "Deadworld: The Last Siesta",
+        "publisher": "Caliber Comics",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-03T17:17:56.246546+00:00",
+    "retry_after": "2026-11-04T17:17:56.246549+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Oz: The Marvelous Land of Oz [Second Edition]",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-03T17:17:56.246580+00:00",
+    "retry_after": "2026-11-04T17:17:56.246582+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Doctor Who Magazine",
+    "publisher": "Marvel Comics",
+    "year": 1985,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26877,
+        "name": "Doctor Who Magazine",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-03T17:18:24.116239+00:00",
+    "retry_after": "2026-11-04T17:18:24.116257+00:00",
     "search_hydrated": true
   }
 ]

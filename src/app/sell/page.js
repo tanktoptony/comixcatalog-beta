@@ -23,7 +23,8 @@ export default function SellPage() {
         <h2>Buy now</h2>
         <p>
           Set up payouts once (Stripe asks for your ID and a bank account; we
-          never see either) and every priced listing gets a Buy now button. A
+          never see either) and every priced listing with a condition or slab
+          grade gets a Buy now button. A
           buyer pays by card, you ship within 3 business days, and orders of $50
           or more need tracking. Books priced $100 or more need front and back
           photos of your copy.

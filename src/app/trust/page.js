@@ -13,8 +13,9 @@ export default function TrustPage() {
         <h1>Trust & Safety</h1>
         <p>
           The ComixCatalog marketplace is in beta. Collectors list books from
-          their own libraries. Priced books from sellers who have set up payouts
-          have a <strong>Buy now</strong> button, and those orders run through
+          their own libraries. Priced books with a condition or slab grade, from
+          sellers who have set up payouts, have a <strong>Buy now</strong> button,
+          and those orders run through
           ComixCatalog. Everything else is a deal you make by message, outside
           ComixCatalog.
         </p>

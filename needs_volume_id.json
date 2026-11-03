@@ -27498,8 +27498,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T18:23:37.457176+00:00",
-    "retry_after": "2026-11-04T18:23:37.457194+00:00",
+    "last_attempt_at": "2026-11-03T20:19:06.883283+00:00",
+    "retry_after": "2026-11-04T20:19:06.883295+00:00",
     "search_hydrated": true
   },
   {
@@ -27522,8 +27522,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T18:01:59.528445+00:00",
-    "retry_after": "2026-11-04T18:01:59.528446+00:00",
+    "last_attempt_at": "2026-11-03T20:02:59.243837+00:00",
+    "retry_after": "2026-11-04T20:02:59.243841+00:00",
     "search_hydrated": true
   },
   {
@@ -36792,9 +36792,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-27T19:26:27.225310+00:00",
-    "retry_after": "2026-11-03T19:26:27.225313+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-03T20:14:41.139682+00:00",
+    "retry_after": "2026-11-17T20:14:41.139697+00:00",
     "search_hydrated": true
   },
   {
@@ -43569,8 +43569,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T18:01:59.528363+00:00",
-    "retry_after": "2026-11-04T18:01:59.528380+00:00",
+    "last_attempt_at": "2026-11-03T20:02:59.243694+00:00",
+    "retry_after": "2026-11-04T20:02:59.243710+00:00",
     "search_hydrated": true
   },
   {
@@ -51470,8 +51470,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T18:01:59.528425+00:00",
-    "retry_after": "2026-11-04T18:01:59.528427+00:00",
+    "last_attempt_at": "2026-11-03T20:02:59.243794+00:00",
+    "retry_after": "2026-11-04T20:02:59.243799+00:00",
     "search_hydrated": true
   },
   {
@@ -51942,9 +51942,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-27T20:05:36.560658+00:00",
-    "retry_after": "2026-11-03T20:05:36.560674+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-03T20:14:41.139726+00:00",
+    "retry_after": "2026-11-17T20:14:41.139731+00:00",
     "search_hydrated": true
   },
   {
@@ -85602,9 +85602,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-31T20:05:41.084114+00:00",
-    "retry_after": "2026-11-03T20:05:41.084117+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-03T20:14:41.139887+00:00",
+    "retry_after": "2026-11-10T20:14:41.139893+00:00",
     "search_hydrated": true
   },
   {
@@ -90903,9 +90903,9 @@
     "year": 2000,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T20:11:35.620308+00:00",
-    "retry_after": "2026-11-03T20:11:35.620325+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-03T20:18:55.907203+00:00",
+    "retry_after": "2026-11-06T20:18:55.907217+00:00",
     "search_hydrated": true
   },
   {
@@ -91532,6 +91532,41 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-03T19:30:11.187461+00:00",
     "retry_after": "2026-11-04T19:30:11.187466+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Iron Man No. 64 [Marvel Legends Reprint]",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-03T20:18:55.907249+00:00",
+    "retry_after": "2026-11-04T20:18:55.907254+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Captain America by Jack Kirby",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 142485,
+        "name": "Captain America",
+        "publisher": "Marvel",
+        "start_year": 2022
+      },
+      {
+        "id": 151915,
+        "name": "Captain America ",
+        "publisher": "Marvel",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-03T20:18:57.228178+00:00",
+    "retry_after": "2026-11-04T20:18:57.228189+00:00",
     "search_hydrated": true
   }
 ]

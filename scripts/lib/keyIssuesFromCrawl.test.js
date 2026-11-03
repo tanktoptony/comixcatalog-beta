@@ -79,7 +79,7 @@ test("buildKeyRows: skips unlinked, mismatched numbers and existing keys; merges
     reason: "1st appearances of Venom and Eddie Brock",
     tier: 1,
   });
-  assert.deepEqual(skipped, { noGcdLink: 1, noIssue: 0, numberMismatch: 1, alreadyKey: 1, promoBook: 0 });
+  assert.deepEqual(skipped, { noGcdLink: 1, noIssue: 0, numberMismatch: 1, wrongEdition: 0, alreadyKey: 1, promoBook: 0 });
 });
 
 test("promo and reference books are not keys; real anthologies are", () => {
@@ -101,4 +101,43 @@ test("buildKeyRows drops a key that lands in a promo book", () => {
   });
   assert.equal(rows.length, 0);
   assert.equal(skipped.promoBook, 1);
+});
+
+test("buildKeyRows skips keys linked to a reprint edition", () => {
+  const byCvIssue = firstAppearancesByCvIssue([
+    page([
+      ch("Shorty", 120, 1, "64", "DC Comics"), // US cover on the Australian K.G. Murray reprint
+      ch("Lord of the Locusts", 120, 2, "17", "Cartoon Books"), // 1995 cover on the 1997 Image reprint
+      ch("Real One", 120, 3, "5", "DC Comics"),
+    ]),
+  ]);
+  const { rows, skipped } = buildKeyRows({
+    byCvIssue,
+    gcdIdByCvIssue: new Map([[1, 10], [2, 20], [3, 30]]),
+    issueByGcdId: new Map([
+      [10, { issue_number: "64", title: "Superman", publisher: "K. G. Murray", year: null, seriesGcdId: 900, usMarket: false }],
+      [20, { issue_number: "17", title: "Bone", publisher: "Image Comics", year: 1997, seriesGcdId: 901, usMarket: true }],
+      [30, { issue_number: "5", title: "Batman", publisher: "DC Comics", year: 2012, seriesGcdId: 902, usMarket: true }],
+    ]),
+    coverByCvIssue: new Map([
+      [1, { year: 1950, seriesGcdId: 116 }],
+      [2, { year: 1995, seriesGcdId: 4347 }],
+      [3, { year: 2012, seriesGcdId: 141 }], // wrong series id on the cover row alone is not enough
+    ]),
+  });
+  assert.deepEqual(rows.map((r) => r.gcd_issue_id), [30]);
+  assert.equal(skipped.wrongEdition, 2);
+});
+
+test("buildKeyRows moves a key off a variant record onto the regular edition", () => {
+  const byCvIssue = firstAppearancesByCvIssue([page([ch("Somebody", 120, 1, "14")])]);
+  const { rows } = buildKeyRows({
+    byCvIssue,
+    gcdIdByCvIssue: new Map([[1, 11]]),
+    issueByGcdId: new Map([
+      [11, { issue_number: "14", title: "Wolverine", publisher: "Marvel", year: 2021, variantOf: 10 }],
+      [10, { issue_number: "14", title: "Wolverine", publisher: "Marvel", year: 2021 }],
+    ]),
+  });
+  assert.deepEqual(rows.map((r) => r.gcd_issue_id), [10]);
 });

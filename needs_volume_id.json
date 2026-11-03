@@ -18727,9 +18727,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-27T18:06:32.012397+00:00",
-    "retry_after": "2026-11-03T18:06:32.012411+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-03T18:19:11.972096+00:00",
+    "retry_after": "2026-11-17T18:19:11.972099+00:00",
     "search_hydrated": true
   },
   {
@@ -27498,8 +27498,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T17:18:24.116297+00:00",
-    "retry_after": "2026-11-04T17:18:24.116300+00:00",
+    "last_attempt_at": "2026-11-03T18:23:37.457176+00:00",
+    "retry_after": "2026-11-04T18:23:37.457194+00:00",
     "search_hydrated": true
   },
   {
@@ -27522,8 +27522,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T17:02:13.047169+00:00",
-    "retry_after": "2026-11-04T17:02:13.047170+00:00",
+    "last_attempt_at": "2026-11-03T18:01:59.528445+00:00",
+    "retry_after": "2026-11-04T18:01:59.528446+00:00",
     "search_hydrated": true
   },
   {
@@ -35663,9 +35663,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-27T18:05:35.045186+00:00",
-    "retry_after": "2026-11-03T18:05:35.045190+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-03T18:19:11.972063+00:00",
+    "retry_after": "2026-11-17T18:19:11.972080+00:00",
     "search_hydrated": true
   },
   {
@@ -39174,9 +39174,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-27T18:06:32.012432+00:00",
-    "retry_after": "2026-11-03T18:06:32.012436+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-03T18:19:11.972109+00:00",
+    "retry_after": "2026-11-17T18:19:11.972110+00:00",
     "search_hydrated": true
   },
   {
@@ -43569,8 +43569,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T17:02:13.047087+00:00",
-    "retry_after": "2026-11-04T17:02:13.047106+00:00",
+    "last_attempt_at": "2026-11-03T18:01:59.528363+00:00",
+    "retry_after": "2026-11-04T18:01:59.528380+00:00",
     "search_hydrated": true
   },
   {
@@ -51470,8 +51470,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T17:02:13.047149+00:00",
-    "retry_after": "2026-11-04T17:02:13.047151+00:00",
+    "last_attempt_at": "2026-11-03T18:01:59.528425+00:00",
+    "retry_after": "2026-11-04T18:01:59.528427+00:00",
     "search_hydrated": true
   },
   {
@@ -85540,9 +85540,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-31T17:05:38.261980+00:00",
-    "retry_after": "2026-11-03T17:05:38.261981+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-03T18:19:11.972181+00:00",
+    "retry_after": "2026-11-10T18:19:11.972182+00:00",
     "search_hydrated": true
   },
   {
@@ -91477,6 +91477,39 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-03T17:18:24.116239+00:00",
     "retry_after": "2026-11-04T17:18:24.116257+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Presidential Material Flipbook",
+    "publisher": "IDW Publishing",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-03T18:23:25.106082+00:00",
+    "retry_after": "2026-11-04T18:23:25.106100+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Turok Dinosaur Hunter Instruction Booklet",
+    "publisher": "Valiant Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-03T18:23:25.106143+00:00",
+    "retry_after": "2026-11-04T18:23:25.106146+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I Kill Giants: Titan Edition",
+    "publisher": "Image Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-03T18:23:25.106155+00:00",
+    "retry_after": "2026-11-04T18:23:25.106157+00:00",
     "search_hydrated": true
   }
 ]

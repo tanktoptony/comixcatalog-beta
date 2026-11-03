@@ -27,7 +27,7 @@ const TIERS = [
       { label: "Run completion: see how much of a series you own and exactly which issues you're missing" },
       { label: "Pick which variant cover is the one on your shelf" },
       { label: "Key issue flags on the big first appearances and deaths, with a line on why they matter. The list is short and growing" },
-      { label: "List books from your collection for sale (beta). No fees. Buyers message you with offers; there's no checkout yet" },
+      { label: "List books from your collection for sale (beta). No ComixCatalog fees. Buyers check out with Buy now once you set up payouts, or message you with offers" },
       { label: "Reading guides and articles, written by a collector rather than generated" },
       { label: "A public profile you can share, if you want one" },
       { label: "Professional grading: CGC, CBCS and PGX slabs, 0.5 to 10.0 numeric grades, cert numbers" },

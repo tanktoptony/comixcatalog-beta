@@ -2,7 +2,7 @@ import MarketplaceBrowser from "@/components/MarketplaceBrowser";
 import { getListings } from "@/lib/marketplace";
 
 const MARKETPLACE_DESCRIPTION =
-  "Comics for sale from real collections on ComixCatalog. Search or browse by publisher and series, with condition and grade up front. Make an offer directly to the collector.";
+  "Comics for sale from real collections on ComixCatalog. Search or browse by publisher and series, with condition and grade up front. Buy now through ComixCatalog or make an offer to the collector.";
 
 export const metadata = {
   title: "Marketplace",

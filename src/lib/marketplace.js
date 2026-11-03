@@ -21,8 +21,9 @@ import { MARKETPLACE_LIVEMODE } from "@/lib/marketplaceStripe";
 // stamps snapshot_refreshed_at. It runs from POST /api/listings/sync right
 // after a library change, and as a backstop before every uncached read.
 //
-// There is still no checkout: buyers see the estimated value (seller's
-// value, else the eBay-based auto value) and "Make an offer" by message.
+// Unpriced listings show the estimated value (seller's value, else the
+// eBay-based auto value) and "Make an offer" by message; priced ones can
+// also have Buy now (see sellerStanding.js).
 
 export const LISTINGS_TAG = "listings";
 

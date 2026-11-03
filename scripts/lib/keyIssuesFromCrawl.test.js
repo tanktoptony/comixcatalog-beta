@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 
 import {
   buildKeyRows,
+  isParodyTitle,
   isExcludedTitle,
   firstAppearancesByCvIssue,
   keyReason,
@@ -79,7 +80,7 @@ test("buildKeyRows: skips unlinked, mismatched numbers and existing keys; merges
     reason: "1st appearances of Venom and Eddie Brock",
     tier: 1,
   });
-  assert.deepEqual(skipped, { noGcdLink: 1, noIssue: 0, numberMismatch: 1, wrongEdition: 0, alreadyKey: 1, promoBook: 0 });
+  assert.deepEqual(skipped, { noGcdLink: 1, noIssue: 0, numberMismatch: 1, wrongEdition: 0, nonUs: 0, alreadyKey: 1, promoBook: 0, parody: 0, knownWrong: 0, nameKeyed: 0 });
 });
 
 test("promo and reference books are not keys; real anthologies are", () => {
@@ -140,4 +141,42 @@ test("buildKeyRows moves a key off a variant record onto the regular edition", (
     ]),
   });
   assert.deepEqual(rows.map((r) => r.gcd_issue_id), [10]);
+});
+
+test("buildKeyRows drops parody magazines, non-US editions, known-wrong credits and already-keyed names", () => {
+  const byCvIssue = firstAppearancesByCvIssue([
+    page([
+      ch("Walter White", 120, 1, "516"),
+      ch("Tony Chu", 120, 2, "1"),
+      ch("Apocalypse", 2000, 3, "17"),
+      ch("Black Widow", 120, 4, "4"),
+      ch("Shang-Chi", 1500, 5, "15"),
+    ]),
+  ]);
+  const issue = (title, n, extra = {}) => ({ issue_number: n, title, publisher: "X", year: 1990, usMarket: true, ...extra });
+  const { rows, skipped } = buildKeyRows({
+    byCvIssue,
+    gcdIdByCvIssue: new Map([[1, 10], [2, 20], [3, 30], [4, 40], [5, 50]]),
+    issueByGcdId: new Map([
+      [10, issue("Mad", "516")],
+      [20, issue("Chew", "1", { usMarket: false })],
+      [30, issue("Marvel Graphic Novel", "17")],
+      [40, issue("Cartoon Network Starring", "4")],
+      [50, issue("Special Marvel Edition", "15")],
+    ]),
+    existingCharacters: new Set(["black widow"]),
+  });
+  assert.deepEqual(rows.map((r) => r.gcd_issue_id), [50]);
+  assert.equal(skipped.parody, 1);
+  assert.equal(skipped.nonUs, 1);
+  assert.equal(skipped.knownWrong, 1);
+  assert.equal(skipped.nameKeyed, 1);
+});
+
+test("promo filter covers Marvel Previews and Amazing World of DC Comics; parody filter is exact", () => {
+  assert.equal(isExcludedTitle("Marvel Previews"), true);
+  assert.equal(isExcludedTitle("The Amazing World of DC Comics"), true);
+  assert.equal(isParodyTitle("Mad"), true);
+  assert.equal(isParodyTitle("Mad Love"), false);
+  assert.equal(isParodyTitle("Crazy Quilt"), false);
 });

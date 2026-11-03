@@ -1,5 +1,19 @@
 [
   {
+    "name": "Mad",
+    "publisher": "EC",
+    "year": 1952,
+    "volume_id": 9318,
+    "series_gcd_id": 10092
+  },
+  {
+    "name": "G.I. Combat",
+    "publisher": "DC",
+    "year": 1957,
+    "volume_id": 1820,
+    "series_gcd_id": 1245
+  },
+  {
     "name": "The Amazing Spider-Man",
     "publisher": "Marvel",
     "year": 1999,
@@ -154,6 +168,13 @@
     "series_gcd_id": 4150
   },
   {
+    "name": "Marvel Graphic Novel",
+    "publisher": "Marvel",
+    "year": 1982,
+    "volume_id": 3144,
+    "series_gcd_id": 2658
+  },
+  {
     "name": "Supergirl",
     "publisher": "DC",
     "year": 2016,
@@ -301,13 +322,6 @@
     "series_gcd_id": 44396
   },
   {
-    "name": "Amazing Fantasy",
-    "publisher": "Marvel",
-    "year": 2004,
-    "volume_id": 5533,
-    "series_gcd_id": 16206
-  },
-  {
     "name": "Batwoman",
     "publisher": "DC",
     "year": 2017,
@@ -390,6 +404,13 @@
     "year": 2019,
     "volume_id": 122982,
     "series_gcd_id": 152850
+  },
+  {
+    "name": "Liberty Meadows",
+    "publisher": "Insight Studios Group",
+    "year": 1999,
+    "volume_id": 19969,
+    "series_gcd_id": 6247
   },
   {
     "name": "WildC.A.T.s",
@@ -551,13 +572,6 @@
     "year": 2015,
     "volume_id": 83121,
     "series_gcd_id": 90653
-  },
-  {
-    "name": "All-Star Western",
-    "publisher": "DC",
-    "year": 1970,
-    "volume_id": 53611,
-    "series_gcd_id": 1931
   },
   {
     "name": "Absolute Martian Manhunter",
@@ -770,13 +784,6 @@
     "series_gcd_id": 240351
   },
   {
-    "name": "Quantum Age",
-    "publisher": "Dark Horse",
-    "year": 2018,
-    "volume_id": 118636,
-    "series_gcd_id": 126590
-  },
-  {
     "name": "Crosswind",
     "publisher": "Image",
     "year": 2017,
@@ -838,13 +845,6 @@
     "year": 2003,
     "volume_id": 23402,
     "series_gcd_id": 18623
-  },
-  {
-    "name": "Capes",
-    "publisher": "Image",
-    "year": 2025,
-    "volume_id": 168595,
-    "series_gcd_id": 229870
   },
   {
     "name": "He-Man and the Masters of the Universe",
@@ -973,6 +973,13 @@
     "series_gcd_id": 238018
   },
   {
+    "name": "Terminal",
+    "publisher": "Image",
+    "year": 2026,
+    "volume_id": 175072,
+    "series_gcd_id": 239300
+  },
+  {
     "name": "The Doom Patrol",
     "publisher": "DC",
     "year": 2026,
@@ -1034,13 +1041,6 @@
     "year": 2008,
     "volume_id": 20837,
     "series_gcd_id": 29916
-  },
-  {
-    "name": "Nexus",
-    "publisher": "Capital Comics",
-    "year": 1983,
-    "volume_id": 3097,
-    "series_gcd_id": 2784
   },
   {
     "name": "Vagabond [Definitive Edition]",
@@ -1134,18 +1134,18 @@
     "series_gcd_id": 234848
   },
   {
-    "name": "Terminal",
-    "publisher": "Image",
-    "year": 2026,
-    "volume_id": 175072,
-    "series_gcd_id": 239300
-  },
-  {
     "name": "Slingers",
     "publisher": "Marvel",
     "year": 1998,
     "volume_id": 11305,
     "series_gcd_id": 12251
+  },
+  {
+    "name": "Poison Ivy",
+    "publisher": "DC",
+    "year": 2023,
+    "volume_id": 151415,
+    "series_gcd_id": 200658
   },
   {
     "name": "Marvel Masterworks: The X-Men",
@@ -1356,5 +1356,33 @@
     "year": 2025,
     "volume_id": 166462,
     "series_gcd_id": 227178
+  },
+  {
+    "name": "Undiscovered Country",
+    "publisher": "Image",
+    "year": 2020,
+    "volume_id": 128452,
+    "series_gcd_id": 161751
+  },
+  {
+    "name": "Longshot Saves the Marvel Universe",
+    "publisher": "Marvel",
+    "year": 2014,
+    "volume_id": 68922,
+    "series_gcd_id": 77509
+  },
+  {
+    "name": "Jackpot Comics",
+    "publisher": "Archie",
+    "year": 1941,
+    "volume_id": 31466,
+    "series_gcd_id": 229
+  },
+  {
+    "name": "The Ghost Rider",
+    "publisher": "Marvel",
+    "year": 1967,
+    "volume_id": 2352,
+    "series_gcd_id": 1809
   }
 ]

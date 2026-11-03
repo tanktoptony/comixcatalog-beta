@@ -33239,24 +33239,6 @@
     "retry_after": "2026-10-10T14:04:38.585556+00:00"
   },
   {
-    "name": "Astonishing X-Men by Charles Soule",
-    "publisher": "Marvel Comics",
-    "year": 2018,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 59353,
-        "name": "Astonishing X-Men",
-        "publisher": "Marvel",
-        "start_year": 1995
-      }
-    ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-02T06:10:50.766475+00:00",
-    "retry_after": "2026-11-16T06:10:50.766479+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Year One: Batman / Ra's al Ghul",
     "publisher": "DC Comics",
     "year": 2005,
@@ -48657,24 +48639,6 @@
     "retry_after": "2026-10-16T20:24:13.057723+00:00"
   },
   {
-    "name": "Runaways by Rainbow Rowell",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 18060,
-        "name": "Runaways",
-        "publisher": "Marvel",
-        "start_year": 2004
-      }
-    ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T00:41:08.627600+00:00",
-    "retry_after": "2026-11-09T00:41:08.627604+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "O Melhor de Os Jetsons",
     "publisher": "Avatar Press",
     "year": 1993,
@@ -63414,23 +63378,6 @@
     "retry_after": "2026-10-23T03:16:25.012019+00:00"
   },
   {
-    "name": "The Complete Darkness",
-    "publisher": "Image Comics",
-    "year": 2021,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 134043,
-        "name": "The Complete Darkness",
-        "publisher": null,
-        "start_year": 2021
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T03:16:27.373884+00:00",
-    "retry_after": "2026-10-23T03:16:27.373896+00:00"
-  },
-  {
     "name": "2000 AD",
     "publisher": "Rebellion",
     "year": 2000,
@@ -64472,23 +64419,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T05:10:01.585776+00:00",
     "retry_after": "2026-10-23T05:10:01.585792+00:00"
-  },
-  {
-    "name": "Secret Avengers by Rick Remender",
-    "publisher": "Marvel Comics",
-    "year": 2012,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 51824,
-        "name": "Secret Avengers by Rick Remender",
-        "publisher": null,
-        "start_year": 2012
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T05:10:08.038873+00:00",
-    "retry_after": "2026-10-23T05:10:08.038887+00:00"
   },
   {
     "name": "Daredevil by Mark Waid",
@@ -81686,24 +81616,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Batman: The Imposter",
-    "publisher": "DC Comics",
-    "year": 2023,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 141697,
-        "name": "Batman: The Imposter",
-        "publisher": "DC Comics",
-        "start_year": 2022
-      }
-    ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T17:10:53.803388+00:00",
-    "retry_after": "2026-11-08T17:10:53.803399+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Batman: Three Jokers",
     "publisher": "DC Comics",
     "year": 2023,
@@ -82207,24 +82119,6 @@
     "attempts": 3,
     "last_attempt_at": "2026-11-02T00:11:09.481161+00:00",
     "retry_after": "2026-11-09T00:11:09.481180+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Icon & Rocket: Season One",
-    "publisher": "DC Comics",
-    "year": 2023,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 146390,
-        "name": "Icon & Rocket: Season One",
-        "publisher": "DC Comics",
-        "start_year": 2022
-      }
-    ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T00:11:10.450666+00:00",
-    "retry_after": "2026-11-09T00:11:10.450683+00:00",
     "search_hydrated": true
   },
   {
@@ -83334,24 +83228,6 @@
     "attempts": 3,
     "last_attempt_at": "2026-11-02T13:10:28.584320+00:00",
     "retry_after": "2026-11-09T13:10:28.584324+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Carnage: Black, White & Blood",
-    "publisher": "Marvel Comics",
-    "year": 2022,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 134780,
-        "name": "Carnage: Black, White & Blood",
-        "publisher": "Marvel",
-        "start_year": 2021
-      }
-    ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T13:10:51.046837+00:00",
-    "retry_after": "2026-11-09T13:10:51.046852+00:00",
     "search_hydrated": true
   },
   {
@@ -84772,24 +84648,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Superman and the Authority",
-    "publisher": "DC Comics",
-    "year": 2022,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 137676,
-        "name": "Superman and the Authority",
-        "publisher": "DC Comics",
-        "start_year": 2021
-      }
-    ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T23:10:10.787573+00:00",
-    "retry_after": "2026-11-09T23:10:10.787579+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Superman Red & Blue",
     "publisher": "DC Comics",
     "year": 2022,
@@ -85078,24 +84936,6 @@
     "search_hydrated": true
   },
   {
-    "name": "The Other History of the DC Universe",
-    "publisher": "DC Comics",
-    "year": 2022,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 140569,
-        "name": "The Other History of the DC Universe",
-        "publisher": "DC Comics",
-        "start_year": 2021
-      }
-    ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T04:12:41.333050+00:00",
-    "retry_after": "2026-11-10T04:12:41.333062+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Hypericum",
     "publisher": "Fantagraphics",
     "year": 2024,
@@ -85148,24 +84988,6 @@
     "attempts": 3,
     "last_attempt_at": "2026-11-03T05:15:10.317393+00:00",
     "retry_after": "2026-11-10T05:15:10.317409+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Wolverine: Black, White & Blood",
-    "publisher": "Marvel Comics",
-    "year": 2022,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 131734,
-        "name": "Wolverine: Black, White & Blood",
-        "publisher": "Marvel",
-        "start_year": 2021
-      }
-    ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T04:12:41.455066+00:00",
-    "retry_after": "2026-11-10T04:12:41.455077+00:00",
     "search_hydrated": true
   },
   {
@@ -85308,42 +85130,6 @@
     "attempts": 3,
     "last_attempt_at": "2026-11-03T05:15:10.317617+00:00",
     "retry_after": "2026-11-10T05:15:10.317620+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Batman: Creature of the Night",
-    "publisher": "DC Comics",
-    "year": 2021,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 125977,
-        "name": "Batman: Creature of the Night",
-        "publisher": "DC Comics",
-        "start_year": 2020
-      }
-    ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T06:19:12.639169+00:00",
-    "retry_after": "2026-11-10T06:19:12.639182+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Batman: Last Knight on Earth",
-    "publisher": "DC Comics",
-    "year": 2021,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 126259,
-        "name": "Batman: Last Knight On Earth",
-        "publisher": "DC Comics",
-        "start_year": 2020
-      }
-    ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T06:19:12.917571+00:00",
-    "retry_after": "2026-11-10T06:19:12.917582+00:00",
     "search_hydrated": true
   },
   {
@@ -85501,24 +85287,6 @@
     "attempts": 3,
     "last_attempt_at": "2026-11-03T09:16:26.465042+00:00",
     "retry_after": "2026-11-10T09:16:26.465047+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Batman: Universe",
-    "publisher": "DC Comics",
-    "year": 2021,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 125786,
-        "name": "Batman: Universe",
-        "publisher": "DC Comics",
-        "start_year": 2020
-      }
-    ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T10:17:38.271127+00:00",
-    "retry_after": "2026-11-10T10:17:38.271144+00:00",
     "search_hydrated": true
   },
   {
@@ -85837,24 +85605,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-31T20:05:41.084114+00:00",
     "retry_after": "2026-11-03T20:05:41.084117+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Harley Quinn and Poison Ivy",
-    "publisher": "DC Comics",
-    "year": 2021,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 127127,
-        "name": "Harley Quinn and Poison Ivy",
-        "publisher": "DC Comics",
-        "start_year": 2020
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-31T22:05:49.776333+00:00",
-    "retry_after": "2026-11-03T22:05:49.776343+00:00",
     "search_hydrated": true
   },
   {
@@ -86437,24 +86187,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Superman: Up in the Sky",
-    "publisher": "DC Comics",
-    "year": 2021,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 126482,
-        "name": "Superman: Up In the Sky",
-        "publisher": "DC Comics",
-        "start_year": 2020
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T08:10:31.706677+00:00",
-    "retry_after": "2026-11-04T08:10:31.706695+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Tales from the DC Dark Multiverse",
     "publisher": "DC Comics",
     "year": 2021,
@@ -86761,24 +86493,6 @@
     "search_hydrated": true
   },
   {
-    "name": "X-Force by Benjamin Percy",
-    "publisher": "Marvel Comics",
-    "year": 2021,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 128897,
-        "name": "X-Force by Benjamin Percy",
-        "publisher": "Marvel",
-        "start_year": 2020
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T12:10:36.568600+00:00",
-    "retry_after": "2026-11-04T12:10:36.568612+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "X-Men: Fall of the Mutants Omnibus",
     "publisher": "Marvel Comics",
     "year": 2021,
@@ -87032,24 +86746,6 @@
     "search_hydrated": true
   },
   {
-    "name": "In Rage",
-    "publisher": "CFD Productions",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 88863,
-        "name": "In Rage",
-        "publisher": "Creative Force Designs",
-        "start_year": 1994
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T15:02:04.358502+00:00",
-    "retry_after": "2026-11-04T15:02:04.358516+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Knull: Coming to the Light",
     "publisher": "Marvel Comics",
     "year": 2026,
@@ -87072,150 +86768,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Marvel Team-Up Winter Special",
-    "publisher": "Marvel Comics",
-    "year": 1980,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 52549,
-        "name": "Marvel Team-Up Winter Special",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1980
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T15:58:32.096475+00:00",
-    "retry_after": "2026-11-04T15:58:32.096495+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Kick-Ass 2 Prelude: Hit Girl",
-    "publisher": "Marvel Comics",
-    "year": 2013,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 58598,
-        "name": "Kick-Ass 2 Prelude: Hit-Girl",
-        "publisher": "Icon Books",
-        "start_year": 2013
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T15:58:32.096534+00:00",
-    "retry_after": "2026-11-04T15:58:32.096538+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "They Called Us Enemy – Expanded Edition",
-    "publisher": "IDW Publishing",
-    "year": 2020,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 129898,
-        "name": "They Called Us Enemy: Expanded Edition",
-        "publisher": "Top Shelf",
-        "start_year": 2020
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T15:58:32.096628+00:00",
-    "retry_after": "2026-11-04T15:58:32.096631+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "The Lost Boy",
-    "publisher": "Dark Horse Comics",
-    "year": 2013,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 67715,
-        "name": "The Lost Boy",
-        "publisher": "Scholastic Book Services",
-        "start_year": 2013
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T15:58:32.096653+00:00",
-    "retry_after": "2026-11-04T15:58:32.096655+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Corriere dei Ragazzi",
-    "publisher": "Dell Comics",
-    "year": 1973,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 32469,
-        "name": "Corriere dei Ragazzi",
-        "publisher": "Corriere Della Sera",
-        "start_year": 1972
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T15:58:40.275868+00:00",
-    "retry_after": "2026-11-04T15:58:40.275888+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Tom and Jerry Present the Two Mouseketeers",
-    "publisher": "Marvel Comics",
-    "year": 1955,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 64345,
-        "name": "Tom and Jerry Present the Two Mouseketeers",
-        "publisher": "Magazine Management",
-        "start_year": null
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T15:58:40.275959+00:00",
-    "retry_after": "2026-11-04T15:58:40.275963+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Joe Palooka Presents the Funsational Humphrey",
-    "publisher": "Marvel Comics",
-    "year": 1952,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 156763,
-        "name": "Joe Palooka Presents the Funsational Humphrey",
-        "publisher": "Magazine Management",
-        "start_year": 1952
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T15:58:40.275987+00:00",
-    "retry_after": "2026-11-04T15:58:40.275990+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Mad Classics",
-    "publisher": "EC Comics",
-    "year": 2005,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 18767,
-        "name": "Mad Classics",
-        "publisher": "DC Comics",
-        "start_year": 2007
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T15:58:40.276010+00:00",
-    "retry_after": "2026-11-04T15:58:40.276013+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Black Panther and the Agents of Wakanda",
     "publisher": "Marvel Comics",
     "year": 2020,
@@ -87231,168 +86783,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-11-01T18:10:19.382833+00:00",
     "retry_after": "2026-11-04T18:10:19.382849+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Mouse Guard: Baldwin the Brave & Other Tales",
-    "publisher": "BOOM! Studios",
-    "year": 2014,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 78073,
-        "name": "Mouse Guard: Baldwin the Brave & Other Tales",
-        "publisher": "Archaia",
-        "start_year": 2014
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T17:11:12.151829+00:00",
-    "retry_after": "2026-11-04T17:11:12.151844+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Big Book of Bart Simpson",
-    "publisher": "Titan Comics",
-    "year": 2002,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 62660,
-        "name": "Big Book of Bart Simpson",
-        "publisher": "HarperCollins",
-        "start_year": 2002
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T17:11:12.151876+00:00",
-    "retry_after": "2026-11-04T17:11:12.151900+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "The Simpsons Comics Simpsorama",
-    "publisher": "Titan Comics",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 65122,
-        "name": "Simpsons Comics: Simpsorama",
-        "publisher": "HarperCollins",
-        "start_year": 1996
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T17:11:12.151932+00:00",
-    "retry_after": "2026-11-04T17:11:12.151936+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Anti-Crime Squad",
-    "publisher": "Marvel Comics",
-    "year": 1952,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 52652,
-        "name": "Anti Crime Squad",
-        "publisher": "Magazine Management",
-        "start_year": 1952
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T17:11:28.998840+00:00",
-    "retry_after": "2026-11-04T17:11:28.998856+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "I Vendicatori",
-    "publisher": "Marvel Comics",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 151292,
-        "name": "I Vendicatori",
-        "publisher": "Panini Comics",
-        "start_year": 1994
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T17:11:28.998911+00:00",
-    "retry_after": "2026-11-04T17:11:28.998917+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "MegaManga",
-    "publisher": "Fantagraphics",
-    "year": 2003,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 173763,
-        "name": "MegaManga",
-        "publisher": "Eros Comix",
-        "start_year": 2003
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T17:11:28.998946+00:00",
-    "retry_after": "2026-11-04T17:11:28.998950+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Marvel Mix",
-    "publisher": "Marvel Comics",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 57055,
-        "name": "Marvel Mix",
-        "publisher": "Panini Comics",
-        "start_year": 1996
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T17:11:28.998982+00:00",
-    "retry_after": "2026-11-04T17:11:28.998985+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Phil Corrigan Secret Agent X9",
-    "publisher": "Atlas Comics",
-    "year": 1950,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 161990,
-        "name": "Phil Corrigan Secret Agent X9 ",
-        "publisher": "Atlas Publications Pty. Ltd.",
-        "start_year": null
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T18:10:59.747099+00:00",
-    "retry_after": "2026-11-04T18:10:59.747115+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Black Panther: Who Is the Black Panther?",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 39726,
-        "name": "Black Panther: Who Is The Black Panther",
-        "publisher": "Marvel",
-        "start_year": 2006
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T18:10:19.382881+00:00",
-    "retry_after": "2026-11-04T18:10:19.382884+00:00",
     "search_hydrated": true
   },
   {
@@ -87415,24 +86805,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-11-01T19:10:43.472709+00:00",
     "retry_after": "2026-11-04T19:10:43.472710+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Captain America by Jack Kirby Omnibus",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 41260,
-        "name": "Captain America by Jack Kirby Omnibus",
-        "publisher": "Marvel",
-        "start_year": 2011
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T20:29:46.580671+00:00",
-    "retry_after": "2026-11-04T20:29:46.580676+00:00",
     "search_hydrated": true
   },
   {
@@ -87819,24 +87191,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Infinite Crisis Omnibus",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 53291,
-        "name": "Infinite Crisis Omnibus",
-        "publisher": "DC Comics",
-        "start_year": 2012
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T02:10:12.318073+00:00",
-    "retry_after": "2026-11-05T02:10:12.318075+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Amazing Fantasy Vol. 1 No. 15 [Spider-Man Classics Reprint]",
     "publisher": "Marvel Comics",
     "year": 2001,
@@ -87889,24 +87243,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Last of the Independents",
-    "publisher": "Image Comics",
-    "year": 2020,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 36979,
-        "name": "Last of the Independents",
-        "publisher": "AiT/Planet Lar",
-        "start_year": 2003
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T05:10:09.549294+00:00",
-    "retry_after": "2026-11-05T05:10:09.549296+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Killadelphia",
     "publisher": "Image Comics",
     "year": 2020,
@@ -87922,24 +87258,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-11-02T05:10:15.045623+00:00",
     "retry_after": "2026-11-05T05:10:15.045639+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Marvel 2021 Calendar",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 144820,
-        "name": "Marvel 2021 Calendar",
-        "publisher": "Marvel",
-        "start_year": null
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T05:10:15.045861+00:00",
-    "retry_after": "2026-11-05T05:10:15.045864+00:00",
     "search_hydrated": true
   },
   {
@@ -88160,24 +87478,6 @@
     "search_hydrated": true
   },
   {
-    "name": "The Battle",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 1423,
-        "name": "Battle",
-        "publisher": "Marvel",
-        "start_year": 1951
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T10:11:03.146933+00:00",
-    "retry_after": "2026-11-05T10:11:03.146947+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "The Books of Magic 30th Anniversary Edition",
     "publisher": "DC Comics",
     "year": 2020,
@@ -88257,24 +87557,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-11-02T10:11:01.546680+00:00",
     "retry_after": "2026-11-05T10:11:01.546684+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "The Flash: Year One",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 122782,
-        "name": "The Flash: Year One",
-        "publisher": "DC Comics",
-        "start_year": 2019
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T10:11:03.442279+00:00",
-    "retry_after": "2026-11-05T10:11:03.442296+00:00",
     "search_hydrated": true
   },
   {
@@ -88399,24 +87681,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Uncanny X-Men: X-Men Disassembled",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 117768,
-        "name": "Uncanny X-Men: X-Men Disassembled",
-        "publisher": "Marvel",
-        "start_year": 2019
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T11:11:33.458197+00:00",
-    "retry_after": "2026-11-05T11:11:33.458218+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Wolverine: Enemy of the State",
     "publisher": "Marvel Comics",
     "year": 2020,
@@ -88533,24 +87797,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Amazing Spider-Man: Red Goblin",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 113686,
-        "name": "Amazing Spider-Man: Red Goblin",
-        "publisher": "Marvel",
-        "start_year": 2018
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T12:12:36.819215+00:00",
-    "retry_after": "2026-11-05T12:12:36.819225+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Asgardians of the Galaxy",
     "publisher": "Marvel Comics",
     "year": 2019,
@@ -88645,24 +87891,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-11-02T14:10:42.228338+00:00",
     "retry_after": "2026-11-05T14:10:42.228341+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Batman: Nightwalker",
-    "publisher": "DC Comics",
-    "year": 2019,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 151211,
-        "name": "Batman: Nightwalker",
-        "publisher": "Editorial Hidra",
-        "start_year": 2020
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T14:10:42.228367+00:00",
-    "retry_after": "2026-11-05T14:10:42.228370+00:00",
     "search_hydrated": true
   },
   {
@@ -88897,24 +88125,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-11-02T15:11:07.277297+00:00",
     "retry_after": "2026-11-05T15:11:07.277299+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Daredevil by Chip Zdarsky",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 42073,
-        "name": "Daredevil",
-        "publisher": "Panini France",
-        "start_year": 2001
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T16:11:03.153656+00:00",
-    "retry_after": "2026-11-05T16:11:03.153671+00:00",
     "search_hydrated": true
   },
   {
@@ -89454,24 +88664,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Marvel Visionaries: John Romita Jr.",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 41311,
-        "name": "Marvel Visionaries: John Romita Jr.",
-        "publisher": "Marvel",
-        "start_year": 2005
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T21:11:25.041076+00:00",
-    "retry_after": "2026-11-05T21:11:25.041078+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "The Dark Phoenix Saga: The Uncanny X-Men",
     "publisher": "Marvel Comics",
     "year": 1984,
@@ -89666,24 +88858,6 @@
     "search_hydrated": true
   },
   {
-    "name": "New Avengers: Breakout",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 27622,
-        "name": "New Avengers: Breakout",
-        "publisher": "Marvel",
-        "start_year": 2005
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T01:19:59.936924+00:00",
-    "retry_after": "2026-11-06T01:19:59.936932+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Oz: The Complete Collection - Wonderful Wizard & Marvelous Land",
     "publisher": "Marvel Comics",
     "year": 2019,
@@ -89692,24 +88866,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-11-03T02:17:38.774228+00:00",
     "retry_after": "2026-11-06T02:17:38.774230+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Paradox Girl",
-    "publisher": "Image Comics",
-    "year": 2019,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 80065,
-        "name": "Paradox Girl",
-        "publisher": "Hana Comics",
-        "start_year": 2015
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T02:17:38.774255+00:00",
-    "retry_after": "2026-11-06T02:17:38.774258+00:00",
     "search_hydrated": true
   },
   {
@@ -89745,24 +88901,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-11-03T02:17:38.774331+00:00",
     "retry_after": "2026-11-06T02:17:38.774335+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Nightwing by Peter J. Tomasi",
-    "publisher": "DC Comics",
-    "year": 2019,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 166178,
-        "name": "Nightwing",
-        "publisher": "DC Comics",
-        "start_year": 2025
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T01:19:59.936964+00:00",
-    "retry_after": "2026-11-06T01:19:59.936967+00:00",
     "search_hydrated": true
   },
   {
@@ -89986,24 +89124,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-11-03T07:54:14.817080+00:00",
     "retry_after": "2026-11-06T07:54:14.817096+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Spider-Gwen: Ghost-Spider",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 114734,
-        "name": "Spider-Gwen: Ghost-Spider",
-        "publisher": "Marvel",
-        "start_year": 2018
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T07:54:18.325276+00:00",
-    "retry_after": "2026-11-06T07:54:18.325293+00:00",
     "search_hydrated": true
   },
   {
@@ -90426,24 +89546,6 @@
     "search_hydrated": true
   },
   {
-    "name": "The Kamandi Challenge",
-    "publisher": "DC Comics",
-    "year": 2019,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 109959,
-        "name": "The Kamandi Challenge",
-        "publisher": "DC Comics",
-        "start_year": 2018
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T13:25:13.513963+00:00",
-    "retry_after": "2026-11-06T13:25:13.513979+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "The Thanos Wars: Infinity Origin Omnibus",
     "publisher": "Marvel Comics",
     "year": 2019,
@@ -90588,24 +89690,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-02T04:10:31.477612+00:00",
     "retry_after": "2026-11-03T04:10:31.477614+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Ultimate Spider-Man: Power & Responsibility",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 35781,
-        "name": "Ultimate Spider-Man: Power and Responsibility",
-        "publisher": "Marvel",
-        "start_year": 2000
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T15:15:27.340867+00:00",
-    "retry_after": "2026-11-06T15:15:27.340868+00:00",
     "search_hydrated": true
   },
   {
@@ -90899,24 +89983,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Barrier",
-    "publisher": "Image Comics",
-    "year": 2018,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 86428,
-        "name": "Barrier",
-        "publisher": "Panelsyndicate",
-        "start_year": 2015
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T06:10:50.081275+00:00",
-    "retry_after": "2026-11-03T06:10:50.081278+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Amazing Spider-Man Vol. 1 No. 252 [Spider-Man Classics Reprint]",
     "publisher": "Marvel Comics",
     "year": 2000,
@@ -91081,24 +90147,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-02T07:36:10.439703+00:00",
     "retry_after": "2026-11-03T07:36:10.439718+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Black Panther: Soul of a Machine",
-    "publisher": "Marvel Comics",
-    "year": 2018,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 106261,
-        "name": "Black Panther: Soul of A Machine",
-        "publisher": "Marvel",
-        "start_year": 2017
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T07:36:10.528693+00:00",
-    "retry_after": "2026-11-03T07:36:10.528706+00:00",
     "search_hydrated": true
   },
   {
@@ -91303,24 +90351,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Doctor Strange by Donny Cates",
-    "publisher": "Marvel Comics",
-    "year": 2018,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 118378,
-        "name": "Doctor Strange by Donny Cates",
-        "publisher": "Marvel",
-        "start_year": 2019
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T08:18:15.148336+00:00",
-    "retry_after": "2026-11-03T08:18:15.148346+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Doctor Strange by Mark Waid",
     "publisher": "Marvel Comics",
     "year": 2018,
@@ -91371,24 +90401,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-02T09:11:24.955010+00:00",
     "retry_after": "2026-11-03T09:11:24.955015+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Gli Albi dei Super-Eroi",
-    "publisher": "Marvel Comics",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 34647,
-        "name": "Gli Albi dei Super-Eroi",
-        "publisher": "Editoriale Corno",
-        "start_year": 1973
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T10:11:13.254386+00:00",
-    "retry_after": "2026-11-03T10:11:13.254391+00:00",
     "search_hydrated": true
   },
   {
@@ -91539,42 +90551,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Big Bratty Book of Bart Simpson",
-    "publisher": "Titan Comics",
-    "year": 2004,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 62713,
-        "name": "Big Bratty Book of Bart Simpson",
-        "publisher": "HarperCollins",
-        "start_year": 2004
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T12:12:55.022340+00:00",
-    "retry_after": "2026-11-03T12:12:55.022345+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Links",
-    "publisher": "VIZ Media",
-    "year": 2022,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 148145,
-        "name": "Links",
-        "publisher": "Milky Way Ediciones",
-        "start_year": 2020
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T12:12:55.022372+00:00",
-    "retry_after": "2026-11-03T12:12:55.022376+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "47 Ronin",
     "publisher": "Dark Horse Comics",
     "year": 2021,
@@ -91607,24 +90583,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-02T14:10:42.228411+00:00",
     "retry_after": "2026-11-03T14:10:42.228414+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "???????: ???? ????????????",
-    "publisher": "BOOM! Studios",
-    "year": 2021,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 172641,
-        "name": "!",
-        "publisher": "Alpha Polis",
-        "start_year": 2014
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T14:10:51.869511+00:00",
-    "retry_after": "2026-11-03T14:10:51.869527+00:00",
     "search_hydrated": true
   },
   {
@@ -91663,42 +90621,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Inhumans vs. X-Men",
-    "publisher": "Marvel Comics",
-    "year": 2018,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 102597,
-        "name": "Inhumans Vs. X-Men",
-        "publisher": "Marvel",
-        "start_year": 2017
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T15:10:56.303611+00:00",
-    "retry_after": "2026-11-03T15:10:56.303628+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Justice League of America: Power and Glory",
-    "publisher": "DC Comics",
-    "year": 2018,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 99868,
-        "name": "Justice League of America: Power and Glory",
-        "publisher": "DC Comics",
-        "start_year": 2017
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T15:10:58.589454+00:00",
-    "retry_after": "2026-11-03T15:10:58.589469+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Nomen Omen",
     "publisher": "Image Comics",
     "year": 2020,
@@ -91714,24 +90636,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-02T16:11:04.566955+00:00",
     "retry_after": "2026-11-03T16:11:04.566969+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Captain America by Ta-Nehisi Coates",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 126037,
-        "name": "Captain America by Ta-Nehisi Coates",
-        "publisher": "Marvel",
-        "start_year": 2020
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T16:11:04.875677+00:00",
-    "retry_after": "2026-11-03T16:11:04.875692+00:00",
     "search_hydrated": true
   },
   {
@@ -91881,24 +90785,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Marvel Knights 20th",
-    "publisher": "Marvel Comics",
-    "year": 2018,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 141127,
-        "name": "Marvel Knights 20th",
-        "publisher": "Panini España",
-        "start_year": 2019
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T19:10:31.839689+00:00",
-    "retry_after": "2026-11-03T19:10:31.839704+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Marvel's Ant-Man and the Wasp Prelude",
     "publisher": "Marvel Comics",
     "year": 2018,
@@ -92020,42 +90906,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-02T20:11:35.620308+00:00",
     "retry_after": "2026-11-03T20:11:35.620325+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Doctor Who Magazine",
-    "publisher": "Marvel Comics",
-    "year": 1985,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 26877,
-        "name": "Doctor Who Magazine",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1979
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T20:12:11.330265+00:00",
-    "retry_after": "2026-11-03T20:12:11.330283+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Scales and Scoundrels",
-    "publisher": "Image Comics",
-    "year": 2018,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 104077,
-        "name": "Scales & Scoundrels",
-        "publisher": "Image",
-        "start_year": 2017
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T21:11:25.204764+00:00",
-    "retry_after": "2026-11-03T21:11:25.204780+00:00",
     "search_hydrated": true
   },
   {
@@ -92306,24 +91156,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Tits ! Tits ! Tits !",
-    "publisher": "Dynamite Entertainment",
-    "year": 2022,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 167384,
-        "name": "Tits! Tits! Tits!",
-        "publisher": "Dynamite (France)",
-        "start_year": 2022
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-03T04:12:59.370023+00:00",
-    "retry_after": "2026-11-04T04:12:59.370040+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "De vlucht van Boris",
     "publisher": "BOOM! Studios",
     "year": 1946,
@@ -92438,24 +91270,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-03T10:17:47.910773+00:00",
     "retry_after": "2026-11-04T10:17:47.910776+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Deadworld: The Last Siesta",
-    "publisher": "IDW Publishing",
-    "year": 2011,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 75600,
-        "name": "Deadworld: The Last Siesta",
-        "publisher": "Caliber Comics",
-        "start_year": 2014
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-03T11:13:26.598808+00:00",
-    "retry_after": "2026-11-04T11:13:26.598825+00:00",
     "search_hydrated": true
   },
   {

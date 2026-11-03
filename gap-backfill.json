@@ -917,6 +917,13 @@
     "series_gcd_id": 234759
   },
   {
+    "name": "Magik & Colossus",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "volume_id": null,
+    "series_gcd_id": 241516
+  },
+  {
     "name": "Marvel Knights: Punisher",
     "publisher": "Marvel Comics",
     "year": 2026,
@@ -1713,6 +1720,13 @@
     "year": 2025,
     "volume_id": null,
     "series_gcd_id": 230346
+  },
+  {
+    "name": "Amazing Spider-Man by Zeb Wells Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "volume_id": null,
+    "series_gcd_id": 234348
   },
   {
     "name": "Amazing Spider-Man Modern Era Epic Collection",
@@ -4333,13 +4347,6 @@
     "series_gcd_id": 214079
   },
   {
-    "name": "Ms. Marvel by Saladin Ahmed",
-    "publisher": "Marvel Comics",
-    "year": 2024,
-    "volume_id": null,
-    "series_gcd_id": 211414
-  },
-  {
     "name": "Multiversity: Harley Screws Up the DCU",
     "publisher": "DC Comics",
     "year": 2024,
@@ -4564,13 +4571,6 @@
     "series_gcd_id": 213759
   },
   {
-    "name": "Shazam!",
-    "publisher": "DC Comics",
-    "year": 2024,
-    "volume_id": null,
-    "series_gcd_id": 212662
-  },
-  {
     "name": "Sins of Sinister",
     "publisher": "Marvel Comics",
     "year": 2024,
@@ -4732,13 +4732,6 @@
     "series_gcd_id": 218571
   },
   {
-    "name": "The Domain",
-    "publisher": "Image Comics",
-    "year": 2024,
-    "volume_id": null,
-    "series_gcd_id": 213621
-  },
-  {
     "name": "The Joker by James Tynion IV Compendium",
     "publisher": "DC Comics",
     "year": 2024,
@@ -4854,7 +4847,7 @@
     "name": "Void Rivals",
     "publisher": "Image Comics",
     "year": 2024,
-    "volume_id": null,
+    "volume_id": 157027,
     "series_gcd_id": 209148
   },
   {
@@ -5096,13 +5089,6 @@
     "series_gcd_id": 205639
   },
   {
-    "name": "Batman: The Imposter",
-    "publisher": "DC Comics",
-    "year": 2023,
-    "volume_id": null,
-    "series_gcd_id": 197100
-  },
-  {
     "name": "Batman: Three Jokers",
     "publisher": "DC Comics",
     "year": 2023,
@@ -5334,13 +5320,6 @@
     "series_gcd_id": 205957
   },
   {
-    "name": "Guardians of the Galaxy by Al Ewing",
-    "publisher": "Marvel Comics",
-    "year": 2023,
-    "volume_id": null,
-    "series_gcd_id": 199073
-  },
-  {
     "name": "Guardians of the Galaxy by Donny Cates",
     "publisher": "Marvel Comics",
     "year": 2023,
@@ -5416,13 +5395,6 @@
     "year": 2023,
     "volume_id": null,
     "series_gcd_id": 201985
-  },
-  {
-    "name": "Icon & Rocket: Season One",
-    "publisher": "DC Comics",
-    "year": 2023,
-    "volume_id": null,
-    "series_gcd_id": 202501
   },
   {
     "name": "Infinite Frontier",
@@ -5645,7 +5617,7 @@
     "name": "Public Domain",
     "publisher": "Image Comics",
     "year": 2023,
-    "volume_id": null,
+    "volume_id": 148659,
     "series_gcd_id": 195307
   },
   {
@@ -5731,6 +5703,13 @@
     "year": 2023,
     "volume_id": null,
     "series_gcd_id": 194940
+  },
+  {
+    "name": "Spider-Gwen Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "volume_id": null,
+    "series_gcd_id": 215885
   },
   {
     "name": "Spider-Gwen: Ghost-Spider Modern Era Epic Collection",
@@ -5985,6 +5964,13 @@
     "series_gcd_id": 198839
   },
   {
+    "name": "Transformers",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "volume_id": null,
+    "series_gcd_id": 204233
+  },
+  {
     "name": "Two Graves",
     "publisher": "Image Comics",
     "year": 2023,
@@ -6004,13 +5990,6 @@
     "year": 2023,
     "volume_id": null,
     "series_gcd_id": 201921
-  },
-  {
-    "name": "Vanish",
-    "publisher": "Image Comics",
-    "year": 2023,
-    "volume_id": null,
-    "series_gcd_id": 199069
   },
   {
     "name": "Venom Modern Era Epic Collection",
@@ -6209,6 +6188,13 @@
     "series_gcd_id": 187127
   },
   {
+    "name": "Batman: The Imposter",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "volume_id": null,
+    "series_gcd_id": 181767
+  },
+  {
     "name": "Batman: The Long Halloween Deluxe Edition The Prequel: Haunted Knight",
     "publisher": "DC Comics",
     "year": 2022,
@@ -6282,7 +6268,7 @@
     "name": "Carnage: Black, White & Blood",
     "publisher": "Marvel Comics",
     "year": 2022,
-    "volume_id": null,
+    "volume_id": 139956,
     "series_gcd_id": 182497
   },
   {
@@ -6529,6 +6515,13 @@
     "year": 2022,
     "volume_id": null,
     "series_gcd_id": 192611
+  },
+  {
+    "name": "Icon & Rocket: Season One",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "volume_id": null,
+    "series_gcd_id": 187676
   },
   {
     "name": "Injustice - McFarlane Custom Comic",
@@ -6807,7 +6800,7 @@
     "name": "Superman and the Authority",
     "publisher": "DC Comics",
     "year": 2022,
-    "volume_id": null,
+    "volume_id": 142085,
     "series_gcd_id": 192844
   },
   {
@@ -6895,25 +6888,11 @@
     "series_gcd_id": 191093
   },
   {
-    "name": "The Me You Love in the Dark",
-    "publisher": "Image Comics",
-    "year": 2022,
-    "volume_id": null,
-    "series_gcd_id": 182276
-  },
-  {
     "name": "The Mighty",
     "publisher": "DC Comics",
     "year": 2022,
     "volume_id": null,
     "series_gcd_id": 189987
-  },
-  {
-    "name": "The Nice House on the Lake",
-    "publisher": "DC Comics",
-    "year": 2022,
-    "volume_id": null,
-    "series_gcd_id": 182006
   },
   {
     "name": "The Official Image Comics Timeline",
@@ -6926,7 +6905,7 @@
     "name": "The Other History of the DC Universe",
     "publisher": "DC Comics",
     "year": 2022,
-    "volume_id": null,
+    "volume_id": 140569,
     "series_gcd_id": 192843
   },
   {
@@ -6961,7 +6940,7 @@
     "name": "Wolverine: Black, White & Blood",
     "publisher": "Marvel Comics",
     "year": 2022,
-    "volume_id": null,
+    "volume_id": 155118,
     "series_gcd_id": 188340
   },
   {
@@ -7028,13 +7007,6 @@
     "series_gcd_id": 176044
   },
   {
-    "name": "Batman: Creature of the Night",
-    "publisher": "DC Comics",
-    "year": 2021,
-    "volume_id": null,
-    "series_gcd_id": 171942
-  },
-  {
     "name": "Batman: Damned",
     "publisher": "DC Comics",
     "year": 2021,
@@ -7049,13 +7021,6 @@
     "series_gcd_id": 171610
   },
   {
-    "name": "Batman: Last Knight on Earth",
-    "publisher": "DC Comics",
-    "year": 2021,
-    "volume_id": null,
-    "series_gcd_id": 176959
-  },
-  {
     "name": "Batman: Noël",
     "publisher": "DC Comics",
     "year": 2021,
@@ -7068,13 +7033,6 @@
     "year": 2021,
     "volume_id": null,
     "series_gcd_id": 174183
-  },
-  {
-    "name": "Batman: Universe",
-    "publisher": "DC Comics",
-    "year": 2021,
-    "volume_id": null,
-    "series_gcd_id": 172359
   },
   {
     "name": "Cable by Gerry Duggan",
@@ -7124,13 +7082,6 @@
     "year": 2021,
     "volume_id": null,
     "series_gcd_id": 175405
-  },
-  {
-    "name": "Conan the Barbarian by Jim Zub",
-    "publisher": "Marvel Comics",
-    "year": 2021,
-    "volume_id": 115185,
-    "series_gcd_id": 174133
   },
   {
     "name": "Crossover",
@@ -7203,13 +7154,6 @@
     "series_gcd_id": 169252
   },
   {
-    "name": "Excalibur by Tini Howard",
-    "publisher": "Marvel Comics",
-    "year": 2021,
-    "volume_id": null,
-    "series_gcd_id": 174661
-  },
-  {
     "name": "Fantastic Four: Antithesis Treasury Edition",
     "publisher": "Marvel Comics",
     "year": 2021,
@@ -7243,13 +7187,6 @@
     "year": 2021,
     "volume_id": null,
     "series_gcd_id": 175183
-  },
-  {
-    "name": "Harley Quinn and Poison Ivy",
-    "publisher": "DC Comics",
-    "year": 2021,
-    "volume_id": null,
-    "series_gcd_id": 172475
   },
   {
     "name": "Hawkeye Epic Collection",
@@ -7301,17 +7238,10 @@
     "series_gcd_id": 173344
   },
   {
-    "name": "Justice League Dark: The New 52 Omnibus",
-    "publisher": "DC Comics",
-    "year": 2021,
-    "volume_id": 156318,
-    "series_gcd_id": 177650
-  },
-  {
     "name": "King in Black: Namor",
     "publisher": "Marvel Comics",
     "year": 2021,
-    "volume_id": null,
+    "volume_id": 137803,
     "series_gcd_id": 174152
   },
   {
@@ -7343,13 +7273,6 @@
     "series_gcd_id": 176458
   },
   {
-    "name": "Marauders by Gerry Duggan",
-    "publisher": "Marvel Comics",
-    "year": 2021,
-    "volume_id": null,
-    "series_gcd_id": 174673
-  },
-  {
     "name": "Marvel Meow",
     "publisher": "Marvel Comics",
     "year": 2021,
@@ -7364,13 +7287,6 @@
     "series_gcd_id": 173434
   },
   {
-    "name": "Marvel: June 1962 Omnibus",
-    "publisher": "Marvel Comics",
-    "year": 2021,
-    "volume_id": 144796,
-    "series_gcd_id": 185810
-  },
-  {
     "name": "Mighty Marvel Masterworks: Thor",
     "publisher": "Marvel Comics",
     "year": 2021,
@@ -7383,13 +7299,6 @@
     "year": 2021,
     "volume_id": null,
     "series_gcd_id": 177725
-  },
-  {
-    "name": "Milestone Compendium",
-    "publisher": "DC Comics",
-    "year": 2021,
-    "volume_id": 149028,
-    "series_gcd_id": 180674
   },
   {
     "name": "Monolith",
@@ -7432,6 +7341,13 @@
     "year": 2021,
     "volume_id": null,
     "series_gcd_id": 181621
+  },
+  {
+    "name": "Power Up",
+    "publisher": "Image Comics",
+    "year": 2021,
+    "volume_id": null,
+    "series_gcd_id": 169613
   },
   {
     "name": "Pulp",
@@ -7581,25 +7497,11 @@
     "series_gcd_id": 179784
   },
   {
-    "name": "Superman: Up in the Sky",
-    "publisher": "DC Comics",
-    "year": 2021,
-    "volume_id": null,
-    "series_gcd_id": 171946
-  },
-  {
     "name": "Tales from the DC Dark Multiverse",
     "publisher": "DC Comics",
     "year": 2021,
     "volume_id": null,
     "series_gcd_id": 169736
-  },
-  {
-    "name": "Teen Titans Raven",
-    "publisher": "DC Comics",
-    "year": 2021,
-    "volume_id": 119882,
-    "series_gcd_id": 171406
   },
   {
     "name": "The Amazing World of Superman (Tabloid Edition)",
@@ -7724,7 +7626,7 @@
     "name": "X-Force by Benjamin Percy",
     "publisher": "Marvel Comics",
     "year": 2021,
-    "volume_id": null,
+    "volume_id": 143575,
     "series_gcd_id": 185904
   },
   {
@@ -7798,25 +7700,11 @@
     "series_gcd_id": 176323
   },
   {
-    "name": "Animal Man by Grant Morrison",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": 19963,
-    "series_gcd_id": 156007
-  },
-  {
     "name": "Aquaman: Deadly Waters The Deluxe Edition",
     "publisher": "DC Comics",
     "year": 2020,
     "volume_id": null,
     "series_gcd_id": 162820
-  },
-  {
-    "name": "Batman 100 Project",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": 132285,
-    "series_gcd_id": 176989
   },
   {
     "name": "Batman: Broken City",
@@ -7840,20 +7728,6 @@
     "series_gcd_id": 164679
   },
   {
-    "name": "Batman: Knight Out",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": 130649,
-    "series_gcd_id": 164329
-  },
-  {
-    "name": "Batman: Last Knight on Earth",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 158729
-  },
-  {
     "name": "Batman: Last Knight on Earth (Barnes & Noble Exclusive Edition)",
     "publisher": "DC Comics",
     "year": 2020,
@@ -7861,144 +7735,11 @@
     "series_gcd_id": 158738
   },
   {
-    "name": "Batman: Overdrive",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 157269
-  },
-  {
-    "name": "Batman: Road to No Man's Land Omnibus",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 166574
-  },
-  {
-    "name": "Batman: Tales of the Demon",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 157299
-  },
-  {
-    "name": "Batman: The 1989 Movie Adaptation Deluxe Edition",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 152840
-  },
-  {
-    "name": "Batman: The Adventures Continue",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 160647
-  },
-  {
-    "name": "Batman: The Bat and the Cat: 80 Years of Romance",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 155264
-  },
-  {
-    "name": "Batman: The Chalice",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 168604
-  },
-  {
-    "name": "Batman: The Demon Trilogy",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 164184
-  },
-  {
-    "name": "Batman: The Man Who Laughs: The Deluxe Edition",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": 131452,
-    "series_gcd_id": 165631
-  },
-  {
-    "name": "Batman: The Rise and Fall of the Batmen Omnibus",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 168179
-  },
-  {
-    "name": "Batman: Universe",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 157642
-  },
-  {
-    "name": "Batman: White Knight - The Deluxe Edition",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 156761
-  },
-  {
-    "name": "Batman: White Knight Presents Harley Quinn",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 165283
-  },
-  {
-    "name": "Batman: White Knight Presents Von Freeze",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 152841
-  },
-  {
     "name": "Battlepug",
     "publisher": "Image Comics",
     "year": 2020,
     "volume_id": null,
     "series_gcd_id": 156301
-  },
-  {
-    "name": "Big Girls",
-    "publisher": "Image Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 164194
-  },
-  {
-    "name": "Billy Batson and the Magic of Shazam!: Family Affair",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 156018
-  },
-  {
-    "name": "Birds of Prey: Black Canary",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 154646
-  },
-  {
-    "name": "Birds of Prey: Hero Hunters",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 168605
-  },
-  {
-    "name": "Birds of Prey: Huntress",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 154232
   },
   {
     "name": "Black Panther and the Agents of Wakanda",
@@ -8011,77 +7752,14 @@
     "name": "Black Panther: Who Is the Black Panther?",
     "publisher": "Marvel Comics",
     "year": 2020,
-    "volume_id": null,
+    "volume_id": 39726,
     "series_gcd_id": 174403
-  },
-  {
-    "name": "Black Widow by Waid & Samnee: The Complete Collection",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 156783
-  },
-  {
-    "name": "Black Widow: Marvel Team-Up",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 176525
-  },
-  {
-    "name": "Blackhawk: Blood and Iron",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 156016
-  },
-  {
-    "name": "Blade by Marc Guggenheim: The Complete Collection",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 176776
-  },
-  {
-    "name": "Bliss",
-    "publisher": "Image Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 162083
-  },
-  {
-    "name": "Blue in Green",
-    "publisher": "Image Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 166295
-  },
-  {
-    "name": "Bog Bodies",
-    "publisher": "Image Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 161659
-  },
-  {
-    "name": "Bomb Queen",
-    "publisher": "Image Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 164367
-  },
-  {
-    "name": "Booster Gold: Future Lost",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 163477
   },
   {
     "name": "Captain America by Jack Kirby Omnibus",
     "publisher": "Marvel Comics",
     "year": 2020,
-    "volume_id": null,
+    "volume_id": 41260,
     "series_gcd_id": 174462
   },
   {
@@ -8092,25 +7770,11 @@
     "series_gcd_id": 171913
   },
   {
-    "name": "Captain America: Sharon Carter",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 175480
-  },
-  {
     "name": "Captain America: Winter Soldier - The Complete Collection",
     "publisher": "Marvel Comics",
     "year": 2020,
     "volume_id": null,
     "series_gcd_id": 175226
-  },
-  {
-    "name": "Captain Marvel: The Many Lives of Carol Danvers",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 176077
   },
   {
     "name": "Coffin Bound",
@@ -8120,34 +7784,6 @@
     "series_gcd_id": 158183
   },
   {
-    "name": "Collapser",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 162595
-  },
-  {
-    "name": "Commanders in Crisis",
-    "publisher": "Image Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 165154
-  },
-  {
-    "name": "Conan the Barbarian by Aaron & Asrar",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 174715
-  },
-  {
-    "name": "Conan the Barbarian by Kurt Busiek Omnibus",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 175484
-  },
-  {
     "name": "Conan the Barbarian: The Original Marvel Years Epic Collection",
     "publisher": "Marvel Comics",
     "year": 2020,
@@ -8155,24 +7791,10 @@
     "series_gcd_id": 163625
   },
   {
-    "name": "Conan: Exodus and Other Tales",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 174402
-  },
-  {
-    "name": "Conan: The Book of Thoth and Other Stories",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 160923
-  },
-  {
     "name": "Criminal Deluxe Edition",
     "publisher": "Image Comics",
     "year": 2020,
-    "volume_id": null,
+    "volume_id": 52029,
     "series_gcd_id": 168529
   },
   {
@@ -8197,34 +7819,6 @@
     "series_gcd_id": 175647
   },
   {
-    "name": "Dark Knight Returns: The Golden Child: The Deluxe Edition",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 163898
-  },
-  {
-    "name": "DC Classics: The Batman Adventures",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 160649
-  },
-  {
-    "name": "DC Comics: The Astonishing Art of Amanda Conner",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 161693
-  },
-  {
-    "name": "DC Goes to War",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 160320
-  },
-  {
     "name": "DC Graphic Novels for Kids Box Set",
     "publisher": "DC Comics",
     "year": 2020,
@@ -8239,116 +7833,11 @@
     "series_gcd_id": 165288
   },
   {
-    "name": "DC Holiday Nightmares",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 151950
-  },
-  {
-    "name": "DC Poster Portfolio: Clay Mann",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 178233
-  },
-  {
-    "name": "DC Poster Portfolio: DCeased",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 178232
-  },
-  {
-    "name": "DC Poster Portfolio: Francesco Mattina",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 178230
-  },
-  {
-    "name": "DC Poster Portfolio: James Jean",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 178226
-  },
-  {
-    "name": "DC Poster Portfolio: Joshua Middleton",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 178228
-  },
-  {
-    "name": "DC Poster Portfolio: The Complete Year of the Villain Portrait Variants",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 178231
-  },
-  {
-    "name": "DC Super Hero Girls: Midterms",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 163478
-  },
-  {
-    "name": "DC Super Hero Girls: Powerless",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 157300
-  },
-  {
-    "name": "DC Super Hero Girls: Weird Science",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 161694
-  },
-  {
-    "name": "DC The Doomed and the Damned",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 164958
-  },
-  {
-    "name": "DC Through the '80s: The End of Eras",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 167947
-  },
-  {
     "name": "DC's 1st Issue Specials",
     "publisher": "DC Comics",
     "year": 2020,
     "volume_id": null,
     "series_gcd_id": 159000
-  },
-  {
-    "name": "DC's Greatest Detective Stories Ever Told",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 169072
-  },
-  {
-    "name": "DC's Wanted: The World's Most Dangerous Super-Villains",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 157311
-  },
-  {
-    "name": "Dead Body Road: Bad Blood",
-    "publisher": "Image Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 161180
   },
   {
     "name": "Dead Eyes",
@@ -8358,13 +7847,6 @@
     "series_gcd_id": 157030
   },
   {
-    "name": "Deadman Omnibus",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 167367
-  },
-  {
     "name": "Deadpool: Hey, It's Deadpool!",
     "publisher": "Marvel Comics",
     "year": 2020,
@@ -8372,39 +7854,11 @@
     "series_gcd_id": 175026
   },
   {
-    "name": "Death of Wolverine Prelude: Three Months to Die",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 165527
-  },
-  {
     "name": "Detective Comics #1027 The Deluxe Edition",
     "publisher": "DC Comics",
     "year": 2020,
     "volume_id": null,
     "series_gcd_id": 166930
-  },
-  {
-    "name": "Diana: Princess of the Amazons",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 154233
-  },
-  {
-    "name": "Disney Kingdoms: Figment",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 174655
-  },
-  {
-    "name": "Disney Kingdoms: Haunted Mansion",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 171800
   },
   {
     "name": "Ditko Is... Strange King-Size",
@@ -8421,102 +7875,11 @@
     "series_gcd_id": 174386
   },
   {
-    "name": "Dollar Comics: Amethyst 1",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 156510
-  },
-  {
     "name": "Dollar Comics: Batman / Huntress: Cry for Blood 1",
     "publisher": "DC Comics",
     "year": 2020,
     "volume_id": null,
     "series_gcd_id": 154925
-  },
-  {
-    "name": "Dollar Comics: Batman 386",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 155663
-  },
-  {
-    "name": "Dollar Comics: Batman 428",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 157302
-  },
-  {
-    "name": "Dollar Comics: Batman 567",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 156009
-  },
-  {
-    "name": "Dollar Comics: Batman 613",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 154234
-  },
-  {
-    "name": "Dollar Comics: Batman 663",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 163474
-  },
-  {
-    "name": "Dollar Comics: Batman: Shadow of the Bat 1",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 155664
-  },
-  {
-    "name": "Dollar Comics: Birds of Prey 1",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 153236
-  },
-  {
-    "name": "Dollar Comics: Blackest Night 1",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 152524
-  },
-  {
-    "name": "Dollar Comics: Catwoman 1",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 163475
-  },
-  {
-    "name": "Dollar Comics: Detective Comics 554",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 155259
-  },
-  {
-    "name": "Dollar Comics: Flashpoint 1",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 152150
-  },
-  {
-    "name": "Dollar Comics: Green Lantern: Rebirth 1",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 156010
   },
   {
     "name": "Dollar Comics: Infinite Crisis 1",
@@ -8526,158 +7889,11 @@
     "series_gcd_id": 153073
   },
   {
-    "name": "Dollar Comics: JLA 1",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 157644
-  },
-  {
-    "name": "Dollar Comics: JLA: Year One 1",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 156762
-  },
-  {
-    "name": "Dollar Comics: Justice League of America 1",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 158133
-  },
-  {
-    "name": "Dollar Comics: Luthor 1",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 152843
-  },
-  {
-    "name": "Dollar Comics: New Teen Titans 2",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 156322
-  },
-  {
-    "name": "Dollar Comics: Robin 1",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 157303
-  },
-  {
-    "name": "Dollar Comics: Swamp Thing 57",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 156763
-  },
-  {
-    "name": "Dollar Comics: Tales of the Teen Titans Annual 3",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 153512
-  },
-  {
-    "name": "Dollar Comics: The Batman Adventures 12",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 154642
-  },
-  {
-    "name": "Dollar Comics: The Flash 1",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 156511
-  },
-  {
-    "name": "Dollar Comics: The Flash 164",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 153641
-  },
-  {
-    "name": "Dollar Comics: The Flash: Rebirth 1",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 156321
-  },
-  {
-    "name": "Doom Patrol by John Byrne: The Complete Series",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 156323
-  },
-  {
-    "name": "Doom Patrol: Weight of the Worlds",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 164185
-  },
-  {
-    "name": "Doomsday Clock: The Complete Collection",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 164955
-  },
-  {
-    "name": "Dr. Strange",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 153707
-  },
-  {
     "name": "Dr. Strange, Surgeon Supreme",
     "publisher": "Marvel Comics",
     "year": 2020,
     "volume_id": null,
     "series_gcd_id": 175224
-  },
-  {
-    "name": "Dracula Motherf**ker",
-    "publisher": "Image Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 165153
-  },
-  {
-    "name": "Empyre: Avengers",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 161322
-  },
-  {
-    "name": "Empyre: Captain America & the Avengers",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 166421
-  },
-  {
-    "name": "Empyre: Lords of Empyre",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 166417
-  },
-  {
-    "name": "Empyre: Road to Empyre",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 166419
   },
   {
     "name": "Eternals by Gaiman & Romita Jr.",
@@ -8687,60 +7903,11 @@
     "series_gcd_id": 171423
   },
   {
-    "name": "Eternals: Cosmic Origins",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 174967
-  },
-  {
-    "name": "Eternals: To Defy the Apocalypse",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 174712
-  },
-  {
-    "name": "Excalibur by Tini Howard",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 175481
-  },
-  {
-    "name": "Fables Compendium",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 165286
-  },
-  {
-    "name": "Falcon & Winter Soldier",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 156495
-  },
-  {
-    "name": "Falcon & Winter Soldier: Cut Off One Head",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 174855
-  },
-  {
     "name": "Fallen Angels",
     "publisher": "Marvel Comics",
     "year": 2020,
     "volume_id": null,
     "series_gcd_id": 152549
-  },
-  {
-    "name": "Family Tree",
-    "publisher": "Image Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 200603
   },
   {
     "name": "Famous First Edition: New Fun #1",
@@ -8750,53 +7917,11 @@
     "series_gcd_id": 158913
   },
   {
-    "name": "Fantastic Four by Dan Slott",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 174251
-  },
-  {
-    "name": "Fantastic Four: Antithesis",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 163311
-  },
-  {
     "name": "Final Crisis Omnibus",
     "publisher": "DC Comics",
     "year": 2020,
     "volume_id": null,
     "series_gcd_id": 153237
-  },
-  {
-    "name": "Flash Facts",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 169074
-  },
-  {
-    "name": "Flash Forward",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 161654
-  },
-  {
-    "name": "Freedom Fighters: Rise of a Nation",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 158730
-  },
-  {
-    "name": "Future Fight Firsts",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 176521
   },
   {
     "name": "Generation Zero: Gods Among Us",
@@ -8806,67 +7931,11 @@
     "series_gcd_id": 200437
   },
   {
-    "name": "Giant-Size X-Men by Jonathan Hickman",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 175477
-  },
-  {
-    "name": "Girl",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 166153
-  },
-  {
-    "name": "Gotham High",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 158741
-  },
-  {
-    "name": "Green Arrow: Year One - The Deluxe Edition",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 158998
-  },
-  {
-    "name": "Green Lantern / Green Arrow: Space Traveling Heroes",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 162076
-  },
-  {
     "name": "Green Lantern: 80 Years of the Emerald Knight The Deluxe Edition",
     "publisher": "DC Comics",
     "year": 2020,
     "volume_id": null,
     "series_gcd_id": 161846
-  },
-  {
-    "name": "Green Lantern: Blackstars",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 152025
-  },
-  {
-    "name": "Green Lantern: Legacy",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 154644
-  },
-  {
-    "name": "Guardians of the Galaxy by Donny Cates",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 169779
   },
   {
     "name": "Guardians of the Galaxy: Somebody's Got to Do It",
@@ -8876,123 +7945,11 @@
     "series_gcd_id": 176101
   },
   {
-    "name": "Hard Time: The Complete Series",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 165916
-  },
-  {
-    "name": "Harleen",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 155666
-  },
-  {
-    "name": "Harley Quinn & the Birds of Prey",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 156012
-  },
-  {
-    "name": "Harley Quinn and Poison Ivy",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 159760
-  },
-  {
-    "name": "Harley Quinn and the Gotham Girls",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 156013
-  },
-  {
-    "name": "Hedra",
-    "publisher": "Image Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 163199
-  },
-  {
-    "name": "Hellblazer by Garth Ennis Omnibus",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 158893
-  },
-  {
-    "name": "Hellblazer: Rise and Fall",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 163476
-  },
-  {
-    "name": "Hellstrom: Evil Origins",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 176102
-  },
-  {
-    "name": "Hellstrom: Prince of Lies",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 175648
-  },
-  {
     "name": "Heroes in Crisis: The Price and Other Stories",
     "publisher": "DC Comics",
     "year": 2020,
     "volume_id": null,
     "series_gcd_id": 168606
-  },
-  {
-    "name": "Heroes Reborn: Avengers",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 175936
-  },
-  {
-    "name": "Heroes Reborn: Captain America",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 176103
-  },
-  {
-    "name": "Heroes Reborn: Iron Man",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 175502
-  },
-  {
-    "name": "Heroes Reborn: The Return Omnibus",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 175935
-  },
-  {
-    "name": "High Level",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 155667
-  },
-  {
-    "name": "House of El",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 168381
   },
   {
     "name": "House of X / Powers of X",
@@ -9002,25 +7959,11 @@
     "series_gcd_id": 165586
   },
   {
-    "name": "Immortal Hulk: The Threshing Place",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 164413
-  },
-  {
     "name": "Infinite Crisis Omnibus",
     "publisher": "DC Comics",
     "year": 2020,
-    "volume_id": null,
+    "volume_id": 53291,
     "series_gcd_id": 161523
-  },
-  {
-    "name": "Infinity Crusade Omnibus",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 169246
   },
   {
     "name": "Infinity Gauntlet",
@@ -9030,95 +7973,11 @@
     "series_gcd_id": 168420
   },
   {
-    "name": "Inkblot",
-    "publisher": "Image Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 163723
-  },
-  {
     "name": "Invincible #1 Local Comic Shop Day",
     "publisher": "Image Comics",
     "year": 2020,
     "volume_id": null,
     "series_gcd_id": 167475
-  },
-  {
-    "name": "Iron Man 2020: Robot Revolution",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 165145
-  },
-  {
-    "name": "Iron Man 2020: Robot Revolution - Force Works",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 175640
-  },
-  {
-    "name": "Iron Man 2020: Robot Revolution - iWolverine",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 175503
-  },
-  {
-    "name": "Iron Man: The Ultron Agenda",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 176779
-  },
-  {
-    "name": "Ironheart: Meant to Fly",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 170837
-  },
-  {
-    "name": "Jessica Jones: Blind Spot",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 154641
-  },
-  {
-    "name": "JLA by Grant Morrison Omnibus",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 166576
-  },
-  {
-    "name": "Joker / Harley: Criminal Sanity -- Secret Files",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 162079
-  },
-  {
-    "name": "Joker: Killer Smile",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 163899
-  },
-  {
-    "name": "Joker: The Deluxe Edition",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 160885
-  },
-  {
-    "name": "Juggernaut",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 164200
   },
   {
     "name": "Justice League International",
@@ -9128,81 +7987,11 @@
     "series_gcd_id": 154923
   },
   {
-    "name": "Justice League of America by Brad Meltzer: The Deluxe Edition",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 161658
-  },
-  {
-    "name": "Justice League of America: A Celebration of 60 Years",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 158743
-  },
-  {
     "name": "Justice League of America: The Nail The Complete Collection",
     "publisher": "DC Comics",
     "year": 2020,
     "volume_id": null,
     "series_gcd_id": 158135
-  },
-  {
-    "name": "Justice League of America: The Wedding of the Atom and Jean Loring",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 155668
-  },
-  {
-    "name": "Justice League Unlimited: Galactic Justice",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 163213
-  },
-  {
-    "name": "Justice League Unlimited: Hocus Pocus",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 169075
-  },
-  {
-    "name": "Justice League Unlimited: Time after Time",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 165888
-  },
-  {
-    "name": "Justice League: Corporate Maneuvers",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 156019
-  },
-  {
-    "name": "Justice League: Origin: The Deluxe Edition",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 158136
-  },
-  {
-    "name": "Justice Society of America: The Demise of Justice",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 168738
-  },
-  {
-    "name": "Kick-Ass vs Hit-Girl",
-    "publisher": "Image Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 166960
   },
   {
     "name": "Killadelphia",
@@ -9212,46 +8001,11 @@
     "series_gcd_id": 161749
   },
   {
-    "name": "King Thor",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 162451
-  },
-  {
     "name": "Last of the Independents",
     "publisher": "Image Comics",
     "year": 2020,
-    "volume_id": null,
+    "volume_id": 36979,
     "series_gcd_id": 171497
-  },
-  {
-    "name": "League of Legends: Zed",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 175641
-  },
-  {
-    "name": "Legends of Marvel: Avengers",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 176522
-  },
-  {
-    "name": "Legends of Marvel: X-Men",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 169122
-  },
-  {
-    "name": "Legends of the Dark Knight: Matt Wagner",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 161227
   },
   {
     "name": "Little Bird",
@@ -9278,7 +8032,7 @@
     "name": "Marvel 2021 Calendar",
     "publisher": "Marvel Comics",
     "year": 2020,
-    "volume_id": null,
+    "volume_id": 144820,
     "series_gcd_id": 168115
   },
   {
@@ -9324,11 +8078,11 @@
     "series_gcd_id": 157665
   },
   {
-    "name": "Oblivion Song",
+    "name": "Oliver",
     "publisher": "Image Comics",
     "year": 2020,
     "volume_id": null,
-    "series_gcd_id": 161750
+    "series_gcd_id": 162085
   },
   {
     "name": "Paul is Dead: When the Beatles Lost McCartney",
@@ -9401,13 +8155,6 @@
     "series_gcd_id": 174716
   },
   {
-    "name": "Star Wars Legends Epic Collection: Tales of the Jedi",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 168469
-  },
-  {
     "name": "Star Wars: Darth Vader by Greg Pak",
     "publisher": "Marvel Comics",
     "year": 2020,
@@ -9457,25 +8204,11 @@
     "series_gcd_id": 155769
   },
   {
-    "name": "The Battle",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 185502
-  },
-  {
     "name": "The Books of Magic 30th Anniversary Edition",
     "publisher": "DC Comics",
     "year": 2020,
     "volume_id": null,
     "series_gcd_id": 152812
-  },
-  {
-    "name": "The Books of Magic Omnibus",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 167366
   },
   {
     "name": "The Eternals by Jack Kirby Monster-Size",
@@ -9490,13 +8223,6 @@
     "year": 2020,
     "volume_id": null,
     "series_gcd_id": 167197
-  },
-  {
-    "name": "The Flash: Year One",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 166577
   },
   {
     "name": "The Island of Dr. Moreau",
@@ -9548,39 +8274,11 @@
     "series_gcd_id": 153558
   },
   {
-    "name": "True Believers: Annihilation - Super-Adaptoid",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 153725
-  },
-  {
     "name": "True Believers: Empyre - Hulkling",
     "publisher": "Marvel Comics",
     "year": 2020,
     "volume_id": null,
     "series_gcd_id": 157277
-  },
-  {
-    "name": "True Believers: The Criminally Insane - Mandarin",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 154793
-  },
-  {
-    "name": "Uncanny X-Men: X-Men Disassembled",
-    "publisher": "Marvel Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 174718
-  },
-  {
-    "name": "Undiscovered Country",
-    "publisher": "Image Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 161751
   },
   {
     "name": "Venom Epic Collection",
@@ -9618,13 +8316,6 @@
     "series_gcd_id": 159102
   },
   {
-    "name": "Wonder Woman: Her Greatest Victories",
-    "publisher": "DC Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 161692
-  },
-  {
     "name": "Wonder Woman: Spirit of Truth",
     "publisher": "DC Comics",
     "year": 2020,
@@ -9637,20 +8328,6 @@
     "year": 2020,
     "volume_id": null,
     "series_gcd_id": 174388
-  },
-  {
-    "name": "Absolute Swamp Thing by Alan Moore",
-    "publisher": "DC Comics",
-    "year": 2019,
-    "volume_id": null,
-    "series_gcd_id": 152523
-  },
-  {
-    "name": "Amazing Spider-Man: Red Goblin",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "volume_id": null,
-    "series_gcd_id": 151475
   },
   {
     "name": "Asgardians of the Galaxy",
@@ -9670,7 +8347,7 @@
     "name": "Avengers: No Road Home",
     "publisher": "Marvel Comics",
     "year": 2019,
-    "volume_id": null,
+    "volume_id": 119631,
     "series_gcd_id": 147343
   },
   {
@@ -9702,13 +8379,6 @@
     "series_gcd_id": 149579
   },
   {
-    "name": "Batman and the Outsiders",
-    "publisher": "DC Comics",
-    "year": 2019,
-    "volume_id": null,
-    "series_gcd_id": 154920
-  },
-  {
     "name": "Batman by Francis Manapul & Brian Buccellato The Deluxe Edition",
     "publisher": "DC Comics",
     "year": 2019,
@@ -9730,13 +8400,6 @@
     "series_gcd_id": 150269
   },
   {
-    "name": "Batman: Deluxe Edition",
-    "publisher": "DC Comics",
-    "year": 2019,
-    "volume_id": null,
-    "series_gcd_id": 162378
-  },
-  {
     "name": "Batman: Hush",
     "publisher": "DC Comics",
     "year": 2019,
@@ -9754,7 +8417,7 @@
     "name": "Batman: Nightwalker",
     "publisher": "DC Comics",
     "year": 2019,
-    "volume_id": null,
+    "volume_id": 151211,
     "series_gcd_id": 150505
   },
   {
@@ -9800,13 +8463,6 @@
     "series_gcd_id": 144969
   },
   {
-    "name": "Books of Magic",
-    "publisher": "DC Comics",
-    "year": 2019,
-    "volume_id": null,
-    "series_gcd_id": 148660
-  },
-  {
     "name": "Bully Wars",
     "publisher": "Image Comics",
     "year": 2019,
@@ -9819,13 +8475,6 @@
     "year": 2019,
     "volume_id": null,
     "series_gcd_id": 140762
-  },
-  {
-    "name": "Captain America by Ta-Nehisi Coates",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "volume_id": null,
-    "series_gcd_id": 165402
   },
   {
     "name": "Captain America: Winter Soldier",
@@ -9866,7 +8515,7 @@
     "name": "Daredevil by Chip Zdarsky",
     "publisher": "Marvel Comics",
     "year": 2019,
-    "volume_id": null,
+    "volume_id": 42073,
     "series_gcd_id": 156136
   },
   {
@@ -9889,13 +8538,6 @@
     "year": 2019,
     "volume_id": null,
     "series_gcd_id": 153357
-  },
-  {
-    "name": "Dead Eyes",
-    "publisher": "Image Comics",
-    "year": 2019,
-    "volume_id": null,
-    "series_gcd_id": 150754
   },
   {
     "name": "Defenders Doctor Strange",
@@ -10010,13 +8652,6 @@
     "series_gcd_id": 150944
   },
   {
-    "name": "Hey Kids! Comics!",
-    "publisher": "Image Comics",
-    "year": 2019,
-    "volume_id": null,
-    "series_gcd_id": 140368
-  },
-  {
     "name": "High Crimes",
     "publisher": "Image Comics",
     "year": 2019,
@@ -10043,13 +8678,6 @@
     "year": 2019,
     "volume_id": null,
     "series_gcd_id": 178662
-  },
-  {
-    "name": "Infinite Dark",
-    "publisher": "Image Comics",
-    "year": 2019,
-    "volume_id": null,
-    "series_gcd_id": 142339
   },
   {
     "name": "Iron Man: Extremis",
@@ -10174,7 +8802,7 @@
     "name": "Marvel Visionaries: John Romita Jr.",
     "publisher": "Marvel Comics",
     "year": 2019,
-    "volume_id": null,
+    "volume_id": 41311,
     "series_gcd_id": 177280
   },
   {
@@ -10283,13 +8911,6 @@
     "series_gcd_id": 178658
   },
   {
-    "name": "Middlewest",
-    "publisher": "Image Comics",
-    "year": 2019,
-    "volume_id": null,
-    "series_gcd_id": 145684
-  },
-  {
     "name": "Mighty Thor 3D",
     "publisher": "Marvel Comics",
     "year": 2019,
@@ -10332,6 +8953,13 @@
     "series_gcd_id": 148570
   },
   {
+    "name": "Ms. Marvel by Saladin Ahmed",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "volume_id": null,
+    "series_gcd_id": 162159
+  },
+  {
     "name": "My Heroes Have Always Been Junkies",
     "publisher": "Image Comics",
     "year": 2019,
@@ -10356,14 +8984,14 @@
     "name": "New Avengers: Breakout",
     "publisher": "Marvel Comics",
     "year": 2019,
-    "volume_id": null,
+    "volume_id": 27622,
     "series_gcd_id": 177093
   },
   {
     "name": "Nightwing by Peter J. Tomasi",
     "publisher": "DC Comics",
     "year": 2019,
-    "volume_id": null,
+    "volume_id": 166178,
     "series_gcd_id": 154645
   },
   {
@@ -10384,15 +9012,8 @@
     "name": "Paradox Girl",
     "publisher": "Image Comics",
     "year": 2019,
-    "volume_id": null,
+    "volume_id": 80065,
     "series_gcd_id": 146241
-  },
-  {
-    "name": "Pearl",
-    "publisher": "DC Comics",
-    "year": 2019,
-    "volume_id": null,
-    "series_gcd_id": 144932
   },
   {
     "name": "Prince of Cats",
@@ -10407,13 +9028,6 @@
     "year": 2019,
     "volume_id": null,
     "series_gcd_id": 149345
-  },
-  {
-    "name": "Promethea: The 20th Anniversary Deluxe Edition",
-    "publisher": "DC Comics",
-    "year": 2019,
-    "volume_id": null,
-    "series_gcd_id": 141757
   },
   {
     "name": "Punchline",
@@ -10433,7 +9047,7 @@
     "name": "Runaways by Rainbow Rowell",
     "publisher": "Marvel Comics",
     "year": 2019,
-    "volume_id": null,
+    "volume_id": 18060,
     "series_gcd_id": 181605
   },
   {
@@ -10493,13 +9107,6 @@
     "series_gcd_id": 148580
   },
   {
-    "name": "Sinestro: Year of the Villain",
-    "publisher": "DC Comics",
-    "year": 2019,
-    "volume_id": null,
-    "series_gcd_id": 149446
-  },
-  {
     "name": "Six Days: The Incredible Story of D-Day's Lost Chapter",
     "publisher": "DC Comics",
     "year": 2019,
@@ -10517,7 +9124,7 @@
     "name": "Spider-Gwen: Ghost-Spider",
     "publisher": "Marvel Comics",
     "year": 2019,
-    "volume_id": null,
+    "volume_id": 114734,
     "series_gcd_id": 145093
   },
   {
@@ -10554,13 +9161,6 @@
     "year": 2019,
     "volume_id": null,
     "series_gcd_id": 133728
-  },
-  {
-    "name": "Star Wars: Age of Republic - Anakin Skywalker",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "volume_id": null,
-    "series_gcd_id": 139729
   },
   {
     "name": "Star Wars: Age of Republic - Padmé Amidala",
@@ -10622,7 +9222,7 @@
     "name": "Superman: Year One",
     "publisher": "DC Comics",
     "year": 2019,
-    "volume_id": null,
+    "volume_id": 122621,
     "series_gcd_id": 151958
   },
   {
@@ -10654,6 +9254,13 @@
     "series_gcd_id": 143596
   },
   {
+    "name": "Teen Titans: Raven",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "volume_id": null,
+    "series_gcd_id": 148337
+  },
+  {
     "name": "The Batman Who Laughs - Barnes & Noble Exclusive Edition",
     "publisher": "DC Comics",
     "year": 2019,
@@ -10673,6 +9280,13 @@
     "year": 2019,
     "volume_id": null,
     "series_gcd_id": 151951
+  },
+  {
+    "name": "The Flash: Year One",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "volume_id": null,
+    "series_gcd_id": 152527
   },
   {
     "name": "The Flash: Year One (Barnes & Noble Exclusive Edition)",
@@ -10696,13 +9310,6 @@
     "series_gcd_id": 149592
   },
   {
-    "name": "The Kamandi Challenge",
-    "publisher": "DC Comics",
-    "year": 2019,
-    "volume_id": null,
-    "series_gcd_id": 144010
-  },
-  {
     "name": "The League of Extraordinary Gentlemen",
     "publisher": "DC Comics",
     "year": 2019,
@@ -10717,11 +9324,11 @@
     "series_gcd_id": 143611
   },
   {
-    "name": "The Man of Steel by Brian Michael Bendis",
-    "publisher": "DC Comics",
+    "name": "The Life of Captain Marvel",
+    "publisher": "Marvel Comics",
     "year": 2019,
     "volume_id": null,
-    "series_gcd_id": 148335
+    "series_gcd_id": 176817
   },
   {
     "name": "The Old Guard Chapter Two: Force Multiplied",
@@ -10734,7 +9341,7 @@
     "name": "The Sandman: The Dream Hunters 30th Anniversary Edition",
     "publisher": "DC Comics",
     "year": 2019,
-    "volume_id": null,
+    "volume_id": 121517,
     "series_gcd_id": 150374
   },
   {
@@ -10808,25 +9415,11 @@
     "series_gcd_id": 165345
   },
   {
-    "name": "True Believers: Amazing Spider-Man",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "volume_id": null,
-    "series_gcd_id": 146660
-  },
-  {
     "name": "True Believers: Avengers Forever",
     "publisher": "Marvel Comics",
     "year": 2019,
     "volume_id": null,
     "series_gcd_id": 144399
-  },
-  {
-    "name": "True Believers: Captain Marvel - Ms. Marvel",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "volume_id": null,
-    "series_gcd_id": 139724
   },
   {
     "name": "True Believers: Conan - Curse of the Golden Skull!",
@@ -10892,13 +9485,6 @@
     "series_gcd_id": 135097
   },
   {
-    "name": "True Believers: Fantastic Four - Molecule Man",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "volume_id": null,
-    "series_gcd_id": 135475
-  },
-  {
     "name": "True Believers: Fantastic Four - Puppet Master",
     "publisher": "Marvel Comics",
     "year": 2019,
@@ -10955,13 +9541,6 @@
     "series_gcd_id": 147747
   },
   {
-    "name": "True Believers: Star Wars - The Original Marvel Years",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "volume_id": null,
-    "series_gcd_id": 144401
-  },
-  {
     "name": "True Believers: What If Conan the Barbarian Walked the Earth Today?",
     "publisher": "Marvel Comics",
     "year": 2019,
@@ -10993,7 +9572,7 @@
     "name": "Ultimate Spider-Man: Power & Responsibility",
     "publisher": "Marvel Comics",
     "year": 2019,
-    "volume_id": null,
+    "volume_id": 35781,
     "series_gcd_id": 177819
   },
   {
@@ -11011,13 +9590,6 @@
     "series_gcd_id": 147849
   },
   {
-    "name": "Venom by Donny Cates",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "volume_id": null,
-    "series_gcd_id": 162472
-  },
-  {
     "name": "Villains Giant",
     "publisher": "DC Comics",
     "year": 2019,
@@ -11028,7 +9600,7 @@
     "name": "War of the Realms: The Punisher",
     "publisher": "Marvel Comics",
     "year": 2019,
-    "volume_id": null,
+    "volume_id": 121907,
     "series_gcd_id": 173793
   },
   {
@@ -11116,13 +9688,6 @@
     "series_gcd_id": 122688
   },
   {
-    "name": "Age of Bronze",
-    "publisher": "Image Comics",
-    "year": 2018,
-    "volume_id": null,
-    "series_gcd_id": 129354
-  },
-  {
     "name": "All-Star Superman",
     "publisher": "DC Comics",
     "year": 2018,
@@ -11156,6 +9721,13 @@
     "year": 2018,
     "volume_id": null,
     "series_gcd_id": 126247
+  },
+  {
+    "name": "Amazing Spider-Man: Red Goblin",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "volume_id": null,
+    "series_gcd_id": 129862
   },
   {
     "name": "Anarky: The Complete Series",
@@ -11196,7 +9768,7 @@
     "name": "Astonishing X-Men by Charles Soule",
     "publisher": "Marvel Comics",
     "year": 2018,
-    "volume_id": null,
+    "volume_id": 59353,
     "series_gcd_id": 122300
   },
   {
@@ -11224,7 +9796,7 @@
     "name": "Barrier",
     "publisher": "Image Comics",
     "year": 2018,
-    "volume_id": null,
+    "volume_id": 86428,
     "series_gcd_id": 124272
   },
   {
@@ -11235,32 +9807,11 @@
     "series_gcd_id": 141754
   },
   {
-    "name": "Batman Secret Files",
-    "publisher": "DC Comics",
-    "year": 2018,
-    "volume_id": null,
-    "series_gcd_id": 132577
-  },
-  {
     "name": "Batman the Arkham Saga Omnibus",
     "publisher": "DC Comics",
     "year": 2018,
     "volume_id": null,
     "series_gcd_id": 129221
-  },
-  {
-    "name": "Batman: Creature of the Night",
-    "publisher": "DC Comics",
-    "year": 2018,
-    "volume_id": null,
-    "series_gcd_id": 119006
-  },
-  {
-    "name": "Batman: Damned",
-    "publisher": "DC Comics",
-    "year": 2018,
-    "volume_id": null,
-    "series_gcd_id": 129789
   },
   {
     "name": "Batman: Death and the Maidens",
@@ -11308,7 +9859,7 @@
     "name": "Black Panther: Soul of a Machine",
     "publisher": "Marvel Comics",
     "year": 2018,
-    "volume_id": null,
+    "volume_id": 106261,
     "series_gcd_id": 120436
   },
   {
@@ -11401,13 +9952,6 @@
     "year": 2018,
     "volume_id": null,
     "series_gcd_id": 123619
-  },
-  {
-    "name": "Crisis on Infinite Earths Companion Deluxe Edition",
-    "publisher": "DC Comics",
-    "year": 2018,
-    "volume_id": null,
-    "series_gcd_id": 133135
   },
   {
     "name": "Crossroad Blues",
@@ -11522,13 +10066,6 @@
     "series_gcd_id": 120502
   },
   {
-    "name": "Doctor Strange by Donny Cates",
-    "publisher": "Marvel Comics",
-    "year": 2018,
-    "volume_id": null,
-    "series_gcd_id": 126064
-  },
-  {
     "name": "Doctor Strange by Mark Waid",
     "publisher": "Marvel Comics",
     "year": 2018,
@@ -11539,7 +10076,7 @@
     "name": "Doctor Strange: Damnation",
     "publisher": "Marvel Comics",
     "year": 2018,
-    "volume_id": null,
+    "volume_id": 114414,
     "series_gcd_id": 131605
   },
   {
@@ -11548,13 +10085,6 @@
     "year": 2018,
     "volume_id": null,
     "series_gcd_id": 133772
-  },
-  {
-    "name": "Elsewhere",
-    "publisher": "Image Comics",
-    "year": 2018,
-    "volume_id": null,
-    "series_gcd_id": 119935
   },
   {
     "name": "Evolution",
@@ -11634,32 +10164,11 @@
     "series_gcd_id": 123841
   },
   {
-    "name": "House of Mystery: The Bronze Age Omnibus",
-    "publisher": "DC Comics",
-    "year": 2018,
-    "volume_id": null,
-    "series_gcd_id": 136762
-  },
-  {
     "name": "Hunt for Wolverine: The Claws of a Killer",
     "publisher": "Marvel Comics",
     "year": 2018,
     "volume_id": null,
     "series_gcd_id": 124438
-  },
-  {
-    "name": "Infinity Wars: Sleepwalker",
-    "publisher": "Marvel Comics",
-    "year": 2018,
-    "volume_id": null,
-    "series_gcd_id": 130907
-  },
-  {
-    "name": "Inhumans vs. X-Men",
-    "publisher": "Marvel Comics",
-    "year": 2018,
-    "volume_id": null,
-    "series_gcd_id": 120509
   },
   {
     "name": "Injection",
@@ -11690,13 +10199,6 @@
     "series_gcd_id": 119009
   },
   {
-    "name": "Justice League of America: Power and Glory",
-    "publisher": "DC Comics",
-    "year": 2018,
-    "volume_id": null,
-    "series_gcd_id": 122691
-  },
-  {
     "name": "Justice League Task Force",
     "publisher": "DC Comics",
     "year": 2018,
@@ -11718,13 +10220,6 @@
     "series_gcd_id": 135961
   },
   {
-    "name": "Kick-Ass: The Dave Lizewski Years",
-    "publisher": "Image Comics",
-    "year": 2018,
-    "volume_id": null,
-    "series_gcd_id": 121870
-  },
-  {
     "name": "Legion",
     "publisher": "DC Comics",
     "year": 2018,
@@ -11744,13 +10239,6 @@
     "year": 2018,
     "volume_id": null,
     "series_gcd_id": 128107
-  },
-  {
-    "name": "Lockjaw",
-    "publisher": "Marvel Comics",
-    "year": 2018,
-    "volume_id": null,
-    "series_gcd_id": 122577
   },
   {
     "name": "Mage, Book Three: The Hero Denied",
@@ -11777,7 +10265,7 @@
     "name": "Marvel Knights 20th",
     "publisher": "Marvel Comics",
     "year": 2018,
-    "volume_id": null,
+    "volume_id": 141127,
     "series_gcd_id": 133140
   },
   {
@@ -11858,20 +10346,6 @@
     "series_gcd_id": 122813
   },
   {
-    "name": "Medieval Spawn & Witchblade",
-    "publisher": "Image Comics",
-    "year": 2018,
-    "volume_id": null,
-    "series_gcd_id": 124274
-  },
-  {
-    "name": "Moon Knight by Brian Michael Bendis & Alex Maleev",
-    "publisher": "Marvel Comics",
-    "year": 2018,
-    "volume_id": null,
-    "series_gcd_id": 122696
-  },
-  {
     "name": "Moon Knight: Legacy",
     "publisher": "Marvel Comics",
     "year": 2018,
@@ -11903,7 +10377,7 @@
     "name": "New Mutants: Dead Souls",
     "publisher": "Marvel Comics",
     "year": 2018,
-    "volume_id": null,
+    "volume_id": 114256,
     "series_gcd_id": 131154
   },
   {
@@ -11912,20 +10386,6 @@
     "year": 2018,
     "volume_id": null,
     "series_gcd_id": 120506
-  },
-  {
-    "name": "Nightwing Annual",
-    "publisher": "DC Comics",
-    "year": 2018,
-    "volume_id": null,
-    "series_gcd_id": 128412
-  },
-  {
-    "name": "Peter Parker: Spectacular Spider-Man Annual",
-    "publisher": "Marvel Comics",
-    "year": 2018,
-    "volume_id": null,
-    "series_gcd_id": 126072
   },
   {
     "name": "Powers",
@@ -11980,7 +10440,7 @@
     "name": "Scales and Scoundrels",
     "publisher": "Image Comics",
     "year": 2018,
-    "volume_id": null,
+    "volume_id": 104077,
     "series_gcd_id": 121174
   },
   {
@@ -12003,13 +10463,6 @@
     "year": 2018,
     "volume_id": null,
     "series_gcd_id": 133192
-  },
-  {
-    "name": "Spider-Force",
-    "publisher": "Marvel Comics",
-    "year": 2018,
-    "volume_id": null,
-    "series_gcd_id": 132588
   },
   {
     "name": "Spy Seal",
@@ -12036,7 +10489,7 @@
     "name": "Star Wars: Lando - Double or Nothing",
     "publisher": "Marvel Comics",
     "year": 2018,
-    "volume_id": null,
+    "volume_id": 115083,
     "series_gcd_id": 133134
   },
   {
@@ -12045,13 +10498,6 @@
     "year": 2018,
     "volume_id": null,
     "series_gcd_id": 126776
-  },
-  {
-    "name": "Stray Bullets: Sunshine & Roses",
-    "publisher": "Image Comics",
-    "year": 2018,
-    "volume_id": null,
-    "series_gcd_id": 124030
   },
   {
     "name": "Street Angel: After School Kung Fu Special, Image Firsts",
@@ -12157,6 +10603,13 @@
     "year": 2018,
     "volume_id": null,
     "series_gcd_id": 142702
+  },
+  {
+    "name": "The Man of Steel by Brian Michael Bendis",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "volume_id": null,
+    "series_gcd_id": 132582
   },
   {
     "name": "The New Teen Titans: Custom Variant",
@@ -12554,7 +11007,7 @@
     "name": "What If? Classic: The Complete Collection",
     "publisher": "Marvel Comics",
     "year": 2018,
-    "volume_id": null,
+    "volume_id": 116519,
     "series_gcd_id": 137832
   },
   {
@@ -12617,7 +11070,7 @@
     "name": "X-Men: Grand Design",
     "publisher": "Marvel Comics",
     "year": 2018,
-    "volume_id": null,
+    "volume_id": 109533,
     "series_gcd_id": 123366
   },
   {
@@ -12677,13 +11130,6 @@
     "series_gcd_id": 109548
   },
   {
-    "name": "Amazing Spider-Man: Worldwide",
-    "publisher": "Marvel Comics",
-    "year": 2017,
-    "volume_id": null,
-    "series_gcd_id": 111063
-  },
-  {
     "name": "Animal Man: Loot Crate Edition",
     "publisher": "DC Comics",
     "year": 2017,
@@ -12729,7 +11175,7 @@
     "name": "Batgirl and the Birds of Prey",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 100560,
     "series_gcd_id": 113189
   },
   {
@@ -12827,7 +11273,7 @@
     "name": "Batman: Rebirth Deluxe Edition",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 103802,
     "series_gcd_id": 116109
   },
   {
@@ -12876,7 +11322,7 @@
     "name": "Blue Beetle",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 101382,
     "series_gcd_id": 114006
   },
   {
@@ -12899,13 +11345,6 @@
     "year": 2017,
     "volume_id": null,
     "series_gcd_id": 118626
-  },
-  {
-    "name": "Cannibal",
-    "publisher": "Image Comics",
-    "year": 2017,
-    "volume_id": null,
-    "series_gcd_id": 113804
   },
   {
     "name": "Centipede",
@@ -13030,7 +11469,7 @@
     "name": "Doctor Strange",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 106673,
     "series_gcd_id": 119031
   },
   {
@@ -13268,7 +11707,7 @@
     "name": "Jack of Fables: The Deluxe Edition",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 99837,
     "series_gcd_id": 112646
   },
   {
@@ -13284,6 +11723,13 @@
     "year": 2017,
     "volume_id": null,
     "series_gcd_id": 116563
+  },
+  {
+    "name": "Justice League of America: Power and Glory",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "volume_id": null,
+    "series_gcd_id": 112648
   },
   {
     "name": "Justice League of America: The Nail The Complete Deluxe Edition",
@@ -13373,7 +11819,7 @@
     "name": "Marvel's Thor: Ragnarok Prelude",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 104801,
     "series_gcd_id": 117224
   },
   {
@@ -13387,7 +11833,7 @@
     "name": "Max Ride: Final Flight",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 99445,
     "series_gcd_id": 112584
   },
   {
@@ -13401,21 +11847,21 @@
     "name": "Midnighter and Apollo",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 102918,
     "series_gcd_id": 115504
   },
   {
     "name": "Midnighter: The Complete Wildstorm Series",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 102766,
     "series_gcd_id": 115392
   },
   {
     "name": "Mighty Avengers by Brian Michael Bendis: The Complete Collection",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 100585,
     "series_gcd_id": 113190
   },
   {
@@ -13443,7 +11889,7 @@
     "name": "Mister Miracle by Jack Kirby",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 104491,
     "series_gcd_id": 116783
   },
   {
@@ -13475,13 +11921,6 @@
     "series_gcd_id": 113660
   },
   {
-    "name": "Motor Crush",
-    "publisher": "Image Comics",
-    "year": 2017,
-    "volume_id": null,
-    "series_gcd_id": 125409
-  },
-  {
     "name": "Mr. Punch: The 20th Anniversary Edition",
     "publisher": "DC Comics",
     "year": 2017,
@@ -13492,7 +11931,7 @@
     "name": "Muppet Babies Omnibus",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 104803,
     "series_gcd_id": 117225
   },
   {
@@ -13555,7 +11994,7 @@
     "name": "Nova: Resurrection",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 103104,
     "series_gcd_id": 115611
   },
   {
@@ -13590,7 +12029,7 @@
     "name": "Planetary",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 102831,
     "series_gcd_id": 115389
   },
   {
@@ -13611,14 +12050,14 @@
     "name": "Prowler: The Clone Conspiracy",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 102475,
     "series_gcd_id": 115145
   },
   {
     "name": "Punisher & Bullseye: Deadliest Hits",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 99049,
     "series_gcd_id": 112295
   },
   {
@@ -13667,7 +12106,7 @@
     "name": "Raven",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 101406,
     "series_gcd_id": 114008
   },
   {
@@ -13737,7 +12176,7 @@
     "name": "Rocket: The Blue River Score",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 106904,
     "series_gcd_id": 119224
   },
   {
@@ -13772,7 +12211,7 @@
     "name": "S.H.I.E.L.D.: Hydra Reborn",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 103408,
     "series_gcd_id": 115642
   },
   {
@@ -13814,7 +12253,7 @@
     "name": "Scooby Apocalypse",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 98534,
     "series_gcd_id": 111818
   },
   {
@@ -13884,7 +12323,7 @@
     "name": "Sif: Journey into Mystery - The Complete Collection",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 103478,
     "series_gcd_id": 115741
   },
   {
@@ -13940,7 +12379,7 @@
     "name": "Solo: The One-Man War on Terror",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 101789,
     "series_gcd_id": 114416
   },
   {
@@ -13954,7 +12393,7 @@
     "name": "Spider-Gwen",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 98567,
     "series_gcd_id": 111822
   },
   {
@@ -14003,7 +12442,7 @@
     "name": "Spider-Man: Friendly Neighborhood Spider-Man by Peter David - The Complete Collection",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 100843,
     "series_gcd_id": 113550
   },
   {
@@ -14045,7 +12484,7 @@
     "name": "Spider-Man's Tangled Web Omnibus",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 102168,
     "series_gcd_id": 114846
   },
   {
@@ -14108,7 +12547,7 @@
     "name": "Star Wars: Han Solo",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 97768,
     "series_gcd_id": 111067
   },
   {
@@ -14136,7 +12575,7 @@
     "name": "Star Wars: The Marvel UK Collection Omnibus",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 104083,
     "series_gcd_id": 116567
   },
   {
@@ -14150,7 +12589,7 @@
     "name": "Star-Lord: Grounded",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 102279,
     "series_gcd_id": 115050
   },
   {
@@ -14185,7 +12624,7 @@
     "name": "Sugar & Spike: Metahuman Investigations",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 95609,
     "series_gcd_id": 109015
   },
   {
@@ -14199,14 +12638,14 @@
     "name": "Suicide Squad Most Wanted: El Diablo",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 100845,
     "series_gcd_id": 113543
   },
   {
     "name": "Suicide Squad: Secret Files",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 100706,
     "series_gcd_id": 113416
   },
   {
@@ -14283,7 +12722,7 @@
     "name": "Superman: Rebirth Deluxe Edition",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 104641,
     "series_gcd_id": 116982
   },
   {
@@ -14311,7 +12750,7 @@
     "name": "Swamp Thing: The Bronze Age Omnibus",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 104822,
     "series_gcd_id": 117221
   },
   {
@@ -14325,14 +12764,14 @@
     "name": "Teen Titans Go!: Ready for Action",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 101416,
     "series_gcd_id": 114016
   },
   {
     "name": "Teen Titans: The Bronze Age Omnibus",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 102137,
     "series_gcd_id": 114837
   },
   {
@@ -14388,7 +12827,7 @@
     "name": "The Complete Suiciders: The Big Shake",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 95816,
     "series_gcd_id": 109544
   },
   {
@@ -14409,7 +12848,7 @@
     "name": "The Demon by Jack Kirby",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 104934,
     "series_gcd_id": 117386
   },
   {
@@ -14479,7 +12918,7 @@
     "name": "The Ghost Fleet: The Whole Goddamned Thing",
     "publisher": "Image Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 106505,
     "series_gcd_id": 119033
   },
   {
@@ -14514,14 +12953,14 @@
     "name": "The Legend of Wonder Woman: Origins",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 96294,
     "series_gcd_id": 118656
   },
   {
     "name": "The Lost Boys",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 103394,
     "series_gcd_id": 115809
   },
   {
@@ -14598,7 +13037,7 @@
     "name": "The Walking Dead: Here's Negan",
     "publisher": "Image Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 104831,
     "series_gcd_id": 117261
   },
   {
@@ -14689,7 +13128,7 @@
     "name": "Tomb of Dracula: The Complete Collection",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 104828,
     "series_gcd_id": 117229
   },
   {
@@ -14850,7 +13289,7 @@
     "name": "Unworthy Thor",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 101641,
     "series_gcd_id": 114318
   },
   {
@@ -14899,7 +13338,7 @@
     "name": "Wacky Raceland",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 99502,
     "series_gcd_id": 112601
   },
   {
@@ -14955,7 +13394,7 @@
     "name": "Werewolf by Night: The Complete Collection",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 104835,
     "series_gcd_id": 117230
   },
   {
@@ -14969,7 +13408,7 @@
     "name": "Wolverine by Daniel Way: The Complete Collection",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 98110,
     "series_gcd_id": 116042
   },
   {
@@ -15011,7 +13450,7 @@
     "name": "Wolverine: Weapon X Unbound",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 97928,
     "series_gcd_id": 111246
   },
   {
@@ -15060,14 +13499,14 @@
     "name": "Wonder Woman: Her Greatest Battles",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 98772,
     "series_gcd_id": 111976
   },
   {
     "name": "Wonder Woman: Rebirth Deluxe Edition",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 104837,
     "series_gcd_id": 117222
   },
   {
@@ -15116,7 +13555,7 @@
     "name": "X-Men Classic Omnibus",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 106707,
     "series_gcd_id": 119035
   },
   {
@@ -15130,7 +13569,7 @@
     "name": "X-Men Legacy: Legion Omnibus",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 100622,
     "series_gcd_id": 113198
   },
   {
@@ -15151,21 +13590,21 @@
     "name": "Young Avengers by Allan Heinberg & Jim Cheung: The Children's Crusade",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 101801,
     "series_gcd_id": 114417
   },
   {
     "name": "Young Justice",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 101007,
     "series_gcd_id": 113652
   },
   {
     "name": "Zatanna by Paul Dini",
     "publisher": "DC Comics",
     "year": 2017,
-    "volume_id": null,
+    "volume_id": 99274,
     "series_gcd_id": 112446
   },
   {
@@ -15193,7 +13632,7 @@
     "name": "52",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 91270,
     "series_gcd_id": 102999
   },
   {
@@ -15228,7 +13667,7 @@
     "name": "Absolute Preacher",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 92296,
     "series_gcd_id": 103888
   },
   {
@@ -15277,7 +13716,7 @@
     "name": "All-Star Section Eight",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 91272,
     "series_gcd_id": 103263
   },
   {
@@ -15291,7 +13730,7 @@
     "name": "Amadeus Cho: Genius at Work",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 89344,
     "series_gcd_id": 99293
   },
   {
@@ -15305,14 +13744,14 @@
     "name": "Amazing Spider-Man: Amazing Grace",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 93365,
     "series_gcd_id": 105638
   },
   {
     "name": "Amazing Spider-Man: Worldwide",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 89345,
     "series_gcd_id": 99294
   },
   {
@@ -15347,7 +13786,7 @@
     "name": "Aquaman: To Serve and Protect",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 92167,
     "series_gcd_id": 118308
   },
   {
@@ -15368,7 +13807,7 @@
     "name": "Armor Wars: Warzones!",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 87596,
     "series_gcd_id": 96093
   },
   {
@@ -15445,14 +13884,14 @@
     "name": "Avengers: The Death of Mockingbird",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 87597,
     "series_gcd_id": 96094
   },
   {
     "name": "Avengers: Time Runs Out",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 92013,
     "series_gcd_id": 103896
   },
   {
@@ -15473,7 +13912,7 @@
     "name": "Bat-Mite",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 88192,
     "series_gcd_id": 97259
   },
   {
@@ -15482,13 +13921,6 @@
     "year": 2016,
     "volume_id": null,
     "series_gcd_id": 104513
-  },
-  {
-    "name": "Batman",
-    "publisher": "DC Comics",
-    "year": 2016,
-    "volume_id": null,
-    "series_gcd_id": 103016
   },
   {
     "name": "Batman '66 Meets Steed and Mrs. Peel",
@@ -15540,13 +13972,6 @@
     "series_gcd_id": 96681
   },
   {
-    "name": "Batman by Neal Adams Omnibus",
-    "publisher": "DC Comics",
-    "year": 2016,
-    "volume_id": null,
-    "series_gcd_id": 98248
-  },
-  {
     "name": "Batman by Scott Snyder and Greg Capullo Box Set",
     "publisher": "DC Comics",
     "year": 2016,
@@ -15564,7 +13989,7 @@
     "name": "Batman Noir: The Killing Joke",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 92730,
     "series_gcd_id": 104708
   },
   {
@@ -15613,7 +14038,7 @@
     "name": "Batman: Shadow of the Bat",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 91085,
     "series_gcd_id": 102926
   },
   {
@@ -15641,7 +14066,7 @@
     "name": "Bizarro",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 87790,
     "series_gcd_id": 96683
   },
   {
@@ -15655,7 +14080,7 @@
     "name": "Black Knight: The Fall of Dane Whitman",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 91088,
     "series_gcd_id": 102933
   },
   {
@@ -15704,7 +14129,7 @@
     "name": "Blade: Undead by Daylight",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 85741,
     "series_gcd_id": 93584
   },
   {
@@ -15781,7 +14206,7 @@
     "name": "Captain Britain: Legacy of a Legend",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 95813,
     "series_gcd_id": 109550
   },
   {
@@ -15816,7 +14241,7 @@
     "name": "Champions: No Time for Losers",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 95208,
     "series_gcd_id": 104757
   },
   {
@@ -15879,7 +14304,7 @@
     "name": "Civil War: Warzones!",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 88197,
     "series_gcd_id": 97279
   },
   {
@@ -15949,7 +14374,7 @@
     "name": "Daredevil: Back in Black",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 90404,
     "series_gcd_id": 101154
   },
   {
@@ -15970,7 +14395,7 @@
     "name": "Dark Knight Returns: The Last Crusade - The Deluxe Edition",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 96653,
     "series_gcd_id": 110396
   },
   {
@@ -16075,7 +14500,7 @@
     "name": "Deadpool by Posehn & Duggan Omnibus",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 96374,
     "series_gcd_id": 110040
   },
   {
@@ -16096,7 +14521,7 @@
     "name": "Deadpool v Gambit: The \"V\" Is for \"Vs.\"",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 95588,
     "series_gcd_id": 109025
   },
   {
@@ -16138,7 +14563,7 @@
     "name": "Deadpool's Secret Secret Wars",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 87161,
     "series_gcd_id": 95473
   },
   {
@@ -16152,7 +14577,7 @@
     "name": "Death of Wolverine",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 154647,
     "series_gcd_id": 95597
   },
   {
@@ -16208,7 +14633,7 @@
     "name": "Doctor Strange and the Secret Defenders",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 93981,
     "series_gcd_id": 106161
   },
   {
@@ -16257,21 +14682,21 @@
     "name": "Doomed",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 88201,
     "series_gcd_id": 97269
   },
   {
     "name": "Drax: Guardian of the Galaxy",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 93657,
     "series_gcd_id": 105773
   },
   {
     "name": "E Is for Extinction: Warzones!",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 88204,
     "series_gcd_id": 97280
   },
   {
@@ -16320,7 +14745,7 @@
     "name": "Figment 2: Legacy of Imagination",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 89261,
     "series_gcd_id": 199091
   },
   {
@@ -16334,14 +14759,14 @@
     "name": "Flash by Grant Morrison and Mark Millar",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 89780,
     "series_gcd_id": 100285
   },
   {
     "name": "Flash by Mark Waid",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 96287,
     "series_gcd_id": 110044
   },
   {
@@ -16425,7 +14850,7 @@
     "name": "Gotham Central Omnibus",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 90198,
     "series_gcd_id": 100912
   },
   {
@@ -16474,7 +14899,7 @@
     "name": "Green Lantern: The Silver Age",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 94630,
     "series_gcd_id": 107871
   },
   {
@@ -16488,7 +14913,7 @@
     "name": "Groot",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 87616,
     "series_gcd_id": 96086
   },
   {
@@ -16509,28 +14934,28 @@
     "name": "Guardians of the Galaxy by Abnett & Lanning Omnibus",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 90199,
     "series_gcd_id": 100915
   },
   {
     "name": "Guardians of the Galaxy Classic: In the Year 3000",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 92555,
     "series_gcd_id": 104530
   },
   {
     "name": "Guardians of the Galaxy: Guardians of Infinity",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 92960,
     "series_gcd_id": 189640
   },
   {
     "name": "Guardians of the Galaxy: Tales of the Cosmos",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 93024,
     "series_gcd_id": 105117
   },
   {
@@ -16551,7 +14976,7 @@
     "name": "Habitat",
     "publisher": "Image Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 95224,
     "series_gcd_id": 109169
   },
   {
@@ -16593,7 +15018,7 @@
     "name": "Harley Quinn and Power Girl",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 88564,
     "series_gcd_id": 97962
   },
   {
@@ -16635,7 +15060,7 @@
     "name": "Hercules: Still Going Strong",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 91101,
     "series_gcd_id": 102937
   },
   {
@@ -16663,14 +15088,14 @@
     "name": "House of M: Warzones!",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 87321,
     "series_gcd_id": 111312
   },
   {
     "name": "Howling Commandos of S.H.I.E.L.D.: Monster Squad",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 90708,
     "series_gcd_id": 102660
   },
   {
@@ -16691,14 +15116,14 @@
     "name": "Hyperion: Daddy Issues",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 95225,
     "series_gcd_id": 108554
   },
   {
     "name": "I Hate Fairyland",
     "publisher": "Image Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 156925,
     "series_gcd_id": 110995
   },
   {
@@ -16733,14 +15158,14 @@
     "name": "Inhuman",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 88565,
     "series_gcd_id": 97995
   },
   {
     "name": "Inhumans: Attilan Rising",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 87619,
     "series_gcd_id": 96090
   },
   {
@@ -16796,7 +15221,7 @@
     "name": "Justice League of America: The Silver Age",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 87953,
     "series_gcd_id": 97157
   },
   {
@@ -16831,7 +15256,7 @@
     "name": "Kingdom Come: The 20th Anniversary Deluxe Edition",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 90416,
     "series_gcd_id": 101150
   },
   {
@@ -16894,7 +15319,7 @@
     "name": "Machine Man by Kirby & Ditko: The Complete Collection",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 92563,
     "series_gcd_id": 104531
   },
   {
@@ -16936,7 +15361,7 @@
     "name": "Marvel Super Hero Spectacular",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 93983,
     "series_gcd_id": 106162
   },
   {
@@ -16985,7 +15410,7 @@
     "name": "Marvel Universe Guardians of the Galaxy",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 89302,
     "series_gcd_id": 98746
   },
   {
@@ -17062,14 +15487,14 @@
     "name": "Metal Men: Full Metal Jacket",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 97061,
     "series_gcd_id": 110616
   },
   {
     "name": "Metamorpho: Two Worlds, One Destiny",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 97424,
     "series_gcd_id": 110853
   },
   {
@@ -17146,7 +15571,7 @@
     "name": "Nighthawk: Hate Makes Hate",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 97427,
     "series_gcd_id": 110859
   },
   {
@@ -17167,7 +15592,7 @@
     "name": "NYX: The Complete Collection",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 91764,
     "series_gcd_id": 103475
   },
   {
@@ -17195,7 +15620,7 @@
     "name": "Outcast by Kirkman & Azaceta",
     "publisher": "Image Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 95432,
     "series_gcd_id": 119040
   },
   {
@@ -17286,7 +15711,7 @@
     "name": "Punisher Max: The Complete Collection",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 87448,
     "series_gcd_id": 95740
   },
   {
@@ -17409,13 +15834,6 @@
     "series_gcd_id": 104140
   },
   {
-    "name": "Secret Six",
-    "publisher": "DC Comics",
-    "year": 2016,
-    "volume_id": null,
-    "series_gcd_id": 97158
-  },
-  {
     "name": "Secret Wars Journal / Battleworld",
     "publisher": "Marvel Comics",
     "year": 2016,
@@ -17447,7 +15865,7 @@
     "name": "Sensational She-Hulk by John Byrne: The Return",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 96159,
     "series_gcd_id": 109705
   },
   {
@@ -17475,7 +15893,7 @@
     "name": "Siege: Battleworld",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 88405,
     "series_gcd_id": 97648
   },
   {
@@ -17503,7 +15921,7 @@
     "name": "Son of Satan Classic",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 95033,
     "series_gcd_id": 108371
   },
   {
@@ -17531,7 +15949,7 @@
     "name": "Spider-Man by Todd McFarlane Omnibus",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 92772,
     "series_gcd_id": 175859
   },
   {
@@ -17573,7 +15991,7 @@
     "name": "Spidey: All-New Marvel Treasury Edition",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 91296,
     "series_gcd_id": 103028
   },
   {
@@ -17608,7 +16026,7 @@
     "name": "Star Wars Legends Epic Collection: Legacy",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 94451,
     "series_gcd_id": 108923
   },
   {
@@ -17622,7 +16040,7 @@
     "name": "Star Wars Legends Epic Collection: The Original Marvel Years",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 95240,
     "series_gcd_id": 109187
   },
   {
@@ -17643,15 +16061,8 @@
     "name": "Star Wars: Chewbacca",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 88406,
     "series_gcd_id": 97679
-  },
-  {
-    "name": "Star Wars: Darth Vader",
-    "publisher": "Marvel Comics",
-    "year": 2016,
-    "volume_id": null,
-    "series_gcd_id": 103901
   },
   {
     "name": "Star Wars: Droids and Ewoks Omnibus",
@@ -17706,21 +16117,21 @@
     "name": "Star Wars: Kanan Omnibus",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 96377,
     "series_gcd_id": 110058
   },
   {
     "name": "Star Wars: Lando",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 87450,
     "series_gcd_id": 95744
   },
   {
     "name": "Star Wars: Obi-Wan and Anakin",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 92390,
     "series_gcd_id": 104354
   },
   {
@@ -17762,7 +16173,7 @@
     "name": "Suicide Squad Most Wanted: Deadshot",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 92774,
     "series_gcd_id": 104712
   },
   {
@@ -17783,7 +16194,7 @@
     "name": "Suicide Squad Most Wanted: Katana",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 94143,
     "series_gcd_id": 106339
   },
   {
@@ -17818,7 +16229,7 @@
     "name": "Superior Foes of Spider-Man Omnibus",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 87822,
     "series_gcd_id": 96680
   },
   {
@@ -17853,7 +16264,7 @@
     "name": "Superman: Lois and Clark",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 93684,
     "series_gcd_id": 105767
   },
   {
@@ -17902,14 +16313,14 @@
     "name": "Survivors' Club",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 94295,
     "series_gcd_id": 106563
   },
   {
     "name": "Swamp Thing: The Dead Don't Sleep",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 94667,
     "series_gcd_id": 107875
   },
   {
@@ -17918,13 +16329,6 @@
     "year": 2016,
     "volume_id": null,
     "series_gcd_id": 116555
-  },
-  {
-    "name": "Symmetry",
-    "publisher": "Image Comics",
-    "year": 2016,
-    "volume_id": null,
-    "series_gcd_id": 186723
   },
   {
     "name": "Tales of the Batman: Alan Brennert",
@@ -17937,21 +16341,21 @@
     "name": "Teen Titans Go!: Bring It On",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 95037,
     "series_gcd_id": 114732
   },
   {
     "name": "Teen Titans Go!: Heroes on Patrol",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 90730,
     "series_gcd_id": 110823
   },
   {
     "name": "Teen Titans: The Silver Age Omnibus",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 95440,
     "series_gcd_id": 108744
   },
   {
@@ -17965,7 +16369,7 @@
     "name": "Telos",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 93685,
     "series_gcd_id": 105768
   },
   {
@@ -17993,7 +16397,7 @@
     "name": "The Dark & Bloody",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 94414,
     "series_gcd_id": 106863
   },
   {
@@ -18014,7 +16418,7 @@
     "name": "The DC Universe by Neil Gaiman Deluxe Edition",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 94795,
     "series_gcd_id": 108185
   },
   {
@@ -18042,7 +16446,7 @@
     "name": "The Flash: The Silver Age",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 91282,
     "series_gcd_id": 103022
   },
   {
@@ -18091,7 +16495,7 @@
     "name": "The Omega Men: The End Is Here",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 93391,
     "series_gcd_id": 105636
   },
   {
@@ -18119,14 +16523,14 @@
     "name": "The Twilight Children",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 90432,
     "series_gcd_id": 101151
   },
   {
     "name": "The Unbeatable Squirrel Girl",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 95443,
     "series_gcd_id": 108755
   },
   {
@@ -18203,7 +16607,7 @@
     "name": "Titans Hunt",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 94144,
     "series_gcd_id": 106333
   },
   {
@@ -18259,7 +16663,7 @@
     "name": "Ultimate End",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 87189,
     "series_gcd_id": 95479
   },
   {
@@ -18329,7 +16733,7 @@
     "name": "Venom: Separation Anxiety",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 97084,
     "series_gcd_id": 196335
   },
   {
@@ -18350,22 +16754,15 @@
     "name": "War of Kings Omnibus",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 95476,
     "series_gcd_id": 108757
   },
   {
     "name": "Watchmen Noir",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 95846,
     "series_gcd_id": 109547
-  },
-  {
-    "name": "We Are Robin",
-    "publisher": "DC Comics",
-    "year": 2016,
-    "volume_id": null,
-    "series_gcd_id": 98742
   },
   {
     "name": "We Stand on Guard Deluxe Hardcover",
@@ -18420,21 +16817,21 @@
     "name": "Wonder Woman by George Pérez",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 93210,
     "series_gcd_id": 105499
   },
   {
     "name": "Wonder Woman by Greg Rucka",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 92217,
     "series_gcd_id": 104139
   },
   {
     "name": "Wonder Woman by Mike Deodato",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 90438,
     "series_gcd_id": 101152
   },
   {
@@ -18462,7 +16859,7 @@
     "name": "Wonder Woman: War of the Gods",
     "publisher": "DC Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 89180,
     "series_gcd_id": 98628
   },
   {
@@ -18588,7 +16985,7 @@
     "name": "X-Tinction Agenda: Warzones!",
     "publisher": "Marvel Comics",
     "year": 2016,
-    "volume_id": null,
+    "volume_id": 88225,
     "series_gcd_id": 97284
   },
   {
@@ -18651,7 +17048,7 @@
     "name": "Absolute Batman: The Court of Owls",
     "publisher": "DC Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 86918,
     "series_gcd_id": 94611
   },
   {
@@ -18700,7 +17097,7 @@
     "name": "Amazing Spider-Man: Edge of Spider-Verse",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 81654,
     "series_gcd_id": 88754
   },
   {
@@ -18714,7 +17111,7 @@
     "name": "America vs. the Justice Society",
     "publisher": "DC Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 83434,
     "series_gcd_id": 90882
   },
   {
@@ -18735,7 +17132,7 @@
     "name": "Annihilation: Conquest Omnibus",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 82667,
     "series_gcd_id": 90302
   },
   {
@@ -18770,14 +17167,14 @@
     "name": "Aquaman: Sub Diego",
     "publisher": "DC Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 83120,
     "series_gcd_id": 90556
   },
   {
     "name": "Arkham Manor",
     "publisher": "DC Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 83437,
     "series_gcd_id": 90890
   },
   {
@@ -18826,7 +17223,7 @@
     "name": "Avengers & X-Men: Axis",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 80350,
     "series_gcd_id": 166961
   },
   {
@@ -18854,7 +17251,7 @@
     "name": "Avengers: Quicksilver",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 80648,
     "series_gcd_id": 87144
   },
   {
@@ -18889,7 +17286,7 @@
     "name": "Avengers: Ultron Unbound",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 81230,
     "series_gcd_id": 88192
   },
   {
@@ -18903,7 +17300,7 @@
     "name": "Axis: Carnage & Hobgoblin",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 80157,
     "series_gcd_id": 206753
   },
   {
@@ -18956,13 +17353,6 @@
     "series_gcd_id": 93555
   },
   {
-    "name": "Batman Noir: Hush",
-    "publisher": "DC Comics",
-    "year": 2015,
-    "volume_id": 84571,
-    "series_gcd_id": 92481
-  },
-  {
     "name": "Batman Noir: The Dark Knight Returns",
     "publisher": "DC Comics",
     "year": 2015,
@@ -19008,7 +17398,7 @@
     "name": "Batman: Blink",
     "publisher": "DC Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 80112,
     "series_gcd_id": 110693
   },
   {
@@ -19029,7 +17419,7 @@
     "name": "Batman: Gothic Deluxe Edition",
     "publisher": "DC Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 83438,
     "series_gcd_id": 133248
   },
   {
@@ -19057,7 +17447,7 @@
     "name": "Batman: The Doom That Came to Gotham",
     "publisher": "DC Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 88265,
     "series_gcd_id": 94816
   },
   {
@@ -19078,14 +17468,14 @@
     "name": "Beware the Batman",
     "publisher": "DC Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 79554,
     "series_gcd_id": 110685
   },
   {
     "name": "Birds of Prey",
     "publisher": "DC Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 85740,
     "series_gcd_id": 93560
   },
   {
@@ -19120,14 +17510,14 @@
     "name": "Black Panther by Christopher Priest: The Complete Collection",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 83801,
     "series_gcd_id": 86787
   },
   {
     "name": "Bodies",
     "publisher": "DC Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 82485,
     "series_gcd_id": 89989
   },
   {
@@ -19183,7 +17573,7 @@
     "name": "Civil War Prelude: New Warriors",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 80158,
     "series_gcd_id": 189669
   },
   {
@@ -19218,7 +17608,7 @@
     "name": "Copperhead",
     "publisher": "Image Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 85749,
     "series_gcd_id": 87382
   },
   {
@@ -19246,7 +17636,7 @@
     "name": "Damage Control: The Complete Collection",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 85280,
     "series_gcd_id": 86785
   },
   {
@@ -19260,7 +17650,7 @@
     "name": "Daredevil: Typhoid's Kiss",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 83808,
     "series_gcd_id": 91579
   },
   {
@@ -19288,7 +17678,7 @@
     "name": "Dark Tower: The Drawing of the Three - The Prisoner",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 80355,
     "series_gcd_id": 139310
   },
   {
@@ -19330,49 +17720,42 @@
     "name": "Deadpool vs. Thanos",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 86311,
     "series_gcd_id": 94620
   },
   {
     "name": "Deadpool: The Ones with Deadpool",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 79775,
     "series_gcd_id": 207018
   },
   {
     "name": "Deadpool's Art of War",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 80806,
     "series_gcd_id": 206478
-  },
-  {
-    "name": "Deadpool's Secret Secret Wars",
-    "publisher": "Marvel Comics",
-    "year": 2015,
-    "volume_id": null,
-    "series_gcd_id": 89419
   },
   {
     "name": "Deadshot: Bulletproof",
     "publisher": "DC Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 81401,
     "series_gcd_id": 88367
   },
   {
     "name": "Death of Wolverine",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 79321,
     "series_gcd_id": 207019
   },
   {
     "name": "Death of Wolverine: The Logan Legacy",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 80356,
     "series_gcd_id": 151368
   },
   {
@@ -19393,14 +17776,14 @@
     "name": "Deathlok: Rage against the Machine",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 80034,
     "series_gcd_id": 206755
   },
   {
     "name": "Deathlok: The Souls of Cyber-Folk",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 79470,
     "series_gcd_id": 86025
   },
   {
@@ -19421,7 +17804,7 @@
     "name": "Dial H: The Deluxe Edition",
     "publisher": "DC Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 81821,
     "series_gcd_id": 88983
   },
   {
@@ -19442,7 +17825,7 @@
     "name": "Doctor Strange: Don't Pay the Ferryman",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 85095,
     "series_gcd_id": 92882
   },
   {
@@ -19484,7 +17867,7 @@
     "name": "Effigy: Idle Worship",
     "publisher": "DC Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 84103,
     "series_gcd_id": 92106
   },
   {
@@ -19512,7 +17895,7 @@
     "name": "Fantastic Four by Matt Fraction Omnibus",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 79894,
     "series_gcd_id": 206752
   },
   {
@@ -19526,7 +17909,7 @@
     "name": "Figment",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 81831,
     "series_gcd_id": 88994
   },
   {
@@ -19554,7 +17937,7 @@
     "name": "Future Imperfect: Warzones!",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 86773,
     "series_gcd_id": 94948
   },
   {
@@ -19570,13 +17953,6 @@
     "year": 2015,
     "volume_id": null,
     "series_gcd_id": 89594
-  },
-  {
-    "name": "George Romero's Empire of the Dead: Act Two",
-    "publisher": "Marvel Comics",
-    "year": 2015,
-    "volume_id": null,
-    "series_gcd_id": 206603
   },
   {
     "name": "Get Jiro!: Blood & Sushi",
@@ -19652,7 +18028,7 @@
     "name": "Green Arrow: The Archer's Quest Deluxe Edition",
     "publisher": "DC Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 83817,
     "series_gcd_id": 91522
   },
   {
@@ -19729,7 +18105,7 @@
     "name": "Hack/Slash: Son of Samhain",
     "publisher": "Image Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 79477,
     "series_gcd_id": 138976
   },
   {
@@ -19750,7 +18126,7 @@
     "name": "Hawkeye vs. Deadpool",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 80530,
     "series_gcd_id": 140841
   },
   {
@@ -19778,7 +18154,7 @@
     "name": "House of Hem",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 82364,
     "series_gcd_id": 90148
   },
   {
@@ -19792,7 +18168,7 @@
     "name": "Howard the Duck: The Complete Collection",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 82837,
     "series_gcd_id": 90349
   },
   {
@@ -19834,15 +18210,8 @@
     "name": "Inferno: Warzones!",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 86694,
     "series_gcd_id": 94822
-  },
-  {
-    "name": "Infinite Crisis: Fight for the Multiverse",
-    "publisher": "DC Comics",
-    "year": 2015,
-    "volume_id": null,
-    "series_gcd_id": 91296
   },
   {
     "name": "Infinity Gauntlet",
@@ -19855,7 +18224,7 @@
     "name": "Infinity Gauntlet: Warzones!",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 86536,
     "series_gcd_id": 94726
   },
   {
@@ -19869,7 +18238,7 @@
     "name": "Inhumanity",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 156743,
     "series_gcd_id": 115168
   },
   {
@@ -19897,7 +18266,7 @@
     "name": "Injustice: Gods Among Us: Year Two",
     "publisher": "DC Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 77242,
     "series_gcd_id": 88376
   },
   {
@@ -19953,7 +18322,7 @@
     "name": "Jessica Jones: Alias",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 84280,
     "series_gcd_id": 92145
   },
   {
@@ -20016,7 +18385,7 @@
     "name": "Kid Eternity: The Deluxe Edition",
     "publisher": "DC Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 86541,
     "series_gcd_id": 94747
   },
   {
@@ -20086,7 +18455,7 @@
     "name": "Mad Max: Fury Road",
     "publisher": "DC Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 84284,
     "series_gcd_id": 92110
   },
   {
@@ -20114,7 +18483,7 @@
     "name": "Marvel Masterworks: Spider-Woman",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 86032,
     "series_gcd_id": 93786
   },
   {
@@ -20128,7 +18497,7 @@
     "name": "Marvel Universe All-New Avengers Assemble",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 72368,
     "series_gcd_id": 90909
   },
   {
@@ -20170,7 +18539,7 @@
     "name": "Marvel Zombies: Battleworld",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 86112,
     "series_gcd_id": 94122
   },
   {
@@ -20191,14 +18560,14 @@
     "name": "Master of Kung-Fu: Battleworld",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 86778,
     "series_gcd_id": 94949
   },
   {
     "name": "Men of Wrath",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 81417,
     "series_gcd_id": 140364
   },
   {
@@ -20219,7 +18588,7 @@
     "name": "Monster of Frankenstein",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 84984,
     "series_gcd_id": 92737
   },
   {
@@ -20317,7 +18686,7 @@
     "name": "Operation: S.I.N. - Agent Carter",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 83833,
     "series_gcd_id": 102922
   },
   {
@@ -20331,7 +18700,7 @@
     "name": "Original Sins",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 81674,
     "series_gcd_id": 88757
   },
   {
@@ -20387,7 +18756,7 @@
     "name": "Planet Hulk: Warzones!",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 86987,
     "series_gcd_id": 95265
   },
   {
@@ -20403,6 +18772,13 @@
     "year": 2015,
     "volume_id": null,
     "series_gcd_id": 86056
+  },
+  {
+    "name": "Power Up",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 91094
   },
   {
     "name": "Powers",
@@ -20499,7 +18875,7 @@
     "name": "Rogue: The Complete Collection",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 83976,
     "series_gcd_id": 91825
   },
   {
@@ -20520,7 +18896,7 @@
     "name": "Runaways: Battleworld",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 86551,
     "series_gcd_id": 94779
   },
   {
@@ -20562,7 +18938,7 @@
     "name": "Scalped: The Deluxe Edition",
     "publisher": "DC Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 80132,
     "series_gcd_id": 92131
   },
   {
@@ -20576,7 +18952,7 @@
     "name": "Scooby-Doo Team-Up",
     "publisher": "DC Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 80296,
     "series_gcd_id": 110697
   },
   {
@@ -20608,13 +18984,6 @@
     "series_gcd_id": 89423
   },
   {
-    "name": "Sensation Comics Featuring Wonder Woman",
-    "publisher": "DC Comics",
-    "year": 2015,
-    "volume_id": null,
-    "series_gcd_id": 88151
-  },
-  {
     "name": "Sexcastle",
     "publisher": "Image Comics",
     "year": 2015,
@@ -20639,7 +19008,7 @@
     "name": "Sinergy",
     "publisher": "Image Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 81247,
     "series_gcd_id": 88339
   },
   {
@@ -20660,7 +19029,7 @@
     "name": "Skull the Slayer",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 81312,
     "series_gcd_id": 88187
   },
   {
@@ -20723,7 +19092,7 @@
     "name": "Spider-Verse: Warzones!",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 86398,
     "series_gcd_id": 94629
   },
   {
@@ -20744,7 +19113,7 @@
     "name": "Star Wars Legends Epic Collection: Infinities",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 86719,
     "series_gcd_id": 94825
   },
   {
@@ -20765,14 +19134,14 @@
     "name": "Star Wars Legends Epic Collection: The Old Republic",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 82988,
     "series_gcd_id": 86058
   },
   {
     "name": "Star Wars: Episode IV - A New Hope",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 81835,
     "series_gcd_id": 88999
   },
   {
@@ -20793,7 +19162,7 @@
     "name": "Star Wars: Journey to Star Wars: The Force Awakens - Shattered Empire",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 86107,
     "series_gcd_id": 94127
   },
   {
@@ -20807,7 +19176,7 @@
     "name": "Star Wars: Princess Leia",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 85788,
     "series_gcd_id": 93592
   },
   {
@@ -20884,14 +19253,14 @@
     "name": "Superman: Secret Identity - The Deluxe Edition",
     "publisher": "DC Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 87637,
     "series_gcd_id": 96092
   },
   {
     "name": "Supreme: Blue Rose",
     "publisher": "Image Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 82991,
     "series_gcd_id": 153434
   },
   {
@@ -20947,7 +19316,7 @@
     "name": "Teen Titans Go!: Truth, Justice, Pizza!",
     "publisher": "DC Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 86559,
     "series_gcd_id": 110797
   },
   {
@@ -20975,7 +19344,7 @@
     "name": "Thanos: Cosmic Powers",
     "publisher": "Marvel Comics",
     "year": 2015,
-    "volume_id": null,
+    "volume_id": 85969,
     "series_gcd_id": 93789
   },
   {
@@ -20998,5 +19367,1636 @@
     "year": 2015,
     "volume_id": null,
     "series_gcd_id": 110782
+  },
+  {
+    "name": "The Covenant",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 89666
+  },
+  {
+    "name": "The Demon",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 94946
+  },
+  {
+    "name": "The Disciples",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 89894
+  },
+  {
+    "name": "The Dying and the Dead",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 86100
+  },
+  {
+    "name": "The Filth: The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 88368
+  },
+  {
+    "name": "The Flash by Geoff Johns",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": 86229,
+    "series_gcd_id": 94489
+  },
+  {
+    "name": "The Flash: Season Zero",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": 84583,
+    "series_gcd_id": 92482
+  },
+  {
+    "name": "The Girl Who Played with Fire",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 88988
+  },
+  {
+    "name": "The Humans",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 87385
+  },
+  {
+    "name": "The Invincible Iron Man",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 93680
+  },
+  {
+    "name": "The Invincible Iron Man in Forging the Future",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 102116
+  },
+  {
+    "name": "The iZombie Omnibus",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 94617
+  },
+  {
+    "name": "The Joker: Endgame",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": 84769,
+    "series_gcd_id": 92612
+  },
+  {
+    "name": "The Justice League Goes inside the NBA - All Star Edition",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 86619
+  },
+  {
+    "name": "The Legacy of Luther Strode",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 88255
+  },
+  {
+    "name": "The Manhattan Projects: The Sun Beyond the Stars",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 87409
+  },
+  {
+    "name": "The Marvel Legacy of Jack Kirby",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 188781
+  },
+  {
+    "name": "The Marvels",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 97018
+  },
+  {
+    "name": "The Mice Templar, Volume V: Night's End",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 87695
+  },
+  {
+    "name": "The Multiversity: The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 93282
+  },
+  {
+    "name": "The Names",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": 83967,
+    "series_gcd_id": 91819
+  },
+  {
+    "name": "The Original Ghost Rider",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 92830
+  },
+  {
+    "name": "The Private Eye",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 138366
+  },
+  {
+    "name": "The Sandman: Overture - The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 93579
+  },
+  {
+    "name": "The Superannuated Man",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 88374
+  },
+  {
+    "name": "The Surface",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 87345
+  },
+  {
+    "name": "The Thrilling Adventure Hour Presents: Sparks Nevada, Marshal On Mars",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 86893
+  },
+  {
+    "name": "The Twilight Children",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 93063
+  },
+  {
+    "name": "The Ultimates 2: Ultimate Collection",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 76324
+  },
+  {
+    "name": "The Violent",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 94943
+  },
+  {
+    "name": "The Wake",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 89992
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Austin Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 169534
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Chicago 2015",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 200667
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Columbus Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 167270
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Des Moines Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 90188
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Fort Lauderdale Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 172350
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Indianapolis Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 170210
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Las Vegas Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 167268
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Louisville Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 167269
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Madison Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 169514
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Minneapolis Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 91123
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Nashville Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 169516
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World New Orleans Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 182357
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Philadelphia Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 167916
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Pittsburgh Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 167917
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Portland Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 171083
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Reno Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 171783
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Richmond Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 169536
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Sacramento Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 114053
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World San Jose Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 167919
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World St. Louis Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 169172
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Tulsa Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 167918
+  },
+  {
+    "name": "The Walking Dead Omnibus",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 95176
+  },
+  {
+    "name": "They're Not Like Us",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 117087
+  },
+  {
+    "name": "Thors",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 90171
+  },
+  {
+    "name": "Tiny Titans: Return to the Treehouse",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": 80595,
+    "series_gcd_id": 110702
+  },
+  {
+    "name": "Titans Hunt",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 93285
+  },
+  {
+    "name": "Top 10",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 88370
+  },
+  {
+    "name": "Trinity of Sin",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 90884
+  },
+  {
+    "name": "True Believers: Age of Apocalypse",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 88042
+  },
+  {
+    "name": "True Believers: Civil War",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 127463
+  },
+  {
+    "name": "True Believers: Miles Morales",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 127468
+  },
+  {
+    "name": "True Believers: Unbeatable Squirrel Girl",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 92740
+  },
+  {
+    "name": "Ultimate End",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 89425
+  },
+  {
+    "name": "Ultimate Spider-Man Web-Warriors / Avengers Assemble Season 2",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 93575
+  },
+  {
+    "name": "Uncanny Avengers Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": 79897,
+    "series_gcd_id": 141018
+  },
+  {
+    "name": "Valhalla Mad",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 90122
+  },
+  {
+    "name": "Vertigo 2015 Preview",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 92669
+  },
+  {
+    "name": "Vertigo CMYK",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 90897
+  },
+  {
+    "name": "Vertigo Quarterly SFX",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 88685
+  },
+  {
+    "name": "We Are Robin",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 90343
+  },
+  {
+    "name": "We Stand on Guard",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 90495
+  },
+  {
+    "name": "Weirdworld: Warriors of the Shadow Realm",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 96318
+  },
+  {
+    "name": "Werewolf by Night Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": 85148,
+    "series_gcd_id": 92894
+  },
+  {
+    "name": "Where Monsters Dwell",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 89542
+  },
+  {
+    "name": "Where Monsters Dwell: The Phantom Eagle Flies the Savage Skies",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": 86796,
+    "series_gcd_id": 94993
+  },
+  {
+    "name": "Will Eisner's The Spirit: A Celebration of 75 Years",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": 83164,
+    "series_gcd_id": 90740
+  },
+  {
+    "name": "Wizard World Comicon Box: Batman Adventures #12",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 168311
+  },
+  {
+    "name": "Wolverine: Old Man Logan",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 104143
+  },
+  {
+    "name": "Wolverine: Origin II",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 206628
+  },
+  {
+    "name": "Wonder Woman '77",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 88985
+  },
+  {
+    "name": "Wonder Woman by George Pérez Omnibus",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 91820
+  },
+  {
+    "name": "X-Men '92",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 90351
+  },
+  {
+    "name": "X-Men / Avengers: Onslaught Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 91830
+  },
+  {
+    "name": "X-Men: Age of Apocalypse",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 91829
+  },
+  {
+    "name": "X-Men: The Hunt for Professor X",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 90182
+  },
+  {
+    "name": "X-Men: Years of Future Past",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 94632
+  },
+  {
+    "name": "X-Tinction Agenda",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 89869
+  },
+  {
+    "name": "Years of Future Past",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 89868
+  },
+  {
+    "name": "Young Gotham Sampler",
+    "publisher": "DC Comics",
+    "year": 2015,
+    "volume_id": null,
+    "series_gcd_id": 90139
+  },
+  {
+    "name": "'68 Homefront",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 82726
+  },
+  {
+    "name": "'68 Rule of War",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 80031
+  },
+  {
+    "name": "100 Bullets: Brother Lono",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": 72974,
+    "series_gcd_id": 83752
+  },
+  {
+    "name": "Absolute All-Star Batman & Robin, the Boy Wonder",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 81604
+  },
+  {
+    "name": "Absolute Batman Incorporated",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110680
+  },
+  {
+    "name": "Absolute Batman: Haunted Knight",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": 78429,
+    "series_gcd_id": 85986
+  },
+  {
+    "name": "Age of Ultron",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": 156233,
+    "series_gcd_id": 175181
+  },
+  {
+    "name": "Age of Ultron Companion",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 141190
+  },
+  {
+    "name": "Alex + Ada",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": 75730,
+    "series_gcd_id": 155071
+  },
+  {
+    "name": "All-New X-Men / Indestructible Hulk / Superior Spider-Man: The Arms of the Octopus",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 155942
+  },
+  {
+    "name": "American Legends",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 84379
+  },
+  {
+    "name": "Animal Man: Flesh and Blood",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": 75549,
+    "series_gcd_id": 110587
+  },
+  {
+    "name": "Animal Man: Red Plague",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": 79407,
+    "series_gcd_id": 110683
+  },
+  {
+    "name": "Animal Man: The Meaning of Flesh",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": 71061,
+    "series_gcd_id": 110475
+  },
+  {
+    "name": "Annihilation Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": 92785,
+    "series_gcd_id": 80893
+  },
+  {
+    "name": "Apocalypse Al",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 78891
+  },
+  {
+    "name": "Aquaman and the Others",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 79898
+  },
+  {
+    "name": "Arkham Manor",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 83891
+  },
+  {
+    "name": "Arrow Season 2.5",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 83433
+  },
+  {
+    "name": "Ava's Demon",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 156208
+  },
+  {
+    "name": "Avengers & X-Men: Axis",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 83445
+  },
+  {
+    "name": "Avengers Assemble: The Forgeries of Jealousy",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": 74434,
+    "series_gcd_id": 139942
+  },
+  {
+    "name": "Avengers: Falcon",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": 72196,
+    "series_gcd_id": 79159
+  },
+  {
+    "name": "Avengers: Saving the Day",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 150158
+  },
+  {
+    "name": "Avengers: The Legacy of Thanos",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": 74816,
+    "series_gcd_id": 83331
+  },
+  {
+    "name": "Axis: Hobgoblin",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 83912
+  },
+  {
+    "name": "Axis: Revolutions",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 84188
+  },
+  {
+    "name": "Batman '66 Meets the Green Hornet",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 81109
+  },
+  {
+    "name": "Batman 75th Anniversary Commemorative Collection",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110632
+  },
+  {
+    "name": "Batman Adventures",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": 78037,
+    "series_gcd_id": 89548
+  },
+  {
+    "name": "Batman and Son",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": 71513,
+    "series_gcd_id": 79201
+  },
+  {
+    "name": "Batman Beyond 2.0",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110655
+  },
+  {
+    "name": "Batman Beyond: Batgirl Beyond",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": 72784,
+    "series_gcd_id": 110542
+  },
+  {
+    "name": "Batman Noir: The Long Halloween",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": 77418,
+    "series_gcd_id": 110635
+  },
+  {
+    "name": "Batman Unwrapped: Andy Kubert",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110534
+  },
+  {
+    "name": "Batman Unwrapped: The Court of Owls",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": 76974,
+    "series_gcd_id": 110601
+  },
+  {
+    "name": "Batman: A Celebration of 75 Years",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": 75707,
+    "series_gcd_id": 81875
+  },
+  {
+    "name": "Batman: Arkham Asylum - The 25th Anniversary Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110653
+  },
+  {
+    "name": "Batman: Arkham Asylum - The 25th Anniversary Edition",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110654
+  },
+  {
+    "name": "Batman: Arkham Asylum: Living Hell: The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110573
+  },
+  {
+    "name": "Batman: Arkham Origins",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 90437
+  },
+  {
+    "name": "Batman: Bruce Wayne - Fugitive",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110593
+  },
+  {
+    "name": "Batman: Dark Victory",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110487
+  },
+  {
+    "name": "Batman: Earth One",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 82306
+  },
+  {
+    "name": "Batman: Gordon of Gotham",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": 76897,
+    "series_gcd_id": 110603
+  },
+  {
+    "name": "Batman: The Jiro Kuwata Batmanga",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 89450
+  },
+  {
+    "name": "Beauty",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 210178
+  },
+  {
+    "name": "Before Watchmen: Comedian / Rorschach",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110571
+  },
+  {
+    "name": "Before Watchmen: Minutemen / Silk Spectre",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110572
+  },
+  {
+    "name": "Before Watchmen: Nite Owl / Dr. Manhattan",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110570
+  },
+  {
+    "name": "Before Watchmen: Ozymandias / Crimson Corsair",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110566
+  },
+  {
+    "name": "Big Easy",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 97101
+  },
+  {
+    "name": "Black Canary and Zatanna: Bloodspell",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 80894
+  },
+  {
+    "name": "Black Kiss XXXMas in July Special",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 81800
+  },
+  {
+    "name": "Black Science",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 81194
+  },
+  {
+    "name": "Blue Estate: The Graphic Novel",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 182505
+  },
+  {
+    "name": "Bodies",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 82042
+  },
+  {
+    "name": "Brightest Day Omnibus",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": 76532,
+    "series_gcd_id": 82442
+  },
+  {
+    "name": "Bucky Barnes: The Winter Soldier",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 83256
+  },
+  {
+    "name": "Burn the Orphanage",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 80617
+  },
+  {
+    "name": "Burn the Orphanage: Reign of Terror",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 81114
+  },
+  {
+    "name": "Cap'n Dinosaur",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 82329
+  },
+  {
+    "name": "Captain America Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 79135
+  },
+  {
+    "name": "Captain America: Living Legend",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": 71514,
+    "series_gcd_id": 213586
+  },
+  {
+    "name": "Captain America: Peggy Carter, Agent of S.H.I.E.L.D.",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": 78549,
+    "series_gcd_id": 85024
+  },
+  {
+    "name": "Captain America: The Trial of Captain America Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": 78626,
+    "series_gcd_id": 204673
+  },
+  {
+    "name": "Captain America: Winter Soldier",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 185994
+  },
+  {
+    "name": "Captain America: Winter Soldier No. 1 Director's Cut",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 80034
+  },
+  {
+    "name": "Casanova",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 148774
+  },
+  {
+    "name": "Castle: A Calm before Storm",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 208647
+  },
+  {
+    "name": "Castle: Richard Castle's Storm Season",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 213587
+  },
+  {
+    "name": "Castle: Unholy Storm",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 84517
+  },
+  {
+    "name": "Cataclysm: Ultimates",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 77778
+  },
+  {
+    "name": "Chew / Revival One-Shot",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 81009
+  },
+  {
+    "name": "Cinder and Ashe",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": 75355,
+    "series_gcd_id": 81609
+  },
+  {
+    "name": "Coffin Hill",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 80709
+  },
+  {
+    "name": "Copperhead",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 82727
+  },
+  {
+    "name": "Creature Commandos",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": 70894,
+    "series_gcd_id": 80856
+  },
+  {
+    "name": "Custom Edition Captain America",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 159564
+  },
+  {
+    "name": "Cutter",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 83255
+  },
+  {
+    "name": "Damian: Son of Batman The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110592
+  },
+  {
+    "name": "Daredevil Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 79137
+  },
+  {
+    "name": "Daredevil: Dark Nights",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": 72365,
+    "series_gcd_id": 113438
+  },
+  {
+    "name": "Daredevil: End of Days",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 212984
+  },
+  {
+    "name": "Dark Ages",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 82269
+  },
+  {
+    "name": "Dark Tower: The Drawing of the Three - Prisoner",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 82599
+  },
+  {
+    "name": "Dark Tower: The Drawing of the Three / Revenge Sampler",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 82232
+  },
+  {
+    "name": "Dark Tower: The Gunslinger Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 212588
+  },
+  {
+    "name": "Daytripper: The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110545
+  },
+  {
+    "name": "DC Comics Essentials: Batman: The Black Mirror",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110633
+  },
+  {
+    "name": "DC Comics The New 52: Futures End - Five Years Later Omnibus",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110677
+  },
+  {
+    "name": "DC Comics: Zero Year",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 88035
+  },
+  {
+    "name": "DC Essentials: Action Comics",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110469
+  },
+  {
+    "name": "DC Universe vs. the Masters of the Universe",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110595
+  },
+  {
+    "name": "Dead@17: The Blasphemy Throne",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 82274
+  },
+  {
+    "name": "Deadly Hands of Kung Fu",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 80682
+  },
+  {
+    "name": "Deadly Hands of Kung Fu: Out of the Past",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": 77630,
+    "series_gcd_id": 134564
+  },
+  {
+    "name": "Deadpool & Cable Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": 77885,
+    "series_gcd_id": 199610
+  },
+  {
+    "name": "Deadpool by Joe Kelly Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": 70581,
+    "series_gcd_id": 80889
+  },
+  {
+    "name": "Deadpool by Posehn & Duggan",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 79155
+  },
+  {
+    "name": "Deadpool Minibus",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 122694
+  },
+  {
+    "name": "Deadpool's Art of War",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 83644
+  },
+  {
+    "name": "Death",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110537
+  },
+  {
+    "name": "Death of Wolverine",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 82569
+  },
+  {
+    "name": "Death of Wolverine: The Logan Legacy",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 83647
+  },
+  {
+    "name": "Death Vigil",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 81675
+  },
+  {
+    "name": "Deathblow: The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": 72487,
+    "series_gcd_id": 110538
+  },
+  {
+    "name": "Deathlok the Demolisher: The Complete Collection",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": 77316,
+    "series_gcd_id": 84257
+  },
+  {
+    "name": "Demon",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 100803
+  },
+  {
+    "name": "Devil Dinosaur by Jack Kirby: The Complete Collection",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 87109
+  },
+  {
+    "name": "Dexter",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 241219
+  },
+  {
+    "name": "Disney Kingdoms: Figment",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 81261
+  },
+  {
+    "name": "Displaced Persons",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 83751
+  },
+  {
+    "name": "Divine Right: The Adventures of Max Faraday",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": 78707,
+    "series_gcd_id": 110671
+  },
+  {
+    "name": "Django Unchained",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 81879
+  },
+  {
+    "name": "Dream Police",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 80402
+  },
+  {
+    "name": "Dream States: The Collected Dreaming Covers",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110659
+  },
+  {
+    "name": "Drifter",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 84508
+  },
+  {
+    "name": "Dust Covers: The Collected Sandman Covers",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110660
+  },
+  {
+    "name": "Elephantmen: 2260",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 122941
+  },
+  {
+    "name": "Elephantmen! Mammoth",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 129358
+  },
+  {
+    "name": "Enigma",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110672
+  },
+  {
+    "name": "Fables The Complete Covers by James Jean",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110690
+  },
+  {
+    "name": "Fairest: In All the Land",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 84924
+  },
+  {
+    "name": "Fantastic Four / Inhumans: Atlantis Rising",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 136256
+  },
+  {
+    "name": "Fantastic Four Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 79136
+  },
+  {
+    "name": "Fantomex Max",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 212991
+  },
+  {
+    "name": "Fatale: The Deluxe Edition",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 80461
+  },
+  {
+    "name": "Final Crisis (New Edition)",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110546
+  },
+  {
+    "name": "Five Weapons",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 76508
+  },
+  {
+    "name": "Flex Mentallo: Man of Muscle Mystery",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 80420
+  },
+  {
+    "name": "Forever Evil: Arkham War",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": 76975,
+    "series_gcd_id": 110600
+  },
+  {
+    "name": "Forever Evil: Blight",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110606
+  },
+  {
+    "name": "Forever Evil: Rogues Rebellion",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": 77107,
+    "series_gcd_id": 110605
+  },
+  {
+    "name": "Fury Max: My War Gone By",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": 76365,
+    "series_gcd_id": 208983
+  },
+  {
+    "name": "Galactus the Devourer",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": 75012,
+    "series_gcd_id": 209346
+  },
+  {
+    "name": "Gauntlet The Corruption of Morak",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 194037
+  },
+  {
+    "name": "Genius",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 82159
+  },
+  {
+    "name": "George Romero's Empire of the Dead: Act Two",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 82776
+  },
+  {
+    "name": "Graphic Ink: The DC Comics Art of Frank Quitely",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110569
+  },
+  {
+    "name": "Graveyard Shift",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 85396
+  },
+  {
+    "name": "Green Lantern / New Gods: Godhead",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 83249
+  },
+  {
+    "name": "Green Lantern: Rise of the Third Army",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110540
   }
 ]

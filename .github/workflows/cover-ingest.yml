@@ -34,6 +34,9 @@ name: Cover ingest
 #                            (see scripts/resolveNeedsVolumeIdBacklog.js) —
 #                            fetches the volume directly by id, no title
 #                            search, so this lane is close to a guaranteed hit
+#   5a. gap-keys.json     — first-appearance key books with no cover, by
+#                            ComicVine volume id (built 2026-11-02 from the
+#                            character crawl; static until rebuilt).
 #   5b. gap-backfill.json — series with no cover at all, mainstream and
 #                            newest first, trades and one-shots included
 #                            (scripts/generateCoverBackfillGap.js, daily in
@@ -389,16 +392,37 @@ jobs:
           fi
           exit "$code"
 
+      # First-appearance books from the ComicVine character crawl that we have
+      # no cover for (2026-11-02: ~11k books across a few thousand volumes).
+      # Every target carries volume_id, so one call each and no title search;
+      # "missing" lists the key issue numbers so a long volume fetches only
+      # those. Each cover that lands links the CV issue to its GCD issue, and
+      # scripts/importKeyIssuesFromCrawl.js turns that link into a key_issues
+      # row on its next run. Took 15 of backfill's 30 calls.
+      - name: Ingest key-issue targets
+        id: lane_keys
+        if: hashFiles('gap-keys.json') != ''
+        continue-on-error: true
+        run: |
+          set +e
+          timeout --kill-after=60s 5m python comicvine_api_to_supabase.py --targets gap-keys.json --skip-existing --missing-only --max-search-calls 15 --vol-sleep 1.0 --max-minutes 4
+          code=$?
+          if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
+            echo "Lane hit its 5-minute cap. The ledger picks it up next hour."
+            exit 0
+          fi
+          exit "$code"
+
       # Every target carries its GCD series id; most need a title search
-      # (search + one volumes/ call to fill publishers), so 30 calls is ~15
-      # series an hour.
+      # (search + one volumes/ call to fill publishers), so 15 calls is ~7
+      # series an hour (was 30 until the key-issue lane took half, 2026-11-02).
       - name: Ingest backfill targets
         id: lane_backfill
         if: hashFiles('gap-backfill.json') != ''
         continue-on-error: true
         run: |
           set +e
-          timeout --kill-after=60s 6m python comicvine_api_to_supabase.py --targets gap-backfill.json --skip-existing --missing-only --max-search-calls 30 --vol-sleep 1.0 --max-minutes 5
+          timeout --kill-after=60s 6m python comicvine_api_to_supabase.py --targets gap-backfill.json --skip-existing --missing-only --max-search-calls 15 --vol-sleep 1.0 --max-minutes 5
           code=$?
           if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
             echo "Lane hit its 6-minute cap. The ledger picks it up next hour."
@@ -521,6 +545,7 @@ jobs:
           check "featured"       "${{ steps.lane_featured.outcome }}"
           check "manual"         "${{ steps.lane_manual.outcome }}"
           check "pinned-volume"  "${{ steps.lane_pinned.outcome }}"
+          check "key-issues"     "${{ steps.lane_keys.outcome }}"
           check "backfill"       "${{ steps.lane_backfill.outcome }}"
           check "run-completion" "${{ steps.lane_runs.outcome }}"
           check "width"          "${{ steps.lane_width.outcome }}"

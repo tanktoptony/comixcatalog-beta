@@ -27,6 +27,7 @@ import { pickBrandPost as pickBrandPostContent } from "./lib/brandPostContent.js
 import {
   CTAS,
   COVER_INTROS,
+  FOUNDING_LINE,
   NEW_INTROS,
   PERSONAL_POSTS,
   VALUE_INTROS,
@@ -335,6 +336,7 @@ export function buildCaption({
   blurb,
   synopsis,
   dayIndex = Math.floor(Date.now() / 86400000),
+  foundingOpen = false,
 }) {
   const header = `${title}${issueNumber ? ` #${issueNumber}` : ""}${year ? ` (${year})` : ""}${publisher ? ` · ${publisher}` : ""}`;
   const intro =
@@ -355,6 +357,7 @@ export function buildCaption({
     "",
     body,
     body ? "" : null,
+    foundingOpen ? FOUNDING_LINE : null,
     pickByDay(CTAS, dayIndex, 1),
     hashtagsFor(publisher, year, title, postType === "Key Issue Value Check" || postType === "Key Issue", dayIndex),
   ].filter((l) => l !== undefined && l !== null);
@@ -583,11 +586,12 @@ const BRAND_HASHTAGS = "#comiccollecting #comicbookdatabase #collectiblecomics #
 // Not a comic post — no title/issue/publisher fields, so this is a
 // deliberately separate, simpler caption builder rather than another branch
 // bolted onto buildCaption(). Reuses the same CTA rotation for consistency.
-export function buildBrandCaption({ kicker, headline, captionBody, dayIndex = Math.floor(Date.now() / 86400000) }) {
+export function buildBrandCaption({ kicker, headline, captionBody, dayIndex = Math.floor(Date.now() / 86400000), foundingOpen = false }) {
   // Personal posts already end on their own note; the generated cards get
   // the rotating CTA.
   const cta = captionBody && /link in bio/i.test(captionBody) ? null : pickByDay(CTAS, dayIndex, 1);
-  const lines = [headline, "", captionBody, "", cta, BRAND_HASHTAGS].filter(
+  const founding = foundingOpen && cta && !/founding/i.test(captionBody ?? "") ? FOUNDING_LINE : null;
+  const lines = [headline, "", captionBody, "", founding, cta, BRAND_HASHTAGS].filter(
     (l) => l !== undefined && l !== null
   );
   return lines.join("\n");
@@ -704,13 +708,14 @@ export async function pickBrandPost(seenKeys) {
 // One place that turns a picked post into its caption, shared with
 // previewInstagramQueue.js so the preview can never drift from what gets
 // posted.
-export function captionForPost(post, dayIndex = Math.floor(Date.now() / 86400000)) {
+export function captionForPost(post, dayIndex = Math.floor(Date.now() / 86400000), { foundingOpen = false } = {}) {
   if (post.type === "Brand") {
     return buildBrandCaption({
       kicker: post.kicker,
       headline: post.headline,
       captionBody: post.captionBody,
       dayIndex,
+      foundingOpen,
     });
   }
   // Only a comps-backed number gets printed. The old "Est. cover-price
@@ -728,7 +733,22 @@ export function captionForPost(post, dayIndex = Math.floor(Date.now() / 86400000
     blurb: post.blurb ?? null,
     synopsis: synopsisFromDescription(post.description),
     dayIndex,
+    foundingOpen,
   });
+}
+
+// Captions pitch the founding pass only while one is open. A failed count
+// leaves the pitch out: better no pitch than one for a spot that's gone.
+export async function foundingPassesOpen(client = supabase) {
+  const { count, error } = await client
+    .from("profiles")
+    .select("id", { count: "exact", head: true })
+    .eq("is_founding_collector", true);
+  if (error) {
+    console.warn(`Founding count failed, leaving the founding line out: ${describeError(error)}`);
+    return false;
+  }
+  return Number.isFinite(count) && count < 100;
 }
 
 // Exported so the preview mirrors the real rotation instead of copying it.
@@ -877,7 +897,7 @@ async function run() {
     return;
   }
 
-  const caption = captionForPost(post);
+  const caption = captionForPost(post, undefined, { foundingOpen: await foundingPassesOpen() });
   console.log(
     post.type === "Brand"
       ? `Selected: Brand — ${post.kicker}: ${post.headline}`

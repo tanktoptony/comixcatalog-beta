@@ -76,20 +76,40 @@ export function keyReason(names) {
   return `1st appearances of ${joined}`;
 }
 
+// The cover link can also land on a later edition of the right book: a
+// foreign reprint (Superman #64 on the Australian K.G. Murray edition), a
+// facsimile or a dollar reprint (100 Bullets #12 dated 2008). The 10-28 load
+// put 157 keys on such editions. Two tells:
+//   - the cover's date and the GCD issue's date are more than a year apart
+//   - the cover row's own series is a different one and the GCD issue sits in
+//     a non-US series (the US cover got attached to a reprint)
+export function isWrongEdition(issue, cover) {
+  if (!cover) return false;
+  if (cover.year != null && issue.year != null && Math.abs(cover.year - issue.year) > 1) return true;
+  return cover.seriesGcdId != null && issue.seriesGcdId != null
+    && cover.seriesGcdId !== issue.seriesGcdId && issue.usMarket === false;
+}
+
 // Build key_issues rows.
 //   byCvIssue        output of firstAppearancesByCvIssue
 //   gcdIdByCvIssue   Map cvIssueId -> gcd_issue_id (from canonical_covers)
-//   issueByGcdId     Map gcd_issue_id -> { issue_number, title, publisher, year }
+//   issueByGcdId     Map gcd_issue_id -> { issue_number, title, publisher, year, seriesGcdId?, usMarket?, variantOf? }
+//   coverByCvIssue   Map cvIssueId -> { year, seriesGcdId } from the linking cover row (optional)
 //   existingGcdIds   Set of gcd_issue_ids already in key_issues (hand-curated; never overwritten)
 // Returns { rows, skipped } where skipped counts why candidates were dropped.
-export function buildKeyRows({ byCvIssue, gcdIdByCvIssue, issueByGcdId, existingGcdIds = new Set() }) {
-  const skipped = { noGcdLink: 0, noIssue: 0, numberMismatch: 0, alreadyKey: 0, promoBook: 0 };
+export function buildKeyRows({ byCvIssue, gcdIdByCvIssue, issueByGcdId, coverByCvIssue = new Map(), existingGcdIds = new Set() }) {
+  const skipped = { noGcdLink: 0, noIssue: 0, numberMismatch: 0, wrongEdition: 0, alreadyKey: 0, promoBook: 0 };
   const merged = new Map(); // gcd_issue_id -> characters (several CV issues can map to one GCD issue)
   for (const [cvIssueId, entry] of byCvIssue) {
-    const gcdId = gcdIdByCvIssue.get(cvIssueId);
+    let gcdId = gcdIdByCvIssue.get(cvIssueId);
     if (gcdId == null) { skipped.noGcdLink += 1; continue; }
-    const issue = issueByGcdId.get(gcdId);
+    let issue = issueByGcdId.get(gcdId);
     if (!issue) { skipped.noIssue += 1; continue; }
+    // A key belongs on the regular edition, not a variant cover record.
+    if (issue.variantOf != null && issueByGcdId.has(issue.variantOf)) {
+      gcdId = issue.variantOf;
+      issue = issueByGcdId.get(gcdId);
+    }
     // The ComicVine -> GCD link comes from cover matching, which has been
     // wrong before. A "1st appearance" on the wrong book is worse than none,
     // so the issue numbers must agree.
@@ -97,6 +117,7 @@ export function buildKeyRows({ byCvIssue, gcdIdByCvIssue, issueByGcdId, existing
       skipped.numberMismatch += 1;
       continue;
     }
+    if (isWrongEdition(issue, coverByCvIssue.get(cvIssueId))) { skipped.wrongEdition += 1; continue; }
     if (existingGcdIds.has(gcdId)) { skipped.alreadyKey += 1; continue; }
     if (isExcludedTitle(issue.title)) { skipped.promoBook += 1; continue; }
     if (!merged.has(gcdId)) merged.set(gcdId, []);

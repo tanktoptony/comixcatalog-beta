@@ -35255,9 +35255,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-27T19:05:58.857182+00:00",
-    "retry_after": "2026-11-03T19:05:58.857185+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-03T19:25:58.263033+00:00",
+    "retry_after": "2026-11-17T19:25:58.263049+00:00",
     "search_hydrated": true
   },
   {
@@ -85551,9 +85551,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-31T17:05:38.261989+00:00",
-    "retry_after": "2026-11-03T17:05:38.261990+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-03T19:25:58.263184+00:00",
+    "retry_after": "2026-11-10T19:25:58.263189+00:00",
     "search_hydrated": true
   },
   {
@@ -85562,9 +85562,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-31T18:05:56.318713+00:00",
-    "retry_after": "2026-11-03T18:05:56.318716+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-03T19:25:58.263204+00:00",
+    "retry_after": "2026-11-10T19:25:58.263207+00:00",
     "search_hydrated": true
   },
   {
@@ -85573,9 +85573,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-31T18:06:14.890202+00:00",
-    "retry_after": "2026-11-03T18:06:14.890220+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-03T19:25:58.263219+00:00",
+    "retry_after": "2026-11-10T19:25:58.263222+00:00",
     "search_hydrated": true
   },
   {
@@ -91510,6 +91510,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-03T18:23:25.106155+00:00",
     "retry_after": "2026-11-04T18:23:25.106157+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wizard Ace Edition: Amazing Spider-Man #129",
+    "publisher": "Marvel Comics",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-03T19:30:11.187379+00:00",
+    "retry_after": "2026-11-04T19:30:11.187397+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vampirella Halloween Special One-Shot",
+    "publisher": "Dynamite Entertainment",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-03T19:30:11.187461+00:00",
+    "retry_after": "2026-11-04T19:30:11.187466+00:00",
     "search_hydrated": true
   }
 ]

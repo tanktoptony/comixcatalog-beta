@@ -16,6 +16,8 @@
 //      mislinked cover can't put a "1st appearance" on the wrong book.
 //   4. Keys on a variant record move to the regular edition; keys whose
 //      cover link landed on a reprint edition are skipped (isWrongEdition).
+//      Also skipped: non-US series, promo books, parody magazines (Mad),
+//      hand-checked wrong credits, and characters already keyed elsewhere.
 //   5. Issues already in key_issues (the hand-curated seed) are left alone.
 //   Tier 1 = top character has 1000+ appearances; everything else tier 2.
 //
@@ -138,17 +140,21 @@ async function readIn(table, columns, column, ids) {
   return out;
 }
 
-async function existingKeyIds() {
+async function existingKeys() {
   const ids = new Set();
+  const characters = new Set();
   let from = 0;
   for (;;) {
-    const { data, error } = await supabase.from("key_issues").select("gcd_issue_id").order("id").range(from, from + PAGE - 1);
+    const { data, error } = await supabase.from("key_issues").select("gcd_issue_id, character").order("id").range(from, from + PAGE - 1);
     if (error) throw new Error(`key_issues read failed: ${error.message}`);
-    for (const row of data ?? []) if (row.gcd_issue_id != null) ids.add(Number(row.gcd_issue_id));
+    for (const row of data ?? []) {
+      if (row.gcd_issue_id != null) ids.add(Number(row.gcd_issue_id));
+      if (row.character) characters.add(String(row.character).trim().toLowerCase());
+    }
     if (!data || data.length < PAGE) break;
     from += PAGE;
   }
-  return ids;
+  return { ids, characters };
 }
 
 const yearOf = (v) => {
@@ -186,8 +192,8 @@ async function main() {
     }];
   }));
 
-  const existing = await existingKeyIds();
-  const { rows, skipped } = buildKeyRows({ byCvIssue, gcdIdByCvIssue, issueByGcdId, coverByCvIssue, existingGcdIds: existing });
+  const { ids: existing, characters: existingCharacters } = await existingKeys();
+  const { rows, skipped } = buildKeyRows({ byCvIssue, gcdIdByCvIssue, issueByGcdId, coverByCvIssue, existingGcdIds: existing, existingCharacters });
   const tiers = rows.reduce((acc, r) => ((acc[r.tier] = (acc[r.tier] ?? 0) + 1), acc), {});
   console.log("skipped:", skipped);
   console.log(`rows to insert: ${rows.length}`, tiers, `(existing key_issues: ${existing.size})`);

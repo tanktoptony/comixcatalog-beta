@@ -22,10 +22,29 @@ export const EXCLUDED_TITLE_PATTERNS = [
   /^dc sampler\b/i,
   /who'?s who/i,
   /preview special/i,
-  /^previews\b/i,
+  /\bpreviews\b/i, // Previews, Marvel Previews
+  /^the amazing world of dc comics\b/i, // DC's fan magazine
   /handbook/i,
   /\bguide\b/i,
 ];
+
+// Humor magazines whose "first appearances" are parodies of TV and film
+// characters (ComicVine credits Mad #516 with Walter White). Mad's own
+// originals (Superduperman #4, Spy vs. Spy #60) were keyed by hand.
+export const PARODY_TITLE_PATTERNS = [/^mad$/i, /^cracked$/i, /^crazy$/i, /^sick$/i];
+
+export function isParodyTitle(title) {
+  const t = String(title ?? "").trim();
+  return PARODY_TITLE_PATTERNS.some((re) => re.test(t));
+}
+
+// ComicVine first-appearance credits collectors don't accept, checked by
+// hand on 2026-11-03. Title as in our catalog, then issue number.
+export const KNOWN_WRONG_FIRSTS = new Set([
+  "Marvel Graphic Novel|17", // Apocalypse; his key is X-Factor #5/#6
+  "Venus|11", // Thor
+  "Blonde Phantom Comics|14", // Namora; she debuted in Marvel Mystery Comics #82
+]);
 
 export function isExcludedTitle(title) {
   const t = String(title ?? "");
@@ -96,9 +115,14 @@ export function isWrongEdition(issue, cover) {
 //   issueByGcdId     Map gcd_issue_id -> { issue_number, title, publisher, year, seriesGcdId?, usMarket?, variantOf? }
 //   coverByCvIssue   Map cvIssueId -> { year, seriesGcdId } from the linking cover row (optional)
 //   existingGcdIds   Set of gcd_issue_ids already in key_issues (hand-curated; never overwritten)
+//   existingCharacters  Set of lowercased key_issues.character values. A character
+//                    has one first appearance, so a name that is already keyed on
+//                    another book is either that book's duplicate or a different
+//                    character with the same name ("Black Widow" in Cartoon
+//                    Network Starring #4); both are dropped.
 // Returns { rows, skipped } where skipped counts why candidates were dropped.
-export function buildKeyRows({ byCvIssue, gcdIdByCvIssue, issueByGcdId, coverByCvIssue = new Map(), existingGcdIds = new Set() }) {
-  const skipped = { noGcdLink: 0, noIssue: 0, numberMismatch: 0, wrongEdition: 0, alreadyKey: 0, promoBook: 0 };
+export function buildKeyRows({ byCvIssue, gcdIdByCvIssue, issueByGcdId, coverByCvIssue = new Map(), existingGcdIds = new Set(), existingCharacters = new Set() }) {
+  const skipped = { noGcdLink: 0, noIssue: 0, numberMismatch: 0, wrongEdition: 0, nonUs: 0, alreadyKey: 0, promoBook: 0, parody: 0, knownWrong: 0, nameKeyed: 0 };
   const merged = new Map(); // gcd_issue_id -> characters (several CV issues can map to one GCD issue)
   for (const [cvIssueId, entry] of byCvIssue) {
     let gcdId = gcdIdByCvIssue.get(cvIssueId);
@@ -118,8 +142,13 @@ export function buildKeyRows({ byCvIssue, gcdIdByCvIssue, issueByGcdId, coverByC
       continue;
     }
     if (isWrongEdition(issue, coverByCvIssue.get(cvIssueId))) { skipped.wrongEdition += 1; continue; }
+    // Keys are for the US books we catalog; a non-US series here is almost
+    // always a reprint or duplicate record of a US run (Chew, Revival).
+    if (issue.usMarket === false) { skipped.nonUs += 1; continue; }
     if (existingGcdIds.has(gcdId)) { skipped.alreadyKey += 1; continue; }
     if (isExcludedTitle(issue.title)) { skipped.promoBook += 1; continue; }
+    if (isParodyTitle(issue.title)) { skipped.parody += 1; continue; }
+    if (KNOWN_WRONG_FIRSTS.has(`${issue.title}|${normalizeIssueNumber(issue.issue_number)}`)) { skipped.knownWrong += 1; continue; }
     if (!merged.has(gcdId)) merged.set(gcdId, []);
     merged.get(gcdId).push(...entry.characters);
   }
@@ -127,6 +156,7 @@ export function buildKeyRows({ byCvIssue, gcdIdByCvIssue, issueByGcdId, coverByC
   const rows = [];
   for (const [gcdId, characters] of merged) {
     const sorted = [...characters].sort((a, b) => b.appearances - a.appearances || a.name.localeCompare(b.name));
+    if (existingCharacters.has(sorted[0].name.toLowerCase())) { skipped.nameKeyed += 1; continue; }
     const issue = issueByGcdId.get(gcdId);
     rows.push({
       gcd_issue_id: gcdId,

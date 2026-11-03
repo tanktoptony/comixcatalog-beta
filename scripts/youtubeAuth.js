@@ -71,7 +71,8 @@ async function main() {
       redirect_uri: redirectUri,
       response_type: "code",
       access_type: "offline",
-      prompt: "consent",
+      // select_account lists Brand Account channels, which own most channels.
+      prompt: "select_account consent",
       scope: "https://www.googleapis.com/auth/yt-analytics.readonly https://www.googleapis.com/auth/youtube.readonly",
       state,
       code_challenge: codeChallenge,
@@ -93,6 +94,12 @@ async function main() {
       obtained_at: new Date().toISOString(),
     }, null, 2)}\n`, { mode: 0o600 });
     console.log(`Saved YouTube credentials to ${outputPath}`);
+    const response = await fetch("https://www.googleapis.com/youtube/v3/channels?part=snippet&mine=true", {
+      headers: { Authorization: `Bearer ${token.access_token}` },
+    });
+    const channel = (await response.json()).items?.[0];
+    if (channel) console.log(`Authorized channel: ${channel.snippet.title} (${channel.id})`);
+    else console.warn("Warning: this Google identity has no YouTube channel. Rerun and pick the channel itself in the account list.");
   } finally {
     server.close();
   }

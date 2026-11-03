@@ -16894,9 +16894,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-27T11:04:59.376373+00:00",
-    "retry_after": "2026-11-03T11:04:59.376376+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-03T11:13:15.506471+00:00",
+    "retry_after": "2026-11-17T11:13:15.506486+00:00",
     "search_hydrated": true
   },
   {
@@ -21182,9 +21182,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-27T11:05:25.293774+00:00",
-    "retry_after": "2026-11-03T11:05:25.293776+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-03T11:13:15.506537+00:00",
+    "retry_after": "2026-11-17T11:13:15.506539+00:00",
     "search_hydrated": true
   },
   {
@@ -27498,8 +27498,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T10:18:41.455538+00:00",
-    "retry_after": "2026-11-04T10:18:41.455578+00:00",
+    "last_attempt_at": "2026-11-03T11:13:45.471482+00:00",
+    "retry_after": "2026-11-04T11:13:45.471497+00:00",
     "search_hydrated": true
   },
   {
@@ -27522,8 +27522,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T10:02:08.831657+00:00",
-    "retry_after": "2026-11-04T10:02:08.831660+00:00",
+    "last_attempt_at": "2026-11-03T11:02:01.503944+00:00",
+    "retry_after": "2026-11-04T11:02:01.503946+00:00",
     "search_hydrated": true
   },
   {
@@ -35379,9 +35379,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-27T11:05:25.293709+00:00",
-    "retry_after": "2026-11-03T11:05:25.293730+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-03T11:13:15.506504+00:00",
+    "retry_after": "2026-11-17T11:13:15.506507+00:00",
     "search_hydrated": true
   },
   {
@@ -43284,9 +43284,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-27T11:05:25.293754+00:00",
-    "retry_after": "2026-11-03T11:05:25.293756+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-03T11:13:15.506523+00:00",
+    "retry_after": "2026-11-17T11:13:15.506525+00:00",
     "search_hydrated": true
   },
   {
@@ -43610,8 +43610,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T10:02:08.831533+00:00",
-    "retry_after": "2026-11-04T10:02:08.831568+00:00",
+    "last_attempt_at": "2026-11-03T11:02:01.503852+00:00",
+    "retry_after": "2026-11-04T11:02:01.503870+00:00",
     "search_hydrated": true
   },
   {
@@ -51529,8 +51529,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T10:02:08.831629+00:00",
-    "retry_after": "2026-11-04T10:02:08.831632+00:00",
+    "last_attempt_at": "2026-11-03T11:02:01.503919+00:00",
+    "retry_after": "2026-11-04T11:02:01.503922+00:00",
     "search_hydrated": true
   },
   {
@@ -90402,9 +90402,9 @@
         "start_year": 2000
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T02:10:31.988317+00:00",
-    "retry_after": "2026-11-03T02:10:31.988319+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-03T11:13:15.506623+00:00",
+    "retry_after": "2026-11-06T11:13:15.506626+00:00",
     "search_hydrated": true
   },
   {
@@ -90413,9 +90413,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T02:10:31.988328+00:00",
-    "retry_after": "2026-11-03T02:10:31.988329+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-03T11:13:15.506656+00:00",
+    "retry_after": "2026-11-06T11:13:15.506660+00:00",
     "search_hydrated": true
   },
   {
@@ -92484,6 +92484,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-03T10:17:47.910773+00:00",
     "retry_after": "2026-11-04T10:17:47.910776+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deadworld: The Last Siesta",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75600,
+        "name": "Deadworld: The Last Siesta",
+        "publisher": "Caliber Comics",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-03T11:13:26.598808+00:00",
+    "retry_after": "2026-11-04T11:13:26.598825+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Jim Henson's The Storyteller: Shapeshifters",
+    "publisher": "BOOM! Studios",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141800,
+        "name": "Jim Henson's The Storyteller: Shapeshifters",
+        "publisher": "Archaia",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-03T11:13:26.598849+00:00",
+    "retry_after": "2026-11-04T11:13:26.598852+00:00",
     "search_hydrated": true
   }
 ]

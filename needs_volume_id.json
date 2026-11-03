@@ -6876,9 +6876,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-31T06:46:24.633020+00:00",
-    "retry_after": "2026-11-03T06:46:24.633035+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-03T07:17:38.919416+00:00",
+    "retry_after": "2026-11-10T07:17:38.919434+00:00",
     "search_hydrated": true
   },
   {
@@ -27498,8 +27498,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T06:19:52.946042+00:00",
-    "retry_after": "2026-11-04T06:19:52.946053+00:00",
+    "last_attempt_at": "2026-11-03T07:18:11.778274+00:00",
+    "retry_after": "2026-11-04T07:18:11.778291+00:00",
     "search_hydrated": true
   },
   {
@@ -27522,8 +27522,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T06:02:15.812389+00:00",
-    "retry_after": "2026-11-04T06:02:15.812392+00:00",
+    "last_attempt_at": "2026-11-03T07:03:53.570572+00:00",
+    "retry_after": "2026-11-04T07:03:53.570575+00:00",
     "search_hydrated": true
   },
   {
@@ -40117,9 +40117,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-31T07:04:55.941769+00:00",
-    "retry_after": "2026-11-03T07:04:55.941785+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-03T07:17:38.919456+00:00",
+    "retry_after": "2026-11-10T07:17:38.919460+00:00",
     "search_hydrated": true
   },
   {
@@ -43610,8 +43610,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T06:02:15.812278+00:00",
-    "retry_after": "2026-11-04T06:02:15.812294+00:00",
+    "last_attempt_at": "2026-11-03T07:03:53.570462+00:00",
+    "retry_after": "2026-11-04T07:03:53.570478+00:00",
     "search_hydrated": true
   },
   {
@@ -51529,8 +51529,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T06:02:15.812356+00:00",
-    "retry_after": "2026-11-04T06:02:15.812360+00:00",
+    "last_attempt_at": "2026-11-03T07:03:53.570540+00:00",
+    "retry_after": "2026-11-04T07:03:53.570544+00:00",
     "search_hydrated": true
   },
   {
@@ -89911,9 +89911,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T00:41:28.341381+00:00",
-    "retry_after": "2026-11-03T00:41:28.341384+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-03T07:17:38.919493+00:00",
+    "retry_after": "2026-11-06T07:17:38.919496+00:00",
     "search_hydrated": true
   },
   {
@@ -89922,9 +89922,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T00:41:28.341405+00:00",
-    "retry_after": "2026-11-03T00:41:28.341408+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-03T07:17:38.919510+00:00",
+    "retry_after": "2026-11-06T07:17:38.919513+00:00",
     "search_hydrated": true
   },
   {
@@ -90005,9 +90005,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T01:11:43.606369+00:00",
-    "retry_after": "2026-11-03T01:11:43.606387+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-03T07:17:38.919555+00:00",
+    "retry_after": "2026-11-06T07:17:38.919558+00:00",
     "search_hydrated": true
   },
   {
@@ -92378,6 +92378,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-03T04:12:59.370092+00:00",
     "retry_after": "2026-11-04T04:12:59.370095+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "On Vacation with the Family Circus",
+    "publisher": "Fawcett Comics",
+    "year": 1980,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-03T07:17:50.600239+00:00",
+    "retry_after": "2026-11-04T07:17:50.600255+00:00",
     "search_hydrated": true
   }
 ]

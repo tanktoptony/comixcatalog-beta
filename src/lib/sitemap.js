@@ -12,8 +12,8 @@
 // page live (2026-09-21), and 46 of those in one request is not a route
 // handler. Bounding each chunk by an id range uses the primary key, so each
 // of the 16 chunks is ~6k rows (98k US-market series on 2026-11-04),
-// generated independently and cached for a day. Issues (2.5M) are deliberately
-// not enumerated yet.
+// generated independently and cached for a day. Issue pages come from a list built
+// nightly (sitemapIssues.js), never enumerated on request.
 
 import { unstable_cache } from "next/cache";
 import { supabaseServer } from "@/lib/supabase/server";
@@ -109,12 +109,14 @@ export function urlsetXml(entries) {
   );
 }
 
-export function sitemapIndexXml(names) {
-  const body = names
-    .map(
-      (name) =>
-        `<sitemap><loc>${escapeXml(`${SITE_URL}/sitemaps/${name}.xml`)}</loc></sitemap>`
-    )
+// Each file is a name, or { name, lastModified } when the date means something.
+export function sitemapIndexXml(files) {
+  const body = files
+    .map((file) => {
+      const { name, lastModified } = typeof file === "string" ? { name: file } : file;
+      const iso = toIso(lastModified);
+      return `<sitemap><loc>${escapeXml(`${SITE_URL}/sitemaps/${name}.xml`)}</loc>${iso ? `<lastmod>${iso}</lastmod>` : ""}</sitemap>`;
+    })
     .join("\n");
   return (
     `<?xml version="1.0" encoding="UTF-8"?>\n` +

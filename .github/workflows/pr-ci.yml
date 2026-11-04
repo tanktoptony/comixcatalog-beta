@@ -106,6 +106,9 @@ jobs:
       - name: Chunk helper tests
         run: npm run test:chunk
 
+      - name: Sitemap issue file tests
+        run: npm run test:sitemap-issues
+
       - name: Issue sitemap tests
         run: npm run test:issue-sitemap
 

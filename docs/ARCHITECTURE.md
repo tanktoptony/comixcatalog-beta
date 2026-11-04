@@ -179,6 +179,10 @@ The pages with one credit row sat at the low end (160 to 212 words), so one row 
 
 **Cost of the crawl.** About $10 per million page renders, from Nov 3 billing (16,613 invocations, $0.16 of CPU, memory and origin transfer). 10,000 crawled pages a day is about $0.10. Issue pages are `private, no-store` today (x-vercel-cache MISS every time) because `page.js` reads `searchParams`. ISR would cost more than it saves on this traffic: writes are $4 per million 8 KB units, and 70 to 90% of crawler hits are first visits to a URL.
 
+## Issue files in the sitemap
+
+`/sitemap.xml` lists one `/sitemaps/issues-<n>.xml` per row of `sitemap_issue_chunks`, with `updated_at` as `<lastmod>`. `src/lib/sitemapIssues.js` reads only that table: one short list for the index and one row by primary key per file, cached for a day like the other files. The largest file is about 2.8 MB. A malformed file name gets a 404 without a database read.
+
 ## External services
 
 | Service | Use | Constraint |

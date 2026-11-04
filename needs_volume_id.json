@@ -16533,9 +16533,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-28T10:05:05.977053+00:00",
-    "retry_after": "2026-11-04T10:05:05.977057+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-04T10:14:36.148568+00:00",
+    "retry_after": "2026-11-18T10:14:36.148570+00:00",
     "search_hydrated": true
   },
   {
@@ -27498,8 +27498,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T08:56:25.799732+00:00",
-    "retry_after": "2026-11-05T08:56:25.799750+00:00",
+    "last_attempt_at": "2026-11-04T10:14:58.836350+00:00",
+    "retry_after": "2026-11-05T10:14:58.836366+00:00",
     "search_hydrated": true
   },
   {
@@ -27522,8 +27522,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T08:41:31.234150+00:00",
-    "retry_after": "2026-11-05T08:41:31.234153+00:00",
+    "last_attempt_at": "2026-11-04T10:02:10.932306+00:00",
+    "retry_after": "2026-11-05T10:02:10.932308+00:00",
     "search_hydrated": true
   },
   {
@@ -30021,9 +30021,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-28T09:06:34.074406+00:00",
-    "retry_after": "2026-11-04T09:06:34.074423+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-04T10:14:36.148543+00:00",
+    "retry_after": "2026-11-18T10:14:36.148546+00:00",
     "search_hydrated": true
   },
   {
@@ -35865,9 +35865,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-28T09:05:11.648645+00:00",
-    "retry_after": "2026-11-04T09:05:11.648648+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-04T10:14:36.148487+00:00",
+    "retry_after": "2026-11-18T10:14:36.148507+00:00",
     "search_hydrated": true
   },
   {
@@ -43569,8 +43569,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T08:41:31.234009+00:00",
-    "retry_after": "2026-11-05T08:41:31.234026+00:00",
+    "last_attempt_at": "2026-11-04T10:02:10.932219+00:00",
+    "retry_after": "2026-11-05T10:02:10.932238+00:00",
     "search_hydrated": true
   },
   {
@@ -49036,9 +49036,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-28T09:06:34.074526+00:00",
-    "retry_after": "2026-11-04T09:06:34.074529+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-04T10:14:36.148557+00:00",
+    "retry_after": "2026-11-18T10:14:36.148559+00:00",
     "search_hydrated": true
   },
   {
@@ -51470,8 +51470,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T08:41:31.234113+00:00",
-    "retry_after": "2026-11-05T08:41:31.234118+00:00",
+    "last_attempt_at": "2026-11-04T10:02:10.932284+00:00",
+    "retry_after": "2026-11-05T10:02:10.932286+00:00",
     "search_hydrated": true
   },
   {
@@ -86075,18 +86075,36 @@
     "name": "Spider-Man",
     "publisher": "Marvel Comics",
     "year": 2021,
-    "reason": "series_hint_year_mismatch",
+    "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 145364,
+        "id": 4421,
         "name": "Spider-Man",
         "publisher": "Marvel",
-        "start_year": 2022
+        "start_year": 1990
+      },
+      {
+        "id": 87820,
+        "name": "Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2016
+      },
+      {
+        "id": 121420,
+        "name": "Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2019
+      },
+      {
+        "id": 34457,
+        "name": "Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 1987
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T08:10:12.582638+00:00",
-    "retry_after": "2026-11-04T08:10:12.582656+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T10:14:36.148657+00:00",
+    "retry_after": "2026-11-11T10:14:36.148660+00:00",
     "search_hydrated": true
   },
   {
@@ -86146,9 +86164,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T08:10:31.118396+00:00",
-    "retry_after": "2026-11-04T08:10:31.118398+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T10:14:36.148684+00:00",
+    "retry_after": "2026-11-11T10:14:36.148686+00:00",
     "search_hydrated": true
   },
   {
@@ -91718,6 +91736,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-04T08:56:03.407053+00:00",
     "retry_after": "2026-11-05T08:56:03.407056+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Conan Exiles",
+    "publisher": "Dark Horse Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141912,
+        "name": "Conan: Exiles",
+        "publisher": "Marvel",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-04T10:14:48.130664+00:00",
+    "retry_after": "2026-11-05T10:14:48.130682+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Pim & Francie: The Golden Bear Days",
+    "publisher": "Fantagraphics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-04T10:14:48.130714+00:00",
+    "retry_after": "2026-11-05T10:14:48.130717+00:00",
     "search_hydrated": true
   }
 ]

@@ -42,6 +42,7 @@ fs.writeFileSync(path.join(out, "captions.srt"), cues.map((c, i) => `${i + 1}\n$
 const link = (id) => `https://www.comixcatalog.com/series/${id}?utm_source=youtube&utm_medium=video&utm_campaign=${config.utmCampaign}`;
 const description = [
   config.descriptionIntro, "",
+  config.joinLine, "",
   "The comics in this episode:",
   ...config.books.flatMap(([label, id]) => [`- ${label}`, `  ${link(id)}`]), "",
   "Chapters", ...chapters.map((c) => `${mmss(c.at)} ${c.text}`), "",

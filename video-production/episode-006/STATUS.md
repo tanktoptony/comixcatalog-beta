@@ -16,6 +16,8 @@ The Power Index · Power Profile #001: Doctor Doom. Channel episode 6, first of 
 - 2026-10-26 The edit: `build_audio.py` (program audio: light de-ess, -13 dBFS speech, continuous Rollin at 5 bed, Funkorama sting), `timeline.js` (246 shots, about 4.9 s each, no text-only cards; Marvel.com captures with ads blanked and the address shown, live ComixCatalog pages, the card with slam, meter fill, A/B/C context and power-up overlays). The sting says "Catalog. Collect. Connect." (Episodes 001 to 005 keep their "Comics. No homework." line.) Tony liked the 45 s preview but flagged zooms landing on nothing (Doom's midsection); every cover zoom now uses `zoomTo` and was checked on a simulated crop sheet.
 - 2026-10-26 Shorts edit (`shorts-timeline.js`, `build_shorts_audio.py`), thumbnails (`src/Thumbnails006.jsx`), upload package (`package.mjs` -> `Desktop/YouTube/episode-006-youtube`: PACKAGE.md, captions.srt, 12 chapters).
 
+- 2026-11-03 Founding line added to the episode and all 3 Shorts (Tony OKed). The episode says "Link's in the description" (/yt, in `joinLine`). Shorts say "That's ComixCatalog dot com" because YouTube doesn't make links in Shorts descriptions clickable. Visuals: `screens/cc-founding.png` and `cards/v-founding.png`, captured from the live /founding-collectors page by a one-off script (signed out). The episode capture hides `.fc-pass-no` so no pass number dates the video; the Shorts capture hides `.fc-lede` so captions sit on clean space. Episode now 20:03.
+
 ## Waiting on Tony
 
 Nothing blocking. Optional: keep or drop the 02b Avengers: Doomsday line (default: keep, it's in the cut).

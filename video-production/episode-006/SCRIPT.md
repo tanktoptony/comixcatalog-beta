@@ -394,6 +394,8 @@ He doesn't have one superpower. He has a whole collection of ways to ruin your d
 
 What's your favorite Doom moment? And who should get the next Power Profile? Tell me in the comments.
 
+If you collect, ComixCatalog is free to join, and the first hundred members get a lifetime membership. Link's in the description.
+
 If you want the next one, subscribe. I'm Tony. Catalog. Collect. Connect.
 
 > SHOW: Reverse card flip, back to front. The five essentials fan out. End-screen space for the last 15 s.
@@ -424,6 +426,8 @@ And in 2024, he finally got the title. He just never gave it back.
 
 The full Doom Power Profile is on the channel.
 
+If you collect, ComixCatalog is free to join, and the first hundred members get a lifetime membership. That's ComixCatalog dot com.
+
 > SHOW: Triumph and Torment cover; [SCAN: contest panels]; card back with the SORCERY medallion popping out; Blood Hunt #5 cover on the last beat.
 
 ## short-2-silver-surfer.wav · "The time Doom stole the Silver Surfer's powers"
@@ -442,6 +446,8 @@ Flash. Power gone.
 
 Reed didn't out-punch him. He out-annoyed him. Fantastic Four 57 through 60.
 
+If you collect, ComixCatalog is free to join, and the first hundred members get a lifetime membership. That's ComixCatalog dot com.
+
 > SHOW: FF #57 cover push; [SCAN: the drain]; card with the POWER COSMIC overlay; FF #58 cover; FF #60 cover; overlay retracts on "Power gone."
 
 ## short-3-god-emperor.wav · "Why God Emperor Doom doesn't count"
@@ -457,5 +463,7 @@ Now, 1984. The original Secret Wars. Doom builds a machine out of a villain name
 Borrowed power. Temporary, every time. So on our card it's an overlay. Not the baseline.
 
 Standard Doom is scary enough. Full Power Profile on the channel.
+
+If you collect, ComixCatalog is free to join, and the first hundred members get a lifetime membership. That's ComixCatalog dot com.
 
 > SHOW: card back, meters fill on each number; Secret Wars (1984) #9 and #10 covers; BEYONDER overlay; Secret Wars (2015) #1 and #9; GOD EMPEROR overlay; retract to baseline on "Not the baseline."

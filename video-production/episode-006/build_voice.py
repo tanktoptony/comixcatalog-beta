@@ -47,7 +47,7 @@ SAY = [
 ]
 # Spoken token sequences -> caption text.
 DISPLAY = [
-    (["comix", "catalog"], "ComixCatalog"), (["shield"], "S.H.I.E.L.D."), (["ribich"], "Ribić"),
+    (["comix", "catalog", "dot", "com"], "comixcatalog.com"), (["comix", "catalog"], "ComixCatalog"), (["shield"], "S.H.I.E.L.D."), (["ribich"], "Ribić"),
     (["minyola"], "Mignola"), (["ay"], "A"),
 ]
 

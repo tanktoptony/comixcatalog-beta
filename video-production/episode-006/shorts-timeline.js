@@ -36,6 +36,7 @@ const CUES = [
   ["And in 2024 he finally got the title", cover(C.bh5, { title: "Blood Hunt #5 · 2024" })],
   ["He just never gave it back", cover(C.owud1, { treatment: "slowPull" })],
   ["The full Doom Power Profile is on the channel", card("front")],
+  ["If you collect ComixCatalog is free to join", card("founding")],
   // Short 2 · the Silver Surfer heist
   ["Doctor Doom once stole the Silver Surfer's powers", cover(C.ff57)],
   ["Fantastic Four 57 1966", cover(C.ff57, { title: "Fantastic Four #57 · 1966", treatment: "slowPull" })],
@@ -49,6 +50,7 @@ const CUES = [
   ["Flash Power gone", card("back")],
   ["Reed didn't out-punch him", cover(C.ff60, { treatment: "slowPull" })],
   ["Fantastic Four 57 through 60", cover(C.ff57, { title: "Fantastic Four #57 to #60" })],
+  ["If you collect ComixCatalog is free to join", card("founding")],
   // Short 3 · why God Emperor Doom doesn't count
   ["When people say Doctor Doom beat the Beyonder", cover(C.sw11)],
   ["Here's Marvel's own power grid for Doom", card("back")],
@@ -67,6 +69,7 @@ const CUES = [
   ["So on our card it's an overlay", card("back")],
   ["Standard Doom is scary enough", cover(C.dd2019)],
   ["Full Power Profile on the channel", card("front")],
+  ["If you collect ComixCatalog is free to join", card("founding")],
 ];
 
 const resolved = resolveAnchors(shortsWords, CUES.map(([p]) => p));

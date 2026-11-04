@@ -324,6 +324,7 @@ const CUES = [
   ["And now and then something a lot bigger", card({ overlay: "godEmperor" })],
   ["He doesn't have one superpower", fan(ESSENTIALS)],
   ["What's your favorite Doom moment", cover(C.doom24)],
+  ["If you collect ComixCatalog is free to join", site("cc-founding", 0.5, 0.5, 1.02)],
   ["If you want the next one subscribe", card({ flipAt: 0.4 })],
 ];
 

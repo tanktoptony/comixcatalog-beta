@@ -106,6 +106,9 @@ jobs:
       - name: Chunk helper tests
         run: npm run test:chunk
 
+      - name: Issue sitemap tests
+        run: npm run test:issue-sitemap
+
       - name: GCD format-sync retry tests
         run: npm run test:format-sync
 

@@ -6317,9 +6317,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T05:05:56.265824+00:00",
-    "retry_after": "2026-11-04T05:05:56.265827+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T06:13:07.575350+00:00",
+    "retry_after": "2026-11-11T06:13:07.575352+00:00",
     "search_hydrated": true
   },
   {
@@ -15070,9 +15070,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-28T06:06:56.440070+00:00",
-    "retry_after": "2026-11-04T06:06:56.440088+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-04T06:13:07.575198+00:00",
+    "retry_after": "2026-11-18T06:13:07.575215+00:00",
     "search_hydrated": true
   },
   {
@@ -27498,8 +27498,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T05:17:57.516896+00:00",
-    "retry_after": "2026-11-05T05:17:57.516908+00:00",
+    "last_attempt_at": "2026-11-04T06:13:34.954170+00:00",
+    "retry_after": "2026-11-05T06:13:34.954181+00:00",
     "search_hydrated": true
   },
   {
@@ -27522,8 +27522,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T05:02:48.689631+00:00",
-    "retry_after": "2026-11-05T05:02:48.689633+00:00",
+    "last_attempt_at": "2026-11-04T06:02:09.231050+00:00",
+    "retry_after": "2026-11-05T06:02:09.231053+00:00",
     "search_hydrated": true
   },
   {
@@ -43569,8 +43569,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T05:02:48.689544+00:00",
-    "retry_after": "2026-11-05T05:02:48.689560+00:00",
+    "last_attempt_at": "2026-11-04T06:02:09.230944+00:00",
+    "retry_after": "2026-11-05T06:02:09.230957+00:00",
     "search_hydrated": true
   },
   {
@@ -51470,8 +51470,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T05:02:48.689608+00:00",
-    "retry_after": "2026-11-05T05:02:48.689610+00:00",
+    "last_attempt_at": "2026-11-04T06:02:09.231017+00:00",
+    "retry_after": "2026-11-05T06:02:09.231021+00:00",
     "search_hydrated": true
   },
   {
@@ -85900,9 +85900,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T05:05:37.995090+00:00",
-    "retry_after": "2026-11-04T05:05:37.995093+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T06:13:07.575327+00:00",
+    "retry_after": "2026-11-11T06:13:07.575333+00:00",
     "search_hydrated": true
   },
   {
@@ -91656,6 +91656,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-04T05:17:51.432010+00:00",
     "retry_after": "2026-11-05T05:17:51.432012+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Les Misérables: The Fall of Fantine",
+    "publisher": "UDON",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-04T06:13:20.227245+00:00",
+    "retry_after": "2026-11-05T06:13:20.227257+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Escape from Wonderland Cover Gallery",
+    "publisher": "Zenescope Entertainment",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-04T06:13:20.227290+00:00",
+    "retry_after": "2026-11-05T06:13:20.227295+00:00",
     "search_hydrated": true
   }
 ]

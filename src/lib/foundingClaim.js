@@ -39,5 +39,7 @@ export function buildFoundingClaimEmail(email, confirmUrl) {
     p("If you didn't sign up, ignore this and nothing happens."),
     p("Tony<br>ComixCatalog"),
   ].join("");
-  return { to: email, subject: "Confirm your email to claim your Founding Collector pass", text, html };
+  // hello@comixcatalog.com can't receive mail (the apex has no MX), and this is
+  // signed by Tony, so a reply has to land somewhere he reads it.
+  return { to: email, reply_to: "comixcatalog@gmail.com", subject: "Confirm your email to claim your Founding Collector pass", text, html };
 }

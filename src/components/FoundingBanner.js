@@ -12,7 +12,7 @@ import { useAuth } from "@/context/AuthContext";
 export default function FoundingBanner({ initialRemaining = null }) {
   const [remaining, setRemaining] = useState(initialRemaining);
   const pathname = usePathname();
-  const { user, loading } = useAuth();
+  const { user, profile, loading } = useAuth();
 
   useEffect(() => {
     fetch("/api/founding/status", { cache: "no-store" })
@@ -23,11 +23,33 @@ export default function FoundingBanner({ initialRemaining = null }) {
       .catch(() => {});
   }, []);
 
-  if (loading || user || remaining == null || remaining < 1) return null;
+  if (loading || remaining == null || remaining < 1) return null;
   // /start (the Instagram landing page) carries the founding offer in its
   // own section. Up here it would push the hero's signup CTA down on a phone
   // and send clicks to /signup without the funnel's return path.
   if (pathname === "/start") return null;
+  if (user) {
+    // Signed in but no pass yet, which almost always means the confirm email
+    // is sitting unclicked. "Check your email" only used to appear once, on
+    // the page right after signup, in that one browser. Members who then
+    // moved from Instagram's in-app browser to Chrome, or signed up from a
+    // series or scan page, never saw it (Nov 3: an active member, on a second
+    // browser a minute after signup, 5 hours in and still unclaimed).
+    if (!profile || profile.is_founding_collector || pathname === "/founding-collectors") return null;
+    return (
+      <div className="founding-banner" role="region" aria-label="Finish claiming your Founding Collector pass">
+        <div className="founding-banner-inner">
+          <p>
+            <strong className="founding-banner-desktop-copy">One more step to your Founding Collector pass.</strong>
+            <strong className="founding-banner-mobile-copy">One more step to your founding pass</strong>
+            <span className="founding-banner-desktop-copy"> Confirm your email and it&rsquo;s yours.</span>
+          </p>
+          <span className="founding-banner-mobile-copy" aria-hidden="true">·</span>
+          <Link href="/founding-collectors" className="founding-banner-cta">Finish →</Link>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="founding-banner" role="region" aria-label="Founding Collector offer">
       <div className="founding-banner-inner">

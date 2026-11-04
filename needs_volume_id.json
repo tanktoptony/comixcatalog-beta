@@ -7428,9 +7428,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-31T22:18:41.851869+00:00",
-    "retry_after": "2026-11-03T22:18:41.851884+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T03:23:33.832846+00:00",
+    "retry_after": "2026-11-11T03:23:33.832848+00:00",
     "search_hydrated": true
   },
   {
@@ -43221,9 +43221,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-28T03:05:44.418948+00:00",
-    "retry_after": "2026-11-04T03:05:44.418949+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-04T03:23:33.832663+00:00",
+    "retry_after": "2026-11-18T03:23:33.832679+00:00",
     "search_hydrated": true
   },
   {
@@ -85744,9 +85744,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T02:06:34.038334+00:00",
-    "retry_after": "2026-11-04T02:06:34.038338+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T03:23:33.832721+00:00",
+    "retry_after": "2026-11-11T03:23:33.832724+00:00",
     "search_hydrated": true
   },
   {
@@ -85774,9 +85774,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T02:06:34.038439+00:00",
-    "retry_after": "2026-11-04T02:06:34.038444+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T03:23:33.832776+00:00",
+    "retry_after": "2026-11-11T03:23:33.832778+00:00",
     "search_hydrated": true
   },
   {
@@ -85785,9 +85785,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T02:06:34.038469+00:00",
-    "retry_after": "2026-11-04T02:06:34.038472+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T03:23:33.832791+00:00",
+    "retry_after": "2026-11-11T03:23:33.832792+00:00",
     "search_hydrated": true
   },
   {
@@ -85796,9 +85796,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T02:06:34.038489+00:00",
-    "retry_after": "2026-11-04T02:06:34.038491+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T03:23:33.832817+00:00",
+    "retry_after": "2026-11-11T03:23:33.832819+00:00",
     "search_hydrated": true
   },
   {
@@ -91605,6 +91605,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-04T02:22:01.755862+00:00",
     "retry_after": "2026-11-05T02:22:01.755865+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Man Christmas Special",
+    "publisher": "Marvel Comics",
+    "year": 1984,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-04T03:23:46.692430+00:00",
+    "retry_after": "2026-11-05T03:23:46.692446+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "X-Men: Mutations",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-04T03:23:46.692463+00:00",
+    "retry_after": "2026-11-05T03:23:46.692466+00:00",
     "search_hydrated": true
   }
 ]

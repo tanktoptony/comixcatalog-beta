@@ -127,6 +127,12 @@ jobs:
       - name: Health-check failure-mode tests
         run: npm run test:health-check
 
+      - name: Signups by source tests
+        run: npm run test:signup-sources
+
+      - name: Instagram token check tests
+        run: npm run test:instagram-token
+
       - name: Catalog duplicate-check tests
         run: npm run test:contribute-match
 

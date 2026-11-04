@@ -19484,9 +19484,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-28T00:05:20.308119+00:00",
-    "retry_after": "2026-11-04T00:05:20.308137+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-04T00:23:14.841122+00:00",
+    "retry_after": "2026-11-18T00:23:14.841123+00:00",
     "search_hydrated": true
   },
   {
@@ -27498,13 +27498,13 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T23:20:47.604419+00:00",
-    "retry_after": "2026-11-04T23:20:47.604436+00:00",
+    "last_attempt_at": "2026-11-04T00:23:57.733820+00:00",
+    "retry_after": "2026-11-05T00:23:57.733839+00:00",
     "search_hydrated": true
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27522,8 +27522,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T23:09:44.659150+00:00",
-    "retry_after": "2026-11-04T23:09:44.659153+00:00",
+    "last_attempt_at": "2026-11-04T00:10:04.101991+00:00",
+    "retry_after": "2026-11-05T00:10:04.101994+00:00",
     "search_hydrated": true
   },
   {
@@ -35143,9 +35143,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-27T23:36:19.536547+00:00",
-    "retry_after": "2026-11-03T23:36:19.536548+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-04T00:23:14.841112+00:00",
+    "retry_after": "2026-11-18T00:23:14.841113+00:00",
     "search_hydrated": true
   },
   {
@@ -35752,9 +35752,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-27T23:36:19.536411+00:00",
-    "retry_after": "2026-11-03T23:36:19.536429+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-04T00:23:14.841099+00:00",
+    "retry_after": "2026-11-18T00:23:14.841101+00:00",
     "search_hydrated": true
   },
   {
@@ -36613,9 +36613,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-27T23:35:16.658598+00:00",
-    "retry_after": "2026-11-03T23:35:16.658601+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-04T00:23:14.841060+00:00",
+    "retry_after": "2026-11-18T00:23:14.841081+00:00",
     "search_hydrated": true
   },
   {
@@ -43551,7 +43551,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43569,8 +43569,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T23:09:44.659034+00:00",
-    "retry_after": "2026-11-04T23:09:44.659051+00:00",
+    "last_attempt_at": "2026-11-04T00:10:04.101946+00:00",
+    "retry_after": "2026-11-05T00:10:04.101964+00:00",
     "search_hydrated": true
   },
   {
@@ -66090,41 +66090,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T09:16:03.427380+00:00",
     "retry_after": "2026-10-23T09:16:03.427395+00:00"
-  },
-  {
-    "name": "Blue Ribbon Comics",
-    "publisher": "Archie Comics",
-    "year": 1939,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 21303,
-        "name": "Blue Ribbon Comics",
-        "publisher": null,
-        "start_year": 1939
-      },
-      {
-        "id": 113114,
-        "name": "Blue Ribbon Comics",
-        "publisher": null,
-        "start_year": 2017
-      },
-      {
-        "id": 3211,
-        "name": "Blue Ribbon Comics",
-        "publisher": null,
-        "start_year": 1983
-      },
-      {
-        "id": 51073,
-        "name": "Blue Ribbon Comics",
-        "publisher": null,
-        "start_year": 1949
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T09:16:04.137493+00:00",
-    "retry_after": "2026-10-23T09:16:04.137509+00:00"
   },
   {
     "name": "Turok Son of Stone",

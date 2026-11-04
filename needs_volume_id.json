@@ -27498,13 +27498,13 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T06:13:34.954170+00:00",
-    "retry_after": "2026-11-05T06:13:34.954181+00:00",
+    "last_attempt_at": "2026-11-04T07:23:08.383927+00:00",
+    "retry_after": "2026-11-05T07:23:08.383940+00:00",
     "search_hydrated": true
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27522,8 +27522,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T06:02:09.231050+00:00",
-    "retry_after": "2026-11-05T06:02:09.231053+00:00",
+    "last_attempt_at": "2026-11-04T07:14:04.642616+00:00",
+    "retry_after": "2026-11-05T07:14:04.642621+00:00",
     "search_hydrated": true
   },
   {
@@ -29150,9 +29150,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-28T07:06:57.118301+00:00",
-    "retry_after": "2026-11-04T07:06:57.118303+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-04T07:22:48.828594+00:00",
+    "retry_after": "2026-11-18T07:22:48.828596+00:00",
     "search_hydrated": true
   },
   {
@@ -30270,9 +30270,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-28T07:06:57.118267+00:00",
-    "retry_after": "2026-11-04T07:06:57.118270+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-04T07:22:48.828562+00:00",
+    "retry_after": "2026-11-18T07:22:48.828565+00:00",
     "search_hydrated": true
   },
   {
@@ -36403,9 +36403,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-28T07:06:57.118285+00:00",
-    "retry_after": "2026-11-04T07:06:57.118288+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-04T07:22:48.828579+00:00",
+    "retry_after": "2026-11-18T07:22:48.828581+00:00",
     "search_hydrated": true
   },
   {
@@ -42883,9 +42883,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-28T07:06:57.118228+00:00",
-    "retry_after": "2026-11-04T07:06:57.118244+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-04T07:22:48.828542+00:00",
+    "retry_after": "2026-11-18T07:22:48.828547+00:00",
     "search_hydrated": true
   },
   {
@@ -43551,7 +43551,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43569,8 +43569,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T06:02:09.230944+00:00",
-    "retry_after": "2026-11-05T06:02:09.230957+00:00",
+    "last_attempt_at": "2026-11-04T07:14:04.642557+00:00",
+    "retry_after": "2026-11-05T07:14:04.642574+00:00",
     "search_hydrated": true
   },
   {
@@ -48720,9 +48720,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-28T07:05:09.903173+00:00",
-    "retry_after": "2026-11-04T07:05:09.903178+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-04T07:22:48.828504+00:00",
+    "retry_after": "2026-11-18T07:22:48.828520+00:00",
     "search_hydrated": true
   },
   {
@@ -91137,9 +91137,9 @@
     "year": 1980,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-03T07:17:50.600239+00:00",
-    "retry_after": "2026-11-04T07:17:50.600255+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-04T07:22:59.992499+00:00",
+    "retry_after": "2026-11-07T07:22:59.992515+00:00",
     "search_hydrated": true
   },
   {
@@ -91678,6 +91678,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-04T06:13:20.227290+00:00",
     "retry_after": "2026-11-05T06:13:20.227295+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Amazing Adult Fantasy #13 [JC Penney Marvel Vintage Pack]",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-04T07:22:59.992606+00:00",
+    "retry_after": "2026-11-05T07:22:59.992611+00:00",
     "search_hydrated": true
   }
 ]

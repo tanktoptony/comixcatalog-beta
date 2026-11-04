@@ -14631,9 +14631,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T22:10:55.645643+00:00",
-    "retry_after": "2026-11-04T22:10:55.645646+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T22:42:09.460942+00:00",
+    "retry_after": "2026-11-11T22:42:09.460945+00:00",
     "search_hydrated": true
   },
   {
@@ -14804,9 +14804,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T22:10:59.778614+00:00",
-    "retry_after": "2026-11-04T22:10:59.778632+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T22:42:09.460955+00:00",
+    "retry_after": "2026-11-11T22:42:09.460956+00:00",
     "search_hydrated": true
   },
   {
@@ -27439,8 +27439,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T22:15:32.735783+00:00",
-    "retry_after": "2026-11-05T22:15:32.735797+00:00",
+    "last_attempt_at": "2026-11-04T22:42:43.185834+00:00",
+    "retry_after": "2026-11-05T22:42:43.185849+00:00",
     "search_hydrated": true
   },
   {
@@ -27463,8 +27463,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T22:02:24.714224+00:00",
-    "retry_after": "2026-11-05T22:02:24.714226+00:00",
+    "last_attempt_at": "2026-11-04T22:27:54.631297+00:00",
+    "retry_after": "2026-11-05T22:27:54.631299+00:00",
     "search_hydrated": true
   },
   {
@@ -36284,9 +36284,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-28T22:22:15.080368+00:00",
-    "retry_after": "2026-11-04T22:22:15.080384+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-04T22:42:09.460858+00:00",
+    "retry_after": "2026-11-18T22:42:09.460875+00:00",
     "search_hydrated": true
   },
   {
@@ -43510,8 +43510,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T22:02:24.714114+00:00",
-    "retry_after": "2026-11-05T22:02:24.714133+00:00",
+    "last_attempt_at": "2026-11-04T22:27:54.631190+00:00",
+    "retry_after": "2026-11-05T22:27:54.631208+00:00",
     "search_hydrated": true
   },
   {
@@ -51411,8 +51411,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T22:02:24.714204+00:00",
-    "retry_after": "2026-11-05T22:02:24.714206+00:00",
+    "last_attempt_at": "2026-11-04T22:27:54.631277+00:00",
+    "retry_after": "2026-11-05T22:27:54.631279+00:00",
     "search_hydrated": true
   },
   {
@@ -62971,24 +62971,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T02:15:57.063926+00:00",
     "retry_after": "2026-10-23T02:15:57.063941+00:00"
-  },
-  {
-    "name": "Criminal Deluxe Edition",
-    "publisher": "Image Comics",
-    "year": 2020,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 168685,
-        "name": "Criminal Deluxe Edition",
-        "publisher": "Verlag Schreiber & Leser",
-        "start_year": 2025
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T20:29:44.799469+00:00",
-    "retry_after": "2026-11-04T20:29:44.799474+00:00",
-    "search_hydrated": true
   },
   {
     "name": "Herbert West",
@@ -90708,9 +90690,9 @@
         "start_year": 2002
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T20:11:07.234586+00:00",
-    "retry_after": "2026-11-03T20:11:07.234589+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-04T22:42:27.359252+00:00",
+    "retry_after": "2026-11-07T22:42:27.359270+00:00",
     "search_hydrated": true
   },
   {

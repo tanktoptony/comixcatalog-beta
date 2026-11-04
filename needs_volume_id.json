@@ -27498,13 +27498,13 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T07:23:08.383927+00:00",
-    "retry_after": "2026-11-05T07:23:08.383940+00:00",
+    "last_attempt_at": "2026-11-04T08:14:51.995481+00:00",
+    "retry_after": "2026-11-05T08:14:51.995499+00:00",
     "search_hydrated": true
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27522,8 +27522,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T07:14:04.642616+00:00",
-    "retry_after": "2026-11-05T07:14:04.642621+00:00",
+    "last_attempt_at": "2026-11-04T08:01:59.178636+00:00",
+    "retry_after": "2026-11-05T08:01:59.178639+00:00",
     "search_hydrated": true
   },
   {
@@ -43551,7 +43551,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43569,8 +43569,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T07:14:04.642557+00:00",
-    "retry_after": "2026-11-05T07:14:04.642574+00:00",
+    "last_attempt_at": "2026-11-04T08:01:59.178514+00:00",
+    "retry_after": "2026-11-05T08:01:59.178531+00:00",
     "search_hydrated": true
   },
   {
@@ -51470,8 +51470,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T06:02:09.231017+00:00",
-    "retry_after": "2026-11-05T06:02:09.231021+00:00",
+    "last_attempt_at": "2026-11-04T08:01:59.178600+00:00",
+    "retry_after": "2026-11-05T08:01:59.178604+00:00",
     "search_hydrated": true
   },
   {
@@ -85836,9 +85836,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T04:05:16.608780+00:00",
-    "retry_after": "2026-11-04T04:05:16.608784+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T08:14:33.843590+00:00",
+    "retry_after": "2026-11-11T08:14:33.843594+00:00",
     "search_hydrated": true
   },
   {
@@ -85889,9 +85889,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T05:05:39.293576+00:00",
-    "retry_after": "2026-11-04T05:05:39.293594+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T08:14:34.088647+00:00",
+    "retry_after": "2026-11-11T08:14:34.088664+00:00",
     "search_hydrated": true
   },
   {
@@ -85929,9 +85929,9 @@
         "start_year": 2002
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T05:05:39.293641+00:00",
-    "retry_after": "2026-11-04T05:05:39.293644+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T08:14:34.088704+00:00",
+    "retry_after": "2026-11-11T08:14:34.088707+00:00",
     "search_hydrated": true
   },
   {
@@ -85940,9 +85940,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T07:10:31.546471+00:00",
-    "retry_after": "2026-11-04T07:10:31.546473+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T08:14:30.824212+00:00",
+    "retry_after": "2026-11-11T08:14:30.824231+00:00",
     "search_hydrated": true
   },
   {
@@ -85958,9 +85958,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T08:10:12.486997+00:00",
-    "retry_after": "2026-11-04T08:10:12.486999+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T08:14:34.088732+00:00",
+    "retry_after": "2026-11-11T08:14:34.088735+00:00",
     "search_hydrated": true
   },
   {
@@ -85976,9 +85976,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T08:10:12.487130+00:00",
-    "retry_after": "2026-11-04T08:10:12.487132+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T08:14:34.088954+00:00",
+    "retry_after": "2026-11-11T08:14:34.088957+00:00",
     "search_hydrated": true
   },
   {
@@ -85998,9 +85998,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T07:10:31.546490+00:00",
-    "retry_after": "2026-11-04T07:10:31.546492+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T08:14:30.824265+00:00",
+    "retry_after": "2026-11-11T08:14:30.824270+00:00",
     "search_hydrated": true
   },
   {
@@ -91148,9 +91148,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-03T07:54:31.325021+00:00",
-    "retry_after": "2026-11-04T07:54:31.325037+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-04T08:14:42.188340+00:00",
+    "retry_after": "2026-11-07T08:14:42.188360+00:00",
     "search_hydrated": true
   },
   {
@@ -91159,9 +91159,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-03T07:54:31.325062+00:00",
-    "retry_after": "2026-11-04T07:54:31.325065+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-04T08:14:42.188396+00:00",
+    "retry_after": "2026-11-07T08:14:42.188401+00:00",
     "search_hydrated": true
   },
   {
@@ -91170,9 +91170,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-03T07:54:31.325094+00:00",
-    "retry_after": "2026-11-04T07:54:31.325096+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-04T08:14:42.188422+00:00",
+    "retry_after": "2026-11-07T08:14:42.188425+00:00",
     "search_hydrated": true
   },
   {
@@ -91689,6 +91689,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-04T07:22:59.992606+00:00",
     "retry_after": "2026-11-05T07:22:59.992611+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Power Up",
+    "publisher": "Image Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 26523,
+        "name": "Power Up",
+        "publisher": "Image",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-04T08:14:33.844258+00:00",
+    "retry_after": "2026-11-05T08:14:33.844264+00:00",
     "search_hydrated": true
   }
 ]

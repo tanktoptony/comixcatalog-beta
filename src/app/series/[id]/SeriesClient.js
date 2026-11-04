@@ -248,6 +248,17 @@ export default function SeriesClient({ initialSeries = null, initialOwnMode = fa
     return deduped;
     }, [series, sortMode]);
 
+  // A new member picking a series from the empty library, or coming back from
+  // signup, lands here with ?own=1. On a phone the marking tools sit a screen
+  // and a half down with nothing pointing at them, so go there. Once, after
+  // auth has settled.
+  const ownLandingDone = useRef(false);
+  useEffect(() => {
+    if (!initialOwnMode || authLoading || !user || !sortedIssues.length || ownLandingDone.current) return;
+    ownLandingDone.current = true;
+    document.getElementById("mark-owned")?.scrollIntoView({ block: "start" });
+  }, [initialOwnMode, authLoading, user, sortedIssues.length]);
+
   function toggleIssueSelection(issueId) {
     const key = String(issueId);
     if (collectionIds?.has(key)) return;
@@ -412,7 +423,15 @@ export default function SeriesClient({ initialSeries = null, initialOwnMode = fa
               {Number(series.member_stats?.owners) >= 3 ? <div><strong>{series.member_stats.owners}</strong><span>members own {series.member_stats.copies} copies</span></div> : Number(series.reprint_count) > 0 ? <div><strong>{Number(series.reprint_count).toLocaleString("en-US")}</strong><span>reprints worldwide</span></div> : null}
             </div>
             <div className="series-hero-actions">
-              <Link href="#issues" className="series-primary-action">
+              {/* Used to jump past the marking tools to the grid, with marking
+                  still off. Now it turns marking on and lands on the tools. */}
+              <Link
+                href={sortedIssues.length > 0 ? "#mark-owned" : "#issues"}
+                className="series-primary-action"
+                onClick={() => {
+                  if (user) setOwnMode(true);
+                }}
+              >
                 Add issues I own
               </Link>
               {!authLoading && series.gcd_id && (user ? (
@@ -692,7 +711,7 @@ export default function SeriesClient({ initialSeries = null, initialOwnMode = fa
         )}
 
         {sortedIssues.length > 0 && (
-          <div className="run-quick-add-toolbar">
+          <div id="mark-owned" className="run-quick-add-toolbar">
             {user ? (
               <>
                 <button

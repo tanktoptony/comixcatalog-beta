@@ -72,6 +72,7 @@ const RAW_CONDITION_MAP = new Map([
   ["gd", "GD"],
   ["fair", "FA"],
   ["fa", "FA"],
+  ["fr", "FA"],
   ["poor", "PR"],
   ["pr", "PR"],
   ["p", "PR"],
@@ -80,7 +81,13 @@ const RAW_CONDITION_MAP = new Map([
 export function normalizeRawCondition(raw) {
   const s = String(raw ?? "").trim().toLowerCase();
   if (!s) return null;
-  return RAW_CONDITION_MAP.get(s) ?? null;
+  const exact = RAW_CONDITION_MAP.get(s);
+  if (exact) return exact;
+  // Half grades and pluses, the way collectors and CLZ write them: "VF/NM" and
+  // "NM-" take the named grade they start from. Importing these used to save no
+  // grade at all.
+  const base = s.split("/")[0].trim().replace(/[+-]$/, "").trim();
+  return RAW_CONDITION_MAP.get(base) ?? null;
 }
 
 // Build the canonical bucket string from a user_collections row (or any

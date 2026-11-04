@@ -163,7 +163,22 @@ test("matchIssue reads GCD's legacy numbering", () => {
   assert.equal(matchIssue(xmen, "41"), null);
 });
 
+test("a plain issue number finds GCD's cover form, Cover A first", () => {
+  // Real rows from X-Men (1991), in gcd_id order.
+  const xmen = [
+    { gcd_id: 50256, issue_number: "1 [Cover A]" },
+    { gcd_id: 2253650, issue_number: "1 [Special Collectors Edition]" },
+    { gcd_id: 2516355, issue_number: "1 [Cover C]" },
+  ];
+  assert.equal(matchIssue(xmen, "1").gcd_id, 50256);
+  assert.equal(matchIssue([...xmen].reverse(), "1").gcd_id, 50256);
+  assert.equal(matchIssue([{ gcd_id: 5, issue_number: "1 [Newsstand]" }], "1").gcd_id, 5);
+  assert.equal(matchIssue(xmen, "2"), null);
+  // An exact row still wins over a cover form.
+  assert.equal(matchIssue([...xmen, { gcd_id: 7, issue_number: "1" }], "1").gcd_id, 7);
+});
+
 test("issueNumberOrFilter asks for exact and legacy spellings, skipping unsafe ones", () => {
-  assert.equal(issueNumberOrFilter(["40"]), 'issue_number.eq."40",issue_number.like."40 (*",issue_number.like."* (40)"');
+  assert.equal(issueNumberOrFilter(["40"]), 'issue_number.eq."40",issue_number.like."40 (*",issue_number.like."* (40)",issue_number.like."40 [*"');
   assert.equal(issueNumberOrFilter(['4"0', "a,b", ""]), "");
 });

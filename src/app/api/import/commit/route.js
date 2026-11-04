@@ -9,14 +9,20 @@ const ROW_CAP = 200;
 function details(row) {
   const parsedGrade = parseGrade(row.grade);
   const slab = normalizeSlabCompany(row.slab_company);
+  const condition = parsedGrade.numeric == null ? normalizeRawCondition(parsedGrade.condition) : null;
+  // A grade we can't place keeps its words in the notes rather than vanishing.
+  // The done screen counts it as carried, so it has to be there.
+  const unplaced = parsedGrade.numeric == null && parsedGrade.condition && !condition
+    ? `Imported grade: ${parsedGrade.condition}`
+    : null;
   return {
     grade_numeric: parsedGrade.numeric == null ? null : snapToCgcGrade(parsedGrade.numeric),
-    condition: parsedGrade.numeric == null ? normalizeRawCondition(parsedGrade.condition) : null,
+    condition,
     slab_company: slab,
     slab_cert_number: slab ? String(row.cert ?? "").trim().slice(0, 120) || null : null,
     purchase_price: parsePrice(row.price_paid),
     variant_label: String(row.variant ?? "").trim().slice(0, 120) || null,
-    notes: String(row.notes ?? "").trim().slice(0, 2000) || null,
+    notes: [String(row.notes ?? "").trim(), unplaced].filter(Boolean).join(" · ").slice(0, 2000) || null,
   };
 }
 

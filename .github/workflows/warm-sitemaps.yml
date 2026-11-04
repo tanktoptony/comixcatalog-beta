@@ -35,9 +35,14 @@ jobs:
       - name: Request every sitemap until it answers 200
         run: |
           base="https://www.comixcatalog.com"
-          files="sitemap.xml sitemaps/static.xml"
-          for c in 0 1 2 3 4 5 6 7 8 9 a b c d e f; do files="$files sitemaps/series-$c.xml"; done
-          for c in 0-9 a b c d e f g h i j k l m n o p q r s t u v w x y z; do files="$files sitemaps/creators-$c.xml"; done
+          # Read the list from the index, so a new kind of file is warmed
+          # without touching this workflow. 44 files as of 2026-11-04.
+          files="sitemap.xml $(curl -s --max-time 120 "$base/sitemap.xml" | grep -o 'sitemaps/[^<]*[.]xml')"
+          count=$(echo "$files" | wc -w)
+          if [ "$count" -lt 45 ]; then
+            echo "::error::The sitemap index lists too few files: $count including the index itself"
+            exit 1
+          fi
           failed=""
           deadline=$((SECONDS + 1080))
           for f in $files; do

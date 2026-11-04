@@ -88,6 +88,9 @@ jobs:
       - name: Creator page tests
         run: npm run test:creator-page
 
+      - name: Sitemap tests
+        run: npm run test:sitemap
+
       - name: Fetch retry tests
         run: npm run test:fetch-with-retry
 

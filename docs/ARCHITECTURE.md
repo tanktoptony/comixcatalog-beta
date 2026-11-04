@@ -152,6 +152,10 @@ See [CATALOG_DATA.md](CATALOG_DATA.md). In short: GCD supplies series/issue meta
 
 See [MARKETPLACE.md](MARKETPLACE.md). Listings are created by a trigger from library status changes, read through the `marketplace_listings` view, and cached with tag `listings`. No payments.
 
+## Issue files in the sitemap
+
+`/sitemap.xml` lists one `/sitemaps/issues-<n>.xml` per row of `sitemap_issue_chunks`, with `updated_at` as `<lastmod>`. `src/lib/sitemapIssues.js` reads only that table: one short list for the index and one row by primary key per file, cached for a day like the other files. The largest file is about 2.8 MB. A malformed file name gets a 404 without a database read.
+
 ## External services
 
 | Service | Use | Constraint |

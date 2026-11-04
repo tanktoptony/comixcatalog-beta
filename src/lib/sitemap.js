@@ -105,12 +105,14 @@ export function urlsetXml(entries) {
   );
 }
 
-export function sitemapIndexXml(names) {
-  const body = names
-    .map(
-      (name) =>
-        `<sitemap><loc>${escapeXml(`${SITE_URL}/sitemaps/${name}.xml`)}</loc></sitemap>`
-    )
+// Each file is a name, or { name, lastModified } when the date means something.
+export function sitemapIndexXml(files) {
+  const body = files
+    .map((file) => {
+      const { name, lastModified } = typeof file === "string" ? { name: file } : file;
+      const iso = toIso(lastModified);
+      return `<sitemap><loc>${escapeXml(`${SITE_URL}/sitemaps/${name}.xml`)}</loc>${iso ? `<lastmod>${iso}</lastmod>` : ""}</sitemap>`;
+    })
     .join("\n");
   return (
     `<?xml version="1.0" encoding="UTF-8"?>\n` +

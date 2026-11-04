@@ -27439,8 +27439,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T22:42:43.185834+00:00",
-    "retry_after": "2026-11-05T22:42:43.185849+00:00",
+    "last_attempt_at": "2026-11-04T23:15:21.939789+00:00",
+    "retry_after": "2026-11-05T23:15:21.939801+00:00",
     "search_hydrated": true
   },
   {
@@ -27463,8 +27463,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T22:27:54.631297+00:00",
-    "retry_after": "2026-11-05T22:27:54.631299+00:00",
+    "last_attempt_at": "2026-11-04T23:02:11.799150+00:00",
+    "retry_after": "2026-11-05T23:02:11.799153+00:00",
     "search_hydrated": true
   },
   {
@@ -43510,8 +43510,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T22:27:54.631190+00:00",
-    "retry_after": "2026-11-05T22:27:54.631208+00:00",
+    "last_attempt_at": "2026-11-04T23:02:11.798975+00:00",
+    "retry_after": "2026-11-05T23:02:11.798991+00:00",
     "search_hydrated": true
   },
   {
@@ -48756,9 +48756,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-28T23:07:32.500816+00:00",
-    "retry_after": "2026-11-04T23:07:32.500819+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-04T23:14:56.080039+00:00",
+    "retry_after": "2026-11-18T23:14:56.080056+00:00",
     "search_hydrated": true
   },
   {
@@ -51411,8 +51411,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T22:27:54.631277+00:00",
-    "retry_after": "2026-11-05T22:27:54.631279+00:00",
+    "last_attempt_at": "2026-11-04T23:02:11.799109+00:00",
+    "retry_after": "2026-11-05T23:02:11.799118+00:00",
     "search_hydrated": true
   },
   {
@@ -86887,9 +86887,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T23:10:54.333433+00:00",
-    "retry_after": "2026-11-04T23:10:54.333451+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T23:14:56.080084+00:00",
+    "retry_after": "2026-11-11T23:14:56.080091+00:00",
     "search_hydrated": true
   },
   {
@@ -86909,9 +86909,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T23:10:54.333474+00:00",
-    "retry_after": "2026-11-04T23:10:54.333476+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T23:14:56.080109+00:00",
+    "retry_after": "2026-11-11T23:14:56.080112+00:00",
     "search_hydrated": true
   },
   {
@@ -86920,9 +86920,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T23:10:54.333485+00:00",
-    "retry_after": "2026-11-04T23:10:54.333487+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T23:14:56.080124+00:00",
+    "retry_after": "2026-11-11T23:14:56.080127+00:00",
     "search_hydrated": true
   },
   {
@@ -86931,9 +86931,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T23:10:54.333494+00:00",
-    "retry_after": "2026-11-04T23:10:54.333496+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T23:14:56.080139+00:00",
+    "retry_after": "2026-11-11T23:14:56.080141+00:00",
     "search_hydrated": true
   },
   {
@@ -86942,9 +86942,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T23:10:54.333504+00:00",
-    "retry_after": "2026-11-04T23:10:54.333506+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T23:14:56.080154+00:00",
+    "retry_after": "2026-11-11T23:14:56.080157+00:00",
     "search_hydrated": true
   },
   {
@@ -91729,6 +91729,41 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-04T18:11:11.461530+00:00",
     "retry_after": "2026-11-05T18:11:11.461533+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Dare",
+    "publisher": "IDW Publishing",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 4619,
+        "name": "Dare",
+        "publisher": "Fantagraphics",
+        "start_year": 1991
+      },
+      {
+        "id": 74404,
+        "name": "Dare!",
+        "publisher": "Man In Suit Comics",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-04T23:15:07.658170+00:00",
+    "retry_after": "2026-11-05T23:15:07.658186+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Funny Things: A Comic Strip Biography of Charles M. Schulz",
+    "publisher": "IDW Publishing",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-04T23:15:07.658224+00:00",
+    "retry_after": "2026-11-05T23:15:07.658228+00:00",
     "search_hydrated": true
   }
 ]

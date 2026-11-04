@@ -223,5 +223,8 @@ jobs:
       - name: YouTube stats tests
         run: npm run test:youtube-stats
 
+      - name: YouTube tracked link tests
+        run: npm run test:youtube-links
+
       - name: Docs link check
         run: npm run docs:check

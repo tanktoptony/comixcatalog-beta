@@ -318,6 +318,14 @@ readers rather than for the founder's own changelog. Reading guides and
 "which issues matter" content target searches people actually run; build
 updates do not.
 
+**Per-video YouTube links (November 2026).** `/yt/<slug>` is one tagged
+redirect per video, listed in `src/lib/youtubeLinks.js`; the campaign is
+`yt-<slug>`. To add a video, add a line there and put the link in its
+description and pinned comment. Links only click on long videos; on Shorts they
+are typed text, so set the Short's Related video as well. To confirm a link,
+`curl -sI https://www.comixcatalog.com/yt/<slug>` and check the `location` header
+keeps the tags, then open it and check `cc:attribution` in localStorage.
+
 ### 8d. SEO foundation
 
 Already present: `src/app/robots.js` and `generateMetadata`/openGraph on

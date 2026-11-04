@@ -1,0 +1,35 @@
+name: Issue sitemap
+
+# Nightly list of the issue pages the sitemap offers search engines. It runs
+# before warm-sitemaps (09:15) and takes about a minute. See
+# scripts/buildIssueSitemap.js.
+
+on:
+  schedule:
+    - cron: '35 8 * * *'
+  workflow_dispatch: {}
+
+concurrency:
+  group: issue-sitemap
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - name: Install deps
+        run: npm ci
+      - name: Build the issue list
+        run: node scripts/buildIssueSitemap.js --apply

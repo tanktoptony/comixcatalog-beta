@@ -337,6 +337,15 @@ dev server: all 16 chunks sum to **45,985** series URLs, zero duplicates,
 equal to the exact count of allowlisted series, so the §2a 1000-row cap is
 not in play. Issues (2.5M) are still not enumerated, deliberately.
 
+**2026-11-04:** all 16 series files returned 500 from 10-22 to 11-04. PR #367
+added a PostgREST embed of `gcd_issues` under `key_issues`, which have no
+foreign key, so every call failed with PGRST200 and each file took 16 s to
+give up. `warm-sitemaps.yml` ran out of time and showed "cancelled" for 12
+days with no alert. Fixed, and that workflow now ends red, emails, and is in
+the watchdog. `creators-z` and `creators-0-9` were also empty (collation),
+which hid 208 creators. Current numbers: 98,031 series, 660 `/keys` pages,
+50,044 creators.
+
 Still worth doing: resubmit `/sitemap.xml` in Search Console after this
 deploys and watch the indexed-page count over the following weeks. That is
 the number that says whether it worked.

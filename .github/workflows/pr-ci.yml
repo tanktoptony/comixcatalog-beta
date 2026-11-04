@@ -88,6 +88,9 @@ jobs:
       - name: Creator page tests
         run: npm run test:creator-page
 
+      - name: Sitemap tests
+        run: npm run test:sitemap
+
       - name: Fetch retry tests
         run: npm run test:fetch-with-retry
 
@@ -105,6 +108,9 @@ jobs:
 
       - name: Sitemap issue file tests
         run: npm run test:sitemap-issues
+
+      - name: Issue sitemap tests
+        run: npm run test:issue-sitemap
 
       - name: GCD format-sync retry tests
         run: npm run test:format-sync

@@ -11,14 +11,18 @@
 // .range(40000, 40999) over series with the allowlist filter took ~3s per
 // page live (2026-09-21), and 46 of those in one request is not a route
 // handler. Bounding each chunk by an id range uses the primary key, so each
-// of the 16 chunks is ~2.9k rows in ~2s, generated independently and cached
-// for a day. Issues (2.5M) are deliberately not enumerated yet.
+// of the 16 chunks is ~6k rows (98k US-market series on 2026-11-04),
+// generated independently and cached for a day. Issue pages come from a list built
+// nightly (sitemapIssues.js), never enumerated on request.
 
+import { unstable_cache } from "next/cache";
 import { supabaseServer } from "@/lib/supabase/server";
+import { getServiceClient } from "@/lib/supabase/service";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 import ARTICLES from "@/app/reads/articles";
 import { SITE_URL } from "@/lib/siteUrl";
 import { PUBLISHER_BY_SLUG } from "@/lib/publisherPages";
+import { creatorSlugRange, seriesGcdIdsWithKeyPages } from "@/lib/sitemapCore";
 
 export { SITE_URL };
 
@@ -166,6 +170,25 @@ export async function staticEntries() {
   return entries;
 }
 
+// One list shared by all 16 series files, read at most once a day. Service
+// role because RLS gives the anon key no rows from gcd_issues, with no error.
+const cachedKeyPageSeries = unstable_cache(
+  () => seriesGcdIdsWithKeyPages(getServiceClient(), withRetry),
+  ["sitemap-key-page-series-v1"],
+  { revalidate: 86400 }
+);
+
+// The /keys URLs are a small extra. A failed lookup drops them from this
+// file for a day; it must never cost the file its series URLs again.
+async function keyPageSeries() {
+  try {
+    return new Set((await cachedKeyPageSeries()).map(String));
+  } catch (error) {
+    console.error("sitemap: key page lookup failed", error);
+    return new Set();
+  }
+}
+
 // One hex prefix's worth of allowlisted series, walked by keyset on id.
 // PostgREST caps reads at 1000 rows silently (see
 // src/lib/supabase/fetchAllPages.js), so this pages explicitly. It cannot
@@ -177,6 +200,7 @@ export async function seriesEntries(prefix) {
   const lower = `${prefix}0000000-0000-0000-0000-000000000000`;
   const upper = `${prefix}fffffff-ffff-ffff-ffff-ffffffffffff`;
   const PAGE = 1000;
+  const withKeyPage = await keyPageSeries();
   const entries = [];
   let after = null;
   for (;;) {
@@ -190,28 +214,13 @@ export async function seriesEntries(prefix) {
       if (cursor) query = query.gt("id", cursor);
       return query;
     }, `series-${prefix} after ${cursor ?? "start"}`);
-    const gcdIds = data.map((row) => row.gcd_id).filter((value) => value != null);
-    const keyRows = gcdIds.length ? await withRetry(
-      () => supabase
-        .from("key_issues")
-        .select("gcd_issues!inner(series_gcd_id)")
-        .in("gcd_issues.series_gcd_id", gcdIds),
-      `series-${prefix} key counts after ${cursor ?? "start"}`
-    ) : [];
-    const keyCounts = new Map();
-    for (const keyRow of keyRows) {
-      const issue = Array.isArray(keyRow.gcd_issues) ? keyRow.gcd_issues[0] : keyRow.gcd_issues;
-      const seriesGcdId = issue?.series_gcd_id;
-      if (seriesGcdId == null) continue;
-      keyCounts.set(String(seriesGcdId), (keyCounts.get(String(seriesGcdId)) ?? 0) + 1);
-    }
     for (const row of data) {
       entries.push({
         url: `${SITE_URL}/series/${row.id}`,
         changeFrequency: "monthly",
         priority: 0.6,
       });
-      if ((keyCounts.get(String(row.gcd_id)) ?? 0) >= 3) {
+      if (withKeyPage.has(String(row.gcd_id))) {
         entries.push({
           url: `${SITE_URL}/series/${row.id}/keys`,
           changeFrequency: "monthly",
@@ -231,15 +240,15 @@ export async function seriesEntries(prefix) {
 export async function creatorEntries(prefix) {
   if (!CREATOR_CHUNKS.includes(prefix)) return null;
   const supabase = supabaseServer();
-  const lower = prefix === "0-9" ? "0" : prefix;
-  const upper = prefix === "0-9" ? ":" : String.fromCharCode(prefix.charCodeAt(0) + 1);
+  const { lower, upper } = creatorSlugRange(prefix);
   const entries = [];
   let after = null;
   for (;;) {
     const cursor = after;
     const data = await withRetry(() => {
       let query = supabase.from("creators").select("slug")
-        .gte("slug", lower).lt("slug", upper).order("slug", { ascending: true }).limit(1000);
+        .gte("slug", lower).order("slug", { ascending: true }).limit(1000);
+      if (upper) query = query.lt("slug", upper);
       if (cursor) query = query.gt("slug", cursor);
       return query;
     }, `creators-${prefix} after ${cursor ?? "start"}`);

@@ -137,6 +137,12 @@ Rules: grids use `coverThumb(url)` (`src/lib/coverThumb.js`); `CoverThumbFallbac
 - Library catalog-link search and the marketplace filter on their own logic (marketplace facets are client-side over all listings).
 - **Dead:** `src/lib/search/*` (imports a file that doesn't exist), `src/lib/db.js`, `public/sqlite.worker.js`, `public/sqljs/`, `public/wa-sqlite.wasm`, and deps `sql.js`, `wa-sqlite`, `better-sqlite3`. An old in-browser SQLite search experiment; nothing imports it.
 
+## Sitemaps
+
+- `/sitemap.xml` (`src/app/sitemap.xml/route.js`) is the index robots.txt points at. `/sitemaps/<name>.xml` (`src/app/sitemaps/[name]/route.js`) serves `static`, `series-<hex>` (16 files, about 98k series plus 660 `/keys` pages) and `creators-<part>` (27 files, about 50k creators). All render on first request and are cached for a day (ISR), so a slow database can't fail a deploy.
+- `warm-sitemaps.yml` requests every file daily. A file that stays broken ends the run red and emails the reports address. The workflow is in `scripts/cronWatchdog.js`.
+- Issue pages are not listed yet.
+
 ## Catalog and covers
 
 See [CATALOG_DATA.md](CATALOG_DATA.md). In short: GCD supplies series/issue metadata, ComicVine supplies cover images, and the two are joined by best-effort link columns on `canonical_covers`. Cover selection for display is implemented separately in about 15 routes and libs, with the same tier order but not shared code.
@@ -151,6 +157,27 @@ See [CATALOG_DATA.md](CATALOG_DATA.md). In short: GCD supplies series/issue meta
 ## Marketplace
 
 See [MARKETPLACE.md](MARKETPLACE.md). Listings are created by a trigger from library status changes, read through the `marketplace_listings` view, and cached with tag `listings`. No payments.
+
+## Issue sitemap
+
+Search engines get the issue pages worth listing, from a list built once a night, so nothing walks `gcd_issues` on request.
+
+**Audit, 2026-11-04.** 20 issue pages fetched with a Googlebot user agent, plus 30 random pages with credits and no linked cover. All answered 200 with a self-referencing canonical, `index, follow` and ComicIssue JSON-LD. Words are the text inside `<main>`:
+
+| Kind of page | Sampled | Words in main | Listed? |
+|---|---|---|---|
+| Key issue | 5 | 310 to 1,151 | Yes |
+| Linked cover | 5 | 203 to 255 | Yes |
+| Credits, no linked cover | 30 | 160 to 820, median 295 | Yes, with 2+ credit rows |
+| No cover, no credits | 5 | 102 to 136, mostly template text | No |
+
+The pages with one credit row sat at the low end (160 to 212 words), so one row doesn't qualify. 7 of the 30 credits pages still show a cover through the series and issue-number match.
+
+**Candidate set, 2026-11-04,** before the two-credit rule: 287,929 base editions in US-market series. 7,442 are keys, 91,888 have a linked cover and 273,713 have credits. About 410k issues sit in those series. The first real build with the two-credit rule listed **267,464 issues in 59 files**, the largest 44,800 URLs, so about 140k thin pages stay out.
+
+**Design.** `scripts/buildIssueSitemap.js` calls `sitemap_issue_ids(start, end)` for each 50,000-wide `gcd_id` range and writes a `sitemap_issue_chunks` row only when its list changed. Width 50,000 means no file can pass Google's limit, an issue stays in the same file, and `updated_at` means something as `<lastmod>`. The function starts from the indexes on `issue_creators`, `canonical_covers` and `key_issues`, which took 27k buffers and 33 ms on a sample range against 261k buffers and 595 ms starting from `gcd_issues`. The whole pass took about 40 s. A run refuses to write if it finds under 100,000 issues or the list would shrink by more than a fifth, and it reads back what it stored.
+
+**Cost of the crawl.** About $10 per million page renders, from Nov 3 billing (16,613 invocations, $0.16 of CPU, memory and origin transfer). 10,000 crawled pages a day is about $0.10. Issue pages are `private, no-store` today (x-vercel-cache MISS every time) because `page.js` reads `searchParams`. ISR would cost more than it saves on this traffic: writes are $4 per million 8 KB units, and 70 to 90% of crawler hits are first visits to a URL.
 
 ## Issue files in the sitemap
 

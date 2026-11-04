@@ -12700,6 +12700,36 @@ button.nav-link {
   font-weight: 700;
 }
 
+.fc-done-link { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.fc-pending {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(244, 208, 63, 0.4);
+  background: rgba(244, 208, 63, 0.08);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.fc-pending p { margin: 0; }
+.fc-pending b { color: #fff; overflow-wrap: anywhere; }
+.fc-pending .fc-pending-title { color: #F4D03F; font-weight: 800; font-size: 1.05rem; }
+.fc-pending-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.9rem; margin-top: 0.25rem; font-size: 0.85rem; color: rgba(255, 255, 255, 0.65); }
+.fc-pending-resend {
+  min-height: 40px;
+  padding: 0 1rem;
+  border: 1px solid rgba(244, 208, 63, 0.55);
+  border-radius: 999px;
+  background: transparent;
+  color: #F4D03F;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.fc-pending-resend:hover:not(:disabled) { background: rgba(244, 208, 63, 0.14); }
+.fc-pending-resend:disabled { cursor: progress; opacity: 0.8; }
+
 /* The pass: a foil card with a slow sheen. */
 .fc-pass-wrap { perspective: 1200px; display: flex; justify-content: center; }
 .fc-pass {

@@ -77,7 +77,7 @@ Key routes:
 | `/api/listings/*` | Listing edit, sync, photo upload/process/order/delete |
 | `/api/stripe/{checkout,portal,webhook}` | Pro subscription billing |
 | `/api/export/{csv,pdf,wantlist}`, `/api/csv-import` | Data in and out |
-| `/api/founding/status` | Counts and claims founding passes (cap 100) |
+| `/api/founding/status` | Counts and claims founding passes (cap 100). GET also tells a signed-in member when a confirm link is out, so the founding page and the site banner can say so in any browser |
 
 ## Authentication
 

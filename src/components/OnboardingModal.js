@@ -26,7 +26,13 @@ import { useLibrary } from "@/context/LibraryContext";
 // collection, and /search is where the add happens. A modal 800ms into
 // either one covers the thing they came to do, so with an empty collection
 // the auto-open waits until they are somewhere else or own a book.
-const ACTIVATION_PATHS = new Set(["/library", "/search"]);
+//
+// The same goes for wherever signup's ?next= drops them: scanning, importing,
+// marking a run, the issue they tried to save.
+const ACTIVATION_PATHS = new Set(["/library", "/search", "/scan", "/switch"]);
+const ACTIVATION_PREFIXES = ["/series/", "/issue/"];
+const isActivationPath = (path) =>
+  ACTIVATION_PATHS.has(path) || ACTIVATION_PREFIXES.some((prefix) => path?.startsWith(prefix));
 
 const STORAGE_KEY = "cc:onboarding-seen";
 
@@ -61,10 +67,14 @@ export default function OnboardingModal() {
   const pathname = usePathname();
   const { collections, loading: libraryLoading } = useLibrary();
   const emptyLibrary = !libraryLoading && collections.length === 0;
-  const holdForActivation = ACTIVATION_PATHS.has(pathname) && (libraryLoading || emptyLibrary);
+  const holdForActivation = isActivationPath(pathname) && (libraryLoading || emptyLibrary);
+  // Signup lands on the founding page, whose one job at that moment is "check
+  // your email." The modal opened 800ms in, right over that line, with a big
+  // "Open search" button that left the page for good.
+  const holdForFounding = pathname === "/founding-collectors";
 
   useEffect(() => {
-    if (loading || !user || holdForActivation) return;
+    if (loading || !user || holdForActivation || holdForFounding) return;
     try {
       if (localStorage.getItem(STORAGE_KEY) === "1") return;
     } catch {
@@ -73,7 +83,7 @@ export default function OnboardingModal() {
     // Small delay so the modal doesn't slam in during the first paint.
     const t = setTimeout(() => setOpen(true), 800);
     return () => clearTimeout(t);
-  }, [user, loading, holdForActivation]);
+  }, [user, loading, holdForActivation, holdForFounding]);
 
   // Manual re-open, regardless of the seen-flag — the header's "How this
   // works" button dispatches this. Always starts back at step 0.

@@ -40,6 +40,16 @@ function writeNumber(userId, n) {
   }
 }
 
+// The confirm link lands here, usually in a different browser from the one
+// that signed up: an email app opens its own, and Instagram's in-app browser
+// never shares a session with anything. So "you're in" has to read right for a
+// signed-out visitor too. Everything this feeds is gated on claimStateKnown,
+// which is false on the server and through hydration.
+function readJustClaimed() {
+  if (typeof window === "undefined") return false;
+  return new URLSearchParams(window.location.search).get("claimed") === "1";
+}
+
 export default function FoundingCollectorsClient({ initialRemaining = null, roster = [] }) {
   const { user, profile, loading } = useAuth();
   const userId = user?.id ?? null;
@@ -51,6 +61,7 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
   const [statusFor, setStatusFor] = useState(null);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
+  const [justClaimed] = useState(readJustClaimed);
 
   async function fetchStatus() {
     const response = userId
@@ -82,7 +93,7 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
     setBusy(false);
     if (!response.ok) return setMessage(data.error || "Could not activate your membership");
     setMessage(data.pending
-      ? "Check your email to claim your founding pass. It's first come, first served, so confirm soon."
+      ? "Sent. Check your email, and your spam folder too."
       : "Your Founding Collector pass is active.");
     const next = await fetchStatus();
     if (next) {
@@ -101,6 +112,10 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
   const passNumber = (statusReady && status.number) || (userId ? readNumber(userId) : null);
   // Signed out needs no status call: the server already rendered the count.
   const claimStateKnown = !loading && (!userId || isFounder || statusReady);
+
+  // A confirm link is out. The next step is in their inbox, not on this page.
+  const pendingClaim = statusReady && !isFounder && Boolean(status.pending);
+  const justClaimedSignedOut = !loading && justClaimed && !userId;
 
   const remaining = status.remaining;
   const claimed = remaining == null ? null : Math.max(0, CAP - remaining);
@@ -132,10 +147,28 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
             <div className="fc-done">You&rsquo;re Founding Collector No. {passNumber ? pad(passNumber) : "★"}. Your lifetime membership is active, and your name is on the wall.</div>
           ) : soldOut ? (
             <div className="fc-done">All {CAP} passes are claimed. Thank you to every one of them.</div>
+          ) : justClaimedSignedOut ? (
+            <div className="fc-done">
+              You&rsquo;re in. Your Founding Collector pass is claimed.{" "}
+              <Link href="/login?next=/founding-collectors" className="fc-done-link">Log in</Link> to see your number.
+            </div>
           ) : !user ? (
             <div className="fc-ctas">
               <Link href="/signup" className="lp-cta-primary">Claim your pass, free</Link>
               <Link href="/login?next=/founding-collectors" className="fc-ghost">I have an account →</Link>
+            </div>
+          ) : pendingClaim ? (
+            <div className="fc-pending">
+              <p className="fc-pending-title">One more step: check your email.</p>
+              <p>
+                We sent a confirmation link to <b>{status.pendingEmail}</b>. Click it and your Founding Collector pass is yours. It&rsquo;s first come, first served, so confirm soon.
+              </p>
+              <div className="fc-pending-actions">
+                <button type="button" className="fc-pending-resend" onClick={claim} disabled={busy}>
+                  {busy ? "Sending…" : "Send it again"}
+                </button>
+                <span>Not there? Check your spam folder.</span>
+              </div>
             </div>
           ) : status.canClaim ? (
             <div className="fc-ctas">
@@ -151,7 +184,12 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
           {message && <p className="founding-message">{message}</p>}
           {!message && (
             <Suspense fallback={null}>
-              <FoundingQueryMessage />
+              <FoundingQueryMessage
+                signedIn={Boolean(userId)}
+                isFounder={isFounder}
+                pending={pendingClaim}
+                justClaimedSignedOut={justClaimedSignedOut}
+              />
             </Suspense>
           )}
         </div>
@@ -166,7 +204,7 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
             <div className="fc-pass-title">Founding<br />Collector</div>
             <div className="fc-pass-sub">Founding member · for life</div>
             <div className="fc-pass-no">
-              <span>No.</span> {!claimStateKnown ? "-" : isFounder ? (passNumber ? pad(passNumber) : "★") : nextNumber == null ? "-" : pad(nextNumber)}
+              <span>No.</span> {!claimStateKnown ? "-" : isFounder ? (passNumber ? pad(passNumber) : "★") : justClaimedSignedOut ? "★" : nextNumber == null ? "-" : pad(nextNumber)}
               <em> / {CAP}</em>
             </div>
           </div>
@@ -212,12 +250,12 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
           })}
           {/* The next open pass, for anyone who can still take one. Waits for
               claim state so a founder never sees it flash. */}
-          {claimStateKnown && !isFounder && !soldOut && nextNumber != null && (() => {
+          {claimStateKnown && !isFounder && !justClaimedSignedOut && !soldOut && nextNumber != null && (() => {
             const label = <><b>Your spot</b><span>No. {pad(nextNumber)}</span></>;
             if (!user) {
               return <Link href="/signup" className="fc-slot-open" aria-label={`Claim pass No. ${pad(nextNumber)}`}>{label}</Link>;
             }
-            if (status.canClaim) {
+            if (status.canClaim && !pendingClaim) {
               return (
                 <button type="button" className="fc-slot-open" onClick={claim} disabled={busy} aria-label={`Claim pass No. ${pad(nextNumber)}`}>
                   {label}

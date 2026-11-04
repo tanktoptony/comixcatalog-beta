@@ -17,9 +17,15 @@
 // username, the landing path and a timestamp. No email, no user id, nothing
 // typed by the visitor.
 //
-// ?ref=<username> is captured and stored but nothing acts on it yet. It is
-// here so share links can carry it today and a referral credit can be built
-// on real data later, without changing any link already posted.
+// ?ref=<username> and the /join/<username> invite link name the member who sent
+// someone here. /api/invites/accept reads it after signup to set
+// profiles.invited_by and follow the inviter.
+//
+// Every signup should save a source. A tagged link supplies its own; a visit
+// with only a referrer gets one from the host (bing.com is source=bing,
+// medium=organic); an invite is source=invite; a visit with neither is
+// source=direct, medium=none. A null signup_source now means nothing was
+// recorded at all: an account older than this code, or blocked storage.
 
 const STORAGE_KEY = "cc:attribution";
 const MAX_AGE_MS = 30 * 24 * 60 * 60 * 1000;
@@ -30,6 +36,17 @@ const REF_RE = /^[a-z0-9_]{3,20}$/;
 function clean(value, re) {
   const v = String(value ?? "").trim().toLowerCase();
   return re.test(v) ? v : null;
+}
+
+const INVITE_TAGS = Object.freeze({ source: "invite", medium: "referral", campaign: "member-invite" });
+
+// The invite link is /join/<username> with no tags on it, so the path is the
+// signal. Without this, a visitor arriving from any referrer (webmail, a DM)
+// keeps that referrer as first touch and the ?ref= on the signup button that
+// follows is thrown away, losing both the credit and the follow.
+export function inviteRefFromPath(pathname) {
+  const match = String(pathname ?? "").match(/^[/]join[/]([^/]+)[/]?$/);
+  return match ? clean(match[1], REF_RE) : null;
 }
 
 // Pure: URLSearchParams (or anything with .get) → attribution object, or
@@ -43,9 +60,10 @@ export function parseAttribution(params, landingPath = "/", now = Date.now()) {
     const v = clean(params.get(`utm_${key}`), VALUE_RE);
     if (v) out[key] = v;
   }
-  const ref = clean(params.get("ref"), REF_RE);
+  const ref = clean(params.get("ref"), REF_RE) || inviteRefFromPath(landingPath);
   if (ref) out.ref = ref;
   if (Object.keys(out).length === 0) return null;
+  if (ref && !out.source) Object.assign(out, { ...INVITE_TAGS, ...out });
   const path = String(landingPath || "/");
   out.landing = path.startsWith("/") ? path.slice(0, 64) : "/";
   out.ts = now;
@@ -67,22 +85,77 @@ export function cleanReferrerHost(value) {
   }
 }
 
+const SEARCH_ENGINES = [
+  ["google", /^(www[.]|m[.]|images[.]|news[.]|cse[.])?google[.][a-z.]+$/],
+  ["google", /googlequicksearchbox$/], // the Android search app's android-app:// referrer
+  ["bing", /(^|[.])bing[.]com$/],
+  ["duckduckgo", /(^|[.])duckduckgo[.]com$/],
+  ["yahoo", /(^|[.])yahoo[.][a-z.]+$/],
+  ["brave", /^search[.]brave[.]com$/],
+  ["ecosia", /(^|[.])ecosia[.]org$/],
+  ["kagi", /(^|[.])kagi[.]com$/],
+  ["startpage", /(^|[.])startpage[.]com$/],
+  ["qwant", /(^|[.])qwant[.]com$/],
+  ["yandex", /(^|[.])yandex[.][a-z.]+$/],
+  ["baidu", /(^|[.])baidu[.]com$/],
+];
+
+// Named so a bare instagram.com referrer and a tagged Instagram link land in the
+// same place in the Monday email. YouTube is medium=video to match the /yt links.
+const NAMED_SITES = [
+  ["instagram", "social", /(^|[.])instagram[.]com$/],
+  ["facebook", "social", /(^|[.])(facebook|messenger)[.]com$|^fb[.]com$/],
+  ["reddit", "social", /(^|[.])reddit[.]com$/],
+  ["x", "social", /^t[.]co$|(^|[.])(x|twitter)[.]com$/],
+  ["threads", "social", /(^|[.])threads[.](net|com)$/],
+  ["tiktok", "social", /(^|[.])tiktok[.]com$/],
+  ["pinterest", "social", /(^|[.])pinterest[.][a-z.]+$/],
+  ["bluesky", "social", /^bsky[.]app$/],
+  ["discord", "social", /(^|[.])discord[.]com$/],
+  ["youtube", "video", /(^|[.])youtube[.]com$|^youtu[.]be$/],
+];
+
+// Pure: which source a referrer counts as, or null for no referrer or our own site.
+export function classifyReferrer(host) {
+  const h = cleanReferrerHost(host);
+  if (!h || /(^|[.])comixcatalog[.]com$/.test(h)) return null;
+  for (const [source, re] of SEARCH_ENGINES) if (re.test(h)) return { source, medium: "organic" };
+  for (const [source, medium, re] of NAMED_SITES) if (re.test(h)) return { source, medium };
+  return { source: clean(h, VALUE_RE) || "other-site", medium: "referral" };
+}
+
+// Pure: fills in a source for a record that has none. Tags on a link always win,
+// so this only ever adds to what the visitor's URL said.
+function withSource(record) {
+  if (record.source) return record;
+  const derived = clean(record.ref, REF_RE)
+    ? INVITE_TAGS
+    : classifyReferrer(record.referrer_host) || (record.direct ? { source: "direct", medium: "none" } : null);
+  return derived ? { ...derived, ...record } : record;
+}
+
 // Revalidate the user-writable metadata before it crosses the server boundary.
+// The source is worked out here as well as in the browser, because a record
+// saved in localStorage or on an unconfirmed account before this code shipped
+// has only the referrer.
 export function sanitizeSavedAttribution(record) {
   if (!record || typeof record !== "object") return {};
   const params = new URLSearchParams();
   for (const key of UTM_KEYS) if (record[key]) params.set(`utm_${key}`, record[key]);
-  const cleanRecord = parseAttribution(params, record.landing || "/", Date.now()) || {};
-  const landing = String(record.landing || "/");
-  const landingPath = landing.startsWith("/") ? landing.slice(0, 64) : "/";
-  return {
+  const cleanRecord = parseAttribution(params, "/", Date.now()) || {};
+  const tags = {
     ...(cleanRecord.source ? { source: cleanRecord.source } : {}),
     ...(cleanRecord.medium ? { medium: cleanRecord.medium } : {}),
     ...(cleanRecord.campaign ? { campaign: cleanRecord.campaign } : {}),
     ...(clean(record.ref, REF_RE) ? { ref: clean(record.ref, REF_RE) } : {}),
     ...(cleanReferrerHost(record.referrer_host) ? { referrer_host: cleanReferrerHost(record.referrer_host) } : {}),
-    ...(landingPath ? { landing_path: landingPath } : {}),
   };
+  // An empty body (an account with nothing recorded) saves nothing. Writing a
+  // default landing path would use up the one write this row gets.
+  if (Object.keys(tags).length === 0 && !record.landing && record.direct !== true) return {};
+  const { direct, ...saved } = withSource({ ...tags, ...(record.direct === true ? { direct: true } : {}) });
+  const landing = String(record.landing || "/");
+  return { ...saved, landing_path: landing.startsWith("/") ? landing.slice(0, 64) : "/" };
 }
 
 // Pure: is a stored record still usable?
@@ -109,7 +182,11 @@ function read() {
 // not hide a later Instagram click for 30 days.
 export function chooseAttribution(existing, incoming, now = Date.now()) {
   const keep = isFresh(existing, now) ? existing : null;
-  if (keep && !keep.direct) return keep;
+  if (keep && !keep.direct) {
+    // First touch keeps the credit, but a member's invite still has to reach
+    // signup, or the new account never follows them or counts as invited.
+    return incoming?.ref && !keep.ref ? { ...keep, ref: incoming.ref } : keep;
+  }
   if (incoming && !incoming.direct) return incoming;
   return keep || incoming || null;
 }
@@ -127,6 +204,7 @@ export function captureAttribution() {
   if (!incoming && outside) incoming = { landing, ts: Date.now() };
   if (incoming && outside) incoming.referrer_host = outside;
   if (!incoming) incoming = { landing, ts: Date.now(), direct: true };
+  incoming = withSource(incoming);
 
   const existing = read();
   const chosen = chooseAttribution(existing, incoming);
@@ -146,11 +224,15 @@ export function captureAttribution() {
 // later activation event from that browser goes out unattributed. The
 // stored value is re-validated, since user_metadata is user-writable.
 export function seedAttribution(record) {
-  if (typeof window === "undefined" || !record || typeof record !== "object") return;
-  if (isFresh(read())) return;
+  if (typeof window === "undefined" || !record || typeof record !== "object" || record.direct) return;
+  // AttributionCapture has already written a direct record for this page load
+  // by the time /auth/callback gets here, so a direct record must not block this.
+  const current = read();
+  if (isFresh(current) && !current.direct) return;
+  const filled = withSource(record);
   const params = new URLSearchParams();
-  for (const key of UTM_KEYS) if (record[key]) params.set(`utm_${key}`, record[key]);
-  if (record.ref) params.set("ref", record.ref);
+  for (const key of UTM_KEYS) if (filled[key]) params.set(`utm_${key}`, filled[key]);
+  if (filled.ref) params.set("ref", filled.ref);
   const ts = Number.isFinite(record.ts) ? record.ts : Date.now();
   const clean = parseAttribution(params, record.landing || "/", ts);
   if (!clean || !isFresh(clean)) return;

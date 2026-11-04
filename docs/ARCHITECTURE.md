@@ -189,5 +189,5 @@ See [MARKETPLACE.md](MARKETPLACE.md). Listings are created by a trigger from lib
 - `getListings()` loads every listing into memory; fine at beta scale only.
 - Auth is localStorage-only; no SSR identity.
 - Pipeline state lives in git, so most commits are bots.
-- 8 test scripts exist but aren't in CI (`attribution`, `csv-match`, `featured-targets`, `launch-flags`, `post-auth-redirect`, `production-assets`, `share-cards`, `smoke`).
+- 7 test scripts exist but aren't in CI (`csv-match`, `featured-targets`, `launch-flags`, `post-auth-redirect`, `production-assets`, `share-cards`, `smoke`).
 - Dead code: see "Search" above, plus placeholder pages listed in PRODUCT.md.

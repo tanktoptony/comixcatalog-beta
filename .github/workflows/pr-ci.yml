@@ -115,6 +115,9 @@ jobs:
       - name: Instagram series scheduler tests
         run: npm run test:ig-series
 
+      - name: Signup attribution tests
+        run: npm run test:attribution
+
       - name: Health-check failure-mode tests
         run: npm run test:health-check
 

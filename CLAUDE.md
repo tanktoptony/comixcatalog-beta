@@ -376,6 +376,10 @@ Curated [src/lib/featuredSeries.js](src/lib/featuredSeries.js) — ~79 entries a
 
 To regenerate against current taste: edit `featuredSeries.js` directly. Then run `npm run covers:gap-featured` to find which curated entries lack covers, then a targeted ComicVine ingest fills them in.
 
+### Per-video YouTube links (shipped November 2026)
+
+Every video gets its own short link, `comixcatalog.com/yt/<slug>`, listed in [src/lib/youtubeLinks.js](src/lib/youtubeLinks.js). Each is a temporary redirect to the page that video is about, tagged `utm_source=youtube&utm_medium=video&utm_campaign=yt-<slug>`, so a signup saves the video that sent it. An unlisted slug still lands on `/founding-collectors` with its tag. Never rename a slug that has been posted. Link issue pages by their canonical `/issue/gcd-<id>` address: `/issue/<id>` redirects there and the redirect drops the query string, which silently loses the tags. YouTube doesn't make links clickable in Shorts descriptions or comments, so on a Short the link is typed text and the clickable path is the Short's Related video.
+
 ### Auth UX (refactored May 21, 2026)
 
 Three bugs fixed:

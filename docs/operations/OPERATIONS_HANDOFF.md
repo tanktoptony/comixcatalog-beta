@@ -268,6 +268,14 @@ Note `trackEvent` no-ops silently when `gtag` is absent (ad blockers, local
 dev), so expect real-world undercounting and do not treat GA as a source of
 truth for absolute numbers.
 
+**Signup attribution (November 2026).** `profiles.signup_source` is first touch
+and is the number to trust; GA undercounts. Before this fix a search visit saved
+its referrer and no source, so it read as "unknown" in `traction_report()`. To
+check a live path without creating an account, open the page in a browser with
+a referrer, intercept the `/auth/v1/signup` request to read
+`data.signup_attribution`, and POST that to `/api/attribution` as test_tony, then
+null the row again. test_tony and test_tony_depaul are excluded from every count.
+
 ### 8b. Mailing list — collection works, sending does not exist
 
 `newsletter_subscribers` (migration 0019) is **well built**: unique

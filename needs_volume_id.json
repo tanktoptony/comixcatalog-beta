@@ -6339,9 +6339,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T15:58:10.713151+00:00",
-    "retry_after": "2026-11-04T15:58:10.713153+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T18:10:51.399720+00:00",
+    "retry_after": "2026-11-11T18:10:51.399723+00:00",
     "search_hydrated": true
   },
   {
@@ -9450,9 +9450,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T15:57:49.832328+00:00",
-    "retry_after": "2026-11-04T15:57:49.832330+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T18:10:51.399697+00:00",
+    "retry_after": "2026-11-11T18:10:51.399702+00:00",
     "search_hydrated": true
   },
   {
@@ -27439,8 +27439,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T16:59:49.546601+00:00",
-    "retry_after": "2026-11-05T16:59:49.546608+00:00",
+    "last_attempt_at": "2026-11-04T18:11:22.220347+00:00",
+    "retry_after": "2026-11-05T18:11:22.220363+00:00",
     "search_hydrated": true
   },
   {
@@ -27463,8 +27463,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T17:04:57.821500+00:00",
-    "retry_after": "2026-11-05T17:04:57.821503+00:00",
+    "last_attempt_at": "2026-11-04T18:02:18.097131+00:00",
+    "retry_after": "2026-11-05T18:02:18.097134+00:00",
     "search_hydrated": true
   },
   {
@@ -36626,9 +36626,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-28T18:05:48.230601+00:00",
-    "retry_after": "2026-11-04T18:05:48.230602+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-04T18:10:51.399561+00:00",
+    "retry_after": "2026-11-18T18:10:51.399577+00:00",
     "search_hydrated": true
   },
   {
@@ -43510,8 +43510,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T17:04:57.821357+00:00",
-    "retry_after": "2026-11-05T17:04:57.821369+00:00",
+    "last_attempt_at": "2026-11-04T18:02:18.096972+00:00",
+    "retry_after": "2026-11-05T18:02:18.096988+00:00",
     "search_hydrated": true
   },
   {
@@ -51411,8 +51411,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T17:04:57.821467+00:00",
-    "retry_after": "2026-11-05T17:04:57.821471+00:00",
+    "last_attempt_at": "2026-11-04T18:02:18.097095+00:00",
+    "retry_after": "2026-11-05T18:02:18.097100+00:00",
     "search_hydrated": true
   },
   {
@@ -91272,9 +91272,9 @@
     "year": 2012,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-03T17:17:56.246580+00:00",
-    "retry_after": "2026-11-04T17:17:56.246582+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-04T18:11:11.461373+00:00",
+    "retry_after": "2026-11-07T18:11:11.461389+00:00",
     "search_hydrated": true
   },
   {
@@ -91725,6 +91725,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-04T17:13:16.431472+00:00",
     "retry_after": "2026-11-05T17:13:16.431485+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Trek: The Next Generation / Star Trek: Deep Space Nine Ashcan [Deep Space Nine / Star Trek: The Next Generation Ashcan Edition]",
+    "publisher": "Malibu Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-04T18:11:11.461505+00:00",
+    "retry_after": "2026-11-05T18:11:11.461510+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Speed Racer & Racer X: The Origins Collection",
+    "publisher": "IDW Publishing",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-04T18:11:11.461530+00:00",
+    "retry_after": "2026-11-05T18:11:11.461533+00:00",
     "search_hydrated": true
   }
 ]

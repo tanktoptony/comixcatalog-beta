@@ -2264,6 +2264,7 @@ input[type="file"] {
 }
 
 .run-quick-add-toolbar {
+  scroll-margin-top: 96px;
   display: flex;
   align-items: center;
   gap: 10px;

@@ -84,3 +84,16 @@ test("percentile does not mutate the caller's array", () => {
   percentile(original, 0.25);
   assert.deepEqual(original, [50, 10, 30]);
 });
+
+test("normalizeRawCondition keeps half grades and pluses", async () => {
+  const { normalizeRawCondition } = await import("./valuation.js");
+  assert.equal(normalizeRawCondition("VF/NM"), "VF");
+  assert.equal(normalizeRawCondition("fn/vf"), "FN");
+  assert.equal(normalizeRawCondition("FR/GD"), "FA");
+  assert.equal(normalizeRawCondition("NM-"), "NM");
+  assert.equal(normalizeRawCondition("VF+"), "VF");
+  assert.equal(normalizeRawCondition("Very Fine/Near Mint"), "VF");
+  assert.equal(normalizeRawCondition("Near Mint"), "NM");
+  assert.equal(normalizeRawCondition("Excellent"), null);
+  assert.equal(normalizeRawCondition(""), null);
+});

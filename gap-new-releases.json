@@ -11,14 +11,36 @@
     ]
   },
   {
-    "name": "Uncanny X-Men",
-    "publisher": "Marvel",
-    "year": 2024,
-    "volume_id": 159189,
+    "name": "Avengers",
+    "publisher": "Marvel Comics",
+    "year": null,
+    "volume_id": 177871,
     "series_gcd_id": null,
     "newest_release": "2026-11-04",
     "missing": [
-      "38"
+      "1"
+    ]
+  },
+  {
+    "name": "Exquisite Corpses: Lone Gunman",
+    "publisher": "Image Comics",
+    "year": null,
+    "volume_id": 177875,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-04",
+    "missing": [
+      "1"
+    ]
+  },
+  {
+    "name": "2000 AD",
+    "publisher": "Rebellion",
+    "year": 1977,
+    "volume_id": 19752,
+    "series_gcd_id": null,
+    "newest_release": "2026-10-28",
+    "missing": [
+      "2506"
     ]
   },
   {

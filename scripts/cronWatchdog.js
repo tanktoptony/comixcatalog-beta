@@ -45,6 +45,8 @@ const WATCHED = [
   { file: "gcd-publisher-sync.yml", maxAgeHours: 6 },
   // Weekly Monday analytics import, with one day of scheduling slack.
   { file: "youtube-weekly.yml", maxAgeHours: 24 * 8 },
+  // Nightly list of the issue pages in the sitemap.
+  { file: "issue-sitemap.yml", maxAgeHours: 48 },
 ];
 
 const DRY_RUN = process.argv.includes("--dry-run");

@@ -15480,9 +15480,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-28T01:05:12.463597+00:00",
-    "retry_after": "2026-11-04T01:05:12.463601+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-04T01:14:14.907345+00:00",
+    "retry_after": "2026-11-18T01:14:14.907361+00:00",
     "search_hydrated": true
   },
   {
@@ -27498,13 +27498,13 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T00:23:57.733820+00:00",
-    "retry_after": "2026-11-05T00:23:57.733839+00:00",
+    "last_attempt_at": "2026-11-04T01:14:38.130440+00:00",
+    "retry_after": "2026-11-05T01:14:38.130459+00:00",
     "search_hydrated": true
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27522,8 +27522,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T00:10:04.101991+00:00",
-    "retry_after": "2026-11-05T00:10:04.101994+00:00",
+    "last_attempt_at": "2026-11-04T01:02:26.680585+00:00",
+    "retry_after": "2026-11-05T01:02:26.680588+00:00",
     "search_hydrated": true
   },
   {
@@ -35079,9 +35079,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-28T01:05:12.463648+00:00",
-    "retry_after": "2026-11-04T01:05:12.463650+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-04T01:14:14.907389+00:00",
+    "retry_after": "2026-11-18T01:14:14.907393+00:00",
     "search_hydrated": true
   },
   {
@@ -36654,9 +36654,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-28T01:05:41.232007+00:00",
-    "retry_after": "2026-11-04T01:05:41.232021+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-04T01:14:14.907411+00:00",
+    "retry_after": "2026-11-18T01:14:14.907414+00:00",
     "search_hydrated": true
   },
   {
@@ -43551,7 +43551,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43569,8 +43569,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T00:10:04.101946+00:00",
-    "retry_after": "2026-11-05T00:10:04.101964+00:00",
+    "last_attempt_at": "2026-11-04T01:02:26.680466+00:00",
+    "retry_after": "2026-11-05T01:02:26.680484+00:00",
     "search_hydrated": true
   },
   {
@@ -51470,8 +51470,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-03T23:09:44.659116+00:00",
-    "retry_after": "2026-11-04T23:09:44.659120+00:00",
+    "last_attempt_at": "2026-11-04T01:02:26.680550+00:00",
+    "retry_after": "2026-11-05T01:02:26.680553+00:00",
     "search_hydrated": true
   },
   {
@@ -85686,9 +85686,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T01:05:06.071941+00:00",
-    "retry_after": "2026-11-04T01:05:06.071950+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-04T01:14:17.448112+00:00",
+    "retry_after": "2026-11-11T01:14:17.448126+00:00",
     "search_hydrated": true
   },
   {
@@ -91554,6 +91554,46 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-03T22:03:51.486118+00:00",
     "retry_after": "2026-11-04T22:03:51.486135+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Hellcop",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 139840,
+        "name": "Hellcop",
+        "publisher": "Image",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-04T01:14:18.236629+00:00",
+    "retry_after": "2026-11-05T01:14:18.236646+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Suicide Blonde",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-04T01:14:28.121556+00:00",
+    "retry_after": "2026-11-05T01:14:28.121573+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Wicked + The Divine 455AD",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-04T01:14:28.121619+00:00",
+    "retry_after": "2026-11-05T01:14:28.121624+00:00",
     "search_hydrated": true
   }
 ]

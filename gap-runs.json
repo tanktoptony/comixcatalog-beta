@@ -1,19 +1,5 @@
 [
   {
-    "name": "Mad",
-    "publisher": "EC",
-    "year": 1952,
-    "volume_id": 9318,
-    "series_gcd_id": 10092
-  },
-  {
-    "name": "G.I. Combat",
-    "publisher": "DC",
-    "year": 1957,
-    "volume_id": 1820,
-    "series_gcd_id": 1245
-  },
-  {
     "name": "The Amazing Spider-Man",
     "publisher": "Marvel",
     "year": 1999,
@@ -26,6 +12,13 @@
     "year": 1919,
     "volume_id": 145898,
     "series_gcd_id": 126911
+  },
+  {
+    "name": "Mickey Mouse",
+    "publisher": "Western",
+    "year": 1962,
+    "volume_id": 1477,
+    "series_gcd_id": 1531
   },
   {
     "name": "Harvey Hits",
@@ -322,6 +315,20 @@
     "series_gcd_id": 44396
   },
   {
+    "name": "Georgie Comics",
+    "publisher": "Marvel",
+    "year": 1945,
+    "volume_id": 1057,
+    "series_gcd_id": 638
+  },
+  {
+    "name": "Amazing Fantasy",
+    "publisher": "Marvel",
+    "year": 2004,
+    "volume_id": 5533,
+    "series_gcd_id": 16206
+  },
+  {
     "name": "Batwoman",
     "publisher": "DC",
     "year": 2017,
@@ -334,13 +341,6 @@
     "year": 2022,
     "volume_id": 166116,
     "series_gcd_id": 187413
-  },
-  {
-    "name": "Star Trek: Lower Decks",
-    "publisher": "IDW",
-    "year": 2024,
-    "volume_id": 167106,
-    "series_gcd_id": 217396
   },
   {
     "name": "DC Special",
@@ -742,13 +742,6 @@
     "series_gcd_id": 221956
   },
   {
-    "name": "The Amazing Spider-Man",
-    "publisher": "Marvel",
-    "year": 2025,
-    "volume_id": 163325,
-    "series_gcd_id": 222176
-  },
-  {
     "name": "Doomquest",
     "publisher": "Marvel",
     "year": 2026,
@@ -782,13 +775,6 @@
     "year": 2026,
     "volume_id": 176901,
     "series_gcd_id": 240351
-  },
-  {
-    "name": "Crosswind",
-    "publisher": "Image",
-    "year": 2017,
-    "volume_id": 108936,
-    "series_gcd_id": 115080
   },
   {
     "name": "The Exiled",
@@ -887,13 +873,6 @@
     "year": 2004,
     "volume_id": 47922,
     "series_gcd_id": 43697
-  },
-  {
-    "name": "Death Orb",
-    "publisher": "Dark Horse",
-    "year": 2018,
-    "volume_id": 119372,
-    "series_gcd_id": 130918
   },
   {
     "name": "100 Bullets",
@@ -1239,6 +1218,13 @@
     "series_gcd_id": 197302
   },
   {
+    "name": "Willie Comics",
+    "publisher": "Marvel",
+    "year": 1946,
+    "volume_id": 1117,
+    "series_gcd_id": 478
+  },
+  {
     "name": "These Savage Shores",
     "publisher": "Vault",
     "year": 2018,
@@ -1372,17 +1358,24 @@
     "series_gcd_id": 77509
   },
   {
-    "name": "Jackpot Comics",
-    "publisher": "Archie",
-    "year": 1941,
-    "volume_id": 31466,
-    "series_gcd_id": 229
+    "name": "Kick-Ass",
+    "publisher": "Marvel",
+    "year": 2008,
+    "volume_id": 20680,
+    "series_gcd_id": 29792
   },
   {
-    "name": "The Ghost Rider",
+    "name": "Star Wars: Heir to the Empire",
+    "publisher": "Dark Horse",
+    "year": 1995,
+    "volume_id": 27224,
+    "series_gcd_id": 16733
+  },
+  {
+    "name": "X-Calibre",
     "publisher": "Marvel",
-    "year": 1967,
-    "volume_id": 2352,
-    "series_gcd_id": 1809
+    "year": 1995,
+    "volume_id": 5566,
+    "series_gcd_id": 5306
   }
 ]

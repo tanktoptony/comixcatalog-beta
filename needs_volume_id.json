@@ -77518,24 +77518,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Remote Space",
-    "publisher": "Image Comics",
-    "year": 2025,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 158490,
-        "name": "Remote Space",
-        "publisher": "Image",
-        "start_year": 2024
-      }
-    ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T09:05:45.008707+00:00",
-    "retry_after": "2026-11-07T09:05:45.008724+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Rifters",
     "publisher": "Image Comics",
     "year": 2025,
@@ -78870,24 +78852,6 @@
     "attempts": 3,
     "last_attempt_at": "2026-10-31T21:05:41.600214+00:00",
     "retry_after": "2026-11-07T21:05:41.600228+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Violent Flowers",
-    "publisher": "Image Comics",
-    "year": 2025,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 160109,
-        "name": "Violent Flowers",
-        "publisher": "Image",
-        "start_year": 2024
-      }
-    ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T21:05:41.753704+00:00",
-    "retry_after": "2026-11-07T21:05:41.753718+00:00",
     "search_hydrated": true
   },
   {
@@ -91344,24 +91308,6 @@
     "search_hydrated": true
   },
   {
-    "name": "In Rage",
-    "publisher": "CFD Productions",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 88863,
-        "name": "In Rage",
-        "publisher": "Creative Force Designs",
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-03T17:01:58.278562+00:00",
-    "retry_after": "2026-11-04T17:01:58.278580+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Spider-Gwen Omnibus",
     "publisher": "Marvel Comics",
     "year": 2023,
@@ -91380,42 +91326,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Tits ! Tits ! Tits !",
-    "publisher": "Dynamite Entertainment",
-    "year": 2022,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 167384,
-        "name": "Tits! Tits! Tits!",
-        "publisher": "Dynamite (France)",
-        "start_year": 2022
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-03T17:17:56.246498+00:00",
-    "retry_after": "2026-11-04T17:17:56.246517+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Deadworld: The Last Siesta",
-    "publisher": "IDW Publishing",
-    "year": 2011,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 75600,
-        "name": "Deadworld: The Last Siesta",
-        "publisher": "Caliber Comics",
-        "start_year": 2014
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-03T17:17:56.246546+00:00",
-    "retry_after": "2026-11-04T17:17:56.246549+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Oz: The Marvelous Land of Oz [Second Edition]",
     "publisher": "Marvel Comics",
     "year": 2012,
@@ -91424,24 +91334,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-03T17:17:56.246580+00:00",
     "retry_after": "2026-11-04T17:17:56.246582+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Doctor Who Magazine",
-    "publisher": "Marvel Comics",
-    "year": 1985,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 26877,
-        "name": "Doctor Who Magazine",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1979
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-03T17:18:24.116239+00:00",
-    "retry_after": "2026-11-04T17:18:24.116257+00:00",
     "search_hydrated": true
   },
   {
@@ -91630,24 +91522,6 @@
     "search_hydrated": true
   },
   {
-    "name": "The Simpsons Comics Meltdown",
-    "publisher": "Titan Comics",
-    "year": 2011,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 161288,
-        "name": "Simpsons Comics Meltdown",
-        "publisher": "HarperCollins",
-        "start_year": 2011
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-04T05:17:51.431991+00:00",
-    "retry_after": "2026-11-05T05:17:51.431995+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Captain America: Winter Soldier No. 1 Director's Cut",
     "publisher": "Marvel Comics",
     "year": 2014,
@@ -91718,24 +91592,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-04T08:56:03.407053+00:00",
     "retry_after": "2026-11-05T08:56:03.407056+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Conan Exiles",
-    "publisher": "Dark Horse Comics",
-    "year": 2017,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 141912,
-        "name": "Conan: Exiles",
-        "publisher": "Marvel",
-        "start_year": 2017
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-04T10:14:48.130664+00:00",
-    "retry_after": "2026-11-05T10:14:48.130682+00:00",
     "search_hydrated": true
   },
   {

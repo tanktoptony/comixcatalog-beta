@@ -137,6 +137,12 @@ Rules: grids use `coverThumb(url)` (`src/lib/coverThumb.js`); `CoverThumbFallbac
 - Library catalog-link search and the marketplace filter on their own logic (marketplace facets are client-side over all listings).
 - **Dead:** `src/lib/search/*` (imports a file that doesn't exist), `src/lib/db.js`, `public/sqlite.worker.js`, `public/sqljs/`, `public/wa-sqlite.wasm`, and deps `sql.js`, `wa-sqlite`, `better-sqlite3`. An old in-browser SQLite search experiment; nothing imports it.
 
+## Sitemaps
+
+- `/sitemap.xml` (`src/app/sitemap.xml/route.js`) is the index robots.txt points at. `/sitemaps/<name>.xml` (`src/app/sitemaps/[name]/route.js`) serves `static`, `series-<hex>` (16 files, about 98k series plus 660 `/keys` pages) and `creators-<part>` (27 files, about 50k creators). All render on first request and are cached for a day (ISR), so a slow database can't fail a deploy.
+- `warm-sitemaps.yml` requests every file daily. A file that stays broken ends the run red and emails the reports address. The workflow is in `scripts/cronWatchdog.js`.
+- Issue pages are not listed yet.
+
 ## Catalog and covers
 
 See [CATALOG_DATA.md](CATALOG_DATA.md). In short: GCD supplies series/issue metadata, ComicVine supplies cover images, and the two are joined by best-effort link columns on `canonical_covers`. Cover selection for display is implemented separately in about 15 routes and libs, with the same tier order but not shared code.

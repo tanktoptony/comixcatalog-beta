@@ -43,6 +43,9 @@ const WATCHED = [
   // that failure cheaper to hit.
   { file: "gcd-issue-refresh.yml", maxAgeHours: 12 },
   { file: "gcd-publisher-sync.yml", maxAgeHours: 6 },
+  // Daily. Every run was cancelled for 12 days (2026-10-23 to 11-04) because
+  // all 16 series sitemap files were returning 500, and nothing noticed.
+  { file: "warm-sitemaps.yml", maxAgeHours: 48 },
   // Weekly Monday analytics import, with one day of scheduling slack.
   { file: "youtube-weekly.yml", maxAgeHours: 24 * 8 },
 ];

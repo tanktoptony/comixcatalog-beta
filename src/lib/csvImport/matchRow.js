@@ -73,18 +73,27 @@ export function matchIssue(issues, issueNumber) {
   // A plain "40" means the run's own number; "340" means the legacy one.
   const legacy = (issues ?? []).map((i) => ({ i, m: String(i.issue_number ?? "").match(/^\s*([^()]+?)\s*\(\s*([^()]+?)\s*\)\s*$/) }))
     .filter(({ m }) => m);
-  return legacy.find(({ m }) => issueKey(m[1]).reduced === want.reduced)?.i
-    ?? legacy.find(({ m }) => issueKey(m[2]).reduced === want.reduced)?.i
-    ?? null;
+  const byLegacy = legacy.find(({ m }) => issueKey(m[1]).reduced === want.reduced)?.i
+    ?? legacy.find(({ m }) => issueKey(m[2]).reduced === want.reduced)?.i;
+  if (byLegacy) return byLegacy;
+  // GCD splits some first issues by cover: "1 [Cover A]", "1 [Cover B]" (X-Men
+  // 1991). A plain "1" means that book, so take Cover A, else the first listed.
+  // Missing this dropped the real volume from the choices, leaving only foreign
+  // reprints to pick from.
+  const bracketed = (issues ?? []).filter((i) => {
+    const text = String(i.issue_number ?? "");
+    return text.includes(" [") && issueKey(text.split(" [")[0]).reduced === want.reduced;
+  });
+  return bracketed.find((i) => String(i.issue_number).toLowerCase().includes("[cover a]")) ?? bracketed[0] ?? null;
 }
 
 // A PostgREST or-filter that fetches every row an issue number could match,
-// including GCD's legacy form "40 (340)", in one query. Numbers with
+// including GCD's legacy form "40 (340)" and its cover form "1 [Cover A]", in one query. Numbers with
 // characters that would break the filter syntax are left out (they still
 // match exactly through the caller's other rows, or not at all).
 export function issueNumberOrFilter(numbers) {
   const safe = [...new Set((numbers ?? []).map((n) => String(n ?? "").trim()).filter((n) => n && /^[A-Za-z0-9.\-/ ]+$/.test(n)))];
-  return safe.flatMap((n) => [`issue_number.eq."${n}"`, `issue_number.like."${n} (*"`, `issue_number.like."* (${n})"`]).join(",");
+  return safe.flatMap((n) => [`issue_number.eq."${n}"`, `issue_number.like."${n} (*"`, `issue_number.like."* (${n})"`, `issue_number.like."${n} [*"`]).join(",");
 }
 
 // A year, or null. Never 0.

@@ -77,7 +77,7 @@ Key routes:
 | `/api/listings/*` | Listing edit, sync, photo upload/process/order/delete |
 | `/api/stripe/{checkout,portal,webhook}` | Pro subscription billing |
 | `/api/export/{csv,pdf,wantlist}`, `/api/csv-import` | Data in and out |
-| `/api/founding/status` | Counts and claims founding passes (cap 100) |
+| `/api/founding/status` | Counts and claims founding passes (cap 100). GET also tells a signed-in member when a confirm link is out, so the founding page and the site banner can say so in any browser |
 
 ## Authentication
 
@@ -220,5 +220,5 @@ The pages with one credit row sat at the low end (160 to 212 words), so one row 
 - `getListings()` loads every listing into memory; fine at beta scale only.
 - Auth is localStorage-only; no SSR identity.
 - Pipeline state lives in git, so most commits are bots.
-- 8 test scripts exist but aren't in CI (`attribution`, `csv-match`, `featured-targets`, `launch-flags`, `post-auth-redirect`, `production-assets`, `share-cards`, `smoke`).
+- 7 test scripts exist but aren't in CI (`csv-match`, `featured-targets`, `launch-flags`, `post-auth-redirect`, `production-assets`, `share-cards`, `smoke`).
 - Dead code: see "Search" above, plus placeholder pages listed in PRODUCT.md.

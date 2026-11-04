@@ -159,6 +159,7 @@ API for whether a run was ever created.**
 | `gcd-issue-refresh.yml` | every 3h `45 */3 * * *` | tops up `gcd_issues` for recent-release, member-owned, and featured series from comics.org's live API | active union was 316 series on 2026-10-05. **GCD's budget is ~30 requests per run and resets hourly**, so at 8 runs a day a check-only rotation takes about 1.4 days (it was 11+ days at the old daily cadence) and missing-issue fetches extend it. A 429 is exit 3 and expected. Rotation cursor lives in `gcd-refresh-cursor.json` |
 | `gcd-publisher-sync.yml` | `:15` on hours not used by issue refresh | incrementally mirrors GCD publishers, then walks GCD series pages for missing English-language US/Canadian catalog rows | publisher work finishes first; series discovery resumes from `gcd-series-discovery-cursor.json`; each 50-row list page supplies series metadata and provisional issue IDs without extra GCD requests; a 429 is exit 3 and expected; no phase deletes rows |
 | `youtube-weekly.yml` | Monday 11:00 UTC | imports the last two completed weeks of channel and per-video YouTube analytics before the traction digest | an expired or revoked token surfaces as `invalid_grant`; rerun `node scripts/youtubeAuth.js` and update the GitHub secrets |
+| `traction-digest.yml` | Monday 13:00 UTC | the Monday email: cohorts, signups by source, YouTube, Instagram login status | `-f dry_run=true` prints to the run log without sending, which is also how to check what the GitHub secret holds. Needs INSTAGRAM_ACCESS_TOKEN and INSTAGRAM_BUSINESS_ACCOUNT_ID |
 | `snapshot-collection-value.yml`, `pr-ci.yml` | — | value snapshots, PR checks | |
 
 ---
@@ -268,6 +269,14 @@ Note `trackEvent` no-ops silently when `gtag` is absent (ad blockers, local
 dev), so expect real-world undercounting and do not treat GA as a source of
 truth for absolute numbers.
 
+**Signup attribution (November 2026).** `profiles.signup_source` is first touch
+and is the number to trust; GA undercounts. Before this fix a search visit saved
+its referrer and no source, so it read as "unknown" in `traction_report()`. To
+check a live path without creating an account, open the page in a browser with
+a referrer, intercept the `/auth/v1/signup` request to read
+`data.signup_attribution`, and POST that to `/api/attribution` as test_tony, then
+null the row again. test_tony and test_tony_depaul are excluded from every count.
+
 ### 8b. Mailing list — collection works, sending does not exist
 
 `newsletter_subscribers` (migration 0019) is **well built**: unique
@@ -298,6 +307,14 @@ work, the provider key goes in repo secrets (never in a file), and
 `unsubscribed_at` must be honoured on every send. One-click unsubscribe is a
 legal requirement for bulk mail, not a nicety.
 
+**Instagram login (November 2026).** The bot's token in the
+`INSTAGRAM_ACCESS_TOKEN` secret was a 60-day user token expiring 2026-12-01. On
+Nov 3, `me/accounts` returned no Pages for it, so its Page token can't be fetched
+without a new user token from Graph API Explorer. See
+`scripts/instagramPageTokenSwap.mjs`, which refuses to change anything unless the
+result is a Page token that doesn't expire and can reach the publishing endpoint.
+The Monday email reports the status and flags 10 days before any expiry.
+
 ### 8c. Blog — stalled, and it is the SEO asset
 
 Posts and dates, newest first:
@@ -317,6 +334,14 @@ non-build-update post (a reading guide) is the only piece written for
 readers rather than for the founder's own changelog. Reading guides and
 "which issues matter" content target searches people actually run; build
 updates do not.
+
+**Per-video YouTube links (November 2026).** `/yt/<slug>` is one tagged
+redirect per video, listed in `src/lib/youtubeLinks.js`; the campaign is
+`yt-<slug>`. To add a video, add a line there and put the link in its
+description and pinned comment. Links only click on long videos; on Shorts they
+are typed text, so set the Short's Related video as well. To confirm a link,
+`curl -sI https://www.comixcatalog.com/yt/<slug>` and check the `location` header
+keeps the tags, then open it and check `cc:attribution` in localStorage.
 
 ### 8d. SEO foundation
 

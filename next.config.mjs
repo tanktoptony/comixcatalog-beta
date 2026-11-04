@@ -1,4 +1,5 @@
 import { withSentryConfig } from "@sentry/nextjs/config";
+import { youtubeRedirects } from "./src/lib/youtubeLinks.js";
 
 const SHARP_BINARIES = ["./node_modules/@img/sharp-linux-x64/**/*", "./node_modules/@img/sharp-libvips-linux-x64/**/*"];
 
@@ -69,6 +70,8 @@ const nextConfig = {
         destination: "/founding-collectors?utm_source=youtube&utm_medium=video&utm_campaign=founding-wall",
         permanent: false,
       },
+      // One link per video, e.g. /yt/doom. The list lives in src/lib/youtubeLinks.js.
+      ...youtubeRedirects(),
       // Printed comic shop kit (bookmarks and counter checklists): one QR
       // link per shop, e.g. /s/challengers. Temporary for the same reason as
       // /ig; the shop slug becomes utm_source so signups are credited to it.

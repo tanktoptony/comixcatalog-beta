@@ -376,6 +376,10 @@ Curated [src/lib/featuredSeries.js](src/lib/featuredSeries.js) — ~79 entries a
 
 To regenerate against current taste: edit `featuredSeries.js` directly. Then run `npm run covers:gap-featured` to find which curated entries lack covers, then a targeted ComicVine ingest fills them in.
 
+### Per-video YouTube links (shipped November 2026)
+
+Every video gets its own short link, `comixcatalog.com/yt/<slug>`, listed in [src/lib/youtubeLinks.js](src/lib/youtubeLinks.js). Each is a temporary redirect to the page that video is about, tagged `utm_source=youtube&utm_medium=video&utm_campaign=yt-<slug>`, so a signup saves the video that sent it. An unlisted slug still lands on `/founding-collectors` with its tag. Never rename a slug that has been posted. Link issue pages by their canonical `/issue/gcd-<id>` address: `/issue/<id>` redirects there and the redirect drops the query string, which silently loses the tags. YouTube doesn't make links clickable in Shorts descriptions or comments, so on a Short the link is typed text and the clickable path is the Short's Related video.
+
 ### Auth UX (refactored May 21, 2026)
 
 Three bugs fixed:
@@ -383,9 +387,17 @@ Three bugs fixed:
 2. **Dropdown identity always visible** — UserMenu now falls through to `user.email` if no profile.username exists. The bare "Account" fallback string is unreachable.
 3. **Switch Account affordance** — new button between "Manage Pro" and "Sign out" that signs out and lands directly on `/login` via `window.location.href` (avoiding the `router.replace("/")` race that would otherwise send users to homepage).
 
+### Signup attribution (fixed November 2026)
+
+First touch is recorded on every page by `captureAttribution` in [src/lib/attribution.js](src/lib/attribution.js), rides on the account as `user_metadata.signup_attribution`, and is written once to `profiles.signup_*` by `/api/attribution`. Every visit now gets a source: tagged links keep their tags; a referrer-only visit is classified from the host (`bing.com` is source=bing, medium=organic; `l.instagram.com` is instagram/social; anything unlisted is the host with medium=referral); `/join/<username>` and `?ref=` are source=invite, medium=referral, campaign=member-invite; a visit with neither is source=direct, medium=none. A null `signup_source` means nothing was recorded (an older account, or blocked storage). The source is derived in the browser and again in `sanitizeSavedAttribution`, so records saved before this code still get one. A later invite adds `ref` to an earlier first touch without taking its credit, so the inviter still gets the follow. `npm run test:attribution` walks full visits: land, browse, sign up on a later page.
+
 ### Pull list (shipped November 2026)
 
 Collectors can follow catalog series from their series pages and use `/pull-list` to see issues as dated covers land in the catalog, grouped week by week. Resolved issues can be added to the collection or wantlist in one tap. "Coming soon" lists only issues with an exact future GCD on-sale date (`gcd_issue_details.on_sale_date`), never `gcd_issues.key_date`, which is usually the cover date about two months after the shops; the section hides when GCD has none. Alerts and cost totals are outside v1. Issue numbers resolve through `matchIssue`, which reads GCD's legacy "40 (340)" form. The live GCD refresh checks unmatched recent covers first and records variant/base fields plus issue details; series discovery first probes the GCD series ids just past our newest one (GCD's series list is sorted by name and has no ordering or name filter), then continues its alphabetical cursor walk.
+
+### Monday email: signups by source and the Instagram login (November 2026)
+
+`scripts/weeklyTractionDigest.js` (`traction-digest.yml`, Mondays 13:00 UTC) adds "Signups by source" from [src/lib/signupSources.js](src/lib/signupSources.js): last 7 days and since Nov 3, with yt-*, vs-* and /s/ shop campaigns rolled up under YouTube, Instagram and Shop bookmarks, plus a count of accepted member invites. It also reports the Instagram login from [src/lib/instagramToken.js](src/lib/instagramToken.js), which flags an invalid token or one expiring within 10 days. The token check ignores `data_access_expires_at`: that window closed Oct 30, 2026 and the token still published on Nov 3. `gh workflow run traction-digest.yml -f dry_run=true` prints all of it to the run log without sending. `scripts/instagramPageTokenSwap.mjs` swaps a user token for the Page token; agents can't write GitHub secrets, so Tony runs it.
 
 ### Your shelf and issue community counts (shipped November 2026)
 

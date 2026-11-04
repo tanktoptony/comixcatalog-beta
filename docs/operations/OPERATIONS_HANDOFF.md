@@ -159,6 +159,7 @@ API for whether a run was ever created.**
 | `gcd-issue-refresh.yml` | every 3h `45 */3 * * *` | tops up `gcd_issues` for recent-release, member-owned, and featured series from comics.org's live API | active union was 316 series on 2026-10-05. **GCD's budget is ~30 requests per run and resets hourly**, so at 8 runs a day a check-only rotation takes about 1.4 days (it was 11+ days at the old daily cadence) and missing-issue fetches extend it. A 429 is exit 3 and expected. Rotation cursor lives in `gcd-refresh-cursor.json` |
 | `gcd-publisher-sync.yml` | `:15` on hours not used by issue refresh | incrementally mirrors GCD publishers, then walks GCD series pages for missing English-language US/Canadian catalog rows | publisher work finishes first; series discovery resumes from `gcd-series-discovery-cursor.json`; each 50-row list page supplies series metadata and provisional issue IDs without extra GCD requests; a 429 is exit 3 and expected; no phase deletes rows |
 | `youtube-weekly.yml` | Monday 11:00 UTC | imports the last two completed weeks of channel and per-video YouTube analytics before the traction digest | an expired or revoked token surfaces as `invalid_grant`; rerun `node scripts/youtubeAuth.js` and update the GitHub secrets |
+| `traction-digest.yml` | Monday 13:00 UTC | the Monday email: cohorts, signups by source, YouTube, Instagram login status | `-f dry_run=true` prints to the run log without sending, which is also how to check what the GitHub secret holds. Needs INSTAGRAM_ACCESS_TOKEN and INSTAGRAM_BUSINESS_ACCOUNT_ID |
 | `snapshot-collection-value.yml`, `pr-ci.yml` | — | value snapshots, PR checks | |
 
 ---
@@ -297,6 +298,14 @@ When wiring one: the send job belongs in GitHub Actions like the other cron
 work, the provider key goes in repo secrets (never in a file), and
 `unsubscribed_at` must be honoured on every send. One-click unsubscribe is a
 legal requirement for bulk mail, not a nicety.
+
+**Instagram login (November 2026).** The bot's token in the
+`INSTAGRAM_ACCESS_TOKEN` secret was a 60-day user token expiring 2026-12-01. On
+Nov 3, `me/accounts` returned no Pages for it, so its Page token can't be fetched
+without a new user token from Graph API Explorer. See
+`scripts/instagramPageTokenSwap.mjs`, which refuses to change anything unless the
+result is a Page token that doesn't expire and can reach the publishing endpoint.
+The Monday email reports the status and flags 10 days before any expiry.
 
 ### 8c. Blog — stalled, and it is the SEO asset
 

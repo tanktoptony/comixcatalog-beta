@@ -60,6 +60,8 @@
     "test:marketplace-facets": "node --test src/lib/marketplaceFacets.test.js",
     "test:follows": "node --test src/lib/follows.test.js",
     "test:invites": "node --test src/lib/invites.test.js",
+    "test:signup-sources": "node --test src/lib/signupSources.test.js",
+    "test:instagram-token": "node --test src/lib/instagramToken.test.js",
     "test:inbox-notifications": "node --test src/lib/inboxNotifications.test.js",
     "test:default-avatar": "node --test src/lib/defaultAvatar.test.js",
     "test:avatar-url": "node --test src/lib/defaultAvatar.test.js",

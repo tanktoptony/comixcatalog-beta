@@ -51207,9 +51207,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T16:11:03.153769+00:00",
-    "retry_after": "2026-11-05T16:11:03.153771+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T19:37:34.909447+00:00",
+    "retry_after": "2026-11-12T19:37:34.909464+00:00",
     "search_hydrated": true
   },
   {
@@ -88023,9 +88023,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T16:11:03.153787+00:00",
-    "retry_after": "2026-11-05T16:11:03.153789+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T19:37:34.909489+00:00",
+    "retry_after": "2026-11-12T19:37:34.909492+00:00",
     "search_hydrated": true
   },
   {
@@ -88034,9 +88034,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T16:11:03.153799+00:00",
-    "retry_after": "2026-11-05T16:11:03.153801+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T19:37:34.909506+00:00",
+    "retry_after": "2026-11-12T19:37:34.909509+00:00",
     "search_hydrated": true
   },
   {
@@ -88080,9 +88080,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T17:10:54.348886+00:00",
-    "retry_after": "2026-11-05T17:10:54.348889+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T19:37:34.909529+00:00",
+    "retry_after": "2026-11-12T19:37:34.909531+00:00",
     "search_hydrated": true
   },
   {
@@ -88091,9 +88091,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T17:10:54.348904+00:00",
-    "retry_after": "2026-11-05T17:10:54.348907+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T19:37:34.909540+00:00",
+    "retry_after": "2026-11-12T19:37:34.909542+00:00",
     "search_hydrated": true
   },
   {
@@ -92129,6 +92129,57 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-05T19:06:59.032379+00:00",
     "retry_after": "2026-11-06T19:06:59.032381+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Uncanny X-Men No. 258 [Marvel Legends Reprint]",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T19:37:47.720821+00:00",
+    "retry_after": "2026-11-06T19:37:47.720837+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Grimm Fairy Tales vs Wonderland Trade Paperback",
+    "publisher": "Zenescope Entertainment",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T19:37:47.720874+00:00",
+    "retry_after": "2026-11-06T19:37:47.720878+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Classic Dan Dare: Prisoners of Space",
+    "publisher": "Titan Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T19:37:47.720889+00:00",
+    "retry_after": "2026-11-06T19:37:47.720891+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tom and Jerry Present the Two Mouseketeers",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64345,
+        "name": "Tom and Jerry Present the Two Mouseketeers",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T19:38:06.537371+00:00",
+    "retry_after": "2026-11-06T19:38:06.537383+00:00",
     "search_hydrated": true
   }
 ]

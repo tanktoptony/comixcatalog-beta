@@ -6401,9 +6401,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T01:11:43.606405+00:00",
-    "retry_after": "2026-11-05T01:11:43.606407+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T01:13:36.862654+00:00",
+    "retry_after": "2026-11-12T01:13:36.862655+00:00",
     "search_hydrated": true
   },
   {
@@ -22118,9 +22118,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T23:11:22.318593+00:00",
-    "retry_after": "2026-11-04T23:11:22.318594+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T01:13:36.862606+00:00",
+    "retry_after": "2026-11-12T01:13:36.862626+00:00",
     "search_hydrated": true
   },
   {
@@ -27439,8 +27439,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T00:13:46.804573+00:00",
-    "retry_after": "2026-11-06T00:13:46.804587+00:00",
+    "last_attempt_at": "2026-11-05T01:14:10.200433+00:00",
+    "retry_after": "2026-11-06T01:14:10.200452+00:00",
     "search_hydrated": true
   },
   {
@@ -27463,8 +27463,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T00:02:26.565183+00:00",
-    "retry_after": "2026-11-06T00:02:26.565186+00:00",
+    "last_attempt_at": "2026-11-05T01:01:41.465536+00:00",
+    "retry_after": "2026-11-06T01:01:41.465538+00:00",
     "search_hydrated": true
   },
   {
@@ -40107,9 +40107,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T00:41:28.341336+00:00",
-    "retry_after": "2026-11-05T00:41:28.341340+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T01:13:36.862641+00:00",
+    "retry_after": "2026-11-12T01:13:36.862643+00:00",
     "search_hydrated": true
   },
   {
@@ -40298,9 +40298,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T01:11:43.606426+00:00",
-    "retry_after": "2026-11-05T01:11:43.606428+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T01:13:36.862664+00:00",
+    "retry_after": "2026-11-12T01:13:36.862665+00:00",
     "search_hydrated": true
   },
   {
@@ -43510,8 +43510,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T00:02:26.565032+00:00",
-    "retry_after": "2026-11-06T00:02:26.565049+00:00",
+    "last_attempt_at": "2026-11-05T01:01:41.465432+00:00",
+    "retry_after": "2026-11-06T01:01:41.465450+00:00",
     "search_hydrated": true
   },
   {
@@ -47178,29 +47178,6 @@
     "attempts": 3,
     "last_attempt_at": "2026-10-15T20:16:03.831187+00:00",
     "retry_after": "2026-10-22T20:16:03.831205+00:00"
-  },
-  {
-    "name": "Final Crisis: Superman Beyond",
-    "publisher": "DC Comics",
-    "year": 2008,
-    "reason": "multiple_same_start_year_tied",
-    "candidates": [
-      {
-        "id": 22763,
-        "name": "Final Crisis: Superman Beyond",
-        "publisher": "DC Comics",
-        "start_year": 2008
-      },
-      {
-        "id": 150190,
-        "name": "Final Crisis: Superman Beyond",
-        "publisher": "DC Comics",
-        "start_year": 2008
-      }
-    ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-15T20:16:04.379120+00:00",
-    "retry_after": "2026-10-22T20:16:04.379138+00:00"
   },
   {
     "name": "Books of Lore",
@@ -51411,8 +51388,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T00:02:26.565150+00:00",
-    "retry_after": "2026-11-06T00:02:26.565154+00:00",
+    "last_attempt_at": "2026-11-05T01:01:41.465517+00:00",
+    "retry_after": "2026-11-06T01:01:41.465520+00:00",
     "search_hydrated": true
   },
   {

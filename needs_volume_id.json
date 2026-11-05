@@ -27439,8 +27439,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T23:15:21.939789+00:00",
-    "retry_after": "2026-11-05T23:15:21.939801+00:00",
+    "last_attempt_at": "2026-11-05T00:13:46.804573+00:00",
+    "retry_after": "2026-11-06T00:13:46.804587+00:00",
     "search_hydrated": true
   },
   {
@@ -27463,8 +27463,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T23:02:11.799150+00:00",
-    "retry_after": "2026-11-05T23:02:11.799153+00:00",
+    "last_attempt_at": "2026-11-05T00:02:26.565183+00:00",
+    "retry_after": "2026-11-06T00:02:26.565186+00:00",
     "search_hydrated": true
   },
   {
@@ -43510,8 +43510,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T23:02:11.798975+00:00",
-    "retry_after": "2026-11-05T23:02:11.798991+00:00",
+    "last_attempt_at": "2026-11-05T00:02:26.565032+00:00",
+    "retry_after": "2026-11-06T00:02:26.565049+00:00",
     "search_hydrated": true
   },
   {
@@ -51411,8 +51411,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-04T23:02:11.799109+00:00",
-    "retry_after": "2026-11-05T23:02:11.799118+00:00",
+    "last_attempt_at": "2026-11-05T00:02:26.565150+00:00",
+    "retry_after": "2026-11-06T00:02:26.565154+00:00",
     "search_hydrated": true
   },
   {
@@ -55851,9 +55851,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T23:10:54.333534+00:00",
-    "retry_after": "2026-11-04T23:10:54.333536+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T00:13:12.086417+00:00",
+    "retry_after": "2026-11-12T00:13:12.086421+00:00",
     "search_hydrated": true
   },
   {
@@ -86975,9 +86975,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T00:11:31.987736+00:00",
-    "retry_after": "2026-11-05T00:11:31.987738+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T00:13:12.086279+00:00",
+    "retry_after": "2026-11-12T00:13:12.086294+00:00",
     "search_hydrated": true
   },
   {
@@ -86986,9 +86986,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T00:11:31.987750+00:00",
-    "retry_after": "2026-11-05T00:11:31.987752+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T00:13:12.086317+00:00",
+    "retry_after": "2026-11-12T00:13:12.086321+00:00",
     "search_hydrated": true
   },
   {
@@ -91764,6 +91764,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-04T23:15:07.658224+00:00",
     "retry_after": "2026-11-05T23:15:07.658228+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spyborgs",
+    "publisher": "UDON",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T00:13:27.583948+00:00",
+    "retry_after": "2026-11-06T00:13:27.583963+00:00",
     "search_hydrated": true
   }
 ]

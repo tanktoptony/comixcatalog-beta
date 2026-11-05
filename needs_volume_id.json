@@ -8175,9 +8175,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T03:18:30.382878+00:00",
-    "retry_after": "2026-11-05T03:18:30.382881+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T03:25:04.348874+00:00",
+    "retry_after": "2026-11-12T03:25:04.348876+00:00",
     "search_hydrated": true
   },
   {
@@ -26391,8 +26391,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 4,
-    "last_attempt_at": "2026-11-05T03:13:16.017009+00:00",
-    "retry_after": "2026-11-19T03:13:16.017026+00:00",
+    "last_attempt_at": "2026-11-05T03:25:04.348676+00:00",
+    "retry_after": "2026-11-19T03:25:04.348691+00:00",
     "search_hydrated": true
   },
   {
@@ -27439,8 +27439,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T03:13:42.634331+00:00",
-    "retry_after": "2026-11-06T03:13:42.634349+00:00",
+    "last_attempt_at": "2026-11-05T03:25:19.244908+00:00",
+    "retry_after": "2026-11-06T03:25:19.244924+00:00",
     "search_hydrated": true
   },
   {
@@ -27463,8 +27463,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T03:01:39.986304+00:00",
-    "retry_after": "2026-11-06T03:01:39.986306+00:00",
+    "last_attempt_at": "2026-11-05T03:16:33.070096+00:00",
+    "retry_after": "2026-11-06T03:16:33.070099+00:00",
     "search_hydrated": true
   },
   {
@@ -43510,8 +43510,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T03:01:39.986206+00:00",
-    "retry_after": "2026-11-06T03:01:39.986223+00:00",
+    "last_attempt_at": "2026-11-05T03:16:33.069949+00:00",
+    "retry_after": "2026-11-06T03:16:33.069964+00:00",
     "search_hydrated": true
   },
   {
@@ -51388,8 +51388,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T03:01:39.986286+00:00",
-    "retry_after": "2026-11-06T03:01:39.986288+00:00",
+    "last_attempt_at": "2026-11-05T03:16:33.070062+00:00",
+    "retry_after": "2026-11-06T03:16:33.070066+00:00",
     "search_hydrated": true
   },
   {
@@ -55797,9 +55797,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T03:18:30.382854+00:00",
-    "retry_after": "2026-11-05T03:18:30.382856+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T03:25:04.348856+00:00",
+    "retry_after": "2026-11-12T03:25:04.348859+00:00",
     "search_hydrated": true
   },
   {
@@ -86414,8 +86414,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 3,
-    "last_attempt_at": "2026-11-05T03:13:16.017063+00:00",
-    "retry_after": "2026-11-12T03:13:16.017065+00:00",
+    "last_attempt_at": "2026-11-05T03:25:04.348831+00:00",
+    "retry_after": "2026-11-12T03:25:04.348837+00:00",
     "search_hydrated": true
   },
   {
@@ -87037,10 +87037,10 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 4596,
+        "id": 82203,
         "name": "The Infinity Gauntlet",
         "publisher": "Marvel",
-        "start_year": 1991
+        "start_year": 2015
       },
       {
         "id": 30365,
@@ -87049,15 +87049,15 @@
         "start_year": 2006
       },
       {
-        "id": 82203,
+        "id": 4596,
         "name": "The Infinity Gauntlet",
         "publisher": "Marvel",
-        "start_year": 2015
+        "start_year": 1991
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T03:18:00.466153+00:00",
-    "retry_after": "2026-11-05T03:18:00.466156+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T03:25:04.348764+00:00",
+    "retry_after": "2026-11-12T03:25:04.348770+00:00",
     "search_hydrated": true
   },
   {
@@ -91395,8 +91395,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 2,
-    "last_attempt_at": "2026-11-05T03:13:34.889507+00:00",
-    "retry_after": "2026-11-08T03:13:34.889524+00:00",
+    "last_attempt_at": "2026-11-05T03:25:16.018495+00:00",
+    "retry_after": "2026-11-08T03:25:16.018506+00:00",
     "search_hydrated": true
   },
   {
@@ -91405,9 +91405,9 @@
     "year": 1984,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-04T03:23:46.692430+00:00",
-    "retry_after": "2026-11-05T03:23:46.692446+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-05T03:25:16.018530+00:00",
+    "retry_after": "2026-11-08T03:25:16.018534+00:00",
     "search_hydrated": true
   },
   {
@@ -91416,9 +91416,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-04T03:23:46.692463+00:00",
-    "retry_after": "2026-11-05T03:23:46.692466+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-05T03:25:16.018549+00:00",
+    "retry_after": "2026-11-08T03:25:16.018552+00:00",
     "search_hydrated": true
   },
   {
@@ -91821,19 +91821,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T03:13:34.889542+00:00",
-    "retry_after": "2026-11-06T03:13:34.889544+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Steins;Gate: The Complete Manga",
-    "publisher": "UDON",
-    "year": 2022,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-05T03:13:34.889553+00:00",
-    "retry_after": "2026-11-06T03:13:34.889555+00:00",
+    "last_attempt_at": "2026-11-05T03:25:16.018568+00:00",
+    "retry_after": "2026-11-06T03:25:16.018570+00:00",
     "search_hydrated": true
   }
 ]

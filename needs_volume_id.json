@@ -432,9 +432,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T03:18:30.382893+00:00",
-    "retry_after": "2026-11-05T03:18:30.382896+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T04:14:51.019040+00:00",
+    "retry_after": "2026-11-12T04:14:51.019043+00:00",
     "search_hydrated": true
   },
   {
@@ -7593,9 +7593,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T04:09:53.010272+00:00",
-    "retry_after": "2026-11-05T04:09:53.010274+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T04:14:51.019076+00:00",
+    "retry_after": "2026-11-12T04:14:51.019079+00:00",
     "search_hydrated": true
   },
   {
@@ -7809,9 +7809,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T03:18:30.382907+00:00",
-    "retry_after": "2026-11-05T03:18:30.382909+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T04:14:51.019059+00:00",
+    "retry_after": "2026-11-12T04:14:51.019062+00:00",
     "search_hydrated": true
   },
   {
@@ -27439,8 +27439,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T03:25:19.244908+00:00",
-    "retry_after": "2026-11-06T03:25:19.244924+00:00",
+    "last_attempt_at": "2026-11-05T04:15:14.496875+00:00",
+    "retry_after": "2026-11-06T04:15:14.496895+00:00",
     "search_hydrated": true
   },
   {
@@ -27463,8 +27463,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T03:16:33.070096+00:00",
-    "retry_after": "2026-11-06T03:16:33.070099+00:00",
+    "last_attempt_at": "2026-11-05T04:02:02.912652+00:00",
+    "retry_after": "2026-11-06T04:02:02.912655+00:00",
     "search_hydrated": true
   },
   {
@@ -27570,9 +27570,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T04:09:53.010185+00:00",
-    "retry_after": "2026-11-05T04:09:53.010202+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T04:14:51.018930+00:00",
+    "retry_after": "2026-11-12T04:14:51.018947+00:00",
     "search_hydrated": true
   },
   {
@@ -43510,8 +43510,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T03:16:33.069949+00:00",
-    "retry_after": "2026-11-06T03:16:33.069964+00:00",
+    "last_attempt_at": "2026-11-05T04:02:02.912470+00:00",
+    "retry_after": "2026-11-06T04:02:02.912488+00:00",
     "search_hydrated": true
   },
   {
@@ -51388,8 +51388,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T03:16:33.070062+00:00",
-    "retry_after": "2026-11-06T03:16:33.070066+00:00",
+    "last_attempt_at": "2026-11-05T04:02:02.912615+00:00",
+    "retry_after": "2026-11-06T04:02:02.912620+00:00",
     "search_hydrated": true
   },
   {
@@ -87066,9 +87066,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T04:09:53.010226+00:00",
-    "retry_after": "2026-11-05T04:09:53.010228+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T04:14:51.018975+00:00",
+    "retry_after": "2026-11-12T04:14:51.018980+00:00",
     "search_hydrated": true
   },
   {
@@ -91823,6 +91823,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-05T03:25:16.018568+00:00",
     "retry_after": "2026-11-06T03:25:16.018570+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Steins;Gate: The Complete Manga",
+    "publisher": "UDON",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T04:15:03.013001+00:00",
+    "retry_after": "2026-11-06T04:15:03.013017+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Manga Classics: The Adventures of Huckleberry Finn",
+    "publisher": "UDON",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T04:15:03.013053+00:00",
+    "retry_after": "2026-11-06T04:15:03.013057+00:00",
     "search_hydrated": true
   }
 ]

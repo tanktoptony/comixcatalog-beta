@@ -27440,8 +27440,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T10:14:31.653001+00:00",
-    "retry_after": "2026-11-06T10:14:31.653017+00:00",
+    "last_attempt_at": "2026-11-05T11:11:22.320586+00:00",
+    "retry_after": "2026-11-06T11:11:22.320603+00:00",
     "search_hydrated": true
   },
   {
@@ -27464,8 +27464,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T10:01:38.927197+00:00",
-    "retry_after": "2026-11-06T10:01:38.927200+00:00",
+    "last_attempt_at": "2026-11-05T11:01:13.499400+00:00",
+    "retry_after": "2026-11-06T11:01:13.499401+00:00",
     "search_hydrated": true
   },
   {
@@ -35482,9 +35482,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T11:05:45.390335+00:00",
-    "retry_after": "2026-11-05T11:05:45.390337+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T11:11:01.029667+00:00",
+    "retry_after": "2026-11-19T11:11:01.029684+00:00",
     "search_hydrated": true
   },
   {
@@ -43511,8 +43511,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T10:01:38.927048+00:00",
-    "retry_after": "2026-11-06T10:01:38.927063+00:00",
+    "last_attempt_at": "2026-11-05T11:01:13.499295+00:00",
+    "retry_after": "2026-11-06T11:01:13.499313+00:00",
     "search_hydrated": true
   },
   {
@@ -51389,8 +51389,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T10:01:38.927164+00:00",
-    "retry_after": "2026-11-06T10:01:38.927168+00:00",
+    "last_attempt_at": "2026-11-05T11:01:13.499380+00:00",
+    "retry_after": "2026-11-06T11:01:13.499382+00:00",
     "search_hydrated": true
   },
   {
@@ -87198,9 +87198,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T09:11:12.533827+00:00",
-    "retry_after": "2026-11-05T09:11:12.533831+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T11:11:01.029726+00:00",
+    "retry_after": "2026-11-12T11:11:01.029729+00:00",
     "search_hydrated": true
   },
   {
@@ -87209,9 +87209,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T09:11:14.247770+00:00",
-    "retry_after": "2026-11-05T09:11:14.247787+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T11:11:01.813217+00:00",
+    "retry_after": "2026-11-12T11:11:01.813235+00:00",
     "search_hydrated": true
   },
   {
@@ -87220,9 +87220,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T10:10:37.605937+00:00",
-    "retry_after": "2026-11-05T10:10:37.605940+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T11:11:01.813262+00:00",
+    "retry_after": "2026-11-12T11:11:01.813263+00:00",
     "search_hydrated": true
   },
   {
@@ -87244,9 +87244,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T10:10:37.605979+00:00",
-    "retry_after": "2026-11-05T10:10:37.605982+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T11:11:01.813302+00:00",
+    "retry_after": "2026-11-12T11:11:01.813303+00:00",
     "search_hydrated": true
   },
   {
@@ -91501,9 +91501,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-04T10:14:48.130714+00:00",
-    "retry_after": "2026-11-05T10:14:48.130717+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-05T11:11:13.214721+00:00",
+    "retry_after": "2026-11-08T11:11:13.214739+00:00",
     "search_hydrated": true
   },
   {
@@ -91978,6 +91978,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-05T10:14:20.354925+00:00",
     "retry_after": "2026-11-06T10:14:20.354929+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Phil Rizzuto",
+    "publisher": "Fawcett Comics",
+    "year": 1951,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T11:11:13.214757+00:00",
+    "retry_after": "2026-11-06T11:11:13.214760+00:00",
     "search_hydrated": true
   }
 ]

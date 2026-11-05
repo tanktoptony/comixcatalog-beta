@@ -27435,18 +27435,18 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T17:10:26.857173+00:00",
-    "retry_after": "2026-11-06T17:10:26.857178+00:00",
+    "last_attempt_at": "2026-11-05T20:01:22.686099+00:00",
+    "retry_after": "2026-11-06T20:01:22.686101+00:00",
     "search_hydrated": true
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27464,8 +27464,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T18:02:31.653721+00:00",
-    "retry_after": "2026-11-06T18:02:31.653745+00:00",
+    "last_attempt_at": "2026-11-05T20:01:22.686089+00:00",
+    "retry_after": "2026-11-06T20:01:22.686091+00:00",
     "search_hydrated": true
   },
   {
@@ -43493,26 +43493,26 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
-      {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
       {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T18:02:31.653786+00:00",
-    "retry_after": "2026-11-06T18:02:31.653790+00:00",
+    "last_attempt_at": "2026-11-05T20:01:22.685978+00:00",
+    "retry_after": "2026-11-06T20:01:22.685999+00:00",
     "search_hydrated": true
   },
   {
@@ -51385,13 +51385,13 @@
   },
   {
     "name": "Scud: The Disposable Assassin",
-    "publisher": "Fireman Press",
+    "publisher": "Fireman Press, Ltd",
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T18:02:35.021503+00:00",
-    "retry_after": "2026-11-06T18:02:35.021518+00:00",
+    "last_attempt_at": "2026-11-05T20:01:22.686070+00:00",
+    "retry_after": "2026-11-06T20:01:22.686072+00:00",
     "search_hydrated": true
   },
   {
@@ -72297,9 +72297,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T20:05:05.320322+00:00",
-    "retry_after": "2026-11-05T20:05:05.320339+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T20:11:41.601912+00:00",
+    "retry_after": "2026-11-19T20:11:41.601925+00:00",
     "search_hydrated": true
   },
   {
@@ -72308,9 +72308,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T20:05:05.320368+00:00",
-    "retry_after": "2026-11-05T20:05:05.320372+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T20:11:41.601948+00:00",
+    "retry_after": "2026-11-19T20:11:41.601950+00:00",
     "search_hydrated": true
   },
   {
@@ -72332,9 +72332,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T20:05:05.320421+00:00",
-    "retry_after": "2026-11-05T20:05:05.320424+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T20:11:41.601991+00:00",
+    "retry_after": "2026-11-19T20:11:41.601993+00:00",
     "search_hydrated": true
   },
   {
@@ -72343,9 +72343,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T20:05:05.320443+00:00",
-    "retry_after": "2026-11-05T20:05:05.320446+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T20:11:41.602005+00:00",
+    "retry_after": "2026-11-19T20:11:41.602006+00:00",
     "search_hydrated": true
   },
   {
@@ -72354,9 +72354,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T20:05:05.320460+00:00",
-    "retry_after": "2026-11-05T20:05:05.320463+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T20:11:41.602014+00:00",
+    "retry_after": "2026-11-19T20:11:41.602016+00:00",
     "search_hydrated": true
   },
   {
@@ -72372,9 +72372,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T20:05:06.051993+00:00",
-    "retry_after": "2026-11-05T20:05:06.052010+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T20:11:42.302038+00:00",
+    "retry_after": "2026-11-19T20:11:42.302045+00:00",
     "search_hydrated": true
   },
   {
@@ -72396,9 +72396,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T20:05:05.320508+00:00",
-    "retry_after": "2026-11-05T20:05:05.320511+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T20:11:41.602045+00:00",
+    "retry_after": "2026-11-19T20:11:41.602046+00:00",
     "search_hydrated": true
   },
   {
@@ -72407,9 +72407,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T20:05:05.320526+00:00",
-    "retry_after": "2026-11-05T20:05:05.320528+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T20:11:41.602054+00:00",
+    "retry_after": "2026-11-19T20:11:41.602055+00:00",
     "search_hydrated": true
   },
   {
@@ -72425,9 +72425,9 @@
         "start_year": 1986
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T20:05:06.052072+00:00",
-    "retry_after": "2026-11-05T20:05:06.052075+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T20:11:42.302090+00:00",
+    "retry_after": "2026-11-19T20:11:42.302092+00:00",
     "search_hydrated": true
   },
   {
@@ -72436,9 +72436,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T20:05:05.320550+00:00",
-    "retry_after": "2026-11-05T20:05:05.320553+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T20:11:41.602066+00:00",
+    "retry_after": "2026-11-19T20:11:41.602068+00:00",
     "search_hydrated": true
   },
   {
@@ -92180,6 +92180,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-05T19:38:06.537371+00:00",
     "retry_after": "2026-11-06T19:38:06.537383+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Rich Veitch’s Brat Pack",
+    "publisher": "IDW Publishing",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T20:11:51.170016+00:00",
+    "retry_after": "2026-11-06T20:11:51.170034+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Joe Palooka Presents the Funsational Humphrey",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 156763,
+        "name": "Joe Palooka Presents the Funsational Humphrey",
+        "publisher": "Magazine Management",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T20:12:21.612106+00:00",
+    "retry_after": "2026-11-06T20:12:21.612119+00:00",
     "search_hydrated": true
   }
 ]

@@ -27440,8 +27440,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T08:14:07.099850+00:00",
-    "retry_after": "2026-11-06T08:14:07.099865+00:00",
+    "last_attempt_at": "2026-11-05T09:11:24.483710+00:00",
+    "retry_after": "2026-11-06T09:11:24.483725+00:00",
     "search_hydrated": true
   },
   {
@@ -27464,8 +27464,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T08:01:26.312760+00:00",
-    "retry_after": "2026-11-06T08:01:26.312762+00:00",
+    "last_attempt_at": "2026-11-05T09:01:35.992413+00:00",
+    "retry_after": "2026-11-06T09:01:35.992414+00:00",
     "search_hydrated": true
   },
   {
@@ -43511,8 +43511,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T08:01:26.312641+00:00",
-    "retry_after": "2026-11-06T08:01:26.312658+00:00",
+    "last_attempt_at": "2026-11-05T09:01:35.992309+00:00",
+    "retry_after": "2026-11-06T09:01:35.992327+00:00",
     "search_hydrated": true
   },
   {
@@ -51389,8 +51389,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T08:01:26.312735+00:00",
-    "retry_after": "2026-11-06T08:01:26.312738+00:00",
+    "last_attempt_at": "2026-11-05T09:01:35.992394+00:00",
+    "retry_after": "2026-11-06T09:01:35.992395+00:00",
     "search_hydrated": true
   },
   {
@@ -87169,9 +87169,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T09:10:53.202174+00:00",
-    "retry_after": "2026-11-05T09:10:53.202191+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T09:11:05.474361+00:00",
+    "retry_after": "2026-11-12T09:11:05.474379+00:00",
     "search_hydrated": true
   },
   {
@@ -91479,9 +91479,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-04T08:14:33.844258+00:00",
-    "retry_after": "2026-11-05T08:14:33.844264+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-05T09:11:02.276102+00:00",
+    "retry_after": "2026-11-08T09:11:02.276104+00:00",
     "search_hydrated": true
   },
   {
@@ -91490,9 +91490,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-04T08:56:03.407053+00:00",
-    "retry_after": "2026-11-05T08:56:03.407056+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-05T09:11:15.232122+00:00",
+    "retry_after": "2026-11-08T09:11:15.232141+00:00",
     "search_hydrated": true
   },
   {
@@ -91921,6 +91921,41 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-05T08:14:01.459893+00:00",
     "retry_after": "2026-11-06T08:14:01.459895+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "War Machine",
+    "publisher": "Marvel Comics",
+    "year": 2001,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 5336,
+        "name": "War Machine",
+        "publisher": "Marvel",
+        "start_year": 1994
+      },
+      {
+        "id": 25295,
+        "name": "War Machine",
+        "publisher": "Marvel",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T09:11:15.232184+00:00",
+    "retry_after": "2026-11-06T09:11:15.232187+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "X-Men in the Savage Land",
+    "publisher": "Marvel Comics",
+    "year": 1989,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T09:11:15.232208+00:00",
+    "retry_after": "2026-11-06T09:11:15.232210+00:00",
     "search_hydrated": true
   }
 ]

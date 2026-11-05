@@ -27439,8 +27439,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T01:14:10.200433+00:00",
-    "retry_after": "2026-11-06T01:14:10.200452+00:00",
+    "last_attempt_at": "2026-11-05T02:16:55.177139+00:00",
+    "retry_after": "2026-11-06T02:16:55.177154+00:00",
     "search_hydrated": true
   },
   {
@@ -27463,8 +27463,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T01:01:41.465536+00:00",
-    "retry_after": "2026-11-06T01:01:41.465538+00:00",
+    "last_attempt_at": "2026-11-05T02:02:09.358681+00:00",
+    "retry_after": "2026-11-06T02:02:09.358682+00:00",
     "search_hydrated": true
   },
   {
@@ -43510,8 +43510,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T01:01:41.465432+00:00",
-    "retry_after": "2026-11-06T01:01:41.465450+00:00",
+    "last_attempt_at": "2026-11-05T02:02:09.358577+00:00",
+    "retry_after": "2026-11-06T02:02:09.358594+00:00",
     "search_hydrated": true
   },
   {
@@ -51356,9 +51356,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T01:11:43.606486+00:00",
-    "retry_after": "2026-11-05T01:11:43.606487+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T02:16:19.535788+00:00",
+    "retry_after": "2026-11-12T02:16:19.535807+00:00",
     "search_hydrated": true
   },
   {
@@ -51388,8 +51388,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T01:01:41.465517+00:00",
-    "retry_after": "2026-11-06T01:01:41.465520+00:00",
+    "last_attempt_at": "2026-11-05T02:02:09.358660+00:00",
+    "retry_after": "2026-11-06T02:02:09.358662+00:00",
     "search_hydrated": true
   },
   {
@@ -87005,18 +87005,18 @@
     "name": "House of X / Powers of X",
     "publisher": "Marvel Comics",
     "year": 2020,
-    "reason": "publisher_mismatch",
+    "reason": "series_hint_year_mismatch",
     "candidates": [
       {
-        "id": 150110,
-        "name": "House of X / Powers of X",
-        "publisher": "Panini France",
-        "start_year": 2021
+        "id": 123413,
+        "name": "House of X/Powers of X",
+        "publisher": "Marvel",
+        "start_year": 2019
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T02:10:11.176982+00:00",
-    "retry_after": "2026-11-05T02:10:11.176983+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T02:16:24.235839+00:00",
+    "retry_after": "2026-11-12T02:16:24.235859+00:00",
     "search_hydrated": true
   },
   {
@@ -90462,9 +90462,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T16:11:04.566955+00:00",
-    "retry_after": "2026-11-03T16:11:04.566969+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-05T02:16:33.752987+00:00",
+    "retry_after": "2026-11-08T02:16:33.753003+00:00",
     "search_hydrated": true
   },
   {
@@ -91361,9 +91361,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-04T01:14:18.236629+00:00",
-    "retry_after": "2026-11-05T01:14:18.236646+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-05T02:16:23.969513+00:00",
+    "retry_after": "2026-11-08T02:16:23.969532+00:00",
     "search_hydrated": true
   },
   {
@@ -91372,9 +91372,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-04T01:14:28.121556+00:00",
-    "retry_after": "2026-11-05T01:14:28.121573+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-05T02:16:45.422224+00:00",
+    "retry_after": "2026-11-08T02:16:45.422244+00:00",
     "search_hydrated": true
   },
   {
@@ -91383,9 +91383,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-04T01:14:28.121619+00:00",
-    "retry_after": "2026-11-05T01:14:28.121624+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-05T02:16:45.422268+00:00",
+    "retry_after": "2026-11-08T02:16:45.422271+00:00",
     "search_hydrated": true
   },
   {
@@ -91752,6 +91752,66 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-05T00:13:27.583948+00:00",
     "retry_after": "2026-11-06T00:13:27.583963+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Strikeforce",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 121584,
+        "name": "Strikeforce",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T02:16:35.263039+00:00",
+    "retry_after": "2026-11-06T02:16:35.263056+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Barbie",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 33723,
+        "name": "Barbie",
+        "publisher": "Marvel",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T02:16:35.263198+00:00",
+    "retry_after": "2026-11-06T02:16:35.263200+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Manga Classics: Romeo and Juliet",
+    "publisher": "UDON",
+    "year": 2018,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 128948,
+        "name": "Manga Classics: Romeo and Juliet",
+        "publisher": "UDON",
+        "start_year": 2020
+      },
+      {
+        "id": 139727,
+        "name": "Manga Classics: Romeo and Juliet",
+        "publisher": "UDON",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T02:16:45.422359+00:00",
+    "retry_after": "2026-11-06T02:16:45.422361+00:00",
     "search_hydrated": true
   }
 ]

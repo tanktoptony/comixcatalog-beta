@@ -6288,9 +6288,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T04:10:18.615568+00:00",
-    "retry_after": "2026-11-05T04:10:18.615570+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T05:11:23.050432+00:00",
+    "retry_after": "2026-11-12T05:11:23.050435+00:00",
     "search_hydrated": true
   },
   {
@@ -6412,9 +6412,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T05:10:37.644865+00:00",
-    "retry_after": "2026-11-05T05:10:37.644867+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T05:11:23.050447+00:00",
+    "retry_after": "2026-11-12T05:11:23.050449+00:00",
     "search_hydrated": true
   },
   {
@@ -14427,9 +14427,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T04:10:18.615560+00:00",
-    "retry_after": "2026-11-05T04:10:18.615561+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T05:11:23.050413+00:00",
+    "retry_after": "2026-11-12T05:11:23.050417+00:00",
     "search_hydrated": true
   },
   {
@@ -27439,8 +27439,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T04:15:14.496875+00:00",
-    "retry_after": "2026-11-06T04:15:14.496895+00:00",
+    "last_attempt_at": "2026-11-05T05:11:45.174487+00:00",
+    "retry_after": "2026-11-06T05:11:45.174498+00:00",
     "search_hydrated": true
   },
   {
@@ -27463,8 +27463,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T04:02:02.912652+00:00",
-    "retry_after": "2026-11-06T04:02:02.912655+00:00",
+    "last_attempt_at": "2026-11-05T05:01:29.939414+00:00",
+    "retry_after": "2026-11-06T05:01:29.939417+00:00",
     "search_hydrated": true
   },
   {
@@ -37375,9 +37375,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T04:09:53.010307+00:00",
-    "retry_after": "2026-11-05T04:09:53.010309+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T05:11:23.050375+00:00",
+    "retry_after": "2026-11-12T05:11:23.050390+00:00",
     "search_hydrated": true
   },
   {
@@ -43510,8 +43510,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T04:02:02.912470+00:00",
-    "retry_after": "2026-11-06T04:02:02.912488+00:00",
+    "last_attempt_at": "2026-11-05T05:01:29.939268+00:00",
+    "retry_after": "2026-11-06T05:01:29.939284+00:00",
     "search_hydrated": true
   },
   {
@@ -51388,8 +51388,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T04:02:02.912615+00:00",
-    "retry_after": "2026-11-06T04:02:02.912620+00:00",
+    "last_attempt_at": "2026-11-05T05:01:29.939381+00:00",
+    "retry_after": "2026-11-06T05:01:29.939385+00:00",
     "search_hydrated": true
   },
   {
@@ -91845,6 +91845,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-05T04:15:03.013053+00:00",
     "retry_after": "2026-11-06T04:15:03.013057+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Alan Moore: The Complete WildC.A.T.s",
+    "publisher": "DC Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T05:11:34.690307+00:00",
+    "retry_after": "2026-11-06T05:11:34.690322+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tatsuki Fujimoto Before Chainsaw Man: 17–21",
+    "publisher": "VIZ Media",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T05:11:34.690347+00:00",
+    "retry_after": "2026-11-06T05:11:34.690351+00:00",
     "search_hydrated": true
   }
 ]

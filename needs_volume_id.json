@@ -35074,9 +35074,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T19:05:39.701324+00:00",
-    "retry_after": "2026-11-05T19:05:39.701339+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T19:06:40.127659+00:00",
+    "retry_after": "2026-11-19T19:06:40.127662+00:00",
     "search_hydrated": true
   },
   {
@@ -72169,9 +72169,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T19:05:23.092699+00:00",
-    "retry_after": "2026-11-05T19:05:23.092715+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T19:06:40.127528+00:00",
+    "retry_after": "2026-11-19T19:06:40.127544+00:00",
     "search_hydrated": true
   },
   {
@@ -87877,9 +87877,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T15:10:37.988757+00:00",
-    "retry_after": "2026-11-05T15:10:37.988776+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T19:06:40.127697+00:00",
+    "retry_after": "2026-11-12T19:06:40.127700+00:00",
     "search_hydrated": true
   },
   {
@@ -87964,9 +87964,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T16:11:03.153699+00:00",
-    "retry_after": "2026-11-05T16:11:03.153701+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T19:06:40.127710+00:00",
+    "retry_after": "2026-11-12T19:06:40.127711+00:00",
     "search_hydrated": true
   },
   {
@@ -87988,9 +87988,9 @@
         "start_year": 2004
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T16:11:03.153731+00:00",
-    "retry_after": "2026-11-05T16:11:03.153733+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T19:06:40.127741+00:00",
+    "retry_after": "2026-11-12T19:06:40.127743+00:00",
     "search_hydrated": true
   },
   {
@@ -87999,9 +87999,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T16:11:03.153744+00:00",
-    "retry_after": "2026-11-05T16:11:03.153746+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T19:06:40.127754+00:00",
+    "retry_after": "2026-11-12T19:06:40.127756+00:00",
     "search_hydrated": true
   },
   {
@@ -92085,6 +92085,50 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-05T18:10:51.973008+00:00",
     "retry_after": "2026-11-06T18:10:51.973022+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Vark",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T19:06:59.032288+00:00",
+    "retry_after": "2026-11-06T19:06:59.032304+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Amazing Spider-Man  Vol. 1, No. 50 (Sony Pictures Edition)",
+    "publisher": "Marvel Comics",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T19:06:59.032346+00:00",
+    "retry_after": "2026-11-06T19:06:59.032349+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Punisher Max by Jason Aaron & Steve Dillon Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T19:06:59.032365+00:00",
+    "retry_after": "2026-11-06T19:06:59.032368+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Transformers: Dark of the Moon - Foundation",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T19:06:59.032379+00:00",
+    "retry_after": "2026-11-06T19:06:59.032381+00:00",
     "search_hydrated": true
   }
 ]

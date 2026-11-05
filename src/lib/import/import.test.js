@@ -1,10 +1,121 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
-  autoMapHeaders, clampQuantity, parseGrade, parsePrice, parseYear, planOwnedCopies,
-  narrowHolders, runSequentialBatches, splitBatches, splitBatchesBy, splitSeriesTitle, statusFromValue,
-  wishlistFromFilename,
+  autoMapColumns, autoMapHeaders, clampQuantity, listFromRow, mapRow, parseGrade, parsePrice, parseYear, pickSheet, planOwnedCopies,
+  narrowHolders, runSequentialBatches, splitBatches, splitBatchesBy, splitFullTitle, splitSeriesTitle, statusFromValue,
+  tableFromGrid, wishlistFromFilename,
 } from "./import.js";
+
+test("reads the series, issue and variant out of a whole-book title", () => {
+  assert.deepEqual(splitFullTitle("Batman #1"), { series: "Batman", issue: "1", variant: null });
+  assert.deepEqual(splitFullTitle("Batman Annual #1"), { series: "Batman Annual", issue: "1", variant: null });
+  assert.deepEqual(splitFullTitle("Batman #125 Cover B Mattina Variant"), { series: "Batman", issue: "125", variant: "Cover B Mattina Variant" });
+  assert.deepEqual(splitFullTitle("Batman #1 Cover #2 Variant"), { series: "Batman", issue: "1", variant: "Cover #2 Variant" });
+  assert.deepEqual(splitFullTitle("Hawkeye #1 (of 6)"), { series: "Hawkeye", issue: "1", variant: null });
+  assert.equal(splitFullTitle("What If? #1/2").issue, "1/2");
+  assert.equal(splitFullTitle("Uncanny X-Men #1.MU").issue, "1.MU");
+  assert.equal(splitFullTitle("Saga Vol. 1 TP"), null);
+  assert.equal(splitFullTitle("Batman"), null);
+  assert.equal(splitFullTitle("#1"), null);
+});
+
+// League's own help says the export is Excel and holds collection, wish list
+// and read list. mylar-league writes its import layout as publisher, series,
+// full title, date, in collection, in wish list, read. The header names here
+// are a best reading of that, so the content-based tests below matter more.
+const LEAGUE_GRID = [
+  ["Publisher", "Series", "Full Title", "Release Date", "In Collection", "In Wish List", "Read"],
+  ["DC Comics", "Batman", "Batman #125 Cover B Mattina Variant", new Date("2022-08-16T00:00:00Z"), 1, 0, 1],
+  ["DC Comics", "Batman", "Batman Annual #1", new Date("2012-05-30T00:00:00Z"), 1, 0, 0],
+  ["Image Comics", "Saga (2012)", "Saga #3", new Date("2012-05-09T00:00:00Z"), 0, 1, 0],
+  ["Marvel Comics", "Hawkeye", "Hawkeye #1", new Date("2012-08-01T00:00:00Z"), 0, 0, 1],
+];
+
+test("a League file maps and lands every row on the right list", () => {
+  const { headers, rows } = tableFromGrid(LEAGUE_GRID);
+  const mapping = autoMapColumns(headers, rows);
+  assert.equal(mapping["Full Title"], "full_title");
+  const mapped = rows.map((raw, i) => mapRow(raw, i, mapping));
+  assert.deepEqual(mapped.map(({ series, issue, issue_year }) => [series, issue, issue_year]), [
+    ["Batman", "125", 2022], ["Batman Annual", "1", 2012], ["Saga", "3", 2012], ["Hawkeye", "1", 2012],
+  ]);
+  assert.equal(mapped[0].variant, "Cover B Mattina Variant");
+  assert.equal(mapped[2].series_year, 2012);
+  assert.deepEqual(mapped.map((row) => row.skip ? "skip" : row.status), ["owned", "owned", "wishlist", "skip"]);
+});
+
+test("a whole-book column is found by its values whatever it is called", () => {
+  for (const name of ["Title", "Item", "Name"]) {
+    const { headers, rows } = tableFromGrid([[name, "Publisher"], ["Batman #1", "DC Comics"], ["Saga #2", "Image"], ["Saga Vol. 1 TP", "Image"]]);
+    const mapping = autoMapColumns(headers, rows);
+    assert.equal(mapping[name], "full_title");
+    assert.deepEqual([mapRow(rows[0], 0, mapping).series, mapRow(rows[0], 0, mapping).issue], ["Batman", "1"]);
+    const trade = mapRow(rows[2], 2, mapping);
+    assert.deepEqual([trade.series, trade.issue], ["Saga Vol. 1 TP", undefined]);
+  }
+});
+
+test("finds the header below a title line, and copes with no header", () => {
+  const titled = tableFromGrid([["My Comics export"], [], ["Series", "Issue"], ["Batman", 1]]);
+  assert.deepEqual(titled.headers, ["Series", "Issue"]);
+  assert.deepEqual(titled.rows, [{ Series: "Batman", Issue: "1" }]);
+  const bare = tableFromGrid([["DC Comics", "Batman", "Batman #1", "2011-09-21", 1, 0, 0], ["Image", "Saga", "Saga #2", "2012-04-11", 1, 0, 0]]);
+  assert.equal(bare.rows.length, 2);
+  assert.equal(autoMapColumns(bare.headers, bare.rows)["Column 3"], "full_title");
+});
+
+test("repeated and blank headers don't overwrite each other", () => {
+  const { headers } = tableFromGrid([["Series", "Issue", "", "Notes", "Notes"], ["Batman", "1", "x", "a", "b"]]);
+  assert.deepEqual(headers, ["Series", "Issue", "Column 3", "Notes", "Notes (2)"]);
+});
+
+test("one column per field, the closest name winning", () => {
+  const mapping = autoMapHeaders(["Title", "Series", "Issue", "Release Date", "Cover Date"]);
+  assert.deepEqual(Object.values(mapping), ["", "series", "issue", "year", ""]);
+});
+
+test("list flags: owned beats wanted, neither is left out, no flags says nothing", () => {
+  assert.equal(listFromRow({ in_collection: "1", in_wishlist: "1" }), "owned");
+  assert.equal(listFromRow({ in_collection: "0", in_wishlist: "1" }), "wishlist");
+  assert.equal(listFromRow({ in_collection: "Yes" }), "owned");
+  assert.equal(listFromRow({ in_collection: "No", in_wishlist: "No" }), "skip");
+  assert.equal(listFromRow({ in_wishlist: "0" }), null);
+  assert.equal(listFromRow({ status: "Read List" }), "skip");
+  assert.equal(listFromRow({}), null);
+});
+
+test("picks the biggest sheet and names the others", () => {
+  const { sheet, others } = pickSheet([
+    { sheet: "Notes", data: [["a"]] },
+    { sheet: "Empty", data: [[null, ""]] },
+    { sheet: "Comics", data: [["Series", "Issue"], ["Batman", 1]] },
+  ]);
+  assert.equal(sheet.sheet, "Comics");
+  assert.deepEqual(others, ["Notes"]);
+  assert.equal(pickSheet([]).sheet, null);
+});
+
+test("a CLZ-style file keeps its own columns and its own status", () => {
+  const { headers, rows } = tableFromGrid([
+    ["Series", "Issue", "Full Title", "Publisher", "Collection", "Collection Status", "Grade"],
+    ["X-Men (1991)", "1", "X-Men, Vol. 2 #1: Rubicon", "Marvel", "Main", "Wish List", "9.8"],
+    ["Amazing Spider-Man, The", "300", "Amazing Spider-Man #300: Venom", "Marvel", "Main", "In Collection", "6.0"],
+  ]);
+  const mapping = autoMapColumns(headers, rows);
+  assert.equal(mapping.Collection, "");
+  const [first, second] = rows.map((raw, i) => mapRow(raw, i, mapping));
+  assert.deepEqual([first.series, first.issue, first.series_year, first.skip], ["X-Men", "1", 1991, undefined]);
+  assert.equal(statusFromValue(first.status), "wishlist");
+  assert.deepEqual([second.series, second.issue], ["The Amazing Spider-Man", "300"]);
+  assert.equal(statusFromValue(second.status), "owned");
+});
+
+test("a blank Collection column doesn't drop the file", () => {
+  const rows = [{ Series: "Batman", Issue: "1", Collection: "" }];
+  const mapping = autoMapColumns(["Series", "Issue", "Collection"], rows);
+  assert.equal(mapping.Collection, "");
+  assert.equal(mapRow(rows[0], 0, mapping).skip, undefined);
+});
 
 test("auto-maps CLZ headers", () => {
   const headers = ["Series", "Issue", "Variant Description", "Publisher", "Release Date", "Grade", "Grading Company", "Slab Certification Number", "Purchase Price", "Notes", "Storage Box", "Quantity"];

@@ -67,6 +67,9 @@ jobs:
             npx eslint $CHANGED
           fi
 
+      - name: Collection import tests
+        run: npm run test:import
+
       - name: Cover-match tests
         run: npm run test:cover-match
 

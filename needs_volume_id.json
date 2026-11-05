@@ -14285,9 +14285,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T06:10:20.384636+00:00",
-    "retry_after": "2026-11-05T06:10:20.384639+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T07:12:55.271326+00:00",
+    "retry_after": "2026-11-12T07:12:55.271331+00:00",
     "search_hydrated": true
   },
   {
@@ -27440,8 +27440,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T06:10:48.388860+00:00",
-    "retry_after": "2026-11-06T06:10:48.388871+00:00",
+    "last_attempt_at": "2026-11-05T07:13:27.112296+00:00",
+    "retry_after": "2026-11-06T07:13:27.112314+00:00",
     "search_hydrated": true
   },
   {
@@ -27464,8 +27464,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T06:01:25.963736+00:00",
-    "retry_after": "2026-11-06T06:01:25.963739+00:00",
+    "last_attempt_at": "2026-11-05T07:01:32.595165+00:00",
+    "retry_after": "2026-11-06T07:01:32.595168+00:00",
     "search_hydrated": true
   },
   {
@@ -39951,9 +39951,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T06:10:20.384616+00:00",
-    "retry_after": "2026-11-05T06:10:20.384619+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T07:12:55.271284+00:00",
+    "retry_after": "2026-11-12T07:12:55.271301+00:00",
     "search_hydrated": true
   },
   {
@@ -43511,8 +43511,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T06:01:25.963591+00:00",
-    "retry_after": "2026-11-06T06:01:25.963608+00:00",
+    "last_attempt_at": "2026-11-05T07:01:32.595002+00:00",
+    "retry_after": "2026-11-06T07:01:32.595020+00:00",
     "search_hydrated": true
   },
   {
@@ -51389,8 +51389,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T06:01:25.963704+00:00",
-    "retry_after": "2026-11-06T06:01:25.963707+00:00",
+    "last_attempt_at": "2026-11-05T07:01:32.595130+00:00",
+    "retry_after": "2026-11-06T07:01:32.595134+00:00",
     "search_hydrated": true
   },
   {
@@ -91439,9 +91439,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-04T06:13:20.227245+00:00",
-    "retry_after": "2026-11-05T06:13:20.227257+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-05T07:13:14.286453+00:00",
+    "retry_after": "2026-11-08T07:13:14.286470+00:00",
     "search_hydrated": true
   },
   {
@@ -91450,9 +91450,9 @@
     "year": 2010,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-04T06:13:20.227290+00:00",
-    "retry_after": "2026-11-05T06:13:20.227295+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-05T07:13:14.286498+00:00",
+    "retry_after": "2026-11-08T07:13:14.286502+00:00",
     "search_hydrated": true
   },
   {
@@ -91868,6 +91868,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-05T05:11:34.690347+00:00",
     "retry_after": "2026-11-06T05:11:34.690351+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Dark Ride",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 145369,
+        "name": "Dark Ride",
+        "publisher": "Image",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T07:12:57.363656+00:00",
+    "retry_after": "2026-11-06T07:12:57.363673+00:00",
     "search_hydrated": true
   }
 ]

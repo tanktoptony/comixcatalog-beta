@@ -9598,9 +9598,9 @@
         "start_year": 1987
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T16:38:35.597677+00:00",
-    "retry_after": "2026-11-05T16:38:35.597680+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T17:04:48.372443+00:00",
+    "retry_after": "2026-11-19T17:04:48.372446+00:00",
     "search_hydrated": true
   },
   {
@@ -12562,9 +12562,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T16:38:35.597604+00:00",
-    "retry_after": "2026-11-05T16:38:35.597609+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T17:04:48.372372+00:00",
+    "retry_after": "2026-11-19T17:04:48.372376+00:00",
     "search_hydrated": true
   },
   {
@@ -13760,9 +13760,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T17:01:52.938527+00:00",
-    "retry_after": "2026-11-05T17:01:52.938532+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T17:05:09.183719+00:00",
+    "retry_after": "2026-11-19T17:05:09.183723+00:00",
     "search_hydrated": true
   },
   {
@@ -27440,8 +27440,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T16:12:41.115579+00:00",
-    "retry_after": "2026-11-06T16:12:41.115591+00:00",
+    "last_attempt_at": "2026-11-05T17:10:26.857173+00:00",
+    "retry_after": "2026-11-06T17:10:26.857178+00:00",
     "search_hydrated": true
   },
   {
@@ -27464,8 +27464,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T16:01:45.323153+00:00",
-    "retry_after": "2026-11-06T16:01:45.323155+00:00",
+    "last_attempt_at": "2026-11-05T17:05:09.183798+00:00",
+    "retry_after": "2026-11-06T17:05:09.183801+00:00",
     "search_hydrated": true
   },
   {
@@ -31536,9 +31536,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T17:01:52.938587+00:00",
-    "retry_after": "2026-11-05T17:01:52.938595+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T17:05:09.183750+00:00",
+    "retry_after": "2026-11-19T17:05:09.183752+00:00",
     "search_hydrated": true
   },
   {
@@ -41928,16 +41928,16 @@
         "start_year": 1992
       },
       {
-        "id": 57741,
-        "name": "X-Men",
-        "publisher": "Abril",
-        "start_year": 1989
-      },
-      {
         "id": 74075,
         "name": "X-Men",
         "publisher": "Panini Brasil",
         "start_year": 2014
+      },
+      {
+        "id": 57741,
+        "name": "X-Men",
+        "publisher": "Abril",
+        "start_year": 1989
       },
       {
         "id": 104729,
@@ -42000,9 +42000,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T16:39:20.711850+00:00",
-    "retry_after": "2026-11-05T16:39:20.711855+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T17:05:09.183601+00:00",
+    "retry_after": "2026-11-19T17:05:09.183605+00:00",
     "search_hydrated": true
   },
   {
@@ -43498,21 +43498,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 2930,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1977
-      },
-      {
         "id": 116293,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T16:01:45.323007+00:00",
-    "retry_after": "2026-11-06T16:01:45.323023+00:00",
+    "last_attempt_at": "2026-11-05T17:05:09.183465+00:00",
+    "retry_after": "2026-11-06T17:05:09.183470+00:00",
     "search_hydrated": true
   },
   {
@@ -43945,9 +43945,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T16:38:35.597471+00:00",
-    "retry_after": "2026-11-05T16:38:35.597487+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T17:04:48.372208+00:00",
+    "retry_after": "2026-11-19T17:04:48.372225+00:00",
     "search_hydrated": true
   },
   {
@@ -51390,8 +51390,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T16:01:45.323120+00:00",
-    "retry_after": "2026-11-06T16:01:45.323124+00:00",
+    "last_attempt_at": "2026-11-05T17:05:09.183770+00:00",
+    "retry_after": "2026-11-06T17:05:09.183772+00:00",
     "search_hydrated": true
   },
   {
@@ -71749,9 +71749,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T16:42:40.002004+00:00",
-    "retry_after": "2026-11-05T16:42:40.002020+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T17:09:58.015509+00:00",
+    "retry_after": "2026-11-19T17:09:58.015522+00:00",
     "search_hydrated": true
   },
   {
@@ -71767,9 +71767,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T16:42:41.022615+00:00",
-    "retry_after": "2026-11-05T16:42:41.022630+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T17:09:59.440001+00:00",
+    "retry_after": "2026-11-19T17:09:59.440013+00:00",
     "search_hydrated": true
   },
   {
@@ -71778,9 +71778,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T16:42:40.002082+00:00",
-    "retry_after": "2026-11-05T16:42:40.002087+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T17:09:58.015583+00:00",
+    "retry_after": "2026-11-19T17:09:58.015588+00:00",
     "search_hydrated": true
   },
   {
@@ -71917,9 +71917,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T16:42:41.166983+00:00",
-    "retry_after": "2026-11-05T16:42:41.166997+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T17:09:59.513909+00:00",
+    "retry_after": "2026-11-19T17:09:59.513918+00:00",
     "search_hydrated": true
   },
   {
@@ -71953,9 +71953,9 @@
         "start_year": 1988
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T16:42:40.002151+00:00",
-    "retry_after": "2026-11-05T16:42:40.002155+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T17:09:58.015653+00:00",
+    "retry_after": "2026-11-19T17:09:58.015657+00:00",
     "search_hydrated": true
   },
   {
@@ -71982,9 +71982,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T16:42:41.314144+00:00",
-    "retry_after": "2026-11-05T16:42:41.314158+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T17:09:59.594422+00:00",
+    "retry_after": "2026-11-19T17:09:59.594431+00:00",
     "search_hydrated": true
   },
   {
@@ -71993,9 +71993,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T16:42:40.002186+00:00",
-    "retry_after": "2026-11-05T16:42:40.002188+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T17:09:58.015689+00:00",
+    "retry_after": "2026-11-19T17:09:58.015691+00:00",
     "search_hydrated": true
   },
   {
@@ -91575,9 +91575,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-04T17:04:15.698059+00:00",
-    "retry_after": "2026-11-05T17:04:15.698063+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-05T17:05:09.183384+00:00",
+    "retry_after": "2026-11-08T17:05:09.183401+00:00",
     "search_hydrated": true
   },
   {
@@ -91937,6 +91937,114 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-05T15:11:35.974139+00:00",
     "retry_after": "2026-11-06T15:11:35.974143+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "In Rage",
+    "publisher": "CFD Productions",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88863,
+        "name": "In Rage",
+        "publisher": "Creative Force Designs",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T17:02:21.352005+00:00",
+    "retry_after": "2026-11-06T17:02:21.352010+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tits ! Tits ! Tits !",
+    "publisher": "Dynamite Entertainment",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167384,
+        "name": "Tits! Tits! Tits!",
+        "publisher": "Dynamite (France)",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T17:10:21.247531+00:00",
+    "retry_after": "2026-11-06T17:10:21.247546+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deadworld: The Last Siesta",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75600,
+        "name": "Deadworld: The Last Siesta",
+        "publisher": "Caliber Comics",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T17:10:21.247586+00:00",
+    "retry_after": "2026-11-06T17:10:21.247590+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Meltdown",
+    "publisher": "Titan Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161288,
+        "name": "Simpsons Comics Meltdown",
+        "publisher": "HarperCollins",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T17:10:21.247666+00:00",
+    "retry_after": "2026-11-06T17:10:21.247669+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Conan Exiles",
+    "publisher": "Dark Horse Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141912,
+        "name": "Conan: Exiles",
+        "publisher": "Marvel",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T17:10:21.247691+00:00",
+    "retry_after": "2026-11-06T17:10:21.247694+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Doctor Who Magazine",
+    "publisher": "Marvel Comics",
+    "year": 1985,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26877,
+        "name": "Doctor Who Magazine",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T17:10:26.857071+00:00",
+    "retry_after": "2026-11-06T17:10:26.857089+00:00",
     "search_hydrated": true
   }
 ]

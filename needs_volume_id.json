@@ -27440,8 +27440,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T15:11:49.460898+00:00",
-    "retry_after": "2026-11-06T15:11:49.460914+00:00",
+    "last_attempt_at": "2026-11-05T16:12:41.115579+00:00",
+    "retry_after": "2026-11-06T16:12:41.115591+00:00",
     "search_hydrated": true
   },
   {
@@ -27464,8 +27464,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T15:01:39.815453+00:00",
-    "retry_after": "2026-11-06T15:01:39.815456+00:00",
+    "last_attempt_at": "2026-11-05T16:01:45.323153+00:00",
+    "retry_after": "2026-11-06T16:01:45.323155+00:00",
     "search_hydrated": true
   },
   {
@@ -43511,8 +43511,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T15:01:39.815302+00:00",
-    "retry_after": "2026-11-06T15:01:39.815319+00:00",
+    "last_attempt_at": "2026-11-05T16:01:45.323007+00:00",
+    "retry_after": "2026-11-06T16:01:45.323023+00:00",
     "search_hydrated": true
   },
   {
@@ -51390,8 +51390,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T15:01:39.815419+00:00",
-    "retry_after": "2026-11-06T15:01:39.815423+00:00",
+    "last_attempt_at": "2026-11-05T16:01:45.323120+00:00",
+    "retry_after": "2026-11-06T16:01:45.323124+00:00",
     "search_hydrated": true
   },
   {
@@ -64294,9 +64294,9 @@
         "start_year": 1980
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T16:01:18.233385+00:00",
-    "retry_after": "2026-11-05T16:01:18.233402+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T16:01:23.246974+00:00",
+    "retry_after": "2026-11-19T16:01:23.246990+00:00",
     "search_hydrated": true
   },
   {
@@ -71040,9 +71040,9 @@
         "start_year": 2007
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T16:01:18.233457+00:00",
-    "retry_after": "2026-11-05T16:01:18.233462+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-05T16:01:23.247044+00:00",
+    "retry_after": "2026-11-19T16:01:23.247049+00:00",
     "search_hydrated": true
   },
   {
@@ -87673,9 +87673,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T14:10:42.228248+00:00",
-    "retry_after": "2026-11-05T14:10:42.228252+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T16:11:58.406649+00:00",
+    "retry_after": "2026-11-12T16:11:58.406674+00:00",
     "search_hydrated": true
   },
   {
@@ -87684,9 +87684,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T14:10:42.228268+00:00",
-    "retry_after": "2026-11-05T14:10:42.228270+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T16:11:58.406706+00:00",
+    "retry_after": "2026-11-12T16:11:58.406711+00:00",
     "search_hydrated": true
   },
   {
@@ -87695,9 +87695,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T14:10:42.228283+00:00",
-    "retry_after": "2026-11-05T14:10:42.228286+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T16:11:58.406726+00:00",
+    "retry_after": "2026-11-12T16:11:58.406729+00:00",
     "search_hydrated": true
   },
   {
@@ -87707,21 +87707,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 35076,
-        "name": "Batman: Hush",
-        "publisher": "DC Comics",
-        "start_year": 2003
-      },
-      {
         "id": 27384,
         "name": "Batman: Hush",
         "publisher": "DC Comics",
         "start_year": 2009
+      },
+      {
+        "id": 35076,
+        "name": "Batman: Hush",
+        "publisher": "DC Comics",
+        "start_year": 2003
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T14:10:42.228338+00:00",
-    "retry_after": "2026-11-05T14:10:42.228341+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T16:11:58.406775+00:00",
+    "retry_after": "2026-11-12T16:11:58.406778+00:00",
     "search_hydrated": true
   },
   {
@@ -87806,9 +87806,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T15:10:16.289519+00:00",
-    "retry_after": "2026-11-05T15:10:16.289520+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-05T16:11:58.406828+00:00",
+    "retry_after": "2026-11-12T16:11:58.406831+00:00",
     "search_hydrated": true
   },
   {

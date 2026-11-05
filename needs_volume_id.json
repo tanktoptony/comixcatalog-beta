@@ -27440,8 +27440,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T07:13:27.112296+00:00",
-    "retry_after": "2026-11-06T07:13:27.112314+00:00",
+    "last_attempt_at": "2026-11-05T08:14:07.099850+00:00",
+    "retry_after": "2026-11-06T08:14:07.099865+00:00",
     "search_hydrated": true
   },
   {
@@ -27464,8 +27464,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T07:01:32.595165+00:00",
-    "retry_after": "2026-11-06T07:01:32.595168+00:00",
+    "last_attempt_at": "2026-11-05T08:01:26.312760+00:00",
+    "retry_after": "2026-11-06T08:01:26.312762+00:00",
     "search_hydrated": true
   },
   {
@@ -43511,8 +43511,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T07:01:32.595002+00:00",
-    "retry_after": "2026-11-06T07:01:32.595020+00:00",
+    "last_attempt_at": "2026-11-05T08:01:26.312641+00:00",
+    "retry_after": "2026-11-06T08:01:26.312658+00:00",
     "search_hydrated": true
   },
   {
@@ -51389,8 +51389,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-05T07:01:32.595130+00:00",
-    "retry_after": "2026-11-06T07:01:32.595134+00:00",
+    "last_attempt_at": "2026-11-05T08:01:26.312735+00:00",
+    "retry_after": "2026-11-06T08:01:26.312738+00:00",
     "search_hydrated": true
   },
   {
@@ -89731,9 +89731,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T06:10:49.122892+00:00",
-    "retry_after": "2026-11-03T06:10:49.122896+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-05T08:13:33.478511+00:00",
+    "retry_after": "2026-11-08T08:13:33.478527+00:00",
     "search_hydrated": true
   },
   {
@@ -91461,9 +91461,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-04T07:22:59.992606+00:00",
-    "retry_after": "2026-11-05T07:22:59.992611+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-05T08:14:01.459809+00:00",
+    "retry_after": "2026-11-08T08:14:01.459826+00:00",
     "search_hydrated": true
   },
   {
@@ -91886,6 +91886,41 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-05T07:12:57.363656+00:00",
     "retry_after": "2026-11-06T07:12:57.363673+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Jon Sable Freelance",
+    "publisher": "Fawcett Comics",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3287,
+        "name": "Jon Sable, Freelance",
+        "publisher": "First",
+        "start_year": 1983
+      },
+      {
+        "id": 73368,
+        "name": "Jon Sable Freelance",
+        "publisher": "First",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T08:14:01.459865+00:00",
+    "retry_after": "2026-11-06T08:14:01.459873+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Transformers: Revenge of the Fallen - Tales of the Fallen",
+    "publisher": "IDW Publishing",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-05T08:14:01.459893+00:00",
+    "retry_after": "2026-11-06T08:14:01.459895+00:00",
     "search_hydrated": true
   }
 ]

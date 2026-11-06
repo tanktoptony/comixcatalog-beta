@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T12:02:05.669575+00:00",
-    "retry_after": "2026-11-07T12:02:05.669579+00:00",
+    "last_attempt_at": "2026-11-06T13:02:22.907443+00:00",
+    "retry_after": "2026-11-07T13:02:22.907445+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T12:02:05.669423+00:00",
-    "retry_after": "2026-11-07T12:02:05.669441+00:00",
+    "last_attempt_at": "2026-11-06T13:02:22.907330+00:00",
+    "retry_after": "2026-11-07T13:02:22.907347+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T12:02:05.669542+00:00",
-    "retry_after": "2026-11-07T12:02:05.669546+00:00",
+    "last_attempt_at": "2026-11-06T13:02:22.907420+00:00",
+    "retry_after": "2026-11-07T13:02:22.907422+00:00",
     "search_hydrated": true
   },
   {
@@ -75012,9 +75012,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T11:04:37.348084+00:00",
-    "retry_after": "2026-11-06T11:04:37.348086+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T13:13:03.040044+00:00",
+    "retry_after": "2026-11-20T13:13:03.040060+00:00",
     "search_hydrated": true
   },
   {
@@ -75023,9 +75023,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T11:04:37.348104+00:00",
-    "retry_after": "2026-11-06T11:04:37.348105+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T13:13:03.040165+00:00",
+    "retry_after": "2026-11-20T13:13:03.040168+00:00",
     "search_hydrated": true
   },
   {
@@ -75041,9 +75041,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T11:04:38.452414+00:00",
-    "retry_after": "2026-11-06T11:04:38.452431+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T13:13:05.098207+00:00",
+    "retry_after": "2026-11-20T13:13:05.098224+00:00",
     "search_hydrated": true
   },
   {
@@ -75052,9 +75052,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T11:04:37.348113+00:00",
-    "retry_after": "2026-11-06T11:04:37.348114+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T13:13:03.040180+00:00",
+    "retry_after": "2026-11-20T13:13:03.040182+00:00",
     "search_hydrated": true
   },
   {
@@ -75064,21 +75064,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 138183,
-        "name": "Batman '89",
-        "publisher": "DC Comics",
-        "start_year": 2021
-      },
-      {
         "id": 146553,
         "name": "Batman '89",
         "publisher": "DC Comics",
         "start_year": 2022
+      },
+      {
+        "id": 138183,
+        "name": "Batman '89",
+        "publisher": "DC Comics",
+        "start_year": 2021
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T11:04:37.348153+00:00",
-    "retry_after": "2026-11-06T11:04:37.348154+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T13:13:03.040216+00:00",
+    "retry_after": "2026-11-20T13:13:03.040218+00:00",
     "search_hydrated": true
   },
   {
@@ -75100,9 +75100,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T11:04:37.348179+00:00",
-    "retry_after": "2026-11-06T11:04:37.348180+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T13:13:03.040247+00:00",
+    "retry_after": "2026-11-20T13:13:03.040249+00:00",
     "search_hydrated": true
   },
   {
@@ -75111,9 +75111,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T12:04:47.197754+00:00",
-    "retry_after": "2026-11-06T12:04:47.197773+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T13:13:03.040259+00:00",
+    "retry_after": "2026-11-20T13:13:03.040261+00:00",
     "search_hydrated": true
   },
   {
@@ -75122,9 +75122,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T12:04:47.197799+00:00",
-    "retry_after": "2026-11-06T12:04:47.197802+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T13:13:03.040269+00:00",
+    "retry_after": "2026-11-20T13:13:03.040271+00:00",
     "search_hydrated": true
   },
   {
@@ -75133,9 +75133,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T12:04:47.197815+00:00",
-    "retry_after": "2026-11-06T12:04:47.197817+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T13:13:03.040280+00:00",
+    "retry_after": "2026-11-20T13:13:03.040281+00:00",
     "search_hydrated": true
   },
   {
@@ -92714,6 +92714,66 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-06T12:12:19.228516+00:00",
     "retry_after": "2026-11-07T12:12:19.228520+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Grumpy Old Monsters",
+    "publisher": "IDW Publishing",
+    "year": 2009,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 45275,
+        "name": "Grumpy Old Monsters",
+        "publisher": "IDW Publishing",
+        "start_year": 2003
+      },
+      {
+        "id": 45287,
+        "name": "Grumpy Old Monsters",
+        "publisher": "IDW Publishing",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T13:13:13.621285+00:00",
+    "retry_after": "2026-11-07T13:13:13.621302+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "They Called Us Enemy – Expanded Edition",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129898,
+        "name": "They Called Us Enemy: Expanded Edition",
+        "publisher": "Top Shelf",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T13:13:13.621374+00:00",
+    "retry_after": "2026-11-07T13:13:13.621377+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Links",
+    "publisher": "VIZ Media",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148145,
+        "name": "Links",
+        "publisher": "Milky Way Ediciones",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T13:13:13.621397+00:00",
+    "retry_after": "2026-11-07T13:13:13.621399+00:00",
     "search_hydrated": true
   }
 ]

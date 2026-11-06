@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T09:02:04.894319+00:00",
-    "retry_after": "2026-11-07T09:02:04.894322+00:00",
+    "last_attempt_at": "2026-11-06T10:02:11.214906+00:00",
+    "retry_after": "2026-11-07T10:02:11.214909+00:00",
     "search_hydrated": true
   },
   {
@@ -43505,8 +43505,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T09:02:04.894175+00:00",
-    "retry_after": "2026-11-07T09:02:04.894191+00:00",
+    "last_attempt_at": "2026-11-06T10:02:11.214761+00:00",
+    "retry_after": "2026-11-07T10:02:11.214777+00:00",
     "search_hydrated": true
   },
   {
@@ -51384,8 +51384,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T09:02:04.894287+00:00",
-    "retry_after": "2026-11-07T09:02:04.894291+00:00",
+    "last_attempt_at": "2026-11-06T10:02:11.214874+00:00",
+    "retry_after": "2026-11-07T10:02:11.214878+00:00",
     "search_hydrated": true
   },
   {
@@ -74638,9 +74638,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T08:11:44.223263+00:00",
-    "retry_after": "2026-11-06T08:11:44.223279+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T10:13:10.340740+00:00",
+    "retry_after": "2026-11-20T10:13:10.340754+00:00",
     "search_hydrated": true
   },
   {
@@ -74649,9 +74649,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T08:11:43.494538+00:00",
-    "retry_after": "2026-11-06T08:11:43.494541+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T10:13:09.243911+00:00",
+    "retry_after": "2026-11-20T10:13:09.243926+00:00",
     "search_hydrated": true
   },
   {
@@ -74667,9 +74667,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T08:11:44.350140+00:00",
-    "retry_after": "2026-11-06T08:11:44.350156+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T10:13:10.458494+00:00",
+    "retry_after": "2026-11-20T10:13:10.458508+00:00",
     "search_hydrated": true
   },
   {
@@ -74685,9 +74685,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T08:11:44.350191+00:00",
-    "retry_after": "2026-11-06T08:11:44.350195+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T10:13:10.458589+00:00",
+    "retry_after": "2026-11-20T10:13:10.458595+00:00",
     "search_hydrated": true
   },
   {
@@ -74703,9 +74703,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T08:11:44.496196+00:00",
-    "retry_after": "2026-11-06T08:11:44.496211+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T10:13:10.580128+00:00",
+    "retry_after": "2026-11-20T10:13:10.580143+00:00",
     "search_hydrated": true
   },
   {
@@ -74714,39 +74714,27 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T08:11:43.494588+00:00",
-    "retry_after": "2026-11-06T08:11:43.494590+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T10:13:09.243987+00:00",
+    "retry_after": "2026-11-20T10:13:09.243992+00:00",
     "search_hydrated": true
   },
   {
     "name": "Violator",
     "publisher": "Image Comics",
     "year": 2026,
-    "reason": "multiple_candidates",
+    "reason": "series_hint_year_mismatch",
     "candidates": [
-      {
-        "id": 5443,
-        "name": "Violator",
-        "publisher": "Image",
-        "start_year": 1994
-      },
-      {
-        "id": 160110,
-        "name": "Violator",
-        "publisher": "Image",
-        "start_year": 2024
-      },
       {
         "id": 163341,
         "name": "Violator",
         "publisher": "Image",
-        "start_year": null
+        "start_year": 2025
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T08:12:03.509148+00:00",
-    "retry_after": "2026-11-06T08:12:03.509163+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T10:13:10.832681+00:00",
+    "retry_after": "2026-11-20T10:13:10.832697+00:00",
     "search_hydrated": true
   },
   {
@@ -74755,9 +74743,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T08:12:03.509187+00:00",
-    "retry_after": "2026-11-06T08:12:03.509190+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T10:13:09.244030+00:00",
+    "retry_after": "2026-11-20T10:13:09.244033+00:00",
     "search_hydrated": true
   },
   {
@@ -74766,9 +74754,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T08:12:03.509206+00:00",
-    "retry_after": "2026-11-06T08:12:03.509208+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T10:13:09.244046+00:00",
+    "retry_after": "2026-11-20T10:13:09.244049+00:00",
     "search_hydrated": true
   },
   {
@@ -74777,9 +74765,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T10:05:47.339492+00:00",
-    "retry_after": "2026-11-06T10:05:47.339508+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T10:13:09.244061+00:00",
+    "retry_after": "2026-11-20T10:13:09.244063+00:00",
     "search_hydrated": true
   },
   {
@@ -74788,9 +74776,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T10:05:47.339540+00:00",
-    "retry_after": "2026-11-06T10:05:47.339544+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T10:13:11.886309+00:00",
+    "retry_after": "2026-11-20T10:13:11.886324+00:00",
     "search_hydrated": true
   },
   {
@@ -92655,6 +92643,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-06T09:11:42.380106+00:00",
     "retry_after": "2026-11-07T09:11:42.380110+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Boo and the Silly Blizzard",
+    "publisher": "IDW Publishing",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 133882,
+        "name": "Johnny Boo and the Silly Blizzard",
+        "publisher": "Top Shelf",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T10:13:23.071965+00:00",
+    "retry_after": "2026-11-07T10:13:23.071981+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "???????: ???? ????????????",
+    "publisher": "BOOM! Studios",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 172641,
+        "name": "!",
+        "publisher": "Alpha Polis",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T10:13:23.072026+00:00",
+    "retry_after": "2026-11-07T10:13:23.072030+00:00",
     "search_hydrated": true
   }
 ]

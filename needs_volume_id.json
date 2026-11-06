@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T15:02:12.906215+00:00",
-    "retry_after": "2026-11-07T15:02:12.906219+00:00",
+    "last_attempt_at": "2026-11-06T15:42:46.059170+00:00",
+    "retry_after": "2026-11-07T15:42:46.059173+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T15:02:12.905965+00:00",
-    "retry_after": "2026-11-07T15:02:12.905982+00:00",
+    "last_attempt_at": "2026-11-06T15:42:46.059020+00:00",
+    "retry_after": "2026-11-07T15:42:46.059036+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T15:02:12.906169+00:00",
-    "retry_after": "2026-11-07T15:02:12.906175+00:00",
+    "last_attempt_at": "2026-11-06T15:42:46.059137+00:00",
+    "retry_after": "2026-11-07T15:42:46.059141+00:00",
     "search_hydrated": true
   },
   {
@@ -75371,9 +75371,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T14:04:53.307170+00:00",
-    "retry_after": "2026-11-06T14:04:53.307172+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T15:51:57.673935+00:00",
+    "retry_after": "2026-11-20T15:51:57.673950+00:00",
     "search_hydrated": true
   },
   {
@@ -75407,9 +75407,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T14:04:54.130639+00:00",
-    "retry_after": "2026-11-06T14:04:54.130642+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T15:51:59.280258+00:00",
+    "retry_after": "2026-11-20T15:51:59.280262+00:00",
     "search_hydrated": true
   },
   {
@@ -75418,9 +75418,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T14:04:53.307195+00:00",
-    "retry_after": "2026-11-06T14:04:53.307198+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T15:51:57.673996+00:00",
+    "retry_after": "2026-11-20T15:51:57.674000+00:00",
     "search_hydrated": true
   },
   {
@@ -75429,9 +75429,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T14:04:53.307208+00:00",
-    "retry_after": "2026-11-06T14:04:53.307210+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T15:51:57.674015+00:00",
+    "retry_after": "2026-11-20T15:51:57.674018+00:00",
     "search_hydrated": true
   },
   {
@@ -75440,9 +75440,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T15:05:02.552058+00:00",
-    "retry_after": "2026-11-06T15:05:02.552075+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T15:51:57.674048+00:00",
+    "retry_after": "2026-11-20T15:51:57.674051+00:00",
     "search_hydrated": true
   },
   {
@@ -75451,9 +75451,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T15:05:02.552099+00:00",
-    "retry_after": "2026-11-06T15:05:02.552120+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T15:51:57.674064+00:00",
+    "retry_after": "2026-11-20T15:51:57.674066+00:00",
     "search_hydrated": true
   },
   {
@@ -75462,9 +75462,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T15:05:02.552136+00:00",
-    "retry_after": "2026-11-06T15:05:02.552139+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T15:51:57.674078+00:00",
+    "retry_after": "2026-11-20T15:51:57.674080+00:00",
     "search_hydrated": true
   },
   {
@@ -75480,9 +75480,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T15:05:02.730761+00:00",
-    "retry_after": "2026-11-06T15:05:02.730776+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T15:51:59.433472+00:00",
+    "retry_after": "2026-11-20T15:51:59.433486+00:00",
     "search_hydrated": true
   },
   {
@@ -75491,9 +75491,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T15:05:02.552152+00:00",
-    "retry_after": "2026-11-06T15:05:02.552154+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T15:51:57.674092+00:00",
+    "retry_after": "2026-11-20T15:51:57.674095+00:00",
     "search_hydrated": true
   },
   {
@@ -92856,6 +92856,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-06T15:11:41.676367+00:00",
     "retry_after": "2026-11-07T15:11:41.676370+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I'm Still Alive",
+    "publisher": "BOOM! Studios",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 147126,
+        "name": "I'm Still Alive",
+        "publisher": "Archaia",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T15:52:08.437992+00:00",
+    "retry_after": "2026-11-07T15:52:08.438008+00:00",
     "search_hydrated": true
   }
 ]

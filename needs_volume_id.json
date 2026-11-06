@@ -25928,9 +25928,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T05:01:13.876457+00:00",
-    "retry_after": "2026-11-06T05:01:13.876459+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T05:02:11.505028+00:00",
+    "retry_after": "2026-11-20T05:02:11.505031+00:00",
     "search_hydrated": true
   },
   {
@@ -25940,21 +25940,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 47678,
-        "name": "Spider-Man Comic",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1979
-      },
-      {
         "id": 47655,
         "name": "The Spider-Man Comic",
         "publisher": "Marvel UK/Panini UK",
         "start_year": 1985
+      },
+      {
+        "id": 47678,
+        "name": "Spider-Man Comic",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1979
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T04:01:19.778522+00:00",
-    "retry_after": "2026-11-06T04:01:19.778525+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T05:02:11.504945+00:00",
+    "retry_after": "2026-11-20T05:02:11.504948+00:00",
     "search_hydrated": true
   },
   {
@@ -26030,9 +26030,9 @@
         "start_year": 1982
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T04:01:19.778490+00:00",
-    "retry_after": "2026-11-06T04:01:19.778494+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T05:02:11.504917+00:00",
+    "retry_after": "2026-11-20T05:02:11.504920+00:00",
     "search_hydrated": true
   },
   {
@@ -27446,7 +27446,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27464,8 +27464,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T01:02:18.212538+00:00",
-    "retry_after": "2026-11-07T01:02:18.212557+00:00",
+    "last_attempt_at": "2026-11-06T05:02:11.504836+00:00",
+    "retry_after": "2026-11-07T05:02:11.504839+00:00",
     "search_hydrated": true
   },
   {
@@ -27475,21 +27475,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 2930,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1977
-      },
-      {
         "id": 116293,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T04:01:19.778368+00:00",
-    "retry_after": "2026-11-06T04:01:19.778372+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T05:02:11.504806+00:00",
+    "retry_after": "2026-11-20T05:02:11.504809+00:00",
     "search_hydrated": true
   },
   {
@@ -27529,9 +27529,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T03:01:39.895121+00:00",
-    "retry_after": "2026-11-06T03:01:39.895122+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T05:02:11.504772+00:00",
+    "retry_after": "2026-11-20T05:02:11.504776+00:00",
     "search_hydrated": true
   },
   {
@@ -43511,8 +43511,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T04:01:52.046473+00:00",
-    "retry_after": "2026-11-07T04:01:52.046500+00:00",
+    "last_attempt_at": "2026-11-06T05:02:11.504604+00:00",
+    "retry_after": "2026-11-07T05:02:11.504619+00:00",
     "search_hydrated": true
   },
   {
@@ -51390,8 +51390,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T04:01:52.046578+00:00",
-    "retry_after": "2026-11-07T04:01:52.046581+00:00",
+    "last_attempt_at": "2026-11-06T05:02:11.504721+00:00",
+    "retry_after": "2026-11-07T05:02:11.504725+00:00",
     "search_hydrated": true
   },
   {
@@ -73826,9 +73826,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T04:04:44.735123+00:00",
-    "retry_after": "2026-11-06T04:04:44.735136+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T05:12:04.036989+00:00",
+    "retry_after": "2026-11-20T05:12:04.037003+00:00",
     "search_hydrated": true
   },
   {
@@ -73837,9 +73837,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T04:04:43.683599+00:00",
-    "retry_after": "2026-11-06T04:04:43.683601+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T05:12:03.034909+00:00",
+    "retry_after": "2026-11-20T05:12:03.034924+00:00",
     "search_hydrated": true
   },
   {
@@ -73848,9 +73848,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T04:04:43.683617+00:00",
-    "retry_after": "2026-11-06T04:04:43.683620+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T05:12:03.034950+00:00",
+    "retry_after": "2026-11-20T05:12:03.034954+00:00",
     "search_hydrated": true
   },
   {
@@ -73859,9 +73859,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T04:04:43.683634+00:00",
-    "retry_after": "2026-11-06T04:04:43.683637+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T05:12:03.034971+00:00",
+    "retry_after": "2026-11-20T05:12:03.034974+00:00",
     "search_hydrated": true
   },
   {
@@ -73877,9 +73877,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T04:04:44.735391+00:00",
-    "retry_after": "2026-11-06T04:04:44.735396+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T05:12:04.037067+00:00",
+    "retry_after": "2026-11-20T05:12:04.037070+00:00",
     "search_hydrated": true
   },
   {
@@ -73888,9 +73888,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T04:04:43.683658+00:00",
-    "retry_after": "2026-11-06T04:04:43.683661+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T05:12:03.035000+00:00",
+    "retry_after": "2026-11-20T05:12:03.035002+00:00",
     "search_hydrated": true
   },
   {
@@ -73899,9 +73899,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T04:05:04.376771+00:00",
-    "retry_after": "2026-11-06T04:05:04.376786+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T05:12:03.035015+00:00",
+    "retry_after": "2026-11-20T05:12:03.035017+00:00",
     "search_hydrated": true
   },
   {
@@ -73917,9 +73917,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T04:05:05.104416+00:00",
-    "retry_after": "2026-11-06T04:05:05.104439+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T05:12:04.181333+00:00",
+    "retry_after": "2026-11-20T05:12:04.181345+00:00",
     "search_hydrated": true
   },
   {
@@ -73928,9 +73928,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T04:05:04.376823+00:00",
-    "retry_after": "2026-11-06T04:05:04.376826+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T05:12:03.035040+00:00",
+    "retry_after": "2026-11-20T05:12:03.035042+00:00",
     "search_hydrated": true
   },
   {
@@ -73939,9 +73939,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T04:05:04.376843+00:00",
-    "retry_after": "2026-11-06T04:05:04.376845+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T05:12:03.035054+00:00",
+    "retry_after": "2026-11-20T05:12:03.035056+00:00",
     "search_hydrated": true
   },
   {
@@ -92548,6 +92548,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-06T04:11:34.211346+00:00",
     "retry_after": "2026-11-07T04:11:34.211349+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Giant-Size Super-Stars #1 Facsimile Edition",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T05:12:18.414639+00:00",
+    "retry_after": "2026-11-07T05:12:18.414654+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Tandy Computer Whiz Kids (Fit to Win Edition)",
+    "publisher": "Archie Comics",
+    "year": 1988,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T05:12:18.414699+00:00",
+    "retry_after": "2026-11-07T05:12:18.414704+00:00",
     "search_hydrated": true
   }
 ]

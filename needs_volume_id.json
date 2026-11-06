@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T13:02:22.907443+00:00",
-    "retry_after": "2026-11-07T13:02:22.907445+00:00",
+    "last_attempt_at": "2026-11-06T14:01:43.409523+00:00",
+    "retry_after": "2026-11-07T14:01:43.409524+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T13:02:22.907330+00:00",
-    "retry_after": "2026-11-07T13:02:22.907347+00:00",
+    "last_attempt_at": "2026-11-06T14:01:43.409423+00:00",
+    "retry_after": "2026-11-07T14:01:43.409441+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T13:02:22.907420+00:00",
-    "retry_after": "2026-11-07T13:02:22.907422+00:00",
+    "last_attempt_at": "2026-11-06T14:01:43.409505+00:00",
+    "retry_after": "2026-11-07T14:01:43.409507+00:00",
     "search_hydrated": true
   },
   {
@@ -75151,9 +75151,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T12:04:48.074753+00:00",
-    "retry_after": "2026-11-06T12:04:48.074770+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T14:11:20.689863+00:00",
+    "retry_after": "2026-11-20T14:11:20.689869+00:00",
     "search_hydrated": true
   },
   {
@@ -75162,9 +75162,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T12:04:47.197877+00:00",
-    "retry_after": "2026-11-06T12:04:47.197880+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T14:11:19.169633+00:00",
+    "retry_after": "2026-11-20T14:11:19.169645+00:00",
     "search_hydrated": true
   },
   {
@@ -75173,9 +75173,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T12:04:47.197898+00:00",
-    "retry_after": "2026-11-06T12:04:47.197901+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T14:11:19.169667+00:00",
+    "retry_after": "2026-11-20T14:11:19.169670+00:00",
     "search_hydrated": true
   },
   {
@@ -75191,9 +75191,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T12:04:48.225017+00:00",
-    "retry_after": "2026-11-06T12:04:48.225036+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T14:11:20.809914+00:00",
+    "retry_after": "2026-11-20T14:11:20.809920+00:00",
     "search_hydrated": true
   },
   {
@@ -75202,9 +75202,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T12:05:07.441375+00:00",
-    "retry_after": "2026-11-06T12:05:07.441392+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T14:11:19.169680+00:00",
+    "retry_after": "2026-11-20T14:11:19.169682+00:00",
     "search_hydrated": true
   },
   {
@@ -75213,9 +75213,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T12:05:07.441412+00:00",
-    "retry_after": "2026-11-06T12:05:07.441414+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T14:11:19.169689+00:00",
+    "retry_after": "2026-11-20T14:11:19.169691+00:00",
     "search_hydrated": true
   },
   {
@@ -75224,9 +75224,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T12:05:07.441430+00:00",
-    "retry_after": "2026-11-06T12:05:07.441432+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T14:11:19.169699+00:00",
+    "retry_after": "2026-11-20T14:11:19.169701+00:00",
     "search_hydrated": true
   },
   {
@@ -75235,9 +75235,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T12:05:07.441443+00:00",
-    "retry_after": "2026-11-06T12:05:07.441444+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T14:11:19.169707+00:00",
+    "retry_after": "2026-11-20T14:11:19.169708+00:00",
     "search_hydrated": true
   },
   {
@@ -75247,21 +75247,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 48498,
-        "name": "Black Heart Billy",
-        "publisher": "SLG Publishing",
-        "start_year": 2000
-      },
-      {
         "id": 50230,
         "name": "Black Heart Billy",
         "publisher": "AiT/Planet Lar",
         "start_year": 2002
+      },
+      {
+        "id": 48498,
+        "name": "Black Heart Billy",
+        "publisher": "SLG Publishing",
+        "start_year": 2000
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T12:05:07.441486+00:00",
-    "retry_after": "2026-11-06T12:05:07.441488+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T14:11:19.169734+00:00",
+    "retry_after": "2026-11-20T14:11:19.169736+00:00",
     "search_hydrated": true
   },
   {
@@ -92774,6 +92774,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-06T13:13:13.621397+00:00",
     "retry_after": "2026-11-07T13:13:13.621399+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62660,
+        "name": "Big Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T14:11:30.236409+00:00",
+    "retry_after": "2026-11-07T14:11:30.236425+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Superheroes and the Occult Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79640,
+        "name": "Marvel Superheroes and the Occult Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T14:11:30.236463+00:00",
+    "retry_after": "2026-11-07T14:11:30.236465+00:00",
     "search_hydrated": true
   }
 ]

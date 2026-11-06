@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T10:02:11.214906+00:00",
-    "retry_after": "2026-11-07T10:02:11.214909+00:00",
+    "last_attempt_at": "2026-11-06T11:01:37.943222+00:00",
+    "retry_after": "2026-11-07T11:01:37.943223+00:00",
     "search_hydrated": true
   },
   {
@@ -34270,29 +34270,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-01T14:01:55.800233+00:00",
     "retry_after": "2026-10-04T14:01:55.800248+00:00"
-  },
-  {
-    "name": "Future State: Suicide Squad",
-    "publisher": "DC Comics",
-    "year": 2021,
-    "reason": "multiple_same_start_year_tied",
-    "candidates": [
-      {
-        "id": 133412,
-        "name": "Future State: Suicide Squad",
-        "publisher": "DC Comics",
-        "start_year": 2021
-      },
-      {
-        "id": 137546,
-        "name": "Future State: Suicide Squad",
-        "publisher": "DC Comics",
-        "start_year": 2021
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-01T14:01:56.393345+00:00",
-    "retry_after": "2026-10-04T14:01:56.393361+00:00"
   },
   {
     "name": "The Secret Society of Super-Villains",
@@ -43505,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T10:02:11.214761+00:00",
-    "retry_after": "2026-11-07T10:02:11.214777+00:00",
+    "last_attempt_at": "2026-11-06T11:01:37.943116+00:00",
+    "retry_after": "2026-11-07T11:01:37.943135+00:00",
     "search_hydrated": true
   },
   {
@@ -51384,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T10:02:11.214874+00:00",
-    "retry_after": "2026-11-07T10:02:11.214878+00:00",
+    "last_attempt_at": "2026-11-06T11:01:37.943202+00:00",
+    "retry_after": "2026-11-07T11:01:37.943204+00:00",
     "search_hydrated": true
   },
   {
@@ -74787,9 +74764,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T10:05:47.339565+00:00",
-    "retry_after": "2026-11-06T10:05:47.339568+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T11:11:23.495943+00:00",
+    "retry_after": "2026-11-20T11:11:23.495961+00:00",
     "search_hydrated": true
   },
   {
@@ -74805,9 +74782,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T10:05:47.429295+00:00",
-    "retry_after": "2026-11-06T10:05:47.429309+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T11:11:24.126515+00:00",
+    "retry_after": "2026-11-20T11:11:24.126529+00:00",
     "search_hydrated": true
   },
   {
@@ -74816,9 +74793,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T10:05:47.339623+00:00",
-    "retry_after": "2026-11-06T10:05:47.339627+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T11:11:23.495999+00:00",
+    "retry_after": "2026-11-20T11:11:23.496002+00:00",
     "search_hydrated": true
   },
   {
@@ -74827,9 +74804,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T10:05:47.339643+00:00",
-    "retry_after": "2026-11-06T10:05:47.339646+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T11:11:23.496010+00:00",
+    "retry_after": "2026-11-20T11:11:23.496012+00:00",
     "search_hydrated": true
   },
   {
@@ -74838,9 +74815,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T10:05:47.339659+00:00",
-    "retry_after": "2026-11-06T10:05:47.339662+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T11:11:23.496019+00:00",
+    "retry_after": "2026-11-20T11:11:23.496021+00:00",
     "search_hydrated": true
   },
   {
@@ -74849,9 +74826,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T10:05:47.339673+00:00",
-    "retry_after": "2026-11-06T10:05:47.339676+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T11:11:23.496027+00:00",
+    "retry_after": "2026-11-20T11:11:23.496029+00:00",
     "search_hydrated": true
   },
   {
@@ -74860,9 +74837,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T10:05:47.339688+00:00",
-    "retry_after": "2026-11-06T10:05:47.339691+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T11:11:23.496036+00:00",
+    "retry_after": "2026-11-20T11:11:23.496037+00:00",
     "search_hydrated": true
   },
   {
@@ -74871,9 +74848,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T10:05:47.339703+00:00",
-    "retry_after": "2026-11-06T10:05:47.339705+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T11:11:23.496044+00:00",
+    "retry_after": "2026-11-20T11:11:23.496045+00:00",
     "search_hydrated": true
   },
   {
@@ -74889,9 +74866,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T10:06:12.969416+00:00",
-    "retry_after": "2026-11-06T10:06:12.969431+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T11:11:24.218797+00:00",
+    "retry_after": "2026-11-20T11:11:24.218812+00:00",
     "search_hydrated": true
   },
   {
@@ -74900,9 +74877,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T10:06:12.151052+00:00",
-    "retry_after": "2026-11-06T10:06:12.151067+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T11:11:23.496083+00:00",
+    "retry_after": "2026-11-20T11:11:23.496085+00:00",
     "search_hydrated": true
   },
   {
@@ -92679,6 +92656,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-06T10:13:23.072026+00:00",
     "retry_after": "2026-11-07T10:13:23.072030+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Time Under Tension",
+    "publisher": "Fantagraphics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T11:11:33.011552+00:00",
+    "retry_after": "2026-11-07T11:11:33.011568+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Artist's Editions",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T11:11:33.011583+00:00",
+    "retry_after": "2026-11-07T11:11:33.011585+00:00",
     "search_hydrated": true
   }
 ]

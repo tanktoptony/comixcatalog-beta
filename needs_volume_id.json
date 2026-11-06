@@ -27445,21 +27445,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
-      {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T18:01:58.041116+00:00",
-    "retry_after": "2026-11-07T18:01:58.041119+00:00",
+    "last_attempt_at": "2026-11-06T19:02:02.151320+00:00",
+    "retry_after": "2026-11-07T19:02:02.151322+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T18:01:58.040935+00:00",
-    "retry_after": "2026-11-07T18:01:58.040952+00:00",
+    "last_attempt_at": "2026-11-06T19:02:02.151203+00:00",
+    "retry_after": "2026-11-07T19:02:02.151220+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T18:01:58.041082+00:00",
-    "retry_after": "2026-11-07T18:01:58.041085+00:00",
+    "last_attempt_at": "2026-11-06T19:02:02.151297+00:00",
+    "retry_after": "2026-11-07T19:02:02.151299+00:00",
     "search_hydrated": true
   },
   {
@@ -75824,9 +75824,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T18:05:06.080563+00:00",
-    "retry_after": "2026-11-06T18:05:06.080567+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T19:13:46.619604+00:00",
+    "retry_after": "2026-11-20T19:13:46.619620+00:00",
     "search_hydrated": true
   },
   {
@@ -75848,9 +75848,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T18:05:06.080626+00:00",
-    "retry_after": "2026-11-06T18:05:06.080630+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T19:13:46.619669+00:00",
+    "retry_after": "2026-11-20T19:13:46.619673+00:00",
     "search_hydrated": true
   },
   {
@@ -75859,9 +75859,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T18:05:06.080650+00:00",
-    "retry_after": "2026-11-06T18:05:06.080653+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T19:13:46.619689+00:00",
+    "retry_after": "2026-11-20T19:13:46.619691+00:00",
     "search_hydrated": true
   },
   {
@@ -75870,9 +75870,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T18:05:06.080669+00:00",
-    "retry_after": "2026-11-06T18:05:06.080672+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T19:13:46.619704+00:00",
+    "retry_after": "2026-11-20T19:13:46.619706+00:00",
     "search_hydrated": true
   },
   {
@@ -75881,9 +75881,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T18:05:06.080686+00:00",
-    "retry_after": "2026-11-06T18:05:06.080689+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T19:13:46.619717+00:00",
+    "retry_after": "2026-11-20T19:13:46.619719+00:00",
     "search_hydrated": true
   },
   {
@@ -75892,9 +75892,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T18:05:06.080703+00:00",
-    "retry_after": "2026-11-06T18:05:06.080705+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T19:13:46.619728+00:00",
+    "retry_after": "2026-11-20T19:13:46.619730+00:00",
     "search_hydrated": true
   },
   {
@@ -75938,9 +75938,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T19:05:32.407594+00:00",
-    "retry_after": "2026-11-06T19:05:32.407610+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T19:13:46.619739+00:00",
+    "retry_after": "2026-11-20T19:13:46.619741+00:00",
     "search_hydrated": true
   },
   {
@@ -75949,9 +75949,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T19:05:32.407644+00:00",
-    "retry_after": "2026-11-06T19:05:32.407648+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T19:13:46.619751+00:00",
+    "retry_after": "2026-11-20T19:13:46.619752+00:00",
     "search_hydrated": true
   },
   {
@@ -91926,9 +91926,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-05T19:06:59.032288+00:00",
-    "retry_after": "2026-11-06T19:06:59.032304+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-06T19:13:58.749407+00:00",
+    "retry_after": "2026-11-09T19:13:58.749423+00:00",
     "search_hydrated": true
   },
   {
@@ -91937,9 +91937,9 @@
     "year": 2004,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-05T19:06:59.032346+00:00",
-    "retry_after": "2026-11-06T19:06:59.032349+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-06T19:13:58.749448+00:00",
+    "retry_after": "2026-11-09T19:13:58.749451+00:00",
     "search_hydrated": true
   },
   {
@@ -91948,9 +91948,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-05T19:06:59.032365+00:00",
-    "retry_after": "2026-11-06T19:06:59.032368+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-06T19:13:58.749468+00:00",
+    "retry_after": "2026-11-09T19:13:58.749470+00:00",
     "search_hydrated": true
   },
   {
@@ -91959,9 +91959,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-05T19:06:59.032379+00:00",
-    "retry_after": "2026-11-06T19:06:59.032381+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-06T19:13:58.749481+00:00",
+    "retry_after": "2026-11-09T19:13:58.749483+00:00",
     "search_hydrated": true
   },
   {
@@ -92640,6 +92640,78 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-06T18:11:43.633659+00:00",
     "retry_after": "2026-11-07T18:11:43.633662+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tits ! Tits ! Tits !",
+    "publisher": "Dynamite Entertainment",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167384,
+        "name": "Tits! Tits! Tits!",
+        "publisher": "Dynamite (France)",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T19:13:58.749520+00:00",
+    "retry_after": "2026-11-07T19:13:58.749522+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I Vendicatori",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 151292,
+        "name": "I Vendicatori",
+        "publisher": "Panini Comics",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T19:14:06.277130+00:00",
+    "retry_after": "2026-11-07T19:14:06.277145+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "MegaManga",
+    "publisher": "Fantagraphics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 173763,
+        "name": "MegaManga",
+        "publisher": "Eros Comix",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T19:14:06.277171+00:00",
+    "retry_after": "2026-11-07T19:14:06.277174+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Mix",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57055,
+        "name": "Marvel Mix",
+        "publisher": "Panini Comics",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T19:14:06.277191+00:00",
+    "retry_after": "2026-11-07T19:14:06.277193+00:00",
     "search_hydrated": true
   }
 ]

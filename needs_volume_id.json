@@ -27451,21 +27451,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
-      {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T00:01:54.263534+00:00",
-    "retry_after": "2026-11-07T00:01:54.263536+00:00",
+    "last_attempt_at": "2026-11-06T00:47:30.731556+00:00",
+    "retry_after": "2026-11-07T00:47:30.731559+00:00",
     "search_hydrated": true
   },
   {
@@ -43511,8 +43511,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T00:01:54.263382+00:00",
-    "retry_after": "2026-11-07T00:01:54.263396+00:00",
+    "last_attempt_at": "2026-11-06T00:47:30.731420+00:00",
+    "retry_after": "2026-11-07T00:47:30.731439+00:00",
     "search_hydrated": true
   },
   {
@@ -51390,8 +51390,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T00:01:54.263482+00:00",
-    "retry_after": "2026-11-07T00:01:54.263485+00:00",
+    "last_attempt_at": "2026-11-06T00:47:30.731528+00:00",
+    "retry_after": "2026-11-07T00:47:30.731531+00:00",
     "search_hydrated": true
   },
   {
@@ -73123,9 +73123,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T23:05:37.950656+00:00",
-    "retry_after": "2026-11-05T23:05:37.950668+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T00:56:49.637359+00:00",
+    "retry_after": "2026-11-20T00:56:49.637375+00:00",
     "search_hydrated": true
   },
   {
@@ -73134,9 +73134,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T23:05:37.030841+00:00",
-    "retry_after": "2026-11-05T23:05:37.030845+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T00:56:48.778792+00:00",
+    "retry_after": "2026-11-20T00:56:48.778810+00:00",
     "search_hydrated": true
   },
   {
@@ -73145,9 +73145,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T23:05:37.030857+00:00",
-    "retry_after": "2026-11-05T23:05:37.030859+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T00:56:48.778831+00:00",
+    "retry_after": "2026-11-20T00:56:48.778834+00:00",
     "search_hydrated": true
   },
   {
@@ -73156,9 +73156,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T23:05:37.030869+00:00",
-    "retry_after": "2026-11-05T23:05:37.030871+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T00:56:48.778848+00:00",
+    "retry_after": "2026-11-20T00:56:48.778850+00:00",
     "search_hydrated": true
   },
   {
@@ -73167,9 +73167,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T23:05:37.030883+00:00",
-    "retry_after": "2026-11-05T23:05:37.030885+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T00:56:48.778863+00:00",
+    "retry_after": "2026-11-20T00:56:48.778865+00:00",
     "search_hydrated": true
   },
   {
@@ -73178,9 +73178,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T23:05:37.030896+00:00",
-    "retry_after": "2026-11-05T23:05:37.030898+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T00:56:48.778875+00:00",
+    "retry_after": "2026-11-20T00:56:48.778877+00:00",
     "search_hydrated": true
   },
   {
@@ -73189,9 +73189,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T23:05:37.030906+00:00",
-    "retry_after": "2026-11-05T23:05:37.030908+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T00:56:48.778888+00:00",
+    "retry_after": "2026-11-20T00:56:48.778890+00:00",
     "search_hydrated": true
   },
   {
@@ -73207,9 +73207,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-29T23:05:38.058215+00:00",
-    "retry_after": "2026-11-05T23:05:38.058228+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T00:56:49.747802+00:00",
+    "retry_after": "2026-11-20T00:56:49.747819+00:00",
     "search_hydrated": true
   },
   {
@@ -73218,9 +73218,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T00:04:41.600917+00:00",
-    "retry_after": "2026-11-06T00:04:41.600933+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T00:56:48.778914+00:00",
+    "retry_after": "2026-11-20T00:56:48.778916+00:00",
     "search_hydrated": true
   },
   {
@@ -73229,9 +73229,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T00:04:41.600962+00:00",
-    "retry_after": "2026-11-06T00:04:41.600967+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T00:56:48.778925+00:00",
+    "retry_after": "2026-11-20T00:56:48.778927+00:00",
     "search_hydrated": true
   },
   {
@@ -92383,6 +92383,72 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-06T00:12:44.420758+00:00",
     "retry_after": "2026-11-07T00:12:44.420761+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ghosts",
+    "publisher": "DC Comics",
+    "year": 2016,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 53509,
+        "name": "Ghosts",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 128239,
+        "name": "Ghosts",
+        "publisher": "DC Comics",
+        "start_year": 2020
+      },
+      {
+        "id": 2503,
+        "name": "Ghosts",
+        "publisher": "DC Comics",
+        "start_year": 1971
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T00:56:58.718832+00:00",
+    "retry_after": "2026-11-07T00:56:58.718852+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Battlestar Galactica: Starbuck",
+    "publisher": "Dynamite Entertainment",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21021,
+        "name": "Battlestar Galactica: Starbuck",
+        "publisher": "Maximum Press",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T00:56:58.718900+00:00",
+    "retry_after": "2026-11-07T00:56:58.718904+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mystic: The Tenth Apprentice",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88473,
+        "name": "Mystic: The Tenth Apprentice",
+        "publisher": "Crossgen",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T00:56:58.718934+00:00",
+    "retry_after": "2026-11-07T00:56:58.718936+00:00",
     "search_hydrated": true
   }
 ]

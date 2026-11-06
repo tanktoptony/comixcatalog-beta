@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T11:01:37.943222+00:00",
-    "retry_after": "2026-11-07T11:01:37.943223+00:00",
+    "last_attempt_at": "2026-11-06T12:02:05.669575+00:00",
+    "retry_after": "2026-11-07T12:02:05.669579+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T11:01:37.943116+00:00",
-    "retry_after": "2026-11-07T11:01:37.943135+00:00",
+    "last_attempt_at": "2026-11-06T12:02:05.669423+00:00",
+    "retry_after": "2026-11-07T12:02:05.669441+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T11:01:37.943202+00:00",
-    "retry_after": "2026-11-07T11:01:37.943204+00:00",
+    "last_attempt_at": "2026-11-06T12:02:05.669542+00:00",
+    "retry_after": "2026-11-07T12:02:05.669546+00:00",
     "search_hydrated": true
   },
   {
@@ -74888,9 +74888,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T10:06:12.151090+00:00",
-    "retry_after": "2026-11-06T10:06:12.151093+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T12:12:09.098539+00:00",
+    "retry_after": "2026-11-20T12:12:09.098554+00:00",
     "search_hydrated": true
   },
   {
@@ -74899,9 +74899,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T10:06:12.151111+00:00",
-    "retry_after": "2026-11-06T10:06:12.151113+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T12:12:09.098584+00:00",
+    "retry_after": "2026-11-20T12:12:09.098589+00:00",
     "search_hydrated": true
   },
   {
@@ -74910,9 +74910,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T10:06:12.151126+00:00",
-    "retry_after": "2026-11-06T10:06:12.151128+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T12:12:09.098605+00:00",
+    "retry_after": "2026-11-20T12:12:09.098608+00:00",
     "search_hydrated": true
   },
   {
@@ -74921,9 +74921,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T10:06:12.151144+00:00",
-    "retry_after": "2026-11-06T10:06:12.151146+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T12:12:09.098624+00:00",
+    "retry_after": "2026-11-20T12:12:09.098627+00:00",
     "search_hydrated": true
   },
   {
@@ -74939,9 +74939,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T10:06:13.067166+00:00",
-    "retry_after": "2026-11-06T10:06:13.067180+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T12:12:09.936976+00:00",
+    "retry_after": "2026-11-20T12:12:09.936990+00:00",
     "search_hydrated": true
   },
   {
@@ -74950,9 +74950,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T10:06:12.151189+00:00",
-    "retry_after": "2026-11-06T10:06:12.151193+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T12:12:09.098696+00:00",
+    "retry_after": "2026-11-20T12:12:09.098701+00:00",
     "search_hydrated": true
   },
   {
@@ -74961,9 +74961,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T10:06:12.151207+00:00",
-    "retry_after": "2026-11-06T10:06:12.151210+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T12:12:09.098715+00:00",
+    "retry_after": "2026-11-20T12:12:09.098718+00:00",
     "search_hydrated": true
   },
   {
@@ -74972,9 +74972,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T10:06:12.151222+00:00",
-    "retry_after": "2026-11-06T10:06:12.151225+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T12:12:09.098730+00:00",
+    "retry_after": "2026-11-20T12:12:09.098733+00:00",
     "search_hydrated": true
   },
   {
@@ -74990,9 +74990,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T11:04:38.047478+00:00",
-    "retry_after": "2026-11-06T11:04:38.047488+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T12:12:10.109263+00:00",
+    "retry_after": "2026-11-20T12:12:10.109276+00:00",
     "search_hydrated": true
   },
   {
@@ -75001,9 +75001,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T11:04:37.348049+00:00",
-    "retry_after": "2026-11-06T11:04:37.348067+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T12:12:09.098761+00:00",
+    "retry_after": "2026-11-20T12:12:09.098764+00:00",
     "search_hydrated": true
   },
   {
@@ -92678,6 +92678,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-06T11:11:33.011583+00:00",
     "retry_after": "2026-11-07T11:11:33.011585+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Lost Boy",
+    "publisher": "Dark Horse Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 67715,
+        "name": "The Lost Boy",
+        "publisher": "Scholastic Book Services",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T12:12:19.228427+00:00",
+    "retry_after": "2026-11-07T12:12:19.228443+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kick-Ass 2 Prelude: Hit Girl",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58598,
+        "name": "Kick-Ass 2 Prelude: Hit-Girl",
+        "publisher": "Icon Books",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T12:12:19.228516+00:00",
+    "retry_after": "2026-11-07T12:12:19.228520+00:00",
     "search_hydrated": true
   }
 ]

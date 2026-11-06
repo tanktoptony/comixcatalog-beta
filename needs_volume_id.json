@@ -91899,114 +91899,6 @@
     "search_hydrated": true
   },
   {
-    "name": "In Rage",
-    "publisher": "CFD Productions",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 88863,
-        "name": "In Rage",
-        "publisher": "Creative Force Designs",
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-05T17:02:21.352005+00:00",
-    "retry_after": "2026-11-06T17:02:21.352010+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Tits ! Tits ! Tits !",
-    "publisher": "Dynamite Entertainment",
-    "year": 2022,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 167384,
-        "name": "Tits! Tits! Tits!",
-        "publisher": "Dynamite (France)",
-        "start_year": 2022
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-05T17:10:21.247531+00:00",
-    "retry_after": "2026-11-06T17:10:21.247546+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Deadworld: The Last Siesta",
-    "publisher": "IDW Publishing",
-    "year": 2011,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 75600,
-        "name": "Deadworld: The Last Siesta",
-        "publisher": "Caliber Comics",
-        "start_year": 2014
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-05T17:10:21.247586+00:00",
-    "retry_after": "2026-11-06T17:10:21.247590+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "The Simpsons Comics Meltdown",
-    "publisher": "Titan Comics",
-    "year": 2011,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 161288,
-        "name": "Simpsons Comics Meltdown",
-        "publisher": "HarperCollins",
-        "start_year": 2011
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-05T17:10:21.247666+00:00",
-    "retry_after": "2026-11-06T17:10:21.247669+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Conan Exiles",
-    "publisher": "Dark Horse Comics",
-    "year": 2017,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 141912,
-        "name": "Conan: Exiles",
-        "publisher": "Marvel",
-        "start_year": 2017
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-05T17:10:21.247691+00:00",
-    "retry_after": "2026-11-06T17:10:21.247694+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Doctor Who Magazine",
-    "publisher": "Marvel Comics",
-    "year": 1985,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 26877,
-        "name": "Doctor Who Magazine",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1979
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-05T17:10:26.857071+00:00",
-    "retry_after": "2026-11-06T17:10:26.857089+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "The Wicked + The Divine 1373",
     "publisher": "Image Comics",
     "year": 2018,
@@ -92026,24 +91918,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-05T18:10:29.953678+00:00",
     "retry_after": "2026-11-06T18:10:29.953684+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Corriere dei Ragazzi",
-    "publisher": "Dell Comics",
-    "year": 1973,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 32469,
-        "name": "Corriere dei Ragazzi",
-        "publisher": "Corriere Della Sera",
-        "start_year": 1972
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-05T18:10:51.973008+00:00",
-    "retry_after": "2026-11-06T18:10:51.973022+00:00",
     "search_hydrated": true
   },
   {
@@ -92124,24 +91998,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Tom and Jerry Present the Two Mouseketeers",
-    "publisher": "Marvel Comics",
-    "year": 1955,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 64345,
-        "name": "Tom and Jerry Present the Two Mouseketeers",
-        "publisher": "Magazine Management",
-        "start_year": null
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-05T19:38:06.537371+00:00",
-    "retry_after": "2026-11-06T19:38:06.537383+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Rich Veitch’s Brat Pack",
     "publisher": "IDW Publishing",
     "year": 2018,
@@ -92150,24 +92006,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-05T20:11:51.170016+00:00",
     "retry_after": "2026-11-06T20:11:51.170034+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Joe Palooka Presents the Funsational Humphrey",
-    "publisher": "Marvel Comics",
-    "year": 1952,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 156763,
-        "name": "Joe Palooka Presents the Funsational Humphrey",
-        "publisher": "Magazine Management",
-        "start_year": 1952
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-05T20:12:21.612106+00:00",
-    "retry_after": "2026-11-06T20:12:21.612119+00:00",
     "search_hydrated": true
   },
   {
@@ -92193,24 +92031,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Mad Classics",
-    "publisher": "EC Comics",
-    "year": 2005,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 18767,
-        "name": "Mad Classics",
-        "publisher": "DC Comics",
-        "start_year": 2007
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-05T21:11:39.113292+00:00",
-    "retry_after": "2026-11-06T21:11:39.113310+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Prison très spéciale",
     "publisher": "Dynamite Entertainment",
     "year": 2013,
@@ -92233,60 +92053,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Anti-Crime Squad",
-    "publisher": "Marvel Comics",
-    "year": 1952,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 52652,
-        "name": "Anti Crime Squad",
-        "publisher": "Magazine Management",
-        "start_year": 1952
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-05T22:12:04.283425+00:00",
-    "retry_after": "2026-11-06T22:12:04.283437+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "I Vendicatori",
-    "publisher": "Marvel Comics",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 151292,
-        "name": "I Vendicatori",
-        "publisher": "Panini Comics",
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-05T23:12:40.197181+00:00",
-    "retry_after": "2026-11-06T23:12:40.197199+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "MegaManga",
-    "publisher": "Fantagraphics",
-    "year": 2003,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 173763,
-        "name": "MegaManga",
-        "publisher": "Eros Comix",
-        "start_year": 2003
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-05T23:12:40.197220+00:00",
-    "retry_after": "2026-11-06T23:12:40.197223+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "I Am the Law: How Judge Dredd Predicted Our Future",
     "publisher": "Rebellion",
     "year": 2023,
@@ -92306,42 +92072,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-06T00:12:24.557670+00:00",
     "retry_after": "2026-11-07T00:12:24.557674+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Marvel Mix",
-    "publisher": "Marvel Comics",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 57055,
-        "name": "Marvel Mix",
-        "publisher": "Panini Comics",
-        "start_year": 1996
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-06T00:12:44.420719+00:00",
-    "retry_after": "2026-11-07T00:12:44.420734+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Phil Corrigan Secret Agent X9",
-    "publisher": "Atlas Comics",
-    "year": 1950,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 161990,
-        "name": "Phil Corrigan Secret Agent X9 ",
-        "publisher": "Atlas Publications Pty. Ltd.",
-        "start_year": null
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-06T00:12:44.420758+00:00",
-    "retry_after": "2026-11-07T00:12:44.420761+00:00",
     "search_hydrated": true
   },
   {
@@ -92390,24 +92120,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-06T00:56:58.718900+00:00",
     "retry_after": "2026-11-07T00:56:58.718904+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Mystic: The Tenth Apprentice",
-    "publisher": "Marvel Comics",
-    "year": 2011,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 88473,
-        "name": "Mystic: The Tenth Apprentice",
-        "publisher": "Crossgen",
-        "start_year": 2012
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-06T00:56:58.718934+00:00",
-    "retry_after": "2026-11-07T00:56:58.718936+00:00",
     "search_hydrated": true
   },
   {
@@ -92576,24 +92288,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Marvel Team-Up Winter Special",
-    "publisher": "Marvel Comics",
-    "year": 1980,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 52549,
-        "name": "Marvel Team-Up Winter Special",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1980
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-06T09:11:42.380027+00:00",
-    "retry_after": "2026-11-07T09:11:42.380032+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "The Walking Dead Compendium 15th Anniversary Box Set",
     "publisher": "Image Comics",
     "year": 2018,
@@ -92602,60 +92296,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-06T09:11:42.380054+00:00",
     "retry_after": "2026-11-07T09:11:42.380057+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Big Bratty Book of Bart Simpson",
-    "publisher": "Titan Comics",
-    "year": 2004,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 62713,
-        "name": "Big Bratty Book of Bart Simpson",
-        "publisher": "HarperCollins",
-        "start_year": 2004
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-06T09:11:42.380106+00:00",
-    "retry_after": "2026-11-07T09:11:42.380110+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Johnny Boo and the Silly Blizzard",
-    "publisher": "IDW Publishing",
-    "year": 2021,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 133882,
-        "name": "Johnny Boo and the Silly Blizzard",
-        "publisher": "Top Shelf",
-        "start_year": 2021
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-06T10:13:23.071965+00:00",
-    "retry_after": "2026-11-07T10:13:23.071981+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "???????: ???? ????????????",
-    "publisher": "BOOM! Studios",
-    "year": 2021,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 172641,
-        "name": "!",
-        "publisher": "Alpha Polis",
-        "start_year": 2014
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-06T10:13:23.072026+00:00",
-    "retry_after": "2026-11-07T10:13:23.072030+00:00",
     "search_hydrated": true
   },
   {
@@ -92681,42 +92321,6 @@
     "search_hydrated": true
   },
   {
-    "name": "The Lost Boy",
-    "publisher": "Dark Horse Comics",
-    "year": 2013,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 67715,
-        "name": "The Lost Boy",
-        "publisher": "Scholastic Book Services",
-        "start_year": 2013
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-06T12:12:19.228427+00:00",
-    "retry_after": "2026-11-07T12:12:19.228443+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Kick-Ass 2 Prelude: Hit Girl",
-    "publisher": "Marvel Comics",
-    "year": 2013,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 58598,
-        "name": "Kick-Ass 2 Prelude: Hit-Girl",
-        "publisher": "Icon Books",
-        "start_year": 2013
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-06T12:12:19.228516+00:00",
-    "retry_after": "2026-11-07T12:12:19.228520+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Grumpy Old Monsters",
     "publisher": "IDW Publishing",
     "year": 2009,
@@ -92738,78 +92342,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-06T13:13:13.621285+00:00",
     "retry_after": "2026-11-07T13:13:13.621302+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "They Called Us Enemy – Expanded Edition",
-    "publisher": "IDW Publishing",
-    "year": 2020,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 129898,
-        "name": "They Called Us Enemy: Expanded Edition",
-        "publisher": "Top Shelf",
-        "start_year": 2020
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-06T13:13:13.621374+00:00",
-    "retry_after": "2026-11-07T13:13:13.621377+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Links",
-    "publisher": "VIZ Media",
-    "year": 2022,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 148145,
-        "name": "Links",
-        "publisher": "Milky Way Ediciones",
-        "start_year": 2020
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-06T13:13:13.621397+00:00",
-    "retry_after": "2026-11-07T13:13:13.621399+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Big Book of Bart Simpson",
-    "publisher": "Titan Comics",
-    "year": 2002,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 62660,
-        "name": "Big Book of Bart Simpson",
-        "publisher": "HarperCollins",
-        "start_year": 2002
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-06T14:11:30.236409+00:00",
-    "retry_after": "2026-11-07T14:11:30.236425+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Marvel Superheroes and the Occult Winter Special",
-    "publisher": "Marvel Comics",
-    "year": 1980,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 79640,
-        "name": "Marvel Superheroes and the Occult Winter Special",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 1980
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-06T14:11:30.236463+00:00",
-    "retry_after": "2026-11-07T14:11:30.236465+00:00",
     "search_hydrated": true
   },
   {
@@ -92856,24 +92388,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-06T15:11:41.676367+00:00",
     "retry_after": "2026-11-07T15:11:41.676370+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "I'm Still Alive",
-    "publisher": "BOOM! Studios",
-    "year": 2022,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 147126,
-        "name": "I'm Still Alive",
-        "publisher": "Archaia",
-        "start_year": 2022
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-06T15:52:08.437992+00:00",
-    "retry_after": "2026-11-07T15:52:08.438008+00:00",
     "search_hydrated": true
   }
 ]

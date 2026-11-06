@@ -245,13 +245,6 @@
     "series_gcd_id": 57806
   },
   {
-    "name": "World of Warcraft",
-    "publisher": "DC",
-    "year": 2008,
-    "volume_id": 70150,
-    "series_gcd_id": 27430
-  },
-  {
     "name": "FOOM Magazine",
     "publisher": "Marvel",
     "year": 1973,
@@ -348,13 +341,6 @@
     "year": 2022,
     "volume_id": 166116,
     "series_gcd_id": 187413
-  },
-  {
-    "name": "DC Special",
-    "publisher": "DC",
-    "year": 1968,
-    "volume_id": 2392,
-    "series_gcd_id": 1852
   },
   {
     "name": "Ninja-K",
@@ -728,13 +714,6 @@
     "series_gcd_id": 11229
   },
   {
-    "name": "Minor Arcana",
-    "publisher": "Boom! Studios",
-    "year": 2024,
-    "volume_id": 159637,
-    "series_gcd_id": 215036
-  },
-  {
     "name": "Legends of Red Sonja",
     "publisher": "Dynamite Entertainment",
     "year": 2013,
@@ -812,18 +791,18 @@
     "series_gcd_id": 132796
   },
   {
-    "name": "G.I. Joe",
-    "publisher": "Image",
-    "year": 2024,
-    "volume_id": 161047,
-    "series_gcd_id": 217156
-  },
-  {
     "name": "Spider-Man 2099: Exodus",
     "publisher": "Marvel",
     "year": 2022,
     "volume_id": 148948,
     "series_gcd_id": 185566
+  },
+  {
+    "name": "Minor Arcana",
+    "publisher": "Boom! Studios",
+    "year": 2024,
+    "volume_id": 159637,
+    "series_gcd_id": 215036
   },
   {
     "name": "Green Hornet Comics",
@@ -1237,6 +1216,13 @@
     "year": 1946,
     "volume_id": 1117,
     "series_gcd_id": 478
+  },
+  {
+    "name": "Jupiter's Legacy",
+    "publisher": "Image",
+    "year": 2013,
+    "volume_id": 60294,
+    "series_gcd_id": 72994
   },
   {
     "name": "These Savage Shores",

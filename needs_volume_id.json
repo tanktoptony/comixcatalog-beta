@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T14:01:43.409523+00:00",
-    "retry_after": "2026-11-07T14:01:43.409524+00:00",
+    "last_attempt_at": "2026-11-06T15:02:12.906215+00:00",
+    "retry_after": "2026-11-07T15:02:12.906219+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T14:01:43.409423+00:00",
-    "retry_after": "2026-11-07T14:01:43.409441+00:00",
+    "last_attempt_at": "2026-11-06T15:02:12.905965+00:00",
+    "retry_after": "2026-11-07T15:02:12.905982+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T14:01:43.409505+00:00",
-    "retry_after": "2026-11-07T14:01:43.409507+00:00",
+    "last_attempt_at": "2026-11-06T15:02:12.906169+00:00",
+    "retry_after": "2026-11-07T15:02:12.906175+00:00",
     "search_hydrated": true
   },
   {
@@ -75270,9 +75270,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T12:05:07.441499+00:00",
-    "retry_after": "2026-11-06T12:05:07.441500+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T15:11:29.721312+00:00",
+    "retry_after": "2026-11-20T15:11:29.721326+00:00",
     "search_hydrated": true
   },
   {
@@ -75281,9 +75281,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T12:05:07.441510+00:00",
-    "retry_after": "2026-11-06T12:05:07.441511+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T15:11:29.721349+00:00",
+    "retry_after": "2026-11-20T15:11:29.721353+00:00",
     "search_hydrated": true
   },
   {
@@ -75292,9 +75292,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T12:05:07.441519+00:00",
-    "retry_after": "2026-11-06T12:05:07.441521+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T15:11:29.721368+00:00",
+    "retry_after": "2026-11-20T15:11:29.721371+00:00",
     "search_hydrated": true
   },
   {
@@ -75303,9 +75303,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T14:04:53.307006+00:00",
-    "retry_after": "2026-11-06T14:04:53.307022+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T15:11:29.721399+00:00",
+    "retry_after": "2026-11-20T15:11:29.721402+00:00",
     "search_hydrated": true
   },
   {
@@ -75314,9 +75314,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T14:04:53.307045+00:00",
-    "retry_after": "2026-11-06T14:04:53.307049+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T15:11:29.721414+00:00",
+    "retry_after": "2026-11-20T15:11:29.721417+00:00",
     "search_hydrated": true
   },
   {
@@ -75338,9 +75338,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T14:04:53.307113+00:00",
-    "retry_after": "2026-11-06T14:04:53.307117+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T15:11:29.721469+00:00",
+    "retry_after": "2026-11-20T15:11:29.721472+00:00",
     "search_hydrated": true
   },
   {
@@ -75349,9 +75349,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T14:04:53.307135+00:00",
-    "retry_after": "2026-11-06T14:04:53.307138+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T15:11:29.721488+00:00",
+    "retry_after": "2026-11-20T15:11:29.721491+00:00",
     "search_hydrated": true
   },
   {
@@ -75360,9 +75360,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T14:04:53.307153+00:00",
-    "retry_after": "2026-11-06T14:04:53.307155+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T15:11:29.721504+00:00",
+    "retry_after": "2026-11-20T15:11:29.721506+00:00",
     "search_hydrated": true
   },
   {
@@ -75389,9 +75389,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T14:04:54.130529+00:00",
-    "retry_after": "2026-11-06T14:04:54.130541+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T15:11:31.495124+00:00",
+    "retry_after": "2026-11-20T15:11:31.495139+00:00",
     "search_hydrated": true
   },
   {
@@ -92810,6 +92810,52 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-06T14:11:30.236463+00:00",
     "retry_after": "2026-11-07T14:11:30.236465+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: Dark Victory",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 39515,
+        "name": "Batman: Dark Victory",
+        "publisher": "DC Comics",
+        "start_year": 2001
+      },
+      {
+        "id": 6312,
+        "name": "Batman: Dark Victory",
+        "publisher": "DC Comics",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T15:11:41.676296+00:00",
+    "retry_after": "2026-11-07T15:11:41.676310+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Blazing Forest",
+    "publisher": "Dell Comics",
+    "year": 1962,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T15:11:41.676335+00:00",
+    "retry_after": "2026-11-07T15:11:41.676339+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Before Watchmen: Ozymandias / Crimson Corsair",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T15:11:41.676367+00:00",
+    "retry_after": "2026-11-07T15:11:41.676370+00:00",
     "search_hydrated": true
   }
 ]

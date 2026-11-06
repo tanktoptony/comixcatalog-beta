@@ -27464,8 +27464,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T07:01:42.242155+00:00",
-    "retry_after": "2026-11-07T07:01:42.242156+00:00",
+    "last_attempt_at": "2026-11-06T07:42:27.376453+00:00",
+    "retry_after": "2026-11-07T07:42:27.376457+00:00",
     "search_hydrated": true
   },
   {
@@ -43511,8 +43511,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T07:01:42.242049+00:00",
-    "retry_after": "2026-11-07T07:01:42.242068+00:00",
+    "last_attempt_at": "2026-11-06T07:42:27.376303+00:00",
+    "retry_after": "2026-11-07T07:42:27.376320+00:00",
     "search_hydrated": true
   },
   {
@@ -51390,8 +51390,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T07:01:42.242136+00:00",
-    "retry_after": "2026-11-07T07:01:42.242138+00:00",
+    "last_attempt_at": "2026-11-06T07:42:27.376421+00:00",
+    "retry_after": "2026-11-07T07:42:27.376425+00:00",
     "search_hydrated": true
   },
   {
@@ -74219,9 +74219,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T06:04:57.632250+00:00",
-    "retry_after": "2026-11-06T06:04:57.632265+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T07:51:23.582152+00:00",
+    "retry_after": "2026-11-20T07:51:23.582168+00:00",
     "search_hydrated": true
   },
   {
@@ -74237,9 +74237,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T06:04:58.915299+00:00",
-    "retry_after": "2026-11-06T06:04:58.915315+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T07:51:25.186663+00:00",
+    "retry_after": "2026-11-20T07:51:25.186678+00:00",
     "search_hydrated": true
   },
   {
@@ -74255,9 +74255,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T06:04:59.072731+00:00",
-    "retry_after": "2026-11-06T06:04:59.072746+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T07:51:25.254049+00:00",
+    "retry_after": "2026-11-20T07:51:25.254064+00:00",
     "search_hydrated": true
   },
   {
@@ -74266,9 +74266,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T06:04:57.632380+00:00",
-    "retry_after": "2026-11-06T06:04:57.632383+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T07:51:23.582346+00:00",
+    "retry_after": "2026-11-20T07:51:23.582352+00:00",
     "search_hydrated": true
   },
   {
@@ -74302,9 +74302,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T06:04:57.632425+00:00",
-    "retry_after": "2026-11-06T06:04:57.632428+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T07:51:23.582413+00:00",
+    "retry_after": "2026-11-20T07:51:23.582417+00:00",
     "search_hydrated": true
   },
   {
@@ -74313,9 +74313,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T06:04:57.632439+00:00",
-    "retry_after": "2026-11-06T06:04:57.632441+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T07:51:23.582433+00:00",
+    "retry_after": "2026-11-20T07:51:23.582435+00:00",
     "search_hydrated": true
   },
   {
@@ -74324,9 +74324,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T06:04:57.632452+00:00",
-    "retry_after": "2026-11-06T06:04:57.632454+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T07:51:23.582449+00:00",
+    "retry_after": "2026-11-20T07:51:23.582451+00:00",
     "search_hydrated": true
   },
   {
@@ -74342,9 +74342,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T06:04:59.227449+00:00",
-    "retry_after": "2026-11-06T06:04:59.227465+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T07:51:25.330652+00:00",
+    "retry_after": "2026-11-20T07:51:25.330668+00:00",
     "search_hydrated": true
   },
   {
@@ -74353,9 +74353,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T06:04:57.632476+00:00",
-    "retry_after": "2026-11-06T06:04:57.632477+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T07:51:23.582478+00:00",
+    "retry_after": "2026-11-20T07:51:23.582481+00:00",
     "search_hydrated": true
   },
   {
@@ -74364,9 +74364,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T06:05:23.386664+00:00",
-    "retry_after": "2026-11-06T06:05:23.386680+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T07:51:23.582495+00:00",
+    "retry_after": "2026-11-20T07:51:23.582498+00:00",
     "search_hydrated": true
   },
   {
@@ -92570,6 +92570,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-06T05:12:18.414699+00:00",
     "retry_after": "2026-11-07T05:12:18.414704+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Hägar the Horrible: The First 50 Years",
+    "publisher": "Titan Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T07:51:33.528217+00:00",
+    "retry_after": "2026-11-07T07:51:33.528233+00:00",
     "search_hydrated": true
   }
 ]

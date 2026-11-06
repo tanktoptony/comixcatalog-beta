@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T20:02:13.184032+00:00",
-    "retry_after": "2026-11-07T20:02:13.184035+00:00",
+    "last_attempt_at": "2026-11-06T21:01:52.830393+00:00",
+    "retry_after": "2026-11-07T21:01:52.830395+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T20:02:13.183901+00:00",
-    "retry_after": "2026-11-07T20:02:13.183919+00:00",
+    "last_attempt_at": "2026-11-06T21:01:52.830255+00:00",
+    "retry_after": "2026-11-07T21:01:52.830272+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-06T20:02:13.184006+00:00",
-    "retry_after": "2026-11-07T20:02:13.184009+00:00",
+    "last_attempt_at": "2026-11-06T21:01:52.830368+00:00",
+    "retry_after": "2026-11-07T21:01:52.830372+00:00",
     "search_hydrated": true
   },
   {
@@ -76099,9 +76099,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T20:05:04.386897+00:00",
-    "retry_after": "2026-11-06T20:05:04.386899+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T21:10:54.622537+00:00",
+    "retry_after": "2026-11-20T21:10:54.622554+00:00",
     "search_hydrated": true
   },
   {
@@ -76110,9 +76110,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T20:05:04.386909+00:00",
-    "retry_after": "2026-11-06T20:05:04.386910+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T21:10:54.622573+00:00",
+    "retry_after": "2026-11-20T21:10:54.622576+00:00",
     "search_hydrated": true
   },
   {
@@ -76146,9 +76146,9 @@
         "start_year": 2000
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T20:05:05.462923+00:00",
-    "retry_after": "2026-11-06T20:05:05.462926+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T21:10:56.862076+00:00",
+    "retry_after": "2026-11-20T21:10:56.862079+00:00",
     "search_hydrated": true
   },
   {
@@ -76164,9 +76164,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T20:05:05.462946+00:00",
-    "retry_after": "2026-11-06T20:05:05.462948+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T21:10:56.862108+00:00",
+    "retry_after": "2026-11-20T21:10:56.862110+00:00",
     "search_hydrated": true
   },
   {
@@ -76182,9 +76182,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T20:05:05.642566+00:00",
-    "retry_after": "2026-11-06T20:05:05.642572+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T21:10:56.998385+00:00",
+    "retry_after": "2026-11-20T21:10:56.998400+00:00",
     "search_hydrated": true
   },
   {
@@ -76193,9 +76193,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T20:05:04.386949+00:00",
-    "retry_after": "2026-11-06T20:05:04.386950+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T21:10:54.622630+00:00",
+    "retry_after": "2026-11-20T21:10:54.622633+00:00",
     "search_hydrated": true
   },
   {
@@ -76305,10 +76305,10 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 85292,
+        "id": 156925,
         "name": "I Hate Fairyland",
         "publisher": "Image",
-        "start_year": 2015
+        "start_year": 2016
       },
       {
         "id": 146190,
@@ -76317,15 +76317,15 @@
         "start_year": 2022
       },
       {
-        "id": 156925,
+        "id": 85292,
         "name": "I Hate Fairyland",
         "publisher": "Image",
-        "start_year": 2016
+        "start_year": 2015
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T20:05:04.386990+00:00",
-    "retry_after": "2026-11-06T20:05:04.386992+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T21:10:54.622680+00:00",
+    "retry_after": "2026-11-20T21:10:54.622683+00:00",
     "search_hydrated": true
   },
   {
@@ -76334,9 +76334,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T20:05:04.387000+00:00",
-    "retry_after": "2026-11-06T20:05:04.387002+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T21:10:54.622694+00:00",
+    "retry_after": "2026-11-20T21:10:54.622696+00:00",
     "search_hydrated": true
   },
   {
@@ -76345,9 +76345,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-30T20:05:24.593817+00:00",
-    "retry_after": "2026-11-06T20:05:24.593831+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-06T21:10:54.622706+00:00",
+    "retry_after": "2026-11-20T21:10:54.622707+00:00",
     "search_hydrated": true
   },
   {
@@ -92003,9 +92003,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-05T20:11:51.170016+00:00",
-    "retry_after": "2026-11-06T20:11:51.170034+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-06T21:11:06.086565+00:00",
+    "retry_after": "2026-11-09T21:11:06.086581+00:00",
     "search_hydrated": true
   },
   {
@@ -92759,6 +92759,60 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-06T20:11:44.207912+00:00",
     "retry_after": "2026-11-07T20:11:44.207930+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "They Called Us Enemy – Expanded Edition",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129898,
+        "name": "They Called Us Enemy: Expanded Edition",
+        "publisher": "Top Shelf",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T21:11:06.086676+00:00",
+    "retry_after": "2026-11-07T21:11:06.086680+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Links",
+    "publisher": "VIZ Media",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148145,
+        "name": "Links",
+        "publisher": "Milky Way Ediciones",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T21:11:06.086701+00:00",
+    "retry_after": "2026-11-07T21:11:06.086703+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62660,
+        "name": "Big Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-06T21:11:06.086718+00:00",
+    "retry_after": "2026-11-07T21:11:06.086720+00:00",
     "search_hydrated": true
   }
 ]

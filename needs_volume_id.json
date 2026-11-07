@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T15:03:44.751794+00:00",
-    "retry_after": "2026-11-08T15:03:44.751796+00:00",
+    "last_attempt_at": "2026-11-07T15:29:34.120545+00:00",
+    "retry_after": "2026-11-08T15:29:34.120548+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T15:03:44.751692+00:00",
-    "retry_after": "2026-11-08T15:03:44.751710+00:00",
+    "last_attempt_at": "2026-11-07T15:29:34.120396+00:00",
+    "retry_after": "2026-11-08T15:29:34.120409+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T15:03:44.751775+00:00",
-    "retry_after": "2026-11-08T15:03:44.751777+00:00",
+    "last_attempt_at": "2026-11-07T15:29:34.120511+00:00",
+    "retry_after": "2026-11-08T15:29:34.120515+00:00",
     "search_hydrated": true
   },
   {
@@ -88858,9 +88858,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T07:54:18.176075+00:00",
-    "retry_after": "2026-11-06T07:54:18.176091+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T15:39:10.887554+00:00",
+    "retry_after": "2026-11-14T15:39:10.887564+00:00",
     "search_hydrated": true
   },
   {
@@ -88876,9 +88876,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T07:54:18.176273+00:00",
-    "retry_after": "2026-11-06T07:54:18.176276+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T15:39:10.887820+00:00",
+    "retry_after": "2026-11-14T15:39:10.887826+00:00",
     "search_hydrated": true
   },
   {
@@ -88887,9 +88887,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T07:17:38.919555+00:00",
-    "retry_after": "2026-11-06T07:17:38.919558+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T15:39:06.420138+00:00",
+    "retry_after": "2026-11-14T15:39:06.420156+00:00",
     "search_hydrated": true
   },
   {
@@ -88911,9 +88911,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T07:54:14.817080+00:00",
-    "retry_after": "2026-11-06T07:54:14.817096+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T15:39:06.420208+00:00",
+    "retry_after": "2026-11-14T15:39:06.420213+00:00",
     "search_hydrated": true
   },
   {
@@ -88929,9 +88929,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T07:54:18.325472+00:00",
-    "retry_after": "2026-11-06T07:54:18.325475+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T15:39:12.988219+00:00",
+    "retry_after": "2026-11-14T15:39:12.988238+00:00",
     "search_hydrated": true
   },
   {
@@ -88947,9 +88947,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T07:54:18.325523+00:00",
-    "retry_after": "2026-11-06T07:54:18.325525+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T15:39:12.988305+00:00",
+    "retry_after": "2026-11-14T15:39:12.988309+00:00",
     "search_hydrated": true
   },
   {
@@ -89019,9 +89019,9 @@
         "start_year": 1972
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T07:54:14.817175+00:00",
-    "retry_after": "2026-11-06T07:54:14.817179+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T15:39:06.420317+00:00",
+    "retry_after": "2026-11-14T15:39:06.420321+00:00",
     "search_hydrated": true
   },
   {
@@ -89157,9 +89157,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T07:54:18.501655+00:00",
-    "retry_after": "2026-11-06T07:54:18.501670+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T15:39:13.086019+00:00",
+    "retry_after": "2026-11-14T15:39:13.086028+00:00",
     "search_hydrated": true
   },
   {
@@ -92549,6 +92549,179 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-07T14:14:35.565025+00:00",
     "retry_after": "2026-11-08T14:14:35.565068+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Daredevil The Man without Fear",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T15:27:57.125961+00:00",
+    "retry_after": "2026-11-08T15:27:57.125965+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "In Rage",
+    "publisher": "CFD Productions",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88863,
+        "name": "In Rage",
+        "publisher": "Creative Force Designs",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T15:29:10.480651+00:00",
+    "retry_after": "2026-11-08T15:29:10.480665+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Conan Exiles",
+    "publisher": "Dark Horse Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141912,
+        "name": "Conan: Exiles",
+        "publisher": "Marvel",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T15:39:23.749000+00:00",
+    "retry_after": "2026-11-08T15:39:23.749015+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mystic: The Tenth Apprentice",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88473,
+        "name": "Mystic: The Tenth Apprentice",
+        "publisher": "Crossgen",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T15:39:23.749054+00:00",
+    "retry_after": "2026-11-08T15:39:23.749059+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Team-Up Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52549,
+        "name": "Marvel Team-Up Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T15:39:23.749088+00:00",
+    "retry_after": "2026-11-08T15:39:23.749091+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Bratty Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62713,
+        "name": "Big Bratty Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T15:39:23.749113+00:00",
+    "retry_after": "2026-11-08T15:39:23.749116+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Boo and the Silly Blizzard",
+    "publisher": "IDW Publishing",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 133882,
+        "name": "Johnny Boo and the Silly Blizzard",
+        "publisher": "Top Shelf",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T15:39:23.749135+00:00",
+    "retry_after": "2026-11-08T15:39:23.749138+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Doctor Who Magazine",
+    "publisher": "Marvel Comics",
+    "year": 1985,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26877,
+        "name": "Doctor Who Magazine",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T15:39:30.983669+00:00",
+    "retry_after": "2026-11-08T15:39:30.983685+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Corriere dei Ragazzi",
+    "publisher": "Dell Comics",
+    "year": 1973,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32469,
+        "name": "Corriere dei Ragazzi",
+        "publisher": "Corriere Della Sera",
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T15:39:30.983729+00:00",
+    "retry_after": "2026-11-08T15:39:30.983733+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tom and Jerry Present the Two Mouseketeers",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64345,
+        "name": "Tom and Jerry Present the Two Mouseketeers",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T15:39:30.983799+00:00",
+    "retry_after": "2026-11-08T15:39:30.983803+00:00",
     "search_hydrated": true
   }
 ]

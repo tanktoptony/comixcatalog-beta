@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T20:08:09.576251+00:00",
-    "retry_after": "2026-11-08T20:08:09.576253+00:00",
+    "last_attempt_at": "2026-11-07T21:01:42.777178+00:00",
+    "retry_after": "2026-11-08T21:01:42.777180+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T20:08:09.576134+00:00",
-    "retry_after": "2026-11-08T20:08:09.576150+00:00",
+    "last_attempt_at": "2026-11-07T21:01:42.777074+00:00",
+    "retry_after": "2026-11-08T21:01:42.777092+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T20:08:09.576228+00:00",
-    "retry_after": "2026-11-08T20:08:09.576230+00:00",
+    "last_attempt_at": "2026-11-07T21:01:42.777159+00:00",
+    "retry_after": "2026-11-08T21:01:42.777161+00:00",
     "search_hydrated": true
   },
   {
@@ -78634,9 +78634,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T21:05:40.596696+00:00",
-    "retry_after": "2026-11-07T21:05:40.596711+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T21:10:43.680250+00:00",
+    "retry_after": "2026-11-21T21:10:43.680269+00:00",
     "search_hydrated": true
   },
   {
@@ -78645,9 +78645,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T21:05:40.596735+00:00",
-    "retry_after": "2026-11-07T21:05:40.596739+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T21:10:43.680285+00:00",
+    "retry_after": "2026-11-21T21:10:43.680287+00:00",
     "search_hydrated": true
   },
   {
@@ -78663,9 +78663,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T21:05:41.468409+00:00",
-    "retry_after": "2026-11-07T21:05:41.468428+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T21:10:44.974094+00:00",
+    "retry_after": "2026-11-21T21:10:44.974112+00:00",
     "search_hydrated": true
   },
   {
@@ -78681,9 +78681,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T21:05:41.468472+00:00",
-    "retry_after": "2026-11-07T21:05:41.468475+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T21:10:44.974151+00:00",
+    "retry_after": "2026-11-21T21:10:44.974153+00:00",
     "search_hydrated": true
   },
   {
@@ -78695,24 +78695,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-28T20:08:40.559191+00:00",
     "retry_after": "2026-10-31T20:08:40.559206+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Violator",
-    "publisher": "Image Comics",
-    "year": 2025,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 160110,
-        "name": "Violator",
-        "publisher": "Image",
-        "start_year": 2024
-      }
-    ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T21:05:41.600214+00:00",
-    "retry_after": "2026-11-07T21:05:41.600228+00:00",
     "search_hydrated": true
   },
   {
@@ -78740,9 +78722,9 @@
         "start_year": 2008
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T21:05:40.596820+00:00",
-    "retry_after": "2026-11-07T21:05:40.596824+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T21:10:43.680329+00:00",
+    "retry_after": "2026-11-21T21:10:43.680330+00:00",
     "search_hydrated": true
   },
   {
@@ -78751,9 +78733,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T21:05:40.596841+00:00",
-    "retry_after": "2026-11-07T21:05:40.596844+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T21:10:43.680340+00:00",
+    "retry_after": "2026-11-21T21:10:43.680341+00:00",
     "search_hydrated": true
   },
   {
@@ -78762,9 +78744,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T21:05:40.596860+00:00",
-    "retry_after": "2026-11-07T21:05:40.596863+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T21:10:43.680351+00:00",
+    "retry_after": "2026-11-21T21:10:43.680352+00:00",
     "search_hydrated": true
   },
   {
@@ -78882,9 +78864,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T21:05:40.596878+00:00",
-    "retry_after": "2026-11-07T21:05:40.596880+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T21:10:43.680360+00:00",
+    "retry_after": "2026-11-21T21:10:43.680362+00:00",
     "search_hydrated": true
   },
   {
@@ -93122,6 +93104,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-07T20:16:47.019379+00:00",
     "retry_after": "2026-11-08T20:16:47.019381+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Doctor Who: Four Doctors",
+    "publisher": "Titan Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T21:11:00.005600+00:00",
+    "retry_after": "2026-11-08T21:11:00.005617+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I Kill Giants Anniversary Edition",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T21:11:00.005647+00:00",
+    "retry_after": "2026-11-08T21:11:00.005649+00:00",
     "search_hydrated": true
   }
 ]

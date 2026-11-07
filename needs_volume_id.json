@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T17:02:12.518694+00:00",
-    "retry_after": "2026-11-08T17:02:12.518696+00:00",
+    "last_attempt_at": "2026-11-07T18:02:01.875950+00:00",
+    "retry_after": "2026-11-08T18:02:01.875953+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T17:02:12.518579+00:00",
-    "retry_after": "2026-11-08T17:02:12.518596+00:00",
+    "last_attempt_at": "2026-11-07T18:02:01.875795+00:00",
+    "retry_after": "2026-11-08T18:02:01.875811+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T17:02:12.518670+00:00",
-    "retry_after": "2026-11-08T17:02:12.518672+00:00",
+    "last_attempt_at": "2026-11-07T18:02:01.875917+00:00",
+    "retry_after": "2026-11-08T18:02:01.875921+00:00",
     "search_hydrated": true
   },
   {
@@ -78411,9 +78411,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T17:05:15.824031+00:00",
-    "retry_after": "2026-11-07T17:05:15.824032+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T18:11:53.015534+00:00",
+    "retry_after": "2026-11-21T18:11:53.015549+00:00",
     "search_hydrated": true
   },
   {
@@ -78422,9 +78422,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T17:05:15.824041+00:00",
-    "retry_after": "2026-11-07T17:05:15.824042+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T18:11:53.015577+00:00",
+    "retry_after": "2026-11-21T18:11:53.015581+00:00",
     "search_hydrated": true
   },
   {
@@ -78433,27 +78433,27 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T17:05:38.261871+00:00",
-    "retry_after": "2026-11-07T17:05:38.261888+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T18:11:53.015598+00:00",
+    "retry_after": "2026-11-21T18:11:53.015601+00:00",
     "search_hydrated": true
   },
   {
     "name": "The Toxic Avenger",
     "publisher": "Marvel Comics",
     "year": 2025,
-    "reason": "series_hint_year_mismatch",
+    "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 22900,
-        "name": "Toxic Avenger",
-        "publisher": "Marvel",
-        "start_year": 1991
+        "id": 171480,
+        "name": "The Toxic Avenger",
+        "publisher": "Legendary Comics",
+        "start_year": 2025
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T17:05:39.039305+00:00",
-    "retry_after": "2026-11-07T17:05:39.039320+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T18:11:53.015633+00:00",
+    "retry_after": "2026-11-21T18:11:53.015637+00:00",
     "search_hydrated": true
   },
   {
@@ -78462,9 +78462,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T17:05:38.261926+00:00",
-    "retry_after": "2026-11-07T17:05:38.261928+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T18:11:53.015653+00:00",
+    "retry_after": "2026-11-21T18:11:53.015656+00:00",
     "search_hydrated": true
   },
   {
@@ -78517,9 +78517,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T18:05:56.318514+00:00",
-    "retry_after": "2026-11-07T18:05:56.318533+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T18:11:53.015670+00:00",
+    "retry_after": "2026-11-21T18:11:53.015673+00:00",
     "search_hydrated": true
   },
   {
@@ -78528,9 +78528,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T18:05:56.318563+00:00",
-    "retry_after": "2026-11-07T18:05:56.318567+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T18:11:53.015685+00:00",
+    "retry_after": "2026-11-21T18:11:53.015687+00:00",
     "search_hydrated": true
   },
   {
@@ -78539,9 +78539,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T18:05:56.318585+00:00",
-    "retry_after": "2026-11-07T18:05:56.318588+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T18:11:53.015699+00:00",
+    "retry_after": "2026-11-21T18:11:53.015701+00:00",
     "search_hydrated": true
   },
   {
@@ -78550,9 +78550,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T18:05:56.318600+00:00",
-    "retry_after": "2026-11-07T18:05:56.318602+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T18:11:53.015713+00:00",
+    "retry_after": "2026-11-21T18:11:53.015715+00:00",
     "search_hydrated": true
   },
   {
@@ -92974,6 +92974,96 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-07T17:06:38.082033+00:00",
     "retry_after": "2026-11-08T17:06:38.082036+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I'm Still Alive",
+    "publisher": "BOOM! Studios",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 147126,
+        "name": "I'm Still Alive",
+        "publisher": "Archaia",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T18:12:02.294380+00:00",
+    "retry_after": "2026-11-08T18:12:02.294396+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Boo and the Midnight Monsters",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 122409,
+        "name": "Johnny Boo and the Midnight Monsters",
+        "publisher": "Top Shelf",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T18:12:02.294430+00:00",
+    "retry_after": "2026-11-08T18:12:02.294435+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Meltdown",
+    "publisher": "Titan Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161288,
+        "name": "Simpsons Comics Meltdown",
+        "publisher": "HarperCollins",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T18:12:02.294459+00:00",
+    "retry_after": "2026-11-08T18:12:02.294462+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Death",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40889,
+        "name": "Death",
+        "publisher": "Panini Verlag",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T18:12:02.294484+00:00",
+    "retry_after": "2026-11-08T18:12:02.294487+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Phil Corrigan Secret Agent X9",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161990,
+        "name": "Phil Corrigan Secret Agent X9 ",
+        "publisher": "Atlas Publications Pty. Ltd.",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T18:12:06.551009+00:00",
+    "retry_after": "2026-11-08T18:12:06.551025+00:00",
     "search_hydrated": true
   }
 ]

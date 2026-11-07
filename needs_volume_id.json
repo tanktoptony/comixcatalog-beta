@@ -8404,9 +8404,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T12:04:58.075033+00:00",
-    "retry_after": "2026-11-07T12:04:58.075034+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T12:12:55.802704+00:00",
+    "retry_after": "2026-11-21T12:12:55.802707+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T11:01:52.316441+00:00",
-    "retry_after": "2026-11-08T11:01:52.316443+00:00",
+    "last_attempt_at": "2026-11-07T12:01:56.910447+00:00",
+    "retry_after": "2026-11-08T12:01:56.910450+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T11:01:52.316326+00:00",
-    "retry_after": "2026-11-08T11:01:52.316342+00:00",
+    "last_attempt_at": "2026-11-07T12:01:56.910303+00:00",
+    "retry_after": "2026-11-08T12:01:56.910319+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T11:01:52.316419+00:00",
-    "retry_after": "2026-11-08T11:01:52.316421+00:00",
+    "last_attempt_at": "2026-11-07T12:01:56.910415+00:00",
+    "retry_after": "2026-11-08T12:01:56.910418+00:00",
     "search_hydrated": true
   },
   {
@@ -77810,9 +77810,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T12:04:58.074824+00:00",
-    "retry_after": "2026-11-07T12:04:58.074842+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T12:12:55.802453+00:00",
+    "retry_after": "2026-11-21T12:12:55.802469+00:00",
     "search_hydrated": true
   },
   {
@@ -77846,9 +77846,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T12:04:58.074963+00:00",
-    "retry_after": "2026-11-07T12:04:58.074967+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T12:12:55.802582+00:00",
+    "retry_after": "2026-11-21T12:12:55.802586+00:00",
     "search_hydrated": true
   },
   {
@@ -77870,9 +77870,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T12:04:58.074991+00:00",
-    "retry_after": "2026-11-07T12:04:58.074993+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T12:12:55.802616+00:00",
+    "retry_after": "2026-11-21T12:12:55.802619+00:00",
     "search_hydrated": true
   },
   {
@@ -77881,9 +77881,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T12:04:58.075004+00:00",
-    "retry_after": "2026-11-07T12:04:58.075006+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T12:12:55.802637+00:00",
+    "retry_after": "2026-11-21T12:12:55.802639+00:00",
     "search_hydrated": true
   },
   {
@@ -77893,21 +77893,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 144202,
-        "name": "Superman: Space Age",
-        "publisher": "DC Comics",
-        "start_year": 2022
-      },
-      {
         "id": 150056,
         "name": "Superman: Space Age",
         "publisher": "DC Comics",
         "start_year": 2023
+      },
+      {
+        "id": 144202,
+        "name": "Superman: Space Age",
+        "publisher": "DC Comics",
+        "start_year": 2022
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T12:04:58.075021+00:00",
-    "retry_after": "2026-11-07T12:04:58.075022+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T12:12:55.802663+00:00",
+    "retry_after": "2026-11-21T12:12:55.802666+00:00",
     "search_hydrated": true
   },
   {

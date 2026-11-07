@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T19:01:39.866902+00:00",
-    "retry_after": "2026-11-08T19:01:39.866904+00:00",
+    "last_attempt_at": "2026-11-07T19:55:32.257873+00:00",
+    "retry_after": "2026-11-08T19:55:32.257875+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T19:01:39.866801+00:00",
-    "retry_after": "2026-11-08T19:01:39.866820+00:00",
+    "last_attempt_at": "2026-11-07T19:55:32.257759+00:00",
+    "retry_after": "2026-11-08T19:55:32.257775+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T19:01:39.866885+00:00",
-    "retry_after": "2026-11-08T19:01:39.866886+00:00",
+    "last_attempt_at": "2026-11-07T19:55:32.257850+00:00",
+    "retry_after": "2026-11-08T19:55:32.257852+00:00",
     "search_hydrated": true
   },
   {
@@ -89214,9 +89214,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T08:17:05.860999+00:00",
-    "retry_after": "2026-11-06T08:17:05.861000+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T20:04:38.772012+00:00",
+    "retry_after": "2026-11-14T20:04:38.772028+00:00",
     "search_hydrated": true
   },
   {
@@ -89225,9 +89225,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T08:17:05.861010+00:00",
-    "retry_after": "2026-11-06T08:17:05.861012+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T20:04:38.772046+00:00",
+    "retry_after": "2026-11-14T20:04:38.772049+00:00",
     "search_hydrated": true
   },
   {
@@ -89236,9 +89236,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T09:16:26.465103+00:00",
-    "retry_after": "2026-11-06T09:16:26.465106+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T20:04:38.772068+00:00",
+    "retry_after": "2026-11-14T20:04:38.772070+00:00",
     "search_hydrated": true
   },
   {
@@ -89266,9 +89266,9 @@
         "start_year": 2000
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T11:13:15.506623+00:00",
-    "retry_after": "2026-11-06T11:13:15.506626+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T20:04:38.772119+00:00",
+    "retry_after": "2026-11-14T20:04:38.772121+00:00",
     "search_hydrated": true
   },
   {
@@ -89277,9 +89277,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T11:13:15.506656+00:00",
-    "retry_after": "2026-11-06T11:13:15.506660+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T20:04:38.772133+00:00",
+    "retry_after": "2026-11-14T20:04:38.772135+00:00",
     "search_hydrated": true
   },
   {
@@ -91181,9 +91181,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-04T19:13:38.639273+00:00",
-    "retry_after": "2026-11-07T19:13:38.639278+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T20:04:40.441556+00:00",
+    "retry_after": "2026-11-14T20:04:40.441559+00:00",
     "search_hydrated": true
   },
   {
@@ -93100,6 +93100,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-07T19:14:05.257648+00:00",
     "retry_after": "2026-11-08T19:14:05.257651+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batgirl [Canadian Post Cereals Giveaway]",
+    "publisher": "DC Comics",
+    "year": 1981,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T20:04:50.348011+00:00",
+    "retry_after": "2026-11-08T20:04:50.348027+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Birds Eye Kids Go Fishing",
+    "publisher": "Marvel Comics",
+    "year": 1958,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T20:04:50.348064+00:00",
+    "retry_after": "2026-11-08T20:04:50.348067+00:00",
     "search_hydrated": true
   }
 ]

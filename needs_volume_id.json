@@ -27445,21 +27445,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 2930,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1977
-      },
-      {
         "id": 116293,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T15:29:34.120545+00:00",
-    "retry_after": "2026-11-08T15:29:34.120548+00:00",
+    "last_attempt_at": "2026-11-07T16:02:11.066880+00:00",
+    "retry_after": "2026-11-08T16:02:11.066883+00:00",
     "search_hydrated": true
   },
   {
@@ -43469,21 +43469,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 2930,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1977
-      },
-      {
         "id": 116293,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T15:29:34.120396+00:00",
-    "retry_after": "2026-11-08T15:29:34.120409+00:00",
+    "last_attempt_at": "2026-11-07T16:02:11.066741+00:00",
+    "retry_after": "2026-11-08T16:02:11.066757+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T15:29:34.120511+00:00",
-    "retry_after": "2026-11-08T15:29:34.120515+00:00",
+    "last_attempt_at": "2026-11-07T16:02:11.066847+00:00",
+    "retry_after": "2026-11-08T16:02:11.066851+00:00",
     "search_hydrated": true
   },
   {
@@ -89030,9 +89030,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T07:54:22.050640+00:00",
-    "retry_after": "2026-11-06T07:54:22.050656+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T16:12:35.246428+00:00",
+    "retry_after": "2026-11-14T16:12:35.246444+00:00",
     "search_hydrated": true
   },
   {
@@ -89041,9 +89041,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T07:54:22.050677+00:00",
-    "retry_after": "2026-11-06T07:54:22.050679+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T16:12:35.246467+00:00",
+    "retry_after": "2026-11-14T16:12:35.246471+00:00",
     "search_hydrated": true
   },
   {
@@ -89052,9 +89052,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T08:17:05.860857+00:00",
-    "retry_after": "2026-11-06T08:17:05.860873+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T16:12:35.246486+00:00",
+    "retry_after": "2026-11-14T16:12:35.246489+00:00",
     "search_hydrated": true
   },
   {
@@ -89063,9 +89063,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T08:17:05.860891+00:00",
-    "retry_after": "2026-11-06T08:17:05.860894+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T16:12:35.246535+00:00",
+    "retry_after": "2026-11-14T16:12:35.246541+00:00",
     "search_hydrated": true
   },
   {
@@ -89074,9 +89074,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T08:17:05.860905+00:00",
-    "retry_after": "2026-11-06T08:17:05.860907+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T16:12:35.246559+00:00",
+    "retry_after": "2026-11-14T16:12:35.246562+00:00",
     "search_hydrated": true
   },
   {
@@ -89085,9 +89085,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T08:17:05.860916+00:00",
-    "retry_after": "2026-11-06T08:17:05.860918+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T16:12:35.246575+00:00",
+    "retry_after": "2026-11-14T16:12:35.246578+00:00",
     "search_hydrated": true
   },
   {
@@ -89139,9 +89139,9 @@
         "start_year": 1966
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T08:17:05.860971+00:00",
-    "retry_after": "2026-11-06T08:17:05.860974+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T16:12:35.246642+00:00",
+    "retry_after": "2026-11-14T16:12:35.246645+00:00",
     "search_hydrated": true
   },
   {
@@ -89203,9 +89203,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T08:17:05.860986+00:00",
-    "retry_after": "2026-11-06T08:17:05.860987+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T16:12:35.246663+00:00",
+    "retry_after": "2026-11-14T16:12:35.246665+00:00",
     "search_hydrated": true
   },
   {
@@ -92722,6 +92722,132 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-07T15:39:30.983799+00:00",
     "retry_after": "2026-11-08T15:39:30.983803+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "???????: ???? ????????????",
+    "publisher": "BOOM! Studios",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 172641,
+        "name": "!",
+        "publisher": "Alpha Polis",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T16:12:46.357103+00:00",
+    "retry_after": "2026-11-08T16:12:46.357119+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kick-Ass 2 Prelude: Hit Girl",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58598,
+        "name": "Kick-Ass 2 Prelude: Hit-Girl",
+        "publisher": "Icon Books",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T16:12:46.357158+00:00",
+    "retry_after": "2026-11-08T16:12:46.357162+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tits ! Tits ! Tits !",
+    "publisher": "Dynamite Entertainment",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167384,
+        "name": "Tits! Tits! Tits!",
+        "publisher": "Dynamite (France)",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T16:12:46.357189+00:00",
+    "retry_after": "2026-11-08T16:12:46.357193+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deadworld: The Last Siesta",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75600,
+        "name": "Deadworld: The Last Siesta",
+        "publisher": "Caliber Comics",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T16:12:46.357258+00:00",
+    "retry_after": "2026-11-08T16:12:46.357261+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Joe Palooka Presents the Funsational Humphrey",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 156763,
+        "name": "Joe Palooka Presents the Funsational Humphrey",
+        "publisher": "Magazine Management",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T16:12:54.875323+00:00",
+    "retry_after": "2026-11-08T16:12:54.875339+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mad Classics",
+    "publisher": "EC Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18767,
+        "name": "Mad Classics",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T16:12:54.875370+00:00",
+    "retry_after": "2026-11-08T16:12:54.875375+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Anti-Crime Squad",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52652,
+        "name": "Anti Crime Squad",
+        "publisher": "Magazine Management",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T16:12:54.875399+00:00",
+    "retry_after": "2026-11-08T16:12:54.875402+00:00",
     "search_hydrated": true
   }
 ]

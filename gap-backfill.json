@@ -8848,13 +8848,6 @@
     "series_gcd_id": 177098
   },
   {
-    "name": "Paradox Girl",
-    "publisher": "Image Comics",
-    "year": 2019,
-    "volume_id": 80065,
-    "series_gcd_id": 146241
-  },
-  {
     "name": "Prince of Cats",
     "publisher": "Image Comics",
     "year": 2019,
@@ -8881,13 +8874,6 @@
     "year": 2019,
     "volume_id": null,
     "series_gcd_id": 148549
-  },
-  {
-    "name": "Runaways by Rainbow Rowell",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "volume_id": 18060,
-    "series_gcd_id": 181605
   },
   {
     "name": "Runaways: Pride & Joy",
@@ -12271,13 +12257,6 @@
     "series_gcd_id": 114846
   },
   {
-    "name": "Spider-Men II",
-    "publisher": "Marvel Comics",
-    "year": 2017,
-    "volume_id": null,
-    "series_gcd_id": 115396
-  },
-  {
     "name": "Spidey",
     "publisher": "Marvel Comics",
     "year": 2017,
@@ -12388,13 +12367,6 @@
     "year": 2017,
     "volume_id": null,
     "series_gcd_id": 196469
-  },
-  {
-    "name": "Street Angel: After School Kung Fu Special",
-    "publisher": "Image Comics",
-    "year": 2017,
-    "volume_id": null,
-    "series_gcd_id": 136823
   },
   {
     "name": "Street Angel: Super Hero for a Day",
@@ -17150,13 +17122,6 @@
     "series_gcd_id": 110789
   },
   {
-    "name": "Batman: Dark Knight, Dark City",
-    "publisher": "DC Comics",
-    "year": 2015,
-    "volume_id": 80026,
-    "series_gcd_id": 110688
-  },
-  {
     "name": "Batman: Gothic Deluxe Edition",
     "publisher": "DC Comics",
     "year": 2015,
@@ -20394,7 +20359,7 @@
     "name": "Death",
     "publisher": "DC Comics",
     "year": 2014,
-    "volume_id": null,
+    "volume_id": 40889,
     "series_gcd_id": 110537
   },
   {
@@ -20410,13 +20375,6 @@
     "year": 2014,
     "volume_id": null,
     "series_gcd_id": 81675
-  },
-  {
-    "name": "Deathblow: The Deluxe Edition",
-    "publisher": "DC Comics",
-    "year": 2014,
-    "volume_id": 72487,
-    "series_gcd_id": 110538
   },
   {
     "name": "Deathlok the Demolisher: The Complete Collection",
@@ -20706,13 +20664,6 @@
     "series_gcd_id": 83447
   },
   {
-    "name": "Hawkworld",
-    "publisher": "DC Comics",
-    "year": 2014,
-    "volume_id": 72125,
-    "series_gcd_id": 110530
-  },
-  {
     "name": "Hinterkind",
     "publisher": "DC Comics",
     "year": 2014,
@@ -20998,5 +20949,54 @@
     "year": 2014,
     "volume_id": null,
     "series_gcd_id": 80562
+  },
+  {
+    "name": "Madman In Your Face 3D Special",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 85194
+  },
+  {
+    "name": "Manifest Destiny",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 81287
+  },
+  {
+    "name": "Marshal Law",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 87339
+  },
+  {
+    "name": "Martian Manhunter: Rings of Saturn",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": 76730,
+    "series_gcd_id": 110598
+  },
+  {
+    "name": "Martian Manhunter: Son of Mars",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": 71798,
+    "series_gcd_id": 110489
+  },
+  {
+    "name": "Marvel 100th Anniversary",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 100190
+  },
+  {
+    "name": "Marvel 75th Anniversary Magazine",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 212698
   }
 ]

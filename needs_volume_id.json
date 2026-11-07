@@ -7762,9 +7762,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T10:10:36.273143+00:00",
-    "retry_after": "2026-11-07T10:10:36.273144+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T11:12:08.517156+00:00",
+    "retry_after": "2026-11-21T11:12:08.517158+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T10:01:37.536410+00:00",
-    "retry_after": "2026-11-08T10:01:37.536411+00:00",
+    "last_attempt_at": "2026-11-07T11:01:52.316441+00:00",
+    "retry_after": "2026-11-08T11:01:52.316443+00:00",
     "search_hydrated": true
   },
   {
@@ -34047,9 +34047,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T11:06:18.659970+00:00",
-    "retry_after": "2026-11-07T11:06:18.659971+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T11:12:08.517169+00:00",
+    "retry_after": "2026-11-21T11:12:08.517171+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T10:01:37.536308+00:00",
-    "retry_after": "2026-11-08T10:01:37.536326+00:00",
+    "last_attempt_at": "2026-11-07T11:01:52.316326+00:00",
+    "retry_after": "2026-11-08T11:01:52.316342+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T10:01:37.536391+00:00",
-    "retry_after": "2026-11-08T10:01:37.536393+00:00",
+    "last_attempt_at": "2026-11-07T11:01:52.316419+00:00",
+    "retry_after": "2026-11-08T11:01:52.316421+00:00",
     "search_hydrated": true
   },
   {
@@ -77665,9 +77665,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T10:10:36.273063+00:00",
-    "retry_after": "2026-11-07T10:10:36.273081+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T11:12:08.517074+00:00",
+    "retry_after": "2026-11-21T11:12:08.517091+00:00",
     "search_hydrated": true
   },
   {
@@ -77676,9 +77676,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T10:10:36.273105+00:00",
-    "retry_after": "2026-11-07T10:10:36.273107+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T11:12:08.517109+00:00",
+    "retry_after": "2026-11-21T11:12:08.517112+00:00",
     "search_hydrated": true
   },
   {
@@ -77687,9 +77687,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T10:10:36.273118+00:00",
-    "retry_after": "2026-11-07T10:10:36.273120+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T11:12:08.517124+00:00",
+    "retry_after": "2026-11-21T11:12:08.517127+00:00",
     "search_hydrated": true
   },
   {
@@ -92304,9 +92304,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-06T11:11:33.011552+00:00",
-    "retry_after": "2026-11-07T11:11:33.011568+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-07T11:12:23.421292+00:00",
+    "retry_after": "2026-11-10T11:12:23.421309+00:00",
     "search_hydrated": true
   },
   {
@@ -92315,9 +92315,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-06T11:11:33.011583+00:00",
-    "retry_after": "2026-11-07T11:11:33.011585+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-07T11:12:23.421333+00:00",
+    "retry_after": "2026-11-10T11:12:23.421337+00:00",
     "search_hydrated": true
   },
   {
@@ -93031,6 +93031,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-07T07:10:51.621613+00:00",
     "retry_after": "2026-11-08T07:10:51.621635+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Navy Custom Comic",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T11:12:23.421399+00:00",
+    "retry_after": "2026-11-08T11:12:23.421402+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Extravaganza",
+    "publisher": "Titan Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64945,
+        "name": "Simpsons Comics Extravaganza",
+        "publisher": "HarperCollins",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T11:12:23.421430+00:00",
+    "retry_after": "2026-11-08T11:12:23.421432+00:00",
     "search_hydrated": true
   }
 ]

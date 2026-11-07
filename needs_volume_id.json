@@ -27445,21 +27445,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
-      {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T16:02:11.066880+00:00",
-    "retry_after": "2026-11-08T16:02:11.066883+00:00",
+    "last_attempt_at": "2026-11-07T17:02:12.518694+00:00",
+    "retry_after": "2026-11-08T17:02:12.518696+00:00",
     "search_hydrated": true
   },
   {
@@ -43469,21 +43469,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
-      {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T16:02:11.066741+00:00",
-    "retry_after": "2026-11-08T16:02:11.066757+00:00",
+    "last_attempt_at": "2026-11-07T17:02:12.518579+00:00",
+    "retry_after": "2026-11-08T17:02:12.518596+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T16:02:11.066847+00:00",
-    "retry_after": "2026-11-08T16:02:11.066851+00:00",
+    "last_attempt_at": "2026-11-07T17:02:12.518670+00:00",
+    "retry_after": "2026-11-08T17:02:12.518672+00:00",
     "search_hydrated": true
   },
   {
@@ -78290,9 +78290,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T17:05:15.823866+00:00",
-    "retry_after": "2026-11-07T17:05:15.823884+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T17:06:18.947265+00:00",
+    "retry_after": "2026-11-21T17:06:18.947280+00:00",
     "search_hydrated": true
   },
   {
@@ -78301,9 +78301,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T17:05:15.823940+00:00",
-    "retry_after": "2026-11-07T17:05:15.823942+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T17:06:18.947368+00:00",
+    "retry_after": "2026-11-21T17:06:18.947373+00:00",
     "search_hydrated": true
   },
   {
@@ -78319,9 +78319,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T17:05:16.700281+00:00",
-    "retry_after": "2026-11-07T17:05:16.700299+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T17:06:21.824947+00:00",
+    "retry_after": "2026-11-21T17:06:21.824959+00:00",
     "search_hydrated": true
   },
   {
@@ -78330,9 +78330,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T17:05:15.823968+00:00",
-    "retry_after": "2026-11-07T17:05:15.823969+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T17:06:18.947405+00:00",
+    "retry_after": "2026-11-21T17:06:18.947408+00:00",
     "search_hydrated": true
   },
   {
@@ -78341,9 +78341,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T17:05:15.823977+00:00",
-    "retry_after": "2026-11-07T17:05:15.823978+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T17:06:18.947417+00:00",
+    "retry_after": "2026-11-21T17:06:18.947419+00:00",
     "search_hydrated": true
   },
   {
@@ -78359,9 +78359,9 @@
         "start_year": 1995
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T17:05:16.442861+00:00",
-    "retry_after": "2026-11-07T17:05:16.442873+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T17:06:21.698115+00:00",
+    "retry_after": "2026-11-21T17:06:21.698117+00:00",
     "search_hydrated": true
   },
   {
@@ -78370,9 +78370,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T17:05:15.823986+00:00",
-    "retry_after": "2026-11-07T17:05:15.823987+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T17:06:18.947428+00:00",
+    "retry_after": "2026-11-21T17:06:18.947430+00:00",
     "search_hydrated": true
   },
   {
@@ -78400,9 +78400,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T17:05:15.824021+00:00",
-    "retry_after": "2026-11-07T17:05:15.824023+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T17:06:18.947462+00:00",
+    "retry_after": "2026-11-21T17:06:18.947464+00:00",
     "search_hydrated": true
   },
   {
@@ -92848,6 +92848,132 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-07T16:12:54.875399+00:00",
     "retry_after": "2026-11-08T16:12:54.875402+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "They Called Us Enemy – Expanded Edition",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129898,
+        "name": "They Called Us Enemy: Expanded Edition",
+        "publisher": "Top Shelf",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T17:06:30.595022+00:00",
+    "retry_after": "2026-11-08T17:06:30.595037+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Links",
+    "publisher": "VIZ Media",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148145,
+        "name": "Links",
+        "publisher": "Milky Way Ediciones",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T17:06:30.595062+00:00",
+    "retry_after": "2026-11-08T17:06:30.595065+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62660,
+        "name": "Big Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T17:06:30.595083+00:00",
+    "retry_after": "2026-11-08T17:06:30.595085+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Superheroes and the Occult Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79640,
+        "name": "Marvel Superheroes and the Occult Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T17:06:30.595100+00:00",
+    "retry_after": "2026-11-08T17:06:30.595102+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I Vendicatori",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 151292,
+        "name": "I Vendicatori",
+        "publisher": "Panini Comics",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T17:06:38.081974+00:00",
+    "retry_after": "2026-11-08T17:06:38.081990+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "MegaManga",
+    "publisher": "Fantagraphics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 173763,
+        "name": "MegaManga",
+        "publisher": "Eros Comix",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T17:06:38.082013+00:00",
+    "retry_after": "2026-11-08T17:06:38.082016+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Mix",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57055,
+        "name": "Marvel Mix",
+        "publisher": "Panini Comics",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T17:06:38.082033+00:00",
+    "retry_after": "2026-11-08T17:06:38.082036+00:00",
     "search_hydrated": true
   }
 ]

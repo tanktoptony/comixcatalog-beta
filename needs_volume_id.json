@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T12:01:56.910447+00:00",
-    "retry_after": "2026-11-08T12:01:56.910450+00:00",
+    "last_attempt_at": "2026-11-07T13:01:37.116397+00:00",
+    "retry_after": "2026-11-08T13:01:37.116398+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T12:01:56.910303+00:00",
-    "retry_after": "2026-11-08T12:01:56.910319+00:00",
+    "last_attempt_at": "2026-11-07T13:01:37.116289+00:00",
+    "retry_after": "2026-11-08T13:01:37.116307+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T12:01:56.910415+00:00",
-    "retry_after": "2026-11-08T12:01:56.910418+00:00",
+    "last_attempt_at": "2026-11-07T13:01:37.116380+00:00",
+    "retry_after": "2026-11-08T13:01:37.116381+00:00",
     "search_hydrated": true
   },
   {
@@ -77962,9 +77962,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T13:05:26.849724+00:00",
-    "retry_after": "2026-11-07T13:05:26.849740+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T13:10:37.101846+00:00",
+    "retry_after": "2026-11-21T13:10:37.101864+00:00",
     "search_hydrated": true
   },
   {
@@ -77973,9 +77973,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T13:05:26.849772+00:00",
-    "retry_after": "2026-11-07T13:05:26.849776+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T13:10:37.101880+00:00",
+    "retry_after": "2026-11-21T13:10:37.101883+00:00",
     "search_hydrated": true
   },
   {
@@ -77997,9 +77997,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T13:05:26.849819+00:00",
-    "retry_after": "2026-11-07T13:05:26.849823+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T13:10:37.101914+00:00",
+    "retry_after": "2026-11-21T13:10:37.101916+00:00",
     "search_hydrated": true
   },
   {
@@ -78008,9 +78008,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T13:05:26.849841+00:00",
-    "retry_after": "2026-11-07T13:05:26.849844+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T13:10:37.101926+00:00",
+    "retry_after": "2026-11-21T13:10:37.101927+00:00",
     "search_hydrated": true
   },
   {
@@ -78019,9 +78019,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T13:05:26.849861+00:00",
-    "retry_after": "2026-11-07T13:05:26.849864+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T13:10:37.101937+00:00",
+    "retry_after": "2026-11-21T13:10:37.101939+00:00",
     "search_hydrated": true
   },
   {
@@ -78030,9 +78030,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-31T13:05:26.849880+00:00",
-    "retry_after": "2026-11-07T13:05:26.849882+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-07T13:10:37.101948+00:00",
+    "retry_after": "2026-11-21T13:10:37.101949+00:00",
     "search_hydrated": true
   },
   {
@@ -93060,6 +93060,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-07T11:12:23.421430+00:00",
     "retry_after": "2026-11-08T11:12:23.421432+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Chicago 2015",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-07T13:10:47.512374+00:00",
+    "retry_after": "2026-11-08T13:10:47.512392+00:00",
     "search_hydrated": true
   }
 ]

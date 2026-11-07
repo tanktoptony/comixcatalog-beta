@@ -25433,9 +25433,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T01:19:57.313104+00:00",
-    "retry_after": "2026-11-06T01:19:57.313108+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T08:33:16.396736+00:00",
+    "retry_after": "2026-11-14T08:33:16.396754+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T08:01:50.657575+00:00",
-    "retry_after": "2026-11-08T08:01:50.657577+00:00",
+    "last_attempt_at": "2026-11-07T08:24:30.982324+00:00",
+    "retry_after": "2026-11-08T08:24:30.982326+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T08:01:50.657460+00:00",
-    "retry_after": "2026-11-08T08:01:50.657476+00:00",
+    "last_attempt_at": "2026-11-07T08:24:30.982191+00:00",
+    "retry_after": "2026-11-08T08:24:30.982208+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T08:01:50.657551+00:00",
-    "retry_after": "2026-11-08T08:01:50.657554+00:00",
+    "last_attempt_at": "2026-11-07T08:24:30.982296+00:00",
+    "retry_after": "2026-11-08T08:24:30.982299+00:00",
     "search_hydrated": true
   },
   {
@@ -88513,9 +88513,9 @@
         "start_year": 2005
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T23:10:30.086923+00:00",
-    "retry_after": "2026-11-05T23:10:30.086924+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T08:33:21.453873+00:00",
+    "retry_after": "2026-11-14T08:33:21.453878+00:00",
     "search_hydrated": true
   },
   {
@@ -88531,9 +88531,9 @@
         "start_year": 2005
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T23:10:30.086933+00:00",
-    "retry_after": "2026-11-05T23:10:30.086934+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T08:33:21.454114+00:00",
+    "retry_after": "2026-11-14T08:33:21.454117+00:00",
     "search_hydrated": true
   },
   {
@@ -88564,9 +88564,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T01:19:57.313138+00:00",
-    "retry_after": "2026-11-06T01:19:57.313141+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T08:33:16.396787+00:00",
+    "retry_after": "2026-11-14T08:33:16.396790+00:00",
     "search_hydrated": true
   },
   {
@@ -88576,21 +88576,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 5970,
-        "name": "Neil Gaiman and Charles Vess' Stardust",
-        "publisher": "DC Comics",
-        "start_year": 1997
-      },
-      {
         "id": 33020,
         "name": "Neil Gaiman and Charles Vess' Stardust",
         "publisher": "DC Comics",
         "start_year": 1998
+      },
+      {
+        "id": 5970,
+        "name": "Neil Gaiman and Charles Vess' Stardust",
+        "publisher": "DC Comics",
+        "start_year": 1997
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T01:19:57.313167+00:00",
-    "retry_after": "2026-11-06T01:19:57.313170+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T08:33:16.396814+00:00",
+    "retry_after": "2026-11-14T08:33:16.396816+00:00",
     "search_hydrated": true
   },
   {
@@ -88606,9 +88606,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T01:19:59.514347+00:00",
-    "retry_after": "2026-11-06T01:19:59.514363+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T08:33:21.629080+00:00",
+    "retry_after": "2026-11-14T08:33:21.629097+00:00",
     "search_hydrated": true
   },
   {
@@ -88624,9 +88624,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T01:19:59.667038+00:00",
-    "retry_after": "2026-11-06T01:19:59.667052+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T08:33:21.778826+00:00",
+    "retry_after": "2026-11-14T08:33:21.778842+00:00",
     "search_hydrated": true
   },
   {
@@ -88642,9 +88642,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T01:19:59.936663+00:00",
-    "retry_after": "2026-11-06T01:19:59.936678+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-07T08:33:22.179233+00:00",
+    "retry_after": "2026-11-14T08:33:22.179251+00:00",
     "search_hydrated": true
   },
   {
@@ -92260,9 +92260,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-06T08:10:52.314085+00:00",
-    "retry_after": "2026-11-07T08:10:52.314102+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-07T08:33:35.119577+00:00",
+    "retry_after": "2026-11-10T08:33:35.119594+00:00",
     "search_hydrated": true
   },
   {
@@ -92271,9 +92271,9 @@
     "year": 2004,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-06T08:10:52.314142+00:00",
-    "retry_after": "2026-11-07T08:10:52.314144+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-07T08:33:35.119624+00:00",
+    "retry_after": "2026-11-10T08:33:35.119628+00:00",
     "search_hydrated": true
   },
   {

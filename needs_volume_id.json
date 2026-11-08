@@ -6443,9 +6443,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T10:09:55.089730+00:00",
-    "retry_after": "2026-11-08T10:09:55.089765+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T11:10:32.662691+00:00",
+    "retry_after": "2026-11-22T11:10:32.662694+00:00",
     "search_hydrated": true
   },
   {
@@ -6675,9 +6675,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T10:09:55.089795+00:00",
-    "retry_after": "2026-11-08T10:09:55.089796+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T11:10:32.662717+00:00",
+    "retry_after": "2026-11-22T11:10:32.662719+00:00",
     "search_hydrated": true
   },
   {
@@ -6981,9 +6981,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T10:09:55.089782+00:00",
-    "retry_after": "2026-11-08T10:09:55.089785+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T11:10:32.662705+00:00",
+    "retry_after": "2026-11-22T11:10:32.662707+00:00",
     "search_hydrated": true
   },
   {
@@ -7279,9 +7279,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T10:09:55.089814+00:00",
-    "retry_after": "2026-11-08T10:09:55.089816+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T11:10:32.662740+00:00",
+    "retry_after": "2026-11-22T11:10:32.662741+00:00",
     "search_hydrated": true
   },
   {
@@ -8144,9 +8144,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T09:10:19.645814+00:00",
-    "retry_after": "2026-11-08T09:10:19.645829+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T11:10:32.662658+00:00",
+    "retry_after": "2026-11-22T11:10:32.662673+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T10:02:38.409177+00:00",
-    "retry_after": "2026-11-09T10:02:38.409179+00:00",
+    "last_attempt_at": "2026-11-08T11:01:51.232272+00:00",
+    "retry_after": "2026-11-09T11:01:51.232274+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T10:02:38.409064+00:00",
-    "retry_after": "2026-11-09T10:02:38.409080+00:00",
+    "last_attempt_at": "2026-11-08T11:01:51.232161+00:00",
+    "retry_after": "2026-11-09T11:01:51.232176+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T10:02:38.409154+00:00",
-    "retry_after": "2026-11-09T10:02:38.409157+00:00",
+    "last_attempt_at": "2026-11-08T11:01:51.232249+00:00",
+    "retry_after": "2026-11-09T11:01:51.232252+00:00",
     "search_hydrated": true
   },
   {
@@ -56487,9 +56487,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T10:09:55.089805+00:00",
-    "retry_after": "2026-11-08T10:09:55.089807+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T11:10:32.662729+00:00",
+    "retry_after": "2026-11-22T11:10:32.662731+00:00",
     "search_hydrated": true
   },
   {
@@ -93336,6 +93336,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-08T09:11:40.430149+00:00",
     "retry_after": "2026-11-09T09:11:40.430164+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Man: Round Robin the Sidekick's Revenge",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-08T11:10:46.087594+00:00",
+    "retry_after": "2026-11-09T11:10:46.087611+00:00",
     "search_hydrated": true
   }
 ]

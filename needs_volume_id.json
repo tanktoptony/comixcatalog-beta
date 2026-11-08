@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T02:02:05.748718+00:00",
-    "retry_after": "2026-11-09T02:02:05.748722+00:00",
+    "last_attempt_at": "2026-11-08T03:02:00.721881+00:00",
+    "retry_after": "2026-11-09T03:02:00.721884+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T02:02:05.748573+00:00",
-    "retry_after": "2026-11-09T02:02:05.748588+00:00",
+    "last_attempt_at": "2026-11-08T03:02:00.721741+00:00",
+    "retry_after": "2026-11-09T03:02:00.721755+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T02:02:05.748686+00:00",
-    "retry_after": "2026-11-09T02:02:05.748690+00:00",
+    "last_attempt_at": "2026-11-08T03:02:00.721849+00:00",
+    "retry_after": "2026-11-09T03:02:00.721853+00:00",
     "search_hydrated": true
   },
   {
@@ -79645,9 +79645,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T02:06:09.835571+00:00",
-    "retry_after": "2026-11-08T02:06:09.835574+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T03:11:52.199377+00:00",
+    "retry_after": "2026-11-22T03:11:52.199393+00:00",
     "search_hydrated": true
   },
   {
@@ -79681,9 +79681,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T02:06:11.797426+00:00",
-    "retry_after": "2026-11-08T02:06:11.797442+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T03:11:53.455239+00:00",
+    "retry_after": "2026-11-22T03:11:53.455256+00:00",
     "search_hydrated": true
   },
   {
@@ -79699,9 +79699,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T02:06:11.990360+00:00",
-    "retry_after": "2026-11-08T02:06:11.990376+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T03:11:53.567000+00:00",
+    "retry_after": "2026-11-22T03:11:53.567014+00:00",
     "search_hydrated": true
   },
   {
@@ -79710,9 +79710,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T02:06:09.835606+00:00",
-    "retry_after": "2026-11-08T02:06:09.835610+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T03:11:52.199435+00:00",
+    "retry_after": "2026-11-22T03:11:52.199440+00:00",
     "search_hydrated": true
   },
   {
@@ -79721,9 +79721,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T02:06:09.835623+00:00",
-    "retry_after": "2026-11-08T02:06:09.835626+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T03:11:52.199456+00:00",
+    "retry_after": "2026-11-22T03:11:52.199459+00:00",
     "search_hydrated": true
   },
   {
@@ -79739,9 +79739,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T02:06:12.183644+00:00",
-    "retry_after": "2026-11-08T02:06:12.183660+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T03:11:53.659284+00:00",
+    "retry_after": "2026-11-22T03:11:53.659300+00:00",
     "search_hydrated": true
   },
   {
@@ -79750,9 +79750,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T03:05:36.976524+00:00",
-    "retry_after": "2026-11-08T03:05:36.976540+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T03:11:52.199474+00:00",
+    "retry_after": "2026-11-22T03:11:52.199476+00:00",
     "search_hydrated": true
   },
   {
@@ -79762,21 +79762,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 124630,
-        "name": "Fantastic Four: Grand Design",
-        "publisher": "Marvel",
-        "start_year": 2020
-      },
-      {
         "id": 122452,
         "name": "Fantastic Four: Grand Design",
         "publisher": "Marvel",
         "start_year": 2019
+      },
+      {
+        "id": 124630,
+        "name": "Fantastic Four: Grand Design",
+        "publisher": "Marvel",
+        "start_year": 2020
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T03:05:36.976603+00:00",
-    "retry_after": "2026-11-08T03:05:36.976608+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T03:11:52.199511+00:00",
+    "retry_after": "2026-11-22T03:11:52.199514+00:00",
     "search_hydrated": true
   },
   {
@@ -79796,9 +79796,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T03:05:36.976632+00:00",
-    "retry_after": "2026-11-08T03:05:36.976635+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T03:11:52.199532+00:00",
+    "retry_after": "2026-11-22T03:11:52.199535+00:00",
     "search_hydrated": true
   },
   {
@@ -92477,9 +92477,9 @@
     "year": 1944,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-07T03:11:30.684663+00:00",
-    "retry_after": "2026-11-08T03:11:30.684666+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-08T03:12:03.368077+00:00",
+    "retry_after": "2026-11-11T03:12:03.368092+00:00",
     "search_hydrated": true
   },
   {

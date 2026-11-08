@@ -36,7 +36,12 @@ function Seal({ number, t }) {
 }
 
 function Base({ children, frame, t, background = "transparent" }) {
-  return <div style={{ width: 1000, height: 1400, position: "relative", overflow: "hidden", boxSizing: "border-box", background }}>{children}{frame && <Frame theme={t} />}</div>;
+  // With the frame on, the fill stops under the iron border so it can't show through
+  // the scaled border-image as a light line on the card's edge.
+  return <div style={{ width: 1000, height: 1400, position: "relative", overflow: "hidden", boxSizing: "border-box", background: frame ? t.iron : background }}>
+    {frame && <div style={{ position: "absolute", inset: 17, background }} />}
+    {children}{frame && <Frame theme={t} />}
+  </div>;
 }
 
 export function DossierFront({ data, theme, layers }) {
@@ -147,14 +152,18 @@ export function DossierCard({ data, flip = 0, overlay, overlayAmount = 0, meterP
   const scale = height / 1400;
   const shadowWidth = 55 + 35 * Math.abs(flip - .5) * 2;
   const face = { position: "absolute", inset: 0, width: 1000, height: 1400, transformOrigin: "top left", backfaceVisibility: "hidden" };
-  return <div style={{ position: "relative", width, height, perspective: 2600 }}>
+  const back = <DossierBack data={data} theme={t} overlay={overlay} overlayAmount={overlayAmount} meterProgress={meterProgress} badgeProgress={badgeProgress} highlight={highlight} context={context} />;
+  // 3D only while the card is turning. Held still, the preserve-3d layer left a 1px white
+  // seam on the right and bottom edges that flickered as the push-in scaled the card.
+  const still = flip === 0 || flip === 1;
+  return <div style={{ position: "relative", width, height, perspective: still ? undefined : 2600 }}>
     <div style={{ position: "absolute", left: `${(100 - shadowWidth) / 2}%`, width: `${shadowWidth}%`, height: 35, bottom: -28, borderRadius: "50%", background: "rgba(0,0,0,.48)", filter: "blur(16px)" }} />
     {overlayData && <div style={{ position: "absolute", inset: -10, borderRadius: 16, opacity: overlayAmount, boxShadow: `0 0 ${45 + 20 * Math.sin(frame / 5)}px ${overlayData.color}` }} />}
-    <div style={{ position: "absolute", inset: 0, transformStyle: "preserve-3d", transform: `rotateY(${flip * 180}deg)` }}>
+    {still ? <div style={{ ...face, transform: `scale(${scale})` }}>{flip ? back : <DossierFront data={data} theme={t} />}</div> : <div style={{ position: "absolute", inset: 0, transformStyle: "preserve-3d", transform: `rotateY(${flip * 180}deg)` }}>
       <div style={{ ...face, transform: `scale(${scale})` }}><DossierFront data={data} theme={t} /></div>
       {/* Faces scale from the top-left corner, so the back face rotates about its left edge; shift it one card width so it lands on the front. */}
-      <div style={{ ...face, transform: `translateX(${width}px) rotateY(180deg) scale(${scale})` }}><DossierBack data={data} theme={t} overlay={overlay} overlayAmount={overlayAmount} meterProgress={meterProgress} badgeProgress={badgeProgress} highlight={highlight} context={context} /></div>
-    </div>
+      <div style={{ ...face, transform: `translateX(${width}px) rotateY(180deg) scale(${scale})` }}>{back}</div>
+    </div>}
   </div>;
 }
 

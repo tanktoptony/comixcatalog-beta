@@ -1,5 +1,5 @@
 import React from "react";
-import { Composition } from "remotion";
+import { AbsoluteFill, Composition, Sequence } from "remotion";
 import { EPISODES, assetFolder } from "../episodes.js";
 import { normalizeTimeline } from "../shared/timeline.js";
 import { EpisodeRenderer } from "../shared/EpisodeRenderer.jsx";
@@ -23,6 +23,22 @@ import { shortsWords as shortsWords005 } from "../episode-005/shorts-timeline.js
 import { fixWords as fixWords005 } from "../episode-005/fixWords.js";
 import { shortsWords as shortsWords006 } from "../episode-006/shorts-timeline.js";
 import { Dossier001Reveal, Dossier001Cosmic, Dossier001Front, Dossier001Back, Dossier001FrontFrame, Dossier001FrontArt, Dossier001FrontLettering, Dossier001BackFrame, Dossier001BackMeters, Dossier001BackLettering } from "./Dossier006.jsx";
+import { PackOpen, RetroCard } from "../shared/components/packOpen.jsx";
+import { EpisodeContext, SegmentContext } from "../shared/components/primitives.jsx";
+
+const previewCards = [
+  { asset: "art/cards90/doom-1990.jpg", size: [685, 954] },
+  { asset: "art/cards90/doom-1991.jpg", size: [245, 350] },
+  { asset: "art/cards90/doom-1992.jpg", size: [252, 350] },
+  { asset: "art/cards90/doom-1993.jpg", size: [640, 897] },
+];
+
+function PackPreview006() {
+  return <EpisodeContext.Provider value={{ episodeId: "episode-006" }}><AbsoluteFill>
+    <Sequence durationInFrames={135}><SegmentContext.Provider value={{ durationInFrames: 135 }}><PackOpen card="art/cards90/doom-1990.jpg" cardSize={[685, 954]} packArt="art/marvel-doom-hero.jpg" packArtSize={[2000, 667]} lines={["SUPER-VILLAIN", "TRADING CARDS", "SERIES I · 1990"]} /></SegmentContext.Provider></Sequence>
+    <Sequence from={135} durationInFrames={75}><SegmentContext.Provider value={{ durationInFrames: 75 }}><RetroCard cards={previewCards} /></SegmentContext.Provider></Sequence>
+  </AbsoluteFill></EpisodeContext.Provider>;
+}
 
 const shortDetails = {
   "episode-001-v3": {
@@ -110,6 +126,7 @@ export function Root() {
         <Composition key={id} id={id} component={component} durationInFrames={1} fps={30} width={size.width} height={size.height} />
       ))}
       <Composition id="Dossier001Reveal" component={Dossier001Reveal} durationInFrames={150} fps={30} width={1920} height={1080} />
+      <Composition id="PackPreview006" component={PackPreview006} durationInFrames={210} fps={30} width={1920} height={1080} />
       <Composition id="Dossier001Cosmic" component={Dossier001Cosmic} durationInFrames={120} fps={30} width={1920} height={1080} defaultProps={{ overlay: "cosmic" }} />
       <Composition id="Dossier001Beyonder" component={Dossier001Cosmic} durationInFrames={120} fps={30} width={1920} height={1080} defaultProps={{ overlay: "beyonder" }} />
       <Composition id="Dossier001GodEmperor" component={Dossier001Cosmic} durationInFrames={120} fps={30} width={1920} height={1080} defaultProps={{ overlay: "godEmperor" }} />

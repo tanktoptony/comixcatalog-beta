@@ -17,6 +17,7 @@ The Power Index · Power Profile #001: Doctor Doom. Channel episode 6, first of 
 - 2026-10-26 Shorts edit (`shorts-timeline.js`, `build_shorts_audio.py`), thumbnails (`src/Thumbnails006.jsx`), upload package (`package.mjs` -> `Desktop/YouTube/episode-006-youtube`: PACKAGE.md, captions.srt, 12 chapters).
 
 - 2026-11-03 Founding line added to the episode and all 3 Shorts (Tony OKed). The episode says "Link's in the description" (/yt, in `joinLine`). Shorts say "That's ComixCatalog dot com" because YouTube doesn't make links in Shorts descriptions clickable. Visuals: `screens/cc-founding.png` and `cards/v-founding.png`, captured from the live /founding-collectors page by a one-off script (signed out). The episode capture hides `.fc-pass-no` so no pass number dates the video; the Shorts capture hides `.fc-lede` so captions sit on clean space. Episode now 20:03.
+- 2026-11-07 Shorts close cuts to the founding wall (`cards/v-founding-wall.png`, live page at 540x960 @2x, pass number and "your spot" chip hidden) on "That's ComixCatalog dot com".
 
 ## Waiting on Tony
 

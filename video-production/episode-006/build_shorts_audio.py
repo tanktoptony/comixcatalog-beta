@@ -52,7 +52,7 @@ def main():
     voice = limit(voice * 10 ** ((-13 - speech_rms_db(voice)) / 20))
     sf.write(OUT / "SHORTS_VOICE.wav", np.stack([voice, voice], 1), SR, subtype="PCM_16")
 
-    bed, _ = sf.read(OUT / "MUSIC_BED_FULL.wav", dtype="float32")
+    bed, _ = sf.read(OUT / "MUSIC_BED_DOUBLE_DRIFT.wav", dtype="float32")  # replaced Rollin at 5 on 2026-11-07 (Tony: too jazzy)
     bed = bed * 10 ** ((-27 - rms_db(bed)) / 20)
     music = np.zeros((len(voice), 2), np.float32)
     for p in plan:

@@ -7,6 +7,7 @@
 import words from "./shorts.words.js";
 import plan from "./shorts-plan.json" with { type: "json" };
 import { resolveAnchors } from "../shared/anchors.js";
+import ART from "./art.js";
 
 export const shortsWords = words.words;
 const c = (name) => `covers/${name}.jpg`;
@@ -18,43 +19,47 @@ const C = {
   s1: c("secret-wars-001-2015"), s2: c("secret-wars-002-2015"), s9: c("secret-wars-009-2015"),
 };
 const cover = (asset, extra = {}) => ({ type: "cover", asset, treatment: "slowPush", transitionIn: "cut", ...extra });
+// Portrait interior art (episode-006/art.js): vertical crops keep the subject.
+const art = (k, extra = {}) => cover(ART[k].asset, extra);
 const card = (k, extra = {}) => ({ type: "cover", asset: `cards/v-${k}.png`, treatment: "slowPush", transitionIn: "cut", ...extra });
 
 const CUES = [
   // Short 1 · not Iron Man with a cape
   ["Doctor Doom is not Iron Man with a cape", cover(C.iim1)],
   ["In 1989 Marvel put out Triumph and Torment", cover(C.tt, { title: "Triumph and Torment · 1989" })],
-  ["It opens with a contest", cover(C.tt, { treatment: "slowPull" })],
+  ["It opens with a contest", art("ttx")],
   ["And Doom gets one rule", cover(C.doom24)],
-  ["He does it And it comes down to two guys", cover(C.tt)],
+  ["He does it And it comes down to two guys", art("strangeBH")],
   ["Strange keeps the title", card("sorcery")],
   ["Strange is worried Doom's going to ask", cover(C.mgn27)],
   ["Doom says he doesn't need help with that", cover(C.owud1)],
-  ["What he wants is his mother's soul", cover(C.bod2)],
+  ["What he wants is his mother's soul", art("motherAT8")],
   ["So yeah he builds the armor", card("back")],
   ["He also nearly won the Sorcerer Supreme title", card("sorcery")],
-  ["And in 2024 he finally got the title", cover(C.bh5, { title: "Blood Hunt #5 · 2024" })],
+  ["And in 2024 he finally got the title", art("bhSorcerer", { title: "Blood Hunt #5 · 2024" })],
   ["He just never gave it back", cover(C.owud1, { treatment: "slowPull" })],
   ["The full Doom Power Profile is on the channel", card("front")],
   ["If you collect ComixCatalog is free to join", card("founding")],
+  ["That's ComixCatalog dot com", card("founding-wall")],
   // Short 2 · the Silver Surfer heist
-  ["Doctor Doom once stole the Silver Surfer's powers", cover(C.ff57)],
+  ["Doctor Doom once stole the Silver Surfer's powers", art("drainFF57")],
   ["Fantastic Four 57 1966", cover(C.ff57, { title: "Fantastic Four #57 · 1966", treatment: "slowPull" })],
   ["Doom invites the Surfer over to Latveria", cover(C.ff84)],
   ["Then in the lab he distracts him", cover(C.ff57)],
   ["and drains the Power Cosmic", card("cosmic")],
-  ["Takes the board too", cover(C.ff58)],
+  ["Takes the board too", art("ff58splash")],
   ["Next issue he flattens the Fantastic Four", cover(C.ff58, { treatment: "slowPull" })],
-  ["So how do you beat that", cover(C.ff59)],
+  ["So how do you beat that", art("ff59splash")],
   ["In issue 60 Reed sends a little flying wing", cover(C.ff60, { title: "Fantastic Four #60 · 1967" })],
   ["Flash Power gone", card("back")],
-  ["Reed didn't out-punch him", cover(C.ff60, { treatment: "slowPull" })],
+  ["Reed didn't out-punch him", art("ff60splash")],
   ["Fantastic Four 57 through 60", cover(C.ff57, { title: "Fantastic Four #57 to #60" })],
   ["If you collect ComixCatalog is free to join", card("founding")],
+  ["That's ComixCatalog dot com", card("founding-wall")],
   // Short 3 · why God Emperor Doom doesn't count
   ["When people say Doctor Doom beat the Beyonder", cover(C.sw11)],
   ["Here's Marvel's own power grid for Doom", card("back")],
-  ["That's Doom in his armor", cover(C.doom24)],
+  ["That's Doom in his armor", art("ohotmuFF")],
   ["Now 1984 The original Secret Wars", cover(C.sw1, { title: "Secret Wars · 1984" })],
   ["Doom builds a machine out of a villain named Klaw", cover(C.sw9)],
   ["Uses it to drain Galactus", cover(C.sw10)],
@@ -64,12 +69,13 @@ const CUES = [
   ["2015 Jonathan Hickman's Secret Wars", cover(C.s1, { title: "Secret Wars · 2015" })],
   ["Doom gets the power of the Beyonders", cover(C.s2)],
   ["God Emperor Doom", card("godemperor")],
-  ["And at the end he admits Reed would have done better", cover(C.s9)],
+  ["And at the end he admits Reed would have done better", art("sw9x")],
   ["Borrowed power Temporary every time", card("godemperor")],
   ["So on our card it's an overlay", card("back")],
-  ["Standard Doom is scary enough", cover(C.dd2019)],
+  ["Standard Doom is scary enough", art("ohotmu3")],
   ["Full Power Profile on the channel", card("front")],
   ["If you collect ComixCatalog is free to join", card("founding")],
+  ["That's ComixCatalog dot com", card("founding-wall")],
 ];
 
 const resolved = resolveAnchors(shortsWords, CUES.map(([p]) => p));

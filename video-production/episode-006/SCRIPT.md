@@ -106,7 +106,7 @@ If you want the whole origin in one place, read Books of Doom. Six issues from 2
 
 ## 04-the-armor.wav · A: the armor and the numbers
 
-Now the Doom on the card. Standard armor. No stolen cosmic power. Just Victor on a normal day.
+Now... the Doom on the card? Standard armor. No stolen cosmic power. Just Victor on a normal day.
 
 Marvel's profile lays out what the armor does. It's titanium. It has a personal force field. The gauntlets fire concussive blasts. And it flies.
 
@@ -130,7 +130,7 @@ Now, the obvious comparison is Iron Man. Genius, builds his own armor, flies aro
 
 And Marvel's profile says Doom refuses to accept Tony Stark as a genius.
 
-Different Tony. I assume he feels the same way about me.
+Different Tony. Though I'm sure he'd say the same about me.
 
 > SHOW: Infamous Iron Man #1 (2016) cover. Marvel.com profile line highlighted.
 
@@ -380,7 +380,7 @@ Bonus round. The 1984 Secret Wars, for Doom versus the Beyonder. And Emperor Doo
 
 > SHOW: All five fanned out, the two bonus covers smaller beside them.
 
-And if you're keeping track of which of these you've got, that's what ComixCatalog is for. Catalog your books, mark what you own, and see what you're still missing.
+And if you're keeping track of which of these you've got, that's what ComixCatalog is for. Catalog your books, mark what you own, and see what you're still missing. And when the marketplace opens to everyone in 2027, you'll be able to look for these issues for sale right there.
 
 > SHOW: ComixCatalog capture, Fantastic Four (1961) series page with owned issues marked. (Each feature named here gets checked on the live site before the read.)
 
@@ -394,9 +394,7 @@ He doesn't have one superpower. He has a whole collection of ways to ruin your d
 
 What's your favorite Doom moment? And who should get the next Power Profile? Tell me in the comments.
 
-If you collect, ComixCatalog is free to join, and the first hundred members get a lifetime membership. Link's in the description.
-
-If you want the next one, subscribe. I'm Tony. Catalog. Collect. Connect.
+And if you've been thinking about signing up, now's the time. As I'm recording this, the first hundred members still get a lifetime membership. Free. No card. Link's in the description. There's a new video every Sunday, so subscribe if you want the next one. I'm Tony. Catalog. Collect. Connect.
 
 > SHOW: Reverse card flip, back to front. The five essentials fan out. End-screen space for the last 15 s.
 

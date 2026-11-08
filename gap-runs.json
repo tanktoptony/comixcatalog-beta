@@ -693,13 +693,6 @@
     "series_gcd_id": 156136
   },
   {
-    "name": "Absolute Wonder Woman",
-    "publisher": "DC",
-    "year": 2024,
-    "volume_id": 160511,
-    "series_gcd_id": 216727
-  },
-  {
     "name": "Quantum and Woody",
     "publisher": "Valiant Entertainment",
     "year": 2020,
@@ -796,6 +789,13 @@
     "year": 2021,
     "volume_id": 139156,
     "series_gcd_id": 175906
+  },
+  {
+    "name": "Star Wars: Shadows of the Empire",
+    "publisher": "Dark Horse",
+    "year": 1996,
+    "volume_id": 118991,
+    "series_gcd_id": 17873
   },
   {
     "name": "Quantum Vibe",
@@ -1391,5 +1391,12 @@
     "year": 2015,
     "volume_id": 77940,
     "series_gcd_id": 84384
+  },
+  {
+    "name": "Marvel Action Hour, Featuring Iron Man",
+    "publisher": "Marvel",
+    "year": 1994,
+    "volume_id": 19681,
+    "series_gcd_id": 15877
   }
 ]

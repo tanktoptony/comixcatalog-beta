@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T05:02:08.561552+00:00",
-    "retry_after": "2026-11-09T05:02:08.561555+00:00",
+    "last_attempt_at": "2026-11-08T06:02:09.353555+00:00",
+    "retry_after": "2026-11-09T06:02:09.353559+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T05:02:08.561406+00:00",
-    "retry_after": "2026-11-09T05:02:08.561423+00:00",
+    "last_attempt_at": "2026-11-08T06:02:09.353412+00:00",
+    "retry_after": "2026-11-09T06:02:09.353427+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T05:02:08.561519+00:00",
-    "retry_after": "2026-11-09T05:02:08.561524+00:00",
+    "last_attempt_at": "2026-11-08T06:02:09.353523+00:00",
+    "retry_after": "2026-11-09T06:02:09.353526+00:00",
     "search_hydrated": true
   },
   {
@@ -80014,9 +80014,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T06:10:13.785443+00:00",
-    "retry_after": "2026-11-08T06:10:13.785459+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T06:11:23.298771+00:00",
+    "retry_after": "2026-11-22T06:11:23.298789+00:00",
     "search_hydrated": true
   },
   {
@@ -80025,9 +80025,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T06:10:13.785487+00:00",
-    "retry_after": "2026-11-08T06:10:13.785490+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T06:11:23.298814+00:00",
+    "retry_after": "2026-11-22T06:11:23.298818+00:00",
     "search_hydrated": true
   },
   {
@@ -80036,9 +80036,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T06:10:13.785504+00:00",
-    "retry_after": "2026-11-08T06:10:13.785506+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T06:11:23.298834+00:00",
+    "retry_after": "2026-11-22T06:11:23.298837+00:00",
     "search_hydrated": true
   },
   {
@@ -80047,9 +80047,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T06:10:13.785532+00:00",
-    "retry_after": "2026-11-08T06:10:13.785534+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T06:11:23.298866+00:00",
+    "retry_after": "2026-11-22T06:11:23.298868+00:00",
     "search_hydrated": true
   },
   {
@@ -80065,9 +80065,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T06:10:14.317257+00:00",
-    "retry_after": "2026-11-08T06:10:14.317271+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T06:11:24.611578+00:00",
+    "retry_after": "2026-11-22T06:11:24.611583+00:00",
     "search_hydrated": true
   },
   {
@@ -80076,9 +80076,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T06:10:13.785544+00:00",
-    "retry_after": "2026-11-08T06:10:13.785545+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T06:11:23.298881+00:00",
+    "retry_after": "2026-11-22T06:11:23.298884+00:00",
     "search_hydrated": true
   },
   {
@@ -80088,21 +80088,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 122480,
-        "name": "Joker: Killer Smile",
-        "publisher": "DC Comics",
-        "start_year": 2019
-      },
-      {
         "id": 130284,
         "name": "Joker: Killer Smile",
         "publisher": "DC Comics",
         "start_year": 2020
+      },
+      {
+        "id": 122480,
+        "name": "Joker: Killer Smile",
+        "publisher": "DC Comics",
+        "start_year": 2019
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T06:10:13.785579+00:00",
-    "retry_after": "2026-11-08T06:10:13.785581+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T06:11:23.298919+00:00",
+    "retry_after": "2026-11-22T06:11:23.298928+00:00",
     "search_hydrated": true
   },
   {
@@ -80111,9 +80111,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T06:10:13.785598+00:00",
-    "retry_after": "2026-11-08T06:10:13.785600+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T06:11:23.298953+00:00",
+    "retry_after": "2026-11-22T06:11:23.298956+00:00",
     "search_hydrated": true
   },
   {
@@ -80140,9 +80140,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T06:10:14.430954+00:00",
-    "retry_after": "2026-11-08T06:10:14.430971+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T06:11:24.728894+00:00",
+    "retry_after": "2026-11-22T06:11:24.728910+00:00",
     "search_hydrated": true
   },
   {
@@ -93245,6 +93245,57 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-08T05:12:03.318449+00:00",
     "retry_after": "2026-11-09T05:12:03.318453+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Astro City A Visitors Guide",
+    "publisher": "DC Comics",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-08T06:11:34.824548+00:00",
+    "retry_after": "2026-11-09T06:11:34.824564+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Red, White & Blue Comics [ashcan]",
+    "publisher": "DC Comics",
+    "year": 1941,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-08T06:11:34.824588+00:00",
+    "retry_after": "2026-11-09T06:11:34.824592+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Space Ghost Volume One: With Only Ghosts to Comfort Us [Trade Paperback]",
+    "publisher": "Dynamite Entertainment",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-08T06:11:34.824611+00:00",
+    "retry_after": "2026-11-09T06:11:34.824614+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Simpsorama",
+    "publisher": "Titan Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65122,
+        "name": "Simpsons Comics: Simpsorama",
+        "publisher": "HarperCollins",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-08T06:11:34.824647+00:00",
+    "retry_after": "2026-11-09T06:11:34.824650+00:00",
     "search_hydrated": true
   }
 ]

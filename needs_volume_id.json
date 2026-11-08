@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T18:01:58.818617+00:00",
-    "retry_after": "2026-11-09T18:01:58.818621+00:00",
+    "last_attempt_at": "2026-11-08T19:02:12.904210+00:00",
+    "retry_after": "2026-11-09T19:02:12.904216+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T18:01:58.818471+00:00",
-    "retry_after": "2026-11-09T18:01:58.818486+00:00",
+    "last_attempt_at": "2026-11-08T19:02:12.903974+00:00",
+    "retry_after": "2026-11-09T19:02:12.903996+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T18:01:58.818586+00:00",
-    "retry_after": "2026-11-09T18:01:58.818589+00:00",
+    "last_attempt_at": "2026-11-08T19:02:12.904155+00:00",
+    "retry_after": "2026-11-09T19:02:12.904162+00:00",
     "search_hydrated": true
   },
   {
@@ -81467,9 +81467,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T18:10:17.089314+00:00",
-    "retry_after": "2026-11-08T18:10:17.089317+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T19:11:08.738293+00:00",
+    "retry_after": "2026-11-22T19:11:08.738309+00:00",
     "search_hydrated": true
   },
   {
@@ -81478,9 +81478,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T18:10:17.089330+00:00",
-    "retry_after": "2026-11-08T18:10:17.089332+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T19:11:08.738330+00:00",
+    "retry_after": "2026-11-22T19:11:08.738334+00:00",
     "search_hydrated": true
   },
   {
@@ -81489,9 +81489,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T18:10:17.089342+00:00",
-    "retry_after": "2026-11-08T18:10:17.089344+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T19:11:08.738349+00:00",
+    "retry_after": "2026-11-22T19:11:08.738352+00:00",
     "search_hydrated": true
   },
   {
@@ -81536,9 +81536,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T18:10:17.089354+00:00",
-    "retry_after": "2026-11-08T18:10:17.089356+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T19:11:08.738365+00:00",
+    "retry_after": "2026-11-22T19:11:08.738368+00:00",
     "search_hydrated": true
   },
   {
@@ -81547,9 +81547,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T18:10:17.089365+00:00",
-    "retry_after": "2026-11-08T18:10:17.089366+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T19:11:08.738381+00:00",
+    "retry_after": "2026-11-22T19:11:08.738383+00:00",
     "search_hydrated": true
   },
   {
@@ -81576,9 +81576,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T18:10:17.938636+00:00",
-    "retry_after": "2026-11-08T18:10:17.938651+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T19:11:12.038608+00:00",
+    "retry_after": "2026-11-22T19:11:12.038620+00:00",
     "search_hydrated": true
   },
   {
@@ -81594,9 +81594,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T19:10:23.842204+00:00",
-    "retry_after": "2026-11-08T19:10:23.842216+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T19:11:12.264067+00:00",
+    "retry_after": "2026-11-22T19:11:12.264082+00:00",
     "search_hydrated": true
   },
   {
@@ -93316,6 +93316,78 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-08T18:11:29.475109+00:00",
     "retry_after": "2026-11-09T18:11:29.475124+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vuzz",
+    "publisher": "Titan Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85799,
+        "name": "Vuzz",
+        "publisher": "Dargaud",
+        "start_year": 1974
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-08T19:11:22.118168+00:00",
+    "retry_after": "2026-11-09T19:11:22.118184+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Extravaganza",
+    "publisher": "Titan Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64945,
+        "name": "Simpsons Comics Extravaganza",
+        "publisher": "HarperCollins",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-08T19:11:22.118216+00:00",
+    "retry_after": "2026-11-09T19:11:22.118221+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mouse Guard: Baldwin the Brave & Other Tales",
+    "publisher": "BOOM! Studios",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78073,
+        "name": "Mouse Guard: Baldwin the Brave & Other Tales",
+        "publisher": "Archaia",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-08T19:11:22.118244+00:00",
+    "retry_after": "2026-11-09T19:11:22.118247+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Simpsorama",
+    "publisher": "Titan Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65122,
+        "name": "Simpsons Comics: Simpsorama",
+        "publisher": "HarperCollins",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-08T19:11:22.118268+00:00",
+    "retry_after": "2026-11-09T19:11:22.118270+00:00",
     "search_hydrated": true
   }
 ]

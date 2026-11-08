@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T11:01:51.232272+00:00",
-    "retry_after": "2026-11-09T11:01:51.232274+00:00",
+    "last_attempt_at": "2026-11-08T11:44:13.103245+00:00",
+    "retry_after": "2026-11-09T11:44:13.103248+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T11:01:51.232161+00:00",
-    "retry_after": "2026-11-09T11:01:51.232176+00:00",
+    "last_attempt_at": "2026-11-08T11:44:13.103082+00:00",
+    "retry_after": "2026-11-09T11:44:13.103100+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T11:01:51.232249+00:00",
-    "retry_after": "2026-11-09T11:01:51.232252+00:00",
+    "last_attempt_at": "2026-11-08T11:44:13.103211+00:00",
+    "retry_after": "2026-11-09T11:44:13.103215+00:00",
     "search_hydrated": true
   },
   {
@@ -80658,9 +80658,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T11:10:17.039807+00:00",
-    "retry_after": "2026-11-08T11:10:17.039824+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T11:53:07.130475+00:00",
+    "retry_after": "2026-11-22T11:53:07.130492+00:00",
     "search_hydrated": true
   },
   {
@@ -80669,9 +80669,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T11:10:17.039845+00:00",
-    "retry_after": "2026-11-08T11:10:17.039849+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T11:53:07.130517+00:00",
+    "retry_after": "2026-11-22T11:53:07.130521+00:00",
     "search_hydrated": true
   },
   {
@@ -80687,9 +80687,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T11:10:18.277067+00:00",
-    "retry_after": "2026-11-08T11:10:18.277113+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T11:53:09.072473+00:00",
+    "retry_after": "2026-11-22T11:53:09.072489+00:00",
     "search_hydrated": true
   },
   {
@@ -80698,9 +80698,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T11:10:17.039891+00:00",
-    "retry_after": "2026-11-08T11:10:17.039893+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T11:53:07.130574+00:00",
+    "retry_after": "2026-11-22T11:53:07.130577+00:00",
     "search_hydrated": true
   },
   {
@@ -80722,9 +80722,9 @@
         "start_year": 2013
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T11:10:17.039934+00:00",
-    "retry_after": "2026-11-08T11:10:17.039936+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T11:53:07.130615+00:00",
+    "retry_after": "2026-11-22T11:53:07.130619+00:00",
     "search_hydrated": true
   },
   {
@@ -80733,9 +80733,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T11:10:17.039949+00:00",
-    "retry_after": "2026-11-08T11:10:17.039951+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T11:53:07.130636+00:00",
+    "retry_after": "2026-11-22T11:53:07.130639+00:00",
     "search_hydrated": true
   },
   {
@@ -80751,9 +80751,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T11:10:18.446363+00:00",
-    "retry_after": "2026-11-08T11:10:18.446381+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T11:53:09.412594+00:00",
+    "retry_after": "2026-11-22T11:53:09.412611+00:00",
     "search_hydrated": true
   },
   {
@@ -80769,9 +80769,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T11:10:18.552010+00:00",
-    "retry_after": "2026-11-08T11:10:18.552026+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T11:53:09.594380+00:00",
+    "retry_after": "2026-11-22T11:53:09.594396+00:00",
     "search_hydrated": true
   },
   {
@@ -92499,9 +92499,9 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-07T11:12:23.421399+00:00",
-    "retry_after": "2026-11-08T11:12:23.421402+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-08T11:53:20.679683+00:00",
+    "retry_after": "2026-11-11T11:53:20.679700+00:00",
     "search_hydrated": true
   },
   {
@@ -93347,6 +93347,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-08T11:10:46.087594+00:00",
     "retry_after": "2026-11-09T11:10:46.087611+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "A.B.C. Warriors: Return to Mars",
+    "publisher": "Rebellion",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-08T11:53:20.679739+00:00",
+    "retry_after": "2026-11-09T11:53:20.679743+00:00",
     "search_hydrated": true
   }
 ]

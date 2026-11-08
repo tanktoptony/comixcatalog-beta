@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T06:02:09.353555+00:00",
-    "retry_after": "2026-11-09T06:02:09.353559+00:00",
+    "last_attempt_at": "2026-11-08T07:02:14.285470+00:00",
+    "retry_after": "2026-11-09T07:02:14.285473+00:00",
     "search_hydrated": true
   },
   {
@@ -40024,9 +40024,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T06:10:33.873444+00:00",
-    "retry_after": "2026-11-08T06:10:33.873446+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T07:11:14.659530+00:00",
+    "retry_after": "2026-11-22T07:11:14.659533+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T06:02:09.353412+00:00",
-    "retry_after": "2026-11-09T06:02:09.353427+00:00",
+    "last_attempt_at": "2026-11-08T07:02:14.285325+00:00",
+    "retry_after": "2026-11-09T07:02:14.285339+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T06:02:09.353523+00:00",
-    "retry_after": "2026-11-09T06:02:09.353526+00:00",
+    "last_attempt_at": "2026-11-08T07:02:14.285438+00:00",
+    "retry_after": "2026-11-09T07:02:14.285441+00:00",
     "search_hydrated": true
   },
   {
@@ -80122,9 +80122,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T06:10:13.785608+00:00",
-    "retry_after": "2026-11-08T06:10:13.785610+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T07:11:14.659319+00:00",
+    "retry_after": "2026-11-22T07:11:14.659334+00:00",
     "search_hydrated": true
   },
   {
@@ -80162,9 +80162,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T06:10:33.873280+00:00",
-    "retry_after": "2026-11-08T06:10:33.873296+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T07:11:14.659357+00:00",
+    "retry_after": "2026-11-22T07:11:14.659361+00:00",
     "search_hydrated": true
   },
   {
@@ -80173,9 +80173,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T06:10:33.873356+00:00",
-    "retry_after": "2026-11-08T06:10:33.873358+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T07:11:14.659423+00:00",
+    "retry_after": "2026-11-22T07:11:14.659426+00:00",
     "search_hydrated": true
   },
   {
@@ -80191,9 +80191,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T06:10:35.447534+00:00",
-    "retry_after": "2026-11-08T06:10:35.447549+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T07:11:16.469946+00:00",
+    "retry_after": "2026-11-22T07:11:16.469951+00:00",
     "search_hydrated": true
   },
   {
@@ -80202,9 +80202,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T06:10:33.873369+00:00",
-    "retry_after": "2026-11-08T06:10:33.873371+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T07:11:14.659439+00:00",
+    "retry_after": "2026-11-22T07:11:14.659441+00:00",
     "search_hydrated": true
   },
   {
@@ -80224,9 +80224,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T06:10:33.873388+00:00",
-    "retry_after": "2026-11-08T06:10:33.873390+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T07:11:14.659464+00:00",
+    "retry_after": "2026-11-22T07:11:14.659467+00:00",
     "search_hydrated": true
   },
   {
@@ -80242,9 +80242,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T06:10:35.447597+00:00",
-    "retry_after": "2026-11-08T06:10:35.447600+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T07:11:16.470009+00:00",
+    "retry_after": "2026-11-22T07:11:16.470012+00:00",
     "search_hydrated": true
   },
   {
@@ -80260,9 +80260,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T06:10:35.591421+00:00",
-    "retry_after": "2026-11-08T06:10:35.591438+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T07:11:16.604506+00:00",
+    "retry_after": "2026-11-22T07:11:16.604520+00:00",
     "search_hydrated": true
   },
   {
@@ -93296,6 +93296,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-08T06:11:34.824647+00:00",
     "retry_after": "2026-11-09T06:11:34.824650+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deadpool #1 Facsimile Edition",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-08T07:11:26.892010+00:00",
+    "retry_after": "2026-11-09T07:11:26.892026+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Encoded: Splintered Souls",
+    "publisher": "First Comics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-08T07:11:26.892068+00:00",
+    "retry_after": "2026-11-09T07:11:26.892092+00:00",
     "search_hydrated": true
   }
 ]

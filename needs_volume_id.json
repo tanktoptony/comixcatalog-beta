@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T14:02:04.282867+00:00",
-    "retry_after": "2026-11-09T14:02:04.282870+00:00",
+    "last_attempt_at": "2026-11-08T15:02:17.436125+00:00",
+    "retry_after": "2026-11-09T15:02:17.436127+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T14:02:04.282723+00:00",
-    "retry_after": "2026-11-09T14:02:04.282739+00:00",
+    "last_attempt_at": "2026-11-08T15:02:17.435986+00:00",
+    "retry_after": "2026-11-09T15:02:17.436001+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T14:02:04.282834+00:00",
-    "retry_after": "2026-11-09T14:02:04.282838+00:00",
+    "last_attempt_at": "2026-11-08T15:02:17.436094+00:00",
+    "retry_after": "2026-11-09T15:02:17.436098+00:00",
     "search_hydrated": true
   },
   {
@@ -80993,9 +80993,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T15:10:31.214302+00:00",
-    "retry_after": "2026-11-08T15:10:31.214307+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T15:11:11.493997+00:00",
+    "retry_after": "2026-11-22T15:11:11.494012+00:00",
     "search_hydrated": true
   },
   {
@@ -81004,9 +81004,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T15:10:31.214325+00:00",
-    "retry_after": "2026-11-08T15:10:31.214327+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T15:11:11.494034+00:00",
+    "retry_after": "2026-11-22T15:11:11.494038+00:00",
     "search_hydrated": true
   },
   {
@@ -81015,9 +81015,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T15:10:31.214341+00:00",
-    "retry_after": "2026-11-08T15:10:31.214344+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T15:11:11.494053+00:00",
+    "retry_after": "2026-11-22T15:11:11.494056+00:00",
     "search_hydrated": true
   },
   {
@@ -81026,9 +81026,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T15:10:31.214375+00:00",
-    "retry_after": "2026-11-08T15:10:31.214396+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T15:11:11.494084+00:00",
+    "retry_after": "2026-11-22T15:11:11.494087+00:00",
     "search_hydrated": true
   },
   {
@@ -81044,9 +81044,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T15:10:31.706154+00:00",
-    "retry_after": "2026-11-08T15:10:31.706166+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T15:11:13.920470+00:00",
+    "retry_after": "2026-11-22T15:11:13.920474+00:00",
     "search_hydrated": true
   },
   {
@@ -81055,9 +81055,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T15:10:31.214417+00:00",
-    "retry_after": "2026-11-08T15:10:31.214420+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T15:11:11.494102+00:00",
+    "retry_after": "2026-11-22T15:11:11.494104+00:00",
     "search_hydrated": true
   },
   {
@@ -81066,9 +81066,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T15:10:31.214434+00:00",
-    "retry_after": "2026-11-08T15:10:31.214437+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T15:11:11.494118+00:00",
+    "retry_after": "2026-11-22T15:11:11.494120+00:00",
     "search_hydrated": true
   },
   {
@@ -81084,9 +81084,9 @@
         "start_year": 2000
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T15:10:31.706242+00:00",
-    "retry_after": "2026-11-08T15:10:31.706245+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T15:11:13.920751+00:00",
+    "retry_after": "2026-11-22T15:11:13.920756+00:00",
     "search_hydrated": true
   },
   {
@@ -93402,6 +93402,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-08T14:11:15.387363+00:00",
     "retry_after": "2026-11-09T14:11:15.387366+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Salome's Last Dance",
+    "publisher": "Fantagraphics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-08T15:11:23.924869+00:00",
+    "retry_after": "2026-11-09T15:11:23.924884+00:00",
     "search_hydrated": true
   }
 ]

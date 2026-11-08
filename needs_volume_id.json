@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T23:28:19.334300+00:00",
-    "retry_after": "2026-11-08T23:28:19.334303+00:00",
+    "last_attempt_at": "2026-11-08T00:02:01.440837+00:00",
+    "retry_after": "2026-11-09T00:02:01.440839+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T23:28:19.334149+00:00",
-    "retry_after": "2026-11-08T23:28:19.334164+00:00",
+    "last_attempt_at": "2026-11-08T00:02:01.440721+00:00",
+    "retry_after": "2026-11-09T00:02:01.440738+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-07T23:28:19.334266+00:00",
-    "retry_after": "2026-11-08T23:28:19.334270+00:00",
+    "last_attempt_at": "2026-11-08T00:02:01.440814+00:00",
+    "retry_after": "2026-11-09T00:02:01.440817+00:00",
     "search_hydrated": true
   },
   {
@@ -79167,9 +79167,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T00:01:46.335317+00:00",
-    "retry_after": "2026-11-08T00:01:46.335319+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T00:02:01.440852+00:00",
+    "retry_after": "2026-11-22T00:02:01.440854+00:00",
     "search_hydrated": true
   },
   {
@@ -79178,9 +79178,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T00:05:10.941137+00:00",
-    "retry_after": "2026-11-08T00:05:10.941156+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T00:11:45.021186+00:00",
+    "retry_after": "2026-11-22T00:11:45.021202+00:00",
     "search_hydrated": true
   },
   {
@@ -79189,9 +79189,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T00:05:10.941217+00:00",
-    "retry_after": "2026-11-08T00:05:10.941219+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T00:11:45.021240+00:00",
+    "retry_after": "2026-11-22T00:11:45.021243+00:00",
     "search_hydrated": true
   },
   {
@@ -79200,9 +79200,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T00:05:10.941264+00:00",
-    "retry_after": "2026-11-08T00:05:10.941266+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T00:11:45.021288+00:00",
+    "retry_after": "2026-11-22T00:11:45.021290+00:00",
     "search_hydrated": true
   },
   {
@@ -79224,9 +79224,9 @@
         "start_year": 1989
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T00:05:10.941300+00:00",
-    "retry_after": "2026-11-08T00:05:10.941302+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T00:11:45.021324+00:00",
+    "retry_after": "2026-11-22T00:11:45.021326+00:00",
     "search_hydrated": true
   },
   {
@@ -79242,9 +79242,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T00:05:11.705147+00:00",
-    "retry_after": "2026-11-08T00:05:11.705166+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T00:11:47.296539+00:00",
+    "retry_after": "2026-11-22T00:11:47.296555+00:00",
     "search_hydrated": true
   },
   {
@@ -79260,9 +79260,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T00:05:11.972016+00:00",
-    "retry_after": "2026-11-08T00:05:11.972035+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T00:11:47.624579+00:00",
+    "retry_after": "2026-11-22T00:11:47.624594+00:00",
     "search_hydrated": true
   },
   {
@@ -79278,9 +79278,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T00:05:12.274702+00:00",
-    "retry_after": "2026-11-08T00:05:12.274724+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T00:11:47.923098+00:00",
+    "retry_after": "2026-11-22T00:11:47.923114+00:00",
     "search_hydrated": true
   },
   {
@@ -79290,21 +79290,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 103222,
-        "name": "Black Panther: A Nation Under Our Feet",
-        "publisher": "Marvel",
-        "start_year": 2017
-      },
-      {
         "id": 93649,
         "name": "Black Panther: A Nation Under Our Feet",
         "publisher": "Marvel",
         "start_year": 2016
+      },
+      {
+        "id": 103222,
+        "name": "Black Panther: A Nation Under Our Feet",
+        "publisher": "Marvel",
+        "start_year": 2017
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T00:05:10.941340+00:00",
-    "retry_after": "2026-11-08T00:05:10.941341+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T00:11:45.021367+00:00",
+    "retry_after": "2026-11-22T00:11:45.021369+00:00",
     "search_hydrated": true
   },
   {

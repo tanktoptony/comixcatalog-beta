@@ -25099,9 +25099,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T10:09:55.089879+00:00",
-    "retry_after": "2026-11-08T10:09:55.089881+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T12:10:19.299132+00:00",
+    "retry_after": "2026-11-22T12:10:19.299149+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T11:44:13.103245+00:00",
-    "retry_after": "2026-11-09T11:44:13.103248+00:00",
+    "last_attempt_at": "2026-11-08T12:01:37.206548+00:00",
+    "retry_after": "2026-11-09T12:01:37.206549+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T11:44:13.103082+00:00",
-    "retry_after": "2026-11-09T11:44:13.103100+00:00",
+    "last_attempt_at": "2026-11-08T12:01:37.206445+00:00",
+    "retry_after": "2026-11-09T12:01:37.206463+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T11:44:13.103211+00:00",
-    "retry_after": "2026-11-09T11:44:13.103215+00:00",
+    "last_attempt_at": "2026-11-08T12:01:37.206528+00:00",
+    "retry_after": "2026-11-09T12:01:37.206530+00:00",
     "search_hydrated": true
   },
   {
@@ -89334,9 +89334,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T14:17:58.201278+00:00",
-    "retry_after": "2026-11-06T14:17:58.201298+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-08T12:10:19.299165+00:00",
+    "retry_after": "2026-11-15T12:10:19.299168+00:00",
     "search_hydrated": true
   },
   {
@@ -89363,9 +89363,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T14:17:58.201334+00:00",
-    "retry_after": "2026-11-06T14:17:58.201338+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-08T12:10:19.299185+00:00",
+    "retry_after": "2026-11-15T12:10:19.299187+00:00",
     "search_hydrated": true
   },
   {
@@ -89374,9 +89374,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T14:17:58.201353+00:00",
-    "retry_after": "2026-11-06T14:17:58.201355+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-08T12:10:19.299193+00:00",
+    "retry_after": "2026-11-15T12:10:19.299195+00:00",
     "search_hydrated": true
   },
   {
@@ -93358,6 +93358,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-08T11:53:20.679739+00:00",
     "retry_after": "2026-11-09T11:53:20.679743+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Grimm Fairy Tales 2011 Halloween Special",
+    "publisher": "Zenescope Entertainment",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-08T12:10:32.335446+00:00",
+    "retry_after": "2026-11-09T12:10:32.335465+00:00",
     "search_hydrated": true
   }
 ]

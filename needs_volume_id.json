@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T08:01:59.003392+00:00",
-    "retry_after": "2026-11-09T08:01:59.003393+00:00",
+    "last_attempt_at": "2026-11-08T09:02:48.901291+00:00",
+    "retry_after": "2026-11-09T09:02:48.901293+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T08:01:59.003274+00:00",
-    "retry_after": "2026-11-09T08:01:59.003290+00:00",
+    "last_attempt_at": "2026-11-08T09:02:48.901176+00:00",
+    "retry_after": "2026-11-09T09:02:48.901192+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T08:01:59.003368+00:00",
-    "retry_after": "2026-11-09T08:01:59.003371+00:00",
+    "last_attempt_at": "2026-11-08T09:02:48.901267+00:00",
+    "retry_after": "2026-11-09T09:02:48.901270+00:00",
     "search_hydrated": true
   },
   {
@@ -80404,9 +80404,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T07:10:09.483201+00:00",
-    "retry_after": "2026-11-08T07:10:09.483203+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T09:11:28.479099+00:00",
+    "retry_after": "2026-11-22T09:11:28.479115+00:00",
     "search_hydrated": true
   },
   {
@@ -80426,9 +80426,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T07:10:09.483212+00:00",
-    "retry_after": "2026-11-08T07:10:09.483214+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T09:11:28.479134+00:00",
+    "retry_after": "2026-11-22T09:11:28.479137+00:00",
     "search_hydrated": true
   },
   {
@@ -80437,9 +80437,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T07:10:09.483226+00:00",
-    "retry_after": "2026-11-08T07:10:09.483228+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T09:11:28.479153+00:00",
+    "retry_after": "2026-11-22T09:11:28.479155+00:00",
     "search_hydrated": true
   },
   {
@@ -80448,9 +80448,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T08:10:09.806907+00:00",
-    "retry_after": "2026-11-08T08:10:09.806925+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T09:11:28.479166+00:00",
+    "retry_after": "2026-11-22T09:11:28.479167+00:00",
     "search_hydrated": true
   },
   {
@@ -80459,9 +80459,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T07:10:31.546401+00:00",
-    "retry_after": "2026-11-08T07:10:31.546417+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T09:11:28.479190+00:00",
+    "retry_after": "2026-11-22T09:11:28.479192+00:00",
     "search_hydrated": true
   },
   {
@@ -80477,9 +80477,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T08:10:12.042014+00:00",
-    "retry_after": "2026-11-08T08:10:12.042031+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T09:11:29.960676+00:00",
+    "retry_after": "2026-11-22T09:11:29.960688+00:00",
     "search_hydrated": true
   },
   {
@@ -80530,9 +80530,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T09:10:03.501739+00:00",
-    "retry_after": "2026-11-08T09:10:03.501755+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T09:11:28.479201+00:00",
+    "retry_after": "2026-11-22T09:11:28.479203+00:00",
     "search_hydrated": true
   },
   {
@@ -80542,21 +80542,21 @@
     "reason": "multiple_near_year_tied",
     "candidates": [
       {
-        "id": 153615,
-        "name": "Sins of Sinister ",
-        "publisher": "Marvel",
-        "start_year": 2023
-      },
-      {
         "id": 147646,
         "name": "Sins of Sinister",
         "publisher": "Marvel",
         "start_year": 2023
+      },
+      {
+        "id": 153615,
+        "name": "Sins of Sinister ",
+        "publisher": "Marvel",
+        "start_year": 2023
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T09:10:03.501825+00:00",
-    "retry_after": "2026-11-08T09:10:03.501830+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T09:11:28.479229+00:00",
+    "retry_after": "2026-11-22T09:11:28.479231+00:00",
     "search_hydrated": true
   },
   {
@@ -80572,9 +80572,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T09:10:03.658736+00:00",
-    "retry_after": "2026-11-08T09:10:03.658751+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T09:11:30.031746+00:00",
+    "retry_after": "2026-11-22T09:11:30.031759+00:00",
     "search_hydrated": true
   },
   {
@@ -93318,6 +93318,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-08T07:11:26.892068+00:00",
     "retry_after": "2026-11-09T07:11:26.892092+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gli Albi dei Super-Eroi",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34647,
+        "name": "Gli Albi dei Super-Eroi",
+        "publisher": "Editoriale Corno",
+        "start_year": 1973
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-08T09:11:40.430149+00:00",
+    "retry_after": "2026-11-09T09:11:40.430164+00:00",
     "search_hydrated": true
   }
 ]

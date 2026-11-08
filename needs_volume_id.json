@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T17:41:08.612454+00:00",
-    "retry_after": "2026-11-09T17:41:08.612456+00:00",
+    "last_attempt_at": "2026-11-08T18:01:58.818617+00:00",
+    "retry_after": "2026-11-09T18:01:58.818621+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T17:41:08.612130+00:00",
-    "retry_after": "2026-11-09T17:41:08.612225+00:00",
+    "last_attempt_at": "2026-11-08T18:01:58.818471+00:00",
+    "retry_after": "2026-11-09T18:01:58.818486+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-08T17:41:08.612414+00:00",
-    "retry_after": "2026-11-09T17:41:08.612419+00:00",
+    "last_attempt_at": "2026-11-08T18:01:58.818586+00:00",
+    "retry_after": "2026-11-09T18:01:58.818589+00:00",
     "search_hydrated": true
   },
   {
@@ -81281,9 +81281,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T17:10:52.216282+00:00",
-    "retry_after": "2026-11-08T17:10:52.216285+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T18:11:13.541078+00:00",
+    "retry_after": "2026-11-22T18:11:13.541094+00:00",
     "search_hydrated": true
   },
   {
@@ -81292,9 +81292,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T17:10:52.216320+00:00",
-    "retry_after": "2026-11-08T17:10:52.216323+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T18:11:13.541142+00:00",
+    "retry_after": "2026-11-22T18:11:13.541146+00:00",
     "search_hydrated": true
   },
   {
@@ -81364,9 +81364,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T17:10:53.553768+00:00",
-    "retry_after": "2026-11-08T17:10:53.553784+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T18:11:15.127574+00:00",
+    "retry_after": "2026-11-22T18:11:15.127589+00:00",
     "search_hydrated": true
   },
   {
@@ -81376,21 +81376,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 129774,
+        "id": 131983,
         "name": "Batman: Three Jokers",
         "publisher": "DC Comics",
         "start_year": 2020
       },
       {
-        "id": 131983,
+        "id": 129774,
         "name": "Batman: Three Jokers",
         "publisher": "DC Comics",
         "start_year": 2020
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T17:11:01.044860+00:00",
-    "retry_after": "2026-11-08T17:11:01.044872+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T18:11:13.541182+00:00",
+    "retry_after": "2026-11-22T18:11:13.541186+00:00",
     "search_hydrated": true
   },
   {
@@ -81399,9 +81399,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T17:11:01.044929+00:00",
-    "retry_after": "2026-11-08T17:11:01.044934+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T18:11:13.541202+00:00",
+    "retry_after": "2026-11-22T18:11:13.541205+00:00",
     "search_hydrated": true
   },
   {
@@ -81423,9 +81423,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T17:11:01.044985+00:00",
-    "retry_after": "2026-11-08T17:11:01.044988+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T18:11:13.541250+00:00",
+    "retry_after": "2026-11-22T18:11:13.541253+00:00",
     "search_hydrated": true
   },
   {
@@ -81445,9 +81445,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T17:11:01.045005+00:00",
-    "retry_after": "2026-11-08T17:11:01.045008+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T18:11:13.541268+00:00",
+    "retry_after": "2026-11-22T18:11:13.541271+00:00",
     "search_hydrated": true
   },
   {
@@ -81456,9 +81456,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-01T18:10:17.089273+00:00",
-    "retry_after": "2026-11-08T18:10:17.089290+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-08T18:11:13.541283+00:00",
+    "retry_after": "2026-11-22T18:11:13.541285+00:00",
     "search_hydrated": true
   },
   {
@@ -93226,6 +93226,96 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-08T17:50:27.002315+00:00",
     "retry_after": "2026-11-09T17:50:27.002318+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I'm Still Alive",
+    "publisher": "BOOM! Studios",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 147126,
+        "name": "I'm Still Alive",
+        "publisher": "Archaia",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-08T18:11:24.960969+00:00",
+    "retry_after": "2026-11-09T18:11:24.960985+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Boo and the Midnight Monsters",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 122409,
+        "name": "Johnny Boo and the Midnight Monsters",
+        "publisher": "Top Shelf",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-08T18:11:24.961018+00:00",
+    "retry_after": "2026-11-09T18:11:24.961022+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Meltdown",
+    "publisher": "Titan Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161288,
+        "name": "Simpsons Comics Meltdown",
+        "publisher": "HarperCollins",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-08T18:11:24.961046+00:00",
+    "retry_after": "2026-11-09T18:11:24.961049+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Death",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40889,
+        "name": "Death",
+        "publisher": "Panini Verlag",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-08T18:11:24.961070+00:00",
+    "retry_after": "2026-11-09T18:11:24.961073+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Phil Corrigan Secret Agent X9",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161990,
+        "name": "Phil Corrigan Secret Agent X9 ",
+        "publisher": "Atlas Publications Pty. Ltd.",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-08T18:11:29.475109+00:00",
+    "retry_after": "2026-11-09T18:11:29.475124+00:00",
     "search_hydrated": true
   }
 ]

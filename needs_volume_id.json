@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T01:02:02.016164+00:00",
-    "retry_after": "2026-11-10T01:02:02.016166+00:00",
+    "last_attempt_at": "2026-11-09T01:28:14.716774+00:00",
+    "retry_after": "2026-11-10T01:28:14.716776+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T01:02:02.016026+00:00",
-    "retry_after": "2026-11-10T01:02:02.016044+00:00",
+    "last_attempt_at": "2026-11-09T01:28:14.716642+00:00",
+    "retry_after": "2026-11-10T01:28:14.716658+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T01:02:02.016134+00:00",
-    "retry_after": "2026-11-10T01:02:02.016138+00:00",
+    "last_attempt_at": "2026-11-09T01:28:14.716749+00:00",
+    "retry_after": "2026-11-10T01:28:14.716752+00:00",
     "search_hydrated": true
   },
   {
@@ -52036,9 +52036,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T01:11:43.606476+00:00",
-    "retry_after": "2026-11-09T01:11:43.606478+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T01:36:56.683808+00:00",
+    "retry_after": "2026-11-23T01:36:56.683810+00:00",
     "search_hydrated": true
   },
   {
@@ -81950,9 +81950,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T00:11:09.481365+00:00",
-    "retry_after": "2026-11-09T00:11:09.481367+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T01:36:56.683737+00:00",
+    "retry_after": "2026-11-23T01:36:56.683754+00:00",
     "search_hydrated": true
   },
   {
@@ -81979,9 +81979,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T00:11:36.303704+00:00",
-    "retry_after": "2026-11-09T00:11:36.303722+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T01:36:58.193532+00:00",
+    "retry_after": "2026-11-23T01:36:58.193534+00:00",
     "search_hydrated": true
   },
   {
@@ -81990,9 +81990,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T00:11:31.987700+00:00",
-    "retry_after": "2026-11-09T00:11:31.987718+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T01:36:56.683791+00:00",
+    "retry_after": "2026-11-23T01:36:56.683794+00:00",
     "search_hydrated": true
   },
   {
@@ -82008,9 +82008,9 @@
         "start_year": 2026
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T00:11:36.303780+00:00",
-    "retry_after": "2026-11-09T00:11:36.303783+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T01:36:58.193560+00:00",
+    "retry_after": "2026-11-23T01:36:58.193562+00:00",
     "search_hydrated": true
   },
   {
@@ -92622,9 +92622,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-08T01:11:45.163383+00:00",
-    "retry_after": "2026-11-09T01:11:45.163401+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-09T01:37:12.787354+00:00",
+    "retry_after": "2026-11-12T01:37:12.787371+00:00",
     "search_hydrated": true
   },
   {
@@ -93483,6 +93483,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-09T01:11:09.074130+00:00",
     "retry_after": "2026-11-10T01:11:09.074133+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Teenage Mutant Ninja Turtles: Best of Old Hob",
+    "publisher": "IDW Publishing",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T01:37:12.787391+00:00",
+    "retry_after": "2026-11-10T01:37:12.787394+00:00",
     "search_hydrated": true
   }
 ]

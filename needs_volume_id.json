@@ -12910,9 +12910,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T05:10:37.644952+00:00",
-    "retry_after": "2026-11-09T05:10:37.644954+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T06:10:41.311066+00:00",
+    "retry_after": "2026-11-23T06:10:41.311068+00:00",
     "search_hydrated": true
   },
   {
@@ -18966,9 +18966,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T05:10:09.549328+00:00",
-    "retry_after": "2026-11-09T05:10:09.549329+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T06:10:41.311043+00:00",
+    "retry_after": "2026-11-23T06:10:41.311045+00:00",
     "search_hydrated": true
   },
   {
@@ -19622,9 +19622,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T05:10:09.549317+00:00",
-    "retry_after": "2026-11-09T05:10:09.549318+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T06:10:41.311032+00:00",
+    "retry_after": "2026-11-23T06:10:41.311034+00:00",
     "search_hydrated": true
   },
   {
@@ -25334,9 +25334,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T04:10:18.615533+00:00",
-    "retry_after": "2026-11-09T04:10:18.615534+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T06:10:41.310978+00:00",
+    "retry_after": "2026-11-23T06:10:41.310998+00:00",
     "search_hydrated": true
   },
   {
@@ -25640,9 +25640,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T05:10:38.865998+00:00",
-    "retry_after": "2026-11-09T05:10:38.866016+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T06:10:44.964215+00:00",
+    "retry_after": "2026-11-23T06:10:44.964237+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T05:02:05.481091+00:00",
-    "retry_after": "2026-11-10T05:02:05.481093+00:00",
+    "last_attempt_at": "2026-11-09T06:02:03.268038+00:00",
+    "retry_after": "2026-11-10T06:02:03.268040+00:00",
     "search_hydrated": true
   },
   {
@@ -39076,9 +39076,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T04:10:18.615542+00:00",
-    "retry_after": "2026-11-09T04:10:18.615543+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T06:10:41.311017+00:00",
+    "retry_after": "2026-11-23T06:10:41.311020+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T05:02:05.480959+00:00",
-    "retry_after": "2026-11-10T05:02:05.480977+00:00",
+    "last_attempt_at": "2026-11-09T06:02:03.267924+00:00",
+    "retry_after": "2026-11-10T06:02:03.267942+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T05:02:05.481064+00:00",
-    "retry_after": "2026-11-10T05:02:05.481067+00:00",
+    "last_attempt_at": "2026-11-09T06:02:03.268014+00:00",
+    "retry_after": "2026-11-10T06:02:03.268018+00:00",
     "search_hydrated": true
   },
   {
@@ -92666,9 +92666,9 @@
     "year": 1950,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-08T05:12:03.318449+00:00",
-    "retry_after": "2026-11-09T05:12:03.318453+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-09T06:10:56.384288+00:00",
+    "retry_after": "2026-11-12T06:10:56.384309+00:00",
     "search_hydrated": true
   },
   {
@@ -93527,6 +93527,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-09T04:12:13.188969+00:00",
     "retry_after": "2026-11-10T04:12:13.188987+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Boo and the Pumpkin Tiger",
+    "publisher": "IDW Publishing",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T06:10:56.384330+00:00",
+    "retry_after": "2026-11-10T06:10:56.384333+00:00",
     "search_hydrated": true
   }
 ]

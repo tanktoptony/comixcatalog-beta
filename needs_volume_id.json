@@ -16341,9 +16341,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T04:09:53.010281+00:00",
-    "retry_after": "2026-11-09T04:09:53.010282+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T04:12:00.417635+00:00",
+    "retry_after": "2026-11-23T04:12:00.417638+00:00",
     "search_hydrated": true
   },
   {
@@ -19340,9 +19340,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T04:09:53.010291+00:00",
-    "retry_after": "2026-11-09T04:09:53.010292+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T04:12:00.417649+00:00",
+    "retry_after": "2026-11-23T04:12:00.417651+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T03:01:56.206458+00:00",
-    "retry_after": "2026-11-10T03:01:56.206460+00:00",
+    "last_attempt_at": "2026-11-09T04:02:03.127170+00:00",
+    "retry_after": "2026-11-10T04:02:03.127173+00:00",
     "search_hydrated": true
   },
   {
@@ -39098,9 +39098,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T04:09:53.010241+00:00",
-    "retry_after": "2026-11-09T04:09:53.010243+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T04:12:00.417624+00:00",
+    "retry_after": "2026-11-23T04:12:00.417626+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T03:01:56.206316+00:00",
-    "retry_after": "2026-11-10T03:01:56.206331+00:00",
+    "last_attempt_at": "2026-11-09T04:02:03.127036+00:00",
+    "retry_after": "2026-11-10T04:02:03.127055+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T03:01:56.206425+00:00",
-    "retry_after": "2026-11-10T03:01:56.206429+00:00",
+    "last_attempt_at": "2026-11-09T04:02:03.127144+00:00",
+    "retry_after": "2026-11-10T04:02:03.127147+00:00",
     "search_hydrated": true
   },
   {
@@ -82130,9 +82130,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T03:18:00.466011+00:00",
-    "retry_after": "2026-11-09T03:18:00.466024+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T04:12:00.417495+00:00",
+    "retry_after": "2026-11-23T04:12:00.417535+00:00",
     "search_hydrated": true
   },
   {
@@ -82141,9 +82141,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T03:18:00.466053+00:00",
-    "retry_after": "2026-11-09T03:18:00.466057+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T04:12:00.417560+00:00",
+    "retry_after": "2026-11-23T04:12:00.417563+00:00",
     "search_hydrated": true
   },
   {
@@ -82152,9 +82152,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T03:18:00.466109+00:00",
-    "retry_after": "2026-11-09T03:18:00.466112+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T04:12:00.417600+00:00",
+    "retry_after": "2026-11-23T04:12:00.417603+00:00",
     "search_hydrated": true
   },
   {
@@ -82170,9 +82170,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T03:18:01.547646+00:00",
-    "retry_after": "2026-11-09T03:18:01.547656+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T04:12:02.772373+00:00",
+    "retry_after": "2026-11-23T04:12:02.772392+00:00",
     "search_hydrated": true
   },
   {
@@ -93516,6 +93516,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-09T02:11:36.369842+00:00",
     "retry_after": "2026-11-10T02:11:36.369846+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Fairy Tale Team-Up: Robyn Hood & Belle The Beast Hunter",
+    "publisher": "Zenescope Entertainment",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T04:12:13.188969+00:00",
+    "retry_after": "2026-11-10T04:12:13.188987+00:00",
     "search_hydrated": true
   }
 ]

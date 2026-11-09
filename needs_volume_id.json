@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T08:02:07.619804+00:00",
-    "retry_after": "2026-11-10T08:02:07.619806+00:00",
+    "last_attempt_at": "2026-11-09T09:02:05.299677+00:00",
+    "retry_after": "2026-11-10T09:02:05.299680+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T08:02:07.619693+00:00",
-    "retry_after": "2026-11-10T08:02:07.619709+00:00",
+    "last_attempt_at": "2026-11-09T09:02:05.299536+00:00",
+    "retry_after": "2026-11-10T09:02:05.299551+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T08:02:07.619782+00:00",
-    "retry_after": "2026-11-10T08:02:07.619784+00:00",
+    "last_attempt_at": "2026-11-09T09:02:05.299645+00:00",
+    "retry_after": "2026-11-10T09:02:05.299649+00:00",
     "search_hydrated": true
   },
   {
@@ -82456,9 +82456,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T08:17:48.754998+00:00",
-    "retry_after": "2026-11-09T08:17:48.755000+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T09:11:14.404198+00:00",
+    "retry_after": "2026-11-23T09:11:14.404202+00:00",
     "search_hydrated": true
   },
   {
@@ -82467,9 +82467,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T08:17:47.828517+00:00",
-    "retry_after": "2026-11-09T08:17:47.828535+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T09:11:12.686120+00:00",
+    "retry_after": "2026-11-23T09:11:12.686135+00:00",
     "search_hydrated": true
   },
   {
@@ -82478,9 +82478,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T08:17:47.828550+00:00",
-    "retry_after": "2026-11-09T08:17:47.828552+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T09:11:12.686162+00:00",
+    "retry_after": "2026-11-23T09:11:12.686168+00:00",
     "search_hydrated": true
   },
   {
@@ -82500,9 +82500,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T08:17:47.828563+00:00",
-    "retry_after": "2026-11-09T08:17:47.828564+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T09:11:12.686185+00:00",
+    "retry_after": "2026-11-23T09:11:12.686188+00:00",
     "search_hydrated": true
   },
   {
@@ -82511,9 +82511,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T08:17:47.828573+00:00",
-    "retry_after": "2026-11-09T08:17:47.828574+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T09:11:12.686201+00:00",
+    "retry_after": "2026-11-23T09:11:12.686204+00:00",
     "search_hydrated": true
   },
   {
@@ -93549,6 +93549,59 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-09T08:11:10.842716+00:00",
     "retry_after": "2026-11-10T08:11:10.842718+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Disney • Pixar Turning Red: 4★Town 4 ★ Real",
+    "publisher": "VIZ Media",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T09:11:25.318869+00:00",
+    "retry_after": "2026-11-10T09:11:25.318884+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: The Death of Clark Kent",
+    "publisher": "Titan Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 31905,
+        "name": "Superman: The Death of Clark Kent",
+        "publisher": "DC Comics",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T09:11:25.318927+00:00",
+    "retry_after": "2026-11-10T09:11:25.318931+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Striker",
+    "publisher": "VIZ Media",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37620,
+        "name": "Striker",
+        "publisher": "Striker 3D",
+        "start_year": 2003
+      },
+      {
+        "id": 129364,
+        "name": "Striker",
+        "publisher": "City Magazines Ltd",
+        "start_year": 1970
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T09:11:25.318966+00:00",
+    "retry_after": "2026-11-10T09:11:25.318970+00:00",
     "search_hydrated": true
   }
 ]

@@ -48,9 +48,41 @@ test("JSON-LD with quotes and a closing script sequence is escaped by safeJsonLd
   assert.deepEqual(JSON.parse(serialized), jsonLd);
 });
 
-test("no credits preserves the existing metadata and JSON-LD shape", () => {
-  assert.equal(buildIssueDescription(baseIssue), "Wolverine / Punisher: Revelation #1, published by Marvel Comics in 1999. Cover, release date and story details, plus copies for sale from collectors.");
+test("no credits names only the cover and keeps the JSON-LD shape", () => {
+  assert.equal(buildIssueDescription(baseIssue), "Wolverine / Punisher: Revelation #1, published by Marvel Comics in 1999. Cover on ComixCatalog.");
   assert.equal(buildIssueJsonLd(baseIssue, "gcd-1").author, undefined);
+});
+
+test("description claims no cover or copies for sale the page doesn't have", () => {
+  const description = buildIssueDescription({ ...baseIssue, cover: null, market: { listings_count: 0 } });
+  assert.doesNotMatch(description, /cover|for sale/i);
+  assert.match(description, /Track it in your collection on ComixCatalog\.$/);
+});
+
+test("description counts active listings when the page has them", () => {
+  assert.match(buildIssueDescription({ ...baseIssue, market: { listings_count: 1 } }), /1 copy for sale from collectors\./);
+  assert.match(buildIssueDescription({ ...baseIssue, market: { listings_count: 3 } }), /3 copies for sale from collectors\./);
+});
+
+test("copies for sale survive when the description runs long", () => {
+  const description = buildIssueDescription({
+    ...baseIssue,
+    credits: [{ role: "writer", name: "Ann Writer" }, { role: "penciller", name: "Pat Artist" }],
+    stories: [{ synopsis: "A short adventure." }],
+    details: { on_sale_date: "1999-08-18" },
+    market: { listings_count: 1 },
+  });
+  assert.match(description, /1 copy for sale from collectors\./);
+  assert.ok(description.length <= 160);
+});
+
+test("a writer who also pencilled is named once", () => {
+  const description = buildIssueDescription({ ...baseIssue, credits: [
+    { role: "writer", name: "Jack Kirby" },
+    { role: "penciller", name: "Jack Kirby" },
+  ] });
+  assert.match(description, /By Jack Kirby\./);
+  assert.doesNotMatch(description, /Kirby and Jack Kirby/);
 });
 
 test("credits enrich the description and ComicIssue JSON-LD", () => {

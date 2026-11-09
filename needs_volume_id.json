@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T10:01:41.119747+00:00",
-    "retry_after": "2026-11-10T10:01:41.119748+00:00",
+    "last_attempt_at": "2026-11-09T11:01:56.595690+00:00",
+    "retry_after": "2026-11-10T11:01:56.595692+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T10:01:41.119631+00:00",
-    "retry_after": "2026-11-10T10:01:41.119648+00:00",
+    "last_attempt_at": "2026-11-09T11:01:56.595577+00:00",
+    "retry_after": "2026-11-10T11:01:56.595592+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T10:01:41.119711+00:00",
-    "retry_after": "2026-11-10T10:01:41.119713+00:00",
+    "last_attempt_at": "2026-11-09T11:01:56.595667+00:00",
+    "retry_after": "2026-11-10T11:01:56.595670+00:00",
     "search_hydrated": true
   },
   {
@@ -68676,9 +68676,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T06:10:50.766136+00:00",
-    "retry_after": "2026-11-03T06:10:50.766152+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-09T11:10:46.847752+00:00",
+    "retry_after": "2026-11-12T11:10:46.847767+00:00",
     "search_hydrated": true
   },
   {
@@ -89258,30 +89258,6 @@
     "search_hydrated": true
   },
   {
-    "name": "The Sandman: The Dream Hunters 30th Anniversary Edition",
-    "publisher": "DC Comics",
-    "year": 2019,
-    "reason": "multiple_same_start_year_tied",
-    "candidates": [
-      {
-        "id": 146677,
-        "name": "The Sandman: The Dream Hunters 30th Anniversary Edition",
-        "publisher": "DC Comics",
-        "start_year": 2019
-      },
-      {
-        "id": 121517,
-        "name": "The Sandman: The Dream Hunters 30th Anniversary Edition",
-        "publisher": "DC Comics",
-        "start_year": 2019
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T13:25:07.371797+00:00",
-    "retry_after": "2026-11-06T13:25:07.371800+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "The Island of Dr. Moreau",
     "publisher": "Marvel Comics",
     "year": 2019,
@@ -89334,9 +89310,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T15:15:27.340766+00:00",
-    "retry_after": "2026-11-06T15:15:27.340769+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-09T11:10:40.704001+00:00",
+    "retry_after": "2026-11-16T11:10:40.704017+00:00",
     "search_hydrated": true
   },
   {
@@ -89505,9 +89481,9 @@
         "start_year": 1998
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T15:15:27.340879+00:00",
-    "retry_after": "2026-11-06T15:15:27.340881+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-09T11:10:45.317686+00:00",
+    "retry_after": "2026-11-16T11:10:45.317704+00:00",
     "search_hydrated": true
   },
   {
@@ -89597,9 +89573,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T15:15:27.340928+00:00",
-    "retry_after": "2026-11-06T15:15:27.340929+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-09T11:10:45.317773+00:00",
+    "retry_after": "2026-11-16T11:10:45.317776+00:00",
     "search_hydrated": true
   },
   {
@@ -89615,9 +89591,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T06:10:30.654018+00:00",
-    "retry_after": "2026-11-03T06:10:30.654038+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-09T11:10:45.317802+00:00",
+    "retry_after": "2026-11-12T11:10:45.317804+00:00",
     "search_hydrated": true
   },
   {
@@ -89633,9 +89609,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T06:10:30.654095+00:00",
-    "retry_after": "2026-11-03T06:10:30.654099+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-09T11:10:45.317825+00:00",
+    "retry_after": "2026-11-12T11:10:45.317827+00:00",
     "search_hydrated": true
   },
   {
@@ -89644,9 +89620,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-03T16:01:19.665044+00:00",
-    "retry_after": "2026-11-06T16:01:19.665046+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-09T11:10:32.721060+00:00",
+    "retry_after": "2026-11-16T11:10:32.721074+00:00",
     "search_hydrated": true
   },
   {
@@ -92732,9 +92708,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-08T11:10:46.087594+00:00",
-    "retry_after": "2026-11-09T11:10:46.087611+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-09T11:10:57.640848+00:00",
+    "retry_after": "2026-11-12T11:10:57.640864+00:00",
     "search_hydrated": true
   },
   {
@@ -93635,6 +93611,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-09T10:10:21.165784+00:00",
     "retry_after": "2026-11-10T10:10:21.165786+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Rebellion Presents The José Muñoz Collection",
+    "publisher": "Rebellion",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T11:10:57.640891+00:00",
+    "retry_after": "2026-11-10T11:10:57.640895+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ultimate Comics Spider-Man: Death of Spider-Man Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T11:10:57.640907+00:00",
+    "retry_after": "2026-11-10T11:10:57.640909+00:00",
     "search_hydrated": true
   }
 ]

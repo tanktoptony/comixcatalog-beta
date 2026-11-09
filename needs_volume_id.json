@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T07:02:11.872876+00:00",
-    "retry_after": "2026-11-10T07:02:11.872879+00:00",
+    "last_attempt_at": "2026-11-09T08:02:07.619804+00:00",
+    "retry_after": "2026-11-10T08:02:07.619806+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T07:02:11.872731+00:00",
-    "retry_after": "2026-11-10T07:02:11.872747+00:00",
+    "last_attempt_at": "2026-11-09T08:02:07.619693+00:00",
+    "retry_after": "2026-11-10T08:02:07.619709+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T07:02:11.872844+00:00",
-    "retry_after": "2026-11-10T07:02:11.872848+00:00",
+    "last_attempt_at": "2026-11-09T08:02:07.619782+00:00",
+    "retry_after": "2026-11-10T08:02:07.619784+00:00",
     "search_hydrated": true
   },
   {
@@ -82358,9 +82358,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T07:10:00.645099+00:00",
-    "retry_after": "2026-11-09T07:10:00.645101+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T08:10:57.952636+00:00",
+    "retry_after": "2026-11-23T08:10:57.952653+00:00",
     "search_hydrated": true
   },
   {
@@ -82394,9 +82394,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T07:10:23.030536+00:00",
-    "retry_after": "2026-11-09T07:10:23.030554+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T08:10:59.873009+00:00",
+    "retry_after": "2026-11-23T08:10:59.873025+00:00",
     "search_hydrated": true
   },
   {
@@ -82416,9 +82416,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T07:10:21.949657+00:00",
-    "retry_after": "2026-11-09T07:10:21.949675+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T08:10:57.952686+00:00",
+    "retry_after": "2026-11-23T08:10:57.952689+00:00",
     "search_hydrated": true
   },
   {
@@ -82427,9 +82427,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T07:10:21.949689+00:00",
-    "retry_after": "2026-11-09T07:10:21.949691+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T08:10:57.952701+00:00",
+    "retry_after": "2026-11-23T08:10:57.952703+00:00",
     "search_hydrated": true
   },
   {
@@ -82438,9 +82438,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T07:10:21.949699+00:00",
-    "retry_after": "2026-11-09T07:10:21.949700+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T08:10:57.952712+00:00",
+    "retry_after": "2026-11-23T08:10:57.952714+00:00",
     "search_hydrated": true
   },
   {
@@ -92710,9 +92710,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-08T07:11:26.892010+00:00",
-    "retry_after": "2026-11-09T07:11:26.892026+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-09T08:11:10.842665+00:00",
+    "retry_after": "2026-11-12T08:11:10.842682+00:00",
     "search_hydrated": true
   },
   {
@@ -92721,9 +92721,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-08T07:11:26.892068+00:00",
-    "retry_after": "2026-11-09T07:11:26.892092+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-09T08:11:10.842700+00:00",
+    "retry_after": "2026-11-12T08:11:10.842703+00:00",
     "search_hydrated": true
   },
   {
@@ -93538,6 +93538,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-09T06:10:56.384330+00:00",
     "retry_after": "2026-11-10T06:10:56.384333+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Millennium Edition: World's Finest No. 71",
+    "publisher": "DC Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T08:11:10.842716+00:00",
+    "retry_after": "2026-11-10T08:11:10.842718+00:00",
     "search_hydrated": true
   }
 ]

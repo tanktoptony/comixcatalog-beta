@@ -8606,9 +8606,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T17:10:54.348850+00:00",
-    "retry_after": "2026-11-09T17:10:54.348865+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T20:35:54.311125+00:00",
+    "retry_after": "2026-11-23T20:35:54.311126+00:00",
     "search_hydrated": true
   },
   {
@@ -27434,8 +27434,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T20:12:02.492386+00:00",
-    "retry_after": "2026-11-10T20:12:02.492407+00:00",
+    "last_attempt_at": "2026-11-09T20:36:25.198099+00:00",
+    "retry_after": "2026-11-10T20:36:25.198116+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T20:02:02.115667+00:00",
-    "retry_after": "2026-11-10T20:02:02.115668+00:00",
+    "last_attempt_at": "2026-11-09T20:27:27.456094+00:00",
+    "retry_after": "2026-11-10T20:27:27.456096+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T20:02:02.115568+00:00",
-    "retry_after": "2026-11-10T20:02:02.115585+00:00",
+    "last_attempt_at": "2026-11-09T20:27:27.455966+00:00",
+    "retry_after": "2026-11-10T20:27:27.455988+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T20:02:02.115649+00:00",
-    "retry_after": "2026-11-10T20:02:02.115651+00:00",
+    "last_attempt_at": "2026-11-09T20:27:27.456075+00:00",
+    "retry_after": "2026-11-10T20:27:27.456077+00:00",
     "search_hydrated": true
   },
   {
@@ -83784,9 +83784,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T19:10:10.144743+00:00",
-    "retry_after": "2026-11-09T19:10:10.144747+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T20:35:54.311064+00:00",
+    "retry_after": "2026-11-23T20:35:54.311076+00:00",
     "search_hydrated": true
   },
   {
@@ -83886,9 +83886,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T20:10:23.476511+00:00",
-    "retry_after": "2026-11-09T20:10:23.476514+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T20:35:54.311095+00:00",
+    "retry_after": "2026-11-23T20:35:54.311097+00:00",
     "search_hydrated": true
   },
   {
@@ -83897,9 +83897,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T20:10:23.476526+00:00",
-    "retry_after": "2026-11-09T20:10:23.476529+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T20:35:54.311107+00:00",
+    "retry_after": "2026-11-23T20:35:54.311108+00:00",
     "search_hydrated": true
   },
   {
@@ -83908,9 +83908,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T20:10:23.476538+00:00",
-    "retry_after": "2026-11-09T20:10:23.476540+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T20:35:54.311116+00:00",
+    "retry_after": "2026-11-23T20:35:54.311117+00:00",
     "search_hydrated": true
   },
   {
@@ -93238,6 +93238,75 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-09T20:12:02.492467+00:00",
     "retry_after": "2026-11-10T20:12:02.492469+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Complete James Bond - Goldfinger: The Classic Comic Strip Collection: 1960-66",
+    "publisher": "Titan Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T20:36:10.125180+00:00",
+    "retry_after": "2026-11-10T20:36:10.125193+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Hondo City Justice: Revenge of the 47 Ronin & More",
+    "publisher": "Rebellion",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T20:36:10.125215+00:00",
+    "retry_after": "2026-11-10T20:36:10.125218+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Man: Spider-Island",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T20:36:10.125242+00:00",
+    "retry_after": "2026-11-10T20:36:10.125244+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Anti-Crime Squad",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52652,
+        "name": "Anti Crime Squad",
+        "publisher": "Magazine Management",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T20:36:25.198150+00:00",
+    "retry_after": "2026-11-10T20:36:25.198152+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I Vendicatori",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 151292,
+        "name": "I Vendicatori",
+        "publisher": "Panini Comics",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T20:36:25.198167+00:00",
+    "retry_after": "2026-11-10T20:36:25.198168+00:00",
     "search_hydrated": true
   }
 ]

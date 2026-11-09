@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T12:02:04.732156+00:00",
-    "retry_after": "2026-11-10T12:02:04.732158+00:00",
+    "last_attempt_at": "2026-11-09T13:01:57.000535+00:00",
+    "retry_after": "2026-11-10T13:01:57.000537+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T12:02:04.732028+00:00",
-    "retry_after": "2026-11-10T12:02:04.732046+00:00",
+    "last_attempt_at": "2026-11-09T13:01:57.000406+00:00",
+    "retry_after": "2026-11-10T13:01:57.000422+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T12:02:04.732131+00:00",
-    "retry_after": "2026-11-10T12:02:04.732134+00:00",
+    "last_attempt_at": "2026-11-09T13:01:57.000511+00:00",
+    "retry_after": "2026-11-10T13:01:57.000514+00:00",
     "search_hydrated": true
   },
   {
@@ -82771,9 +82771,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T11:11:32.320976+00:00",
-    "retry_after": "2026-11-09T11:11:32.320994+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T13:10:49.490019+00:00",
+    "retry_after": "2026-11-23T13:10:49.490036+00:00",
     "search_hydrated": true
   },
   {
@@ -82782,9 +82782,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T11:11:32.321018+00:00",
-    "retry_after": "2026-11-09T11:11:32.321021+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T13:10:49.490055+00:00",
+    "retry_after": "2026-11-23T13:10:49.490058+00:00",
     "search_hydrated": true
   },
   {
@@ -82793,9 +82793,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T11:11:32.321032+00:00",
-    "retry_after": "2026-11-09T11:11:32.321035+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T13:10:49.490070+00:00",
+    "retry_after": "2026-11-23T13:10:49.490072+00:00",
     "search_hydrated": true
   },
   {
@@ -82804,9 +82804,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T12:12:14.194556+00:00",
-    "retry_after": "2026-11-09T12:12:14.194559+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T13:10:49.490096+00:00",
+    "retry_after": "2026-11-23T13:10:49.490098+00:00",
     "search_hydrated": true
   },
   {
@@ -92741,9 +92741,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-08T13:10:33.282499+00:00",
-    "retry_after": "2026-11-09T13:10:33.282517+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-09T13:11:04.621396+00:00",
+    "retry_after": "2026-11-12T13:11:04.621413+00:00",
     "search_hydrated": true
   },
   {
@@ -93655,6 +93655,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-09T12:10:59.763079+00:00",
     "retry_after": "2026-11-10T12:10:59.763081+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "WWF Presents The Rock: Featuring Chyna and Mankind",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T13:11:04.621444+00:00",
+    "retry_after": "2026-11-10T13:11:04.621447+00:00",
     "search_hydrated": true
   }
 ]

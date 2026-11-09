@@ -27434,8 +27434,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T20:36:25.198099+00:00",
-    "retry_after": "2026-11-10T20:36:25.198116+00:00",
+    "last_attempt_at": "2026-11-09T21:11:20.761411+00:00",
+    "retry_after": "2026-11-10T21:11:20.761429+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T20:27:27.456094+00:00",
-    "retry_after": "2026-11-10T20:27:27.456096+00:00",
+    "last_attempt_at": "2026-11-09T21:02:10.513689+00:00",
+    "retry_after": "2026-11-10T21:02:10.513691+00:00",
     "search_hydrated": true
   },
   {
@@ -28396,12 +28396,6 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 106491,
-        "name": "Aquaman Annual",
-        "publisher": "DC Comics",
-        "start_year": 2016
-      },
-      {
         "id": 5488,
         "name": "Aquaman Annual",
         "publisher": "DC Comics",
@@ -28412,11 +28406,17 @@
         "name": "Aquaman Annual",
         "publisher": "DC Comics",
         "start_year": 2013
+      },
+      {
+        "id": 106491,
+        "name": "Aquaman Annual",
+        "publisher": "DC Comics",
+        "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T06:10:49.122941+00:00",
-    "retry_after": "2026-11-03T06:10:49.122945+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-09T21:10:35.377448+00:00",
+    "retry_after": "2026-11-12T21:10:35.377451+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T20:27:27.455966+00:00",
-    "retry_after": "2026-11-10T20:27:27.455988+00:00",
+    "last_attempt_at": "2026-11-09T21:02:10.513559+00:00",
+    "retry_after": "2026-11-10T21:02:10.513578+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T20:27:27.456075+00:00",
-    "retry_after": "2026-11-10T20:27:27.456077+00:00",
+    "last_attempt_at": "2026-11-09T21:02:10.513662+00:00",
+    "retry_after": "2026-11-10T21:02:10.513665+00:00",
     "search_hydrated": true
   },
   {
@@ -89631,9 +89631,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-05T08:13:33.478511+00:00",
-    "retry_after": "2026-11-08T08:13:33.478527+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-09T21:10:35.377387+00:00",
+    "retry_after": "2026-11-16T21:10:35.377405+00:00",
     "search_hydrated": true
   },
   {
@@ -89642,9 +89642,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T06:10:49.122962+00:00",
-    "retry_after": "2026-11-03T06:10:49.122965+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-09T21:10:35.377466+00:00",
+    "retry_after": "2026-11-12T21:10:35.377468+00:00",
     "search_hydrated": true
   },
   {
@@ -89666,9 +89666,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T06:10:50.081148+00:00",
-    "retry_after": "2026-11-03T06:10:50.081181+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-09T21:10:35.377489+00:00",
+    "retry_after": "2026-11-12T21:10:35.377491+00:00",
     "search_hydrated": true
   },
   {
@@ -89696,9 +89696,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T06:10:50.081223+00:00",
-    "retry_after": "2026-11-03T06:10:50.081227+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-09T21:10:35.377512+00:00",
+    "retry_after": "2026-11-12T21:10:35.377514+00:00",
     "search_hydrated": true
   },
   {
@@ -93307,6 +93307,53 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-09T20:36:25.198167+00:00",
     "retry_after": "2026-11-10T20:36:25.198168+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The X-Men Animation Special Graphic Novel",
+    "publisher": "Marvel Comics",
+    "year": 1990,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T21:10:48.470397+00:00",
+    "retry_after": "2026-11-10T21:10:48.470416+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "MegaManga",
+    "publisher": "Fantagraphics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 173763,
+        "name": "MegaManga",
+        "publisher": "Eros Comix",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T21:11:20.761470+00:00",
+    "retry_after": "2026-11-10T21:11:20.761473+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Phil Corrigan Secret Agent X9",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161990,
+        "name": "Phil Corrigan Secret Agent X9 ",
+        "publisher": "Atlas Publications Pty. Ltd.",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T21:11:20.761497+00:00",
+    "retry_after": "2026-11-10T21:11:20.761500+00:00",
     "search_hydrated": true
   }
 ]

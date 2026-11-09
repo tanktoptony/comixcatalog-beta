@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T18:02:13.484506+00:00",
-    "retry_after": "2026-11-10T18:02:13.484508+00:00",
+    "last_attempt_at": "2026-11-09T19:02:16.771958+00:00",
+    "retry_after": "2026-11-10T19:02:16.771961+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T18:02:13.484363+00:00",
-    "retry_after": "2026-11-10T18:02:13.484379+00:00",
+    "last_attempt_at": "2026-11-09T19:02:16.771817+00:00",
+    "retry_after": "2026-11-10T19:02:16.771833+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T18:02:13.484474+00:00",
-    "retry_after": "2026-11-10T18:02:13.484478+00:00",
+    "last_attempt_at": "2026-11-09T19:02:16.771926+00:00",
+    "retry_after": "2026-11-10T19:02:16.771930+00:00",
     "search_hydrated": true
   },
   {
@@ -82979,9 +82979,9 @@
         "start_year": 2006
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T13:10:28.584320+00:00",
-    "retry_after": "2026-11-09T13:10:28.584324+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T19:10:50.296894+00:00",
+    "retry_after": "2026-11-23T19:10:50.296897+00:00",
     "search_hydrated": true
   },
   {
@@ -83052,9 +83052,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T13:10:51.046973+00:00",
-    "retry_after": "2026-11-09T13:10:51.046977+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T19:10:50.296941+00:00",
+    "retry_after": "2026-11-23T19:10:50.296944+00:00",
     "search_hydrated": true
   },
   {
@@ -83142,9 +83142,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T14:10:23.638309+00:00",
-    "retry_after": "2026-11-09T14:10:23.638312+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T19:10:55.308503+00:00",
+    "retry_after": "2026-11-23T19:10:55.308518+00:00",
     "search_hydrated": true
   },
   {
@@ -83160,9 +83160,9 @@
         "start_year": 2001
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T14:10:25.296758+00:00",
-    "retry_after": "2026-11-09T14:10:25.296762+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T19:10:55.792281+00:00",
+    "retry_after": "2026-11-23T19:10:55.792298+00:00",
     "search_hydrated": true
   },
   {
@@ -83211,9 +83211,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T16:10:43.159424+00:00",
-    "retry_after": "2026-11-09T16:10:43.159440+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T19:10:55.792383+00:00",
+    "retry_after": "2026-11-23T19:10:55.792387+00:00",
     "search_hydrated": true
   },
   {
@@ -83576,9 +83576,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T18:14:49.457473+00:00",
-    "retry_after": "2026-11-09T18:14:49.457479+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T19:10:49.555603+00:00",
+    "retry_after": "2026-11-23T19:10:49.555617+00:00",
     "search_hydrated": true
   },
   {
@@ -83594,9 +83594,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T18:14:49.605813+00:00",
-    "retry_after": "2026-11-09T18:14:49.605818+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T19:10:49.664310+00:00",
+    "retry_after": "2026-11-23T19:10:49.664322+00:00",
     "search_hydrated": true
   },
   {
@@ -83612,9 +83612,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T18:14:49.605901+00:00",
-    "retry_after": "2026-11-09T18:14:49.605903+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T19:10:49.664460+00:00",
+    "retry_after": "2026-11-23T19:10:49.664464+00:00",
     "search_hydrated": true
   },
   {
@@ -83630,9 +83630,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T18:14:49.605920+00:00",
-    "retry_after": "2026-11-09T18:14:49.605921+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T19:10:49.664500+00:00",
+    "retry_after": "2026-11-23T19:10:49.664502+00:00",
     "search_hydrated": true
   },
   {
@@ -83648,9 +83648,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T18:15:06.374190+00:00",
-    "retry_after": "2026-11-09T18:15:06.374196+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T19:10:49.794056+00:00",
+    "retry_after": "2026-11-23T19:10:49.794068+00:00",
     "search_hydrated": true
   },
   {
@@ -83666,9 +83666,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T18:15:06.500771+00:00",
-    "retry_after": "2026-11-09T18:15:06.500777+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T19:10:49.914696+00:00",
+    "retry_after": "2026-11-23T19:10:49.914706+00:00",
     "search_hydrated": true
   },
   {
@@ -91844,9 +91844,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-06T18:11:33.822836+00:00",
-    "retry_after": "2026-11-09T18:11:33.822852+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-09T19:11:05.246231+00:00",
+    "retry_after": "2026-11-16T19:11:05.246248+00:00",
     "search_hydrated": true
   },
   {
@@ -91855,9 +91855,9 @@
     "year": 2012,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-06T18:11:33.822886+00:00",
-    "retry_after": "2026-11-09T18:11:33.822890+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-09T19:11:05.246279+00:00",
+    "retry_after": "2026-11-16T19:11:05.246284+00:00",
     "search_hydrated": true
   },
   {
@@ -93065,6 +93065,132 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-09T16:11:01.928993+00:00",
     "retry_after": "2026-11-10T16:11:01.928997+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "In Rage",
+    "publisher": "CFD Productions",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88863,
+        "name": "In Rage",
+        "publisher": "Creative Force Designs",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T19:01:56.467556+00:00",
+    "retry_after": "2026-11-10T19:01:56.467560+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Conan Exiles",
+    "publisher": "Dark Horse Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141912,
+        "name": "Conan: Exiles",
+        "publisher": "Marvel",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T19:11:05.246331+00:00",
+    "retry_after": "2026-11-10T19:11:05.246335+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mystic: The Tenth Apprentice",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88473,
+        "name": "Mystic: The Tenth Apprentice",
+        "publisher": "Crossgen",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T19:11:05.246363+00:00",
+    "retry_after": "2026-11-10T19:11:05.246366+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Team-Up Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52549,
+        "name": "Marvel Team-Up Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T19:11:05.246390+00:00",
+    "retry_after": "2026-11-10T19:11:05.246393+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Doctor Who Magazine",
+    "publisher": "Marvel Comics",
+    "year": 1985,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26877,
+        "name": "Doctor Who Magazine",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T19:11:12.177021+00:00",
+    "retry_after": "2026-11-10T19:11:12.177039+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Corriere dei Ragazzi",
+    "publisher": "Dell Comics",
+    "year": 1973,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32469,
+        "name": "Corriere dei Ragazzi",
+        "publisher": "Corriere Della Sera",
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T19:11:12.177083+00:00",
+    "retry_after": "2026-11-10T19:11:12.177089+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tom and Jerry Present the Two Mouseketeers",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64345,
+        "name": "Tom and Jerry Present the Two Mouseketeers",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T19:11:12.177159+00:00",
+    "retry_after": "2026-11-10T19:11:12.177163+00:00",
     "search_hydrated": true
   }
 ]

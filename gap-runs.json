@@ -231,13 +231,6 @@
     "series_gcd_id": 189937
   },
   {
-    "name": "Midnight Spider-Man",
-    "publisher": "Marvel",
-    "year": 2026,
-    "volume_id": 177370,
-    "series_gcd_id": 240077
-  },
-  {
     "name": "The Mighty Thor",
     "publisher": "Marvel",
     "year": 2011,
@@ -264,6 +257,13 @@
     "year": 1962,
     "volume_id": 47932,
     "series_gcd_id": 1526
+  },
+  {
+    "name": "Midnight Spider-Man",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 177370,
+    "series_gcd_id": 240077
   },
   {
     "name": "Teenage Mutant Ninja Turtles",
@@ -376,13 +376,6 @@
     "year": 2020,
     "volume_id": 131724,
     "series_gcd_id": 166044
-  },
-  {
-    "name": "Absolute Batman",
-    "publisher": "DC",
-    "year": 2024,
-    "volume_id": 160294,
-    "series_gcd_id": 216143
   },
   {
     "name": "Bloodstrike",
@@ -565,6 +558,13 @@
     "year": 2015,
     "volume_id": 83121,
     "series_gcd_id": 90653
+  },
+  {
+    "name": "Absolute Batman",
+    "publisher": "DC",
+    "year": 2024,
+    "volume_id": 160294,
+    "series_gcd_id": 216143
   },
   {
     "name": "Absolute Martian Manhunter",

@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T11:01:56.595690+00:00",
-    "retry_after": "2026-11-10T11:01:56.595692+00:00",
+    "last_attempt_at": "2026-11-09T12:02:04.732156+00:00",
+    "retry_after": "2026-11-10T12:02:04.732158+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T11:01:56.595577+00:00",
-    "retry_after": "2026-11-10T11:01:56.595592+00:00",
+    "last_attempt_at": "2026-11-09T12:02:04.732028+00:00",
+    "retry_after": "2026-11-10T12:02:04.732046+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T11:01:56.595667+00:00",
-    "retry_after": "2026-11-10T11:01:56.595670+00:00",
+    "last_attempt_at": "2026-11-09T12:02:04.732131+00:00",
+    "retry_after": "2026-11-10T12:02:04.732134+00:00",
     "search_hydrated": true
   },
   {
@@ -82658,9 +82658,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T11:11:07.722626+00:00",
-    "retry_after": "2026-11-09T11:11:07.722644+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T12:10:46.455624+00:00",
+    "retry_after": "2026-11-23T12:10:46.455642+00:00",
     "search_hydrated": true
   },
   {
@@ -82669,9 +82669,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T11:11:07.722686+00:00",
-    "retry_after": "2026-11-09T11:11:07.722690+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T12:10:46.455704+00:00",
+    "retry_after": "2026-11-23T12:10:46.455708+00:00",
     "search_hydrated": true
   },
   {
@@ -82716,9 +82716,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T11:11:07.722706+00:00",
-    "retry_after": "2026-11-09T11:11:07.722709+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T12:10:46.455726+00:00",
+    "retry_after": "2026-11-23T12:10:46.455728+00:00",
     "search_hydrated": true
   },
   {
@@ -82727,9 +82727,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T11:11:07.722719+00:00",
-    "retry_after": "2026-11-09T11:11:07.722721+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T12:10:46.455739+00:00",
+    "retry_after": "2026-11-23T12:10:46.455741+00:00",
     "search_hydrated": true
   },
   {
@@ -82749,9 +82749,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T11:11:07.722729+00:00",
-    "retry_after": "2026-11-09T11:11:07.722731+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T12:10:46.455750+00:00",
+    "retry_after": "2026-11-23T12:10:46.455752+00:00",
     "search_hydrated": true
   },
   {
@@ -82760,9 +82760,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T11:11:07.722740+00:00",
-    "retry_after": "2026-11-09T11:11:07.722742+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T12:10:46.455761+00:00",
+    "retry_after": "2026-11-23T12:10:46.455763+00:00",
     "search_hydrated": true
   },
   {
@@ -92719,9 +92719,9 @@
     "year": 2015,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-08T11:53:20.679739+00:00",
-    "retry_after": "2026-11-09T11:53:20.679743+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-09T12:10:59.763001+00:00",
+    "retry_after": "2026-11-12T12:10:59.763019+00:00",
     "search_hydrated": true
   },
   {
@@ -92730,9 +92730,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-08T12:10:32.335446+00:00",
-    "retry_after": "2026-11-09T12:10:32.335465+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-09T12:10:59.763042+00:00",
+    "retry_after": "2026-11-12T12:10:59.763046+00:00",
     "search_hydrated": true
   },
   {
@@ -93633,6 +93633,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-09T11:10:57.640907+00:00",
     "retry_after": "2026-11-10T11:10:57.640909+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wizard Ace Edition: Fantastic Four #48",
+    "publisher": "Marvel Comics",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T12:10:59.763062+00:00",
+    "retry_after": "2026-11-10T12:10:59.763064+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Economics in Wonderland: A Cartoon Guide to a Political World Gone Mad and Mean",
+    "publisher": "Fantagraphics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T12:10:59.763079+00:00",
+    "retry_after": "2026-11-10T12:10:59.763081+00:00",
     "search_hydrated": true
   }
 ]

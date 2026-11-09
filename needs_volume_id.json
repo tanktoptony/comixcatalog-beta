@@ -27429,13 +27429,13 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-06T20:02:13.184049+00:00",
-    "retry_after": "2026-11-09T20:02:13.184051+00:00",
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T20:12:02.492386+00:00",
+    "retry_after": "2026-11-10T20:12:02.492407+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T19:02:16.771958+00:00",
-    "retry_after": "2026-11-10T19:02:16.771961+00:00",
+    "last_attempt_at": "2026-11-09T20:02:02.115667+00:00",
+    "retry_after": "2026-11-10T20:02:02.115668+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T19:02:16.771817+00:00",
-    "retry_after": "2026-11-10T19:02:16.771833+00:00",
+    "last_attempt_at": "2026-11-09T20:02:02.115568+00:00",
+    "retry_after": "2026-11-10T20:02:02.115585+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-09T19:02:16.771926+00:00",
-    "retry_after": "2026-11-10T19:02:16.771930+00:00",
+    "last_attempt_at": "2026-11-09T20:02:02.115649+00:00",
+    "retry_after": "2026-11-10T20:02:02.115651+00:00",
     "search_hydrated": true
   },
   {
@@ -83193,9 +83193,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T16:10:39.691303+00:00",
-    "retry_after": "2026-11-09T16:10:39.691319+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T20:11:28.116229+00:00",
+    "retry_after": "2026-11-23T20:11:28.116247+00:00",
     "search_hydrated": true
   },
   {
@@ -83222,9 +83222,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T16:10:39.691337+00:00",
-    "retry_after": "2026-11-09T16:10:39.691340+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T20:11:28.116308+00:00",
+    "retry_after": "2026-11-23T20:11:28.116310+00:00",
     "search_hydrated": true
   },
   {
@@ -83233,9 +83233,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T16:10:39.691353+00:00",
-    "retry_after": "2026-11-09T16:10:39.691355+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T20:11:28.116317+00:00",
+    "retry_after": "2026-11-23T20:11:28.116318+00:00",
     "search_hydrated": true
   },
   {
@@ -83244,9 +83244,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T16:10:39.691364+00:00",
-    "retry_after": "2026-11-09T16:10:39.691366+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T20:11:28.116325+00:00",
+    "retry_after": "2026-11-23T20:11:28.116327+00:00",
     "search_hydrated": true
   },
   {
@@ -83266,9 +83266,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T16:10:39.691383+00:00",
-    "retry_after": "2026-11-09T16:10:39.691385+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T20:11:28.116341+00:00",
+    "retry_after": "2026-11-23T20:11:28.116342+00:00",
     "search_hydrated": true
   },
   {
@@ -83535,21 +83535,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 128169,
+        "id": 129260,
         "name": "Fire Power",
         "publisher": "Image",
         "start_year": 2020
       },
       {
-        "id": 129260,
+        "id": 128169,
         "name": "Fire Power",
         "publisher": "Image",
         "start_year": 2020
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T18:15:05.444546+00:00",
-    "retry_after": "2026-11-09T18:15:05.444554+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T20:11:28.116293+00:00",
+    "retry_after": "2026-11-23T20:11:28.116296+00:00",
     "search_hydrated": true
   },
   {
@@ -83558,9 +83558,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T18:15:05.444567+00:00",
-    "retry_after": "2026-11-09T18:15:05.444569+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-09T20:11:28.116350+00:00",
+    "retry_after": "2026-11-23T20:11:28.116351+00:00",
     "search_hydrated": true
   },
   {
@@ -93191,6 +93191,53 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-09T19:11:12.177159+00:00",
     "retry_after": "2026-11-10T19:11:12.177163+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Beavis & Butt-Head: Trash Can Edition",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T20:11:38.559304+00:00",
+    "retry_after": "2026-11-10T20:11:38.559322+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Joe Palooka Presents the Funsational Humphrey",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 156763,
+        "name": "Joe Palooka Presents the Funsational Humphrey",
+        "publisher": "Magazine Management",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T20:12:02.492446+00:00",
+    "retry_after": "2026-11-10T20:12:02.492449+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mad Classics",
+    "publisher": "EC Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18767,
+        "name": "Mad Classics",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-09T20:12:02.492467+00:00",
+    "retry_after": "2026-11-10T20:12:02.492469+00:00",
     "search_hydrated": true
   }
 ]

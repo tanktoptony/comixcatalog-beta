@@ -6876,9 +6876,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T07:17:38.919416+00:00",
-    "retry_after": "2026-11-10T07:17:38.919434+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T08:10:47.086905+00:00",
+    "retry_after": "2026-11-24T08:10:47.086921+00:00",
     "search_hydrated": true
   },
   {
@@ -27429,13 +27429,13 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T07:11:22.497333+00:00",
-    "retry_after": "2026-11-11T07:11:22.497349+00:00",
+    "last_attempt_at": "2026-11-10T08:02:12.914724+00:00",
+    "retry_after": "2026-11-11T08:02:12.914727+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T07:02:04.107656+00:00",
-    "retry_after": "2026-11-11T07:02:04.107659+00:00",
+    "last_attempt_at": "2026-11-10T08:02:12.914706+00:00",
+    "retry_after": "2026-11-11T08:02:12.914709+00:00",
     "search_hydrated": true
   },
   {
@@ -39989,9 +39989,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T07:17:38.919456+00:00",
-    "retry_after": "2026-11-10T07:17:38.919460+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T08:10:47.086941+00:00",
+    "retry_after": "2026-11-24T08:10:47.086945+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T07:02:04.107514+00:00",
-    "retry_after": "2026-11-11T07:02:04.107530+00:00",
+    "last_attempt_at": "2026-11-10T08:02:12.914560+00:00",
+    "retry_after": "2026-11-11T08:02:12.914576+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T07:02:04.107624+00:00",
-    "retry_after": "2026-11-11T07:02:04.107628+00:00",
+    "last_attempt_at": "2026-11-10T08:02:12.914673+00:00",
+    "retry_after": "2026-11-11T08:02:12.914677+00:00",
     "search_hydrated": true
   },
   {
@@ -89903,9 +89903,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T07:36:30.334504+00:00",
-    "retry_after": "2026-11-03T07:36:30.334519+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-10T08:10:47.087005+00:00",
+    "retry_after": "2026-11-13T08:10:47.087008+00:00",
     "search_hydrated": true
   },
   {
@@ -89914,9 +89914,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T07:36:30.334541+00:00",
-    "retry_after": "2026-11-03T07:36:30.334545+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-10T08:10:47.087020+00:00",
+    "retry_after": "2026-11-13T08:10:47.087023+00:00",
     "search_hydrated": true
   },
   {
@@ -89925,9 +89925,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T07:36:30.334560+00:00",
-    "retry_after": "2026-11-03T07:36:30.334563+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-10T08:10:47.087034+00:00",
+    "retry_after": "2026-11-13T08:10:47.087036+00:00",
     "search_hydrated": true
   },
   {
@@ -93663,6 +93663,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-10T07:10:54.551476+00:00",
     "retry_after": "2026-11-11T07:10:54.551490+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Bratty Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62713,
+        "name": "Big Bratty Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T08:10:57.015413+00:00",
+    "retry_after": "2026-11-11T08:10:57.015429+00:00",
     "search_hydrated": true
   }
 ]

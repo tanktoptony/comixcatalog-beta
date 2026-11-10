@@ -27434,8 +27434,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T19:06:39.142759+00:00",
-    "retry_after": "2026-11-11T19:06:39.142777+00:00",
+    "last_attempt_at": "2026-11-10T20:10:53.595176+00:00",
+    "retry_after": "2026-11-11T20:10:53.595194+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T19:02:04.278206+00:00",
-    "retry_after": "2026-11-11T19:02:04.278207+00:00",
+    "last_attempt_at": "2026-11-10T20:02:07.680266+00:00",
+    "retry_after": "2026-11-11T20:02:07.680268+00:00",
     "search_hydrated": true
   },
   {
@@ -34256,9 +34256,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T18:01:21.645074+00:00",
-    "retry_after": "2026-11-09T18:01:21.645077+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T20:10:33.329096+00:00",
+    "retry_after": "2026-11-24T20:10:33.329098+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T19:02:04.278088+00:00",
-    "retry_after": "2026-11-11T19:02:04.278105+00:00",
+    "last_attempt_at": "2026-11-10T20:02:07.680130+00:00",
+    "retry_after": "2026-11-11T20:02:07.680149+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T19:02:04.278187+00:00",
-    "retry_after": "2026-11-11T19:02:04.278188+00:00",
+    "last_attempt_at": "2026-11-10T20:02:07.680239+00:00",
+    "retry_after": "2026-11-11T20:02:07.680242+00:00",
     "search_hydrated": true
   },
   {
@@ -85305,9 +85305,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T19:25:58.263184+00:00",
-    "retry_after": "2026-11-10T19:25:58.263189+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T20:10:33.328968+00:00",
+    "retry_after": "2026-11-24T20:10:33.328987+00:00",
     "search_hydrated": true
   },
   {
@@ -85316,9 +85316,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T19:25:58.263204+00:00",
-    "retry_after": "2026-11-10T19:25:58.263207+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T20:10:33.329008+00:00",
+    "retry_after": "2026-11-24T20:10:33.329011+00:00",
     "search_hydrated": true
   },
   {
@@ -85327,9 +85327,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T19:25:58.263219+00:00",
-    "retry_after": "2026-11-10T19:25:58.263222+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T20:10:33.329037+00:00",
+    "retry_after": "2026-11-24T20:10:33.329041+00:00",
     "search_hydrated": true
   },
   {
@@ -90447,9 +90447,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T18:01:21.645085+00:00",
-    "retry_after": "2026-11-03T18:01:21.645087+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-10T20:10:33.329108+00:00",
+    "retry_after": "2026-11-13T20:10:33.329110+00:00",
     "search_hydrated": true
   },
   {
@@ -93661,6 +93661,78 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-10T19:06:39.142810+00:00",
     "retry_after": "2026-11-11T19:06:39.142813+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Meltdown",
+    "publisher": "Titan Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161288,
+        "name": "Simpsons Comics Meltdown",
+        "publisher": "HarperCollins",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T20:10:46.002877+00:00",
+    "retry_after": "2026-11-11T20:10:46.002894+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "They Called Us Enemy – Expanded Edition",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129898,
+        "name": "They Called Us Enemy: Expanded Edition",
+        "publisher": "Top Shelf",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T20:10:46.002924+00:00",
+    "retry_after": "2026-11-11T20:10:46.002928+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vuzz",
+    "publisher": "Titan Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85799,
+        "name": "Vuzz",
+        "publisher": "Dargaud",
+        "start_year": 1974
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T20:10:46.002948+00:00",
+    "retry_after": "2026-11-11T20:10:46.002950+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deadworld: The Last Siesta",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75600,
+        "name": "Deadworld: The Last Siesta",
+        "publisher": "Caliber Comics",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T20:10:46.002966+00:00",
+    "retry_after": "2026-11-11T20:10:46.002969+00:00",
     "search_hydrated": true
   }
 ]

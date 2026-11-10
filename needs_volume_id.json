@@ -7097,9 +7097,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T01:19:37.117987+00:00",
-    "retry_after": "2026-11-10T01:19:37.117989+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T04:10:17.355643+00:00",
+    "retry_after": "2026-11-24T04:10:17.355644+00:00",
     "search_hydrated": true
   },
   {
@@ -10359,12 +10359,6 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 108448,
-        "name": "Lady Mechanika",
-        "publisher": "Splitter",
-        "start_year": 2017
-      },
-      {
         "id": 35855,
         "name": "Lady Mechanika",
         "publisher": "Benitez Productions",
@@ -10375,11 +10369,17 @@
         "name": "Lady Mechanika",
         "publisher": "Éditions Glénat",
         "start_year": 2016
+      },
+      {
+        "id": 108448,
+        "name": "Lady Mechanika",
+        "publisher": "Splitter",
+        "start_year": 2017
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T01:19:37.117963+00:00",
-    "retry_after": "2026-11-10T01:19:37.117967+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T04:10:17.355631+00:00",
+    "retry_after": "2026-11-24T04:10:17.355633+00:00",
     "search_hydrated": true
   },
   {
@@ -27434,8 +27434,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T03:23:30.184944+00:00",
-    "retry_after": "2026-11-11T03:23:30.184963+00:00",
+    "last_attempt_at": "2026-11-10T04:10:45.506597+00:00",
+    "retry_after": "2026-11-11T04:10:45.506616+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T03:14:56.485853+00:00",
-    "retry_after": "2026-11-11T03:14:56.485855+00:00",
+    "last_attempt_at": "2026-11-10T04:01:48.025925+00:00",
+    "retry_after": "2026-11-11T04:01:48.025927+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T03:14:56.485721+00:00",
-    "retry_after": "2026-11-11T03:14:56.485740+00:00",
+    "last_attempt_at": "2026-11-10T04:01:48.025828+00:00",
+    "retry_after": "2026-11-11T04:01:48.025847+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T03:14:56.485827+00:00",
-    "retry_after": "2026-11-11T03:14:56.485830+00:00",
+    "last_attempt_at": "2026-11-10T04:01:48.025908+00:00",
+    "retry_after": "2026-11-11T04:01:48.025909+00:00",
     "search_hydrated": true
   },
   {
@@ -84548,9 +84548,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T02:17:38.774115+00:00",
-    "retry_after": "2026-11-10T02:17:38.774131+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T04:10:17.355519+00:00",
+    "retry_after": "2026-11-24T04:10:17.355537+00:00",
     "search_hydrated": true
   },
   {
@@ -84662,9 +84662,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T02:17:38.774188+00:00",
-    "retry_after": "2026-11-10T02:17:38.774193+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T04:10:17.355576+00:00",
+    "retry_after": "2026-11-24T04:10:17.355578+00:00",
     "search_hydrated": true
   },
   {
@@ -89729,9 +89729,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T07:10:21.949725+00:00",
-    "retry_after": "2026-11-03T07:10:21.949727+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-10T04:10:17.355688+00:00",
+    "retry_after": "2026-11-13T04:10:17.355690+00:00",
     "search_hydrated": true
   },
   {
@@ -91560,9 +91560,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-07T01:50:08.879792+00:00",
-    "retry_after": "2026-11-10T01:50:08.879807+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-10T04:10:19.915563+00:00",
+    "retry_after": "2026-11-17T04:10:19.915601+00:00",
     "search_hydrated": true
   },
   {
@@ -91578,9 +91578,9 @@
         "start_year": 1991
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-07T01:50:08.880121+00:00",
-    "retry_after": "2026-11-10T01:50:08.880124+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-10T04:10:19.915716+00:00",
+    "retry_after": "2026-11-17T04:10:19.915718+00:00",
     "search_hydrated": true
   },
   {
@@ -93565,6 +93565,71 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-10T03:23:21.360894+00:00",
     "retry_after": "2026-11-11T03:23:21.360896+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Amazing Mary Jane",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 122214,
+        "name": "Amazing Mary Jane",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T04:10:19.765732+00:00",
+    "retry_after": "2026-11-11T04:10:19.765749+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Silver Surfer Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79670,
+        "name": "Silver Surfer Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1982
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T04:10:30.378822+00:00",
+    "retry_after": "2026-11-11T04:10:30.378840+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tits ! Tits ! Tits !",
+    "publisher": "Dynamite Entertainment",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167384,
+        "name": "Tits! Tits! Tits!",
+        "publisher": "Dynamite (France)",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T04:10:30.378876+00:00",
+    "retry_after": "2026-11-11T04:10:30.378878+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Thor #312 [JC Penney Marvel Vintage Pack]",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T04:10:30.378890+00:00",
+    "retry_after": "2026-11-11T04:10:30.378892+00:00",
     "search_hydrated": true
   }
 ]

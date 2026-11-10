@@ -47,7 +47,14 @@ export function isValidUpc(value) {
   const digits = normalizeUpc(value);
   if (!VALID_LENGTHS.has(digits.length)) return false;
   const parsed = splitBarcode(digits);
-  return Boolean(parsed && hasValidBarcodeCheckDigit(parsed.base));
+  return Boolean(parsed && hasValidBarcodeCheckDigit(parsed.base) && !isPlaceholderBase(parsed.base));
+}
+
+// 000000000000 and 555555555555 pass the check digit, but no comic carries
+// one. GCD has an all-zero code on Zero Zero #26, so a blank or misread scan
+// "matched" it.
+function isPlaceholderBase(base) {
+  return /^(\d)\1+$/.test(base);
 }
 
 export function hasValidBarcodeCheckDigit(value) {
@@ -135,6 +142,9 @@ export function upcProblem(value) {
   const digits = normalizeUpc(value);
   if (digits.length === 0) return null; // empty is fine; the field is optional
   if (isValidUpc(value)) return null;
+  if (/^(\d)\1+$/.test(digits.slice(0, 12))) {
+    return "That reads as the same digit over and over, which is a placeholder, not a real barcode. Try the scan again or type the numbers under the bars.";
+  }
   if (digits.length < 12) {
     return `That is ${digits.length} digits. A comic barcode is 12 or 13 digits, optionally followed by the small 2- or 5-digit block beside it.`;
   }

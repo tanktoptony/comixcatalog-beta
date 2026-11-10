@@ -731,6 +731,9 @@ export default function SeriesClient({ initialSeries = null, initialOwnMode = fa
                       type="button"
                       className={selectingRange ? "is-active" : ""}
                       onClick={() => {
+                        // The range's last issue has to be on screen to tap,
+                        // and only the first 60 render until "Show all".
+                        if (!selectingRange) setShown(sortedIssues.length);
                         setSelectingRange((current) => !current);
                         setRangeStartId(null);
                       }}

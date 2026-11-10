@@ -2,10 +2,10 @@ import { NextResponse } from "next/server";
 import { getAuthedUser } from "@/lib/authServer";
 import { getServiceClient } from "@/lib/supabase/service";
 import { chooseSeries, issueKey, issueNumberOrFilter, matchIssue, normalizeKey } from "@/lib/csvImport/matchRow";
-import { narrowHolders } from "@/lib/import/import";
+import { narrowHolders, seriesFormatLabel, shownNumber } from "@/lib/import/import";
 
 const ROW_CAP = 200;
-const SERIES_COLUMNS = "id,gcd_id,title,title_normalized,year_start_cached,issue_count_cached,resolved_publisher_cached";
+const SERIES_COLUMNS = "id,gcd_id,title,title_normalized,year_start_cached,issue_count_cached,resolved_publisher_cached,us_market";
 
 // A title is looked up with and without a leading "The": exports and the
 // catalog disagree on it ("Amazing Spider-Man" vs "The Amazing Spider-Man").
@@ -24,15 +24,16 @@ function numberSpellings(issue) {
   return [...out].filter(Boolean);
 }
 
-function candidate(series) {
+function candidate(series, formats) {
   return {
     series_gcd_id: series.gcd_id, title: series.title, year_start: series.year_start_cached,
     publisher: series.resolved_publisher_cached, issue_count: series.issue_count_cached,
+    format: seriesFormatLabel(formats.get(Number(series.gcd_id))),
   };
 }
 
 function label(series, issueNumber) {
-  return `${series.title}${series.year_start_cached ? ` (${series.year_start_cached})` : ""} #${issueNumber}`;
+  return `${series.title}${series.year_start_cached ? ` (${series.year_start_cached})` : ""} #${shownNumber(issueNumber)}`;
 }
 
 // Resolves export rows to catalog issues without writing anything.
@@ -125,6 +126,7 @@ export async function POST(req) {
       }
     }
 
+    const pickedSeries = [];
     const results = rows.map((row, index) => {
       const title = String(row.series ?? "").trim();
       const issueNumber = String(row.issue ?? "").trim();
@@ -138,21 +140,38 @@ export async function POST(req) {
           const issue = matchIssue(issuesBySeries.get(Number(decision.series.gcd_id)), issueNumber);
           return issue
             ? { i: row.i, result: "matched", gcd_issue_id: issue.gcd_id, series_gcd_id: decision.series.gcd_id, label: label(decision.series, issueNumber) }
-            : { i: row.i, result: "not_found", reason: `Found ${label(decision.series, "").slice(0, -2)}, but not issue #${issueNumber}.` };
+            : { i: row.i, result: "not_found", reason: `Found ${label(decision.series, "").slice(0, -2)}, but not issue #${shownNumber(issueNumber)}.` };
         }
       }
 
       const holders = pool.map((series) => ({ series, issue: matchIssue(issuesBySeries.get(Number(series.gcd_id)), issueNumber) }))
         .filter((holder) => holder.issue);
-      if (!holders.length) return { i: row.i, result: "not_found", reason: `Found “${pool[0].title},” but not issue #${issueNumber}.` };
+      if (!holders.length) return { i: row.i, result: "not_found", reason: `Found “${pool[0].title},” but not issue #${shownNumber(issueNumber)}.` };
       const narrowed = narrowHolders(holders, { issueYear: row.issue_year, publisher: row.publisher });
       if (narrowed.length === 1) {
         const [{ series, issue }] = narrowed;
         return { i: row.i, result: "matched", gcd_issue_id: issue.gcd_id, series_gcd_id: series.gcd_id, label: label(series, issueNumber) };
       }
       const choices = narrowed.map((holder) => holder.series).sort((a, b) => (a.year_start_cached ?? 9999) - (b.year_start_cached ?? 9999));
-      return { i: row.i, result: "pick", reason: `${choices.length} volumes of “${title}” have issue #${issueNumber}.`, candidates: choices.map(candidate) };
+      pickedSeries.push(...choices);
+      return { i: row.i, result: "pick", reason: `${choices.length} volumes of “${title}” have issue #${shownNumber(issueNumber)}.`, choices };
     });
+
+    // Volumes that share a title and year (Saga's comic and its trade
+    // paperbacks) only differ by format, so the pick list names it.
+    const formats = new Map();
+    const pickedIds = [...new Set(pickedSeries.map((series) => Number(series.gcd_id)))];
+    for (let start = 0; start < pickedIds.length; start += 200) {
+      const { data, error } = await supabase.from("gcd_series").select("gcd_id,publishing_format,binding,publication_type")
+        .in("gcd_id", pickedIds.slice(start, start + 200));
+      if (error) { console.error("import resolve: series formats skipped", error); break; }
+      for (const row of data ?? []) formats.set(Number(row.gcd_id), row);
+    }
+    for (const result of results) {
+      if (!result.choices) continue;
+      result.candidates = result.choices.map((series) => candidate(series, formats));
+      delete result.choices;
+    }
     return NextResponse.json({ rows: results });
   } catch (error) {
     console.error("import resolve failed", error);

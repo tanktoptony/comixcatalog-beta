@@ -27434,13 +27434,13 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T16:10:59.103782+00:00",
-    "retry_after": "2026-11-11T16:10:59.103797+00:00",
+    "last_attempt_at": "2026-11-10T18:07:28.121280+00:00",
+    "retry_after": "2026-11-11T18:07:28.121299+00:00",
     "search_hydrated": true
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T17:02:04.005836+00:00",
-    "retry_after": "2026-11-11T17:02:04.005851+00:00",
+    "last_attempt_at": "2026-11-10T18:01:53.388313+00:00",
+    "retry_after": "2026-11-11T18:01:53.388315+00:00",
     "search_hydrated": true
   },
   {
@@ -39174,9 +39174,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T12:12:45.919342+00:00",
-    "retry_after": "2026-11-03T12:12:45.919356+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-10T18:06:58.840444+00:00",
+    "retry_after": "2026-11-13T18:06:58.840446+00:00",
     "search_hydrated": true
   },
   {
@@ -43464,26 +43464,26 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
-      {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
       {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T17:02:04.005891+00:00",
-    "retry_after": "2026-11-11T17:02:04.005896+00:00",
+    "last_attempt_at": "2026-11-10T18:01:53.388216+00:00",
+    "retry_after": "2026-11-11T18:01:53.388233+00:00",
     "search_hydrated": true
   },
   {
@@ -51356,13 +51356,13 @@
   },
   {
     "name": "Scud: The Disposable Assassin",
-    "publisher": "Fireman Press",
+    "publisher": "Fireman Press, Ltd",
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T17:02:05.717280+00:00",
-    "retry_after": "2026-11-11T17:02:05.717296+00:00",
+    "last_attempt_at": "2026-11-10T18:01:53.388295+00:00",
+    "retry_after": "2026-11-11T18:01:53.388297+00:00",
     "search_hydrated": true
   },
   {
@@ -76369,9 +76369,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T15:10:37.988840+00:00",
-    "retry_after": "2026-11-09T15:10:37.988842+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T18:07:07.622581+00:00",
+    "retry_after": "2026-11-24T18:07:07.622583+00:00",
     "search_hydrated": true
   },
   {
@@ -90174,9 +90174,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T12:12:34.440295+00:00",
-    "retry_after": "2026-11-03T12:12:34.440299+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-10T18:06:58.840371+00:00",
+    "retry_after": "2026-11-13T18:06:58.840391+00:00",
     "search_hydrated": true
   },
   {
@@ -90192,9 +90192,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T12:12:43.140016+00:00",
-    "retry_after": "2026-11-03T12:12:43.140028+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-10T18:07:04.031152+00:00",
+    "retry_after": "2026-11-13T18:07:04.031170+00:00",
     "search_hydrated": true
   },
   {
@@ -90210,9 +90210,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T12:12:43.271553+00:00",
-    "retry_after": "2026-11-03T12:12:43.271563+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-10T18:07:04.142341+00:00",
+    "retry_after": "2026-11-13T18:07:04.142358+00:00",
     "search_hydrated": true
   },
   {
@@ -90228,9 +90228,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T12:12:43.516986+00:00",
-    "retry_after": "2026-11-03T12:12:43.517001+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-10T18:07:04.551410+00:00",
+    "retry_after": "2026-11-13T18:07:04.551427+00:00",
     "search_hydrated": true
   },
   {
@@ -90246,9 +90246,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T12:12:43.626127+00:00",
-    "retry_after": "2026-11-03T12:12:43.626137+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-10T18:07:04.671797+00:00",
+    "retry_after": "2026-11-13T18:07:04.671816+00:00",
     "search_hydrated": true
   },
   {
@@ -90264,9 +90264,9 @@
         "start_year": 2004
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T12:12:45.919393+00:00",
-    "retry_after": "2026-11-03T12:12:45.919396+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-10T18:07:04.671850+00:00",
+    "retry_after": "2026-11-13T18:07:04.671851+00:00",
     "search_hydrated": true
   },
   {
@@ -90310,9 +90310,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T14:10:42.228411+00:00",
-    "retry_after": "2026-11-03T14:10:42.228414+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-10T18:07:07.622528+00:00",
+    "retry_after": "2026-11-13T18:07:07.622545+00:00",
     "search_hydrated": true
   },
   {
@@ -93517,6 +93517,78 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-10T17:11:36.023330+00:00",
     "retry_after": "2026-11-11T17:11:36.023332+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Links",
+    "publisher": "VIZ Media",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148145,
+        "name": "Links",
+        "publisher": "Milky Way Ediciones",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T18:07:17.887393+00:00",
+    "retry_after": "2026-11-11T18:07:17.887412+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62660,
+        "name": "Big Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T18:07:17.887436+00:00",
+    "retry_after": "2026-11-11T18:07:17.887439+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Superheroes and the Occult Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79640,
+        "name": "Marvel Superheroes and the Occult Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T18:07:17.887454+00:00",
+    "retry_after": "2026-11-11T18:07:17.887456+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I'm Still Alive",
+    "publisher": "BOOM! Studios",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 147126,
+        "name": "I'm Still Alive",
+        "publisher": "Archaia",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T18:07:17.887467+00:00",
+    "retry_after": "2026-11-11T18:07:17.887468+00:00",
     "search_hydrated": true
   }
 ]

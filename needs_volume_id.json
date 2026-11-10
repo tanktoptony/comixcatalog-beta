@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T12:20:26.352507+00:00",
-    "retry_after": "2026-11-11T12:20:26.352510+00:00",
+    "last_attempt_at": "2026-11-10T13:01:55.225939+00:00",
+    "retry_after": "2026-11-11T13:01:55.225941+00:00",
     "search_hydrated": true
   },
   {
@@ -41509,9 +41509,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-27T13:05:21.577499+00:00",
-    "retry_after": "2026-11-10T13:05:21.577502+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-10T13:11:42.766362+00:00",
+    "retry_after": "2026-12-10T13:11:42.766377+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T12:20:26.352357+00:00",
-    "retry_after": "2026-11-11T12:20:26.352381+00:00",
+    "last_attempt_at": "2026-11-10T13:01:55.225824+00:00",
+    "retry_after": "2026-11-11T13:01:55.225841+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T12:20:26.352475+00:00",
-    "retry_after": "2026-11-11T12:20:26.352478+00:00",
+    "last_attempt_at": "2026-11-10T13:01:55.225916+00:00",
+    "retry_after": "2026-11-11T13:01:55.225918+00:00",
     "search_hydrated": true
   },
   {
@@ -57049,9 +57049,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T08:18:13.413061+00:00",
-    "retry_after": "2026-11-09T08:18:13.413076+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T13:11:42.766477+00:00",
+    "retry_after": "2026-11-24T13:11:42.766481+00:00",
     "search_hydrated": true
   },
   {
@@ -90023,9 +90023,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T08:18:13.413091+00:00",
-    "retry_after": "2026-11-03T08:18:13.413093+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-10T13:11:42.766492+00:00",
+    "retry_after": "2026-11-13T13:11:42.766494+00:00",
     "search_hydrated": true
   },
   {
@@ -93721,6 +93721,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-10T12:29:06.827193+00:00",
     "retry_after": "2026-11-11T12:29:06.827209+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62660,
+        "name": "Big Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T13:11:56.993982+00:00",
+    "retry_after": "2026-11-11T13:11:56.993998+00:00",
     "search_hydrated": true
   }
 ]

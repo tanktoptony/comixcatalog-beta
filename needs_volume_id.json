@@ -27429,13 +27429,13 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T05:02:05.914355+00:00",
-    "retry_after": "2026-11-11T05:02:05.914358+00:00",
+    "last_attempt_at": "2026-11-10T07:11:22.497333+00:00",
+    "retry_after": "2026-11-11T07:11:22.497349+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T06:02:12.978620+00:00",
-    "retry_after": "2026-11-11T06:02:12.978622+00:00",
+    "last_attempt_at": "2026-11-10T07:02:04.107656+00:00",
+    "retry_after": "2026-11-11T07:02:04.107659+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T06:02:12.978477+00:00",
-    "retry_after": "2026-11-11T06:02:12.978497+00:00",
+    "last_attempt_at": "2026-11-10T07:02:04.107514+00:00",
+    "retry_after": "2026-11-11T07:02:04.107530+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T06:02:12.978591+00:00",
-    "retry_after": "2026-11-11T06:02:12.978594+00:00",
+    "last_attempt_at": "2026-11-10T07:02:04.107624+00:00",
+    "retry_after": "2026-11-11T07:02:04.107628+00:00",
     "search_hydrated": true
   },
   {
@@ -84899,9 +84899,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T06:19:07.449011+00:00",
-    "retry_after": "2026-11-10T06:19:07.449027+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T07:10:43.009440+00:00",
+    "retry_after": "2026-11-24T07:10:43.009455+00:00",
     "search_hydrated": true
   },
   {
@@ -89799,9 +89799,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T07:36:09.828071+00:00",
-    "retry_after": "2026-11-03T07:36:09.828073+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-10T07:10:43.009494+00:00",
+    "retry_after": "2026-11-13T07:10:43.009498+00:00",
     "search_hydrated": true
   },
   {
@@ -89810,9 +89810,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T07:36:09.828088+00:00",
-    "retry_after": "2026-11-03T07:36:09.828091+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-10T07:10:43.009515+00:00",
+    "retry_after": "2026-11-13T07:10:43.009518+00:00",
     "search_hydrated": true
   },
   {
@@ -89834,9 +89834,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T07:36:09.828128+00:00",
-    "retry_after": "2026-11-03T07:36:09.828131+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-10T07:10:43.009564+00:00",
+    "retry_after": "2026-11-13T07:10:43.009567+00:00",
     "search_hydrated": true
   },
   {
@@ -89845,9 +89845,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T07:36:09.828146+00:00",
-    "retry_after": "2026-11-03T07:36:09.828148+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-10T07:10:43.009582+00:00",
+    "retry_after": "2026-11-13T07:10:43.009585+00:00",
     "search_hydrated": true
   },
   {
@@ -89856,9 +89856,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T07:36:09.828160+00:00",
-    "retry_after": "2026-11-03T07:36:09.828163+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-10T07:10:43.009598+00:00",
+    "retry_after": "2026-11-13T07:10:43.009600+00:00",
     "search_hydrated": true
   },
   {
@@ -93652,6 +93652,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-10T05:11:33.680118+00:00",
     "retry_after": "2026-11-11T05:11:33.680123+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Disney·Pixar Toy Story: The Story of the Movies in Comics",
+    "publisher": "Dark Horse Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T07:10:54.551476+00:00",
+    "retry_after": "2026-11-11T07:10:54.551490+00:00",
     "search_hydrated": true
   }
 ]

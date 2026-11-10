@@ -980,6 +980,13 @@
     "series_gcd_id": 232484
   },
   {
+    "name": "Ocean",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "volume_id": null,
+    "series_gcd_id": 241656
+  },
+  {
     "name": "Orion",
     "publisher": "DC Comics",
     "year": 2026,
@@ -1111,6 +1118,13 @@
     "year": 2026,
     "volume_id": null,
     "series_gcd_id": 241101
+  },
+  {
+    "name": "Spawn: Dead Zones",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "volume_id": null,
+    "series_gcd_id": 241348
   },
   {
     "name": "Spider-Girl: Breathe Through the Fire",
@@ -9562,13 +9576,6 @@
     "series_gcd_id": 142615
   },
   {
-    "name": "Astonishing X-Men by Charles Soule",
-    "publisher": "Marvel Comics",
-    "year": 2018,
-    "volume_id": 59353,
-    "series_gcd_id": 122300
-  },
-  {
     "name": "Avengers & the Infinity Gauntlet",
     "publisher": "Marvel Comics",
     "year": 2018,
@@ -9588,13 +9595,6 @@
     "year": 2018,
     "volume_id": null,
     "series_gcd_id": 130433
-  },
-  {
-    "name": "Barrier",
-    "publisher": "Image Comics",
-    "year": 2018,
-    "volume_id": 86428,
-    "series_gcd_id": 124272
   },
   {
     "name": "Batman and Harley Quinn",
@@ -15939,13 +15939,6 @@
     "series_gcd_id": 99289
   },
   {
-    "name": "Superman: Lois and Clark",
-    "publisher": "DC Comics",
-    "year": 2016,
-    "volume_id": 93684,
-    "series_gcd_id": 105767
-  },
-  {
     "name": "Superman: Panic in the Sky",
     "publisher": "DC Comics",
     "year": 2016,
@@ -20909,13 +20902,6 @@
     "series_gcd_id": 212698
   },
   {
-    "name": "Marvel 75th Anniversary Omnibus",
-    "publisher": "Marvel Comics",
-    "year": 2014,
-    "volume_id": null,
-    "series_gcd_id": 85058
-  },
-  {
     "name": "Marvel Comics No. 1 Halloween Comic Fest 2014",
     "publisher": "Marvel Comics",
     "year": 2014,
@@ -20998,5 +20984,19 @@
     "year": 2014,
     "volume_id": null,
     "series_gcd_id": 142355
+  },
+  {
+    "name": "Marvel Universe Captain America & the Avengers",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 120172
+  },
+  {
+    "name": "Marvel Universe Guardians of the Galaxy: Cosmic Team-Up",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 154913
   }
 ]

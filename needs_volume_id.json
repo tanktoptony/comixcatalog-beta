@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T14:01:58.658129+00:00",
-    "retry_after": "2026-11-11T14:01:58.658131+00:00",
+    "last_attempt_at": "2026-11-10T15:02:09.164715+00:00",
+    "retry_after": "2026-11-11T15:02:09.164719+00:00",
     "search_hydrated": true
   },
   {
@@ -42157,9 +42157,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T08:18:14.433934+00:00",
-    "retry_after": "2026-11-09T08:18:14.433947+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T15:11:06.318337+00:00",
+    "retry_after": "2026-11-24T15:11:06.318357+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T14:01:58.658015+00:00",
-    "retry_after": "2026-11-11T14:01:58.658031+00:00",
+    "last_attempt_at": "2026-11-10T15:02:09.164548+00:00",
+    "retry_after": "2026-11-11T15:02:09.164566+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T14:01:58.658106+00:00",
-    "retry_after": "2026-11-11T14:01:58.658109+00:00",
+    "last_attempt_at": "2026-11-10T15:02:09.164677+00:00",
+    "retry_after": "2026-11-11T15:02:09.164683+00:00",
     "search_hydrated": true
   },
   {
@@ -90034,9 +90034,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T08:18:14.433974+00:00",
-    "retry_after": "2026-11-03T08:18:14.433976+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-10T15:11:06.318400+00:00",
+    "retry_after": "2026-11-13T15:11:06.318405+00:00",
     "search_hydrated": true
   },
   {
@@ -90064,9 +90064,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T08:18:14.434017+00:00",
-    "retry_after": "2026-11-03T08:18:14.434019+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-10T15:11:06.318461+00:00",
+    "retry_after": "2026-11-13T15:11:06.318465+00:00",
     "search_hydrated": true
   },
   {
@@ -93775,6 +93775,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-10T14:10:57.639959+00:00",
     "retry_after": "2026-11-11T14:10:57.639962+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "???????: ???? ????????????",
+    "publisher": "BOOM! Studios",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 172641,
+        "name": "!",
+        "publisher": "Alpha Polis",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T15:11:18.251581+00:00",
+    "retry_after": "2026-11-11T15:11:18.251597+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Boo and the Midnight Monsters",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 122409,
+        "name": "Johnny Boo and the Midnight Monsters",
+        "publisher": "Top Shelf",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T15:11:18.251642+00:00",
+    "retry_after": "2026-11-11T15:11:18.251647+00:00",
     "search_hydrated": true
   }
 ]

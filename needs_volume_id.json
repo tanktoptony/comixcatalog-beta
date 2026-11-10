@@ -27434,8 +27434,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T22:12:03.754983+00:00",
-    "retry_after": "2026-11-11T22:12:03.754998+00:00",
+    "last_attempt_at": "2026-11-10T23:11:13.180422+00:00",
+    "retry_after": "2026-11-11T23:11:13.180439+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T22:02:17.346686+00:00",
-    "retry_after": "2026-11-11T22:02:17.346689+00:00",
+    "last_attempt_at": "2026-11-10T23:02:13.462365+00:00",
+    "retry_after": "2026-11-11T23:02:13.462370+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T22:02:17.346489+00:00",
-    "retry_after": "2026-11-11T22:02:17.346503+00:00",
+    "last_attempt_at": "2026-11-10T23:02:13.462189+00:00",
+    "retry_after": "2026-11-11T23:02:13.462204+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T22:02:17.346648+00:00",
-    "retry_after": "2026-11-11T22:02:17.346654+00:00",
+    "last_attempt_at": "2026-11-10T23:02:13.462300+00:00",
+    "retry_after": "2026-11-11T23:02:13.462304+00:00",
     "search_hydrated": true
   },
   {
@@ -85367,9 +85367,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T22:17:21.351968+00:00",
-    "retry_after": "2026-11-10T22:17:21.351984+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T23:10:44.678875+00:00",
+    "retry_after": "2026-11-24T23:10:44.678890+00:00",
     "search_hydrated": true
   },
   {
@@ -85378,9 +85378,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T22:17:21.352019+00:00",
-    "retry_after": "2026-11-10T22:17:21.352024+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T23:10:44.678916+00:00",
+    "retry_after": "2026-11-24T23:10:44.678921+00:00",
     "search_hydrated": true
   },
   {
@@ -85389,9 +85389,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T22:17:21.352040+00:00",
-    "retry_after": "2026-11-10T22:17:21.352043+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T23:10:44.678936+00:00",
+    "retry_after": "2026-11-24T23:10:44.678939+00:00",
     "search_hydrated": true
   },
   {
@@ -85400,9 +85400,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T22:17:21.352056+00:00",
-    "retry_after": "2026-11-10T22:17:21.352059+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T23:10:44.678952+00:00",
+    "retry_after": "2026-11-24T23:10:44.678954+00:00",
     "search_hydrated": true
   },
   {
@@ -93751,6 +93751,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-10T21:11:17.178585+00:00",
     "retry_after": "2026-11-11T21:11:17.178590+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Extravaganza",
+    "publisher": "Titan Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64945,
+        "name": "Simpsons Comics Extravaganza",
+        "publisher": "HarperCollins",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T23:10:58.660552+00:00",
+    "retry_after": "2026-11-11T23:10:58.660571+00:00",
     "search_hydrated": true
   }
 ]

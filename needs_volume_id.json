@@ -6472,9 +6472,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T09:16:26.465085+00:00",
-    "retry_after": "2026-11-10T09:16:26.465088+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T10:10:19.129174+00:00",
+    "retry_after": "2026-11-24T10:10:19.129177+00:00",
     "search_hydrated": true
   },
   {
@@ -20801,9 +20801,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T07:36:30.334663+00:00",
-    "retry_after": "2026-11-09T07:36:30.334666+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T10:10:19.129235+00:00",
+    "retry_after": "2026-11-24T10:10:19.129238+00:00",
     "search_hydrated": true
   },
   {
@@ -27429,13 +27429,13 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T09:11:40.668302+00:00",
-    "retry_after": "2026-11-11T09:11:40.668319+00:00",
+    "last_attempt_at": "2026-11-10T10:01:55.119334+00:00",
+    "retry_after": "2026-11-11T10:01:55.119336+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T09:02:28.541507+00:00",
-    "retry_after": "2026-11-11T09:02:28.541509+00:00",
+    "last_attempt_at": "2026-11-10T10:01:55.119322+00:00",
+    "retry_after": "2026-11-11T10:01:55.119324+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T09:02:28.541392+00:00",
-    "retry_after": "2026-11-11T09:02:28.541410+00:00",
+    "last_attempt_at": "2026-11-10T10:01:55.119209+00:00",
+    "retry_after": "2026-11-11T10:01:55.119225+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T09:02:28.541484+00:00",
-    "retry_after": "2026-11-11T09:02:28.541487+00:00",
+    "last_attempt_at": "2026-11-10T10:01:55.119299+00:00",
+    "retry_after": "2026-11-11T10:01:55.119302+00:00",
     "search_hydrated": true
   },
   {
@@ -85038,9 +85038,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T09:16:26.465042+00:00",
-    "retry_after": "2026-11-10T09:16:26.465047+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T10:10:19.129140+00:00",
+    "retry_after": "2026-11-24T10:10:19.129155+00:00",
     "search_hydrated": true
   },
   {
@@ -93681,6 +93681,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-10T08:10:57.015413+00:00",
     "retry_after": "2026-11-11T08:10:57.015429+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Highlander Special Edition",
+    "publisher": "Dynamite Entertainment",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T10:10:37.534415+00:00",
+    "retry_after": "2026-11-11T10:10:37.534431+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Louche and Insalubrious Escapades of Art d'Ecco",
+    "publisher": "Fantagraphics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T10:10:37.534450+00:00",
+    "retry_after": "2026-11-11T10:10:37.534453+00:00",
     "search_hydrated": true
   }
 ]

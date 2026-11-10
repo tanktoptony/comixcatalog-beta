@@ -6896,9 +6896,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-02T08:17:47.828587+00:00",
-    "retry_after": "2026-11-05T08:17:47.828588+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-10T12:11:25.682228+00:00",
+    "retry_after": "2026-11-17T12:11:25.682246+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T11:02:07.630937+00:00",
-    "retry_after": "2026-11-11T11:02:07.630940+00:00",
+    "last_attempt_at": "2026-11-10T12:02:17.898161+00:00",
+    "retry_after": "2026-11-11T12:02:17.898164+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T11:02:07.630768+00:00",
-    "retry_after": "2026-11-11T11:02:07.630785+00:00",
+    "last_attempt_at": "2026-11-10T12:02:17.898018+00:00",
+    "retry_after": "2026-11-11T12:02:17.898036+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T11:02:07.630902+00:00",
-    "retry_after": "2026-11-11T11:02:07.630908+00:00",
+    "last_attempt_at": "2026-11-10T12:02:17.898132+00:00",
+    "retry_after": "2026-11-11T12:02:17.898135+00:00",
     "search_hydrated": true
   },
   {
@@ -89874,9 +89874,9 @@
         "start_year": 1996
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T07:36:10.439703+00:00",
-    "retry_after": "2026-11-03T07:36:10.439718+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-10T12:11:44.486705+00:00",
+    "retry_after": "2026-11-13T12:11:44.486722+00:00",
     "search_hydrated": true
   },
   {
@@ -89994,9 +89994,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T08:17:47.828608+00:00",
-    "retry_after": "2026-11-03T08:17:47.828610+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-10T12:11:25.682276+00:00",
+    "retry_after": "2026-11-13T12:11:25.682280+00:00",
     "search_hydrated": true
   },
   {
@@ -93703,6 +93703,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-10T10:10:37.534450+00:00",
     "retry_after": "2026-11-11T10:10:37.534453+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Links",
+    "publisher": "VIZ Media",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148145,
+        "name": "Links",
+        "publisher": "Milky Way Ediciones",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T12:11:54.977384+00:00",
+    "retry_after": "2026-11-11T12:11:54.977403+00:00",
     "search_hydrated": true
   }
 ]

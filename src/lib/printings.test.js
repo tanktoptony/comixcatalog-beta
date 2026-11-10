@@ -182,3 +182,11 @@ test("the served barcode reader matches the installed zxing-wasm", () => {
   assert.equal(pkg.dependencies["zxing-wasm"], ZXING_WASM_VERSION);
   assert.ok(fs.existsSync(new URL(`../../public/zxing-reader-${ZXING_WASM_VERSION}.wasm`, import.meta.url)));
 });
+
+test("an all-zero or one-digit placeholder barcode is refused", () => {
+  // Zero Zero #26 carries 00000000000007 in GCD; a blank scan matched it.
+  for (const code of ["000000000000", "00000000000007", "0000000000000", "555555555555"]) {
+    assert.equal(isValidUpc(code), false, code);
+    assert.match(upcProblem(code), /placeholder/, code);
+  }
+});

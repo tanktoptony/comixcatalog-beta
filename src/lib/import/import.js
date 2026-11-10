@@ -272,12 +272,18 @@ export async function runSequentialBatches(rows, worker, size = 200) {
   return merged.sort((a, b) => a.i - b.i);
 }
 
-// Among the volumes that have an issue number: the issue's own cover year
-// first (a year either side, for off-by-one dating), then the publisher.
-// Every holder still tied is returned, so a single result is a confident
-// match and more than one means the collector picks.
+// Among the volumes that have an issue number: US editions over foreign ones
+// (GCD files Saga's French, Spanish and Finnish books as "Image Comics"
+// series too), then the issue's own cover year (a year either side, for
+// off-by-one dating), then the publisher. Every holder still tied is
+// returned, so a single result is a confident match and more than one means
+// the collector picks.
 export function narrowHolders(holders, { issueYear, publisher } = {}) {
   let pool = holders;
+  if (pool.length > 1) {
+    const us = pool.filter((holder) => holder.series?.us_market === true);
+    if (us.length) pool = us;
+  }
   const year = Number(issueYear);
   if (pool.length > 1 && Number.isFinite(year) && year > 1800) {
     const byYear = pool.filter((holder) => {
@@ -291,4 +297,22 @@ export function narrowHolders(holders, { issueYear, publisher } = {}) {
     if (byPublisher.length) pool = byPublisher;
   }
   return pool;
+}
+
+// What a volume is, from GCD's series format fields, so a pick list can tell
+// "Saga (2012) · Image Comics" the comic from the trade paperback of the same
+// name and year. Null when GCD doesn't say.
+export function seriesFormatLabel(format) {
+  const binding = String(format?.binding ?? "").toLowerCase();
+  const publishing = String(format?.publishing_format ?? "").toLowerCase();
+  if (/hard ?cover/.test(binding)) return "Hardcover";
+  if (/trade paperback|\btpb\b/.test(binding)) return "Trade paperback";
+  if (/saddle/.test(binding) || format?.publication_type === "magazine") return "Comic";
+  if (/collected/.test(publishing)) return "Collected edition";
+  return null;
+}
+
+// Exports often write the number as "#1"; shown as is, that read "##1".
+export function shownNumber(issueNumber) {
+  return String(issueNumber ?? "").trim().replace(/^#+\s*/, "");
 }

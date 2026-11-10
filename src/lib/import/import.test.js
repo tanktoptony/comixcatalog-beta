@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   autoMapColumns, autoMapHeaders, clampQuantity, listFromRow, mapRow, parseGrade, parsePrice, parseYear, pickSheet, planOwnedCopies,
-  narrowHolders, runSequentialBatches, splitBatches, splitBatchesBy, splitFullTitle, splitSeriesTitle, statusFromValue,
+  narrowHolders, runSequentialBatches, seriesFormatLabel, shownNumber, splitBatches, splitBatchesBy, splitFullTitle, splitSeriesTitle, statusFromValue,
   tableFromGrid, wishlistFromFilename,
 } from "./import.js";
 
@@ -211,4 +211,25 @@ test("narrowHolders uses the issue's cover year, then the publisher", () => {
   assert.deepEqual(narrowHolders(superman, { issueYear: 1987 }).map((h) => h.series.gcd_id), [9001]);
   assert.equal(narrowHolders(superman, {}).length, 3);
   assert.equal(narrowHolders([holder(1, 2000, "DC")], { issueYear: 1990 }).length, 1);
+});
+
+test("narrowHolders prefers US editions over foreign ones", () => {
+  const holder = (id, us) => ({ series: { gcd_id: id, us_market: us, resolved_publisher_cached: "Image Comics" }, issue: { key_date: "2012-03-00" } });
+  const saga = [holder(63051, true), holder(69146, true), holder(73057, false), holder(69511, false)];
+  assert.deepEqual(narrowHolders(saga, { issueYear: 2012 }).map((h) => h.series.gcd_id), [63051, 69146]);
+  assert.equal(narrowHolders([holder(73057, false), holder(69511, false)], {}).length, 2);
+});
+
+test("seriesFormatLabel tells the comic from its collected editions", () => {
+  assert.equal(seriesFormatLabel({ publishing_format: "ongoing series", binding: "saddle-stitched", publication_type: "magazine" }), "Comic");
+  assert.equal(seriesFormatLabel({ publishing_format: "Collected Series", binding: "Squarebound; Trade Paperback" }), "Trade paperback");
+  assert.equal(seriesFormatLabel({ binding: "Hardcover" }), "Hardcover");
+  assert.equal(seriesFormatLabel({ publishing_format: "collected edition" }), "Collected edition");
+  assert.equal(seriesFormatLabel(null), null);
+});
+
+test("shownNumber drops an export's leading #", () => {
+  assert.equal(shownNumber("#1"), "1");
+  assert.equal(shownNumber(" ## 12 "), "12");
+  assert.equal(shownNumber("1 [Cover A]"), "1 [Cover A]");
 });

@@ -27429,13 +27429,13 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T10:01:55.119334+00:00",
-    "retry_after": "2026-11-11T10:01:55.119336+00:00",
+    "last_attempt_at": "2026-11-10T16:10:59.103782+00:00",
+    "retry_after": "2026-11-11T16:10:59.103797+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T15:02:09.164715+00:00",
-    "retry_after": "2026-11-11T15:02:09.164719+00:00",
+    "last_attempt_at": "2026-11-10T16:02:05.403914+00:00",
+    "retry_after": "2026-11-11T16:02:05.403916+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T15:02:09.164548+00:00",
-    "retry_after": "2026-11-11T15:02:09.164566+00:00",
+    "last_attempt_at": "2026-11-10T16:02:05.403801+00:00",
+    "retry_after": "2026-11-11T16:02:05.403816+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T15:02:09.164677+00:00",
-    "retry_after": "2026-11-11T15:02:09.164683+00:00",
+    "last_attempt_at": "2026-11-10T16:02:05.403892+00:00",
+    "retry_after": "2026-11-11T16:02:05.403894+00:00",
     "search_hydrated": true
   },
   {
@@ -85155,9 +85155,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T15:15:27.339324+00:00",
-    "retry_after": "2026-11-10T15:15:27.339337+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T16:10:34.406827+00:00",
+    "retry_after": "2026-11-24T16:10:34.406841+00:00",
     "search_hydrated": true
   },
   {
@@ -85201,9 +85201,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T16:10:23.097748+00:00",
-    "retry_after": "2026-11-10T16:10:23.097767+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T16:10:39.207367+00:00",
+    "retry_after": "2026-11-24T16:10:39.207383+00:00",
     "search_hydrated": true
   },
   {
@@ -85230,9 +85230,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T16:10:23.097789+00:00",
-    "retry_after": "2026-11-10T16:10:23.097792+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T16:10:39.207401+00:00",
+    "retry_after": "2026-11-24T16:10:39.207403+00:00",
     "search_hydrated": true
   },
   {
@@ -90075,9 +90075,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T08:18:14.434055+00:00",
-    "retry_after": "2026-11-03T08:18:14.434057+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-10T16:10:30.927043+00:00",
+    "retry_after": "2026-11-13T16:10:30.927059+00:00",
     "search_hydrated": true
   },
   {
@@ -93811,6 +93811,78 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-10T15:11:18.251642+00:00",
     "retry_after": "2026-11-11T15:11:18.251647+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Death",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40889,
+        "name": "Death",
+        "publisher": "Panini Verlag",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T16:10:49.410233+00:00",
+    "retry_after": "2026-11-11T16:10:49.410248+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Meltdown",
+    "publisher": "Titan Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161288,
+        "name": "Simpsons Comics Meltdown",
+        "publisher": "HarperCollins",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T16:10:49.410272+00:00",
+    "retry_after": "2026-11-11T16:10:49.410275+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "They Called Us Enemy – Expanded Edition",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129898,
+        "name": "They Called Us Enemy: Expanded Edition",
+        "publisher": "Top Shelf",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T16:10:49.410321+00:00",
+    "retry_after": "2026-11-11T16:10:49.410325+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vuzz",
+    "publisher": "Titan Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85799,
+        "name": "Vuzz",
+        "publisher": "Dargaud",
+        "start_year": 1974
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T16:10:49.410343+00:00",
+    "retry_after": "2026-11-11T16:10:49.410345+00:00",
     "search_hydrated": true
   }
 ]

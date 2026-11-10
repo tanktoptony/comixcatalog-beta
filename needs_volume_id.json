@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T13:01:55.225939+00:00",
-    "retry_after": "2026-11-11T13:01:55.225941+00:00",
+    "last_attempt_at": "2026-11-10T14:01:58.658129+00:00",
+    "retry_after": "2026-11-11T14:01:58.658131+00:00",
     "search_hydrated": true
   },
   {
@@ -28144,9 +28144,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T08:18:13.413106+00:00",
-    "retry_after": "2026-11-09T08:18:13.413107+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T14:10:43.768853+00:00",
+    "retry_after": "2026-11-24T14:10:43.768856+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T13:01:55.225824+00:00",
-    "retry_after": "2026-11-11T13:01:55.225841+00:00",
+    "last_attempt_at": "2026-11-10T14:01:58.658015+00:00",
+    "retry_after": "2026-11-11T14:01:58.658031+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-10T13:01:55.225916+00:00",
-    "retry_after": "2026-11-11T13:01:55.225918+00:00",
+    "last_attempt_at": "2026-11-10T14:01:58.658106+00:00",
+    "retry_after": "2026-11-11T14:01:58.658109+00:00",
     "search_hydrated": true
   },
   {
@@ -85115,9 +85115,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T13:25:07.371678+00:00",
-    "retry_after": "2026-11-10T13:25:07.371704+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T14:10:43.768751+00:00",
+    "retry_after": "2026-11-24T14:10:43.768766+00:00",
     "search_hydrated": true
   },
   {
@@ -85126,9 +85126,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-03T13:25:07.371726+00:00",
-    "retry_after": "2026-11-10T13:25:07.371729+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-10T14:10:43.768783+00:00",
+    "retry_after": "2026-11-24T14:10:43.768786+00:00",
     "search_hydrated": true
   },
   {
@@ -93739,6 +93739,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-10T13:11:56.993982+00:00",
     "retry_after": "2026-11-11T13:11:56.993998+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Superheroes and the Occult Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79640,
+        "name": "Marvel Superheroes and the Occult Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T14:10:57.639894+00:00",
+    "retry_after": "2026-11-11T14:10:57.639930+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I'm Still Alive",
+    "publisher": "BOOM! Studios",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 147126,
+        "name": "I'm Still Alive",
+        "publisher": "Archaia",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-10T14:10:57.639959+00:00",
+    "retry_after": "2026-11-11T14:10:57.639962+00:00",
     "search_hydrated": true
   }
 ]

@@ -6339,9 +6339,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T18:10:51.399720+00:00",
-    "retry_after": "2026-11-11T18:10:51.399723+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T19:11:43.517933+00:00",
+    "retry_after": "2026-11-25T19:11:43.517937+00:00",
     "search_hydrated": true
   },
   {
@@ -9450,9 +9450,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T18:10:51.399697+00:00",
-    "retry_after": "2026-11-11T18:10:51.399702+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T19:11:43.517897+00:00",
+    "retry_after": "2026-11-25T19:11:43.517909+00:00",
     "search_hydrated": true
   },
   {
@@ -27434,13 +27434,13 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T16:08:35.031199+00:00",
-    "retry_after": "2026-11-12T16:08:35.031214+00:00",
+    "last_attempt_at": "2026-11-11T19:12:03.957995+00:00",
+    "retry_after": "2026-11-12T19:12:03.958008+00:00",
     "search_hydrated": true
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T17:13:49.978245+00:00",
-    "retry_after": "2026-11-12T17:13:49.978265+00:00",
+    "last_attempt_at": "2026-11-11T19:02:25.961280+00:00",
+    "retry_after": "2026-11-12T19:02:25.961283+00:00",
     "search_hydrated": true
   },
   {
@@ -43483,8 +43483,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T18:03:37.724597+00:00",
-    "retry_after": "2026-11-12T18:03:37.724616+00:00",
+    "last_attempt_at": "2026-11-11T19:02:25.961137+00:00",
+    "retry_after": "2026-11-12T19:02:25.961152+00:00",
     "search_hydrated": true
   },
   {
@@ -51362,8 +51362,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T18:03:37.724701+00:00",
-    "retry_after": "2026-11-12T18:03:37.724704+00:00",
+    "last_attempt_at": "2026-11-11T19:02:25.961247+00:00",
+    "retry_after": "2026-11-12T19:02:25.961251+00:00",
     "search_hydrated": true
   },
   {
@@ -93783,6 +93783,113 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-11T18:07:44.156338+00:00",
     "retry_after": "2026-11-12T18:07:44.156357+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Strange",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75976,
+        "name": "The Strange",
+        "publisher": "Top Secret Press",
+        "start_year": 2014
+      },
+      {
+        "id": 111712,
+        "name": "The Strange",
+        "publisher": "Drawn & Quarterly",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T19:11:43.518100+00:00",
+    "retry_after": "2026-11-12T19:11:43.518106+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Walking Dead #1 15th Anniversary",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T19:11:43.518122+00:00",
+    "retry_after": "2026-11-12T19:11:43.518125+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "???????: ???? ????????????",
+    "publisher": "BOOM! Studios",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 172641,
+        "name": "!",
+        "publisher": "Alpha Polis",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T19:11:55.783807+00:00",
+    "retry_after": "2026-11-12T19:11:55.783817+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Boo and the Midnight Monsters",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 122409,
+        "name": "Johnny Boo and the Midnight Monsters",
+        "publisher": "Top Shelf",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T19:11:55.783850+00:00",
+    "retry_after": "2026-11-12T19:11:55.783854+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Death",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40889,
+        "name": "Death",
+        "publisher": "Panini Verlag",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T19:11:55.783879+00:00",
+    "retry_after": "2026-11-12T19:11:55.783882+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Meltdown",
+    "publisher": "Titan Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161288,
+        "name": "Simpsons Comics Meltdown",
+        "publisher": "HarperCollins",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T19:11:55.783901+00:00",
+    "retry_after": "2026-11-12T19:11:55.783904+00:00",
     "search_hydrated": true
   }
 ]

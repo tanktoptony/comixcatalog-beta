@@ -8104,9 +8104,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T22:15:07.280471+00:00",
-    "retry_after": "2026-11-11T22:15:07.280473+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T23:10:42.682411+00:00",
+    "retry_after": "2026-11-25T23:10:42.682413+00:00",
     "search_hydrated": true
   },
   {
@@ -14631,9 +14631,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T22:42:09.460942+00:00",
-    "retry_after": "2026-11-11T22:42:09.460945+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T23:10:42.682427+00:00",
+    "retry_after": "2026-11-25T23:10:42.682430+00:00",
     "search_hydrated": true
   },
   {
@@ -14804,9 +14804,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T22:42:09.460955+00:00",
-    "retry_after": "2026-11-11T22:42:09.460956+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T23:10:42.682444+00:00",
+    "retry_after": "2026-11-25T23:10:42.682446+00:00",
     "search_hydrated": true
   },
   {
@@ -27434,8 +27434,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T22:11:01.196504+00:00",
-    "retry_after": "2026-11-12T22:11:01.196515+00:00",
+    "last_attempt_at": "2026-11-11T23:12:56.897267+00:00",
+    "retry_after": "2026-11-12T23:12:56.897281+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T22:01:48.488134+00:00",
-    "retry_after": "2026-11-12T22:01:48.488135+00:00",
+    "last_attempt_at": "2026-11-11T23:02:14.185115+00:00",
+    "retry_after": "2026-11-12T23:02:14.185117+00:00",
     "search_hydrated": true
   },
   {
@@ -43483,8 +43483,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T22:01:48.488029+00:00",
-    "retry_after": "2026-11-12T22:01:48.488041+00:00",
+    "last_attempt_at": "2026-11-11T23:02:14.184972+00:00",
+    "retry_after": "2026-11-12T23:02:14.184988+00:00",
     "search_hydrated": true
   },
   {
@@ -51362,8 +51362,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T22:01:48.488116+00:00",
-    "retry_after": "2026-11-12T22:01:48.488118+00:00",
+    "last_attempt_at": "2026-11-11T23:02:14.185083+00:00",
+    "retry_after": "2026-11-12T23:02:14.185086+00:00",
     "search_hydrated": true
   },
   {
@@ -86695,9 +86695,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T22:15:07.280389+00:00",
-    "retry_after": "2026-11-11T22:15:07.280392+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T23:10:42.682347+00:00",
+    "retry_after": "2026-11-25T23:10:42.682362+00:00",
     "search_hydrated": true
   },
   {
@@ -86706,9 +86706,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T22:15:07.280403+00:00",
-    "retry_after": "2026-11-11T22:15:07.280405+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T23:10:42.682390+00:00",
+    "retry_after": "2026-11-25T23:10:42.682394+00:00",
     "search_hydrated": true
   },
   {
@@ -94110,6 +94110,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-11T22:10:44.618907+00:00",
     "retry_after": "2026-11-12T22:10:44.618910+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Walking Dead #127 15th Anniversary",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T23:10:42.682522+00:00",
+    "retry_after": "2026-11-12T23:10:42.682525+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Danger Girl Gallery Edition",
+    "publisher": "IDW Publishing",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T23:10:55.785776+00:00",
+    "retry_after": "2026-11-12T23:10:55.785790+00:00",
     "search_hydrated": true
   }
 ]

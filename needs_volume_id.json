@@ -27434,8 +27434,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T11:11:30.308192+00:00",
-    "retry_after": "2026-11-12T11:11:30.308208+00:00",
+    "last_attempt_at": "2026-11-11T12:12:00.036141+00:00",
+    "retry_after": "2026-11-12T12:12:00.036152+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T11:02:01.925127+00:00",
-    "retry_after": "2026-11-12T11:02:01.925129+00:00",
+    "last_attempt_at": "2026-11-11T12:02:55.946705+00:00",
+    "retry_after": "2026-11-12T12:02:55.946707+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T11:02:01.925011+00:00",
-    "retry_after": "2026-11-12T11:02:01.925027+00:00",
+    "last_attempt_at": "2026-11-11T12:02:55.946614+00:00",
+    "retry_after": "2026-11-12T12:02:55.946626+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T11:02:01.925104+00:00",
-    "retry_after": "2026-11-12T11:02:01.925106+00:00",
+    "last_attempt_at": "2026-11-11T12:02:55.946688+00:00",
+    "retry_after": "2026-11-12T12:02:55.946690+00:00",
     "search_hydrated": true
   },
   {
@@ -85864,36 +85864,18 @@
     "name": "Spider-Man",
     "publisher": "Marvel Comics",
     "year": 2021,
-    "reason": "multiple_candidates",
+    "reason": "series_hint_year_mismatch",
     "candidates": [
       {
-        "id": 4421,
+        "id": 145364,
         "name": "Spider-Man",
         "publisher": "Marvel",
-        "start_year": 1990
-      },
-      {
-        "id": 87820,
-        "name": "Spider-Man",
-        "publisher": "Marvel",
-        "start_year": 2016
-      },
-      {
-        "id": 121420,
-        "name": "Spider-Man",
-        "publisher": "Marvel",
-        "start_year": 2019
-      },
-      {
-        "id": 34457,
-        "name": "Spider-Man",
-        "publisher": "Marvel",
-        "start_year": 1987
+        "start_year": 2022
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T10:14:36.148657+00:00",
-    "retry_after": "2026-11-11T10:14:36.148660+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T12:11:24.677945+00:00",
+    "retry_after": "2026-11-25T12:11:24.677951+00:00",
     "search_hydrated": true
   },
   {
@@ -85909,9 +85891,9 @@
         "start_year": 1993
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T11:12:44.807770+00:00",
-    "retry_after": "2026-11-11T11:12:44.807775+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T12:11:24.677983+00:00",
+    "retry_after": "2026-11-25T12:11:24.677985+00:00",
     "search_hydrated": true
   },
   {
@@ -85971,9 +85953,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T11:12:45.083744+00:00",
-    "retry_after": "2026-11-11T11:12:45.083760+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T12:11:24.913562+00:00",
+    "retry_after": "2026-11-25T12:11:24.913569+00:00",
     "search_hydrated": true
   },
   {
@@ -85993,9 +85975,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T11:12:40.097353+00:00",
-    "retry_after": "2026-11-11T11:12:40.097368+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T12:11:20.551902+00:00",
+    "retry_after": "2026-11-25T12:11:20.551914+00:00",
     "search_hydrated": true
   },
   {
@@ -86017,9 +85999,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T11:12:40.097411+00:00",
-    "retry_after": "2026-11-11T11:12:40.097415+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T12:11:20.551944+00:00",
+    "retry_after": "2026-11-25T12:11:20.551946+00:00",
     "search_hydrated": true
   },
   {
@@ -86028,9 +86010,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T11:12:40.097448+00:00",
-    "retry_after": "2026-11-11T11:12:40.097451+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T12:11:20.551963+00:00",
+    "retry_after": "2026-11-25T12:11:20.551965+00:00",
     "search_hydrated": true
   },
   {
@@ -86046,9 +86028,9 @@
         "start_year": 2026
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T11:12:45.083980+00:00",
-    "retry_after": "2026-11-11T11:12:45.083984+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T12:11:24.913599+00:00",
+    "retry_after": "2026-11-25T12:11:24.913601+00:00",
     "search_hydrated": true
   },
   {
@@ -86137,9 +86119,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T11:12:43.855750+00:00",
-    "retry_after": "2026-11-11T11:12:43.855766+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T12:11:23.824991+00:00",
+    "retry_after": "2026-11-25T12:11:23.824998+00:00",
     "search_hydrated": true
   },
   {

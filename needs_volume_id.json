@@ -27434,8 +27434,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T21:12:39.000031+00:00",
-    "retry_after": "2026-11-12T21:12:39.000048+00:00",
+    "last_attempt_at": "2026-11-11T22:11:01.196504+00:00",
+    "retry_after": "2026-11-12T22:11:01.196515+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T21:02:19.589351+00:00",
-    "retry_after": "2026-11-12T21:02:19.589353+00:00",
+    "last_attempt_at": "2026-11-11T22:01:48.488134+00:00",
+    "retry_after": "2026-11-12T22:01:48.488135+00:00",
     "search_hydrated": true
   },
   {
@@ -31437,9 +31437,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T20:16:43.129410+00:00",
-    "retry_after": "2026-11-11T20:16:43.129425+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T22:10:30.839346+00:00",
+    "retry_after": "2026-11-25T22:10:30.839348+00:00",
     "search_hydrated": true
   },
   {
@@ -43483,8 +43483,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T21:02:19.589224+00:00",
-    "retry_after": "2026-11-12T21:02:19.589242+00:00",
+    "last_attempt_at": "2026-11-11T22:01:48.488029+00:00",
+    "retry_after": "2026-11-12T22:01:48.488041+00:00",
     "search_hydrated": true
   },
   {
@@ -51362,8 +51362,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T21:02:19.589325+00:00",
-    "retry_after": "2026-11-12T21:02:19.589328+00:00",
+    "last_attempt_at": "2026-11-11T22:01:48.488116+00:00",
+    "retry_after": "2026-11-12T22:01:48.488118+00:00",
     "search_hydrated": true
   },
   {
@@ -86517,9 +86517,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T19:13:39.124989+00:00",
-    "retry_after": "2026-11-11T19:13:39.125003+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T22:10:34.356416+00:00",
+    "retry_after": "2026-11-25T22:10:34.356421+00:00",
     "search_hydrated": true
   },
   {
@@ -86662,9 +86662,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T21:11:43.332858+00:00",
-    "retry_after": "2026-11-11T21:11:43.332860+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T22:10:30.839320+00:00",
+    "retry_after": "2026-11-25T22:10:30.839331+00:00",
     "search_hydrated": true
   },
   {
@@ -92469,9 +92469,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-08T21:54:03.810642+00:00",
-    "retry_after": "2026-11-11T21:54:03.810651+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-11T22:10:34.238048+00:00",
+    "retry_after": "2026-11-18T22:10:34.238054+00:00",
     "search_hydrated": true
   },
   {
@@ -93407,9 +93407,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-10T17:11:20.989796+00:00",
-    "retry_after": "2026-11-11T17:11:20.989810+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-11T22:10:34.512927+00:00",
+    "retry_after": "2026-11-14T22:10:34.512932+00:00",
     "search_hydrated": true
   },
   {
@@ -94056,6 +94056,60 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-11T21:12:31.980452+00:00",
     "retry_after": "2026-11-12T21:12:31.980454+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ms. Marvel by Saladin Ahmed",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 160193,
+        "name": "Ms. Marvel by Saladin Ahmed",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T22:10:34.356752+00:00",
+    "retry_after": "2026-11-12T22:10:34.356753+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kick-Ass 2 Prelude: Hit Girl",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58598,
+        "name": "Kick-Ass 2 Prelude: Hit-Girl",
+        "publisher": "Icon Books",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T22:10:44.618877+00:00",
+    "retry_after": "2026-11-12T22:10:44.618888+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Shake-Up",
+    "publisher": "Titan Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 70715,
+        "name": "Simpsons Comics: Shake-Up",
+        "publisher": "Bongo",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T22:10:44.618907+00:00",
+    "retry_after": "2026-11-12T22:10:44.618910+00:00",
     "search_hydrated": true
   }
 ]

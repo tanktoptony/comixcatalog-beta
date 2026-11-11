@@ -14366,9 +14366,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T16:59:29.682994+00:00",
-    "retry_after": "2026-11-11T16:59:29.682997+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T17:09:08.933769+00:00",
+    "retry_after": "2026-11-25T17:09:08.933784+00:00",
     "search_hydrated": true
   },
   {
@@ -27440,7 +27440,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T16:03:46.281725+00:00",
-    "retry_after": "2026-11-12T16:03:46.281727+00:00",
+    "last_attempt_at": "2026-11-11T16:59:55.311717+00:00",
+    "retry_after": "2026-11-12T16:59:55.311731+00:00",
     "search_hydrated": true
   },
   {
@@ -30465,9 +30465,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T16:12:54.072105+00:00",
-    "retry_after": "2026-11-11T16:12:54.072122+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T17:08:58.641160+00:00",
+    "retry_after": "2026-11-25T17:08:58.641166+00:00",
     "search_hydrated": true
   },
   {
@@ -43465,26 +43465,26 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
-      {
-        "id": 2930,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1977
-      },
       {
         "id": 116293,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T16:03:46.281608+00:00",
-    "retry_after": "2026-11-12T16:03:46.281623+00:00",
+    "last_attempt_at": "2026-11-11T16:59:55.311773+00:00",
+    "retry_after": "2026-11-12T16:59:55.311777+00:00",
     "search_hydrated": true
   },
   {
@@ -51357,13 +51357,13 @@
   },
   {
     "name": "Scud: The Disposable Assassin",
-    "publisher": "Fireman Press, Ltd",
+    "publisher": "Fireman Press",
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T16:03:46.281701+00:00",
-    "retry_after": "2026-11-12T16:03:46.281704+00:00",
+    "last_attempt_at": "2026-11-11T16:59:56.753874+00:00",
+    "retry_after": "2026-11-12T16:59:56.753889+00:00",
     "search_hydrated": true
   },
   {
@@ -86310,9 +86310,9 @@
         "start_year": 2026
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T16:13:06.552977+00:00",
-    "retry_after": "2026-11-11T16:13:06.552997+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T17:09:03.845915+00:00",
+    "retry_after": "2026-11-25T17:09:03.845920+00:00",
     "search_hydrated": true
   },
   {
@@ -86361,9 +86361,9 @@
         "start_year": 2006
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T16:13:06.553036+00:00",
-    "retry_after": "2026-11-11T16:13:06.553038+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T17:09:03.845954+00:00",
+    "retry_after": "2026-11-25T17:09:03.845957+00:00",
     "search_hydrated": true
   },
   {
@@ -86379,9 +86379,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T16:13:06.553056+00:00",
-    "retry_after": "2026-11-11T16:13:06.553058+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T17:09:03.845979+00:00",
+    "retry_after": "2026-11-25T17:09:03.845982+00:00",
     "search_hydrated": true
   },
   {
@@ -86437,9 +86437,9 @@
         "start_year": 2003
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T16:13:06.553082+00:00",
-    "retry_after": "2026-11-11T16:13:06.553084+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T17:09:03.846011+00:00",
+    "retry_after": "2026-11-25T17:09:03.846014+00:00",
     "search_hydrated": true
   },
   {
@@ -86466,9 +86466,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T16:13:06.776073+00:00",
-    "retry_after": "2026-11-11T16:13:06.776082+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T17:09:04.184261+00:00",
+    "retry_after": "2026-11-25T17:09:04.184274+00:00",
     "search_hydrated": true
   },
   {
@@ -93389,9 +93389,9 @@
         "start_year": 2007
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-10T17:07:10.295274+00:00",
-    "retry_after": "2026-11-11T17:07:10.295290+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-11T17:08:58.640926+00:00",
+    "retry_after": "2026-11-14T17:08:58.640941+00:00",
     "search_hydrated": true
   },
   {
@@ -93537,6 +93537,150 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-11T15:06:14.455779+00:00",
     "retry_after": "2026-11-12T15:06:14.455784+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "In Rage",
+    "publisher": "CFD Productions",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88863,
+        "name": "In Rage",
+        "publisher": "Creative Force Designs",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T16:59:55.311803+00:00",
+    "retry_after": "2026-11-12T16:59:55.311807+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ms. Marvel by Saladin Ahmed",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 160193,
+        "name": "Ms. Marvel by Saladin Ahmed",
+        "publisher": "Marvel",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T17:09:08.934006+00:00",
+    "retry_after": "2026-11-12T17:09:08.934011+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Les Aventures d'une étudiante lesbienne",
+    "publisher": "Dynamite Entertainment",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 130157,
+        "name": "Les Aventures d'une Étudiante Lesbienne",
+        "publisher": "Dynamite (France)",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T17:09:28.612999+00:00",
+    "retry_after": "2026-11-12T17:09:28.613015+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Silver Surfer Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79670,
+        "name": "Silver Surfer Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1982
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T17:09:28.613056+00:00",
+    "retry_after": "2026-11-12T17:09:28.613061+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tits ! Tits ! Tits !",
+    "publisher": "Dynamite Entertainment",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167384,
+        "name": "Tits! Tits! Tits!",
+        "publisher": "Dynamite (France)",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T17:09:28.613087+00:00",
+    "retry_after": "2026-11-12T17:09:28.613090+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Bratty Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62713,
+        "name": "Big Bratty Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T17:09:28.613111+00:00",
+    "retry_after": "2026-11-12T17:09:28.613114+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Joe Palooka Presents the Funsational Humphrey",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 156763,
+        "name": "Joe Palooka Presents the Funsational Humphrey",
+        "publisher": "Magazine Management",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T17:09:36.439768+00:00",
+    "retry_after": "2026-11-12T17:09:36.439783+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mad Classics",
+    "publisher": "EC Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18767,
+        "name": "Mad Classics",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T17:09:36.439814+00:00",
+    "retry_after": "2026-11-12T17:09:36.439819+00:00",
     "search_hydrated": true
   }
 ]

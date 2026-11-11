@@ -7326,9 +7326,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T17:12:09.124634+00:00",
-    "retry_after": "2026-11-11T17:12:09.124636+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T18:07:21.663146+00:00",
+    "retry_after": "2026-11-25T18:07:21.663164+00:00",
     "search_hydrated": true
   },
   {
@@ -22260,9 +22260,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T17:12:09.124695+00:00",
-    "retry_after": "2026-11-11T17:12:09.124698+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T18:07:21.663187+00:00",
+    "retry_after": "2026-11-25T18:07:21.663190+00:00",
     "search_hydrated": true
   },
   {
@@ -43465,26 +43465,26 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
-      {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
       {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T17:13:49.978316+00:00",
-    "retry_after": "2026-11-12T17:13:49.978321+00:00",
+    "last_attempt_at": "2026-11-11T18:03:37.724597+00:00",
+    "retry_after": "2026-11-12T18:03:37.724616+00:00",
     "search_hydrated": true
   },
   {
@@ -51357,13 +51357,13 @@
   },
   {
     "name": "Scud: The Disposable Assassin",
-    "publisher": "Fireman Press",
+    "publisher": "Fireman Press, Ltd",
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T17:13:53.484664+00:00",
-    "retry_after": "2026-11-12T17:13:53.484680+00:00",
+    "last_attempt_at": "2026-11-11T18:03:37.724701+00:00",
+    "retry_after": "2026-11-12T18:03:37.724704+00:00",
     "search_hydrated": true
   },
   {
@@ -93663,6 +93663,126 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-11T17:18:39.506857+00:00",
     "retry_after": "2026-11-12T17:18:39.506860+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Sandman",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2667,
+        "name": "The Sandman",
+        "publisher": "DC Comics",
+        "start_year": 1974
+      },
+      {
+        "id": 4207,
+        "name": "The Sandman",
+        "publisher": "DC Comics",
+        "start_year": 1989
+      },
+      {
+        "id": 146911,
+        "name": "The Sandman",
+        "publisher": "DC Comics",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T18:07:21.663322+00:00",
+    "retry_after": "2026-11-12T18:07:21.663325+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Links",
+    "publisher": "VIZ Media",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148145,
+        "name": "Links",
+        "publisher": "Milky Way Ediciones",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T18:07:36.564984+00:00",
+    "retry_after": "2026-11-12T18:07:36.565003+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62660,
+        "name": "Big Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T18:07:36.565031+00:00",
+    "retry_after": "2026-11-12T18:07:36.565035+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Superheroes and the Occult Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79640,
+        "name": "Marvel Superheroes and the Occult Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T18:07:36.565057+00:00",
+    "retry_after": "2026-11-12T18:07:36.565060+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I'm Still Alive",
+    "publisher": "BOOM! Studios",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 147126,
+        "name": "I'm Still Alive",
+        "publisher": "Archaia",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T18:07:36.565076+00:00",
+    "retry_after": "2026-11-12T18:07:36.565078+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Anti-Crime Squad",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52652,
+        "name": "Anti Crime Squad",
+        "publisher": "Magazine Management",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T18:07:44.156338+00:00",
+    "retry_after": "2026-11-12T18:07:44.156357+00:00",
     "search_hydrated": true
   }
 ]

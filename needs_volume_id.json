@@ -27434,8 +27434,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T23:12:56.897267+00:00",
-    "retry_after": "2026-11-12T23:12:56.897281+00:00",
+    "last_attempt_at": "2026-11-11T23:23:40.732217+00:00",
+    "retry_after": "2026-11-12T23:23:40.732231+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T23:02:14.185115+00:00",
-    "retry_after": "2026-11-12T23:02:14.185117+00:00",
+    "last_attempt_at": "2026-11-11T23:19:36.096936+00:00",
+    "retry_after": "2026-11-12T23:19:36.096938+00:00",
     "search_hydrated": true
   },
   {
@@ -43483,8 +43483,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T23:02:14.184972+00:00",
-    "retry_after": "2026-11-12T23:02:14.184988+00:00",
+    "last_attempt_at": "2026-11-11T23:19:36.096829+00:00",
+    "retry_after": "2026-11-12T23:19:36.096843+00:00",
     "search_hydrated": true
   },
   {
@@ -51362,8 +51362,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T23:02:14.185083+00:00",
-    "retry_after": "2026-11-12T23:02:14.185086+00:00",
+    "last_attempt_at": "2026-11-11T23:19:36.096914+00:00",
+    "retry_after": "2026-11-12T23:19:36.096916+00:00",
     "search_hydrated": true
   },
   {
@@ -86772,9 +86772,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T23:14:56.080084+00:00",
-    "retry_after": "2026-11-11T23:14:56.080091+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T23:23:18.608887+00:00",
+    "retry_after": "2026-11-25T23:23:18.608903+00:00",
     "search_hydrated": true
   },
   {
@@ -86794,9 +86794,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T23:14:56.080109+00:00",
-    "retry_after": "2026-11-11T23:14:56.080112+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T23:23:18.608920+00:00",
+    "retry_after": "2026-11-25T23:23:18.608924+00:00",
     "search_hydrated": true
   },
   {
@@ -86805,9 +86805,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T23:14:56.080124+00:00",
-    "retry_after": "2026-11-11T23:14:56.080127+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T23:23:18.608934+00:00",
+    "retry_after": "2026-11-25T23:23:18.608936+00:00",
     "search_hydrated": true
   },
   {
@@ -86816,9 +86816,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T23:14:56.080139+00:00",
-    "retry_after": "2026-11-11T23:14:56.080141+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T23:23:18.608945+00:00",
+    "retry_after": "2026-11-25T23:23:18.608947+00:00",
     "search_hydrated": true
   },
   {
@@ -86827,9 +86827,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T23:14:56.080154+00:00",
-    "retry_after": "2026-11-11T23:14:56.080157+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T23:23:18.608957+00:00",
+    "retry_after": "2026-11-25T23:23:18.608959+00:00",
     "search_hydrated": true
   },
   {
@@ -94132,6 +94132,39 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-11T23:10:55.785776+00:00",
     "retry_after": "2026-11-12T23:10:55.785790+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Walking Dead #132 15th Anniversary",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T23:23:18.609017+00:00",
+    "retry_after": "2026-11-12T23:23:18.609019+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Fantastic Four 51 [Best Buy Edition]",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T23:23:27.250394+00:00",
+    "retry_after": "2026-11-12T23:23:27.250409+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Uncanny X-Men #245 [JC Penney Marvel Vintage Pack]",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T23:23:27.250427+00:00",
+    "retry_after": "2026-11-12T23:23:27.250431+00:00",
     "search_hydrated": true
   }
 ]

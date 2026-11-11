@@ -27434,8 +27434,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T12:12:00.036141+00:00",
-    "retry_after": "2026-11-12T12:12:00.036152+00:00",
+    "last_attempt_at": "2026-11-11T13:11:32.282924+00:00",
+    "retry_after": "2026-11-12T13:11:32.282941+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T12:02:55.946705+00:00",
-    "retry_after": "2026-11-12T12:02:55.946707+00:00",
+    "last_attempt_at": "2026-11-11T13:02:00.138406+00:00",
+    "retry_after": "2026-11-12T13:02:00.138408+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T12:02:55.946614+00:00",
-    "retry_after": "2026-11-12T12:02:55.946626+00:00",
+    "last_attempt_at": "2026-11-11T13:02:00.138290+00:00",
+    "retry_after": "2026-11-12T13:02:00.138306+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T12:02:55.946688+00:00",
-    "retry_after": "2026-11-12T12:02:55.946690+00:00",
+    "last_attempt_at": "2026-11-11T13:02:00.138383+00:00",
+    "retry_after": "2026-11-12T13:02:00.138386+00:00",
     "search_hydrated": true
   },
   {
@@ -86039,9 +86039,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T12:15:43.879346+00:00",
-    "retry_after": "2026-11-11T12:15:43.879349+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T13:10:57.772217+00:00",
+    "retry_after": "2026-11-25T13:10:57.772233+00:00",
     "search_hydrated": true
   },
   {
@@ -86050,9 +86050,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T12:15:43.879361+00:00",
-    "retry_after": "2026-11-11T12:15:43.879363+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T13:10:57.772250+00:00",
+    "retry_after": "2026-11-25T13:10:57.772253+00:00",
     "search_hydrated": true
   },
   {
@@ -86101,9 +86101,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T12:15:43.879372+00:00",
-    "retry_after": "2026-11-11T12:15:43.879374+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T13:10:57.772265+00:00",
+    "retry_after": "2026-11-25T13:10:57.772266+00:00",
     "search_hydrated": true
   },
   {
@@ -86130,9 +86130,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T12:15:43.879383+00:00",
-    "retry_after": "2026-11-11T12:15:43.879385+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T13:10:57.772276+00:00",
+    "retry_after": "2026-11-25T13:10:57.772277+00:00",
     "search_hydrated": true
   },
   {
@@ -86141,9 +86141,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T12:15:43.879396+00:00",
-    "retry_after": "2026-11-11T12:15:43.879398+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T13:10:57.772289+00:00",
+    "retry_after": "2026-11-25T13:10:57.772291+00:00",
     "search_hydrated": true
   },
   {
@@ -93935,6 +93935,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-11T11:11:10.000812+00:00",
     "retry_after": "2026-11-12T11:11:10.000828+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Invincible Compendium",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 54479,
+        "name": "Invincible Compendium",
+        "publisher": "Image",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T13:11:01.481120+00:00",
+    "retry_after": "2026-11-12T13:11:01.481136+00:00",
     "search_hydrated": true
   }
 ]

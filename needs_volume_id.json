@@ -27434,8 +27434,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T10:11:41.719553+00:00",
-    "retry_after": "2026-11-12T10:11:41.719570+00:00",
+    "last_attempt_at": "2026-11-11T11:11:30.308192+00:00",
+    "retry_after": "2026-11-12T11:11:30.308208+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T10:02:17.639607+00:00",
-    "retry_after": "2026-11-12T10:02:17.639610+00:00",
+    "last_attempt_at": "2026-11-11T11:02:01.925127+00:00",
+    "retry_after": "2026-11-12T11:02:01.925129+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T10:02:17.639463+00:00",
-    "retry_after": "2026-11-12T10:02:17.639481+00:00",
+    "last_attempt_at": "2026-11-11T11:02:01.925011+00:00",
+    "retry_after": "2026-11-12T11:02:01.925027+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T10:02:17.639578+00:00",
-    "retry_after": "2026-11-12T10:02:17.639581+00:00",
+    "last_attempt_at": "2026-11-11T11:02:01.925104+00:00",
+    "retry_after": "2026-11-12T11:02:01.925106+00:00",
     "search_hydrated": true
   },
   {
@@ -85855,9 +85855,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T08:55:51.234659+00:00",
-    "retry_after": "2026-11-11T08:55:51.234662+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T11:10:59.352427+00:00",
+    "retry_after": "2026-11-25T11:10:59.352443+00:00",
     "search_hydrated": true
   },
   {
@@ -85920,9 +85920,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T08:55:51.234691+00:00",
-    "retry_after": "2026-11-11T08:55:51.234694+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T11:10:59.352472+00:00",
+    "retry_after": "2026-11-25T11:10:59.352475+00:00",
     "search_hydrated": true
   },
   {
@@ -85953,9 +85953,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T10:14:36.148684+00:00",
-    "retry_after": "2026-11-11T10:14:36.148686+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T11:10:59.352487+00:00",
+    "retry_after": "2026-11-25T11:10:59.352489+00:00",
     "search_hydrated": true
   },
   {
@@ -93931,6 +93931,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-11T08:11:03.773503+00:00",
     "retry_after": "2026-11-12T08:11:03.773509+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Incredible Hulk vs. The Mighty Thor: New York Jets Exclusive",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T11:10:59.352546+00:00",
+    "retry_after": "2026-11-12T11:10:59.352548+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Shadow: The Death of Margo Lane Limited Edition",
+    "publisher": "Dynamite Entertainment",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T11:11:10.000812+00:00",
+    "retry_after": "2026-11-12T11:11:10.000828+00:00",
     "search_hydrated": true
   }
 ]

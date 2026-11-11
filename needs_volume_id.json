@@ -27434,8 +27434,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T07:10:58.544935+00:00",
-    "retry_after": "2026-11-12T07:10:58.544952+00:00",
+    "last_attempt_at": "2026-11-11T08:11:19.702252+00:00",
+    "retry_after": "2026-11-12T08:11:19.702267+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T07:02:03.863851+00:00",
-    "retry_after": "2026-11-12T07:02:03.863853+00:00",
+    "last_attempt_at": "2026-11-11T08:02:13.313155+00:00",
+    "retry_after": "2026-11-12T08:02:13.313158+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T07:02:03.863740+00:00",
-    "retry_after": "2026-11-12T07:02:03.863756+00:00",
+    "last_attempt_at": "2026-11-11T08:02:13.313007+00:00",
+    "retry_after": "2026-11-12T08:02:13.313024+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T07:02:03.863828+00:00",
-    "retry_after": "2026-11-12T07:02:03.863831+00:00",
+    "last_attempt_at": "2026-11-11T08:02:13.313124+00:00",
+    "retry_after": "2026-11-12T08:02:13.313127+00:00",
     "search_hydrated": true
   },
   {
@@ -90651,9 +90651,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T21:11:25.337104+00:00",
-    "retry_after": "2026-11-03T21:11:25.337120+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-11T08:10:50.779520+00:00",
+    "retry_after": "2026-11-14T08:10:50.779537+00:00",
     "search_hydrated": true
   },
   {
@@ -90669,9 +90669,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T21:11:38.118305+00:00",
-    "retry_after": "2026-11-03T21:11:38.118321+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-11T08:10:52.367183+00:00",
+    "retry_after": "2026-11-14T08:10:52.367199+00:00",
     "search_hydrated": true
   },
   {
@@ -90805,9 +90805,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T23:10:30.344958+00:00",
-    "retry_after": "2026-11-03T23:10:30.344964+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-11T08:10:52.585529+00:00",
+    "retry_after": "2026-11-14T08:10:52.585545+00:00",
     "search_hydrated": true
   },
   {
@@ -90823,9 +90823,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T23:10:32.305078+00:00",
-    "retry_after": "2026-11-03T23:10:32.305090+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-11T08:10:53.050887+00:00",
+    "retry_after": "2026-11-14T08:10:53.050903+00:00",
     "search_hydrated": true
   },
   {
@@ -93354,9 +93354,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-10T07:10:54.551476+00:00",
-    "retry_after": "2026-11-11T07:10:54.551490+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-11T08:11:03.773372+00:00",
+    "retry_after": "2026-11-14T08:11:03.773387+00:00",
     "search_hydrated": true
   },
   {
@@ -93877,6 +93877,60 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-11T06:10:38.593651+00:00",
     "retry_after": "2026-11-12T06:10:38.593655+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Flash Annual",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 3791,
+        "name": "The Flash Annual",
+        "publisher": "DC Comics",
+        "start_year": 1987
+      },
+      {
+        "id": 28177,
+        "name": "Flash Annual",
+        "publisher": "DC Comics",
+        "start_year": 1963
+      },
+      {
+        "id": 108248,
+        "name": "The Flash Annual",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 51614,
+        "name": "The Flash Annual",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T08:10:42.739574+00:00",
+    "retry_after": "2026-11-12T08:10:42.739590+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kick-Ass 2 Prelude: Hit Girl",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58598,
+        "name": "Kick-Ass 2 Prelude: Hit-Girl",
+        "publisher": "Icon Books",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T08:11:03.773503+00:00",
+    "retry_after": "2026-11-12T08:11:03.773509+00:00",
     "search_hydrated": true
   }
 ]

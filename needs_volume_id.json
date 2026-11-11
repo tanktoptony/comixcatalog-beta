@@ -27434,8 +27434,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T05:10:57.531445+00:00",
-    "retry_after": "2026-11-12T05:10:57.531460+00:00",
+    "last_attempt_at": "2026-11-11T06:10:48.767971+00:00",
+    "retry_after": "2026-11-12T06:10:48.767988+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T05:02:05.515412+00:00",
-    "retry_after": "2026-11-12T05:02:05.515414+00:00",
+    "last_attempt_at": "2026-11-11T06:02:05.168052+00:00",
+    "retry_after": "2026-11-12T06:02:05.168055+00:00",
     "search_hydrated": true
   },
   {
@@ -38648,9 +38648,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-02T22:11:00.787312+00:00",
-    "retry_after": "2026-11-09T22:11:00.787315+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T06:10:26.789123+00:00",
+    "retry_after": "2026-11-25T06:10:26.789126+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T05:02:05.515265+00:00",
-    "retry_after": "2026-11-12T05:02:05.515282+00:00",
+    "last_attempt_at": "2026-11-11T06:02:05.167898+00:00",
+    "retry_after": "2026-11-12T06:02:05.167915+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T05:02:05.515378+00:00",
-    "retry_after": "2026-11-12T05:02:05.515383+00:00",
+    "last_attempt_at": "2026-11-11T06:02:05.168018+00:00",
+    "retry_after": "2026-11-12T06:02:05.168023+00:00",
     "search_hydrated": true
   },
   {
@@ -85660,9 +85660,9 @@
         "start_year": 2005
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T05:17:39.921794+00:00",
-    "retry_after": "2026-11-11T05:17:39.921796+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T06:10:26.788999+00:00",
+    "retry_after": "2026-11-25T06:10:26.789015+00:00",
     "search_hydrated": true
   },
   {
@@ -90754,9 +90754,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-02T22:11:00.787296+00:00",
-    "retry_after": "2026-11-03T22:11:00.787299+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-11T06:10:26.789101+00:00",
+    "retry_after": "2026-11-14T06:10:26.789106+00:00",
     "search_hydrated": true
   },
   {
@@ -93332,9 +93332,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-10T05:11:33.680058+00:00",
-    "retry_after": "2026-11-11T05:11:33.680074+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-11T06:10:38.593497+00:00",
+    "retry_after": "2026-11-14T06:10:38.593515+00:00",
     "search_hydrated": true
   },
   {
@@ -93343,9 +93343,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-10T05:11:33.680118+00:00",
-    "retry_after": "2026-11-11T05:11:33.680123+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-11T06:10:38.593547+00:00",
+    "retry_after": "2026-11-14T06:10:38.593552+00:00",
     "search_hydrated": true
   },
   {
@@ -93859,6 +93859,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-11T05:10:42.939406+00:00",
     "retry_after": "2026-11-12T05:10:42.939422+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gli Albi dei Super-Eroi",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34647,
+        "name": "Gli Albi dei Super-Eroi",
+        "publisher": "Editoriale Corno",
+        "start_year": 1973
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T06:10:38.593651+00:00",
+    "retry_after": "2026-11-12T06:10:38.593655+00:00",
     "search_hydrated": true
   }
 ]

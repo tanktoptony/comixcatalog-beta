@@ -27434,8 +27434,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T19:12:03.957995+00:00",
-    "retry_after": "2026-11-12T19:12:03.958008+00:00",
+    "last_attempt_at": "2026-11-11T20:10:51.416109+00:00",
+    "retry_after": "2026-11-12T20:10:51.416129+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T19:02:25.961280+00:00",
-    "retry_after": "2026-11-12T19:02:25.961283+00:00",
+    "last_attempt_at": "2026-11-11T20:01:55.789190+00:00",
+    "retry_after": "2026-11-12T20:01:55.789192+00:00",
     "search_hydrated": true
   },
   {
@@ -43483,8 +43483,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T19:02:25.961137+00:00",
-    "retry_after": "2026-11-12T19:02:25.961152+00:00",
+    "last_attempt_at": "2026-11-11T20:01:55.789092+00:00",
+    "retry_after": "2026-11-12T20:01:55.789111+00:00",
     "search_hydrated": true
   },
   {
@@ -51362,8 +51362,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T19:02:25.961247+00:00",
-    "retry_after": "2026-11-12T19:02:25.961251+00:00",
+    "last_attempt_at": "2026-11-11T20:01:55.789173+00:00",
+    "retry_after": "2026-11-12T20:01:55.789174+00:00",
     "search_hydrated": true
   },
   {
@@ -86539,9 +86539,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T19:13:30.382779+00:00",
-    "retry_after": "2026-11-11T19:13:30.382784+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T20:10:31.551358+00:00",
+    "retry_after": "2026-11-25T20:10:31.551376+00:00",
     "search_hydrated": true
   },
   {
@@ -93890,6 +93890,100 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-11T19:11:55.783901+00:00",
     "retry_after": "2026-11-12T19:11:55.783904+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Walking Dead #100 15th Anniversary",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T20:10:31.551444+00:00",
+    "retry_after": "2026-11-12T20:10:31.551447+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Walking Dead #108 15th Anniversary",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T20:10:31.551456+00:00",
+    "retry_after": "2026-11-12T20:10:31.551457+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "They Called Us Enemy – Expanded Edition",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129898,
+        "name": "They Called Us Enemy: Expanded Edition",
+        "publisher": "Top Shelf",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T20:10:43.889665+00:00",
+    "retry_after": "2026-11-12T20:10:43.889683+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vuzz",
+    "publisher": "Titan Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85799,
+        "name": "Vuzz",
+        "publisher": "Dargaud",
+        "start_year": 1974
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T20:10:43.889704+00:00",
+    "retry_after": "2026-11-12T20:10:43.889707+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deadworld: The Last Siesta",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75600,
+        "name": "Deadworld: The Last Siesta",
+        "publisher": "Caliber Comics",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T20:10:43.889721+00:00",
+    "retry_after": "2026-11-12T20:10:43.889723+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Extravaganza",
+    "publisher": "Titan Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64945,
+        "name": "Simpsons Comics Extravaganza",
+        "publisher": "HarperCollins",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T20:10:43.889734+00:00",
+    "retry_after": "2026-11-12T20:10:43.889735+00:00",
     "search_hydrated": true
   }
 ]

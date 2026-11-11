@@ -98,18 +98,18 @@
     "series_gcd_id": 541
   },
   {
-    "name": "Action Comics",
-    "publisher": "DC",
-    "year": 2011,
-    "volume_id": 91078,
-    "series_gcd_id": 59922
-  },
-  {
     "name": "Detective Comics",
     "publisher": "DC",
     "year": 2011,
     "volume_id": 91098,
     "series_gcd_id": 60830
+  },
+  {
+    "name": "Action Comics",
+    "publisher": "DC",
+    "year": 2011,
+    "volume_id": 91078,
+    "series_gcd_id": 59922
   },
   {
     "name": "Joker",
@@ -280,13 +280,6 @@
     "series_gcd_id": 13765
   },
   {
-    "name": "Midnight Spider-Man",
-    "publisher": "Marvel",
-    "year": 2026,
-    "volume_id": 177370,
-    "series_gcd_id": 240077
-  },
-  {
     "name": "American Humorist",
     "publisher": "New York American and Journal",
     "year": 1896,
@@ -341,6 +334,13 @@
     "year": 2022,
     "volume_id": 166116,
     "series_gcd_id": 187413
+  },
+  {
+    "name": "Midnight Spider-Man",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 177370,
+    "series_gcd_id": 240077
   },
   {
     "name": "Ninja-K",
@@ -553,6 +553,13 @@
     "series_gcd_id": 1981
   },
   {
+    "name": "The Muppet Show: The Comic Book",
+    "publisher": "Boom! Studios",
+    "year": 2009,
+    "volume_id": 26056,
+    "series_gcd_id": 43266
+  },
+  {
     "name": "Higher Earth",
     "publisher": "Boom! Studios",
     "year": 2012,
@@ -588,6 +595,13 @@
     "series_gcd_id": 1426
   },
   {
+    "name": "Thor",
+    "publisher": "Marvel",
+    "year": 2025,
+    "volume_id": 166460,
+    "series_gcd_id": 227097
+  },
+  {
     "name": "Wandering Son",
     "publisher": "Fantagraphics",
     "year": 2011,
@@ -621,13 +635,6 @@
     "year": 2005,
     "volume_id": 92537,
     "series_gcd_id": 44560
-  },
-  {
-    "name": "Thor",
-    "publisher": "Marvel",
-    "year": 2025,
-    "volume_id": 166460,
-    "series_gcd_id": 227097
   },
   {
     "name": "The Life and Death of Toyo Harada",
@@ -749,13 +756,6 @@
     "series_gcd_id": 237373
   },
   {
-    "name": "Batman & Robin: Year One - Dynamic Duos",
-    "publisher": "DC",
-    "year": 2026,
-    "volume_id": 175730,
-    "series_gcd_id": 239004
-  },
-  {
     "name": "TUG & buster",
     "publisher": "Art & Soul",
     "year": 1995,
@@ -784,6 +784,13 @@
     "series_gcd_id": 203217
   },
   {
+    "name": "Archie's Christmas Spectacular",
+    "publisher": "Archie",
+    "year": 2026,
+    "volume_id": 177462,
+    "series_gcd_id": 241354
+  },
+  {
     "name": "Shudder",
     "publisher": "Warrant Publishing",
     "year": 2021,
@@ -803,6 +810,13 @@
     "year": 1996,
     "volume_id": 118991,
     "series_gcd_id": 17873
+  },
+  {
+    "name": "Marvel Knights 20th",
+    "publisher": "Marvel",
+    "year": 2019,
+    "volume_id": 141127,
+    "series_gcd_id": 133140
   },
   {
     "name": "Quantum Vibe",
@@ -840,11 +854,11 @@
     "series_gcd_id": 18623
   },
   {
-    "name": "He-Man and the Masters of the Universe",
-    "publisher": "Dark Horse",
-    "year": 2025,
-    "volume_id": 171916,
-    "series_gcd_id": 227931
+    "name": "Batman & Robin: Year One - Dynamic Duos",
+    "publisher": "DC",
+    "year": 2026,
+    "volume_id": 175730,
+    "series_gcd_id": 239004
   },
   {
     "name": "TaleSpin",
@@ -945,18 +959,18 @@
     "series_gcd_id": 238478
   },
   {
-    "name": "Clayface: Celebrity Dirt",
-    "publisher": "DC",
-    "year": 2026,
-    "volume_id": 174198,
-    "series_gcd_id": 238018
-  },
-  {
     "name": "Terminal",
     "publisher": "Image",
     "year": 2026,
     "volume_id": 175072,
     "series_gcd_id": 239300
+  },
+  {
+    "name": "He-Man and the Masters of the Universe",
+    "publisher": "Dark Horse",
+    "year": 2025,
+    "volume_id": 171916,
+    "series_gcd_id": 227931
   },
   {
     "name": "The Doom Patrol",
@@ -1099,18 +1113,11 @@
     "series_gcd_id": 3414
   },
   {
-    "name": "Barbara Gordon: Breakout",
+    "name": "Clayface: Celebrity Dirt",
     "publisher": "DC",
     "year": 2026,
-    "volume_id": 171903,
-    "series_gcd_id": 235838
-  },
-  {
-    "name": "Emperor Aquaman",
-    "publisher": "DC",
-    "year": 2026,
-    "volume_id": 170952,
-    "series_gcd_id": 234848
+    "volume_id": 174198,
+    "series_gcd_id": 238018
   },
   {
     "name": "Slingers",
@@ -1260,11 +1267,11 @@
     "series_gcd_id": 4745
   },
   {
-    "name": "Godzilla Conquers the Multiverse",
-    "publisher": "Marvel",
+    "name": "Barbara Gordon: Breakout",
+    "publisher": "DC",
     "year": 2026,
-    "volume_id": 175059,
-    "series_gcd_id": 239218
+    "volume_id": 171903,
+    "series_gcd_id": 235838
   },
   {
     "name": "Purgatori",

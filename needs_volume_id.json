@@ -27434,8 +27434,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T15:06:30.829102+00:00",
-    "retry_after": "2026-11-12T15:06:30.829132+00:00",
+    "last_attempt_at": "2026-11-11T16:08:35.031199+00:00",
+    "retry_after": "2026-11-12T16:08:35.031214+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T15:02:10.870284+00:00",
-    "retry_after": "2026-11-12T15:02:10.870287+00:00",
+    "last_attempt_at": "2026-11-11T16:03:46.281725+00:00",
+    "retry_after": "2026-11-12T16:03:46.281727+00:00",
     "search_hydrated": true
   },
   {
@@ -32053,9 +32053,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-03T02:00:53.866397+00:00",
-    "retry_after": "2026-10-10T02:00:53.866415+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T16:07:41.549728+00:00",
+    "retry_after": "2026-11-25T16:07:41.549730+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Scooby-Doo Team-Up Halloween Special Edition",
@@ -43482,8 +43483,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T15:02:10.870109+00:00",
-    "retry_after": "2026-11-12T15:02:10.870149+00:00",
+    "last_attempt_at": "2026-11-11T16:03:46.281608+00:00",
+    "retry_after": "2026-11-12T16:03:46.281623+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51362,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T15:02:10.870250+00:00",
-    "retry_after": "2026-11-12T15:02:10.870255+00:00",
+    "last_attempt_at": "2026-11-11T16:03:46.281701+00:00",
+    "retry_after": "2026-11-12T16:03:46.281704+00:00",
     "search_hydrated": true
   },
   {
@@ -86447,9 +86448,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T15:13:46.526276+00:00",
-    "retry_after": "2026-11-11T15:13:46.526282+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T16:07:41.549636+00:00",
+    "retry_after": "2026-11-25T16:07:41.549640+00:00",
     "search_hydrated": true
   },
   {
@@ -86487,9 +86488,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T15:13:46.526028+00:00",
-    "retry_after": "2026-11-11T15:13:46.526044+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T16:07:41.549490+00:00",
+    "retry_after": "2026-11-25T16:07:41.549507+00:00",
     "search_hydrated": true
   },
   {
@@ -86498,9 +86499,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T15:13:46.526328+00:00",
-    "retry_after": "2026-11-11T15:13:46.526335+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T16:07:41.549653+00:00",
+    "retry_after": "2026-11-25T16:07:41.549655+00:00",
     "search_hydrated": true
   },
   {
@@ -92479,9 +92480,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-08T16:01:44.299682+00:00",
-    "retry_after": "2026-11-11T16:01:44.299685+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-11T16:03:06.527296+00:00",
+    "retry_after": "2026-11-18T16:03:06.527299+00:00",
     "search_hydrated": true
   },
   {
@@ -93986,6 +93987,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-11T15:06:14.455779+00:00",
     "retry_after": "2026-11-12T15:06:14.455784+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Shake-Up",
+    "publisher": "Titan Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 70715,
+        "name": "Simpsons Comics: Shake-Up",
+        "publisher": "Bongo",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T16:07:52.204491+00:00",
+    "retry_after": "2026-11-12T16:07:52.204507+00:00",
     "search_hydrated": true
   }
 ]

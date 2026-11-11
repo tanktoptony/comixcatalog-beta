@@ -27434,8 +27434,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T14:12:14.370452+00:00",
-    "retry_after": "2026-11-12T14:12:14.370471+00:00",
+    "last_attempt_at": "2026-11-11T15:06:30.829102+00:00",
+    "retry_after": "2026-11-12T15:06:30.829132+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T14:02:12.986928+00:00",
-    "retry_after": "2026-11-12T14:02:12.986931+00:00",
+    "last_attempt_at": "2026-11-11T15:02:10.870284+00:00",
+    "retry_after": "2026-11-12T15:02:10.870287+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T14:02:12.986772+00:00",
-    "retry_after": "2026-11-12T14:02:12.986789+00:00",
+    "last_attempt_at": "2026-11-11T15:02:10.870109+00:00",
+    "retry_after": "2026-11-12T15:02:10.870149+00:00",
     "search_hydrated": true
   },
   {
@@ -51361,8 +51361,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T14:02:12.986895+00:00",
-    "retry_after": "2026-11-12T14:02:12.986899+00:00",
+    "last_attempt_at": "2026-11-11T15:02:10.870250+00:00",
+    "retry_after": "2026-11-12T15:02:10.870255+00:00",
     "search_hydrated": true
   },
   {
@@ -86280,9 +86280,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T13:14:13.559071+00:00",
-    "retry_after": "2026-11-11T13:14:13.559073+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T15:06:02.396269+00:00",
+    "retry_after": "2026-11-25T15:06:02.396286+00:00",
     "search_hydrated": true
   },
   {
@@ -86291,9 +86291,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T14:14:36.939535+00:00",
-    "retry_after": "2026-11-11T14:14:36.939552+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T15:06:02.396307+00:00",
+    "retry_after": "2026-11-25T15:06:02.396311+00:00",
     "search_hydrated": true
   },
   {
@@ -86342,9 +86342,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T14:14:36.939585+00:00",
-    "retry_after": "2026-11-11T14:14:36.939589+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T15:06:02.396327+00:00",
+    "retry_after": "2026-11-25T15:06:02.396330+00:00",
     "search_hydrated": true
   },
   {
@@ -86400,9 +86400,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T14:14:36.939614+00:00",
-    "retry_after": "2026-11-11T14:14:36.939617+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T15:06:02.396344+00:00",
+    "retry_after": "2026-11-25T15:06:02.396346+00:00",
     "search_hydrated": true
   },
   {
@@ -86418,9 +86418,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-04T14:14:40.221438+00:00",
-    "retry_after": "2026-11-11T14:14:40.221455+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-11T15:06:04.103559+00:00",
+    "retry_after": "2026-11-25T15:06:04.103574+00:00",
     "search_hydrated": true
   },
   {
@@ -93953,6 +93953,39 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-11T13:11:01.481120+00:00",
     "retry_after": "2026-11-12T13:11:01.481136+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Weathercraft and Other Unusual Tales [Free Comic Book Day]",
+    "publisher": "Fantagraphics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T15:06:14.455680+00:00",
+    "retry_after": "2026-11-12T15:06:14.455698+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "National Lampoon's Gentleman's Bathroom Companion",
+    "publisher": "Heavy Metal",
+    "year": 1975,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T15:06:14.455731+00:00",
+    "retry_after": "2026-11-12T15:06:14.455737+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Most Outrageous: The Trials and Trespasses of Dwaine Tinsley and Chester the Molester",
+    "publisher": "Fantagraphics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-11T15:06:14.455779+00:00",
+    "retry_after": "2026-11-12T15:06:14.455784+00:00",
     "search_hydrated": true
   }
 ]

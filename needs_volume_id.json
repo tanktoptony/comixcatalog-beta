@@ -27436,8 +27436,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T02:11:57.235130+00:00",
-    "retry_after": "2026-11-13T02:11:57.235146+00:00",
+    "last_attempt_at": "2026-11-12T03:12:05.025665+00:00",
+    "retry_after": "2026-11-13T03:12:05.025682+00:00",
     "search_hydrated": true
   },
   {
@@ -27460,8 +27460,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T02:02:20.275216+00:00",
-    "retry_after": "2026-11-13T02:02:20.275219+00:00",
+    "last_attempt_at": "2026-11-12T03:02:26.077228+00:00",
+    "retry_after": "2026-11-13T03:02:26.077230+00:00",
     "search_hydrated": true
   },
   {
@@ -43485,8 +43485,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T02:02:20.275071+00:00",
-    "retry_after": "2026-11-13T02:02:20.275087+00:00",
+    "last_attempt_at": "2026-11-12T03:02:26.077112+00:00",
+    "retry_after": "2026-11-13T03:02:26.077129+00:00",
     "search_hydrated": true
   },
   {
@@ -51332,9 +51332,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T02:16:19.535788+00:00",
-    "retry_after": "2026-11-12T02:16:19.535807+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T03:10:57.723733+00:00",
+    "retry_after": "2026-11-26T03:10:57.723736+00:00",
     "search_hydrated": true
   },
   {
@@ -51364,8 +51364,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T02:02:20.275184+00:00",
-    "retry_after": "2026-11-13T02:02:20.275188+00:00",
+    "last_attempt_at": "2026-11-12T03:02:26.077205+00:00",
+    "retry_after": "2026-11-13T03:02:26.077207+00:00",
     "search_hydrated": true
   },
   {
@@ -86915,18 +86915,18 @@
     "name": "House of X / Powers of X",
     "publisher": "Marvel Comics",
     "year": 2020,
-    "reason": "series_hint_year_mismatch",
+    "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 123413,
-        "name": "House of X/Powers of X",
-        "publisher": "Marvel",
-        "start_year": 2019
+        "id": 150110,
+        "name": "House of X / Powers of X",
+        "publisher": "Panini France",
+        "start_year": 2021
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T02:16:24.235839+00:00",
-    "retry_after": "2026-11-12T02:16:24.235859+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T03:10:57.723685+00:00",
+    "retry_after": "2026-11-26T03:10:57.723710+00:00",
     "search_hydrated": true
   },
   {
@@ -92218,9 +92218,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-07T10:10:32.777519+00:00",
-    "retry_after": "2026-11-10T10:10:32.777522+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T03:10:57.723802+00:00",
+    "retry_after": "2026-11-19T03:10:57.723804+00:00",
     "search_hydrated": true
   },
   {
@@ -93427,9 +93427,9 @@
         "start_year": 1983
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-11T01:10:54.690544+00:00",
-    "retry_after": "2026-11-12T01:10:54.690548+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-12T03:11:00.050239+00:00",
+    "retry_after": "2026-11-15T03:11:00.050243+00:00",
     "search_hydrated": true
   },
   {
@@ -94288,6 +94288,39 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-12T02:11:00.899355+00:00",
     "retry_after": "2026-11-13T02:11:00.899370+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Walking Dead Day Special",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T03:10:57.723815+00:00",
+    "retry_after": "2026-11-13T03:10:57.723817+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Teenage Mutant Ninja Turtles: Future Tense",
+    "publisher": "Mirage Studios",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T03:11:46.790698+00:00",
+    "retry_after": "2026-11-13T03:11:46.790716+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Hulk: Planet Hulk",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T03:11:46.790742+00:00",
+    "retry_after": "2026-11-13T03:11:46.790745+00:00",
     "search_hydrated": true
   }
 ]

@@ -17285,16 +17285,6 @@
     "retry_after": "2026-09-26T07:00:42.618843+00:00"
   },
   {
-    "name": "True Believers: Wolverine -- The Dying Game",
-    "publisher": "Marvel Comics",
-    "year": 2018,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-23T07:00:43.017619+00:00",
-    "retry_after": "2026-09-26T07:00:43.017639+00:00"
-  },
-  {
     "name": "Dennis the Menace and Poor Ol' Mr. Wilson",
     "publisher": "Fawcett Comics",
     "year": 1971,
@@ -21147,9 +21137,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-24T12:00:51.898294+00:00",
-    "retry_after": "2026-09-27T12:00:51.898312+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T18:06:05.225088+00:00",
+    "retry_after": "2026-11-19T18:06:05.225091+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Visionaries Annual",
@@ -24627,9 +24618,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-26T02:18:03.101637+00:00",
-    "retry_after": "2026-09-29T02:18:03.101655+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T18:06:05.225016+00:00",
+    "retry_after": "2026-11-19T18:06:05.225033+00:00",
+    "search_hydrated": true
   },
   {
     "name": "T.H.U.N.D.E.R. Agents",
@@ -27447,13 +27439,13 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T17:07:18.566204+00:00",
-    "retry_after": "2026-11-13T17:07:18.566221+00:00",
+    "last_attempt_at": "2026-11-12T18:02:29.713439+00:00",
+    "retry_after": "2026-11-13T18:02:29.713442+00:00",
     "search_hydrated": true
   },
   {
@@ -27476,8 +27468,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T17:02:56.652712+00:00",
-    "retry_after": "2026-11-13T17:02:56.652714+00:00",
+    "last_attempt_at": "2026-11-12T18:02:29.713420+00:00",
+    "retry_after": "2026-11-13T18:02:29.713423+00:00",
     "search_hydrated": true
   },
   {
@@ -39145,9 +39137,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-05T13:00:52.396493+00:00",
-    "retry_after": "2026-10-08T13:00:52.396527+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T18:06:05.225061+00:00",
+    "retry_after": "2026-11-19T18:06:05.225065+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Letter 44 [Square One Edition]",
@@ -43498,8 +43491,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T17:02:56.652589+00:00",
-    "retry_after": "2026-11-13T17:02:56.652608+00:00",
+    "last_attempt_at": "2026-11-12T18:02:29.713270+00:00",
+    "retry_after": "2026-11-13T18:02:29.713287+00:00",
     "search_hydrated": true
   },
   {
@@ -51377,8 +51370,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T17:02:56.652686+00:00",
-    "retry_after": "2026-11-13T17:02:56.652689+00:00",
+    "last_attempt_at": "2026-11-12T18:02:29.713387+00:00",
+    "retry_after": "2026-11-13T18:02:29.713391+00:00",
     "search_hydrated": true
   },
   {
@@ -68693,9 +68686,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-09T11:10:46.847752+00:00",
-    "retry_after": "2026-11-12T11:10:46.847767+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T18:06:08.497997+00:00",
+    "retry_after": "2026-11-19T18:06:08.498014+00:00",
     "search_hydrated": true
   },
   {
@@ -89608,9 +89601,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-09T11:10:45.317825+00:00",
-    "retry_after": "2026-11-12T11:10:45.317827+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T18:06:08.422446+00:00",
+    "retry_after": "2026-11-19T18:06:08.422451+00:00",
     "search_hydrated": true
   },
   {
@@ -94132,6 +94125,97 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-12T17:07:18.566254+00:00",
     "retry_after": "2026-11-13T17:07:18.566257+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Hunter S. Thompson's Fear and Loathing in Las Vegas Preview",
+    "publisher": "IDW Publishing",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T18:06:22.402704+00:00",
+    "retry_after": "2026-11-13T18:06:22.402726+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Titan Comics 2016 Fall Preview",
+    "publisher": "Titan Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T18:06:22.402765+00:00",
+    "retry_after": "2026-11-13T18:06:22.402770+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Yo Gabba Gabba! Comic Book Time!",
+    "publisher": "Oni Press",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T18:06:22.402796+00:00",
+    "retry_after": "2026-11-13T18:06:22.402800+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "A Treasury of Dirty Little Comics: The Kind Men Like",
+    "publisher": "Valiant Comics",
+    "year": 1972,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T18:06:22.402821+00:00",
+    "retry_after": "2026-11-13T18:06:22.402825+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Boulet's Notes: Back in Time",
+    "publisher": "Oni Press",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T18:06:22.402843+00:00",
+    "retry_after": "2026-11-13T18:06:22.402847+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Doctor Who Magazine",
+    "publisher": "Marvel Comics",
+    "year": 1985,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26877,
+        "name": "Doctor Who Magazine",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T18:06:29.991823+00:00",
+    "retry_after": "2026-11-13T18:06:29.991845+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tom and Jerry Present the Two Mouseketeers",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64345,
+        "name": "Tom and Jerry Present the Two Mouseketeers",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T18:06:29.991987+00:00",
+    "retry_after": "2026-11-13T18:06:29.991993+00:00",
     "search_hydrated": true
   }
 ]

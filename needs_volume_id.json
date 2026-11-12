@@ -6401,9 +6401,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T01:13:36.862654+00:00",
-    "retry_after": "2026-11-12T01:13:36.862655+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T02:10:49.283314+00:00",
+    "retry_after": "2026-11-26T02:10:49.283317+00:00",
     "search_hydrated": true
   },
   {
@@ -7473,10 +7473,12 @@
     "name": "The Walking Dead #98 15th Anniversary",
     "publisher": "Image Comics",
     "year": 2018,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555529+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-12T02:10:49.283422+00:00",
+    "retry_after": "2026-11-15T02:10:49.283425+00:00",
+    "search_hydrated": true
   },
   {
     "name": "True Believers: Black Widow - Yelena Belova",
@@ -22119,9 +22121,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T01:13:36.862606+00:00",
-    "retry_after": "2026-11-12T01:13:36.862626+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T02:10:49.283258+00:00",
+    "retry_after": "2026-11-26T02:10:49.283272+00:00",
     "search_hydrated": true
   },
   {
@@ -27434,8 +27436,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T01:06:17.270860+00:00",
-    "retry_after": "2026-11-13T01:06:17.270876+00:00",
+    "last_attempt_at": "2026-11-12T02:11:57.235130+00:00",
+    "retry_after": "2026-11-13T02:11:57.235146+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27460,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T01:02:07.479681+00:00",
-    "retry_after": "2026-11-13T01:02:07.479683+00:00",
+    "last_attempt_at": "2026-11-12T02:02:20.275216+00:00",
+    "retry_after": "2026-11-13T02:02:20.275219+00:00",
     "search_hydrated": true
   },
   {
@@ -40080,9 +40082,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T01:13:36.862641+00:00",
-    "retry_after": "2026-11-12T01:13:36.862643+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T02:10:49.283294+00:00",
+    "retry_after": "2026-11-26T02:10:49.283298+00:00",
     "search_hydrated": true
   },
   {
@@ -40271,9 +40273,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T01:13:36.862664+00:00",
-    "retry_after": "2026-11-12T01:13:36.862665+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T02:10:49.283330+00:00",
+    "retry_after": "2026-11-26T02:10:49.283333+00:00",
     "search_hydrated": true
   },
   {
@@ -43483,8 +43485,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T01:02:07.479566+00:00",
-    "retry_after": "2026-11-13T01:02:07.479583+00:00",
+    "last_attempt_at": "2026-11-12T02:02:20.275071+00:00",
+    "retry_after": "2026-11-13T02:02:20.275087+00:00",
     "search_hydrated": true
   },
   {
@@ -51362,8 +51364,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T01:02:07.479657+00:00",
-    "retry_after": "2026-11-13T01:02:07.479660+00:00",
+    "last_attempt_at": "2026-11-12T02:02:20.275184+00:00",
+    "retry_after": "2026-11-13T02:02:20.275188+00:00",
     "search_hydrated": true
   },
   {
@@ -94275,6 +94277,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-12T01:05:59.703665+00:00",
     "retry_after": "2026-11-13T01:05:59.703668+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ultimate Spider-Man and Ultimate X-Men",
+    "publisher": "Marvel Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T02:11:00.899355+00:00",
+    "retry_after": "2026-11-13T02:11:00.899370+00:00",
     "search_hydrated": true
   }
 ]

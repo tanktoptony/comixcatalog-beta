@@ -27364,9 +27364,10 @@
         "start_year": 2018
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T06:03:26.453956+00:00",
-    "retry_after": "2026-10-01T06:03:26.453971+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T22:10:57.512636+00:00",
+    "retry_after": "2026-11-13T22:10:57.512638+00:00",
+    "search_hydrated": true
   },
   {
     "name": "4 [Universe X]",
@@ -27469,8 +27470,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T21:46:25.974194+00:00",
-    "retry_after": "2026-11-13T21:46:25.974196+00:00",
+    "last_attempt_at": "2026-11-12T22:02:08.867523+00:00",
+    "retry_after": "2026-11-13T22:02:08.867526+00:00",
     "search_hydrated": true
   },
   {
@@ -43493,8 +43494,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T21:46:25.974088+00:00",
-    "retry_after": "2026-11-13T21:46:25.974105+00:00",
+    "last_attempt_at": "2026-11-12T22:02:08.867398+00:00",
+    "retry_after": "2026-11-13T22:02:08.867416+00:00",
     "search_hydrated": true
   },
   {
@@ -51372,8 +51373,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T21:46:25.974174+00:00",
-    "retry_after": "2026-11-13T21:46:25.974176+00:00",
+    "last_attempt_at": "2026-11-12T22:02:08.867499+00:00",
+    "retry_after": "2026-11-13T22:02:08.867502+00:00",
     "search_hydrated": true
   },
   {
@@ -89689,9 +89690,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-09T22:05:39.026851+00:00",
-    "retry_after": "2026-11-12T22:05:39.026853+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T22:10:57.512468+00:00",
+    "retry_after": "2026-11-19T22:10:57.512486+00:00",
     "search_hydrated": true
   },
   {
@@ -93632,9 +93633,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-11T22:10:34.356752+00:00",
-    "retry_after": "2026-11-12T22:10:34.356753+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-12T22:10:59.494098+00:00",
+    "retry_after": "2026-11-15T22:10:59.494103+00:00",
     "search_hydrated": true
   },
   {
@@ -94413,6 +94414,131 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-12T21:55:39.292038+00:00",
     "retry_after": "2026-11-13T21:55:39.292041+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wonder Woman: Diana Prince: Celebrating the '60s Omnibus",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T22:10:57.512566+00:00",
+    "retry_after": "2026-11-13T22:10:57.512569+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "World of Warcraft",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 19669,
+        "name": "World of Warcraft",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      },
+      {
+        "id": 70150,
+        "name": "World of Warcraft",
+        "publisher": "DC Comics",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T22:10:57.512612+00:00",
+    "retry_after": "2026-11-13T22:10:57.512614+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Venom by Donny Cates",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 122675,
+        "name": "Venom by Donny Cates",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T22:10:59.687439+00:00",
+    "retry_after": "2026-11-13T22:10:59.687456+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kick-Ass 2 Prelude: Hit Girl",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58598,
+        "name": "Kick-Ass 2 Prelude: Hit-Girl",
+        "publisher": "Icon Books",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T22:11:08.567522+00:00",
+    "retry_after": "2026-11-13T22:11:08.567541+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Links",
+    "publisher": "VIZ Media",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148145,
+        "name": "Links",
+        "publisher": "Milky Way Ediciones",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T22:11:08.567579+00:00",
+    "retry_after": "2026-11-13T22:11:08.567583+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62660,
+        "name": "Big Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T22:11:08.567606+00:00",
+    "retry_after": "2026-11-13T22:11:08.567609+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Superheroes and the Occult Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79640,
+        "name": "Marvel Superheroes and the Occult Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T22:11:08.567669+00:00",
+    "retry_after": "2026-11-13T22:11:08.567672+00:00",
     "search_hydrated": true
   }
 ]

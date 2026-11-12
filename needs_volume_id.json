@@ -27434,8 +27434,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T00:11:25.637366+00:00",
-    "retry_after": "2026-11-13T00:11:25.637382+00:00",
+    "last_attempt_at": "2026-11-12T01:06:17.270860+00:00",
+    "retry_after": "2026-11-13T01:06:17.270876+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T00:02:10.755196+00:00",
-    "retry_after": "2026-11-13T00:02:10.755199+00:00",
+    "last_attempt_at": "2026-11-12T01:02:07.479681+00:00",
+    "retry_after": "2026-11-13T01:02:07.479683+00:00",
     "search_hydrated": true
   },
   {
@@ -43483,8 +43483,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T00:02:10.755057+00:00",
-    "retry_after": "2026-11-13T00:02:10.755071+00:00",
+    "last_attempt_at": "2026-11-12T01:02:07.479566+00:00",
+    "retry_after": "2026-11-13T01:02:07.479583+00:00",
     "search_hydrated": true
   },
   {
@@ -51362,8 +51362,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T00:02:10.755164+00:00",
-    "retry_after": "2026-11-13T00:02:10.755169+00:00",
+    "last_attempt_at": "2026-11-12T01:02:07.479657+00:00",
+    "retry_after": "2026-11-13T01:02:07.479660+00:00",
     "search_hydrated": true
   },
   {
@@ -55802,9 +55802,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T00:13:12.086417+00:00",
-    "retry_after": "2026-11-12T00:13:12.086421+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T01:05:43.971509+00:00",
+    "retry_after": "2026-11-26T01:05:43.971511+00:00",
     "search_hydrated": true
   },
   {
@@ -86860,9 +86860,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T00:13:12.086279+00:00",
-    "retry_after": "2026-11-12T00:13:12.086294+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T01:05:43.971459+00:00",
+    "retry_after": "2026-11-26T01:05:43.971476+00:00",
     "search_hydrated": true
   },
   {
@@ -86871,9 +86871,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T00:13:12.086317+00:00",
-    "retry_after": "2026-11-12T00:13:12.086321+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T01:05:43.971493+00:00",
+    "retry_after": "2026-11-26T01:05:43.971496+00:00",
     "search_hydrated": true
   },
   {
@@ -94231,6 +94231,50 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-12T00:10:52.017909+00:00",
     "retry_after": "2026-11-13T00:10:52.017931+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Walking Dead #7 15th Anniversary",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T01:05:43.971566+00:00",
+    "retry_after": "2026-11-13T01:05:43.971568+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Walking Dead #92 15th Anniversary",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T01:05:43.971577+00:00",
+    "retry_after": "2026-11-13T01:05:43.971579+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Picture Stories from the Bible Complete Old Testament Edition",
+    "publisher": "EC Comics",
+    "year": 1945,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T01:05:59.703630+00:00",
+    "retry_after": "2026-11-13T01:05:59.703646+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Fantastic Four #51 [JC Penney Marvel Vintage Pack]",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T01:05:59.703665+00:00",
+    "retry_after": "2026-11-13T01:05:59.703668+00:00",
     "search_hydrated": true
   }
 ]

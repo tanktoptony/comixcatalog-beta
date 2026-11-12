@@ -27434,8 +27434,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T23:23:40.732217+00:00",
-    "retry_after": "2026-11-12T23:23:40.732231+00:00",
+    "last_attempt_at": "2026-11-12T00:11:25.637366+00:00",
+    "retry_after": "2026-11-13T00:11:25.637382+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T23:19:36.096936+00:00",
-    "retry_after": "2026-11-12T23:19:36.096938+00:00",
+    "last_attempt_at": "2026-11-12T00:02:10.755196+00:00",
+    "retry_after": "2026-11-13T00:02:10.755199+00:00",
     "search_hydrated": true
   },
   {
@@ -43483,8 +43483,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T23:19:36.096829+00:00",
-    "retry_after": "2026-11-12T23:19:36.096843+00:00",
+    "last_attempt_at": "2026-11-12T00:02:10.755057+00:00",
+    "retry_after": "2026-11-13T00:02:10.755071+00:00",
     "search_hydrated": true
   },
   {
@@ -51362,8 +51362,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-11T23:19:36.096914+00:00",
-    "retry_after": "2026-11-12T23:19:36.096916+00:00",
+    "last_attempt_at": "2026-11-12T00:02:10.755164+00:00",
+    "retry_after": "2026-11-13T00:02:10.755169+00:00",
     "search_hydrated": true
   },
   {
@@ -86618,9 +86618,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-01T19:10:56.577604+00:00",
-    "retry_after": "2026-11-04T19:10:56.577622+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T00:10:40.984772+00:00",
+    "retry_after": "2026-11-19T00:10:40.984775+00:00",
     "search_hydrated": true
   },
   {
@@ -94165,6 +94165,72 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-11T23:23:27.250427+00:00",
     "retry_after": "2026-11-12T23:23:27.250431+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Walking Dead #167 15th Anniversary",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T00:10:40.984712+00:00",
+    "retry_after": "2026-11-13T00:10:40.984727+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Walking Dead #171 15th Anniversary",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T00:10:40.984750+00:00",
+    "retry_after": "2026-11-13T00:10:40.984754+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Walking Dead #2 15th Anniversary",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T00:10:40.984788+00:00",
+    "retry_after": "2026-11-13T00:10:40.984791+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Walking Dead #27 15th Anniversary",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T00:10:40.984804+00:00",
+    "retry_after": "2026-11-13T00:10:40.984806+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Walking Dead #48 15th Anniversary",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T00:10:40.984819+00:00",
+    "retry_after": "2026-11-13T00:10:40.984822+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Hey, Amateur! Go From Novice to Nailing it in 9 Panels",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T00:10:52.017909+00:00",
+    "retry_after": "2026-11-13T00:10:52.017931+00:00",
     "search_hydrated": true
   }
 ]

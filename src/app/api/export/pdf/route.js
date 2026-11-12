@@ -67,7 +67,11 @@ async function fetchImageBytes(url) {
     // output is always JPEG, which pdf-lib embeds via embedJpg().
     // q=80 is a sweet spot for thumbnails: visually clean, ~5-10KB per cover.
     try {
+      // rotate() first: phone photos are stored sideways with an EXIF
+      // orientation flag that browsers honor and the re-encode would drop,
+      // so members' own photos came out on their side in the report.
       const resized = await sharp(raw)
+        .rotate()
         .resize({ width: COVER_RESIZE_WIDTH, withoutEnlargement: true })
         .jpeg({ quality: 80, mozjpeg: true })
         .toBuffer();
@@ -423,7 +427,9 @@ export async function POST(req) {
     // Total usable: 612 - 2*36 = 540
     const CX = {
       cover : MARGIN,
-      title : MARGIN + 38,
+      // The thumbnail is inset 3pt and up to IMG_W wide, so the title starts
+      // past MARGIN + 41 or the cover sits on its first letters.
+      title : MARGIN + 46,
       issue : MARGIN + 166,
       pub   : MARGIN + 192,
       year  : MARGIN + 264,
@@ -435,7 +441,7 @@ export async function POST(req) {
     };
     const CW = {
       cover : 38,
-      title : 128,
+      title : 120,
       issue : 26,
       pub   : 72,
       year  : 30,

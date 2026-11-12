@@ -432,9 +432,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T04:14:51.019040+00:00",
-    "retry_after": "2026-11-12T04:14:51.019043+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T05:10:22.588346+00:00",
+    "retry_after": "2026-11-26T05:10:22.588348+00:00",
     "search_hydrated": true
   },
   {
@@ -7595,9 +7595,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T04:14:51.019076+00:00",
-    "retry_after": "2026-11-12T04:14:51.019079+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T05:10:22.588365+00:00",
+    "retry_after": "2026-11-26T05:10:22.588366+00:00",
     "search_hydrated": true
   },
   {
@@ -7811,9 +7811,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T04:14:51.019059+00:00",
-    "retry_after": "2026-11-12T04:14:51.019062+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T05:10:22.588356+00:00",
+    "retry_after": "2026-11-26T05:10:22.588357+00:00",
     "search_hydrated": true
   },
   {
@@ -14715,9 +14715,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T12:02:05.531956+00:00",
-    "retry_after": "2026-09-22T12:02:05.531974+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-12T05:10:22.588430+00:00",
+    "retry_after": "2026-11-15T05:10:22.588431+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Marvel Rising: Squirrel Girl / Ms. Marvel",
@@ -27437,8 +27438,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T04:11:22.319945+00:00",
-    "retry_after": "2026-11-13T04:11:22.319966+00:00",
+    "last_attempt_at": "2026-11-12T05:10:56.695430+00:00",
+    "retry_after": "2026-11-13T05:10:56.695443+00:00",
     "search_hydrated": true
   },
   {
@@ -27461,8 +27462,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T04:01:45.983410+00:00",
-    "retry_after": "2026-11-13T04:01:45.983411+00:00",
+    "last_attempt_at": "2026-11-12T05:01:43.492242+00:00",
+    "retry_after": "2026-11-13T05:01:43.492243+00:00",
     "search_hydrated": true
   },
   {
@@ -27568,9 +27569,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T04:14:51.018930+00:00",
-    "retry_after": "2026-11-12T04:14:51.018947+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T05:10:22.588301+00:00",
+    "retry_after": "2026-11-26T05:10:22.588314+00:00",
     "search_hydrated": true
   },
   {
@@ -43486,8 +43487,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T04:01:45.983313+00:00",
-    "retry_after": "2026-11-13T04:01:45.983330+00:00",
+    "last_attempt_at": "2026-11-12T05:01:43.492136+00:00",
+    "retry_after": "2026-11-13T05:01:43.492154+00:00",
     "search_hydrated": true
   },
   {
@@ -51365,8 +51366,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T04:01:45.983391+00:00",
-    "retry_after": "2026-11-13T04:01:45.983393+00:00",
+    "last_attempt_at": "2026-11-12T05:01:43.492222+00:00",
+    "retry_after": "2026-11-13T05:01:43.492224+00:00",
     "search_hydrated": true
   },
   {
@@ -86977,9 +86978,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T04:14:51.018975+00:00",
-    "retry_after": "2026-11-12T04:14:51.018980+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T05:10:22.588332+00:00",
+    "retry_after": "2026-11-26T05:10:22.588335+00:00",
     "search_hydrated": true
   },
   {
@@ -94333,6 +94334,30 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-12T04:10:36.249355+00:00",
     "retry_after": "2026-11-13T04:10:36.249357+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Extreme Sacrifice",
+    "publisher": "Image Comics",
+    "year": 1995,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 18189,
+        "name": "Extreme Sacrifice",
+        "publisher": "Image",
+        "start_year": 1995
+      },
+      {
+        "id": 32263,
+        "name": "Extreme Sacrifice",
+        "publisher": "Image",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T05:10:33.110543+00:00",
+    "retry_after": "2026-11-13T05:10:33.110559+00:00",
     "search_hydrated": true
   }
 ]

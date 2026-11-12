@@ -27448,8 +27448,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T12:10:57.045502+00:00",
-    "retry_after": "2026-11-13T12:10:57.045521+00:00",
+    "last_attempt_at": "2026-11-12T13:10:58.572251+00:00",
+    "retry_after": "2026-11-13T13:10:58.572269+00:00",
     "search_hydrated": true
   },
   {
@@ -27472,8 +27472,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T12:02:04.780465+00:00",
-    "retry_after": "2026-11-13T12:02:04.780468+00:00",
+    "last_attempt_at": "2026-11-12T13:01:52.723748+00:00",
+    "retry_after": "2026-11-13T13:01:52.723750+00:00",
     "search_hydrated": true
   },
   {
@@ -43494,8 +43494,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T12:02:04.780331+00:00",
-    "retry_after": "2026-11-13T12:02:04.780351+00:00",
+    "last_attempt_at": "2026-11-12T13:01:52.723643+00:00",
+    "retry_after": "2026-11-13T13:01:52.723662+00:00",
     "search_hydrated": true
   },
   {
@@ -51373,8 +51373,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T12:02:04.780439+00:00",
-    "retry_after": "2026-11-13T12:02:04.780442+00:00",
+    "last_attempt_at": "2026-11-12T13:01:52.723729+00:00",
+    "retry_after": "2026-11-13T13:01:52.723731+00:00",
     "search_hydrated": true
   },
   {
@@ -87174,9 +87174,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T12:21:31.325693+00:00",
-    "retry_after": "2026-11-12T12:21:31.325709+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T13:10:22.811330+00:00",
+    "retry_after": "2026-11-26T13:10:22.811348+00:00",
     "search_hydrated": true
   },
   {
@@ -87221,9 +87221,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T12:21:31.325730+00:00",
-    "retry_after": "2026-11-12T12:21:31.325734+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T13:10:22.811362+00:00",
+    "retry_after": "2026-11-26T13:10:22.811365+00:00",
     "search_hydrated": true
   },
   {
@@ -87232,9 +87232,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T12:21:31.325749+00:00",
-    "retry_after": "2026-11-12T12:21:31.325752+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T13:10:22.811374+00:00",
+    "retry_after": "2026-11-26T13:10:22.811376+00:00",
     "search_hydrated": true
   },
   {
@@ -87243,9 +87243,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T12:21:31.390568+00:00",
-    "retry_after": "2026-11-12T12:21:31.390583+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T13:10:23.880550+00:00",
+    "retry_after": "2026-11-26T13:10:23.880567+00:00",
     "search_hydrated": true
   },
   {
@@ -94480,6 +94480,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-12T12:10:44.216463+00:00",
     "retry_after": "2026-11-13T12:10:44.216467+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Man: Danger Zone",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T13:10:36.941802+00:00",
+    "retry_after": "2026-11-13T13:10:36.941819+00:00",
     "search_hydrated": true
   }
 ]

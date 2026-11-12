@@ -15,6 +15,11 @@
     "year": 1942
   },
   {
+    "name": "Doctor Who Magazine",
+    "publisher": "Marvel Comics",
+    "year": 1985
+  },
+  {
     "name": "Patsy Walker",
     "publisher": "Marvel Comics",
     "year": 1945
@@ -125,11 +130,6 @@
     "year": 1942
   },
   {
-    "name": "Peter Porkchops",
-    "publisher": "DC Comics",
-    "year": 1949
-  },
-  {
     "name": "Grey Domino",
     "publisher": "Atlas Comics",
     "year": 1951
@@ -138,6 +138,21 @@
     "name": "Muppet Babies",
     "publisher": "Marvel Comics",
     "year": 1986
+  },
+  {
+    "name": "Peter Porkchops",
+    "publisher": "DC Comics",
+    "year": 1949
+  },
+  {
+    "name": "The Lone Wolf",
+    "publisher": "Atlas Comics",
+    "year": 1951
+  },
+  {
+    "name": "Comedy",
+    "publisher": "Marvel Comics",
+    "year": 1951
   },
   {
     "name": "Avengers",
@@ -150,24 +165,9 @@
     "year": 1951
   },
   {
-    "name": "Comedy",
-    "publisher": "Marvel Comics",
-    "year": 1951
-  },
-  {
-    "name": "The Lone Wolf",
-    "publisher": "Atlas Comics",
-    "year": 1951
-  },
-  {
     "name": "Wiz",
     "publisher": "Marvel Comics",
     "year": 1995
-  },
-  {
-    "name": "The Unwritten",
-    "publisher": "DC Comics",
-    "year": 2009
   },
   {
     "name": "Classics Illustrated",
@@ -175,14 +175,19 @@
     "year": 1997
   },
   {
-    "name": "Eros Graphic Albums",
-    "publisher": "Fantagraphics",
-    "year": 1992
+    "name": "The Unwritten",
+    "publisher": "DC Comics",
+    "year": 2009
   },
   {
     "name": "Wild Western",
     "publisher": "Marvel Comics",
     "year": 1948
+  },
+  {
+    "name": "Eros Graphic Albums",
+    "publisher": "Fantagraphics",
+    "year": 1992
   },
   {
     "name": "Popular Cartoons",
@@ -220,9 +225,9 @@
     "year": 1954
   },
   {
-    "name": "Dream Team",
-    "publisher": "Malibu Comics",
-    "year": 2011
+    "name": "Battlefront",
+    "publisher": "Marvel Comics",
+    "year": 1952
   },
   {
     "name": "Terry-Toons Comics",
@@ -230,14 +235,9 @@
     "year": 1954
   },
   {
-    "name": "Battlefront",
-    "publisher": "Marvel Comics",
-    "year": 1952
-  },
-  {
-    "name": "Zip Comics",
-    "publisher": "Archie Comics",
-    "year": 1940
+    "name": "Dream Team",
+    "publisher": "Malibu Comics",
+    "year": 2011
   },
   {
     "name": "La Grande Dinastia dei Paperi",
@@ -245,9 +245,9 @@
     "year": 2008
   },
   {
-    "name": "Lash LaRue Western",
-    "publisher": "Fawcett Comics",
-    "year": 1949
+    "name": "Zip Comics",
+    "publisher": "Archie Comics",
+    "year": 1940
   },
   {
     "name": "The Adventures of Rex the Wonder Dog",
@@ -255,14 +255,14 @@
     "year": 1952
   },
   {
+    "name": "Lash LaRue Western",
+    "publisher": "Fawcett Comics",
+    "year": 1949
+  },
+  {
     "name": "Miss America Magazine",
     "publisher": "Marvel Comics",
     "year": 1944
-  },
-  {
-    "name": "Combat Kelly",
-    "publisher": "Marvel Comics",
-    "year": 1951
   },
   {
     "name": "Leading Comics",
@@ -275,9 +275,19 @@
     "year": 2019
   },
   {
+    "name": "Combat Kelly",
+    "publisher": "Marvel Comics",
+    "year": 1951
+  },
+  {
     "name": "Miss America",
     "publisher": "Marvel Comics",
     "year": 1953
+  },
+  {
+    "name": "Miles Morales: Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2023
   },
   {
     "name": "Dennis the Menace and His Friends Series",
@@ -288,11 +298,6 @@
     "name": "Joker Comics",
     "publisher": "Marvel Comics",
     "year": 1942
-  },
-  {
-    "name": "Miles Morales: Spider-Man",
-    "publisher": "Marvel Comics",
-    "year": 2023
   },
   {
     "name": "Maxi Zagor",
@@ -310,19 +315,9 @@
     "year": 1964
   },
   {
-    "name": "Gen 13",
-    "publisher": "Image Comics",
-    "year": 2006
-  },
-  {
     "name": "Love Tales",
     "publisher": "Marvel Comics",
     "year": 1949
-  },
-  {
-    "name": "Akira",
-    "publisher": "Marvel Comics",
-    "year": 1988
   },
   {
     "name": "True Secrets",
@@ -330,9 +325,24 @@
     "year": 1950
   },
   {
+    "name": "Akira",
+    "publisher": "Marvel Comics",
+    "year": 1988
+  },
+  {
     "name": "Spider-Gwen",
     "publisher": "Marvel Comics",
     "year": 2016
+  },
+  {
+    "name": "Avengers",
+    "publisher": "Marvel Comics",
+    "year": 2013
+  },
+  {
+    "name": "Mind Mgmt",
+    "publisher": "Dark Horse Comics",
+    "year": 2012
   },
   {
     "name": "Boy Commandos",
@@ -350,19 +360,9 @@
     "year": 1995
   },
   {
-    "name": "Mind Mgmt",
-    "publisher": "Dark Horse Comics",
-    "year": 2012
-  },
-  {
-    "name": "Avengers",
+    "name": "Breezy",
     "publisher": "Marvel Comics",
-    "year": 2013
-  },
-  {
-    "name": "Avengers: The Initiative",
-    "publisher": "Marvel Comics",
-    "year": 2007
+    "year": 1954
   },
   {
     "name": "Haunted Horror",
@@ -370,9 +370,9 @@
     "year": 2012
   },
   {
-    "name": "Breezy",
+    "name": "Avengers: The Initiative",
     "publisher": "Marvel Comics",
-    "year": 1954
+    "year": 2007
   },
   {
     "name": "Avengers",
@@ -390,11 +390,6 @@
     "year": 1950
   },
   {
-    "name": "Superman Legends",
-    "publisher": "Titan Comics",
-    "year": 2007
-  },
-  {
     "name": "Avengers",
     "publisher": "Marvel Comics",
     "year": 2016
@@ -403,6 +398,16 @@
     "name": "Fables",
     "publisher": "DC Comics",
     "year": 2014
+  },
+  {
+    "name": "Superman Legends",
+    "publisher": "Titan Comics",
+    "year": 2007
+  },
+  {
+    "name": "Redneck",
+    "publisher": "Image Comics",
+    "year": 2017
   },
   {
     "name": "Ultimate Fantastic Four",
@@ -415,14 +420,14 @@
     "year": 1999
   },
   {
-    "name": "Redneck",
-    "publisher": "Image Comics",
-    "year": 2017
-  },
-  {
     "name": "Adventures into Terror",
     "publisher": "Marvel Comics",
     "year": 1950
+  },
+  {
+    "name": "Blade of the Immortal",
+    "publisher": "Dark Horse Comics",
+    "year": 1997
   },
   {
     "name": "Ultimate Fantastic Four",
@@ -430,9 +435,24 @@
     "year": 2005
   },
   {
-    "name": "Blade of the Immortal",
-    "publisher": "Dark Horse Comics",
-    "year": 1997
+    "name": "Battle Action",
+    "publisher": "Marvel Comics",
+    "year": 1952
+  },
+  {
+    "name": "Beautiful Stories for Ugly Children",
+    "publisher": "DC Comics",
+    "year": 1989
+  },
+  {
+    "name": "Billy the Kid",
+    "publisher": "Charlton Comics",
+    "year": 2002
+  },
+  {
+    "name": "Billy the Kid",
+    "publisher": "Charlton Comics",
+    "year": 2003
   },
   {
     "name": "Mighty Thor",
@@ -445,26 +465,6 @@
     "year": 2004
   },
   {
-    "name": "Billy the Kid",
-    "publisher": "Charlton Comics",
-    "year": 2002
-  },
-  {
-    "name": "Beautiful Stories for Ugly Children",
-    "publisher": "DC Comics",
-    "year": 1989
-  },
-  {
-    "name": "Battle Action",
-    "publisher": "Marvel Comics",
-    "year": 1952
-  },
-  {
-    "name": "The Incredible Hulks",
-    "publisher": "Marvel Comics",
-    "year": 2014
-  },
-  {
     "name": "Avengers",
     "publisher": "Marvel Comics",
     "year": 2013
@@ -475,14 +475,14 @@
     "year": 2012
   },
   {
-    "name": "Billy the Kid",
-    "publisher": "Charlton Comics",
-    "year": 2003
+    "name": "The Incredible Hulks",
+    "publisher": "Marvel Comics",
+    "year": 2014
   },
   {
-    "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim",
-    "year": 1991
+    "name": "The Powerpuff Girls",
+    "publisher": "DC Comics",
+    "year": 2004
   },
   {
     "name": "Teenage Love",
@@ -495,24 +495,9 @@
     "year": 2008
   },
   {
-    "name": "The Powerpuff Girls",
-    "publisher": "DC Comics",
-    "year": 2004
-  },
-  {
     "name": "Planet of the Apes",
     "publisher": "Marvel Comics",
     "year": 1974
-  },
-  {
-    "name": "Witches Tales",
-    "publisher": "Harvey Comics",
-    "year": 1951
-  },
-  {
-    "name": "Kaguya-Sama: Love Is War",
-    "publisher": "VIZ Media",
-    "year": 2021
   },
   {
     "name": "Lone Wolf and Cub",
@@ -520,9 +505,19 @@
     "year": 2000
   },
   {
+    "name": "Witches Tales",
+    "publisher": "Harvey Comics",
+    "year": 1951
+  },
+  {
     "name": "Avengers",
     "publisher": "Marvel Comics",
     "year": 2011
+  },
+  {
+    "name": "Kaguya-Sama: Love Is War",
+    "publisher": "VIZ Media",
+    "year": 2021
   },
   {
     "name": "Man Comics",
@@ -530,14 +525,9 @@
     "year": 1949
   },
   {
-    "name": "Joe Palooka Presents the Funsational Humphrey",
-    "publisher": "Marvel Comics",
-    "year": 1952
-  },
-  {
-    "name": "The Incredible Hulks",
-    "publisher": "Marvel Comics",
-    "year": 2012
+    "name": "Eerie Archives",
+    "publisher": "Dark Horse Comics",
+    "year": 2009
   },
   {
     "name": "Angel",
@@ -545,19 +535,29 @@
     "year": 2009
   },
   {
+    "name": "Tom and Jerry Present the Two Mouseketeers",
+    "publisher": "Marvel Comics",
+    "year": 1955
+  },
+  {
+    "name": "The Incredible Hulks",
+    "publisher": "Marvel Comics",
+    "year": 2012
+  },
+  {
     "name": "Crime SuspenStories",
     "publisher": "EC Comics",
     "year": 1950
   },
   {
-    "name": "Eerie Archives",
-    "publisher": "Dark Horse Comics",
-    "year": 2009
-  },
-  {
     "name": "Red Hood and the Outlaws",
     "publisher": "DC Comics",
     "year": 2016
+  },
+  {
+    "name": "Tom Mix Western",
+    "publisher": "Fawcett Comics",
+    "year": 1948
   },
   {
     "name": "Prime",
@@ -570,9 +570,9 @@
     "year": 2003
   },
   {
-    "name": "Tom Mix Western",
-    "publisher": "Fawcett Comics",
-    "year": 1948
+    "name": "Invisible Avenger",
+    "publisher": "Marvel Comics",
+    "year": 1950
   },
   {
     "name": "The Many Loves of Dobie Gillis",
@@ -585,29 +585,9 @@
     "year": 2020
   },
   {
-    "name": "Invisible Avenger",
-    "publisher": "Marvel Comics",
-    "year": 1950
-  },
-  {
     "name": "Crows",
     "publisher": "Dark Horse Comics",
     "year": 2014
-  },
-  {
-    "name": "Haunt of Fear",
-    "publisher": "EC Comics",
-    "year": 1950
-  },
-  {
-    "name": "Mad Classics",
-    "publisher": "EC Comics",
-    "year": 2005
-  },
-  {
-    "name": "Immortal Thor",
-    "publisher": "Marvel Comics",
-    "year": 2023
   },
   {
     "name": "Case Files: Sam & Twitch",
@@ -615,9 +595,19 @@
     "year": 2003
   },
   {
+    "name": "Haunt of Fear",
+    "publisher": "EC Comics",
+    "year": 1950
+  },
+  {
     "name": "DC Comics Presents",
     "publisher": "DC Comics",
     "year": 2003
+  },
+  {
+    "name": "Immortal Thor",
+    "publisher": "Marvel Comics",
+    "year": 2023
   },
   {
     "name": "The Complete Peanuts",
@@ -630,11 +620,6 @@
     "year": 1981
   },
   {
-    "name": "G.I. Joe: A Real American Hero",
-    "publisher": "Marvel Comics",
-    "year": 2011
-  },
-  {
     "name": "Grimm Fairy Tales Myths & Legends",
     "publisher": "Zenescope Entertainment",
     "year": 2011
@@ -645,14 +630,9 @@
     "year": 2012
   },
   {
-    "name": "Two-Fisted Tales",
+    "name": "Mad Classics",
     "publisher": "EC Comics",
-    "year": 1950
-  },
-  {
-    "name": "Anti-Crime Squad",
-    "publisher": "Marvel Comics",
-    "year": 1952
+    "year": 2005
   },
   {
     "name": "Spider-Man Collectible Series",
@@ -660,24 +640,14 @@
     "year": 2006
   },
   {
-    "name": "Terry-Toons Comics",
+    "name": "Anti-Crime Squad",
     "publisher": "Marvel Comics",
-    "year": 1948
+    "year": 1952
   },
   {
-    "name": "Comics Library",
-    "publisher": "Marvel Comics",
-    "year": 1953
-  },
-  {
-    "name": "Thor: God of Thunder",
-    "publisher": "Marvel Comics",
-    "year": 2013
-  },
-  {
-    "name": "FBP: Federal Bureau of Physics",
-    "publisher": "DC Comics",
-    "year": 2013
+    "name": "Two-Fisted Tales",
+    "publisher": "EC Comics",
+    "year": 1950
   },
   {
     "name": "Dragonero il ribelle",
@@ -685,9 +655,19 @@
     "year": 2019
   },
   {
-    "name": "Yu-Gi-Oh! Duelist",
-    "publisher": "VIZ Media",
-    "year": 2005
+    "name": "Terry-Toons Comics",
+    "publisher": "Marvel Comics",
+    "year": 1948
+  },
+  {
+    "name": "Thor: God of Thunder",
+    "publisher": "Marvel Comics",
+    "year": 2013
+  },
+  {
+    "name": "Comics Library",
+    "publisher": "Marvel Comics",
+    "year": 1953
   },
   {
     "name": "I Vendicatori",
@@ -695,34 +675,14 @@
     "year": 1994
   },
   {
-    "name": "Demon Slayer: Kimetsu no Yaiba",
+    "name": "Yu-Gi-Oh! Duelist",
     "publisher": "VIZ Media",
-    "year": 2018
+    "year": 2005
   },
   {
-    "name": "The Totally Awesome Hulk",
-    "publisher": "Marvel Comics",
-    "year": 2016
-  },
-  {
-    "name": "The Powerpuff Girls",
+    "name": "FBP: Federal Bureau of Physics",
     "publisher": "DC Comics",
-    "year": 2002
-  },
-  {
-    "name": "Color Tex",
-    "publisher": "Marvel Comics",
-    "year": 2011
-  },
-  {
-    "name": "Children of the Whales",
-    "publisher": "VIZ Media",
-    "year": 2017
-  },
-  {
-    "name": "Fables",
-    "publisher": "DC Comics",
-    "year": 2012
+    "year": 2013
   },
   {
     "name": "Gay Comics",
@@ -730,9 +690,9 @@
     "year": 1944
   },
   {
-    "name": "MegaManga",
-    "publisher": "Fantagraphics",
-    "year": 2003
+    "name": "Fables",
+    "publisher": "DC Comics",
+    "year": 2012
   },
   {
     "name": "Girl Confessions",
@@ -740,14 +700,34 @@
     "year": 1952
   },
   {
-    "name": "What's the Furthest Place from Here?",
-    "publisher": "Image Comics",
-    "year": 2021
+    "name": "Children of the Whales",
+    "publisher": "VIZ Media",
+    "year": 2017
   },
   {
-    "name": "The Complete Peanuts",
+    "name": "Color Tex",
+    "publisher": "Marvel Comics",
+    "year": 2011
+  },
+  {
+    "name": "Demon Slayer: Kimetsu no Yaiba",
+    "publisher": "VIZ Media",
+    "year": 2018
+  },
+  {
+    "name": "The Powerpuff Girls",
+    "publisher": "DC Comics",
+    "year": 2002
+  },
+  {
+    "name": "The Totally Awesome Hulk",
+    "publisher": "Marvel Comics",
+    "year": 2016
+  },
+  {
+    "name": "MegaManga",
     "publisher": "Fantagraphics",
-    "year": 2014
+    "year": 2003
   },
   {
     "name": "Eagle: The Making of an Asian-American President",
@@ -755,19 +735,14 @@
     "year": 2000
   },
   {
-    "name": "Avengers",
-    "publisher": "Marvel Comics",
-    "year": 2018
-  },
-  {
-    "name": "The Invisibles",
-    "publisher": "DC Comics",
-    "year": 1997
-  },
-  {
     "name": "Phil Corrigan Secret Agent X9",
     "publisher": "Atlas Comics",
     "year": 1950
+  },
+  {
+    "name": "The Complete Peanuts",
+    "publisher": "Fantagraphics",
+    "year": 2014
   },
   {
     "name": "Marvel Mix",
@@ -780,17 +755,22 @@
     "year": 2000
   },
   {
-    "name": "We Never Learn",
-    "publisher": "VIZ Media",
+    "name": "What's the Furthest Place from Here?",
+    "publisher": "Image Comics",
+    "year": 2021
+  },
+  {
+    "name": "Avengers",
+    "publisher": "Marvel Comics",
     "year": 2018
   },
   {
-    "name": "The Phantom",
-    "publisher": "Charlton Comics",
-    "year": 2000
+    "name": "The Invisibles",
+    "publisher": "DC Comics",
+    "year": 1997
   },
   {
-    "name": "Western Outlaws",
+    "name": "Heckle and Jeckle the Talking Magpies",
     "publisher": "Marvel Comics",
     "year": 1954
   },
@@ -800,14 +780,9 @@
     "year": 2005
   },
   {
-    "name": "Heckle and Jeckle the Talking Magpies",
-    "publisher": "Marvel Comics",
-    "year": 1954
-  },
-  {
-    "name": "Flash Gordon",
-    "publisher": "Mad Cave Studios",
-    "year": 2024
+    "name": "The Phantom",
+    "publisher": "Charlton Comics",
+    "year": 2000
   },
   {
     "name": "Fables",
@@ -815,7 +790,7 @@
     "year": 2002
   },
   {
-    "name": "Lorna the Jungle Girl",
+    "name": "Western Outlaws",
     "publisher": "Marvel Comics",
     "year": 1954
   },
@@ -825,29 +800,44 @@
     "year": 2023
   },
   {
+    "name": "Lorna the Jungle Girl",
+    "publisher": "Marvel Comics",
+    "year": 1954
+  },
+  {
+    "name": "We Never Learn",
+    "publisher": "VIZ Media",
+    "year": 2018
+  },
+  {
+    "name": "Flash Gordon",
+    "publisher": "Mad Cave Studios",
+    "year": 2024
+  },
+  {
     "name": "Western Hero",
     "publisher": "Fawcett Comics",
     "year": 1949
   },
   {
+    "name": "Injustice: Gods among Us Year Five",
+    "publisher": "DC Comics",
+    "year": 2016
+  },
+  {
+    "name": "Speciale Dampyr",
+    "publisher": "Marvel Comics",
+    "year": 2005
+  },
+  {
+    "name": "Phantom",
+    "publisher": "Charlton Comics",
+    "year": 2000
+  },
+  {
     "name": "Micronauts",
     "publisher": "Marvel Comics",
     "year": 1984
-  },
-  {
-    "name": "Peter Parker: The Spectacular Spider-Man",
-    "publisher": "Marvel Comics",
-    "year": 2018
-  },
-  {
-    "name": "Grimm Fairy Tales Presents Robyn Hood",
-    "publisher": "Zenescope Entertainment",
-    "year": 2014
-  },
-  {
-    "name": "Bakuman.",
-    "publisher": "VIZ Media",
-    "year": 2010
   },
   {
     "name": "Babyteeth",
@@ -860,29 +850,9 @@
     "year": 2003
   },
   {
-    "name": "All-Winners Comics",
-    "publisher": "Marvel Comics",
-    "year": 1941
-  },
-  {
-    "name": "Lumberjanes",
-    "publisher": "BOOM! Studios",
-    "year": 2015
-  },
-  {
-    "name": "Injustice: Gods among Us Year Five",
-    "publisher": "DC Comics",
-    "year": 2016
-  },
-  {
     "name": "Oz",
     "publisher": "Caliber Comics",
     "year": 1994
-  },
-  {
-    "name": "Speciale Dampyr",
-    "publisher": "Marvel Comics",
-    "year": 2005
   },
   {
     "name": "Marvel Age Spider-Man",
@@ -890,13 +860,33 @@
     "year": 2004
   },
   {
-    "name": "Phantom",
-    "publisher": "Charlton Comics",
-    "year": 2000
+    "name": "Bakuman.",
+    "publisher": "VIZ Media",
+    "year": 2010
+  },
+  {
+    "name": "Grimm Fairy Tales Presents Robyn Hood",
+    "publisher": "Zenescope Entertainment",
+    "year": 2014
+  },
+  {
+    "name": "All-Winners Comics",
+    "publisher": "Marvel Comics",
+    "year": 1941
   },
   {
     "name": "Tex Ritter Western",
     "publisher": "Fawcett Comics",
     "year": 1950
+  },
+  {
+    "name": "Peter Parker: The Spectacular Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2018
+  },
+  {
+    "name": "Lumberjanes",
+    "publisher": "BOOM! Studios",
+    "year": 2015
   }
 ]

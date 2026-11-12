@@ -18175,9 +18175,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-23T14:00:43.276953+00:00",
-    "retry_after": "2026-09-26T14:00:43.276971+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T19:06:39.983613+00:00",
+    "retry_after": "2026-11-19T19:06:39.983618+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Captain America No. 16 [Marvel Legends Reprint]",
@@ -27450,7 +27451,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27468,8 +27469,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T18:02:29.713420+00:00",
-    "retry_after": "2026-11-13T18:02:29.713423+00:00",
+    "last_attempt_at": "2026-11-12T19:01:59.535219+00:00",
+    "retry_after": "2026-11-13T19:01:59.535234+00:00",
     "search_hydrated": true
   },
   {
@@ -43473,26 +43474,26 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
-      {
-        "id": 2930,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1977
-      },
       {
         "id": 116293,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T18:02:29.713270+00:00",
-    "retry_after": "2026-11-13T18:02:29.713287+00:00",
+    "last_attempt_at": "2026-11-12T19:01:59.535277+00:00",
+    "retry_after": "2026-11-13T19:01:59.535282+00:00",
     "search_hydrated": true
   },
   {
@@ -51365,13 +51366,13 @@
   },
   {
     "name": "Scud: The Disposable Assassin",
-    "publisher": "Fireman Press, Ltd",
+    "publisher": "Fireman Press",
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T18:02:29.713387+00:00",
-    "retry_after": "2026-11-13T18:02:29.713391+00:00",
+    "last_attempt_at": "2026-11-12T19:02:04.055921+00:00",
+    "retry_after": "2026-11-13T19:02:04.055939+00:00",
     "search_hydrated": true
   },
   {
@@ -87652,9 +87653,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T18:10:19.046265+00:00",
-    "retry_after": "2026-11-12T18:10:19.046279+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T19:06:34.037555+00:00",
+    "retry_after": "2026-11-26T19:06:34.037568+00:00",
     "search_hydrated": true
   },
   {
@@ -87670,9 +87671,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T18:10:19.283994+00:00",
-    "retry_after": "2026-11-12T18:10:19.284007+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T19:06:34.279873+00:00",
+    "retry_after": "2026-11-26T19:06:34.279888+00:00",
     "search_hydrated": true
   },
   {
@@ -87688,9 +87689,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T18:10:19.284044+00:00",
-    "retry_after": "2026-11-12T18:10:19.284047+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T19:06:34.279930+00:00",
+    "retry_after": "2026-11-26T19:06:34.279934+00:00",
     "search_hydrated": true
   },
   {
@@ -87733,10 +87734,10 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 25567,
+        "id": 3982,
         "name": "Black Orchid",
         "publisher": "DC Comics",
-        "start_year": 1991
+        "start_year": 1988
       },
       {
         "id": 4952,
@@ -87745,45 +87746,33 @@
         "start_year": 1993
       },
       {
-        "id": 3982,
+        "id": 25567,
         "name": "Black Orchid",
         "publisher": "DC Comics",
-        "start_year": 1988
+        "start_year": 1991
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T18:10:16.152212+00:00",
-    "retry_after": "2026-11-12T18:10:16.152216+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T19:06:30.557141+00:00",
+    "retry_after": "2026-11-26T19:06:30.557158+00:00",
     "search_hydrated": true
   },
   {
     "name": "Captain America: Winter Soldier",
     "publisher": "Marvel Comics",
     "year": 2019,
-    "reason": "multiple_candidates",
+    "reason": "series_hint_year_mismatch",
     "candidates": [
       {
         "id": 27158,
         "name": "Captain America: Winter Soldier",
         "publisher": "Marvel",
         "start_year": 2006
-      },
-      {
-        "id": 163076,
-        "name": "Captain America: The Winter Soldier",
-        "publisher": "Marvel",
-        "start_year": 2025
-      },
-      {
-        "id": 71357,
-        "name": "Captain America: The Winter Soldier",
-        "publisher": "Marvel",
-        "start_year": 2014
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T18:10:16.152254+00:00",
-    "retry_after": "2026-11-12T18:10:16.152257+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T19:06:34.385832+00:00",
+    "retry_after": "2026-11-26T19:06:34.385835+00:00",
     "search_hydrated": true
   },
   {
@@ -87810,9 +87799,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T18:10:19.385220+00:00",
-    "retry_after": "2026-11-12T18:10:19.385235+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T19:06:34.385781+00:00",
+    "retry_after": "2026-11-26T19:06:34.385796+00:00",
     "search_hydrated": true
   },
   {
@@ -93567,9 +93556,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-11T18:07:21.663322+00:00",
-    "retry_after": "2026-11-12T18:07:21.663325+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-12T19:06:39.983555+00:00",
+    "retry_after": "2026-11-15T19:06:39.983574+00:00",
     "search_hydrated": true
   },
   {
@@ -94216,6 +94205,71 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-12T18:06:29.991987+00:00",
     "retry_after": "2026-11-13T18:06:29.991993+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Venom by Daniel Way: The Complete Collection",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T19:06:39.983645+00:00",
+    "retry_after": "2026-11-13T19:06:39.983649+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mystic: The Tenth Apprentice",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88473,
+        "name": "Mystic: The Tenth Apprentice",
+        "publisher": "Crossgen",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T19:06:48.426144+00:00",
+    "retry_after": "2026-11-13T19:06:48.426160+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mad Classics",
+    "publisher": "EC Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18767,
+        "name": "Mad Classics",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T19:07:14.446509+00:00",
+    "retry_after": "2026-11-13T19:07:14.446527+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Anti-Crime Squad",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52652,
+        "name": "Anti Crime Squad",
+        "publisher": "Magazine Management",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T19:07:14.446562+00:00",
+    "retry_after": "2026-11-13T19:07:14.446567+00:00",
     "search_hydrated": true
   }
 ]

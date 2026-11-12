@@ -27448,8 +27448,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T14:11:20.776079+00:00",
-    "retry_after": "2026-11-13T14:11:20.776095+00:00",
+    "last_attempt_at": "2026-11-12T14:51:42.676796+00:00",
+    "retry_after": "2026-11-13T14:51:42.676808+00:00",
     "search_hydrated": true
   },
   {
@@ -27472,8 +27472,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T14:02:11.421499+00:00",
-    "retry_after": "2026-11-13T14:02:11.421503+00:00",
+    "last_attempt_at": "2026-11-12T14:42:38.376542+00:00",
+    "retry_after": "2026-11-13T14:42:38.376543+00:00",
     "search_hydrated": true
   },
   {
@@ -43494,8 +43494,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T14:02:11.421333+00:00",
-    "retry_after": "2026-11-13T14:02:11.421348+00:00",
+    "last_attempt_at": "2026-11-12T14:42:38.376452+00:00",
+    "retry_after": "2026-11-13T14:42:38.376463+00:00",
     "search_hydrated": true
   },
   {
@@ -51373,8 +51373,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T14:02:11.421449+00:00",
-    "retry_after": "2026-11-13T14:02:11.421454+00:00",
+    "last_attempt_at": "2026-11-12T14:42:38.376524+00:00",
+    "retry_after": "2026-11-13T14:42:38.376526+00:00",
     "search_hydrated": true
   },
   {
@@ -87383,9 +87383,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T14:10:59.765480+00:00",
-    "retry_after": "2026-11-12T14:10:59.765483+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T14:51:13.865823+00:00",
+    "retry_after": "2026-11-26T14:51:13.865841+00:00",
     "search_hydrated": true
   },
   {
@@ -87394,9 +87394,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T14:10:59.765494+00:00",
-    "retry_after": "2026-11-12T14:10:59.765497+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T14:51:13.865856+00:00",
+    "retry_after": "2026-11-26T14:51:13.865858+00:00",
     "search_hydrated": true
   },
   {
@@ -87424,9 +87424,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T14:10:59.765545+00:00",
-    "retry_after": "2026-11-12T14:10:59.765548+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T14:51:13.865895+00:00",
+    "retry_after": "2026-11-26T14:51:13.865897+00:00",
     "search_hydrated": true
   },
   {
@@ -93478,9 +93478,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-11T11:10:59.352546+00:00",
-    "retry_after": "2026-11-12T11:10:59.352548+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-12T14:51:13.865954+00:00",
+    "retry_after": "2026-11-15T14:51:13.865956+00:00",
     "search_hydrated": true
   },
   {
@@ -94491,6 +94491,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-12T13:10:36.941802+00:00",
     "retry_after": "2026-11-13T13:10:36.941819+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Sleeping Beauties: Deluxe Remastered Edition",
+    "publisher": "IDW Publishing",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T14:51:23.557318+00:00",
+    "retry_after": "2026-11-13T14:51:23.557333+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Daniel Clowes Reader: A Critical Edition of Ghost World and Other Stories, with Essays, Interviews, and Annotations",
+    "publisher": "Fantagraphics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T14:51:23.557351+00:00",
+    "retry_after": "2026-11-13T14:51:23.557353+00:00",
     "search_hydrated": true
   }
 ]

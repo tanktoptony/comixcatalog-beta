@@ -8177,9 +8177,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T03:25:04.348874+00:00",
-    "retry_after": "2026-11-12T03:25:04.348876+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T04:10:36.249314+00:00",
+    "retry_after": "2026-11-26T04:10:36.249315+00:00",
     "search_hydrated": true
   },
   {
@@ -14704,9 +14704,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T12:01:07.915000+00:00",
-    "retry_after": "2026-09-22T12:01:07.915016+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-12T04:10:36.249393+00:00",
+    "retry_after": "2026-11-15T04:10:36.249394+00:00",
+    "search_hydrated": true
   },
   {
     "name": "True Believers: Ant-Man Incredible Shrinking Doom",
@@ -27436,8 +27437,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T03:12:05.025665+00:00",
-    "retry_after": "2026-11-13T03:12:05.025682+00:00",
+    "last_attempt_at": "2026-11-12T04:11:22.319945+00:00",
+    "retry_after": "2026-11-13T04:11:22.319966+00:00",
     "search_hydrated": true
   },
   {
@@ -27460,8 +27461,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T03:02:26.077228+00:00",
-    "retry_after": "2026-11-13T03:02:26.077230+00:00",
+    "last_attempt_at": "2026-11-12T04:01:45.983410+00:00",
+    "retry_after": "2026-11-13T04:01:45.983411+00:00",
     "search_hydrated": true
   },
   {
@@ -43485,8 +43486,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T03:02:26.077112+00:00",
-    "retry_after": "2026-11-13T03:02:26.077129+00:00",
+    "last_attempt_at": "2026-11-12T04:01:45.983313+00:00",
+    "retry_after": "2026-11-13T04:01:45.983330+00:00",
     "search_hydrated": true
   },
   {
@@ -51364,8 +51365,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T03:02:26.077205+00:00",
-    "retry_after": "2026-11-13T03:02:26.077207+00:00",
+    "last_attempt_at": "2026-11-12T04:01:45.983391+00:00",
+    "retry_after": "2026-11-13T04:01:45.983393+00:00",
     "search_hydrated": true
   },
   {
@@ -55773,9 +55774,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T03:25:04.348856+00:00",
-    "retry_after": "2026-11-12T03:25:04.348859+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T04:10:36.249304+00:00",
+    "retry_after": "2026-11-26T04:10:36.249305+00:00",
     "search_hydrated": true
   },
   {
@@ -86323,9 +86324,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T03:25:04.348831+00:00",
-    "retry_after": "2026-11-12T03:25:04.348837+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T04:10:36.249290+00:00",
+    "retry_after": "2026-11-26T04:10:36.249293+00:00",
     "search_hydrated": true
   },
   {
@@ -86947,10 +86948,10 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 82203,
+        "id": 4596,
         "name": "The Infinity Gauntlet",
         "publisher": "Marvel",
-        "start_year": 2015
+        "start_year": 1991
       },
       {
         "id": 30365,
@@ -86959,15 +86960,15 @@
         "start_year": 2006
       },
       {
-        "id": 4596,
+        "id": 82203,
         "name": "The Infinity Gauntlet",
         "publisher": "Marvel",
-        "start_year": 1991
+        "start_year": 2015
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T03:25:04.348764+00:00",
-    "retry_after": "2026-11-12T03:25:04.348770+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T04:10:36.249253+00:00",
+    "retry_after": "2026-11-26T04:10:36.249272+00:00",
     "search_hydrated": true
   },
   {
@@ -94321,6 +94322,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-12T03:11:46.790742+00:00",
     "retry_after": "2026-11-13T03:11:46.790745+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Thor: Road to War of the Realms No. 1 Halloween Comic Fest 2018",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T04:10:36.249355+00:00",
+    "retry_after": "2026-11-13T04:10:36.249357+00:00",
     "search_hydrated": true
   }
 ]

@@ -27451,7 +27451,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27469,8 +27469,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T19:01:59.535219+00:00",
-    "retry_after": "2026-11-13T19:01:59.535234+00:00",
+    "last_attempt_at": "2026-11-12T21:46:25.974194+00:00",
+    "retry_after": "2026-11-13T21:46:25.974196+00:00",
     "search_hydrated": true
   },
   {
@@ -28425,9 +28425,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-09T21:10:35.377448+00:00",
-    "retry_after": "2026-11-12T21:10:35.377451+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T21:55:28.697196+00:00",
+    "retry_after": "2026-11-19T21:55:28.697213+00:00",
     "search_hydrated": true
   },
   {
@@ -39823,9 +39823,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-04T22:02:06.907913+00:00",
-    "retry_after": "2026-10-05T22:02:06.907932+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-12T21:55:28.697356+00:00",
+    "retry_after": "2026-11-15T21:55:28.697358+00:00",
+    "search_hydrated": true
   },
   {
     "name": "JLA: World Without Grown-Ups",
@@ -43474,26 +43475,26 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
-      {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
       {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T19:01:59.535277+00:00",
-    "retry_after": "2026-11-13T19:01:59.535282+00:00",
+    "last_attempt_at": "2026-11-12T21:46:25.974088+00:00",
+    "retry_after": "2026-11-13T21:46:25.974105+00:00",
     "search_hydrated": true
   },
   {
@@ -51366,13 +51367,13 @@
   },
   {
     "name": "Scud: The Disposable Assassin",
-    "publisher": "Fireman Press",
+    "publisher": "Fireman Press, Ltd",
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T19:02:04.055921+00:00",
-    "retry_after": "2026-11-13T19:02:04.055939+00:00",
+    "last_attempt_at": "2026-11-12T21:46:25.974174+00:00",
+    "retry_after": "2026-11-13T21:46:25.974176+00:00",
     "search_hydrated": true
   },
   {
@@ -83941,9 +83942,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-30T19:11:16.324726+00:00",
-    "retry_after": "2026-11-02T19:11:16.324728+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T21:55:28.697342+00:00",
+    "retry_after": "2026-11-19T21:55:28.697344+00:00",
     "search_hydrated": true
   },
   {
@@ -89623,9 +89624,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-09T21:10:35.377466+00:00",
-    "retry_after": "2026-11-12T21:10:35.377468+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T21:55:28.697231+00:00",
+    "retry_after": "2026-11-19T21:55:28.697234+00:00",
     "search_hydrated": true
   },
   {
@@ -89647,9 +89648,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-09T21:10:35.377489+00:00",
-    "retry_after": "2026-11-12T21:10:35.377491+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T21:55:28.697252+00:00",
+    "retry_after": "2026-11-19T21:55:28.697254+00:00",
     "search_hydrated": true
   },
   {
@@ -89677,9 +89678,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-09T21:10:35.377512+00:00",
-    "retry_after": "2026-11-12T21:10:35.377514+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T21:55:28.697271+00:00",
+    "retry_after": "2026-11-19T21:55:28.697273+00:00",
     "search_hydrated": true
   },
   {
@@ -94376,6 +94377,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-12T21:04:55.164961+00:00",
     "retry_after": "2026-11-13T21:04:55.164964+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Meltdown",
+    "publisher": "Titan Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161288,
+        "name": "Simpsons Comics Meltdown",
+        "publisher": "HarperCollins",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T21:55:39.291996+00:00",
+    "retry_after": "2026-11-13T21:55:39.292014+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mouse Guard: Baldwin the Brave & Other Tales",
+    "publisher": "BOOM! Studios",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78073,
+        "name": "Mouse Guard: Baldwin the Brave & Other Tales",
+        "publisher": "Archaia",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T21:55:39.292038+00:00",
+    "retry_after": "2026-11-13T21:55:39.292041+00:00",
     "search_hydrated": true
   }
 ]

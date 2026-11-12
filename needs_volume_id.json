@@ -27448,8 +27448,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T11:11:14.523986+00:00",
-    "retry_after": "2026-11-13T11:11:14.524003+00:00",
+    "last_attempt_at": "2026-11-12T12:10:57.045502+00:00",
+    "retry_after": "2026-11-13T12:10:57.045521+00:00",
     "search_hydrated": true
   },
   {
@@ -27472,8 +27472,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T11:02:14.370615+00:00",
-    "retry_after": "2026-11-13T11:02:14.370617+00:00",
+    "last_attempt_at": "2026-11-12T12:02:04.780465+00:00",
+    "retry_after": "2026-11-13T12:02:04.780468+00:00",
     "search_hydrated": true
   },
   {
@@ -43494,8 +43494,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T11:02:14.370457+00:00",
-    "retry_after": "2026-11-13T11:02:14.370472+00:00",
+    "last_attempt_at": "2026-11-12T12:02:04.780331+00:00",
+    "retry_after": "2026-11-13T12:02:04.780351+00:00",
     "search_hydrated": true
   },
   {
@@ -51373,8 +51373,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T11:02:14.370581+00:00",
-    "retry_after": "2026-11-13T11:02:14.370585+00:00",
+    "last_attempt_at": "2026-11-12T12:02:04.780439+00:00",
+    "retry_after": "2026-11-13T12:02:04.780442+00:00",
     "search_hydrated": true
   },
   {
@@ -87117,9 +87117,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T11:11:01.029726+00:00",
-    "retry_after": "2026-11-12T11:11:01.029729+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T12:10:31.282011+00:00",
+    "retry_after": "2026-11-26T12:10:31.282028+00:00",
     "search_hydrated": true
   },
   {
@@ -87128,9 +87128,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T11:11:01.813217+00:00",
-    "retry_after": "2026-11-12T11:11:01.813235+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T12:10:32.020146+00:00",
+    "retry_after": "2026-11-26T12:10:32.020165+00:00",
     "search_hydrated": true
   },
   {
@@ -87139,9 +87139,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T11:11:01.813262+00:00",
-    "retry_after": "2026-11-12T11:11:01.813263+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T12:10:32.020198+00:00",
+    "retry_after": "2026-11-26T12:10:32.020201+00:00",
     "search_hydrated": true
   },
   {
@@ -87163,9 +87163,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T11:11:01.813302+00:00",
-    "retry_after": "2026-11-12T11:11:01.813303+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T12:10:32.020246+00:00",
+    "retry_after": "2026-11-26T12:10:32.020248+00:00",
     "search_hydrated": true
   },
   {
@@ -87303,9 +87303,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T12:05:15.846637+00:00",
-    "retry_after": "2026-11-12T12:05:15.846640+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T12:10:32.020341+00:00",
+    "retry_after": "2026-11-26T12:10:32.020344+00:00",
     "search_hydrated": true
   },
   {
@@ -93489,9 +93489,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-11T11:11:10.000812+00:00",
-    "retry_after": "2026-11-12T11:11:10.000828+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-12T12:10:44.216382+00:00",
+    "retry_after": "2026-11-15T12:10:44.216400+00:00",
     "search_hydrated": true
   },
   {
@@ -94469,6 +94469,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-12T11:11:00.585874+00:00",
     "retry_after": "2026-11-13T11:11:00.585879+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "'68 Jungle Jim: Guts 'n Glory One-Shot",
+    "publisher": "Image Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T12:10:44.216463+00:00",
+    "retry_after": "2026-11-13T12:10:44.216467+00:00",
     "search_hydrated": true
   }
 ]

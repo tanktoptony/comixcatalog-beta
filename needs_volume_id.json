@@ -7246,10 +7246,12 @@
     "name": "True Believers: Marvel Knights 20th Anniversary - Luke Cage, Hero for Hire",
     "publisher": "Marvel Comics",
     "year": 2018,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555463+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-12T10:05:39.817115+00:00",
+    "retry_after": "2026-11-15T10:05:39.817117+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Arrowsmith",
@@ -12405,9 +12407,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-29T10:01:29.067789+00:00",
-    "retry_after": "2026-11-12T10:01:29.067791+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-12T10:01:54.130627+00:00",
+    "retry_after": "2026-12-12T10:01:54.130629+00:00",
     "search_hydrated": true
   },
   {
@@ -14840,9 +14842,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T13:02:37.237489+00:00",
-    "retry_after": "2026-09-22T13:02:37.237498+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-12T10:05:39.817019+00:00",
+    "retry_after": "2026-11-15T10:05:39.817036+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Flash Gordon Coloring Book",
@@ -25596,9 +25599,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-27T23:05:57.144063+00:00",
-    "retry_after": "2026-09-30T23:05:57.144079+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T10:05:39.817076+00:00",
+    "retry_after": "2026-11-19T10:05:39.817078+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The Amazing Spider-Man: Managing Materials [Chaos at the Construction Site]",
@@ -27443,8 +27447,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T09:10:51.030856+00:00",
-    "retry_after": "2026-11-13T09:10:51.030871+00:00",
+    "last_attempt_at": "2026-11-12T10:06:14.604184+00:00",
+    "retry_after": "2026-11-13T10:06:14.604203+00:00",
     "search_hydrated": true
   },
   {
@@ -27467,8 +27471,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T09:02:04.522074+00:00",
-    "retry_after": "2026-11-13T09:02:04.522077+00:00",
+    "last_attempt_at": "2026-11-12T10:01:54.130601+00:00",
+    "retry_after": "2026-11-13T10:01:54.130603+00:00",
     "search_hydrated": true
   },
   {
@@ -38866,9 +38870,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-05T11:01:03.984732+00:00",
-    "retry_after": "2026-10-08T11:01:03.984748+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T10:05:39.817128+00:00",
+    "retry_after": "2026-11-19T10:05:39.817130+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Marvel Adventures Spider-Man [CVS Pharmacy Edition]",
@@ -38896,9 +38901,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-05T12:00:50.284551+00:00",
-    "retry_after": "2026-10-08T12:00:50.284571+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T10:05:39.817059+00:00",
+    "retry_after": "2026-11-19T10:05:39.817062+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Spectacular Spider-Man",
@@ -39020,9 +39026,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-05T13:00:45.261450+00:00",
-    "retry_after": "2026-10-08T13:00:45.261463+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T10:05:39.817089+00:00",
+    "retry_after": "2026-11-19T10:05:39.817090+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Angry Birds Comics Quarterly: Monsters and Mistletoe",
@@ -43486,8 +43493,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T09:02:04.521929+00:00",
-    "retry_after": "2026-11-13T09:02:04.521946+00:00",
+    "last_attempt_at": "2026-11-12T10:01:54.130487+00:00",
+    "retry_after": "2026-11-13T10:01:54.130504+00:00",
     "search_hydrated": true
   },
   {
@@ -51365,8 +51372,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T09:02:04.522042+00:00",
-    "retry_after": "2026-11-13T09:02:04.522046+00:00",
+    "last_attempt_at": "2026-11-12T10:01:54.130579+00:00",
+    "retry_after": "2026-11-13T10:01:54.130582+00:00",
     "search_hydrated": true
   },
   {

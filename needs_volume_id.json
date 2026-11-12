@@ -14287,9 +14287,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T07:12:55.271326+00:00",
-    "retry_after": "2026-11-12T07:12:55.271331+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T08:11:00.214342+00:00",
+    "retry_after": "2026-11-26T08:11:00.214346+00:00",
     "search_hydrated": true
   },
   {
@@ -27441,8 +27441,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T07:10:35.968557+00:00",
-    "retry_after": "2026-11-13T07:10:35.968574+00:00",
+    "last_attempt_at": "2026-11-12T08:11:31.455526+00:00",
+    "retry_after": "2026-11-13T08:11:31.455541+00:00",
     "search_hydrated": true
   },
   {
@@ -27465,8 +27465,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T07:01:42.240377+00:00",
-    "retry_after": "2026-11-13T07:01:42.240379+00:00",
+    "last_attempt_at": "2026-11-12T08:02:12.414049+00:00",
+    "retry_after": "2026-11-13T08:02:12.414052+00:00",
     "search_hydrated": true
   },
   {
@@ -34785,9 +34785,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-01T20:00:50.600979+00:00",
-    "retry_after": "2026-10-04T20:00:50.600995+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T08:11:00.214493+00:00",
+    "retry_after": "2026-11-19T08:11:00.214496+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Batman Essentials - Batman: The Dark Knight Returns Special Edition",
@@ -38851,9 +38852,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-05T11:01:03.144773+00:00",
-    "retry_after": "2026-10-08T11:01:03.144789+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T08:11:00.214475+00:00",
+    "retry_after": "2026-11-19T08:11:00.214478+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Constantine / Hellblazer Special Edition",
@@ -39931,9 +39933,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T07:12:55.271284+00:00",
-    "retry_after": "2026-11-12T07:12:55.271301+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T08:11:00.214302+00:00",
+    "retry_after": "2026-11-26T08:11:00.214319+00:00",
     "search_hydrated": true
   },
   {
@@ -43491,8 +43493,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T07:01:42.240274+00:00",
-    "retry_after": "2026-11-13T07:01:42.240293+00:00",
+    "last_attempt_at": "2026-11-12T08:02:12.413902+00:00",
+    "retry_after": "2026-11-13T08:02:12.413918+00:00",
     "search_hydrated": true
   },
   {
@@ -51370,8 +51372,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T07:01:42.240359+00:00",
-    "retry_after": "2026-11-13T07:01:42.240361+00:00",
+    "last_attempt_at": "2026-11-12T08:02:12.414016+00:00",
+    "retry_after": "2026-11-13T08:02:12.414020+00:00",
     "search_hydrated": true
   },
   {
@@ -94399,6 +94401,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-12T07:10:20.018223+00:00",
     "retry_after": "2026-11-13T07:10:20.018226+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Task and the Terror! [Spider-Man Peanut Butter]",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T08:11:13.169251+00:00",
+    "retry_after": "2026-11-13T08:11:13.169267+00:00",
     "search_hydrated": true
   }
 ]

@@ -27452,8 +27452,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T16:10:46.576495+00:00",
-    "retry_after": "2026-11-13T16:10:46.576512+00:00",
+    "last_attempt_at": "2026-11-12T17:07:18.566204+00:00",
+    "retry_after": "2026-11-13T17:07:18.566221+00:00",
     "search_hydrated": true
   },
   {
@@ -27476,8 +27476,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T16:01:43.905727+00:00",
-    "retry_after": "2026-11-13T16:01:43.905728+00:00",
+    "last_attempt_at": "2026-11-12T17:02:56.652712+00:00",
+    "retry_after": "2026-11-13T17:02:56.652714+00:00",
     "search_hydrated": true
   },
   {
@@ -43498,8 +43498,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T16:01:43.905627+00:00",
-    "retry_after": "2026-11-13T16:01:43.905642+00:00",
+    "last_attempt_at": "2026-11-12T17:02:56.652589+00:00",
+    "retry_after": "2026-11-13T17:02:56.652608+00:00",
     "search_hydrated": true
   },
   {
@@ -51377,8 +51377,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T16:01:43.905708+00:00",
-    "retry_after": "2026-11-13T16:01:43.905710+00:00",
+    "last_attempt_at": "2026-11-12T17:02:56.652686+00:00",
+    "retry_after": "2026-11-13T17:02:56.652689+00:00",
     "search_hydrated": true
   },
   {
@@ -87595,9 +87595,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T16:11:58.406649+00:00",
-    "retry_after": "2026-11-12T16:11:58.406674+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T17:06:56.679433+00:00",
+    "retry_after": "2026-11-26T17:06:56.679437+00:00",
     "search_hydrated": true
   },
   {
@@ -87606,9 +87606,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T16:11:58.406706+00:00",
-    "retry_after": "2026-11-12T16:11:58.406711+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T17:06:56.679451+00:00",
+    "retry_after": "2026-11-26T17:06:56.679453+00:00",
     "search_hydrated": true
   },
   {
@@ -87617,9 +87617,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T16:11:58.406726+00:00",
-    "retry_after": "2026-11-12T16:11:58.406729+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T17:06:56.679463+00:00",
+    "retry_after": "2026-11-26T17:06:56.679465+00:00",
     "search_hydrated": true
   },
   {
@@ -87641,9 +87641,9 @@
         "start_year": 2003
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T16:11:58.406775+00:00",
-    "retry_after": "2026-11-12T16:11:58.406778+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T17:06:56.679504+00:00",
+    "retry_after": "2026-11-26T17:06:56.679506+00:00",
     "search_hydrated": true
   },
   {
@@ -87728,9 +87728,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T16:11:58.406828+00:00",
-    "retry_after": "2026-11-12T16:11:58.406831+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T17:06:56.679517+00:00",
+    "retry_after": "2026-11-26T17:06:56.679519+00:00",
     "search_hydrated": true
   },
   {
@@ -92784,9 +92784,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-09T17:06:30.746111+00:00",
-    "retry_after": "2026-11-12T17:06:30.746122+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T17:06:56.679272+00:00",
+    "retry_after": "2026-11-19T17:06:56.679290+00:00",
     "search_hydrated": true
   },
   {
@@ -94024,6 +94024,114 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-12T16:10:26.072149+00:00",
     "retry_after": "2026-11-13T16:10:26.072168+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "In Rage",
+    "publisher": "CFD Productions",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88863,
+        "name": "In Rage",
+        "publisher": "Creative Force Designs",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T17:02:17.440914+00:00",
+    "retry_after": "2026-11-13T17:02:17.440917+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Les Aventures d'une étudiante lesbienne",
+    "publisher": "Dynamite Entertainment",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 130157,
+        "name": "Les Aventures d'une Étudiante Lesbienne",
+        "publisher": "Dynamite (France)",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T17:07:10.947716+00:00",
+    "retry_after": "2026-11-13T17:07:10.947734+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Silver Surfer Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79670,
+        "name": "Silver Surfer Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1982
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T17:07:10.947766+00:00",
+    "retry_after": "2026-11-13T17:07:10.947769+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tits ! Tits ! Tits !",
+    "publisher": "Dynamite Entertainment",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167384,
+        "name": "Tits! Tits! Tits!",
+        "publisher": "Dynamite (France)",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T17:07:10.947789+00:00",
+    "retry_after": "2026-11-13T17:07:10.947791+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Bratty Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62713,
+        "name": "Big Bratty Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T17:07:10.947806+00:00",
+    "retry_after": "2026-11-13T17:07:10.947808+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Joe Palooka Presents the Funsational Humphrey",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 156763,
+        "name": "Joe Palooka Presents the Funsational Humphrey",
+        "publisher": "Magazine Management",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T17:07:18.566254+00:00",
+    "retry_after": "2026-11-13T17:07:18.566257+00:00",
     "search_hydrated": true
   }
 ]

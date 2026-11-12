@@ -20193,9 +20193,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-24T05:00:42.528077+00:00",
-    "retry_after": "2026-09-27T05:00:42.528087+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T07:10:09.288787+00:00",
+    "retry_after": "2026-11-19T07:10:09.288789+00:00",
+    "search_hydrated": true
   },
   {
     "name": "JLA",
@@ -25562,9 +25563,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-26T15:04:02.342888+00:00",
-    "retry_after": "2026-09-29T15:04:02.342904+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T07:10:09.288753+00:00",
+    "retry_after": "2026-11-19T07:10:09.288771+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Battlestar Galactica Season Zero / The Lone Ranger [Free Comic Book Day]",
@@ -27439,8 +27441,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T06:17:43.709950+00:00",
-    "retry_after": "2026-11-13T06:17:43.709968+00:00",
+    "last_attempt_at": "2026-11-12T07:10:35.968557+00:00",
+    "retry_after": "2026-11-13T07:10:35.968574+00:00",
     "search_hydrated": true
   },
   {
@@ -27463,8 +27465,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T06:08:47.471644+00:00",
-    "retry_after": "2026-11-13T06:08:47.471645+00:00",
+    "last_attempt_at": "2026-11-12T07:01:42.240377+00:00",
+    "retry_after": "2026-11-13T07:01:42.240379+00:00",
     "search_hydrated": true
   },
   {
@@ -36428,9 +36430,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-03T01:01:51.724024+00:00",
-    "retry_after": "2026-10-06T01:01:51.724040+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T07:10:09.288816+00:00",
+    "retry_after": "2026-11-19T07:10:09.288818+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Invincible Undeluxe",
@@ -43488,8 +43491,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T06:08:47.471538+00:00",
-    "retry_after": "2026-11-13T06:08:47.471557+00:00",
+    "last_attempt_at": "2026-11-12T07:01:42.240274+00:00",
+    "retry_after": "2026-11-13T07:01:42.240293+00:00",
     "search_hydrated": true
   },
   {
@@ -51367,8 +51370,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T06:08:47.471625+00:00",
-    "retry_after": "2026-11-13T06:08:47.471627+00:00",
+    "last_attempt_at": "2026-11-12T07:01:42.240359+00:00",
+    "retry_after": "2026-11-13T07:01:42.240361+00:00",
     "search_hydrated": true
   },
   {
@@ -55726,9 +55729,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T04:24:18.937848+00:00",
-    "retry_after": "2026-10-20T04:24:18.937863+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-12T07:10:09.288804+00:00",
+    "retry_after": "2026-11-15T07:10:09.288806+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The Adventures of Carl",
@@ -94359,6 +94363,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-12T05:10:33.110543+00:00",
     "retry_after": "2026-11-13T05:10:33.110559+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marshal Law: Fear and Loathing",
+    "publisher": "Marvel Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 61149,
+        "name": "Marshal Law: Fear And Loathing",
+        "publisher": "Titan Comics",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T07:10:20.018175+00:00",
+    "retry_after": "2026-11-13T07:10:20.018194+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cynthia Petal's Really Fantastic Alien Sex Frenzy!",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51946,
+        "name": "Cynthia Petal's Really Fantastic Alien Sex Frenzy!",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T07:10:20.018223+00:00",
+    "retry_after": "2026-11-13T07:10:20.018226+00:00",
     "search_hydrated": true
   }
 ]

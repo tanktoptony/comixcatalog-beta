@@ -25335,9 +25335,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-26T13:00:45.442493+00:00",
-    "retry_after": "2026-09-29T13:00:45.442509+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T11:10:48.074342+00:00",
+    "retry_after": "2026-11-19T11:10:48.074345+00:00",
+    "search_hydrated": true
   },
   {
     "name": "True Believers: Spider-Man - The New Spider-Man!",
@@ -27447,8 +27448,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T10:06:14.604184+00:00",
-    "retry_after": "2026-11-13T10:06:14.604203+00:00",
+    "last_attempt_at": "2026-11-12T11:11:14.523986+00:00",
+    "retry_after": "2026-11-13T11:11:14.524003+00:00",
     "search_hydrated": true
   },
   {
@@ -27471,8 +27472,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T10:01:54.130601+00:00",
-    "retry_after": "2026-11-13T10:01:54.130603+00:00",
+    "last_attempt_at": "2026-11-12T11:02:14.370615+00:00",
+    "retry_after": "2026-11-13T11:02:14.370617+00:00",
     "search_hydrated": true
   },
   {
@@ -43493,8 +43494,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T10:01:54.130487+00:00",
-    "retry_after": "2026-11-13T10:01:54.130504+00:00",
+    "last_attempt_at": "2026-11-12T11:02:14.370457+00:00",
+    "retry_after": "2026-11-13T11:02:14.370472+00:00",
     "search_hydrated": true
   },
   {
@@ -51372,8 +51373,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T10:01:54.130579+00:00",
-    "retry_after": "2026-11-13T10:01:54.130582+00:00",
+    "last_attempt_at": "2026-11-12T11:02:14.370581+00:00",
+    "retry_after": "2026-11-13T11:02:14.370585+00:00",
     "search_hydrated": true
   },
   {
@@ -87025,9 +87026,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T10:14:08.566316+00:00",
-    "retry_after": "2026-11-12T10:14:08.566318+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T11:10:48.074175+00:00",
+    "retry_after": "2026-11-26T11:10:48.074192+00:00",
     "search_hydrated": true
   },
   {
@@ -87036,9 +87037,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T10:14:08.566331+00:00",
-    "retry_after": "2026-11-12T10:14:08.566334+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T11:10:48.074214+00:00",
+    "retry_after": "2026-11-26T11:10:48.074218+00:00",
     "search_hydrated": true
   },
   {
@@ -87047,9 +87048,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T10:14:08.566346+00:00",
-    "retry_after": "2026-11-12T10:14:08.566349+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T11:10:48.074234+00:00",
+    "retry_after": "2026-11-26T11:10:48.074237+00:00",
     "search_hydrated": true
   },
   {
@@ -87058,9 +87059,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T10:14:08.566362+00:00",
-    "retry_after": "2026-11-12T10:14:08.566365+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T11:10:48.074250+00:00",
+    "retry_after": "2026-11-26T11:10:48.074253+00:00",
     "search_hydrated": true
   },
   {
@@ -87069,9 +87070,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T10:14:08.566376+00:00",
-    "retry_after": "2026-11-12T10:14:08.566378+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T11:10:48.074265+00:00",
+    "retry_after": "2026-11-26T11:10:48.074267+00:00",
     "search_hydrated": true
   },
   {
@@ -94446,6 +94447,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-12T09:10:37.337567+00:00",
     "retry_after": "2026-11-13T09:10:37.337571+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Scream! & Misty Halloween Special",
+    "publisher": "Rebellion",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T11:11:00.585824+00:00",
+    "retry_after": "2026-11-13T11:11:00.585840+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Loved and Lost: A Relationship Trilogy",
+    "publisher": "IDW Publishing",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T11:11:00.585874+00:00",
+    "retry_after": "2026-11-13T11:11:00.585879+00:00",
     "search_hydrated": true
   }
 ]

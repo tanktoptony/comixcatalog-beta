@@ -26331,9 +26331,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-27T23:46:48.628259+00:00",
-    "retry_after": "2026-09-30T23:46:48.628277+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-12T23:10:12.960863+00:00",
+    "retry_after": "2026-11-19T23:10:12.960881+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Until I Love Myself: The Journey of a Nonbinary Manga Artist",
@@ -27470,8 +27471,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T22:02:08.867523+00:00",
-    "retry_after": "2026-11-13T22:02:08.867526+00:00",
+    "last_attempt_at": "2026-11-12T23:01:42.870607+00:00",
+    "retry_after": "2026-11-13T23:01:42.870608+00:00",
     "search_hydrated": true
   },
   {
@@ -43494,8 +43495,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T22:02:08.867398+00:00",
-    "retry_after": "2026-11-13T22:02:08.867416+00:00",
+    "last_attempt_at": "2026-11-12T23:01:42.870506+00:00",
+    "retry_after": "2026-11-13T23:01:42.870525+00:00",
     "search_hydrated": true
   },
   {
@@ -51373,8 +51374,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T22:02:08.867499+00:00",
-    "retry_after": "2026-11-13T22:02:08.867502+00:00",
+    "last_attempt_at": "2026-11-12T23:01:42.870589+00:00",
+    "retry_after": "2026-11-13T23:01:42.870590+00:00",
     "search_hydrated": true
   },
   {
@@ -94539,6 +94540,100 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-12T22:11:08.567669+00:00",
     "retry_after": "2026-11-13T22:11:08.567672+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "A Bulletproof Coffin One Shot: The 1000 Yard Stare",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T23:10:12.960911+00:00",
+    "retry_after": "2026-11-13T23:10:12.960913+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Justice League: The World's Greatest Superheroes by Alex Ross and Paul Dini",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T23:10:12.960927+00:00",
+    "retry_after": "2026-11-13T23:10:12.960929+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I'm Still Alive",
+    "publisher": "BOOM! Studios",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 147126,
+        "name": "I'm Still Alive",
+        "publisher": "Archaia",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T23:10:23.837005+00:00",
+    "retry_after": "2026-11-13T23:10:23.837023+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "???????: ???? ????????????",
+    "publisher": "BOOM! Studios",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 172641,
+        "name": "!",
+        "publisher": "Alpha Polis",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T23:10:23.837044+00:00",
+    "retry_after": "2026-11-13T23:10:23.837046+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Boo and the Midnight Monsters",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 122409,
+        "name": "Johnny Boo and the Midnight Monsters",
+        "publisher": "Top Shelf",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T23:10:23.837059+00:00",
+    "retry_after": "2026-11-13T23:10:23.837060+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Death",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40889,
+        "name": "Death",
+        "publisher": "Panini Verlag",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T23:10:23.837071+00:00",
+    "retry_after": "2026-11-13T23:10:23.837072+00:00",
     "search_hydrated": true
   }
 ]

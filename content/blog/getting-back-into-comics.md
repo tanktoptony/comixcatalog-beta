@@ -1,7 +1,7 @@
 ---
 title: Getting back into comics (or into them for the first time)
 slug: getting-back-into-comics
-excerpt: I fell off comics for years and getting back in was weirdly hard. A guy at a counter in Chicago fixed it with two words. Here is the version of that advice you can use without the counter.
+excerpt: I fell off comics for years and getting back in was weirdly hard. A guy at a counter in Chicago fixed it with three words. Here is the version of that advice you can use without the counter.
 ---
 
 I fell off comics for a long time. Not on purpose. Life happened, the long boxes went into a closet, and one day I realized I had not read a new issue in something like ten years.

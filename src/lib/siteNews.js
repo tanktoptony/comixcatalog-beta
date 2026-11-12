@@ -8,6 +8,52 @@
 
 export const SITE_NEWS = [
   {
+    date: "2026-11-12",
+    title: "Your photos, right way up",
+    body: "Photos you took of your own copies were coming out sideways in the insurance PDF. They print upright now, and covers no longer sit on top of the titles.",
+    href: "/library",
+  },
+  {
+    date: "2026-11-09",
+    title: "Ranges reach the end of a run",
+    body: "Select a range on a series page now shows the whole run first, so you can tap the last issue of a long one without hitting Show all.",
+  },
+  {
+    date: "2026-11-03",
+    title: "Buy now on the marketplace",
+    body: "Set up payouts once and every book you list with a price and a condition gets a Buy now button. Buyers pay by card. No ComixCatalog fees during the beta.",
+    href: "/sell",
+  },
+  {
+    date: "2026-11-02",
+    title: "Barcode scanning for every member",
+    body: "The Scan page has a Barcode tab. Line up the UPC and the small block next to it, or switch on Keep scanning for a stack. Barcode reads don't use your daily cover scans.",
+    href: "/scan",
+  },
+  {
+    date: "2026-11-02",
+    title: "Your shelf",
+    body: "Signed in, the home page shows your counts, what you added recently, what's new from your pull list and the runs you're closest to finishing.",
+  },
+  {
+    date: "2026-11-01",
+    title: "Search groups the editions",
+    body: "Each series shows up once in search, with its trades and hardcovers grouped under it, and you can filter by format, decade and publisher.",
+    href: "/search",
+  },
+  {
+    date: "2026-11-01",
+    title: "A pull list",
+    body: "Hit + Add to pull list on any series page and its new issues show up on your pull list week by week. Got it adds one to your collection, Want puts it on your wantlist.",
+    href: "/pull-list",
+  },
+  {
+    date: "2026-10-31",
+    title: "Bring your collection over",
+    body: "The Switch page takes an export from CLZ, League of Comic Geeks or any spreadsheet and matches it to the catalog, grades, slabs and cert numbers included.",
+    href: "/switch",
+  },
+  {
     date: "2026-10-24",
     title: "Nearly 7,000 more series",
     body: "The catalog picked up almost 7,000 US series it was missing this week, new books included: the Midnight line, Mind MGMT: New & Improved and The Forever Home are all in.",

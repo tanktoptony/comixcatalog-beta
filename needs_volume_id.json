@@ -51188,9 +51188,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T19:37:34.909447+00:00",
-    "retry_after": "2026-11-12T19:37:34.909464+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T20:06:03.566151+00:00",
+    "retry_after": "2026-11-26T20:06:03.566154+00:00",
     "search_hydrated": true
   },
   {
@@ -87781,9 +87781,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T19:06:40.127697+00:00",
-    "retry_after": "2026-11-12T19:06:40.127700+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T20:06:03.566011+00:00",
+    "retry_after": "2026-11-26T20:06:03.566027+00:00",
     "search_hydrated": true
   },
   {
@@ -87868,9 +87868,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T19:06:40.127710+00:00",
-    "retry_after": "2026-11-12T19:06:40.127711+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T20:06:03.566050+00:00",
+    "retry_after": "2026-11-26T20:06:03.566054+00:00",
     "search_hydrated": true
   },
   {
@@ -87892,9 +87892,9 @@
         "start_year": 2004
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T19:06:40.127741+00:00",
-    "retry_after": "2026-11-12T19:06:40.127743+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T20:06:03.566101+00:00",
+    "retry_after": "2026-11-26T20:06:03.566105+00:00",
     "search_hydrated": true
   },
   {
@@ -87903,9 +87903,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T19:06:40.127754+00:00",
-    "retry_after": "2026-11-12T19:06:40.127756+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T20:06:03.566122+00:00",
+    "retry_after": "2026-11-26T20:06:03.566125+00:00",
     "search_hydrated": true
   },
   {
@@ -87927,9 +87927,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T19:37:34.909489+00:00",
-    "retry_after": "2026-11-12T19:37:34.909492+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T20:06:03.566178+00:00",
+    "retry_after": "2026-11-26T20:06:03.566181+00:00",
     "search_hydrated": true
   },
   {
@@ -87938,9 +87938,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T19:37:34.909506+00:00",
-    "retry_after": "2026-11-12T19:37:34.909509+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T20:06:03.566194+00:00",
+    "retry_after": "2026-11-26T20:06:03.566197+00:00",
     "search_hydrated": true
   },
   {
@@ -87984,9 +87984,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-05T19:37:34.909529+00:00",
-    "retry_after": "2026-11-12T19:37:34.909531+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-12T20:06:03.566209+00:00",
+    "retry_after": "2026-11-26T20:06:03.566212+00:00",
     "search_hydrated": true
   },
   {
@@ -94270,6 +94270,48 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-12T19:07:14.446562+00:00",
     "retry_after": "2026-11-13T19:07:14.446567+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Elric Stormbringer",
+    "publisher": "Titan Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 6101,
+        "name": "Elric: Stormbringer",
+        "publisher": "Dark Horse Comics",
+        "start_year": 1997
+      },
+      {
+        "id": 152731,
+        "name": "Elric: Stormbringer",
+        "publisher": "Pipoca & Nanquim",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T20:06:20.453816+00:00",
+    "retry_after": "2026-11-13T20:06:20.453833+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I Vendicatori",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 151292,
+        "name": "I Vendicatori",
+        "publisher": "Panini Comics",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-12T20:06:59.943403+00:00",
+    "retry_after": "2026-11-13T20:06:59.943421+00:00",
     "search_hydrated": true
   }
 ]

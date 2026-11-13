@@ -27473,8 +27473,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T03:02:02.737838+00:00",
-    "retry_after": "2026-11-14T03:02:02.737841+00:00",
+    "last_attempt_at": "2026-11-13T04:02:04.555919+00:00",
+    "retry_after": "2026-11-14T04:02:04.555922+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T03:02:02.737671+00:00",
-    "retry_after": "2026-11-14T03:02:02.737687+00:00",
+    "last_attempt_at": "2026-11-13T04:02:04.555779+00:00",
+    "retry_after": "2026-11-14T04:02:04.555792+00:00",
     "search_hydrated": true
   },
   {
@@ -51376,8 +51376,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T03:02:02.737803+00:00",
-    "retry_after": "2026-11-14T03:02:02.737808+00:00",
+    "last_attempt_at": "2026-11-13T04:02:04.555888+00:00",
+    "retry_after": "2026-11-14T04:02:04.555892+00:00",
     "search_hydrated": true
   },
   {
@@ -93823,9 +93823,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-12T03:10:57.723815+00:00",
-    "retry_after": "2026-11-13T03:10:57.723817+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-13T04:10:31.506974+00:00",
+    "retry_after": "2026-11-16T04:10:31.506986+00:00",
     "search_hydrated": true
   },
   {
@@ -94913,6 +94913,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-13T03:11:08.139107+00:00",
     "retry_after": "2026-11-14T03:11:08.139123+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "A.B.C. Warriors: Khronicle of Khaos",
+    "publisher": "Rebellion",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T04:10:48.943912+00:00",
+    "retry_after": "2026-11-14T04:10:48.943925+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Faceless: A Terry Sharp Story",
+    "publisher": "Image Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 59298,
+        "name": "The Faceless: A Terry Sharp Story",
+        "publisher": "Monsterverse",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T04:10:48.943975+00:00",
+    "retry_after": "2026-11-14T04:10:48.943979+00:00",
     "search_hydrated": true
   }
 ]

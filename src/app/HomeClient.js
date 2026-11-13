@@ -117,14 +117,15 @@ export default function HomeClient({
             <div className="lp-wall">
               {[0, 1, 2, 3].map((col) => (
                 <div key={col} className={`lp-wall-col lp-wall-col-${col}`}>
-                  {wall.filter((_, i) => i % 4 === col).map((s, i) => (
+                  {wall.filter((_, i) => i % 4 === col).map((s) => (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
                       key={s.id}
                       src={coverThumb(s.cover)}
                       alt=""
                       className="lp-wall-cover"
-                      fetchPriority={i === 0 ? "high" : "auto"}
+                      loading="lazy"
+                      decoding="async"
                     />
                   ))}
                 </div>

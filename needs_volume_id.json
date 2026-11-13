@@ -27473,8 +27473,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T18:25:15.974954+00:00",
-    "retry_after": "2026-11-14T18:25:15.974957+00:00",
+    "last_attempt_at": "2026-11-13T19:02:08.151577+00:00",
+    "retry_after": "2026-11-14T19:02:08.151580+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T18:25:15.974806+00:00",
-    "retry_after": "2026-11-14T18:25:15.974824+00:00",
+    "last_attempt_at": "2026-11-13T19:02:08.151436+00:00",
+    "retry_after": "2026-11-14T19:02:08.151455+00:00",
     "search_hydrated": true
   },
   {
@@ -51353,8 +51353,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T18:25:15.974921+00:00",
-    "retry_after": "2026-11-14T18:25:15.974925+00:00",
+    "last_attempt_at": "2026-11-13T19:02:08.151549+00:00",
+    "retry_after": "2026-11-14T19:02:08.151552+00:00",
     "search_hydrated": true
   },
   {
@@ -90359,9 +90359,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T19:06:12.009404+00:00",
-    "retry_after": "2026-11-13T19:06:12.009406+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T19:10:45.503823+00:00",
+    "retry_after": "2026-11-20T19:10:45.503841+00:00",
     "search_hydrated": true
   },
   {
@@ -90370,9 +90370,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T19:06:12.009417+00:00",
-    "retry_after": "2026-11-13T19:06:12.009419+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T19:10:45.503866+00:00",
+    "retry_after": "2026-11-20T19:10:45.503870+00:00",
     "search_hydrated": true
   },
   {
@@ -90381,9 +90381,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T19:06:12.009440+00:00",
-    "retry_after": "2026-11-13T19:06:12.009442+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T19:10:45.503884+00:00",
+    "retry_after": "2026-11-20T19:10:45.503887+00:00",
     "search_hydrated": true
   },
   {
@@ -94051,9 +94051,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-12T19:06:39.983645+00:00",
-    "retry_after": "2026-11-13T19:06:39.983649+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-13T19:10:45.503953+00:00",
+    "retry_after": "2026-11-16T19:10:45.503955+00:00",
     "search_hydrated": true
   },
   {
@@ -94808,6 +94808,96 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-13T18:34:01.881822+00:00",
     "retry_after": "2026-11-14T18:34:01.881838+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "???????: ???? ????????????",
+    "publisher": "BOOM! Studios",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 172641,
+        "name": "!",
+        "publisher": "Alpha Polis",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T19:11:00.273504+00:00",
+    "retry_after": "2026-11-14T19:11:00.273522+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Boo and the Midnight Monsters",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 122409,
+        "name": "Johnny Boo and the Midnight Monsters",
+        "publisher": "Top Shelf",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T19:11:00.273552+00:00",
+    "retry_after": "2026-11-14T19:11:00.273557+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Death",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40889,
+        "name": "Death",
+        "publisher": "Panini Verlag",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T19:11:00.273579+00:00",
+    "retry_after": "2026-11-14T19:11:00.273582+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "They Called Us Enemy – Expanded Edition",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129898,
+        "name": "They Called Us Enemy: Expanded Edition",
+        "publisher": "Top Shelf",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T19:11:00.273601+00:00",
+    "retry_after": "2026-11-14T19:11:00.273603+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "MegaManga",
+    "publisher": "Fantagraphics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 173763,
+        "name": "MegaManga",
+        "publisher": "Eros Comix",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T19:11:08.636291+00:00",
+    "retry_after": "2026-11-14T19:11:08.636310+00:00",
     "search_hydrated": true
   }
 ]

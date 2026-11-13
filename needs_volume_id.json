@@ -27473,8 +27473,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T17:02:40.077701+00:00",
-    "retry_after": "2026-11-14T17:02:40.077703+00:00",
+    "last_attempt_at": "2026-11-13T18:02:14.356463+00:00",
+    "retry_after": "2026-11-14T18:02:14.356466+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T17:02:40.077545+00:00",
-    "retry_after": "2026-11-14T17:02:40.077566+00:00",
+    "last_attempt_at": "2026-11-13T18:02:14.356315+00:00",
+    "retry_after": "2026-11-14T18:02:14.356332+00:00",
     "search_hydrated": true
   },
   {
@@ -51353,8 +51353,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T17:02:40.077675+00:00",
-    "retry_after": "2026-11-14T17:02:40.077678+00:00",
+    "last_attempt_at": "2026-11-13T18:02:14.356430+00:00",
+    "retry_after": "2026-11-14T18:02:14.356434+00:00",
     "search_hydrated": true
   },
   {
@@ -89837,9 +89837,9 @@
         "start_year": 1996
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T12:28:57.034079+00:00",
-    "retry_after": "2026-11-13T12:28:57.034095+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T18:03:20.650312+00:00",
+    "retry_after": "2026-11-20T18:03:20.650317+00:00",
     "search_hydrated": true
   },
   {
@@ -89855,9 +89855,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T17:11:20.989872+00:00",
-    "retry_after": "2026-11-13T17:11:20.989876+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T18:03:20.650371+00:00",
+    "retry_after": "2026-11-20T18:03:20.650374+00:00",
     "search_hydrated": true
   },
   {
@@ -89928,9 +89928,9 @@
         "start_year": 1998
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T17:11:20.989908+00:00",
-    "retry_after": "2026-11-13T17:11:20.989911+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T18:03:20.650402+00:00",
+    "retry_after": "2026-11-20T18:03:20.650404+00:00",
     "search_hydrated": true
   },
   {
@@ -89946,9 +89946,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T17:11:20.989928+00:00",
-    "retry_after": "2026-11-13T17:11:20.989930+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T18:03:20.650420+00:00",
+    "retry_after": "2026-11-20T18:03:20.650423+00:00",
     "search_hydrated": true
   },
   {
@@ -89975,9 +89975,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T17:11:21.117736+00:00",
-    "retry_after": "2026-11-13T17:11:21.117750+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T18:03:20.715213+00:00",
+    "retry_after": "2026-11-20T18:03:20.715230+00:00",
     "search_hydrated": true
   },
   {
@@ -90056,9 +90056,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T17:11:22.420962+00:00",
-    "retry_after": "2026-11-13T17:11:22.420976+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T18:03:20.715305+00:00",
+    "retry_after": "2026-11-20T18:03:20.715308+00:00",
     "search_hydrated": true
   },
   {
@@ -93886,9 +93886,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-12T09:10:26.695536+00:00",
-    "retry_after": "2026-11-13T09:10:26.695547+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-13T18:03:20.895073+00:00",
+    "retry_after": "2026-11-16T18:03:20.895088+00:00",
     "search_hydrated": true
   },
   {
@@ -94664,6 +94664,132 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-13T17:12:05.756126+00:00",
     "retry_after": "2026-11-14T17:12:05.756129+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wolverine: The Amazing Immortal Man & Other Bloody Tales",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 21576,
+        "name": "Wolverine: The Amazing Immortal Man & Other Bloody Tales",
+        "publisher": "Marvel",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T18:03:30.758346+00:00",
+    "retry_after": "2026-11-14T18:03:30.758363+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Links",
+    "publisher": "VIZ Media",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148145,
+        "name": "Links",
+        "publisher": "Milky Way Ediciones",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T18:03:40.684160+00:00",
+    "retry_after": "2026-11-14T18:03:40.684177+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62660,
+        "name": "Big Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T18:03:40.684216+00:00",
+    "retry_after": "2026-11-14T18:03:40.684221+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Superheroes and the Occult Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79640,
+        "name": "Marvel Superheroes and the Occult Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T18:03:40.684296+00:00",
+    "retry_after": "2026-11-14T18:03:40.684300+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I'm Still Alive",
+    "publisher": "BOOM! Studios",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 147126,
+        "name": "I'm Still Alive",
+        "publisher": "Archaia",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T18:03:40.684321+00:00",
+    "retry_after": "2026-11-14T18:03:40.684324+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mad Classics",
+    "publisher": "EC Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18767,
+        "name": "Mad Classics",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T18:03:48.794973+00:00",
+    "retry_after": "2026-11-14T18:03:48.794992+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Anti-Crime Squad",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52652,
+        "name": "Anti Crime Squad",
+        "publisher": "Magazine Management",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T18:03:48.795025+00:00",
+    "retry_after": "2026-11-14T18:03:48.795029+00:00",
     "search_hydrated": true
   }
 ]

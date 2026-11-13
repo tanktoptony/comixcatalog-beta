@@ -27367,9 +27367,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-12T22:10:57.512636+00:00",
-    "retry_after": "2026-11-13T22:10:57.512638+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-13T22:11:24.378486+00:00",
+    "retry_after": "2026-11-16T22:11:24.378488+00:00",
     "search_hydrated": true
   },
   {
@@ -27473,8 +27473,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T21:02:10.767708+00:00",
-    "retry_after": "2026-11-14T21:02:10.767711+00:00",
+    "last_attempt_at": "2026-11-13T22:02:05.468726+00:00",
+    "retry_after": "2026-11-14T22:02:05.468728+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T21:02:10.767563+00:00",
-    "retry_after": "2026-11-14T21:02:10.767578+00:00",
+    "last_attempt_at": "2026-11-13T22:02:05.468614+00:00",
+    "retry_after": "2026-11-14T22:02:05.468634+00:00",
     "search_hydrated": true
   },
   {
@@ -51353,8 +51353,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T21:02:10.767675+00:00",
-    "retry_after": "2026-11-14T21:02:10.767679+00:00",
+    "last_attempt_at": "2026-11-13T22:02:05.468703+00:00",
+    "retry_after": "2026-11-14T22:02:05.468706+00:00",
     "search_hydrated": true
   },
   {
@@ -90496,9 +90496,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T21:10:54.241890+00:00",
-    "retry_after": "2026-11-13T21:10:54.241893+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T22:11:24.378313+00:00",
+    "retry_after": "2026-11-20T22:11:24.378330+00:00",
     "search_hydrated": true
   },
   {
@@ -94132,9 +94132,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-12T22:10:57.512566+00:00",
-    "retry_after": "2026-11-13T22:10:57.512569+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-13T22:11:24.378426+00:00",
+    "retry_after": "2026-11-16T22:11:24.378429+00:00",
     "search_hydrated": true
   },
   {
@@ -94144,21 +94144,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 19669,
-        "name": "World of Warcraft",
-        "publisher": "DC Comics",
-        "start_year": 2007
-      },
-      {
         "id": 70150,
         "name": "World of Warcraft",
         "publisher": "DC Comics",
         "start_year": 2008
+      },
+      {
+        "id": 19669,
+        "name": "World of Warcraft",
+        "publisher": "DC Comics",
+        "start_year": 2007
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-12T22:10:57.512612+00:00",
-    "retry_after": "2026-11-13T22:10:57.512614+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-13T22:11:24.378468+00:00",
+    "retry_after": "2026-11-16T22:11:24.378470+00:00",
     "search_hydrated": true
   },
   {
@@ -94174,9 +94174,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-12T22:10:59.687439+00:00",
-    "retry_after": "2026-11-13T22:10:59.687456+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-13T22:11:28.438814+00:00",
+    "retry_after": "2026-11-16T22:11:28.438827+00:00",
     "search_hydrated": true
   },
   {
@@ -95024,6 +95024,78 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-13T21:11:09.797555+00:00",
     "retry_after": "2026-11-14T21:11:09.797570+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Conan Exiles",
+    "publisher": "Dark Horse Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141912,
+        "name": "Conan: Exiles",
+        "publisher": "Marvel",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T22:11:38.583307+00:00",
+    "retry_after": "2026-11-14T22:11:38.583324+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gli Albi dei Super-Eroi",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34647,
+        "name": "Gli Albi dei Super-Eroi",
+        "publisher": "Editoriale Corno",
+        "start_year": 1973
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T22:11:38.583349+00:00",
+    "retry_after": "2026-11-14T22:11:38.583351+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Faceless: A Terry Sharp Story",
+    "publisher": "Image Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 59298,
+        "name": "The Faceless: A Terry Sharp Story",
+        "publisher": "Monsterverse",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T22:11:38.583366+00:00",
+    "retry_after": "2026-11-14T22:11:38.583391+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Sky Doll: Spaceship Collection",
+    "publisher": "Titan Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 155513,
+        "name": "Sky Doll: Spaceship Collection",
+        "publisher": "Norma Editorial",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T22:11:38.583413+00:00",
+    "retry_after": "2026-11-14T22:11:38.583415+00:00",
     "search_hydrated": true
   }
 ]

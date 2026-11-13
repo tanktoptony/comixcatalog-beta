@@ -27448,9 +27448,9 @@
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-12T18:02:29.713439+00:00",
-    "retry_after": "2026-11-13T18:02:29.713442+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-13T18:25:15.974974+00:00",
+    "retry_after": "2026-11-16T18:25:15.974977+00:00",
     "search_hydrated": true
   },
   {
@@ -27473,8 +27473,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T18:02:14.356463+00:00",
-    "retry_after": "2026-11-14T18:02:14.356466+00:00",
+    "last_attempt_at": "2026-11-13T18:25:15.974954+00:00",
+    "retry_after": "2026-11-14T18:25:15.974957+00:00",
     "search_hydrated": true
   },
   {
@@ -39164,33 +39164,33 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 18248,
-        "name": "Green Lantern Corps",
-        "publisher": "DC Comics",
-        "start_year": 2006
-      },
-      {
         "id": 3600,
         "name": "The Green Lantern Corps",
         "publisher": "DC Comics",
         "start_year": 1986
       },
       {
-        "id": 162400,
+        "id": 18248,
         "name": "Green Lantern Corps",
         "publisher": "DC Comics",
-        "start_year": 2025
+        "start_year": 2006
       },
       {
         "id": 42916,
         "name": "Green Lantern Corps",
         "publisher": "DC Comics",
         "start_year": 2011
+      },
+      {
+        "id": 162400,
+        "name": "Green Lantern Corps",
+        "publisher": "DC Comics",
+        "start_year": 2025
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T18:06:58.840444+00:00",
-    "retry_after": "2026-11-13T18:06:58.840446+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T18:33:38.507007+00:00",
+    "retry_after": "2026-11-20T18:33:38.507012+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T18:02:14.356315+00:00",
-    "retry_after": "2026-11-14T18:02:14.356332+00:00",
+    "last_attempt_at": "2026-11-13T18:25:15.974806+00:00",
+    "retry_after": "2026-11-14T18:25:15.974824+00:00",
     "search_hydrated": true
   },
   {
@@ -51353,8 +51353,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T18:02:14.356430+00:00",
-    "retry_after": "2026-11-14T18:02:14.356434+00:00",
+    "last_attempt_at": "2026-11-13T18:25:15.974921+00:00",
+    "retry_after": "2026-11-14T18:25:15.974925+00:00",
     "search_hydrated": true
   },
   {
@@ -90137,9 +90137,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T18:06:58.840371+00:00",
-    "retry_after": "2026-11-13T18:06:58.840391+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T18:33:38.506907+00:00",
+    "retry_after": "2026-11-20T18:33:38.506921+00:00",
     "search_hydrated": true
   },
   {
@@ -90155,9 +90155,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T18:07:04.031152+00:00",
-    "retry_after": "2026-11-13T18:07:04.031170+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T18:33:40.452193+00:00",
+    "retry_after": "2026-11-20T18:33:40.452200+00:00",
     "search_hydrated": true
   },
   {
@@ -90173,9 +90173,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T18:07:04.142341+00:00",
-    "retry_after": "2026-11-13T18:07:04.142358+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T18:33:40.518838+00:00",
+    "retry_after": "2026-11-20T18:33:40.518845+00:00",
     "search_hydrated": true
   },
   {
@@ -90191,9 +90191,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T18:07:04.551410+00:00",
-    "retry_after": "2026-11-13T18:07:04.551427+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T18:33:40.650639+00:00",
+    "retry_after": "2026-11-20T18:33:40.650647+00:00",
     "search_hydrated": true
   },
   {
@@ -90209,9 +90209,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T18:07:04.671797+00:00",
-    "retry_after": "2026-11-13T18:07:04.671816+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T18:33:40.715368+00:00",
+    "retry_after": "2026-11-20T18:33:40.715375+00:00",
     "search_hydrated": true
   },
   {
@@ -90227,9 +90227,9 @@
         "start_year": 2004
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T18:07:04.671850+00:00",
-    "retry_after": "2026-11-13T18:07:04.671851+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T18:33:40.715403+00:00",
+    "retry_after": "2026-11-20T18:33:40.715406+00:00",
     "search_hydrated": true
   },
   {
@@ -90273,9 +90273,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T18:07:07.622528+00:00",
-    "retry_after": "2026-11-13T18:07:07.622545+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T18:33:38.507030+00:00",
+    "retry_after": "2026-11-20T18:33:38.507033+00:00",
     "search_hydrated": true
   },
   {
@@ -93996,9 +93996,9 @@
     "year": 2015,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-12T18:06:22.402704+00:00",
-    "retry_after": "2026-11-13T18:06:22.402726+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-13T18:33:52.872244+00:00",
+    "retry_after": "2026-11-16T18:33:52.872256+00:00",
     "search_hydrated": true
   },
   {
@@ -94007,9 +94007,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-12T18:06:22.402765+00:00",
-    "retry_after": "2026-11-13T18:06:22.402770+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-13T18:33:52.872285+00:00",
+    "retry_after": "2026-11-16T18:33:52.872290+00:00",
     "search_hydrated": true
   },
   {
@@ -94018,9 +94018,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-12T18:06:22.402796+00:00",
-    "retry_after": "2026-11-13T18:06:22.402800+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-13T18:33:52.872308+00:00",
+    "retry_after": "2026-11-16T18:33:52.872311+00:00",
     "search_hydrated": true
   },
   {
@@ -94029,9 +94029,9 @@
     "year": 1972,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-12T18:06:22.402821+00:00",
-    "retry_after": "2026-11-13T18:06:22.402825+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-13T18:33:52.872326+00:00",
+    "retry_after": "2026-11-16T18:33:52.872329+00:00",
     "search_hydrated": true
   },
   {
@@ -94040,9 +94040,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-12T18:06:22.402843+00:00",
-    "retry_after": "2026-11-13T18:06:22.402847+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-13T18:33:52.872341+00:00",
+    "retry_after": "2026-11-16T18:33:52.872344+00:00",
     "search_hydrated": true
   },
   {
@@ -94790,6 +94790,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-13T18:03:48.795025+00:00",
     "retry_after": "2026-11-14T18:03:48.795029+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I Vendicatori",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 151292,
+        "name": "I Vendicatori",
+        "publisher": "Panini Comics",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T18:34:01.881822+00:00",
+    "retry_after": "2026-11-14T18:34:01.881838+00:00",
     "search_hydrated": true
   }
 ]

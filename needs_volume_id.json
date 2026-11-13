@@ -27473,8 +27473,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T07:02:01.292361+00:00",
-    "retry_after": "2026-11-14T07:02:01.292363+00:00",
+    "last_attempt_at": "2026-11-13T08:01:52.198136+00:00",
+    "retry_after": "2026-11-14T08:01:52.198137+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T07:02:01.292234+00:00",
-    "retry_after": "2026-11-14T07:02:01.292252+00:00",
+    "last_attempt_at": "2026-11-13T08:01:52.198042+00:00",
+    "retry_after": "2026-11-14T08:01:52.198056+00:00",
     "search_hydrated": true
   },
   {
@@ -51376,8 +51376,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T07:02:01.292336+00:00",
-    "retry_after": "2026-11-14T07:02:01.292338+00:00",
+    "last_attempt_at": "2026-11-13T08:01:52.198118+00:00",
+    "retry_after": "2026-11-14T08:01:52.198119+00:00",
     "search_hydrated": true
   },
   {
@@ -94975,6 +94975,81 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-13T07:11:56.528281+00:00",
     "retry_after": "2026-11-14T07:11:56.528299+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Moonstruck",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 102920,
+        "name": "Moonstruck",
+        "publisher": "Image",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T08:10:21.970644+00:00",
+    "retry_after": "2026-11-14T08:10:21.970662+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "James Bond: The Complete Warren Ellis Collection",
+    "publisher": "Dynamite Entertainment",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T08:10:35.155558+00:00",
+    "retry_after": "2026-11-14T08:10:35.155577+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Red Panda & Moon Bear: The Curse of the Evil Eye",
+    "publisher": "IDW Publishing",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T08:10:35.155594+00:00",
+    "retry_after": "2026-11-14T08:10:35.155596+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Grimm Fairy Tales Oversized Cosplay Special One-Shot",
+    "publisher": "Zenescope Entertainment",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T08:10:35.155606+00:00",
+    "retry_after": "2026-11-14T08:10:35.155608+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "30 Days of Night",
+    "publisher": "IDW Publishing",
+    "year": 2003,
+    "reason": "multiple_near_year_tied",
+    "candidates": [
+      {
+        "id": 11266,
+        "name": "30 Days of Night",
+        "publisher": "IDW Publishing",
+        "start_year": 2002
+      },
+      {
+        "id": 21782,
+        "name": "30 Days of Night",
+        "publisher": "IDW Publishing",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T08:10:35.155643+00:00",
+    "retry_after": "2026-11-14T08:10:35.155645+00:00",
     "search_hydrated": true
   }
 ]

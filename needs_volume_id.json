@@ -27473,8 +27473,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T05:01:37.415199+00:00",
-    "retry_after": "2026-11-14T05:01:37.415201+00:00",
+    "last_attempt_at": "2026-11-13T06:02:11.176716+00:00",
+    "retry_after": "2026-11-14T06:02:11.176720+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T05:01:37.415087+00:00",
-    "retry_after": "2026-11-14T05:01:37.415104+00:00",
+    "last_attempt_at": "2026-11-13T06:02:11.176576+00:00",
+    "retry_after": "2026-11-14T06:02:11.176591+00:00",
     "search_hydrated": true
   },
   {
@@ -51376,8 +51376,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T05:01:37.415181+00:00",
-    "retry_after": "2026-11-14T05:01:37.415183+00:00",
+    "last_attempt_at": "2026-11-13T06:02:11.176684+00:00",
+    "retry_after": "2026-11-14T06:02:11.176688+00:00",
     "search_hydrated": true
   },
   {
@@ -89739,9 +89739,9 @@
         "start_year": 2004
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T05:11:22.828054+00:00",
-    "retry_after": "2026-11-13T05:11:22.828057+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T06:10:42.585151+00:00",
+    "retry_after": "2026-11-20T06:10:42.585170+00:00",
     "search_hydrated": true
   },
   {
@@ -89774,9 +89774,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T05:11:22.828095+00:00",
-    "retry_after": "2026-11-13T05:11:22.828098+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T06:10:42.585241+00:00",
+    "retry_after": "2026-11-20T06:10:42.585247+00:00",
     "search_hydrated": true
   },
   {
@@ -94942,6 +94942,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-13T04:10:48.943975+00:00",
     "retry_after": "2026-11-14T04:10:48.943979+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Aria: The Magic of Aria",
+    "publisher": "Image Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T06:11:04.616133+00:00",
+    "retry_after": "2026-11-14T06:11:04.616148+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Untouchables \"Ain't We Got Fun\"",
+    "publisher": "Topps Comics",
+    "year": 1962,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T06:11:04.616183+00:00",
+    "retry_after": "2026-11-14T06:11:04.616187+00:00",
     "search_hydrated": true
   }
 ]

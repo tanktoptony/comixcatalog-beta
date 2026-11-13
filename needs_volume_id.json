@@ -17432,9 +17432,10 @@
         "start_year": 2017
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-23T08:00:45.004889+00:00",
-    "retry_after": "2026-09-26T08:00:45.004907+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T23:10:29.526102+00:00",
+    "retry_after": "2026-11-14T23:10:29.526105+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Thor: God of Thunder 1 Halloween Comic Fest 2013",
@@ -27473,8 +27474,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T22:02:05.468726+00:00",
-    "retry_after": "2026-11-14T22:02:05.468728+00:00",
+    "last_attempt_at": "2026-11-13T23:01:56.820289+00:00",
+    "retry_after": "2026-11-14T23:01:56.820290+00:00",
     "search_hydrated": true
   },
   {
@@ -32898,9 +32899,10 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-03T10:45:18.560665+00:00",
-    "retry_after": "2026-10-10T10:45:18.560679+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-11-13T23:10:29.526043+00:00",
+    "retry_after": "2026-11-27T23:10:29.526061+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Young Avengers Modern Era Epic Collection",
@@ -43497,8 +43499,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T22:02:05.468614+00:00",
-    "retry_after": "2026-11-14T22:02:05.468634+00:00",
+    "last_attempt_at": "2026-11-13T23:01:56.820161+00:00",
+    "retry_after": "2026-11-14T23:01:56.820178+00:00",
     "search_hydrated": true
   },
   {
@@ -51353,8 +51355,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T22:02:05.468703+00:00",
-    "retry_after": "2026-11-14T22:02:05.468706+00:00",
+    "last_attempt_at": "2026-11-13T23:01:56.820265+00:00",
+    "retry_after": "2026-11-14T23:01:56.820268+00:00",
     "search_hydrated": true
   },
   {
@@ -95096,6 +95098,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-13T22:11:38.583413+00:00",
     "retry_after": "2026-11-14T22:11:38.583415+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: The Death of Clark Kent",
+    "publisher": "Titan Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 31905,
+        "name": "Superman: The Death of Clark Kent",
+        "publisher": "DC Comics",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T23:10:40.132094+00:00",
+    "retry_after": "2026-11-14T23:10:40.132110+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Trio Grande: Adios Palomita",
+    "publisher": "Heavy Metal",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27096,
+        "name": "Trio Grande: Adios Palomita",
+        "publisher": "Tundra",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T23:10:40.132142+00:00",
+    "retry_after": "2026-11-14T23:10:40.132145+00:00",
     "search_hydrated": true
   }
 ]

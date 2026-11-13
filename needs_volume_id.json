@@ -27473,8 +27473,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T19:02:08.151577+00:00",
-    "retry_after": "2026-11-14T19:02:08.151580+00:00",
+    "last_attempt_at": "2026-11-13T20:09:28.792646+00:00",
+    "retry_after": "2026-11-14T20:09:28.792648+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T19:02:08.151436+00:00",
-    "retry_after": "2026-11-14T19:02:08.151455+00:00",
+    "last_attempt_at": "2026-11-13T20:09:28.792522+00:00",
+    "retry_after": "2026-11-14T20:09:28.792550+00:00",
     "search_hydrated": true
   },
   {
@@ -51353,8 +51353,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T19:02:08.151549+00:00",
-    "retry_after": "2026-11-14T19:02:08.151552+00:00",
+    "last_attempt_at": "2026-11-13T20:09:28.792622+00:00",
+    "retry_after": "2026-11-14T20:09:28.792625+00:00",
     "search_hydrated": true
   },
   {
@@ -90410,9 +90410,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T20:10:33.329108+00:00",
-    "retry_after": "2026-11-13T20:10:33.329110+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T20:17:54.426858+00:00",
+    "retry_after": "2026-11-20T20:17:54.426875+00:00",
     "search_hydrated": true
   },
   {
@@ -94075,9 +94075,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-12T20:06:20.453816+00:00",
-    "retry_after": "2026-11-13T20:06:20.453833+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-13T20:18:08.053341+00:00",
+    "retry_after": "2026-11-16T20:18:08.053357+00:00",
     "search_hydrated": true
   },
   {
@@ -94898,6 +94898,78 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-13T19:11:08.636291+00:00",
     "retry_after": "2026-11-14T19:11:08.636310+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vuzz",
+    "publisher": "Titan Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85799,
+        "name": "Vuzz",
+        "publisher": "Dargaud",
+        "start_year": 1974
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T20:18:08.053423+00:00",
+    "retry_after": "2026-11-14T20:18:08.053426+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Boo and the Silly Blizzard",
+    "publisher": "IDW Publishing",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 133882,
+        "name": "Johnny Boo and the Silly Blizzard",
+        "publisher": "Top Shelf",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T20:18:08.053443+00:00",
+    "retry_after": "2026-11-14T20:18:08.053446+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Extravaganza",
+    "publisher": "Titan Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64945,
+        "name": "Simpsons Comics Extravaganza",
+        "publisher": "HarperCollins",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T20:18:08.053460+00:00",
+    "retry_after": "2026-11-14T20:18:08.053462+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Phil Corrigan Secret Agent X9",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161990,
+        "name": "Phil Corrigan Secret Agent X9 ",
+        "publisher": "Atlas Publications Pty. Ltd.",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T20:18:17.073984+00:00",
+    "retry_after": "2026-11-14T20:18:17.074001+00:00",
     "search_hydrated": true
   }
 ]

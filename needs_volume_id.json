@@ -6622,7 +6622,9 @@
       }
     ],
     "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555274+00:00"
+    "last_attempt_at": "2026-11-13T02:11:37.327170+00:00",
+    "retry_after": "2026-11-14T02:11:37.327186+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Fred Perry's Legacy Color Manga",
@@ -27471,8 +27473,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T01:01:52.589727+00:00",
-    "retry_after": "2026-11-14T01:01:52.589729+00:00",
+    "last_attempt_at": "2026-11-13T02:01:53.577742+00:00",
+    "retry_after": "2026-11-14T02:01:53.577743+00:00",
     "search_hydrated": true
   },
   {
@@ -33355,9 +33357,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-10-30T02:05:22.249031+00:00",
-    "retry_after": "2026-11-13T02:05:22.249033+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-13T02:11:36.566723+00:00",
+    "retry_after": "2026-12-13T02:11:36.566740+00:00",
     "search_hydrated": true
   },
   {
@@ -43495,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T01:01:52.589593+00:00",
-    "retry_after": "2026-11-14T01:01:52.589607+00:00",
+    "last_attempt_at": "2026-11-13T02:01:53.577602+00:00",
+    "retry_after": "2026-11-14T02:01:53.577618+00:00",
     "search_hydrated": true
   },
   {
@@ -51374,8 +51376,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T01:01:52.589702+00:00",
-    "retry_after": "2026-11-14T01:01:52.589706+00:00",
+    "last_attempt_at": "2026-11-13T02:01:53.577716+00:00",
+    "retry_after": "2026-11-14T02:01:53.577719+00:00",
     "search_hydrated": true
   },
   {

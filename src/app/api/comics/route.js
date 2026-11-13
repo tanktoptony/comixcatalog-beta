@@ -5,6 +5,7 @@ import { getServiceClient } from "@/lib/supabase/service";
 import { getFeaturedSeries } from "@/lib/featuredSeriesData";
 import { normalizeKey, chooseSeries, matchIssue } from "@/lib/csvImport/matchRow";
 import { CDN_CACHE_LONG } from "@/lib/cdnCache";
+import { canonicalPublisher } from "@/lib/publisherNames";
 
 // GET /api/comics — the no-query "browse" surface for /search + the homepage
 // Featured Series carousel.
@@ -131,7 +132,7 @@ export async function POST(req) {
 
   const series_title = String(submission.series_title ?? "").trim();
   const issue_number = String(submission.issue_number ?? "").trim();
-  const publisher_name = String(submission.publisher ?? "").trim();
+  const publisher_name = canonicalPublisher(submission.publisher);
   const variant_name = submission.variant_name ? String(submission.variant_name).trim() : null;
   const created_by = user.id;
   const release_year =

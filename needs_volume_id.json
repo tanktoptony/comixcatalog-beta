@@ -27473,8 +27473,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T16:01:58.012974+00:00",
-    "retry_after": "2026-11-14T16:01:58.012976+00:00",
+    "last_attempt_at": "2026-11-13T17:02:40.077701+00:00",
+    "retry_after": "2026-11-14T17:02:40.077703+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T16:01:58.012857+00:00",
-    "retry_after": "2026-11-14T16:01:58.012874+00:00",
+    "last_attempt_at": "2026-11-13T17:02:40.077545+00:00",
+    "retry_after": "2026-11-14T17:02:40.077566+00:00",
     "search_hydrated": true
   },
   {
@@ -51353,8 +51353,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T16:01:58.012951+00:00",
-    "retry_after": "2026-11-14T16:01:58.012954+00:00",
+    "last_attempt_at": "2026-11-13T17:02:40.077675+00:00",
+    "retry_after": "2026-11-14T17:02:40.077678+00:00",
     "search_hydrated": true
   },
   {
@@ -90038,9 +90038,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T16:10:30.927043+00:00",
-    "retry_after": "2026-11-13T16:10:30.927059+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T17:07:55.958852+00:00",
+    "retry_after": "2026-11-20T17:07:55.958856+00:00",
     "search_hydrated": true
   },
   {
@@ -94498,6 +94498,172 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-13T16:10:26.424033+00:00",
     "retry_after": "2026-11-14T16:10:26.424035+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Action Hour, Featuring the Fantastic Four",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T17:01:49.942782+00:00",
+    "retry_after": "2026-11-14T17:01:49.942785+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "In Rage",
+    "publisher": "CFD Productions",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88863,
+        "name": "In Rage",
+        "publisher": "Creative Force Designs",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T17:01:49.942824+00:00",
+    "retry_after": "2026-11-14T17:01:49.942826+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Preacher Compendium",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T17:07:55.958712+00:00",
+    "retry_after": "2026-11-14T17:07:55.958728+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mystic: The Tenth Apprentice",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88473,
+        "name": "Mystic: The Tenth Apprentice",
+        "publisher": "Crossgen",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T17:11:57.949401+00:00",
+    "retry_after": "2026-11-14T17:11:57.949417+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deadworld: The Last Siesta",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75600,
+        "name": "Deadworld: The Last Siesta",
+        "publisher": "Caliber Comics",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T17:11:57.949450+00:00",
+    "retry_after": "2026-11-14T17:11:57.949453+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Meltdown",
+    "publisher": "Titan Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161288,
+        "name": "Simpsons Comics Meltdown",
+        "publisher": "HarperCollins",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T17:11:57.949473+00:00",
+    "retry_after": "2026-11-14T17:11:57.949475+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mouse Guard: Baldwin the Brave & Other Tales",
+    "publisher": "BOOM! Studios",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78073,
+        "name": "Mouse Guard: Baldwin the Brave & Other Tales",
+        "publisher": "Archaia",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T17:11:57.949490+00:00",
+    "retry_after": "2026-11-14T17:11:57.949492+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kick-Ass 2 Prelude: Hit Girl",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58598,
+        "name": "Kick-Ass 2 Prelude: Hit-Girl",
+        "publisher": "Icon Books",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T17:11:57.949506+00:00",
+    "retry_after": "2026-11-14T17:11:57.949508+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Doctor Who Magazine",
+    "publisher": "Marvel Comics",
+    "year": 1985,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26877,
+        "name": "Doctor Who Magazine",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T17:12:05.756032+00:00",
+    "retry_after": "2026-11-14T17:12:05.756048+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tom and Jerry Present the Two Mouseketeers",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64345,
+        "name": "Tom and Jerry Present the Two Mouseketeers",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T17:12:05.756126+00:00",
+    "retry_after": "2026-11-14T17:12:05.756129+00:00",
     "search_hydrated": true
   }
 ]

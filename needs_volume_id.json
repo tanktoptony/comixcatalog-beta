@@ -27473,8 +27473,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T13:11:33.158903+00:00",
-    "retry_after": "2026-11-14T13:11:33.158905+00:00",
+    "last_attempt_at": "2026-11-13T14:02:11.375767+00:00",
+    "retry_after": "2026-11-14T14:02:11.375771+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T13:11:33.158772+00:00",
-    "retry_after": "2026-11-14T13:11:33.158790+00:00",
+    "last_attempt_at": "2026-11-13T14:02:11.375625+00:00",
+    "retry_after": "2026-11-14T14:02:11.375641+00:00",
     "search_hydrated": true
   },
   {
@@ -51353,8 +51353,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T13:11:33.158876+00:00",
-    "retry_after": "2026-11-14T13:11:33.158879+00:00",
+    "last_attempt_at": "2026-11-13T14:02:11.375735+00:00",
+    "retry_after": "2026-11-14T14:02:11.375739+00:00",
     "search_hydrated": true
   },
   {
@@ -95109,6 +95109,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-13T12:10:46.223563+00:00",
     "retry_after": "2026-11-14T12:10:46.223568+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Iron Man Vol. 1, No. 281 [Marvel Legends Reprint]",
+    "publisher": "Marvel Comics",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T14:10:48.654835+00:00",
+    "retry_after": "2026-11-14T14:10:48.654869+00:00",
     "search_hydrated": true
   }
 ]

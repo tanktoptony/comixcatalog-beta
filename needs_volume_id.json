@@ -27473,8 +27473,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T11:01:53.515276+00:00",
-    "retry_after": "2026-11-14T11:01:53.515278+00:00",
+    "last_attempt_at": "2026-11-13T12:02:07.551841+00:00",
+    "retry_after": "2026-11-14T12:02:07.551844+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T11:01:53.515161+00:00",
-    "retry_after": "2026-11-14T11:01:53.515177+00:00",
+    "last_attempt_at": "2026-11-13T12:02:07.551694+00:00",
+    "retry_after": "2026-11-14T12:02:07.551710+00:00",
     "search_hydrated": true
   },
   {
@@ -49442,29 +49442,6 @@
     "retry_after": "2026-10-17T12:15:47.831763+00:00"
   },
   {
-    "name": "Zen Intergalactic Ninja",
-    "publisher": "Archie Comics",
-    "year": 1992,
-    "reason": "multiple_same_start_year_tied",
-    "candidates": [
-      {
-        "id": 66974,
-        "name": "Zen Intergalactic Ninja",
-        "publisher": "Archie Comics",
-        "start_year": 1992
-      },
-      {
-        "id": 30522,
-        "name": "Zen Intergalactic Ninja",
-        "publisher": "Archie Comics",
-        "start_year": 1992
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-14T12:15:48.170201+00:00",
-    "retry_after": "2026-10-17T12:15:48.170216+00:00"
-  },
-  {
     "name": "Dick Tracy His Greatest Cases",
     "publisher": "Fawcett Comics",
     "year": 1975,
@@ -51376,8 +51353,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T11:01:53.515253+00:00",
-    "retry_after": "2026-11-14T11:01:53.515256+00:00",
+    "last_attempt_at": "2026-11-13T12:02:07.551808+00:00",
+    "retry_after": "2026-11-14T12:02:07.551812+00:00",
     "search_hydrated": true
   },
   {
@@ -95092,6 +95069,46 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-13T11:10:29.966620+00:00",
     "retry_after": "2026-11-14T11:10:29.966636+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Pact -- Ashcan Edition",
+    "publisher": "Image Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T12:10:44.884414+00:00",
+    "retry_after": "2026-11-14T12:10:44.884430+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "New Cartoons by Vip",
+    "publisher": "Fawcett Comics",
+    "year": 1949,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T12:10:46.223466+00:00",
+    "retry_after": "2026-11-14T12:10:46.223483+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: The Death of Clark Kent",
+    "publisher": "Titan Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 31905,
+        "name": "Superman: The Death of Clark Kent",
+        "publisher": "DC Comics",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T12:10:46.223563+00:00",
+    "retry_after": "2026-11-14T12:10:46.223568+00:00",
     "search_hydrated": true
   }
 ]

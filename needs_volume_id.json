@@ -27473,8 +27473,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T14:02:11.375767+00:00",
-    "retry_after": "2026-11-14T14:02:11.375771+00:00",
+    "last_attempt_at": "2026-11-13T15:02:09.714296+00:00",
+    "retry_after": "2026-11-14T15:02:09.714298+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T14:02:11.375625+00:00",
-    "retry_after": "2026-11-14T14:02:11.375641+00:00",
+    "last_attempt_at": "2026-11-13T15:02:09.714137+00:00",
+    "retry_after": "2026-11-14T15:02:09.714154+00:00",
     "search_hydrated": true
   },
   {
@@ -51353,8 +51353,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T14:02:11.375735+00:00",
-    "retry_after": "2026-11-14T14:02:11.375739+00:00",
+    "last_attempt_at": "2026-11-13T15:02:09.714265+00:00",
+    "retry_after": "2026-11-14T15:02:09.714269+00:00",
     "search_hydrated": true
   },
   {
@@ -95120,6 +95120,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-13T14:10:48.654835+00:00",
     "retry_after": "2026-11-14T14:10:48.654869+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Lawdog and Grimrod: Terror at the Crossroads",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T15:10:56.836896+00:00",
+    "retry_after": "2026-11-14T15:10:56.836914+00:00",
     "search_hydrated": true
   }
 ]

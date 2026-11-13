@@ -27471,8 +27471,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T23:01:42.870607+00:00",
-    "retry_after": "2026-11-13T23:01:42.870608+00:00",
+    "last_attempt_at": "2026-11-13T00:02:06.268548+00:00",
+    "retry_after": "2026-11-14T00:02:06.268552+00:00",
     "search_hydrated": true
   },
   {
@@ -43495,8 +43495,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T23:01:42.870506+00:00",
-    "retry_after": "2026-11-13T23:01:42.870525+00:00",
+    "last_attempt_at": "2026-11-13T00:02:06.268408+00:00",
+    "retry_after": "2026-11-14T00:02:06.268423+00:00",
     "search_hydrated": true
   },
   {
@@ -51374,8 +51374,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-12T23:01:42.870589+00:00",
-    "retry_after": "2026-11-13T23:01:42.870590+00:00",
+    "last_attempt_at": "2026-11-13T00:02:06.268516+00:00",
+    "retry_after": "2026-11-14T00:02:06.268520+00:00",
     "search_hydrated": true
   },
   {
@@ -93645,9 +93645,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-11T23:10:42.682522+00:00",
-    "retry_after": "2026-11-12T23:10:42.682525+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-13T00:10:32.588011+00:00",
+    "retry_after": "2026-11-16T00:10:32.588026+00:00",
     "search_hydrated": true
   },
   {
@@ -93667,9 +93667,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-11T23:23:18.609017+00:00",
-    "retry_after": "2026-11-12T23:23:18.609019+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-13T00:10:32.588047+00:00",
+    "retry_after": "2026-11-16T00:10:32.588051+00:00",
     "search_hydrated": true
   },
   {
@@ -94634,6 +94634,89 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-12T23:10:23.837071+00:00",
     "retry_after": "2026-11-13T23:10:23.837072+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Action Comics 1 Special Convention Exclusive",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T00:10:33.468961+00:00",
+    "retry_after": "2026-11-14T00:10:33.468975+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "They Called Us Enemy – Expanded Edition",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129898,
+        "name": "They Called Us Enemy: Expanded Edition",
+        "publisher": "Top Shelf",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T00:10:44.111331+00:00",
+    "retry_after": "2026-11-14T00:10:44.111346+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vuzz",
+    "publisher": "Titan Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85799,
+        "name": "Vuzz",
+        "publisher": "Dargaud",
+        "start_year": 1974
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T00:10:44.111381+00:00",
+    "retry_after": "2026-11-14T00:10:44.111386+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Boo and the Silly Blizzard",
+    "publisher": "IDW Publishing",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 133882,
+        "name": "Johnny Boo and the Silly Blizzard",
+        "publisher": "Top Shelf",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T00:10:44.111410+00:00",
+    "retry_after": "2026-11-14T00:10:44.111413+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Extravaganza",
+    "publisher": "Titan Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64945,
+        "name": "Simpsons Comics Extravaganza",
+        "publisher": "HarperCollins",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T00:10:44.111434+00:00",
+    "retry_after": "2026-11-14T00:10:44.111436+00:00",
     "search_hydrated": true
   }
 ]

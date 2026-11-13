@@ -27473,8 +27473,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T10:36:11.389492+00:00",
-    "retry_after": "2026-11-14T10:36:11.389493+00:00",
+    "last_attempt_at": "2026-11-13T11:01:53.515276+00:00",
+    "retry_after": "2026-11-14T11:01:53.515278+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T10:36:11.389385+00:00",
-    "retry_after": "2026-11-14T10:36:11.389403+00:00",
+    "last_attempt_at": "2026-11-13T11:01:53.515161+00:00",
+    "retry_after": "2026-11-14T11:01:53.515177+00:00",
     "search_hydrated": true
   },
   {
@@ -51376,8 +51376,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T10:36:11.389472+00:00",
-    "retry_after": "2026-11-14T10:36:11.389474+00:00",
+    "last_attempt_at": "2026-11-13T11:01:53.515253+00:00",
+    "retry_after": "2026-11-14T11:01:53.515256+00:00",
     "search_hydrated": true
   },
   {
@@ -95074,6 +95074,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-13T10:10:32.771241+00:00",
     "retry_after": "2026-11-14T10:10:32.771255+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Sky Doll: Spaceship Collection",
+    "publisher": "Titan Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 155513,
+        "name": "Sky Doll: Spaceship Collection",
+        "publisher": "Norma Editorial",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T11:10:29.966620+00:00",
+    "retry_after": "2026-11-14T11:10:29.966636+00:00",
     "search_hydrated": true
   }
 ]

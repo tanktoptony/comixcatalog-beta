@@ -27473,8 +27473,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T02:26:33.046908+00:00",
-    "retry_after": "2026-11-14T02:26:33.046911+00:00",
+    "last_attempt_at": "2026-11-13T03:02:02.737838+00:00",
+    "retry_after": "2026-11-14T03:02:02.737841+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T02:26:33.046770+00:00",
-    "retry_after": "2026-11-14T02:26:33.046783+00:00",
+    "last_attempt_at": "2026-11-13T03:02:02.737671+00:00",
+    "retry_after": "2026-11-14T03:02:02.737687+00:00",
     "search_hydrated": true
   },
   {
@@ -51376,8 +51376,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T02:26:33.046876+00:00",
-    "retry_after": "2026-11-14T02:26:33.046880+00:00",
+    "last_attempt_at": "2026-11-13T03:02:02.737803+00:00",
+    "retry_after": "2026-11-14T03:02:02.737808+00:00",
     "search_hydrated": true
   },
   {
@@ -94860,6 +94860,59 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-13T02:35:50.803596+00:00",
     "retry_after": "2026-11-14T02:35:50.803612+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Avengers & X-Men: Axis",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 77424,
+        "name": "Avengers & X-Men: Axis",
+        "publisher": "Marvel",
+        "start_year": 2014
+      },
+      {
+        "id": 80350,
+        "name": "Avengers & X-Men: Axis",
+        "publisher": "Marvel",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T03:10:39.665650+00:00",
+    "retry_after": "2026-11-14T03:10:39.665667+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Human Torch by Karl Kesel & Skottie Young: The Complete Collection",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T03:10:50.516172+00:00",
+    "retry_after": "2026-11-14T03:10:50.516188+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Mix",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57055,
+        "name": "Marvel Mix",
+        "publisher": "Panini Comics",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T03:11:08.139107+00:00",
+    "retry_after": "2026-11-14T03:11:08.139123+00:00",
     "search_hydrated": true
   }
 ]

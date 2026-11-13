@@ -27471,8 +27471,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T00:02:06.268548+00:00",
-    "retry_after": "2026-11-14T00:02:06.268552+00:00",
+    "last_attempt_at": "2026-11-13T01:01:52.589727+00:00",
+    "retry_after": "2026-11-14T01:01:52.589729+00:00",
     "search_hydrated": true
   },
   {
@@ -43495,8 +43495,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T00:02:06.268408+00:00",
-    "retry_after": "2026-11-14T00:02:06.268423+00:00",
+    "last_attempt_at": "2026-11-13T01:01:52.589593+00:00",
+    "retry_after": "2026-11-14T01:01:52.589607+00:00",
     "search_hydrated": true
   },
   {
@@ -51374,8 +51374,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T00:02:06.268516+00:00",
-    "retry_after": "2026-11-14T00:02:06.268520+00:00",
+    "last_attempt_at": "2026-11-13T01:01:52.589702+00:00",
+    "retry_after": "2026-11-14T01:01:52.589706+00:00",
     "search_hydrated": true
   },
   {
@@ -93700,9 +93700,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-12T00:10:40.984712+00:00",
-    "retry_after": "2026-11-13T00:10:40.984727+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-13T01:10:53.725532+00:00",
+    "retry_after": "2026-11-16T01:10:53.725550+00:00",
     "search_hydrated": true
   },
   {
@@ -93711,9 +93711,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-12T00:10:40.984750+00:00",
-    "retry_after": "2026-11-13T00:10:40.984754+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-13T01:10:53.725566+00:00",
+    "retry_after": "2026-11-16T01:10:53.725570+00:00",
     "search_hydrated": true
   },
   {
@@ -93722,9 +93722,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-12T00:10:40.984788+00:00",
-    "retry_after": "2026-11-13T00:10:40.984791+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-13T01:10:53.725581+00:00",
+    "retry_after": "2026-11-16T01:10:53.725583+00:00",
     "search_hydrated": true
   },
   {
@@ -93733,9 +93733,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-12T00:10:40.984804+00:00",
-    "retry_after": "2026-11-13T00:10:40.984806+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-13T01:10:53.725593+00:00",
+    "retry_after": "2026-11-16T01:10:53.725595+00:00",
     "search_hydrated": true
   },
   {
@@ -93744,9 +93744,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-12T00:10:40.984819+00:00",
-    "retry_after": "2026-11-13T00:10:40.984822+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-13T01:10:53.725604+00:00",
+    "retry_after": "2026-11-16T01:10:53.725606+00:00",
     "search_hydrated": true
   },
   {
@@ -93766,9 +93766,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-12T01:05:43.971566+00:00",
-    "retry_after": "2026-11-13T01:05:43.971568+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-13T01:10:53.725615+00:00",
+    "retry_after": "2026-11-16T01:10:53.725617+00:00",
     "search_hydrated": true
   },
   {
@@ -93777,9 +93777,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-12T01:05:43.971577+00:00",
-    "retry_after": "2026-11-13T01:05:43.971579+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-13T01:10:53.725625+00:00",
+    "retry_after": "2026-11-16T01:10:53.725627+00:00",
     "search_hydrated": true
   },
   {
@@ -94717,6 +94717,96 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-13T00:10:44.111434+00:00",
     "retry_after": "2026-11-14T00:10:44.111436+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Team-Up Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52549,
+        "name": "Marvel Team-Up Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T01:11:05.761901+00:00",
+    "retry_after": "2026-11-14T01:11:05.761918+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Simpsorama",
+    "publisher": "Titan Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65122,
+        "name": "Simpsons Comics: Simpsorama",
+        "publisher": "HarperCollins",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T01:11:05.761944+00:00",
+    "retry_after": "2026-11-14T01:11:05.761947+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Conan Exiles",
+    "publisher": "Dark Horse Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141912,
+        "name": "Conan: Exiles",
+        "publisher": "Marvel",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T01:11:05.761964+00:00",
+    "retry_after": "2026-11-14T01:11:05.761966+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gli Albi dei Super-Eroi",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34647,
+        "name": "Gli Albi dei Super-Eroi",
+        "publisher": "Editoriale Corno",
+        "start_year": 1973
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T01:11:05.761982+00:00",
+    "retry_after": "2026-11-14T01:11:05.761984+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "MegaManga",
+    "publisher": "Fantagraphics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 173763,
+        "name": "MegaManga",
+        "publisher": "Eros Comix",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T01:11:13.755028+00:00",
+    "retry_after": "2026-11-14T01:11:13.755045+00:00",
     "search_hydrated": true
   }
 ]

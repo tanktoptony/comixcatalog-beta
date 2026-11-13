@@ -27473,8 +27473,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T06:02:11.176716+00:00",
-    "retry_after": "2026-11-14T06:02:11.176720+00:00",
+    "last_attempt_at": "2026-11-13T07:02:01.292361+00:00",
+    "retry_after": "2026-11-14T07:02:01.292363+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T06:02:11.176576+00:00",
-    "retry_after": "2026-11-14T06:02:11.176591+00:00",
+    "last_attempt_at": "2026-11-13T07:02:01.292234+00:00",
+    "retry_after": "2026-11-14T07:02:01.292252+00:00",
     "search_hydrated": true
   },
   {
@@ -51376,8 +51376,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T06:02:11.176684+00:00",
-    "retry_after": "2026-11-14T06:02:11.176688+00:00",
+    "last_attempt_at": "2026-11-13T07:02:01.292336+00:00",
+    "retry_after": "2026-11-14T07:02:01.292338+00:00",
     "search_hydrated": true
   },
   {
@@ -89785,9 +89785,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T07:10:43.009494+00:00",
-    "retry_after": "2026-11-13T07:10:43.009498+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T07:11:37.988066+00:00",
+    "retry_after": "2026-11-20T07:11:37.988083+00:00",
     "search_hydrated": true
   },
   {
@@ -89796,9 +89796,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T07:10:43.009515+00:00",
-    "retry_after": "2026-11-13T07:10:43.009518+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T07:11:37.988104+00:00",
+    "retry_after": "2026-11-20T07:11:37.988108+00:00",
     "search_hydrated": true
   },
   {
@@ -89820,9 +89820,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T07:10:43.009564+00:00",
-    "retry_after": "2026-11-13T07:10:43.009567+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T07:11:37.988143+00:00",
+    "retry_after": "2026-11-20T07:11:37.988146+00:00",
     "search_hydrated": true
   },
   {
@@ -89831,9 +89831,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T07:10:43.009582+00:00",
-    "retry_after": "2026-11-13T07:10:43.009585+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T07:11:37.988159+00:00",
+    "retry_after": "2026-11-20T07:11:37.988161+00:00",
     "search_hydrated": true
   },
   {
@@ -89842,9 +89842,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-10T07:10:43.009598+00:00",
-    "retry_after": "2026-11-13T07:10:43.009600+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-13T07:11:37.988171+00:00",
+    "retry_after": "2026-11-20T07:11:37.988173+00:00",
     "search_hydrated": true
   },
   {
@@ -94964,6 +94964,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-13T06:11:04.616183+00:00",
     "retry_after": "2026-11-14T06:11:04.616187+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Man / Dr. Strange: The Way to Dusty Death",
+    "publisher": "Marvel Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T07:11:56.528281+00:00",
+    "retry_after": "2026-11-14T07:11:56.528299+00:00",
     "search_hydrated": true
   }
 ]

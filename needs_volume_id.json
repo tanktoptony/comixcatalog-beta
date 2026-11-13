@@ -27473,8 +27473,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T09:01:45.479354+00:00",
-    "retry_after": "2026-11-14T09:01:45.479355+00:00",
+    "last_attempt_at": "2026-11-13T10:02:00.421053+00:00",
+    "retry_after": "2026-11-14T10:02:00.421057+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T09:01:45.479251+00:00",
-    "retry_after": "2026-11-14T09:01:45.479269+00:00",
+    "last_attempt_at": "2026-11-13T10:02:00.420890+00:00",
+    "retry_after": "2026-11-14T10:02:00.420906+00:00",
     "search_hydrated": true
   },
   {
@@ -51376,8 +51376,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T09:01:45.479335+00:00",
-    "retry_after": "2026-11-14T09:01:45.479337+00:00",
+    "last_attempt_at": "2026-11-13T10:02:00.421001+00:00",
+    "retry_after": "2026-11-14T10:02:00.421005+00:00",
     "search_hydrated": true
   },
   {
@@ -95050,6 +95050,30 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-13T08:10:35.155643+00:00",
     "retry_after": "2026-11-14T08:10:35.155645+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Book of Shadows",
+    "publisher": "DC Comics",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 144217,
+        "name": "Book of Shadows",
+        "publisher": "DMG/Valiant Entertainment",
+        "start_year": 2022
+      },
+      {
+        "id": 29519,
+        "name": "Book of Shadows",
+        "publisher": "Image",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T10:10:32.771241+00:00",
+    "retry_after": "2026-11-14T10:10:32.771255+00:00",
     "search_hydrated": true
   }
 ]

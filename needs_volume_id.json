@@ -27473,8 +27473,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T02:01:53.577742+00:00",
-    "retry_after": "2026-11-14T02:01:53.577743+00:00",
+    "last_attempt_at": "2026-11-13T02:26:33.046908+00:00",
+    "retry_after": "2026-11-14T02:26:33.046911+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T02:01:53.577602+00:00",
-    "retry_after": "2026-11-14T02:01:53.577618+00:00",
+    "last_attempt_at": "2026-11-13T02:26:33.046770+00:00",
+    "retry_after": "2026-11-14T02:26:33.046783+00:00",
     "search_hydrated": true
   },
   {
@@ -51376,8 +51376,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T02:01:53.577716+00:00",
-    "retry_after": "2026-11-14T02:01:53.577719+00:00",
+    "last_attempt_at": "2026-11-13T02:26:33.046876+00:00",
+    "retry_after": "2026-11-14T02:26:33.046880+00:00",
     "search_hydrated": true
   },
   {
@@ -94809,6 +94809,57 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-13T01:11:13.755028+00:00",
     "retry_after": "2026-11-14T01:11:13.755045+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Animal Man: Loot Crate Edition",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T02:35:02.503433+00:00",
+    "retry_after": "2026-11-14T02:35:02.503449+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Arclight",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T02:35:02.503469+00:00",
+    "retry_after": "2026-11-14T02:35:02.503474+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Alien: The Illustrated Story (Original Art Edition)",
+    "publisher": "Titan Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T02:35:16.213545+00:00",
+    "retry_after": "2026-11-14T02:35:16.213560+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Phil Corrigan Secret Agent X9",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161990,
+        "name": "Phil Corrigan Secret Agent X9 ",
+        "publisher": "Atlas Publications Pty. Ltd.",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-13T02:35:50.803596+00:00",
+    "retry_after": "2026-11-14T02:35:50.803612+00:00",
     "search_hydrated": true
   }
 ]

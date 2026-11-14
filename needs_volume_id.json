@@ -27474,8 +27474,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T02:02:03.820871+00:00",
-    "retry_after": "2026-11-15T02:02:03.820873+00:00",
+    "last_attempt_at": "2026-11-14T03:02:10.698421+00:00",
+    "retry_after": "2026-11-15T03:02:10.698424+00:00",
     "search_hydrated": true
   },
   {
@@ -43499,8 +43499,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T02:02:03.820754+00:00",
-    "retry_after": "2026-11-15T02:02:03.820771+00:00",
+    "last_attempt_at": "2026-11-14T03:02:10.698293+00:00",
+    "retry_after": "2026-11-15T03:02:10.698304+00:00",
     "search_hydrated": true
   },
   {
@@ -51355,8 +51355,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T02:02:03.820847+00:00",
-    "retry_after": "2026-11-15T02:02:03.820850+00:00",
+    "last_attempt_at": "2026-11-14T03:02:10.698390+00:00",
+    "retry_after": "2026-11-15T03:02:10.698394+00:00",
     "search_hydrated": true
   },
   {
@@ -88085,9 +88085,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T02:12:51.457291+00:00",
-    "retry_after": "2026-11-14T02:12:51.457293+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T03:11:02.786887+00:00",
+    "retry_after": "2026-11-28T03:11:02.786898+00:00",
     "search_hydrated": true
   },
   {
@@ -90509,9 +90509,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-11T01:23:09.766269+00:00",
-    "retry_after": "2026-11-14T01:23:09.766272+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-14T03:11:02.786954+00:00",
+    "retry_after": "2026-11-21T03:11:02.786958+00:00",
     "search_hydrated": true
   },
   {
@@ -90645,9 +90645,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-11T02:11:04.109595+00:00",
-    "retry_after": "2026-11-14T02:11:04.109612+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-14T03:11:03.859763+00:00",
+    "retry_after": "2026-11-21T03:11:03.859771+00:00",
     "search_hydrated": true
   },
   {
@@ -94242,9 +94242,9 @@
     "year": 2012,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-13T02:35:16.213545+00:00",
-    "retry_after": "2026-11-14T02:35:16.213560+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T03:11:18.563051+00:00",
+    "retry_after": "2026-11-17T03:11:18.563062+00:00",
     "search_hydrated": true
   },
   {
@@ -94277,9 +94277,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-13T03:10:50.516172+00:00",
-    "retry_after": "2026-11-14T03:10:50.516188+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T03:11:18.563087+00:00",
+    "retry_after": "2026-11-17T03:11:18.563091+00:00",
     "search_hydrated": true
   },
   {
@@ -95180,6 +95180,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-14T02:10:58.170826+00:00",
     "retry_after": "2026-11-15T02:10:58.170842+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Super Adventure Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79594,
+        "name": "Marvel Super Adventure Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T03:11:18.563134+00:00",
+    "retry_after": "2026-11-15T03:11:18.563137+00:00",
     "search_hydrated": true
   }
 ]

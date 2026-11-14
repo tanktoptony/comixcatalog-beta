@@ -10429,9 +10429,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T01:50:14.085828+00:00",
-    "retry_after": "2026-11-14T01:50:14.085844+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T02:10:35.864174+00:00",
+    "retry_after": "2026-11-28T02:10:35.864177+00:00",
     "search_hydrated": true
   },
   {
@@ -27474,8 +27474,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T01:02:03.618074+00:00",
-    "retry_after": "2026-11-15T01:02:03.618077+00:00",
+    "last_attempt_at": "2026-11-14T02:02:03.820871+00:00",
+    "retry_after": "2026-11-15T02:02:03.820873+00:00",
     "search_hydrated": true
   },
   {
@@ -43499,8 +43499,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T01:02:03.617934+00:00",
-    "retry_after": "2026-11-15T01:02:03.617952+00:00",
+    "last_attempt_at": "2026-11-14T02:02:03.820754+00:00",
+    "retry_after": "2026-11-15T02:02:03.820771+00:00",
     "search_hydrated": true
   },
   {
@@ -51355,8 +51355,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T01:02:03.618045+00:00",
-    "retry_after": "2026-11-15T01:02:03.618048+00:00",
+    "last_attempt_at": "2026-11-14T02:02:03.820847+00:00",
+    "retry_after": "2026-11-15T02:02:03.820850+00:00",
     "search_hydrated": true
   },
   {
@@ -87801,9 +87801,9 @@
         "start_year": 1985
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T01:50:08.880198+00:00",
-    "retry_after": "2026-11-14T01:50:08.880201+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T02:10:46.170284+00:00",
+    "retry_after": "2026-11-28T02:10:46.170288+00:00",
     "search_hydrated": true
   },
   {
@@ -87819,9 +87819,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T01:50:08.957599+00:00",
-    "retry_after": "2026-11-14T01:50:08.957614+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T02:10:46.311726+00:00",
+    "retry_after": "2026-11-28T02:10:46.311741+00:00",
     "search_hydrated": true
   },
   {
@@ -88003,9 +88003,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T01:50:01.367019+00:00",
-    "retry_after": "2026-11-14T01:50:01.367036+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T02:10:35.864135+00:00",
+    "retry_after": "2026-11-28T02:10:35.864152+00:00",
     "search_hydrated": true
   },
   {
@@ -88014,9 +88014,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T01:50:14.085868+00:00",
-    "retry_after": "2026-11-14T01:50:14.085871+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T02:10:35.864190+00:00",
+    "retry_after": "2026-11-28T02:10:35.864192+00:00",
     "search_hydrated": true
   },
   {
@@ -88032,9 +88032,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T01:50:09.061665+00:00",
-    "retry_after": "2026-11-14T01:50:09.061680+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T02:10:46.469379+00:00",
+    "retry_after": "2026-11-28T02:10:46.469395+00:00",
     "search_hydrated": true
   },
   {
@@ -88050,9 +88050,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T01:50:09.176326+00:00",
-    "retry_after": "2026-11-14T01:50:09.176341+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T02:10:46.630797+00:00",
+    "retry_after": "2026-11-28T02:10:46.630812+00:00",
     "search_hydrated": true
   },
   {
@@ -88062,21 +88062,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 19317,
-        "name": "Heavy Liquid",
-        "publisher": "DC Comics",
-        "start_year": 1999
-      },
-      {
         "id": 28562,
         "name": "Heavy Liquid",
         "publisher": "DC Comics",
         "start_year": 2001
+      },
+      {
+        "id": 19317,
+        "name": "Heavy Liquid",
+        "publisher": "DC Comics",
+        "start_year": 1999
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T01:50:14.085911+00:00",
-    "retry_after": "2026-11-14T01:50:14.085914+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T02:10:35.864219+00:00",
+    "retry_after": "2026-11-28T02:10:35.864221+00:00",
     "search_hydrated": true
   },
   {
@@ -95169,6 +95169,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-14T01:10:24.817291+00:00",
     "retry_after": "2026-11-15T01:10:24.817310+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Teleportation and Other Luxuries",
+    "publisher": "Mad Cave Studios",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T02:10:58.170826+00:00",
+    "retry_after": "2026-11-15T02:10:58.170842+00:00",
     "search_hydrated": true
   }
 ]

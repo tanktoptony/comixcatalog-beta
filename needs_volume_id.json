@@ -27482,8 +27482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T10:02:01.226169+00:00",
-    "retry_after": "2026-11-15T10:02:01.226171+00:00",
+    "last_attempt_at": "2026-11-14T11:01:37.443730+00:00",
+    "retry_after": "2026-11-15T11:01:37.443731+00:00",
     "search_hydrated": true
   },
   {
@@ -31449,9 +31449,10 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-28T12:03:23.496224+00:00",
-    "retry_after": "2026-09-29T12:03:23.496244+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T11:11:43.664545+00:00",
+    "retry_after": "2026-11-17T11:11:43.664547+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Shadowman",
@@ -43485,8 +43486,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T10:02:01.226049+00:00",
-    "retry_after": "2026-11-15T10:02:01.226065+00:00",
+    "last_attempt_at": "2026-11-14T11:01:37.443634+00:00",
+    "retry_after": "2026-11-15T11:01:37.443650+00:00",
     "search_hydrated": true
   },
   {
@@ -51341,8 +51342,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T10:02:01.226144+00:00",
-    "retry_after": "2026-11-15T10:02:01.226147+00:00",
+    "last_attempt_at": "2026-11-14T11:01:37.443712+00:00",
+    "retry_after": "2026-11-15T11:01:37.443713+00:00",
     "search_hydrated": true
   },
   {
@@ -94383,9 +94384,9 @@
         "start_year": 2006
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-13T10:10:32.771241+00:00",
-    "retry_after": "2026-11-14T10:10:32.771255+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T11:11:54.571044+00:00",
+    "retry_after": "2026-11-17T11:11:54.571061+00:00",
     "search_hydrated": true
   },
   {
@@ -95263,6 +95264,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-14T08:10:25.808553+00:00",
     "retry_after": "2026-11-15T08:10:25.808572+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman Eternal 1 (Wal-Mart Edition)",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T11:11:43.664512+00:00",
+    "retry_after": "2026-11-15T11:11:43.664529+00:00",
     "search_hydrated": true
   }
 ]

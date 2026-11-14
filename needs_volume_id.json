@@ -22981,9 +22981,10 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-24T07:02:24.352338+00:00",
-    "retry_after": "2026-09-25T07:02:24.352353+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T12:10:00.197342+00:00",
+    "retry_after": "2026-11-17T12:10:00.197344+00:00",
+    "search_hydrated": true
   },
   {
     "name": "True Believers: What If Legion Had Killed Magneto?",
@@ -27482,8 +27483,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T11:01:37.443730+00:00",
-    "retry_after": "2026-11-15T11:01:37.443731+00:00",
+    "last_attempt_at": "2026-11-14T12:01:32.636490+00:00",
+    "retry_after": "2026-11-15T12:01:32.636492+00:00",
     "search_hydrated": true
   },
   {
@@ -43486,8 +43487,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T11:01:37.443634+00:00",
-    "retry_after": "2026-11-15T11:01:37.443650+00:00",
+    "last_attempt_at": "2026-11-14T12:01:32.636403+00:00",
+    "retry_after": "2026-11-15T12:01:32.636414+00:00",
     "search_hydrated": true
   },
   {
@@ -51342,8 +51343,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T11:01:37.443712+00:00",
-    "retry_after": "2026-11-15T11:01:37.443713+00:00",
+    "last_attempt_at": "2026-11-14T12:01:32.636473+00:00",
+    "retry_after": "2026-11-15T12:01:32.636475+00:00",
     "search_hydrated": true
   },
   {
@@ -95275,6 +95276,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-14T11:11:43.664512+00:00",
     "retry_after": "2026-11-15T11:11:43.664529+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: Hush: The 15th Anniversary Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T12:10:00.197317+00:00",
+    "retry_after": "2026-11-15T12:10:00.197328+00:00",
     "search_hydrated": true
   }
 ]

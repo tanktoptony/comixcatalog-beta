@@ -27482,8 +27482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T05:01:58.411273+00:00",
-    "retry_after": "2026-11-15T05:01:58.411275+00:00",
+    "last_attempt_at": "2026-11-14T06:02:03.578735+00:00",
+    "retry_after": "2026-11-15T06:02:03.578738+00:00",
     "search_hydrated": true
   },
   {
@@ -43507,8 +43507,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T05:01:58.411158+00:00",
-    "retry_after": "2026-11-15T05:01:58.411175+00:00",
+    "last_attempt_at": "2026-11-14T06:02:03.578587+00:00",
+    "retry_after": "2026-11-15T06:02:03.578604+00:00",
     "search_hydrated": true
   },
   {
@@ -51363,8 +51363,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T05:01:58.411249+00:00",
-    "retry_after": "2026-11-15T05:01:58.411252+00:00",
+    "last_attempt_at": "2026-11-14T06:02:03.578702+00:00",
+    "retry_after": "2026-11-15T06:02:03.578706+00:00",
     "search_hydrated": true
   },
   {
@@ -88252,9 +88252,9 @@
         "start_year": 1997
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T04:12:45.919414+00:00",
-    "retry_after": "2026-11-14T04:12:45.919417+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T06:11:02.997328+00:00",
+    "retry_after": "2026-11-28T06:11:02.997345+00:00",
     "search_hydrated": true
   },
   {
@@ -88263,9 +88263,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T05:10:55.082832+00:00",
-    "retry_after": "2026-11-14T05:10:55.082836+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T06:11:02.997373+00:00",
+    "retry_after": "2026-11-28T06:11:02.997377+00:00",
     "search_hydrated": true
   },
   {
@@ -88274,9 +88274,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T05:10:55.082848+00:00",
-    "retry_after": "2026-11-14T05:10:55.082851+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T06:11:02.997394+00:00",
+    "retry_after": "2026-11-28T06:11:02.997397+00:00",
     "search_hydrated": true
   },
   {
@@ -88285,9 +88285,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T05:10:55.082861+00:00",
-    "retry_after": "2026-11-14T05:10:55.082864+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T06:11:02.997411+00:00",
+    "retry_after": "2026-11-28T06:11:02.997413+00:00",
     "search_hydrated": true
   },
   {
@@ -90664,9 +90664,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-11T05:10:29.643415+00:00",
-    "retry_after": "2026-11-14T05:10:29.643420+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-14T06:11:02.997429+00:00",
+    "retry_after": "2026-11-21T06:11:02.997431+00:00",
     "search_hydrated": true
   },
   {
@@ -90675,9 +90675,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-11T05:10:29.643435+00:00",
-    "retry_after": "2026-11-14T05:10:29.643438+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-14T06:11:02.997445+00:00",
+    "retry_after": "2026-11-21T06:11:02.997447+00:00",
     "search_hydrated": true
   },
   {
@@ -90716,9 +90716,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-11T05:10:29.643477+00:00",
-    "retry_after": "2026-11-14T05:10:29.643480+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-14T06:11:02.997477+00:00",
+    "retry_after": "2026-11-21T06:11:02.997480+00:00",
     "search_hydrated": true
   },
   {
@@ -90727,9 +90727,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-11T06:10:26.789101+00:00",
-    "retry_after": "2026-11-14T06:10:26.789106+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-14T06:11:02.997494+00:00",
+    "retry_after": "2026-11-21T06:11:02.997496+00:00",
     "search_hydrated": true
   },
   {
@@ -94307,9 +94307,9 @@
     "year": 2000,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-13T06:11:04.616133+00:00",
-    "retry_after": "2026-11-14T06:11:04.616148+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T06:11:22.296723+00:00",
+    "retry_after": "2026-11-17T06:11:22.296740+00:00",
     "search_hydrated": true
   },
   {
@@ -94318,9 +94318,9 @@
     "year": 1962,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-13T06:11:04.616183+00:00",
-    "retry_after": "2026-11-14T06:11:04.616187+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T06:11:22.296764+00:00",
+    "retry_after": "2026-11-17T06:11:22.296768+00:00",
     "search_hydrated": true
   },
   {
@@ -95246,6 +95246,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-14T05:11:16.295039+00:00",
     "retry_after": "2026-11-15T05:11:16.295056+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Millennium Edition: Superboy No. 1",
+    "publisher": "DC Comics",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T06:11:22.296812+00:00",
+    "retry_after": "2026-11-15T06:11:22.296816+00:00",
     "search_hydrated": true
   }
 ]

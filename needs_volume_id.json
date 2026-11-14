@@ -27482,8 +27482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T07:01:37.673130+00:00",
-    "retry_after": "2026-11-15T07:01:37.673132+00:00",
+    "last_attempt_at": "2026-11-14T07:24:09.962449+00:00",
+    "retry_after": "2026-11-15T07:24:09.962451+00:00",
     "search_hydrated": true
   },
   {
@@ -43507,8 +43507,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T07:01:37.673008+00:00",
-    "retry_after": "2026-11-15T07:01:37.673026+00:00",
+    "last_attempt_at": "2026-11-14T07:24:09.962334+00:00",
+    "retry_after": "2026-11-15T07:24:09.962351+00:00",
     "search_hydrated": true
   },
   {
@@ -51363,8 +51363,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T07:01:37.673112+00:00",
-    "retry_after": "2026-11-15T07:01:37.673114+00:00",
+    "last_attempt_at": "2026-11-14T07:24:09.962426+00:00",
+    "retry_after": "2026-11-15T07:24:09.962429+00:00",
     "search_hydrated": true
   },
   {
@@ -67999,29 +67999,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-24T00:49:16.227004+00:00",
     "retry_after": "2026-10-27T00:49:16.227023+00:00"
-  },
-  {
-    "name": "All-New X-Men Annual",
-    "publisher": "Marvel Comics",
-    "year": 2017,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 79024,
-        "name": "All-New X-Men Annual",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 95807,
-        "name": "All-New X-Men Annual",
-        "publisher": null,
-        "start_year": 2017
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T00:49:17.345401+00:00",
-    "retry_after": "2026-10-27T00:49:17.345420+00:00"
   },
   {
     "name": "Astro Boy",
@@ -88331,9 +88308,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T07:10:41.101647+00:00",
-    "retry_after": "2026-11-14T07:10:41.101649+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T07:32:41.783428+00:00",
+    "retry_after": "2026-11-28T07:32:41.783445+00:00",
     "search_hydrated": true
   },
   {
@@ -88349,9 +88326,9 @@
         "start_year": 2005
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T07:10:43.291610+00:00",
-    "retry_after": "2026-11-14T07:10:43.291618+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T07:32:43.682901+00:00",
+    "retry_after": "2026-11-28T07:32:43.682905+00:00",
     "search_hydrated": true
   },
   {
@@ -88367,9 +88344,9 @@
         "start_year": 2004
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T07:10:43.291638+00:00",
-    "retry_after": "2026-11-14T07:10:43.291640+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T07:32:43.682923+00:00",
+    "retry_after": "2026-11-28T07:32:43.682925+00:00",
     "search_hydrated": true
   },
   {
@@ -88385,9 +88362,9 @@
         "start_year": 2007
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T07:10:43.291653+00:00",
-    "retry_after": "2026-11-14T07:10:43.291654+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T07:32:43.682938+00:00",
+    "retry_after": "2026-11-28T07:32:43.682940+00:00",
     "search_hydrated": true
   },
   {
@@ -88414,9 +88391,9 @@
         "start_year": 2005
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T07:10:43.291667+00:00",
-    "retry_after": "2026-11-14T07:10:43.291668+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T07:32:43.682952+00:00",
+    "retry_after": "2026-11-28T07:32:43.682954+00:00",
     "search_hydrated": true
   },
   {
@@ -88432,9 +88409,9 @@
         "start_year": 2006
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T07:10:43.291679+00:00",
-    "retry_after": "2026-11-14T07:10:43.291681+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T07:32:43.682965+00:00",
+    "retry_after": "2026-11-28T07:32:43.682967+00:00",
     "search_hydrated": true
   },
   {
@@ -94329,9 +94306,9 @@
     "year": 1992,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-13T07:11:56.528281+00:00",
-    "retry_after": "2026-11-14T07:11:56.528299+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T07:33:02.403620+00:00",
+    "retry_after": "2026-11-17T07:33:02.403637+00:00",
     "search_hydrated": true
   },
   {
@@ -95268,6 +95245,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-14T07:10:11.463932+00:00",
     "retry_after": "2026-11-15T07:10:11.463951+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "X-Men: Legionquest",
+    "publisher": "Marvel Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 35316,
+        "name": "X-Men: Legionquest",
+        "publisher": "Marvel",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T07:32:50.406764+00:00",
+    "retry_after": "2026-11-15T07:32:50.406788+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Castle: Unholy Storm",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T07:33:02.403657+00:00",
+    "retry_after": "2026-11-15T07:33:02.403660+00:00",
     "search_hydrated": true
   }
 ]

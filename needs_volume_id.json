@@ -27482,8 +27482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T07:24:09.962449+00:00",
-    "retry_after": "2026-11-15T07:24:09.962451+00:00",
+    "last_attempt_at": "2026-11-14T08:02:05.852135+00:00",
+    "retry_after": "2026-11-15T08:02:05.852137+00:00",
     "search_hydrated": true
   },
   {
@@ -36491,9 +36491,10 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-02T23:01:08.886668+00:00",
-    "retry_after": "2026-10-05T23:01:08.886685+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-14T08:10:23.175991+00:00",
+    "retry_after": "2026-11-21T08:10:23.176009+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Magnus Robot Fighter / Nexus",
@@ -43507,8 +43508,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T07:24:09.962334+00:00",
-    "retry_after": "2026-11-15T07:24:09.962351+00:00",
+    "last_attempt_at": "2026-11-14T08:02:05.852006+00:00",
+    "retry_after": "2026-11-15T08:02:05.852024+00:00",
     "search_hydrated": true
   },
   {
@@ -51363,8 +51364,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T07:24:09.962426+00:00",
-    "retry_after": "2026-11-15T07:24:09.962429+00:00",
+    "last_attempt_at": "2026-11-14T08:02:05.852109+00:00",
+    "retry_after": "2026-11-15T08:02:05.852113+00:00",
     "search_hydrated": true
   },
   {
@@ -95274,6 +95275,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-14T07:33:02.403657+00:00",
     "retry_after": "2026-11-15T07:33:02.403660+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman by Brian K. Vaughan",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T08:10:25.808553+00:00",
+    "retry_after": "2026-11-15T08:10:25.808572+00:00",
     "search_hydrated": true
   }
 ]

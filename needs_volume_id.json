@@ -27468,8 +27468,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T16:02:22.483099+00:00",
-    "retry_after": "2026-11-15T16:02:22.483103+00:00",
+    "last_attempt_at": "2026-11-14T17:01:43.620006+00:00",
+    "retry_after": "2026-11-15T17:01:43.620008+00:00",
     "search_hydrated": true
   },
   {
@@ -43475,8 +43475,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T16:02:22.482992+00:00",
-    "retry_after": "2026-11-15T16:02:22.483008+00:00",
+    "last_attempt_at": "2026-11-14T17:01:43.619942+00:00",
+    "retry_after": "2026-11-15T17:01:43.619957+00:00",
     "search_hydrated": true
   },
   {
@@ -51331,8 +51331,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T16:02:22.483059+00:00",
-    "retry_after": "2026-11-15T16:02:22.483063+00:00",
+    "last_attempt_at": "2026-11-14T17:01:43.619981+00:00",
+    "retry_after": "2026-11-15T17:01:43.619984+00:00",
     "search_hydrated": true
   },
   {
@@ -88740,9 +88740,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T15:39:10.887554+00:00",
-    "retry_after": "2026-11-14T15:39:10.887564+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T17:03:10.336844+00:00",
+    "retry_after": "2026-11-28T17:03:10.336860+00:00",
     "search_hydrated": true
   },
   {
@@ -88758,9 +88758,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T15:39:10.887820+00:00",
-    "retry_after": "2026-11-14T15:39:10.887826+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T17:03:10.336902+00:00",
+    "retry_after": "2026-11-28T17:03:10.336904+00:00",
     "search_hydrated": true
   },
   {
@@ -88811,9 +88811,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T15:39:12.988219+00:00",
-    "retry_after": "2026-11-14T15:39:12.988238+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T17:03:10.336935+00:00",
+    "retry_after": "2026-11-28T17:03:10.336937+00:00",
     "search_hydrated": true
   },
   {
@@ -88829,9 +88829,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T15:39:12.988305+00:00",
-    "retry_after": "2026-11-14T15:39:12.988309+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T17:03:10.336966+00:00",
+    "retry_after": "2026-11-28T17:03:10.336968+00:00",
     "search_hydrated": true
   },
   {
@@ -88901,9 +88901,9 @@
         "start_year": 1972
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T15:39:06.420317+00:00",
-    "retry_after": "2026-11-14T15:39:06.420321+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T17:03:06.552374+00:00",
+    "retry_after": "2026-11-28T17:03:06.552389+00:00",
     "search_hydrated": true
   },
   {
@@ -88912,9 +88912,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T16:12:35.246428+00:00",
-    "retry_after": "2026-11-14T16:12:35.246444+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T17:03:06.552424+00:00",
+    "retry_after": "2026-11-28T17:03:06.552427+00:00",
     "search_hydrated": true
   },
   {
@@ -88923,9 +88923,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T16:12:35.246467+00:00",
-    "retry_after": "2026-11-14T16:12:35.246471+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T17:03:06.552440+00:00",
+    "retry_after": "2026-11-28T17:03:06.552442+00:00",
     "search_hydrated": true
   },
   {
@@ -89039,9 +89039,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T15:39:13.086019+00:00",
-    "retry_after": "2026-11-14T15:39:13.086028+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T17:03:10.403750+00:00",
+    "retry_after": "2026-11-28T17:03:10.403764+00:00",
     "search_hydrated": true
   },
   {
@@ -94857,6 +94857,114 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-14T16:08:20.326442+00:00",
     "retry_after": "2026-11-15T16:08:20.326447+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Links",
+    "publisher": "VIZ Media",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148145,
+        "name": "Links",
+        "publisher": "Milky Way Ediciones",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T17:03:19.011418+00:00",
+    "retry_after": "2026-11-15T17:03:19.011434+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62660,
+        "name": "Big Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T17:03:19.011464+00:00",
+    "retry_after": "2026-11-15T17:03:19.011467+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Superheroes and the Occult Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79640,
+        "name": "Marvel Superheroes and the Occult Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T17:03:19.011522+00:00",
+    "retry_after": "2026-11-15T17:03:19.011524+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I'm Still Alive",
+    "publisher": "BOOM! Studios",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 147126,
+        "name": "I'm Still Alive",
+        "publisher": "Archaia",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T17:03:19.011538+00:00",
+    "retry_after": "2026-11-15T17:03:19.011540+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mad Classics",
+    "publisher": "EC Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18767,
+        "name": "Mad Classics",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T17:03:27.703402+00:00",
+    "retry_after": "2026-11-15T17:03:27.703418+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Anti-Crime Squad",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52652,
+        "name": "Anti Crime Squad",
+        "publisher": "Magazine Management",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T17:03:27.703442+00:00",
+    "retry_after": "2026-11-15T17:03:27.703445+00:00",
     "search_hydrated": true
   }
 ]

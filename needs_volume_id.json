@@ -14977,9 +14977,10 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T17:03:01.825735+00:00",
-    "retry_after": "2026-09-22T17:03:01.825754+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T14:05:57.119434+00:00",
+    "retry_after": "2026-11-17T14:05:57.119437+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Valiant Masters Ninjak",
@@ -27485,8 +27486,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T13:01:36.979377+00:00",
-    "retry_after": "2026-11-15T13:01:36.979378+00:00",
+    "last_attempt_at": "2026-11-14T14:01:51.519593+00:00",
+    "retry_after": "2026-11-15T14:01:51.519595+00:00",
     "search_hydrated": true
   },
   {
@@ -43489,8 +43490,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T13:01:36.979279+00:00",
-    "retry_after": "2026-11-15T13:01:36.979295+00:00",
+    "last_attempt_at": "2026-11-14T14:01:51.519478+00:00",
+    "retry_after": "2026-11-15T14:01:51.519495+00:00",
     "search_hydrated": true
   },
   {
@@ -51345,8 +51346,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T13:01:36.979356+00:00",
-    "retry_after": "2026-11-15T13:01:36.979357+00:00",
+    "last_attempt_at": "2026-11-14T14:01:51.519570+00:00",
+    "retry_after": "2026-11-15T14:01:51.519573+00:00",
     "search_hydrated": true
   },
   {
@@ -95325,6 +95326,63 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-14T13:10:49.820141+00:00",
     "retry_after": "2026-11-15T13:10:49.820143+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman: The Dark Knight - Master Race",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T14:05:57.119400+00:00",
+    "retry_after": "2026-11-15T14:05:57.119417+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Black Lightning: Year One",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 25413,
+        "name": "Black Lightning: Year One",
+        "publisher": "DC Comics",
+        "start_year": 2009
+      },
+      {
+        "id": 33705,
+        "name": "Black Lightning: Year One",
+        "publisher": "DC Comics",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T14:05:57.119465+00:00",
+    "retry_after": "2026-11-15T14:05:57.119467+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Savage Land",
+    "publisher": "Marvel Comics",
+    "year": 1987,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T14:06:09.853783+00:00",
+    "retry_after": "2026-11-15T14:06:09.853799+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The A-Team: War Stories",
+    "publisher": "IDW Publishing",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T14:06:09.853816+00:00",
+    "retry_after": "2026-11-15T14:06:09.853819+00:00",
     "search_hydrated": true
   }
 ]

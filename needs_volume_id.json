@@ -27482,8 +27482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T04:02:05.575017+00:00",
-    "retry_after": "2026-11-15T04:02:05.575020+00:00",
+    "last_attempt_at": "2026-11-14T05:01:58.411273+00:00",
+    "retry_after": "2026-11-15T05:01:58.411275+00:00",
     "search_hydrated": true
   },
   {
@@ -43507,8 +43507,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T04:02:05.574879+00:00",
-    "retry_after": "2026-11-15T04:02:05.574891+00:00",
+    "last_attempt_at": "2026-11-14T05:01:58.411158+00:00",
+    "retry_after": "2026-11-15T05:01:58.411175+00:00",
     "search_hydrated": true
   },
   {
@@ -51363,8 +51363,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T04:02:05.574985+00:00",
-    "retry_after": "2026-11-15T04:02:05.574989+00:00",
+    "last_attempt_at": "2026-11-14T05:01:58.411249+00:00",
+    "retry_after": "2026-11-15T05:01:58.411252+00:00",
     "search_hydrated": true
   },
   {
@@ -88128,9 +88128,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T04:12:45.919275+00:00",
-    "retry_after": "2026-11-14T04:12:45.919290+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T05:11:04.606622+00:00",
+    "retry_after": "2026-11-28T05:11:04.606641+00:00",
     "search_hydrated": true
   },
   {
@@ -88146,9 +88146,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T04:12:49.004206+00:00",
-    "retry_after": "2026-11-14T04:12:49.004221+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T05:11:07.495124+00:00",
+    "retry_after": "2026-11-28T05:11:07.495141+00:00",
     "search_hydrated": true
   },
   {
@@ -88164,9 +88164,9 @@
         "start_year": 2002
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T04:12:49.004422+00:00",
-    "retry_after": "2026-11-14T04:12:49.004426+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T05:11:07.495176+00:00",
+    "retry_after": "2026-11-28T05:11:07.495178+00:00",
     "search_hydrated": true
   },
   {
@@ -88182,9 +88182,9 @@
         "start_year": 2007
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T04:12:49.004457+00:00",
-    "retry_after": "2026-11-14T04:12:49.004460+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T05:11:07.495200+00:00",
+    "retry_after": "2026-11-28T05:11:07.495202+00:00",
     "search_hydrated": true
   },
   {
@@ -88193,9 +88193,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T04:12:45.919321+00:00",
-    "retry_after": "2026-11-14T04:12:45.919325+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T05:11:04.606665+00:00",
+    "retry_after": "2026-11-28T05:11:04.606668+00:00",
     "search_hydrated": true
   },
   {
@@ -88204,9 +88204,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T04:12:45.919340+00:00",
-    "retry_after": "2026-11-14T04:12:45.919343+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T05:11:04.606680+00:00",
+    "retry_after": "2026-11-28T05:11:04.606682+00:00",
     "search_hydrated": true
   },
   {
@@ -88228,9 +88228,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T04:12:45.919385+00:00",
-    "retry_after": "2026-11-14T04:12:45.919388+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T05:11:04.606716+00:00",
+    "retry_after": "2026-11-28T05:11:04.606718+00:00",
     "search_hydrated": true
   },
   {
@@ -93283,9 +93283,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-11T04:11:44.035890+00:00",
-    "retry_after": "2026-11-14T04:11:44.035904+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-14T05:11:07.386125+00:00",
+    "retry_after": "2026-11-21T05:11:07.386142+00:00",
     "search_hydrated": true
   },
   {
@@ -95228,6 +95228,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-14T04:11:14.663856+00:00",
     "retry_after": "2026-11-15T04:11:14.663871+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cynthia Petal's Really Fantastic Alien Sex Frenzy!",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51946,
+        "name": "Cynthia Petal's Really Fantastic Alien Sex Frenzy!",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T05:11:16.295039+00:00",
+    "retry_after": "2026-11-15T05:11:16.295056+00:00",
     "search_hydrated": true
   }
 ]

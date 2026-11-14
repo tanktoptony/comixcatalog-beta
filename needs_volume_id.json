@@ -27468,8 +27468,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T19:02:00.323903+00:00",
-    "retry_after": "2026-11-15T19:02:00.323906+00:00",
+    "last_attempt_at": "2026-11-14T19:44:57.207645+00:00",
+    "retry_after": "2026-11-15T19:44:57.207649+00:00",
     "search_hydrated": true
   },
   {
@@ -43475,8 +43475,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T19:02:00.323827+00:00",
-    "retry_after": "2026-11-15T19:02:00.323839+00:00",
+    "last_attempt_at": "2026-11-14T19:44:57.207559+00:00",
+    "retry_after": "2026-11-15T19:44:57.207577+00:00",
     "search_hydrated": true
   },
   {
@@ -51331,8 +51331,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T19:02:00.323869+00:00",
-    "retry_after": "2026-11-15T19:02:00.323873+00:00",
+    "last_attempt_at": "2026-11-14T19:44:57.207609+00:00",
+    "retry_after": "2026-11-15T19:44:57.207612+00:00",
     "search_hydrated": true
   },
   {
@@ -95145,6 +95145,96 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-14T19:05:54.389063+00:00",
     "retry_after": "2026-11-15T19:05:54.389078+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Simpsorama",
+    "publisher": "Titan Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65122,
+        "name": "Simpsons Comics: Simpsorama",
+        "publisher": "HarperCollins",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T19:49:10.507386+00:00",
+    "retry_after": "2026-11-15T19:49:10.507402+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Conan Exiles",
+    "publisher": "Dark Horse Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141912,
+        "name": "Conan: Exiles",
+        "publisher": "Marvel",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T19:49:10.507437+00:00",
+    "retry_after": "2026-11-15T19:49:10.507442+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gli Albi dei Super-Eroi",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34647,
+        "name": "Gli Albi dei Super-Eroi",
+        "publisher": "Editoriale Corno",
+        "start_year": 1973
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T19:49:10.507467+00:00",
+    "retry_after": "2026-11-15T19:49:10.507470+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Faceless: A Terry Sharp Story",
+    "publisher": "Image Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 59298,
+        "name": "The Faceless: A Terry Sharp Story",
+        "publisher": "Monsterverse",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T19:49:10.507492+00:00",
+    "retry_after": "2026-11-15T19:49:10.507495+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Phil Corrigan Secret Agent X9",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161990,
+        "name": "Phil Corrigan Secret Agent X9 ",
+        "publisher": "Atlas Publications Pty. Ltd.",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T19:49:18.347259+00:00",
+    "retry_after": "2026-11-15T19:49:18.347275+00:00",
     "search_hydrated": true
   }
 ]

@@ -11526,6 +11526,8 @@ button.nav-link {
   color: #cbd0dc;
   border-bottom: 1px solid rgba(216,176,75,0.2);
 }
+/* Signed-in visitors never see the guest offer flash before auth loads. */
+html[data-signed-in="1"] .founding-banner-guest { display: none; }
 .founding-banner-inner { max-width: 1280px; margin: auto; padding: 10px clamp(1rem,3vw,2rem); display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
 .founding-banner-count {
   color: #d8b04b;
@@ -12546,7 +12548,8 @@ button.nav-link {
 }
 @media (max-width: 860px) {
   .lp-wall { inset: -40% -10% -40% -10%; gap: 10px; }
-  .lp-wall-col { gap: 10px; }
+  /* On phones the wall is a 260px strip and endless drift costs CPU every frame. */
+  .lp-wall-col { gap: 10px; animation: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .lp-wall-col { animation: none; }

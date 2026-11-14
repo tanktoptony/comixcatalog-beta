@@ -28,6 +28,9 @@ import { getFoundingRemaining } from "@/lib/foundingStatus";
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 // Production only — keeps localhost/dev traffic out of real GA data.
 const GA_ENABLED = Boolean(GA_MEASUREMENT_ID) && process.env.NODE_ENV === "production";
+const projectRef = (process.env.NEXT_PUBLIC_SUPABASE_URL ?? "").match(/^https?:\/\/([^.]+)\./)?.[1] ?? "";
+const storageKey = `sb-${projectRef}-auth-token`;
+const authHint = `(function(){try{var s=JSON.parse(localStorage.getItem(${JSON.stringify(storageKey)})||"null");if(s&&s.user&&s.user.id)document.documentElement.dataset.signedIn="1";}catch(e){/* storage blocked: render signed out */}})();`;
 const SITE_NAME = "ComixCatalog";
 const DEFAULT_TITLE = "ComixCatalog: Catalog. Collect. Connect.";
 const DEFAULT_DESCRIPTION =
@@ -130,10 +133,11 @@ export const viewport = {
 export default async function RootLayout({ children }) {
   const foundingRemaining = await getFoundingRemaining();
   return (
-    // suppressHydrationWarning: the home page's pre-paint script sets
-    // data-signed-in on <html> before React hydrates (src/app/page.js).
+    // suppressHydrationWarning: the pre-paint script sets data-signed-in on
+    // <html> before React hydrates.
     <html lang="en" suppressHydrationWarning>
       <body className={`page-shell ${displayFont.variable}`}>
+        <script dangerouslySetInnerHTML={{ __html: authHint }} />
         <a className="skip-link" href="#main-content">Skip to main content</a>
         {GA_ENABLED && (
           <>

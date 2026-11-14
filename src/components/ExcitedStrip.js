@@ -14,7 +14,7 @@ function Note({ pick }) {
   );
 }
 
-function CoverCard({ pick, eager }) {
+function CoverCard({ pick }) {
   if (pick.status) {
     return (
       <div className={`excited-status-art${pick.cover ? " has-cover" : ""}`}>
@@ -24,7 +24,8 @@ function CoverCard({ pick, eager }) {
             className="excited-status-cover"
             src={pick.cover}
             alt={`${pick.title} #1 cover`}
-            loading={eager ? "eager" : "lazy"}
+            loading="lazy"
+            decoding="async"
           />
         ) : null}
         <span className="excited-status-pill">{pick.status}</span>
@@ -60,7 +61,8 @@ function CoverCard({ pick, eager }) {
           <img
             src={coverThumb(series.cover)}
             alt={`${series.title} cover`}
-            loading={eager ? "eager" : "lazy"}
+            loading="lazy"
+            decoding="async"
           />
         </Link>
       ))}
@@ -75,9 +77,9 @@ export default function ExcitedStrip({ picks = [] }) {
     <section className="excited-section" aria-labelledby="excited-heading">
       <h2 id="excited-heading">What we&rsquo;re excited about</h2>
       <div className="excited-grid">
-        {picks.map((pick, index) => (
+        {picks.map((pick) => (
           <article className="excited-card" key={pick.key}>
-            <CoverCard pick={pick} eager={index < 3} />
+            <CoverCard pick={pick} />
             <div className="excited-copy">
               <p className="excited-label">{pick.label}</p>
               <h3>{pick.title}</h3>

@@ -103,7 +103,8 @@ export default function FeaturedCarousel({ initialSeries = null }) {
                     <img
                       src={coverThumb(cover)}
                       alt={s.series_title || "Series"}
-                      loading={index < 6 ? "eager" : "lazy"}
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div className="featured-meta">

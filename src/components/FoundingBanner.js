@@ -23,7 +23,14 @@ export default function FoundingBanner({ initialRemaining = null }) {
       .catch(() => {});
   }, []);
 
-  if (loading || remaining == null || remaining < 1) return null;
+  useEffect(() => {
+    if (!loading && !user) {
+      delete document.documentElement.dataset.signedIn;
+      delete document.documentElement.dataset.shelfReady;
+    }
+  }, [loading, user]);
+
+  if (remaining == null || remaining < 1) return null;
   // /start (the Instagram landing page) carries the founding offer in its
   // own section. Up here it would push the hero's signup CTA down on a phone
   // and send clicks to /signup without the funnel's return path.
@@ -50,8 +57,9 @@ export default function FoundingBanner({ initialRemaining = null }) {
       </div>
     );
   }
+  // Render the guest offer before auth resolves so it is present in server HTML.
   return (
-    <div className="founding-banner" role="region" aria-label="Founding Collector offer">
+    <div className="founding-banner founding-banner-guest" role="region" aria-label="Founding Collector offer">
       <div className="founding-banner-inner">
         <p>
           <strong className="founding-banner-desktop-copy">Free lifetime memberships for the first 100.</strong>

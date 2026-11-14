@@ -14,6 +14,8 @@ import { withFallbacks, resolveAudio } from "./timeline.js";
 import { Logo } from "../src/ChannelIntro.jsx";
 import { DossierReveal } from "./components/dossier.jsx";
 import { PackOpen, RetroCard } from "./components/packOpen.jsx";
+import { CameraShot } from "./components/camera.jsx";
+import { RotatePage } from "./components/rotatePage.jsx";
 
 const StingCard = ({ tagline }) => <Logo tagline={tagline} />;
 
@@ -43,6 +45,8 @@ export const SEGMENT_TYPES = {
   dossier: DossierReveal,
   packOpen: PackOpen,
   retroCard: RetroCard,
+  camera: CameraShot,
+  rotatePage: RotatePage,
 };
 
 // Short crossfade at each edge unless the segment asks for a cut.

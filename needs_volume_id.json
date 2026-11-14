@@ -17435,9 +17435,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-13T23:10:29.526102+00:00",
-    "retry_after": "2026-11-14T23:10:29.526105+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T23:43:56.083331+00:00",
+    "retry_after": "2026-11-17T23:43:56.083349+00:00",
     "search_hydrated": true
   },
   {
@@ -27468,8 +27468,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T23:01:40.647829+00:00",
-    "retry_after": "2026-11-15T23:01:40.647831+00:00",
+    "last_attempt_at": "2026-11-14T23:40:17.024436+00:00",
+    "retry_after": "2026-11-15T23:40:17.024437+00:00",
     "search_hydrated": true
   },
   {
@@ -43475,8 +43475,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T23:01:40.647772+00:00",
-    "retry_after": "2026-11-15T23:01:40.647790+00:00",
+    "last_attempt_at": "2026-11-14T23:40:17.024353+00:00",
+    "retry_after": "2026-11-15T23:40:17.024388+00:00",
     "search_hydrated": true
   },
   {
@@ -51331,8 +51331,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T23:01:40.647810+00:00",
-    "retry_after": "2026-11-15T23:01:40.647812+00:00",
+    "last_attempt_at": "2026-11-14T23:40:17.024413+00:00",
+    "retry_after": "2026-11-15T23:40:17.024415+00:00",
     "search_hydrated": true
   },
   {
@@ -89188,9 +89188,9 @@
         "start_year": 1977
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T23:37:08.507363+00:00",
-    "retry_after": "2026-11-14T23:37:08.507381+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T23:43:59.534860+00:00",
+    "retry_after": "2026-11-28T23:43:59.534906+00:00",
     "search_hydrated": true
   },
   {
@@ -95419,6 +95419,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-14T23:05:52.469339+00:00",
     "retry_after": "2026-11-15T23:05:52.469341+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Butcher Baker, the Righteous Maker",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 39531,
+        "name": "Butcher Baker the Righteous Maker",
+        "publisher": "Image",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T23:44:08.624961+00:00",
+    "retry_after": "2026-11-15T23:44:08.624991+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Centipede",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 18645,
+        "name": "Centipede",
+        "publisher": "DC Comics",
+        "start_year": 1983
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T23:44:08.625017+00:00",
+    "retry_after": "2026-11-15T23:44:08.625019+00:00",
     "search_hydrated": true
   }
 ]

@@ -27468,8 +27468,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T19:44:57.207645+00:00",
-    "retry_after": "2026-11-15T19:44:57.207649+00:00",
+    "last_attempt_at": "2026-11-14T20:01:50.744549+00:00",
+    "retry_after": "2026-11-15T20:01:50.744551+00:00",
     "search_hydrated": true
   },
   {
@@ -43475,8 +43475,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T19:44:57.207559+00:00",
-    "retry_after": "2026-11-15T19:44:57.207577+00:00",
+    "last_attempt_at": "2026-11-14T20:01:50.744484+00:00",
+    "retry_after": "2026-11-15T20:01:50.744500+00:00",
     "search_hydrated": true
   },
   {
@@ -51331,8 +51331,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T19:44:57.207609+00:00",
-    "retry_after": "2026-11-15T19:44:57.207612+00:00",
+    "last_attempt_at": "2026-11-14T20:01:50.744524+00:00",
+    "retry_after": "2026-11-15T20:01:50.744526+00:00",
     "search_hydrated": true
   },
   {
@@ -89148,9 +89148,9 @@
         "start_year": 2000
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T20:04:38.772119+00:00",
-    "retry_after": "2026-11-14T20:04:38.772121+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T20:05:39.795546+00:00",
+    "retry_after": "2026-11-28T20:05:39.795563+00:00",
     "search_hydrated": true
   },
   {
@@ -89159,9 +89159,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T20:04:38.772133+00:00",
-    "retry_after": "2026-11-14T20:04:38.772135+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T20:05:39.795583+00:00",
+    "retry_after": "2026-11-28T20:05:39.795586+00:00",
     "search_hydrated": true
   },
   {
@@ -94417,9 +94417,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-13T15:10:56.836896+00:00",
-    "retry_after": "2026-11-14T15:10:56.836914+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T20:05:52.938695+00:00",
+    "retry_after": "2026-11-17T20:05:52.938697+00:00",
     "search_hydrated": true
   },
   {
@@ -94428,9 +94428,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-13T16:10:26.423982+00:00",
-    "retry_after": "2026-11-14T16:10:26.424000+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T20:05:52.938708+00:00",
+    "retry_after": "2026-11-17T20:05:52.938710+00:00",
     "search_hydrated": true
   },
   {
@@ -95235,6 +95235,60 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-14T19:49:18.347259+00:00",
     "retry_after": "2026-11-15T19:49:18.347275+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Sky Doll: Spaceship Collection",
+    "publisher": "Titan Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 155513,
+        "name": "Sky Doll: Spaceship Collection",
+        "publisher": "Norma Editorial",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T20:05:52.938636+00:00",
+    "retry_after": "2026-11-15T20:05:52.938651+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: The Death of Clark Kent",
+    "publisher": "Titan Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 31905,
+        "name": "Superman: The Death of Clark Kent",
+        "publisher": "DC Comics",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T20:05:52.938675+00:00",
+    "retry_after": "2026-11-15T20:05:52.938678+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Mix",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57055,
+        "name": "Marvel Mix",
+        "publisher": "Panini Comics",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T20:06:00.937492+00:00",
+    "retry_after": "2026-11-15T20:06:00.937508+00:00",
     "search_hydrated": true
   }
 ]

@@ -1,7 +1,7 @@
-"""Render the Episode 007 handoff as a read-aloud page for recording the voiceover.
+"""Render VO_SCRIPT.md (the handoff reconciled with the filmed takes) as a read-aloud page.
 
-VO paragraphs are big and numbered; on-camera (CAM A) blocks are dimmed because
-they're already filmed; SHOW notes are dropped. Output:
+VO paragraphs are big and numbered; filmed on-camera takes are dimmed so Tony
+skips them; reworded lines (`~ `) get a gold bar. Output:
 Desktop/YouTube/episode-007-raw/EP007-VO-SCRIPT.html
 
     python episode-007/vo_script_page.py
@@ -11,7 +11,7 @@ import html
 import re
 from pathlib import Path
 
-SRC = Path(__file__).parent / "handoff" / "EP007_CLAUDE_VOICE_EDIT_HANDOFF.md"
+SRC = Path(__file__).parent / "VO_SCRIPT.md"
 OUT = Path.home() / "Desktop" / "YouTube" / "episode-007-raw" / "EP007-VO-SCRIPT.html"
 
 
@@ -24,7 +24,7 @@ def main():
     body, in_cam, started, n = [], False, False, 0
     for line in lines:
         s = line.strip()
-        if s.startswith("# EDITORIAL MASTER NOTES"):
+        if s.startswith("# CUT"):
             break
         m = re.match(r"^##\s+(\S+\.wav)\s+·\s+(.+)$", s)
         if m:
@@ -36,11 +36,11 @@ def main():
             continue
         if not started or not s or s == "---" or s.startswith(">"):
             continue
-        if s.startswith("[CAM A"):
+        if s.startswith("[CAM"):
             in_cam = True
-            body.append(f'<div class="cam"><div class="tag">ON CAMERA, already filmed: skip {html.escape(s[1:-1])}</div>')
+            body.append(f'<div class="cam"><div class="tag">ON CAMERA, already filmed, skip ({html.escape(s[5:-1])})</div>')
             continue
-        if s == "[END CAM A]":
+        if s == "[END CAM]":
             in_cam = False
             body.append("</div>")
             continue
@@ -50,7 +50,8 @@ def main():
             body.append(f"<p>{inline(s)}</p>")
         else:
             n += 1
-            body.append(f'<p class="vo"><span class="n">{n}</span>{inline(s)}</p>')
+            cls = "vo changed" if s.startswith("~ ") else "vo"
+            body.append(f'<p class="{cls}"><span class="n">{n}</span>{inline(s.lstrip("~ "))}</p>')
 
     page = f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
@@ -67,13 +68,14 @@ h2 {{ font:700 30px system-ui, sans-serif; color:var(--gold); margin:72px 0 16px
 h2 .file {{ display:block; font:500 15px ui-monospace, monospace; color:var(--dim); margin-bottom:4px; }}
 p.vo {{ margin:0 0 22px; position:relative; }}
 p.vo .n {{ position:absolute; left:-48px; top:6px; font:600 14px ui-monospace, monospace; color:var(--dim); }}
+p.vo.changed {{ border-left:4px solid var(--gold); padding-left:12px; }}
 .cam {{ background:var(--card); border-left:4px solid #30363d; padding:12px 18px; margin:0 0 22px; color:var(--dim); font-size:18px; }}
 .cam p {{ margin:0 0 6px; }}
 .cam .tag {{ font:700 13px system-ui, sans-serif; text-transform:uppercase; letter-spacing:.06em; margin-bottom:8px; }}
 @media (max-width:700px) {{ body {{ font-size:22px; }} p.vo .n {{ position:static; margin-right:8px; }} }}
 </style></head><body><main>
 <header><b>Episode 007 · Every Generation Has Its Own Batman · voiceover</b><br>
-Read the big text. Gray boxes are already on camera, skip them. One file per section is ideal (01-cold-open.wav ...), but one long recording is fine too. On a flub, pause and restart the sentence; the last clean take wins.</header>
+Read the big text. Gray boxes are your filmed takes (your actual words), skip them. Gold bar = line reworded so it flows out of a filmed take. One file per section is ideal (01-cold-open.wav ...), but one long recording is fine too. On a flub, pause and restart the sentence; the last clean take wins.</header>
 {chr(10).join(body)}
 </main></body></html>
 """

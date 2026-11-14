@@ -22,6 +22,7 @@ import { narrationWords as narrationWords004 } from "../episode-004/timeline.js"
 import { shortsWords as shortsWords005 } from "../episode-005/shorts-timeline.js";
 import { fixWords as fixWords005 } from "../episode-005/fixWords.js";
 import { shortsWords as shortsWords006 } from "../episode-006/shorts-timeline.js";
+import { shortsCaptionWords as shortsWords007 } from "../episode-007/shorts-timeline.js";
 import { Dossier001Reveal, Dossier001Cosmic, Dossier001Front, Dossier001Back, Dossier001FrontFrame, Dossier001FrontArt, Dossier001FrontLettering, Dossier001BackFrame, Dossier001BackMeters, Dossier001BackLettering } from "./Dossier006.jsx";
 import { PackOpen, RetroCard } from "../shared/components/packOpen.jsx";
 import { EpisodeContext, SegmentContext } from "../shared/components/primitives.jsx";
@@ -64,6 +65,10 @@ const shortDetails = {
   "episode-006-shorts": {
     words: shortsWords006,
     endCardTitle: "The Power Index · Power Profile #001: Doctor Doom",
+  },
+  "episode-007-shorts": {
+    words: shortsWords007,
+    endCardTitle: "Every Generation Has Its Own Batman",
   },
 };
 

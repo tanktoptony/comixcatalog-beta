@@ -79,6 +79,32 @@ function Shot({ asset, position, focus, len }) {
   );
 }
 
+// A sideways comic page (Ep 007, Batman #5's labyrinth): it fills the frame as
+// printed, then turns by `deg` at `turnAt` of the segment and settles at the
+// frame's width the new way round, over its own blurred art.
+function TurnShot({ asset, size = [1987, 3056], deg = 90, turnAt = 0.2, len }) {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const { src } = useAsset(asset);
+  const [w0, h0] = size;
+  const turned = Math.abs(deg) % 180 === 90;
+  const sA = Math.max(W / w0, H / h0);
+  const sB = turned ? (W * 1.5) / h0 : sA;
+  const t = spring({ frame: frame - Math.round(turnAt * len), fps, config: { damping: 18, stiffness: 70, mass: 1.1 } });
+  const flash = interpolate(frame, [0, 5], [0.38, 0], { extrapolateRight: "clamp" });
+  return (
+    <AbsoluteFill style={{ overflow: "hidden", backgroundColor: brand.bg }}>
+      {src && <Img src={src} style={{ position: "absolute", inset: -100, width: W + 200, height: H + 200, objectFit: "cover", filter: "blur(50px) brightness(0.4)" }} />}
+      <AbsoluteFill style={{ alignItems: "center", justifyContent: "center" }}>
+        <div style={{ width: w0, height: h0, flex: "none", transform: `rotate(${interpolate(t, [0, 1], [0, deg])}deg) scale(${interpolate(t, [0, 1], [sA, sB]) * (1 + 0.04 * (frame / Math.max(1, len)))})` }}>
+          <Media asset={asset} box={{ w: w0, h: h0 }} fit="contain" style={{ width: w0, height: h0, objectFit: "contain" }} />
+        </div>
+      </AbsoluteFill>
+      <AbsoluteFill style={{ backgroundColor: "#fff", opacity: flash }} />
+    </AbsoluteFill>
+  );
+}
+
 // A segment with no art (chapter and title cards): the line itself, huge.
 function TitleShot({ title }) {
   const frame = useCurrentFrame();
@@ -108,6 +134,7 @@ function SegmentShots({ seg, episodeId }) {
   const s = withFallbacks(seg, episodeId, available);
   const assets = assetsOf(s);
   const len = s.durationInFrames;
+  if (s.type === "rotatePage" && assets.length) return <TurnShot asset={assets[0]} size={s.size} deg={s.deg} turnAt={s.turnAt} len={len} />;
   if (!assets.length) return <TitleShot title={s.title} />;
   const per = Math.max(8, Math.floor(len / assets.length));
   const shown = assets.slice(0, Math.ceil(len / per));

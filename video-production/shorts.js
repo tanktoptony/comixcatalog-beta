@@ -147,6 +147,27 @@ export const SHORTS = [
     toBeat: "Short 3 end",
     hook: "Why God Emperor Doom doesn't count",
   },
+  {
+    id: "Short007Azrael",
+    episode: "episode-007-shorts",
+    fromBeat: "Short 1 start",
+    toBeat: "Short 1 end",
+    hook: "Batman got replaced in the 90s",
+  },
+  {
+    id: "Short007CourtOfOwls",
+    episode: "episode-007-shorts",
+    fromBeat: "Short 2 start",
+    toBeat: "Short 2 end",
+    hook: "Batman didn't know his own city",
+  },
+  {
+    id: "Short007AbsoluteFriends",
+    episode: "episode-007-shorts",
+    fromBeat: "Short 3 start",
+    toBeat: "Short 3 end",
+    hook: "Bruce Wayne's friends are his enemies",
+  },
 ];
 
 // Seconds of each clip. The clip stops just before the next beat.

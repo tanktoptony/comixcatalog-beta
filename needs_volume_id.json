@@ -27474,8 +27474,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T00:15:55.327189+00:00",
-    "retry_after": "2026-11-15T00:15:55.327192+00:00",
+    "last_attempt_at": "2026-11-14T01:02:03.618074+00:00",
+    "retry_after": "2026-11-15T01:02:03.618077+00:00",
     "search_hydrated": true
   },
   {
@@ -43499,8 +43499,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T00:15:55.327046+00:00",
-    "retry_after": "2026-11-15T00:15:55.327061+00:00",
+    "last_attempt_at": "2026-11-14T01:02:03.617934+00:00",
+    "retry_after": "2026-11-15T01:02:03.617952+00:00",
     "search_hydrated": true
   },
   {
@@ -51355,8 +51355,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T00:15:55.327156+00:00",
-    "retry_after": "2026-11-15T00:15:55.327160+00:00",
+    "last_attempt_at": "2026-11-14T01:02:03.618045+00:00",
+    "retry_after": "2026-11-15T01:02:03.618048+00:00",
     "search_hydrated": true
   },
   {
@@ -95145,6 +95145,30 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-14T00:24:33.937866+00:00",
     "retry_after": "2026-11-15T00:24:33.937882+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman / Superman / Wonder Woman: Trinity",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 60745,
+        "name": "Batman / Superman / Wonder Woman: Trinity",
+        "publisher": "DC Comics",
+        "start_year": 2004
+      },
+      {
+        "id": 10945,
+        "name": "Batman / Superman / Wonder Woman: Trinity",
+        "publisher": "DC Comics",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T01:10:24.817291+00:00",
+    "retry_after": "2026-11-15T01:10:24.817310+00:00",
     "search_hydrated": true
   }
 ]

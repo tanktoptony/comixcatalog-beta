@@ -7370,10 +7370,12 @@
     "name": "Batman: Night of the Monster Men Wal-Mart Edition",
     "publisher": "DC Comics",
     "year": 2017,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555498+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T13:10:16.905465+00:00",
+    "retry_after": "2026-11-17T13:10:16.905482+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Batman / Spawn",
@@ -27483,8 +27485,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T12:01:32.636490+00:00",
-    "retry_after": "2026-11-15T12:01:32.636492+00:00",
+    "last_attempt_at": "2026-11-14T13:01:36.979377+00:00",
+    "retry_after": "2026-11-15T13:01:36.979378+00:00",
     "search_hydrated": true
   },
   {
@@ -43487,8 +43489,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T12:01:32.636403+00:00",
-    "retry_after": "2026-11-15T12:01:32.636414+00:00",
+    "last_attempt_at": "2026-11-14T13:01:36.979279+00:00",
+    "retry_after": "2026-11-15T13:01:36.979295+00:00",
     "search_hydrated": true
   },
   {
@@ -51343,8 +51345,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T12:01:32.636473+00:00",
-    "retry_after": "2026-11-15T12:01:32.636475+00:00",
+    "last_attempt_at": "2026-11-14T13:01:36.979356+00:00",
+    "retry_after": "2026-11-15T13:01:36.979357+00:00",
     "search_hydrated": true
   },
   {
@@ -94396,9 +94398,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-13T12:10:44.884414+00:00",
-    "retry_after": "2026-11-14T12:10:44.884430+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T13:10:46.888975+00:00",
+    "retry_after": "2026-11-17T13:10:46.888991+00:00",
     "search_hydrated": true
   },
   {
@@ -94407,9 +94409,9 @@
     "year": 1949,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-13T12:10:46.223466+00:00",
-    "retry_after": "2026-11-14T12:10:46.223483+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T13:10:49.820064+00:00",
+    "retry_after": "2026-11-17T13:10:49.820082+00:00",
     "search_hydrated": true
   },
   {
@@ -95287,6 +95289,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-14T12:10:00.197317+00:00",
     "retry_after": "2026-11-15T12:10:00.197328+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Avengers: Standoff",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 91877,
+        "name": "Avengers: Standoff",
+        "publisher": "Marvel",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T13:10:35.564329+00:00",
+    "retry_after": "2026-11-15T13:10:35.564346+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Toy Story: Tales from the Toy Chest",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36143,
+        "name": "Toy Story: Tales From the Toy Chest",
+        "publisher": "Boom! Studios",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T13:10:49.820141+00:00",
+    "retry_after": "2026-11-15T13:10:49.820143+00:00",
     "search_hydrated": true
   }
 ]

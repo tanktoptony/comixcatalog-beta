@@ -10724,13 +10724,6 @@
     "series_gcd_id": 129884
   },
   {
-    "name": "What If? Classic: The Complete Collection",
-    "publisher": "Marvel Comics",
-    "year": 2018,
-    "volume_id": 116519,
-    "series_gcd_id": 137832
-  },
-  {
     "name": "Where We Live, A Benefit for the Survivors in Las Vegas",
     "publisher": "Image Comics",
     "year": 2018,
@@ -10783,21 +10776,14 @@
     "name": "X-Men Reloaded by Chris Claremont",
     "publisher": "Marvel Comics",
     "year": 2018,
-    "volume_id": null,
+    "volume_id": 130420,
     "series_gcd_id": 135975
-  },
-  {
-    "name": "X-Men: Grand Design",
-    "publisher": "Marvel Comics",
-    "year": 2018,
-    "volume_id": 109533,
-    "series_gcd_id": 123366
   },
   {
     "name": "X-Men: Legionquest",
     "publisher": "Marvel Comics",
     "year": 2018,
-    "volume_id": null,
+    "volume_id": 35316,
     "series_gcd_id": 123553
   },
   {
@@ -10869,13 +10855,6 @@
     "year": 2017,
     "volume_id": null,
     "series_gcd_id": 112582
-  },
-  {
-    "name": "Avengers by Brian Michael Bendis: The Complete Collection",
-    "publisher": "Marvel Comics",
-    "year": 2017,
-    "volume_id": null,
-    "series_gcd_id": 116696
   },
   {
     "name": "Avengers Unleashed",
@@ -20998,5 +20977,26 @@
     "year": 2014,
     "volume_id": null,
     "series_gcd_id": 78084
+  },
+  {
+    "name": "New Mutants / X-Force: Demon Bear",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 208252
+  },
+  {
+    "name": "Nightwing",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 89991
+  },
+  {
+    "name": "Nightworld",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 82158
   }
 ]

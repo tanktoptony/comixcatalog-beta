@@ -14,7 +14,7 @@ Every Generation Has Its Own Batman. Hybrid episode: Tony on camera at the books
 
 1. VO: his own read in the same session as the camera takes, or the HeyGen clone for the VO parts?
 2. SNES gameplay: no real footage yet. Options: capture from his own copy if he has one, or a short credited clip from a longplay.
-3. Batman #5 labyrinth pages: no wiki has the interiors. If he owns #5 or the Court of Owls trade, 10 s of his hands turning the book is the best possible shot for that line.
+3. (answered 11-13) No page flip filmed; real Batman #5 pages pulled from Comics Bookcase into `art/batman-2011-5-pages/`.
 4. Absolute Batman art from later issues (#12, #21 textless covers) for Waylon, Harvey and Ozzie: OK to show, or keep to #1 to #6?
 
 ## Open, Claude's side

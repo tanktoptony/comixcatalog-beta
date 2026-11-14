@@ -44,8 +44,10 @@ Rules carried over: text-only shots <= 8, no zoom without a crop-sheet check, pa
 
 | Beat | Visual | Status |
 |---|---|---|
-| CAM A 05 "Azrael. Man, I loved this guy." | Tony; cut to Sword of Azrael #1 on "original costume" | CAM + READY |
-| "armor and blades and pouches" | `art/azrael-gallery/` picks (original costume, armored suit) | READY |
+| CAM A 05 "Azrael. Man, I loved this guy." | Tony | CAM |
+| "His original costume" | `art/azrael-gallery/Azrael_Jean-Paul_Valley_0018.jpg` (full figure, "In this outfit, I'm Azrael"), whole image, no zoom | READY |
+| "the armored Batman suit" | `art/batman-500/Batman_Jean-Paul_Valley_0011.jpg` (Batman #500 "II: the descent" splash, the suit's debut), caption "Batman #500 · 1993" | READY |
+| "armor and blades and pouches" | `art/azrael-gallery/Batman_Jean-Paul_Valley_0014.jpg` (Manley pin-up), more gallery picks | READY |
 | "Sword of Azrael, O'Neil, Quesada" | grid of Sword of Azrael #1 to #4 | READY |
 | "Order of St. Dumas" | azrael-gallery panel | READY (pick on contact sheet) |
 | "Knightfall in 1993, Bane... releases Arkham" | `covers/batman-492-1993.jpg` | READY |
@@ -63,7 +65,7 @@ Rules carried over: text-only shots <= 8, no zoom without a crop-sheet check, pa
 | CAM A 06 "reading this when it came out" | Tony | CAM (optional) |
 | "secret society... centuries" | `art/court-of-owls/Court_of_Owls_004.jpg`, `_006`, `_008` | READY |
 | "Talons" | `art/court-of-owls/Talon_007.jpg`, Batman (2011) #7 cover | READY |
-| "Batman #5... labyrinth... turn the comic" | `art/batman-2011-5/Batman_Vol_2_5_Alternate.jpg` (maze cover), then the rotated pages | READY (cover) / TONY (pages: best as Tony's hands turning his copy) |
+| "Batman #5... labyrinth... turn the comic" | `art/batman-2011-5/Batman_Vol_2_5_Alternate.jpg` (maze cover), then real pages from `art/batman-2011-5-pages/` (Comics Bookcase scans): pages 6 to 9 are the sideways labyrinth, page 14 the upside-down Batman. On "You have to turn the comic" the page itself rotates 90 degrees on screen until it reads upright | READY |
 | "Snyder came back in 2024" | Absolute #1 | READY |
 
 ## 06 · Everything old is new again

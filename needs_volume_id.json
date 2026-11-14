@@ -27468,8 +27468,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T18:01:51.390190+00:00",
-    "retry_after": "2026-11-15T18:01:51.390191+00:00",
+    "last_attempt_at": "2026-11-14T19:02:00.323903+00:00",
+    "retry_after": "2026-11-15T19:02:00.323906+00:00",
     "search_hydrated": true
   },
   {
@@ -43475,8 +43475,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T18:01:51.390138+00:00",
-    "retry_after": "2026-11-15T18:01:51.390150+00:00",
+    "last_attempt_at": "2026-11-14T19:02:00.323827+00:00",
+    "retry_after": "2026-11-15T19:02:00.323839+00:00",
     "search_hydrated": true
   },
   {
@@ -51331,8 +51331,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T18:01:51.390170+00:00",
-    "retry_after": "2026-11-15T18:01:51.390172+00:00",
+    "last_attempt_at": "2026-11-14T19:02:00.323869+00:00",
+    "retry_after": "2026-11-15T19:02:00.323873+00:00",
     "search_hydrated": true
   },
   {
@@ -89085,9 +89085,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T16:12:35.246663+00:00",
-    "retry_after": "2026-11-14T16:12:35.246665+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T19:05:35.344368+00:00",
+    "retry_after": "2026-11-28T19:05:35.344384+00:00",
     "search_hydrated": true
   },
   {
@@ -94490,9 +94490,9 @@
         "start_year": 2008
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-13T18:03:30.758346+00:00",
-    "retry_after": "2026-11-14T18:03:30.758363+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T19:05:37.163314+00:00",
+    "retry_after": "2026-11-17T19:05:37.163318+00:00",
     "search_hydrated": true
   },
   {
@@ -95055,6 +95055,96 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-14T18:06:05.332292+00:00",
     "retry_after": "2026-11-15T18:06:05.332305+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vuzz",
+    "publisher": "Titan Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85799,
+        "name": "Vuzz",
+        "publisher": "Dargaud",
+        "start_year": 1974
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T19:05:47.192347+00:00",
+    "retry_after": "2026-11-15T19:05:47.192361+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Boo and the Silly Blizzard",
+    "publisher": "IDW Publishing",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 133882,
+        "name": "Johnny Boo and the Silly Blizzard",
+        "publisher": "Top Shelf",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T19:05:47.192394+00:00",
+    "retry_after": "2026-11-15T19:05:47.192398+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Extravaganza",
+    "publisher": "Titan Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64945,
+        "name": "Simpsons Comics Extravaganza",
+        "publisher": "HarperCollins",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T19:05:47.192421+00:00",
+    "retry_after": "2026-11-15T19:05:47.192424+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Team-Up Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52549,
+        "name": "Marvel Team-Up Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T19:05:47.192446+00:00",
+    "retry_after": "2026-11-15T19:05:47.192448+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "MegaManga",
+    "publisher": "Fantagraphics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 173763,
+        "name": "MegaManga",
+        "publisher": "Eros Comix",
+        "start_year": 2003
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T19:05:54.389063+00:00",
+    "retry_after": "2026-11-15T19:05:54.389078+00:00",
     "search_hydrated": true
   }
 ]

@@ -287,7 +287,7 @@ Which is why I finally bought *The Dark Knight Returns*.
 Forty years late, but I'll get there.
 
 [CAM Scene 6, part 1, 7:18 to 7:50]
-For me, Batman's always been one of the easiest superheroes to get into. He's (a human?) and he's got money and technology. Basically, he's Tony Stark with a better conscience, and I love that the kid who used to draw Azrael in the 90s can still get excited about Absolute Batman all these years later.
+For me, Batman's always been one of the easiest superheroes to get into. He's an incredible detective. He doesn't have any superpowers, and he's got money and technology. Basically, he's Tony Stark with a better conscience, and I love that the kid who used to draw Azrael in the 90s can still get excited about Absolute Batman all these years later.
 [END CAM]
 
 If you're collecting any of these books, I'm building ComixCatalog, a comic-book database and collection tracker where you can search for issues and keep track of what you own and what you're looking for.

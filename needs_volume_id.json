@@ -27486,8 +27486,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T14:49:06.232443+00:00",
-    "retry_after": "2026-11-15T14:49:06.232446+00:00",
+    "last_attempt_at": "2026-11-14T15:01:40.306717+00:00",
+    "retry_after": "2026-11-15T15:01:40.306718+00:00",
     "search_hydrated": true
   },
   {
@@ -36368,9 +36368,10 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-03T05:56:14.920022+00:00",
-    "retry_after": "2026-10-06T05:56:14.920040+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-14T15:08:19.301970+00:00",
+    "retry_after": "2026-11-21T15:08:19.301988+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Sonic the Hedgehog",
@@ -40936,9 +40937,10 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-09T21:00:49.037703+00:00",
-    "retry_after": "2026-10-16T21:00:49.037718+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T15:08:19.302013+00:00",
+    "retry_after": "2026-11-28T15:08:19.302015+00:00",
+    "search_hydrated": true
   },
   {
     "name": "True Believers: Kirby 100th - Black Panther",
@@ -41433,9 +41435,10 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-10T04:00:53.076318+00:00",
-    "retry_after": "2026-10-17T04:00:53.076333+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T15:08:19.302003+00:00",
+    "retry_after": "2026-11-28T15:08:19.302005+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Runaways by Rainbow Rowell & Kris Anka",
@@ -43490,8 +43493,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T14:49:06.232302+00:00",
-    "retry_after": "2026-11-15T14:49:06.232318+00:00",
+    "last_attempt_at": "2026-11-14T15:01:40.306659+00:00",
+    "retry_after": "2026-11-15T15:01:40.306676+00:00",
     "search_hydrated": true
   },
   {
@@ -51346,8 +51349,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T14:49:06.232411+00:00",
-    "retry_after": "2026-11-15T14:49:06.232415+00:00",
+    "last_attempt_at": "2026-11-14T15:01:40.306698+00:00",
+    "retry_after": "2026-11-15T15:01:40.306700+00:00",
     "search_hydrated": true
   },
   {
@@ -95383,6 +95386,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-14T14:06:09.853816+00:00",
     "retry_after": "2026-11-15T14:06:09.853819+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Silver Surfer by Stan Lee & Moebius",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T15:08:33.934736+00:00",
+    "retry_after": "2026-11-15T15:08:33.934754+00:00",
     "search_hydrated": true
   }
 ]

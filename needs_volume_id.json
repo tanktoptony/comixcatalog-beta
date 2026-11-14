@@ -27468,8 +27468,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T20:01:50.744549+00:00",
-    "retry_after": "2026-11-15T20:01:50.744551+00:00",
+    "last_attempt_at": "2026-11-14T21:01:52.038658+00:00",
+    "retry_after": "2026-11-15T21:01:52.038659+00:00",
     "search_hydrated": true
   },
   {
@@ -43475,8 +43475,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T20:01:50.744484+00:00",
-    "retry_after": "2026-11-15T20:01:50.744500+00:00",
+    "last_attempt_at": "2026-11-14T21:01:52.038592+00:00",
+    "retry_after": "2026-11-15T21:01:52.038611+00:00",
     "search_hydrated": true
   },
   {
@@ -51331,8 +51331,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T20:01:50.744524+00:00",
-    "retry_after": "2026-11-15T20:01:50.744526+00:00",
+    "last_attempt_at": "2026-11-14T21:01:52.038635+00:00",
+    "retry_after": "2026-11-15T21:01:52.038638+00:00",
     "search_hydrated": true
   },
   {
@@ -89096,9 +89096,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T20:16:35.272746+00:00",
-    "retry_after": "2026-11-14T20:16:35.272748+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T21:05:31.824863+00:00",
+    "retry_after": "2026-11-28T21:05:31.824881+00:00",
     "search_hydrated": true
   },
   {
@@ -89107,9 +89107,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T20:16:35.272758+00:00",
-    "retry_after": "2026-11-14T20:16:35.272760+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T21:05:31.824898+00:00",
+    "retry_after": "2026-11-28T21:05:31.824900+00:00",
     "search_hydrated": true
   },
   {
@@ -89118,9 +89118,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T20:16:35.272777+00:00",
-    "retry_after": "2026-11-14T20:16:35.272779+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T21:05:31.824910+00:00",
+    "retry_after": "2026-11-28T21:05:31.824912+00:00",
     "search_hydrated": true
   },
   {
@@ -91039,9 +91039,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T20:16:36.810058+00:00",
-    "retry_after": "2026-11-14T20:16:36.810062+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T21:05:33.268936+00:00",
+    "retry_after": "2026-11-28T21:05:33.268938+00:00",
     "search_hydrated": true
   },
   {
@@ -94439,9 +94439,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-13T16:10:26.424019+00:00",
-    "retry_after": "2026-11-14T16:10:26.424022+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T21:05:42.974690+00:00",
+    "retry_after": "2026-11-17T21:05:42.974705+00:00",
     "search_hydrated": true
   },
   {
@@ -94450,9 +94450,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-13T16:10:26.424033+00:00",
-    "retry_after": "2026-11-14T16:10:26.424035+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T21:05:42.974721+00:00",
+    "retry_after": "2026-11-17T21:05:42.974724+00:00",
     "search_hydrated": true
   },
   {
@@ -95289,6 +95289,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-14T20:06:00.937492+00:00",
     "retry_after": "2026-11-15T20:06:00.937508+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Trio Grande: Adios Palomita",
+    "publisher": "Heavy Metal",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27096,
+        "name": "Trio Grande: Adios Palomita",
+        "publisher": "Tundra",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T21:05:42.974755+00:00",
+    "retry_after": "2026-11-15T21:05:42.974757+00:00",
     "search_hydrated": true
   }
 ]

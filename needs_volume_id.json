@@ -27474,8 +27474,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T23:01:56.820289+00:00",
-    "retry_after": "2026-11-14T23:01:56.820290+00:00",
+    "last_attempt_at": "2026-11-14T00:02:03.473393+00:00",
+    "retry_after": "2026-11-15T00:02:03.473395+00:00",
     "search_hydrated": true
   },
   {
@@ -43499,8 +43499,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T23:01:56.820161+00:00",
-    "retry_after": "2026-11-14T23:01:56.820178+00:00",
+    "last_attempt_at": "2026-11-14T00:02:03.473264+00:00",
+    "retry_after": "2026-11-15T00:02:03.473282+00:00",
     "search_hydrated": true
   },
   {
@@ -51355,8 +51355,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-13T23:01:56.820265+00:00",
-    "retry_after": "2026-11-14T23:01:56.820268+00:00",
+    "last_attempt_at": "2026-11-14T00:02:03.473366+00:00",
+    "retry_after": "2026-11-15T00:02:03.473369+00:00",
     "search_hydrated": true
   },
   {
@@ -94187,9 +94187,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-12T23:10:12.960911+00:00",
-    "retry_after": "2026-11-13T23:10:12.960913+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T00:10:35.565983+00:00",
+    "retry_after": "2026-11-17T00:10:35.566001+00:00",
     "search_hydrated": true
   },
   {
@@ -94198,9 +94198,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-12T23:10:12.960927+00:00",
-    "retry_after": "2026-11-13T23:10:12.960929+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T00:10:35.566027+00:00",
+    "retry_after": "2026-11-17T00:10:35.566031+00:00",
     "search_hydrated": true
   },
   {
@@ -95134,6 +95134,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-13T23:10:40.132142+00:00",
     "retry_after": "2026-11-14T23:10:40.132145+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Iris: A Novel for Viewers",
+    "publisher": "Fantagraphics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T00:10:47.096029+00:00",
+    "retry_after": "2026-11-15T00:10:47.096054+00:00",
     "search_hydrated": true
   }
 ]

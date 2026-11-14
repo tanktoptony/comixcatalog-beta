@@ -68,7 +68,8 @@ PROGRAM = [
     ("cam", "cam2-dkr"),
     ("vo", "A", 67.7, 99.9),
     ("section", "03"),
-    ("vo", "A", 101.2, 219.9),
+    ("vo", "A", 101.2, 124.6),      # through "...movie book from 1992."
+    ("vo", "A", 126.1, 219.9, 126.1),  # second "It had all this" (first one broke off) onward
     ("section", "04"),
     ("cam", "cam3-azrael"),
     ("vo", "A", 227.0, 281.0),      # through "Bane breaks his back."
@@ -80,8 +81,10 @@ PROGRAM = [
     ("section", "06"),
     ("vo", "B", 8.0, 28.1),         # through "I love it." (skips the "Part 6" slate)
     ("cam", "cam5-absolute"),
-    ("vo", "B", 28.1, 148.0),       # "Riddler..." through "He didn't just throw everything out."
-    ("vo", "B", 153.0, 186.0),      # clean retake of "He took familiar relationships..." to the end
+    ("vo", "B", 28.1, 133.0),       # "Riddler..." through "...Jonathan Hickman's X-Men."
+    ("vo", "B", 136.8, 148.0, 136.8),  # "With House and Powers" (take 1 said "Powers of Ten") through "throw everything out."
+    ("vo", "B", 156.5, 166.5, 156.5),  # third "He took familiar relationships" (1: "lore around", 2: broke off) through "as a reader."
+    ("vo", "B", 176.1, 186.0, 176.1),  # third "When a writer rewards you" (1 broke off, 2 redone) to the end
     ("section", "07"),
     ("vo", "C", 0.5, 27.0),
     ("vo", "C", 33.0, 44.6),        # second take of "has a lot more to him"
@@ -89,6 +92,41 @@ PROGRAM = [
     ("vo", "C", 45.3, 61.0),        # the ComixCatalog mention
     ("cam", "cam6b-signoff"),
 ]
+
+# Whisper folds a quick retake into the take before it (one "word" spanning
+# both), so these windows of the source word lists are replaced with timings
+# re-probed on short snippets (medium.en, no previous-text conditioning).
+WORD_FIXES = {
+    "A": [(124.6, 128.3, "It@124.80-124.84 had@124.84-125.02 all@125.02-125.48 this,@125.48-125.66 it@126.22-126.40 "
+                         "had@126.40-126.56 all@126.56-126.76 this@126.76-127.00 behind@127.00-127.28 the@127.28-127.44 "
+                         "scenes@127.46-127.72 material,@127.72-128.26")],
+    "B": [(132.4, 141.2, "With@133.38-133.50 House@133.50-133.70 of@133.70-133.82 X@133.82-134.04 and@134.04-134.20 "
+                         "Powers@134.20-134.50 of@134.50-134.66 Ten,@134.66-134.98 With@136.92-137.70 House@137.70-138.00 "
+                         "and@138.00-138.24 Powers,@138.24-138.72 Hickman@139.12-139.34 clearly@139.34-139.68 knew@139.68-139.90 "
+                         "the@139.90-140.06 history@140.06-140.34 of@140.34-140.50 these@140.50-140.68 characters,@140.68-141.12"),
+          (153.0, 163.1, "He@153.50-153.64 took@153.64-153.94 familiar@153.94-154.90 relationships,@154.90-155.66 "
+                         "He@156.62-156.68 took@156.68-157.06 familiar@157.06-157.64 relationships,@157.64-158.40 "
+                         "concepts,@159.06-159.56 and@160.02-160.12 bits@160.12-160.34 of@160.34-160.58 lore,@160.58-160.84 "
+                         "and@161.21-161.52 found@161.52-161.78 new@161.78-162.04 ways@162.04-162.28 to@162.28-162.56 "
+                         "use@162.56-162.76 them.@162.76-163.04"),
+          (166.5, 180.9, "When@167.26-167.34 a@167.34-167.46 writer@167.46-167.74 rewards@167.74-168.28 you,@168.28-169.20 "
+                         "when@169.28-169.60 a@169.60-169.88 writer@169.88-170.36 rewards@170.36-171.16 you@171.16-171.48 "
+                         "for@171.48-171.68 paying@171.68-171.90 attention@171.90-172.36 over@172.36-172.58 the@172.58-172.74 "
+                         "years,@172.74-173.08 And@175.14-175.34 when@176.26-176.34 a@176.34-176.54 writer@176.54-176.88 "
+                         "rewards@176.88-177.32 you@177.32-177.52 for@177.52-177.70 paying@177.70-177.90 attention@177.90-178.32 "
+                         "over@178.32-178.58 the@178.58-178.74 years,@178.74-179.10 and@180.62-180.85 I@180.86-180.94")],
+}
+
+
+def fix_words(words, fixes):
+    for a, b, spec in fixes:
+        new = []
+        for tok in spec.split():
+            w, ts = tok.rsplit("@", 1)
+            s0, s1 = ts.split("-")
+            new.append({"w": w, "s": float(s0), "e": float(s1)})
+        words = [w for w in words if not a <= w["s"] < b] + new
+    return sorted(words, key=lambda w: w["s"])
 
 
 def decode_mono(path):
@@ -204,7 +242,7 @@ def vo_range(audio, words, a, b, floor=0.0):
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     vo_audio = {k: level(decode_mono(RAW / f)) for k, f in VO_FILES.items() if (RAW / f).exists()}
-    vo_words = {k: load_words(VO_WORDS / f"{slug(f)}.words.js") for k, f in VO_FILES.items() if k in vo_audio}
+    vo_words = {k: fix_words(load_words(VO_WORDS / f"{slug(f)}.words.js"), WORD_FIXES.get(k, [])) for k, f in VO_FILES.items() if k in vo_audio}
 
     t = START
     pieces, words, plan_pieces, sections, cams = [], [], [], [], []
@@ -243,7 +281,9 @@ def main():
         t += len(x) / SR
         prev = src
 
-    end_card = round(t + 1.0, 3)
+    # The sign-off clip already ends ~0.45 s after "Thanks for watching"; holding
+    # past it would freeze its last frame, so the end card cuts in right there.
+    end_card = round(t + (0.0 if prev == "cam" else 1.0), 3)
     duration = round(end_card + END_CARD, 3)
     prog = np.zeros(int(duration * SR) + SR, np.float32)
     for at, x in pieces:

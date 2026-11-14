@@ -257,7 +257,7 @@ const CUES = [
   ["It was more that I had decades", grid([C.dkr1, C.b492, C.b497, C.b500, C.soa1, C.n1])],
   ["It's a rare and beautiful thing", p(A.villains)],
   ["It reminds me a little of what I love about Jonathan Hickman's", cap(C.hox, "House of X #1", "2019 · Jonathan Hickman")],
-  ["With House of X and Powers of X", pair(C.hox, "House of X #1", C.pox, "Powers of X #1")],
+  ["With House and Powers", pair(C.hox, "House of X #1", C.pox, "Powers of X #1")],
   ["Hickman clearly knew the history", cover(C.pox)],
   ["He didn't just throw everything out", pull(C.hox)],
   ["He took familiar relationships", pair(C.hox, "2019", C.a1, "2024")],

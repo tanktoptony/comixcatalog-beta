@@ -6621,9 +6621,9 @@
         "start_year": 1990
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-13T02:11:37.327170+00:00",
-    "retry_after": "2026-11-14T02:11:37.327186+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T07:09:59.093541+00:00",
+    "retry_after": "2026-11-17T07:09:59.093559+00:00",
     "search_hydrated": true
   },
   {
@@ -27482,8 +27482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T06:02:03.578735+00:00",
-    "retry_after": "2026-11-15T06:02:03.578738+00:00",
+    "last_attempt_at": "2026-11-14T07:01:37.673130+00:00",
+    "retry_after": "2026-11-15T07:01:37.673132+00:00",
     "search_hydrated": true
   },
   {
@@ -43507,8 +43507,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T06:02:03.578587+00:00",
-    "retry_after": "2026-11-15T06:02:03.578604+00:00",
+    "last_attempt_at": "2026-11-14T07:01:37.673008+00:00",
+    "retry_after": "2026-11-15T07:01:37.673026+00:00",
     "search_hydrated": true
   },
   {
@@ -51363,8 +51363,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T06:02:03.578702+00:00",
-    "retry_after": "2026-11-15T06:02:03.578706+00:00",
+    "last_attempt_at": "2026-11-14T07:01:37.673112+00:00",
+    "retry_after": "2026-11-15T07:01:37.673114+00:00",
     "search_hydrated": true
   },
   {
@@ -94228,9 +94228,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-13T02:35:02.503433+00:00",
-    "retry_after": "2026-11-14T02:35:02.503449+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T07:09:59.093582+00:00",
+    "retry_after": "2026-11-17T07:09:59.093585+00:00",
     "search_hydrated": true
   },
   {
@@ -94239,9 +94239,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-13T02:35:02.503469+00:00",
-    "retry_after": "2026-11-14T02:35:02.503474+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T07:09:59.093593+00:00",
+    "retry_after": "2026-11-17T07:09:59.093594+00:00",
     "search_hydrated": true
   },
   {
@@ -94274,9 +94274,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-13T03:10:39.665650+00:00",
-    "retry_after": "2026-11-14T03:10:39.665667+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T07:09:59.093618+00:00",
+    "retry_after": "2026-11-17T07:09:59.093619+00:00",
     "search_hydrated": true
   },
   {
@@ -95257,6 +95257,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-14T06:11:22.296812+00:00",
     "retry_after": "2026-11-15T06:11:22.296816+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Green Hornet: Generations",
+    "publisher": "Dynamite Entertainment",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T07:10:11.463932+00:00",
+    "retry_after": "2026-11-15T07:10:11.463951+00:00",
     "search_hydrated": true
   }
 ]

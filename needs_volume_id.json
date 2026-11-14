@@ -27468,8 +27468,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T22:01:40.704812+00:00",
-    "retry_after": "2026-11-15T22:01:40.704813+00:00",
+    "last_attempt_at": "2026-11-14T23:01:40.647829+00:00",
+    "retry_after": "2026-11-15T23:01:40.647831+00:00",
     "search_hydrated": true
   },
   {
@@ -43475,8 +43475,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T22:01:40.704751+00:00",
-    "retry_after": "2026-11-15T22:01:40.704768+00:00",
+    "last_attempt_at": "2026-11-14T23:01:40.647772+00:00",
+    "retry_after": "2026-11-15T23:01:40.647790+00:00",
     "search_hydrated": true
   },
   {
@@ -51331,8 +51331,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T22:01:40.704791+00:00",
-    "retry_after": "2026-11-15T22:01:40.704792+00:00",
+    "last_attempt_at": "2026-11-14T23:01:40.647810+00:00",
+    "retry_after": "2026-11-15T23:01:40.647812+00:00",
     "search_hydrated": true
   },
   {
@@ -93342,9 +93342,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-11T22:10:34.512927+00:00",
-    "retry_after": "2026-11-14T22:10:34.512932+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-14T23:05:32.758230+00:00",
+    "retry_after": "2026-11-21T23:05:32.758246+00:00",
     "search_hydrated": true
   },
   {
@@ -95397,6 +95397,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-14T22:06:01.111229+00:00",
     "retry_after": "2026-11-15T22:06:01.111231+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Crusher Loves Bleeder Bleeder Loves Crusher",
+    "publisher": "Fantagraphics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T23:05:52.469305+00:00",
+    "retry_after": "2026-11-15T23:05:52.469323+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Ren & Stimpy Show: Seeck Leetle Monkeys",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T23:05:52.469339+00:00",
+    "retry_after": "2026-11-15T23:05:52.469341+00:00",
     "search_hydrated": true
   }
 ]

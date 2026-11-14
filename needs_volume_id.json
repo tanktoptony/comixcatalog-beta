@@ -27468,8 +27468,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T21:01:52.038658+00:00",
-    "retry_after": "2026-11-15T21:01:52.038659+00:00",
+    "last_attempt_at": "2026-11-14T22:01:40.704812+00:00",
+    "retry_after": "2026-11-15T22:01:40.704813+00:00",
     "search_hydrated": true
   },
   {
@@ -43475,8 +43475,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T21:01:52.038592+00:00",
-    "retry_after": "2026-11-15T21:01:52.038611+00:00",
+    "last_attempt_at": "2026-11-14T22:01:40.704751+00:00",
+    "retry_after": "2026-11-15T22:01:40.704768+00:00",
     "search_hydrated": true
   },
   {
@@ -51331,8 +51331,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T21:01:52.038635+00:00",
-    "retry_after": "2026-11-15T21:01:52.038638+00:00",
+    "last_attempt_at": "2026-11-14T22:01:40.704791+00:00",
+    "retry_after": "2026-11-15T22:01:40.704792+00:00",
     "search_hydrated": true
   },
   {
@@ -95307,6 +95307,96 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-14T21:05:42.974755+00:00",
     "retry_after": "2026-11-15T21:05:42.974757+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman '66 Meets the Man from U.N.C.L.E.",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 93904,
+        "name": "Batman '66 Meets the Man From U.N.C.L.E.",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T22:05:43.143689+00:00",
+    "retry_after": "2026-11-15T22:05:43.143706+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman / Teenage Mutant Ninja Turtles",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 93180,
+        "name": "Batman/Teenage Mutant Ninja Turtles",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T22:05:43.413527+00:00",
+    "retry_after": "2026-11-15T22:05:43.413549+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Super Adventure Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79594,
+        "name": "Marvel Super Adventure Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T22:06:01.111149+00:00",
+    "retry_after": "2026-11-15T22:06:01.111186+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cynthia Petal's Really Fantastic Alien Sex Frenzy!",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51946,
+        "name": "Cynthia Petal's Really Fantastic Alien Sex Frenzy!",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T22:06:01.111212+00:00",
+    "retry_after": "2026-11-15T22:06:01.111214+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Toy Story: Tales from the Toy Chest",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36143,
+        "name": "Toy Story: Tales From the Toy Chest",
+        "publisher": "Boom! Studios",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T22:06:01.111229+00:00",
+    "retry_after": "2026-11-15T22:06:01.111231+00:00",
     "search_hydrated": true
   }
 ]

@@ -21632,11 +21632,19 @@
     "name": "X-Men Reloaded by Chris Claremont",
     "publisher": "Marvel Comics",
     "year": 2018,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-24T14:08:24.528641+00:00",
-    "retry_after": "2026-09-27T14:08:24.528660+00:00"
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 130420,
+        "name": "X-Men: Reloaded",
+        "publisher": "Marvel",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 3,
+    "last_attempt_at": "2026-11-14T04:11:02.223919+00:00",
+    "retry_after": "2026-11-21T04:11:02.223934+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Marvel's Greatest Creators: Hulk - The Wedding of Rick Jones",
@@ -27474,8 +27482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T03:02:10.698421+00:00",
-    "retry_after": "2026-11-15T03:02:10.698424+00:00",
+    "last_attempt_at": "2026-11-14T04:02:05.575017+00:00",
+    "retry_after": "2026-11-15T04:02:05.575020+00:00",
     "search_hydrated": true
   },
   {
@@ -43499,8 +43507,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T03:02:10.698293+00:00",
-    "retry_after": "2026-11-15T03:02:10.698304+00:00",
+    "last_attempt_at": "2026-11-14T04:02:05.574879+00:00",
+    "retry_after": "2026-11-15T04:02:05.574891+00:00",
     "search_hydrated": true
   },
   {
@@ -51355,8 +51363,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T03:02:10.698390+00:00",
-    "retry_after": "2026-11-15T03:02:10.698394+00:00",
+    "last_attempt_at": "2026-11-14T04:02:05.574985+00:00",
+    "retry_after": "2026-11-15T04:02:05.574989+00:00",
     "search_hydrated": true
   },
   {
@@ -88109,9 +88117,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-07T03:11:15.484928+00:00",
-    "retry_after": "2026-11-14T03:11:15.484930+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-14T04:10:54.887104+00:00",
+    "retry_after": "2026-11-28T04:10:54.887120+00:00",
     "search_hydrated": true
   },
   {
@@ -90401,9 +90409,9 @@
         "start_year": 2001
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-11T01:10:54.690574+00:00",
-    "retry_after": "2026-11-14T01:10:54.690576+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-14T04:10:58.691426+00:00",
+    "retry_after": "2026-11-21T04:10:58.691431+00:00",
     "search_hydrated": true
   },
   {
@@ -90474,9 +90482,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-11T01:10:54.841281+00:00",
-    "retry_after": "2026-11-14T01:10:54.841296+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-14T04:10:58.803634+00:00",
+    "retry_after": "2026-11-21T04:10:58.803644+00:00",
     "search_hydrated": true
   },
   {
@@ -90551,9 +90559,9 @@
         "start_year": 2000
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-11T01:10:59.997026+00:00",
-    "retry_after": "2026-11-14T01:10:59.997042+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-14T04:10:58.803747+00:00",
+    "retry_after": "2026-11-21T04:10:58.803750+00:00",
     "search_hydrated": true
   },
   {
@@ -90569,9 +90577,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-11T01:10:59.997063+00:00",
-    "retry_after": "2026-11-14T01:10:59.997066+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-14T04:10:58.803772+00:00",
+    "retry_after": "2026-11-21T04:10:58.803774+00:00",
     "search_hydrated": true
   },
   {
@@ -90587,9 +90595,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-11T01:11:00.187532+00:00",
-    "retry_after": "2026-11-14T01:11:00.187547+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-14T04:10:58.946837+00:00",
+    "retry_after": "2026-11-21T04:10:58.946851+00:00",
     "search_hydrated": true
   },
   {
@@ -93213,9 +93221,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-11T02:11:16.588638+00:00",
-    "retry_after": "2026-11-14T02:11:16.588655+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-14T04:10:54.887304+00:00",
+    "retry_after": "2026-11-21T04:10:54.887310+00:00",
     "search_hydrated": true
   },
   {
@@ -94288,9 +94296,9 @@
     "year": 2007,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-13T04:10:48.943912+00:00",
-    "retry_after": "2026-11-14T04:10:48.943925+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-14T04:11:13.335907+00:00",
+    "retry_after": "2026-11-17T04:11:13.335923+00:00",
     "search_hydrated": true
   },
   {
@@ -95198,6 +95206,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-14T03:11:18.563134+00:00",
     "retry_after": "2026-11-15T03:11:18.563137+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Trailer Park Boys: House of 1000 Conkys",
+    "publisher": "Devil's Due",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T04:11:13.335948+00:00",
+    "retry_after": "2026-11-15T04:11:13.335953+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Grimm Fairy Tales: Volume 1 & 2 Hardcover",
+    "publisher": "Zenescope Entertainment",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-14T04:11:14.663856+00:00",
+    "retry_after": "2026-11-15T04:11:14.663871+00:00",
     "search_hydrated": true
   }
 ]

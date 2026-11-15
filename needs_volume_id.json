@@ -27476,8 +27476,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T12:38:36.772106+00:00",
-    "retry_after": "2026-11-16T12:38:36.772109+00:00",
+    "last_attempt_at": "2026-11-15T13:01:44.016237+00:00",
+    "retry_after": "2026-11-16T13:01:44.016239+00:00",
     "search_hydrated": true
   },
   {
@@ -35413,9 +35413,10 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-03T01:02:12.601299+00:00",
-    "retry_after": "2026-10-06T01:02:12.601314+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-15T13:05:35.671194+00:00",
+    "retry_after": "2026-11-22T13:05:35.671197+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Conan: The Barbarian FCBD 2023",
@@ -43485,8 +43486,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T12:38:36.772031+00:00",
-    "retry_after": "2026-11-16T12:38:36.772044+00:00",
+    "last_attempt_at": "2026-11-15T13:01:44.016171+00:00",
+    "retry_after": "2026-11-16T13:01:44.016188+00:00",
     "search_hydrated": true
   },
   {
@@ -51343,8 +51344,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T12:38:36.772073+00:00",
-    "retry_after": "2026-11-16T12:38:36.772076+00:00",
+    "last_attempt_at": "2026-11-15T13:01:44.016212+00:00",
+    "retry_after": "2026-11-16T13:01:44.016215+00:00",
     "search_hydrated": true
   },
   {
@@ -96139,6 +96140,59 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-15T12:42:37.842387+00:00",
     "retry_after": "2026-11-16T12:42:37.842401+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Justice League: Gods and Monsters",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 83202,
+        "name": "Justice League: Gods and Monsters",
+        "publisher": "DC Comics",
+        "start_year": 2015
+      },
+      {
+        "id": 83860,
+        "name": "Justice League: Gods and Monsters",
+        "publisher": "DC Comics",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T13:05:35.671148+00:00",
+    "retry_after": "2026-11-16T13:05:35.671164+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Jessica Jones",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 94643,
+        "name": "Jessica Jones",
+        "publisher": "Marvel",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T13:05:46.010238+00:00",
+    "retry_after": "2026-11-16T13:05:46.010254+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Legacy: The 1990s Handbook",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T13:06:35.232394+00:00",
+    "retry_after": "2026-11-16T13:06:35.232428+00:00",
     "search_hydrated": true
   }
 ]

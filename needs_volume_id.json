@@ -27473,8 +27473,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T01:01:59.682923+00:00",
-    "retry_after": "2026-11-16T01:01:59.682926+00:00",
+    "last_attempt_at": "2026-11-15T02:01:39.865024+00:00",
+    "retry_after": "2026-11-16T02:01:39.865026+00:00",
     "search_hydrated": true
   },
   {
@@ -43481,8 +43481,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T01:01:59.682834+00:00",
-    "retry_after": "2026-11-16T01:01:59.682850+00:00",
+    "last_attempt_at": "2026-11-15T02:01:39.864976+00:00",
+    "retry_after": "2026-11-16T02:01:39.864986+00:00",
     "search_hydrated": true
   },
   {
@@ -43501,9 +43501,10 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-09T17:02:09.439500+00:00",
-    "retry_after": "2026-10-12T17:02:09.439517+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-15T02:05:40.630376+00:00",
+    "retry_after": "2026-11-22T02:05:40.630378+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Doktor Strange",
@@ -51337,8 +51338,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T01:01:59.682889+00:00",
-    "retry_after": "2026-11-16T01:01:59.682893+00:00",
+    "last_attempt_at": "2026-11-15T02:01:39.865006+00:00",
+    "retry_after": "2026-11-16T02:01:39.865007+00:00",
     "search_hydrated": true
   },
   {
@@ -94532,9 +94533,9 @@
         "start_year": 2003
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-14T01:10:24.817291+00:00",
-    "retry_after": "2026-11-15T01:10:24.817310+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-15T02:05:40.630306+00:00",
+    "retry_after": "2026-11-18T02:05:40.630317+00:00",
     "search_hydrated": true
   },
   {
@@ -95579,6 +95580,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-15T01:05:52.042372+00:00",
     "retry_after": "2026-11-16T01:05:52.042377+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Doctor Strange the Sorcerer's Apprentice",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T02:05:40.630339+00:00",
+    "retry_after": "2026-11-16T02:05:40.630341+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Silver Age Classics Showcase 22",
+    "publisher": "DC Comics",
+    "year": 1992,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T02:05:58.747273+00:00",
+    "retry_after": "2026-11-16T02:05:58.747283+00:00",
     "search_hydrated": true
   }
 ]

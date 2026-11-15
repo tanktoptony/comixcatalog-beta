@@ -6559,10 +6559,12 @@
     "name": "Marvel Universe Live! Age of Heroes-Prequel",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555259+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-15T14:05:42.261096+00:00",
+    "retry_after": "2026-11-18T14:05:42.261097+00:00",
+    "search_hydrated": true
   },
   {
     "name": "True Believers: Star Wars - Death Probe",
@@ -27184,9 +27186,10 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T05:07:45.934773+00:00",
-    "retry_after": "2026-10-01T05:07:45.934789+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-15T14:05:42.261075+00:00",
+    "retry_after": "2026-11-22T14:05:42.261077+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Elvira Mistress of the Dark: The Classic Years Omnibus",
@@ -27476,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T13:01:44.016237+00:00",
-    "retry_after": "2026-11-16T13:01:44.016239+00:00",
+    "last_attempt_at": "2026-11-15T14:01:45.923528+00:00",
+    "retry_after": "2026-11-16T14:01:45.923530+00:00",
     "search_hydrated": true
   },
   {
@@ -27902,9 +27905,10 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-27T19:02:39.156282+00:00",
-    "retry_after": "2026-09-30T19:02:39.156301+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-15T14:05:42.261086+00:00",
+    "retry_after": "2026-11-22T14:05:42.261087+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Marvel's Avengers: Infinity War Prelude",
@@ -43486,8 +43490,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T13:01:44.016171+00:00",
-    "retry_after": "2026-11-16T13:01:44.016188+00:00",
+    "last_attempt_at": "2026-11-15T14:01:45.923466+00:00",
+    "retry_after": "2026-11-16T14:01:45.923485+00:00",
     "search_hydrated": true
   },
   {
@@ -51344,8 +51348,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T13:01:44.016212+00:00",
-    "retry_after": "2026-11-16T13:01:44.016215+00:00",
+    "last_attempt_at": "2026-11-15T14:01:45.923508+00:00",
+    "retry_after": "2026-11-16T14:01:45.923510+00:00",
     "search_hydrated": true
   },
   {
@@ -96193,6 +96197,46 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-15T13:06:35.232394+00:00",
     "retry_after": "2026-11-16T13:06:35.232428+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Lego Ninjago",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 84978,
+        "name": "LEGO Ninjago",
+        "publisher": "Little, Brown & Co.",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T14:05:42.261025+00:00",
+    "retry_after": "2026-11-16T14:05:42.261043+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Luther Strode: The Complete Collection",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T14:05:42.261060+00:00",
+    "retry_after": "2026-11-16T14:05:42.261062+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel's Guardians of the Galaxy Vol. 2 Prelude",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T14:05:42.261105+00:00",
+    "retry_after": "2026-11-16T14:05:42.261106+00:00",
     "search_hydrated": true
   }
 ]

@@ -27479,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T16:02:35.077801+00:00",
-    "retry_after": "2026-11-16T16:02:35.077803+00:00",
+    "last_attempt_at": "2026-11-15T17:01:53.704090+00:00",
+    "retry_after": "2026-11-16T17:01:53.704094+00:00",
     "search_hydrated": true
   },
   {
@@ -43490,8 +43490,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T16:02:35.077768+00:00",
-    "retry_after": "2026-11-16T16:02:35.077770+00:00",
+    "last_attempt_at": "2026-11-15T17:01:53.704010+00:00",
+    "retry_after": "2026-11-16T17:01:53.704025+00:00",
     "search_hydrated": true
   },
   {
@@ -51348,8 +51348,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T16:02:35.077784+00:00",
-    "retry_after": "2026-11-16T16:02:35.077785+00:00",
+    "last_attempt_at": "2026-11-15T17:01:53.704055+00:00",
+    "retry_after": "2026-11-16T17:01:53.704059+00:00",
     "search_hydrated": true
   },
   {
@@ -95679,6 +95679,114 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-15T16:06:48.415276+00:00",
     "retry_after": "2026-11-16T16:06:48.415279+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Links",
+    "publisher": "VIZ Media",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148145,
+        "name": "Links",
+        "publisher": "Milky Way Ediciones",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T17:05:54.682394+00:00",
+    "retry_after": "2026-11-16T17:05:54.682410+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62660,
+        "name": "Big Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T17:05:54.682448+00:00",
+    "retry_after": "2026-11-16T17:05:54.682453+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Superheroes and the Occult Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79640,
+        "name": "Marvel Superheroes and the Occult Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T17:05:54.682581+00:00",
+    "retry_after": "2026-11-16T17:05:54.682586+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I'm Still Alive",
+    "publisher": "BOOM! Studios",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 147126,
+        "name": "I'm Still Alive",
+        "publisher": "Archaia",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T17:05:54.682609+00:00",
+    "retry_after": "2026-11-16T17:05:54.682612+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mad Classics",
+    "publisher": "EC Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18767,
+        "name": "Mad Classics",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T17:06:02.672330+00:00",
+    "retry_after": "2026-11-16T17:06:02.672345+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Anti-Crime Squad",
+    "publisher": "Marvel Comics",
+    "year": 1952,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52652,
+        "name": "Anti Crime Squad",
+        "publisher": "Magazine Management",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T17:06:02.672377+00:00",
+    "retry_after": "2026-11-16T17:06:02.672382+00:00",
     "search_hydrated": true
   }
 ]

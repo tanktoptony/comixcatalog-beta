@@ -27479,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T19:16:20.016246+00:00",
-    "retry_after": "2026-11-16T19:16:20.016247+00:00",
+    "last_attempt_at": "2026-11-15T20:01:34.481415+00:00",
+    "retry_after": "2026-11-16T20:01:34.481416+00:00",
     "search_hydrated": true
   },
   {
@@ -43490,8 +43490,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T19:16:20.016192+00:00",
-    "retry_after": "2026-11-16T19:16:20.016204+00:00",
+    "last_attempt_at": "2026-11-15T20:01:34.481355+00:00",
+    "retry_after": "2026-11-16T20:01:34.481373+00:00",
     "search_hydrated": true
   },
   {
@@ -51348,8 +51348,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T19:16:20.016225+00:00",
-    "retry_after": "2026-11-16T19:16:20.016227+00:00",
+    "last_attempt_at": "2026-11-15T20:01:34.481395+00:00",
+    "retry_after": "2026-11-16T20:01:34.481397+00:00",
     "search_hydrated": true
   },
   {
@@ -93502,9 +93502,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-12T19:06:39.983555+00:00",
-    "retry_after": "2026-11-15T19:06:39.983574+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-15T20:05:58.603146+00:00",
+    "retry_after": "2026-11-22T20:05:58.603163+00:00",
     "search_hydrated": true
   },
   {
@@ -96033,6 +96033,96 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-15T19:20:27.597822+00:00",
     "retry_after": "2026-11-16T19:20:27.597833+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mosaic",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 94811,
+        "name": "Mosaic",
+        "publisher": "Marvel",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T20:06:25.816981+00:00",
+    "retry_after": "2026-11-16T20:06:25.816999+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Faceless: A Terry Sharp Story",
+    "publisher": "Image Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 59298,
+        "name": "The Faceless: A Terry Sharp Story",
+        "publisher": "Monsterverse",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T20:06:39.478933+00:00",
+    "retry_after": "2026-11-16T20:06:39.478950+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Sky Doll: Spaceship Collection",
+    "publisher": "Titan Comics",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 155513,
+        "name": "Sky Doll: Spaceship Collection",
+        "publisher": "Norma Editorial",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T20:06:39.478971+00:00",
+    "retry_after": "2026-11-16T20:06:39.478973+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: The Death of Clark Kent",
+    "publisher": "Titan Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 31905,
+        "name": "Superman: The Death of Clark Kent",
+        "publisher": "DC Comics",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T20:06:39.478987+00:00",
+    "retry_after": "2026-11-16T20:06:39.478988+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Phil Corrigan Secret Agent X9",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161990,
+        "name": "Phil Corrigan Secret Agent X9 ",
+        "publisher": "Atlas Publications Pty. Ltd.",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T20:06:52.606059+00:00",
+    "retry_after": "2026-11-16T20:06:52.606077+00:00",
     "search_hydrated": true
   }
 ]

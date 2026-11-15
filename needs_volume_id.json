@@ -27473,8 +27473,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T03:01:48.506931+00:00",
-    "retry_after": "2026-11-16T03:01:48.506933+00:00",
+    "last_attempt_at": "2026-11-15T04:01:52.528871+00:00",
+    "retry_after": "2026-11-16T04:01:52.528873+00:00",
     "search_hydrated": true
   },
   {
@@ -43481,8 +43481,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T03:01:48.506864+00:00",
-    "retry_after": "2026-11-16T03:01:48.506880+00:00",
+    "last_attempt_at": "2026-11-15T04:01:52.528812+00:00",
+    "retry_after": "2026-11-16T04:01:52.528829+00:00",
     "search_hydrated": true
   },
   {
@@ -51338,8 +51338,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T03:01:48.506905+00:00",
-    "retry_after": "2026-11-16T03:01:48.506908+00:00",
+    "last_attempt_at": "2026-11-15T04:01:52.528852+00:00",
+    "retry_after": "2026-11-16T04:01:52.528853+00:00",
     "search_hydrated": true
   },
   {
@@ -93368,9 +93368,9 @@
         "start_year": 1983
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-12T03:11:00.050239+00:00",
-    "retry_after": "2026-11-15T03:11:00.050243+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-15T04:05:39.539449+00:00",
+    "retry_after": "2026-11-22T04:05:39.539451+00:00",
     "search_hydrated": true
   },
   {
@@ -95648,6 +95648,112 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-15T03:05:47.054796+00:00",
     "retry_after": "2026-11-16T03:05:47.054799+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "G.I. Joe",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 9112,
+        "name": "G.I. Joe",
+        "publisher": "Image",
+        "start_year": 2001
+      },
+      {
+        "id": 161047,
+        "name": "G.I. Joe",
+        "publisher": "Image",
+        "start_year": 2024
+      },
+      {
+        "id": 164855,
+        "name": "G.I. Joe",
+        "publisher": "Image",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T04:05:36.239412+00:00",
+    "retry_after": "2026-11-16T04:05:36.239430+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ghost Rider by Daniel Way: The Complete Collection",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T04:05:36.239450+00:00",
+    "retry_after": "2026-11-16T04:05:36.239452+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Doctor Strange and the Sorcerers Supreme",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 95211,
+        "name": "Doctor Strange and the Sorcerers Supreme",
+        "publisher": "Marvel",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T04:05:46.081205+00:00",
+    "retry_after": "2026-11-16T04:05:46.081219+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Doom Patrol",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 94114,
+        "name": "Doom Patrol",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T04:05:53.417864+00:00",
+    "retry_after": "2026-11-16T04:05:53.417877+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Everafter From the Pages of Fables",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 93919,
+        "name": "Everafter: From the Pages of Fables",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T04:05:53.531239+00:00",
+    "retry_after": "2026-11-16T04:05:53.531248+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Futurama-O-Rama",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T04:06:03.829424+00:00",
+    "retry_after": "2026-11-16T04:06:03.829440+00:00",
     "search_hydrated": true
   }
 ]

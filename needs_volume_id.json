@@ -27479,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T22:01:52.311896+00:00",
-    "retry_after": "2026-11-16T22:01:52.311898+00:00",
+    "last_attempt_at": "2026-11-15T23:01:43.300498+00:00",
+    "retry_after": "2026-11-16T23:01:43.300499+00:00",
     "search_hydrated": true
   },
   {
@@ -43490,8 +43490,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T22:01:52.311824+00:00",
-    "retry_after": "2026-11-16T22:01:52.311840+00:00",
+    "last_attempt_at": "2026-11-15T23:01:43.300432+00:00",
+    "retry_after": "2026-11-16T23:01:43.300451+00:00",
     "search_hydrated": true
   },
   {
@@ -51348,8 +51348,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T22:01:52.311871+00:00",
-    "retry_after": "2026-11-16T22:01:52.311873+00:00",
+    "last_attempt_at": "2026-11-15T23:01:43.300474+00:00",
+    "retry_after": "2026-11-16T23:01:43.300476+00:00",
     "search_hydrated": true
   },
   {
@@ -57070,9 +57070,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-01T22:10:30.050442+00:00",
-    "retry_after": "2026-11-15T22:10:30.050460+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-15T23:06:02.239804+00:00",
+    "retry_after": "2026-12-15T23:06:02.239821+00:00",
     "search_hydrated": true
   },
   {
@@ -89293,9 +89293,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-08T22:10:36.902005+00:00",
-    "retry_after": "2026-11-15T22:10:36.902023+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-15T23:06:02.239980+00:00",
+    "retry_after": "2026-11-29T23:06:02.239984+00:00",
     "search_hydrated": true
   },
   {
@@ -89315,9 +89315,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-08T22:10:36.902042+00:00",
-    "retry_after": "2026-11-15T22:10:36.902044+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-15T23:06:02.239995+00:00",
+    "retry_after": "2026-11-29T23:06:02.239997+00:00",
     "search_hydrated": true
   },
   {
@@ -90302,9 +90302,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-08T21:54:04.082843+00:00",
-    "retry_after": "2026-11-15T21:54:04.082854+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-15T23:06:04.047879+00:00",
+    "retry_after": "2026-11-29T23:06:04.047897+00:00",
     "search_hydrated": true
   },
   {
@@ -91201,9 +91201,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-08T21:54:03.948343+00:00",
-    "retry_after": "2026-11-15T21:54:03.948352+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-15T23:06:03.987471+00:00",
+    "retry_after": "2026-11-29T23:06:03.987490+00:00",
     "search_hydrated": true
   },
   {
@@ -91318,9 +91318,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-08T21:54:03.948741+00:00",
-    "retry_after": "2026-11-15T21:54:03.948745+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-15T23:06:03.987849+00:00",
+    "retry_after": "2026-11-29T23:06:03.987851+00:00",
     "search_hydrated": true
   },
   {
@@ -93583,9 +93583,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-12T22:10:59.494098+00:00",
-    "retry_after": "2026-11-15T22:10:59.494103+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-15T23:06:04.104892+00:00",
+    "retry_after": "2026-11-22T23:06:04.104894+00:00",
     "search_hydrated": true
   },
   {
@@ -94725,9 +94725,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-14T15:08:33.934736+00:00",
-    "retry_after": "2026-11-15T15:08:33.934754+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-15T23:06:13.595680+00:00",
+    "retry_after": "2026-11-18T23:06:13.595699+00:00",
     "search_hydrated": true
   },
   {
@@ -96212,6 +96212,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-15T21:06:10.615693+00:00",
     "retry_after": "2026-11-16T21:06:10.615696+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Blackbird",
+    "publisher": "Image Comics",
+    "year": 2019,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 114048,
+        "name": "Blackbird",
+        "publisher": "Image",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T23:06:04.104643+00:00",
+    "retry_after": "2026-11-16T23:06:04.104661+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Mix",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57055,
+        "name": "Marvel Mix",
+        "publisher": "Panini Comics",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T23:06:36.711571+00:00",
+    "retry_after": "2026-11-16T23:06:36.711589+00:00",
     "search_hydrated": true
   }
 ]

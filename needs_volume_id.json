@@ -27474,8 +27474,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T06:01:56.344368+00:00",
-    "retry_after": "2026-11-16T06:01:56.344369+00:00",
+    "last_attempt_at": "2026-11-15T07:01:44.994456+00:00",
+    "retry_after": "2026-11-16T07:01:44.994458+00:00",
     "search_hydrated": true
   },
   {
@@ -36922,9 +36922,10 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-02T23:01:13.493744+00:00",
-    "retry_after": "2026-10-05T23:01:13.493760+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-15T07:05:36.997873+00:00",
+    "retry_after": "2026-11-22T07:05:36.997875+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Deadkiller",
@@ -43482,8 +43483,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T06:01:56.344301+00:00",
-    "retry_after": "2026-11-16T06:01:56.344317+00:00",
+    "last_attempt_at": "2026-11-15T07:01:44.994390+00:00",
+    "retry_after": "2026-11-16T07:01:44.994406+00:00",
     "search_hydrated": true
   },
   {
@@ -50260,9 +50261,10 @@
         "start_year": 2022
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-15T04:17:47.679239+00:00",
-    "retry_after": "2026-10-18T04:17:47.679258+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T07:05:36.997815+00:00",
+    "retry_after": "2026-11-16T07:05:36.997818+00:00",
+    "search_hydrated": true
   },
   {
     "name": "You Are Too Much, Charlie Brown",
@@ -51339,8 +51341,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T06:01:56.344341+00:00",
-    "retry_after": "2026-11-16T06:01:56.344343+00:00",
+    "last_attempt_at": "2026-11-15T07:01:44.994430+00:00",
+    "retry_after": "2026-11-16T07:01:44.994432+00:00",
     "search_hydrated": true
   },
   {
@@ -94578,9 +94580,9 @@
     "year": 2001,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-14T06:11:22.296812+00:00",
-    "retry_after": "2026-11-15T06:11:22.296816+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-15T07:05:48.712210+00:00",
+    "retry_after": "2026-11-18T07:05:48.712227+00:00",
     "search_hydrated": true
   },
   {
@@ -95885,6 +95887,41 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-15T06:05:49.530901+00:00",
     "retry_after": "2026-11-16T06:05:49.530904+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Happy!",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 52401,
+        "name": "Happy!",
+        "publisher": "Image",
+        "start_year": 2012
+      },
+      {
+        "id": 60007,
+        "name": "Happy!",
+        "publisher": "Image",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T07:05:36.997764+00:00",
+    "retry_after": "2026-11-16T07:05:36.997782+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I Hate Fairyland Deluxe Edition",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T07:05:36.997858+00:00",
+    "retry_after": "2026-11-16T07:05:36.997860+00:00",
     "search_hydrated": true
   }
 ]

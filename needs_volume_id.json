@@ -27479,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T20:01:34.481415+00:00",
-    "retry_after": "2026-11-16T20:01:34.481416+00:00",
+    "last_attempt_at": "2026-11-15T21:01:57.375865+00:00",
+    "retry_after": "2026-11-16T21:01:57.375869+00:00",
     "search_hydrated": true
   },
   {
@@ -43490,8 +43490,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T20:01:34.481355+00:00",
-    "retry_after": "2026-11-16T20:01:34.481373+00:00",
+    "last_attempt_at": "2026-11-15T21:01:57.375789+00:00",
+    "retry_after": "2026-11-16T21:01:57.375801+00:00",
     "search_hydrated": true
   },
   {
@@ -51348,8 +51348,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T20:01:34.481395+00:00",
-    "retry_after": "2026-11-16T20:01:34.481397+00:00",
+    "last_attempt_at": "2026-11-15T21:01:57.375831+00:00",
+    "retry_after": "2026-11-16T21:01:57.375835+00:00",
     "search_hydrated": true
   },
   {
@@ -93511,24 +93511,30 @@
     "name": "The Strange",
     "publisher": "Marvel Comics",
     "year": 2018,
-    "reason": "publisher_mismatch",
+    "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 75976,
-        "name": "The Strange",
-        "publisher": "Top Secret Press",
-        "start_year": 2014
+        "id": 11178,
+        "name": "Strange",
+        "publisher": "Marvel",
+        "start_year": 2004
       },
       {
-        "id": 111712,
-        "name": "The Strange",
-        "publisher": "Drawn & Quarterly",
-        "start_year": 2018
+        "id": 141784,
+        "name": "Strange",
+        "publisher": "Marvel",
+        "start_year": 2022
+      },
+      {
+        "id": 29665,
+        "name": "Strange",
+        "publisher": "Marvel",
+        "start_year": 2010
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-12T21:04:42.475988+00:00",
-    "retry_after": "2026-11-15T21:04:42.475993+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-15T21:05:56.865706+00:00",
+    "retry_after": "2026-11-22T21:05:56.865719+00:00",
     "search_hydrated": true
   },
   {
@@ -93537,9 +93543,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-12T21:04:42.476012+00:00",
-    "retry_after": "2026-11-15T21:04:42.476015+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-15T21:05:56.865742+00:00",
+    "retry_after": "2026-11-22T21:05:56.865746+00:00",
     "search_hydrated": true
   },
   {
@@ -93548,9 +93554,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-12T21:04:42.476029+00:00",
-    "retry_after": "2026-11-15T21:04:42.476032+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-15T21:05:56.865762+00:00",
+    "retry_after": "2026-11-22T21:05:56.865765+00:00",
     "search_hydrated": true
   },
   {
@@ -93559,9 +93565,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-12T21:04:42.476045+00:00",
-    "retry_after": "2026-11-15T21:04:42.476048+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-15T21:05:56.865779+00:00",
+    "retry_after": "2026-11-22T21:05:56.865781+00:00",
     "search_hydrated": true
   },
   {
@@ -96123,6 +96129,89 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-15T20:06:52.606059+00:00",
     "retry_after": "2026-11-16T20:06:52.606077+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "New Mutants Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T21:05:56.865813+00:00",
+    "retry_after": "2026-11-16T21:05:56.865816+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Trio Grande: Adios Palomita",
+    "publisher": "Heavy Metal",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27096,
+        "name": "Trio Grande: Adios Palomita",
+        "publisher": "Tundra",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T21:06:10.615595+00:00",
+    "retry_after": "2026-11-16T21:06:10.615608+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Super Adventure Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79594,
+        "name": "Marvel Super Adventure Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T21:06:10.615641+00:00",
+    "retry_after": "2026-11-16T21:06:10.615645+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cynthia Petal's Really Fantastic Alien Sex Frenzy!",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51946,
+        "name": "Cynthia Petal's Really Fantastic Alien Sex Frenzy!",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T21:06:10.615669+00:00",
+    "retry_after": "2026-11-16T21:06:10.615673+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Toy Story: Tales from the Toy Chest",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36143,
+        "name": "Toy Story: Tales From the Toy Chest",
+        "publisher": "Boom! Studios",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T21:06:10.615693+00:00",
+    "retry_after": "2026-11-16T21:06:10.615696+00:00",
     "search_hydrated": true
   }
 ]

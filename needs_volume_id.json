@@ -27476,8 +27476,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T11:01:49.690383+00:00",
-    "retry_after": "2026-11-16T11:01:49.690385+00:00",
+    "last_attempt_at": "2026-11-15T12:01:46.889443+00:00",
+    "retry_after": "2026-11-16T12:01:46.889444+00:00",
     "search_hydrated": true
   },
   {
@@ -43485,8 +43485,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T11:01:49.690319+00:00",
-    "retry_after": "2026-11-16T11:01:49.690337+00:00",
+    "last_attempt_at": "2026-11-15T12:01:46.889379+00:00",
+    "retry_after": "2026-11-16T12:01:46.889397+00:00",
     "search_hydrated": true
   },
   {
@@ -51343,8 +51343,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T11:01:49.690361+00:00",
-    "retry_after": "2026-11-16T11:01:49.690363+00:00",
+    "last_attempt_at": "2026-11-15T12:01:46.889421+00:00",
+    "retry_after": "2026-11-16T12:01:46.889423+00:00",
     "search_hydrated": true
   },
   {
@@ -94634,9 +94634,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-14T11:11:43.664512+00:00",
-    "retry_after": "2026-11-15T11:11:43.664529+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-15T12:05:48.845453+00:00",
+    "retry_after": "2026-11-18T12:05:48.845470+00:00",
     "search_hydrated": true
   },
   {
@@ -96084,6 +96084,50 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-15T11:05:43.192044+00:00",
     "retry_after": "2026-11-16T11:05:43.192046+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Justice League of America: The Nail The Complete Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T12:05:48.845537+00:00",
+    "retry_after": "2026-11-16T12:05:48.845540+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Justice League vs. Suicide Squad 1 (Wal-Mart Edition)",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T12:05:48.845552+00:00",
+    "retry_after": "2026-11-16T12:05:48.845554+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Roy G. Krenkel: Father of Heroic Fantasy: A Centennial Celebration",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T12:06:02.038900+00:00",
+    "retry_after": "2026-11-16T12:06:02.038917+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Pokémon Journeys Free Comic Book Day 2022 Edition / Pokémon Adventures XY Free Comic Day 2022 Edition",
+    "publisher": "VIZ Media",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T12:06:02.038935+00:00",
+    "retry_after": "2026-11-16T12:06:02.038938+00:00",
     "search_hydrated": true
   }
 ]

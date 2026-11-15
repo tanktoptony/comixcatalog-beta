@@ -27479,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T17:01:53.704090+00:00",
-    "retry_after": "2026-11-16T17:01:53.704094+00:00",
+    "last_attempt_at": "2026-11-15T18:01:54.767414+00:00",
+    "retry_after": "2026-11-16T18:01:54.767416+00:00",
     "search_hydrated": true
   },
   {
@@ -43490,8 +43490,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T17:01:53.704010+00:00",
-    "retry_after": "2026-11-16T17:01:53.704025+00:00",
+    "last_attempt_at": "2026-11-15T18:01:54.767342+00:00",
+    "retry_after": "2026-11-16T18:01:54.767363+00:00",
     "search_hydrated": true
   },
   {
@@ -51348,8 +51348,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T17:01:53.704055+00:00",
-    "retry_after": "2026-11-16T17:01:53.704059+00:00",
+    "last_attempt_at": "2026-11-15T18:01:54.767390+00:00",
+    "retry_after": "2026-11-16T18:01:54.767392+00:00",
     "search_hydrated": true
   },
   {
@@ -68086,18 +68086,19 @@
     "name": "Marvelman Classic",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "reason": "publisher_mismatch",
+    "reason": "series_hint_year_mismatch",
     "candidates": [
       {
         "id": 35338,
         "name": "Marvelman Classic",
-        "publisher": null,
+        "publisher": "Marvel",
         "start_year": 2010
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T01:23:50.529720+00:00",
-    "retry_after": "2026-10-27T01:23:50.529739+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T18:06:00.595841+00:00",
+    "retry_after": "2026-11-16T18:06:00.595864+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Gold Digger Tangent",
@@ -91394,9 +91395,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-08T17:40:39.536932+00:00",
-    "retry_after": "2026-11-15T17:40:39.536937+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-15T18:01:40.538984+00:00",
+    "retry_after": "2026-11-29T18:01:40.538987+00:00",
     "search_hydrated": true
   },
   {
@@ -95787,6 +95788,96 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-15T17:06:02.672377+00:00",
     "retry_after": "2026-11-16T17:06:02.672382+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "???????: ???? ????????????",
+    "publisher": "BOOM! Studios",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 172641,
+        "name": "!",
+        "publisher": "Alpha Polis",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T18:06:24.836904+00:00",
+    "retry_after": "2026-11-16T18:06:24.836924+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Boo and the Midnight Monsters",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 122409,
+        "name": "Johnny Boo and the Midnight Monsters",
+        "publisher": "Top Shelf",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T18:06:24.836948+00:00",
+    "retry_after": "2026-11-16T18:06:24.836951+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Death",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40889,
+        "name": "Death",
+        "publisher": "Panini Verlag",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T18:06:24.836968+00:00",
+    "retry_after": "2026-11-16T18:06:24.836969+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "They Called Us Enemy – Expanded Edition",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129898,
+        "name": "They Called Us Enemy: Expanded Edition",
+        "publisher": "Top Shelf",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T18:06:24.836983+00:00",
+    "retry_after": "2026-11-16T18:06:24.836985+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I Vendicatori",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 151292,
+        "name": "I Vendicatori",
+        "publisher": "Panini Comics",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T18:06:33.339685+00:00",
+    "retry_after": "2026-11-16T18:06:33.339704+00:00",
     "search_hydrated": true
   }
 ]

@@ -10,6 +10,7 @@ import { THUMBNAILS_003 } from "./Thumbnails003.jsx";
 import { THUMBNAILS_004 } from "./Thumbnails004.jsx";
 import { THUMBNAILS_005 } from "./Thumbnails005.jsx";
 import { THUMBNAILS_006 } from "./Thumbnails006.jsx";
+import { THUMBNAILS_007 } from "./Thumbnails007.jsx";
 import { ShortClip } from "./Shorts.jsx";
 import { ChannelBanner, ChannelBannerComic } from "./Banner.jsx";
 import { ChannelIntro, ChannelSting } from "./ChannelIntro.jsx";
@@ -82,6 +83,7 @@ export const THUMBNAILS = [
   ...THUMBNAILS_004,
   ...THUMBNAILS_005,
   ...THUMBNAILS_006,
+  ...THUMBNAILS_007,
 ];
 
 export function Root() {

@@ -27476,8 +27476,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T10:01:45.859275+00:00",
-    "retry_after": "2026-11-16T10:01:45.859277+00:00",
+    "last_attempt_at": "2026-11-15T11:01:49.690383+00:00",
+    "retry_after": "2026-11-16T11:01:49.690385+00:00",
     "search_hydrated": true
   },
   {
@@ -43485,8 +43485,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T10:01:45.859208+00:00",
-    "retry_after": "2026-11-16T10:01:45.859225+00:00",
+    "last_attempt_at": "2026-11-15T11:01:49.690319+00:00",
+    "retry_after": "2026-11-16T11:01:49.690337+00:00",
     "search_hydrated": true
   },
   {
@@ -46287,9 +46287,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-01T10:10:13.678380+00:00",
-    "retry_after": "2026-11-15T10:10:13.678398+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-15T11:05:35.760471+00:00",
+    "retry_after": "2026-12-15T11:05:35.760493+00:00",
     "search_hydrated": true
   },
   {
@@ -51343,8 +51343,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T10:01:45.859249+00:00",
-    "retry_after": "2026-11-16T10:01:45.859252+00:00",
+    "last_attempt_at": "2026-11-15T11:01:49.690361+00:00",
+    "retry_after": "2026-11-16T11:01:49.690363+00:00",
     "search_hydrated": true
   },
   {
@@ -56707,9 +56707,10 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-20T18:18:03.176739+00:00",
-    "retry_after": "2026-10-23T18:18:03.176754+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-15T11:05:35.760578+00:00",
+    "retry_after": "2026-11-22T11:05:35.760580+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Fantastic Four",
@@ -96036,6 +96037,53 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-15T10:06:31.802156+00:00",
     "retry_after": "2026-11-16T10:06:31.802159+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Invincible Iron Man: Ironheart",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T11:05:35.760563+00:00",
+    "retry_after": "2026-11-16T11:05:35.760566+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "International Iron Man",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 88934,
+        "name": "International Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T11:05:43.191985+00:00",
+    "retry_after": "2026-11-16T11:05:43.191996+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "It's a Bird...",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 19544,
+        "name": "It's a Bird...",
+        "publisher": "DC Comics",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T11:05:43.192044+00:00",
+    "retry_after": "2026-11-16T11:05:43.192046+00:00",
     "search_hydrated": true
   }
 ]

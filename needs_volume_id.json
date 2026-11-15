@@ -27476,8 +27476,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T08:01:48.390972+00:00",
-    "retry_after": "2026-11-16T08:01:48.390975+00:00",
+    "last_attempt_at": "2026-11-15T09:01:38.356181+00:00",
+    "retry_after": "2026-11-16T09:01:38.356184+00:00",
     "search_hydrated": true
   },
   {
@@ -43485,8 +43485,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T08:01:48.390908+00:00",
-    "retry_after": "2026-11-16T08:01:48.390923+00:00",
+    "last_attempt_at": "2026-11-15T09:01:38.356101+00:00",
+    "retry_after": "2026-11-16T09:01:38.356116+00:00",
     "search_hydrated": true
   },
   {
@@ -51343,8 +51343,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T08:01:48.390947+00:00",
-    "retry_after": "2026-11-16T08:01:48.390950+00:00",
+    "last_attempt_at": "2026-11-15T09:01:38.356146+00:00",
+    "retry_after": "2026-11-16T09:01:38.356150+00:00",
     "search_hydrated": true
   },
   {
@@ -57171,9 +57171,10 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-21T00:15:47.954396+00:00",
-    "retry_after": "2026-10-24T00:15:47.954412+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-15T09:05:30.254448+00:00",
+    "retry_after": "2026-11-22T09:05:30.254456+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Herc & Thor Pocket Manga",
@@ -94615,9 +94616,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-14T08:10:25.808553+00:00",
-    "retry_after": "2026-11-15T08:10:25.808572+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-15T09:05:30.254239+00:00",
+    "retry_after": "2026-11-18T09:05:30.254255+00:00",
     "search_hydrated": true
   },
   {
@@ -95935,6 +95936,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-15T08:05:59.425723+00:00",
     "retry_after": "2026-11-16T08:05:59.425726+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Barbarella Holiday Special",
+    "publisher": "Dynamite Entertainment",
+    "year": 2018,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T09:05:45.648716+00:00",
+    "retry_after": "2026-11-16T09:05:45.648734+00:00",
     "search_hydrated": true
   }
 ]

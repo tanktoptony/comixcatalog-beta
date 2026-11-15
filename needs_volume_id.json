@@ -15018,9 +15018,10 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T17:03:18.501403+00:00",
-    "retry_after": "2026-09-22T17:03:18.501422+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-15T00:05:47.879836+00:00",
+    "retry_after": "2026-11-18T00:05:47.879852+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Custom Sony Interactive Entertainment 2023 UK English Print Comic [Spider-Man 2]",
@@ -17906,9 +17907,10 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-23T10:00:49.079938+00:00",
-    "retry_after": "2026-09-26T10:00:49.079955+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-15T00:05:47.879930+00:00",
+    "retry_after": "2026-11-22T00:05:47.879932+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Evil Ernie : Relentless Preview",
@@ -27468,8 +27470,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T23:40:17.024436+00:00",
-    "retry_after": "2026-11-15T23:40:17.024437+00:00",
+    "last_attempt_at": "2026-11-15T00:01:55.269518+00:00",
+    "retry_after": "2026-11-16T00:01:55.269520+00:00",
     "search_hydrated": true
   },
   {
@@ -32404,9 +32406,10 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-03T05:08:31.010994+00:00",
-    "retry_after": "2026-10-10T05:08:31.011009+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-11-15T00:05:47.879919+00:00",
+    "retry_after": "2026-11-29T00:05:47.879921+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Defenders of the Earth",
@@ -43475,8 +43478,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T23:40:17.024353+00:00",
-    "retry_after": "2026-11-15T23:40:17.024388+00:00",
+    "last_attempt_at": "2026-11-15T00:01:55.269453+00:00",
+    "retry_after": "2026-11-16T00:01:55.269468+00:00",
     "search_hydrated": true
   },
   {
@@ -51331,8 +51334,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-14T23:40:17.024413+00:00",
-    "retry_after": "2026-11-15T23:40:17.024415+00:00",
+    "last_attempt_at": "2026-11-15T00:01:55.269492+00:00",
+    "retry_after": "2026-11-16T00:01:55.269494+00:00",
     "search_hydrated": true
   },
   {
@@ -56643,9 +56646,10 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-19T15:24:23.792928+00:00",
-    "retry_after": "2026-10-20T15:24:23.792944+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-15T00:05:47.879907+00:00",
+    "retry_after": "2026-11-18T00:05:47.879909+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The League of Rats",
@@ -95455,6 +95459,50 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-14T23:44:08.625017+00:00",
     "retry_after": "2026-11-15T23:44:08.625019+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Comics / Dark Horse Comics: Batman vs. Predator",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T00:05:47.879869+00:00",
+    "retry_after": "2026-11-16T00:05:47.879873+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Justice League Essentials Aquaman #1 Rebirth",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T00:05:47.879884+00:00",
+    "retry_after": "2026-11-16T00:05:47.879886+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Justice League Essentials Justice League #1 Rebirth",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T00:05:47.879896+00:00",
+    "retry_after": "2026-11-16T00:05:47.879897+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Buffy the Vampire Slayer: Out of the Woodwork",
+    "publisher": "Dark Horse Comics",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T00:05:58.818814+00:00",
+    "retry_after": "2026-11-16T00:05:58.818831+00:00",
     "search_hydrated": true
   }
 ]

@@ -27479,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T18:01:54.767414+00:00",
-    "retry_after": "2026-11-16T18:01:54.767416+00:00",
+    "last_attempt_at": "2026-11-15T19:01:48.860341+00:00",
+    "retry_after": "2026-11-16T19:01:48.860343+00:00",
     "search_hydrated": true
   },
   {
@@ -41827,9 +41827,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-01T18:10:40.683796+00:00",
-    "retry_after": "2026-11-15T18:10:40.683798+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-15T19:05:51.105638+00:00",
+    "retry_after": "2026-12-15T19:05:51.105655+00:00",
     "search_hydrated": true
   },
   {
@@ -43490,8 +43490,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T18:01:54.767342+00:00",
-    "retry_after": "2026-11-16T18:01:54.767363+00:00",
+    "last_attempt_at": "2026-11-15T19:01:48.860276+00:00",
+    "retry_after": "2026-11-16T19:01:48.860292+00:00",
     "search_hydrated": true
   },
   {
@@ -51348,8 +51348,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T18:01:54.767390+00:00",
-    "retry_after": "2026-11-16T18:01:54.767392+00:00",
+    "last_attempt_at": "2026-11-15T19:01:48.860316+00:00",
+    "retry_after": "2026-11-16T19:01:48.860318+00:00",
     "search_hydrated": true
   },
   {
@@ -95878,6 +95878,71 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-15T18:06:33.339685+00:00",
     "retry_after": "2026-11-16T18:06:33.339704+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Monsters Unleashed: Monster-Size",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T19:05:51.105745+00:00",
+    "retry_after": "2026-11-16T19:05:51.105748+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vuzz",
+    "publisher": "Titan Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85799,
+        "name": "Vuzz",
+        "publisher": "Dargaud",
+        "start_year": 1974
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T19:06:11.818445+00:00",
+    "retry_after": "2026-11-16T19:06:11.818461+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Boo and the Silly Blizzard",
+    "publisher": "IDW Publishing",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 133882,
+        "name": "Johnny Boo and the Silly Blizzard",
+        "publisher": "Top Shelf",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T19:06:11.818485+00:00",
+    "retry_after": "2026-11-16T19:06:11.818488+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Extravaganza",
+    "publisher": "Titan Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64945,
+        "name": "Simpsons Comics Extravaganza",
+        "publisher": "HarperCollins",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T19:06:11.818517+00:00",
+    "retry_after": "2026-11-16T19:06:11.818519+00:00",
     "search_hydrated": true
   }
 ]

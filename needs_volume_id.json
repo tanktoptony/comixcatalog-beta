@@ -3617,10 +3617,12 @@
     "name": "Doctor Aphra",
     "publisher": "Marvel Comics",
     "year": 2017,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554650+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-15T01:05:40.446207+00:00",
+    "retry_after": "2026-11-18T01:05:40.446209+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Sad Sack Comics [HD]",
@@ -13234,9 +13236,10 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-20T17:02:39.121941+00:00",
-    "retry_after": "2026-09-21T17:02:39.121956+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-15T01:05:40.446089+00:00",
+    "retry_after": "2026-11-18T01:05:40.446105+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Mind Mgmt: One for One",
@@ -27470,8 +27473,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T00:01:55.269518+00:00",
-    "retry_after": "2026-11-16T00:01:55.269520+00:00",
+    "last_attempt_at": "2026-11-15T01:01:59.682923+00:00",
+    "retry_after": "2026-11-16T01:01:59.682926+00:00",
     "search_hydrated": true
   },
   {
@@ -43478,8 +43481,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T00:01:55.269453+00:00",
-    "retry_after": "2026-11-16T00:01:55.269468+00:00",
+    "last_attempt_at": "2026-11-15T01:01:59.682834+00:00",
+    "retry_after": "2026-11-16T01:01:59.682850+00:00",
     "search_hydrated": true
   },
   {
@@ -51334,8 +51337,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T00:01:55.269492+00:00",
-    "retry_after": "2026-11-16T00:01:55.269494+00:00",
+    "last_attempt_at": "2026-11-15T01:01:59.682889+00:00",
+    "retry_after": "2026-11-16T01:01:59.682893+00:00",
     "search_hydrated": true
   },
   {
@@ -94505,9 +94508,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-14T00:24:33.937866+00:00",
-    "retry_after": "2026-11-15T00:24:33.937882+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-15T01:05:52.042300+00:00",
+    "retry_after": "2026-11-18T01:05:52.042316+00:00",
     "search_hydrated": true
   },
   {
@@ -95503,6 +95506,79 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-15T00:05:58.818814+00:00",
     "retry_after": "2026-11-16T00:05:58.818831+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Rebirth Omnibus Expanded Edition",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T01:05:40.446127+00:00",
+    "retry_after": "2026-11-16T01:05:40.446131+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "DC Universe: Rebirth - The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T01:05:40.446147+00:00",
+    "retry_after": "2026-11-16T01:05:40.446149+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deadpool Adamantinum Collection",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T01:05:40.446162+00:00",
+    "retry_after": "2026-11-16T01:05:40.446165+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Detective Comics 27 Special Convention Exclusive",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T01:05:40.446177+00:00",
+    "retry_after": "2026-11-16T01:05:40.446179+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Detective Comics: Rise of the Batmen",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T01:05:40.446191+00:00",
+    "retry_after": "2026-11-16T01:05:40.446195+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Marvel Comics Art of Wally Wood",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63618,
+        "name": "Marvel Comics Art of Wally Wood",
+        "publisher": "Thumbtack Books",
+        "start_year": 1982
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T01:05:52.042372+00:00",
+    "retry_after": "2026-11-16T01:05:52.042377+00:00",
     "search_hydrated": true
   }
 ]

@@ -7483,9 +7483,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-12T02:10:49.283422+00:00",
-    "retry_after": "2026-11-15T02:10:49.283425+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-15T03:05:33.420128+00:00",
+    "retry_after": "2026-11-22T03:05:33.420145+00:00",
     "search_hydrated": true
   },
   {
@@ -27473,8 +27473,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T02:01:39.865024+00:00",
-    "retry_after": "2026-11-16T02:01:39.865026+00:00",
+    "last_attempt_at": "2026-11-15T03:01:48.506931+00:00",
+    "retry_after": "2026-11-16T03:01:48.506933+00:00",
     "search_hydrated": true
   },
   {
@@ -43481,8 +43481,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T02:01:39.864976+00:00",
-    "retry_after": "2026-11-16T02:01:39.864986+00:00",
+    "last_attempt_at": "2026-11-15T03:01:48.506864+00:00",
+    "retry_after": "2026-11-16T03:01:48.506880+00:00",
     "search_hydrated": true
   },
   {
@@ -51338,8 +51338,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T02:01:39.865006+00:00",
-    "retry_after": "2026-11-16T02:01:39.865007+00:00",
+    "last_attempt_at": "2026-11-15T03:01:48.506905+00:00",
+    "retry_after": "2026-11-16T03:01:48.506908+00:00",
     "search_hydrated": true
   },
   {
@@ -94544,9 +94544,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-14T02:10:58.170826+00:00",
-    "retry_after": "2026-11-15T02:10:58.170842+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-15T03:05:47.054737+00:00",
+    "retry_after": "2026-11-18T03:05:47.054753+00:00",
     "search_hydrated": true
   },
   {
@@ -95602,6 +95602,52 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-15T02:05:58.747273+00:00",
     "retry_after": "2026-11-16T02:05:58.747283+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Excalibur Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T03:05:33.420220+00:00",
+    "retry_after": "2026-11-16T03:05:33.420223+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Figment",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 74704,
+        "name": "Figment",
+        "publisher": "Marvel",
+        "start_year": 2014
+      },
+      {
+        "id": 81831,
+        "name": "Figment",
+        "publisher": "Marvel",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T03:05:33.420251+00:00",
+    "retry_after": "2026-11-16T03:05:33.420254+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ghost Rider: Highway to Hell",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T03:05:47.054796+00:00",
+    "retry_after": "2026-11-16T03:05:47.054799+00:00",
     "search_hydrated": true
   }
 ]

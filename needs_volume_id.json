@@ -14673,9 +14673,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-12T06:03:47.606073+00:00",
-    "retry_after": "2026-11-15T06:03:47.606074+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-15T06:05:35.710540+00:00",
+    "retry_after": "2026-11-22T06:05:35.710556+00:00",
     "search_hydrated": true
   },
   {
@@ -27474,8 +27474,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T05:07:02.834686+00:00",
-    "retry_after": "2026-11-16T05:07:02.834689+00:00",
+    "last_attempt_at": "2026-11-15T06:01:56.344368+00:00",
+    "retry_after": "2026-11-16T06:01:56.344369+00:00",
     "search_hydrated": true
   },
   {
@@ -43482,8 +43482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T05:07:02.834601+00:00",
-    "retry_after": "2026-11-16T05:07:02.834616+00:00",
+    "last_attempt_at": "2026-11-15T06:01:56.344301+00:00",
+    "retry_after": "2026-11-16T06:01:56.344317+00:00",
     "search_hydrated": true
   },
   {
@@ -51339,8 +51339,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T05:07:02.834652+00:00",
-    "retry_after": "2026-11-16T05:07:02.834656+00:00",
+    "last_attempt_at": "2026-11-15T06:01:56.344341+00:00",
+    "retry_after": "2026-11-16T06:01:56.344343+00:00",
     "search_hydrated": true
   },
   {
@@ -95755,6 +95755,136 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-15T04:06:03.829424+00:00",
     "retry_after": "2026-11-16T04:06:03.829440+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Glitterbomb",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 93923,
+        "name": "Glitterbomb",
+        "publisher": "Image",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T06:05:39.048520+00:00",
+    "retry_after": "2026-11-16T06:05:39.048537+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gotham Academy: Second Semester",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 94118,
+        "name": "Gotham Academy: Second Semester",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T06:05:39.167501+00:00",
+    "retry_after": "2026-11-16T06:05:39.167518+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Green Arrow",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 91284,
+        "name": "Green Arrow",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T06:05:39.247665+00:00",
+    "retry_after": "2026-11-16T06:05:39.247680+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Green Lanterns",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 91285,
+        "name": "Green Lanterns",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T06:05:39.326164+00:00",
+    "retry_after": "2026-11-16T06:05:39.326180+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Guardians of the Galaxy: Telltale Games",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 108098,
+        "name": "Guardians of the Galaxy: Telltale Games",
+        "publisher": "Marvel",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T06:05:39.397390+00:00",
+    "retry_after": "2026-11-16T06:05:39.397405+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Hal Jordan and the Green Lantern Corps",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 92557,
+        "name": "Hal Jordan & The Green Lantern Corps",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T06:05:39.472772+00:00",
+    "retry_after": "2026-11-16T06:05:39.472787+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Lansdale and Truman's Dead Folks Trade Paperback",
+    "publisher": "Avatar Press",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T06:05:49.530869+00:00",
+    "retry_after": "2026-11-16T06:05:49.530885+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Big Book of the '70s",
+    "publisher": "DC Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T06:05:49.530901+00:00",
+    "retry_after": "2026-11-16T06:05:49.530904+00:00",
     "search_hydrated": true
   }
 ]

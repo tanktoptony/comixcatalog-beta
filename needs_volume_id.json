@@ -7252,9 +7252,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-12T10:05:39.817115+00:00",
-    "retry_after": "2026-11-15T10:05:39.817117+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-15T10:06:13.502201+00:00",
+    "retry_after": "2026-11-22T10:06:13.502203+00:00",
     "search_hydrated": true
   },
   {
@@ -14850,9 +14850,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-12T10:05:39.817019+00:00",
-    "retry_after": "2026-11-15T10:05:39.817036+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-15T10:06:13.502185+00:00",
+    "retry_after": "2026-11-22T10:06:13.502188+00:00",
     "search_hydrated": true
   },
   {
@@ -27476,8 +27476,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T09:01:38.356181+00:00",
-    "retry_after": "2026-11-16T09:01:38.356184+00:00",
+    "last_attempt_at": "2026-11-15T10:01:45.859275+00:00",
+    "retry_after": "2026-11-16T10:01:45.859277+00:00",
     "search_hydrated": true
   },
   {
@@ -43485,8 +43485,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T09:01:38.356101+00:00",
-    "retry_after": "2026-11-16T09:01:38.356116+00:00",
+    "last_attempt_at": "2026-11-15T10:01:45.859208+00:00",
+    "retry_after": "2026-11-16T10:01:45.859225+00:00",
     "search_hydrated": true
   },
   {
@@ -51343,8 +51343,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T09:01:38.356146+00:00",
-    "retry_after": "2026-11-16T09:01:38.356150+00:00",
+    "last_attempt_at": "2026-11-15T10:01:45.859249+00:00",
+    "retry_after": "2026-11-16T10:01:45.859252+00:00",
     "search_hydrated": true
   },
   {
@@ -93392,21 +93392,27 @@
         "start_year": 1987
       },
       {
-        "id": 51614,
-        "name": "The Flash Annual",
+        "id": 28177,
+        "name": "Flash Annual",
         "publisher": "DC Comics",
-        "start_year": 2012
+        "start_year": 1963
       },
       {
         "id": 108248,
         "name": "The Flash Annual",
         "publisher": "DC Comics",
         "start_year": 2016
+      },
+      {
+        "id": 51614,
+        "name": "The Flash Annual",
+        "publisher": "DC Comics",
+        "start_year": 2012
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-12T09:10:24.260551+00:00",
-    "retry_after": "2026-11-15T09:10:24.260567+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-15T10:06:13.502146+00:00",
+    "retry_after": "2026-11-22T10:06:13.502163+00:00",
     "search_hydrated": true
   },
   {
@@ -95947,6 +95953,89 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-15T09:05:45.648716+00:00",
     "retry_after": "2026-11-16T09:05:45.648734+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Horizon",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 92183,
+        "name": "Horizon",
+        "publisher": "Image",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T10:06:22.081190+00:00",
+    "retry_after": "2026-11-16T10:06:22.081204+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Infamous Iron Man",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 95016,
+        "name": "Infamous Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T10:06:22.182533+00:00",
+    "retry_after": "2026-11-16T10:06:22.182549+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Injustice: Gods Among Us - Year Five",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 87213,
+        "name": "Injustice: Gods Among Us Year Five",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T10:06:22.253640+00:00",
+    "retry_after": "2026-11-16T10:06:22.253653+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Unchained",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65051,
+        "name": "Simpsons Comics Unchained",
+        "publisher": "HarperCollins",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T10:06:31.802119+00:00",
+    "retry_after": "2026-11-16T10:06:31.802136+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Alpha Flight No. 10 [Marvel Legends Reprint]",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T10:06:31.802156+00:00",
+    "retry_after": "2026-11-16T10:06:31.802159+00:00",
     "search_hydrated": true
   }
 ]

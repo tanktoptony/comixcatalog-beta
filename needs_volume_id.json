@@ -27479,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T23:01:43.300498+00:00",
-    "retry_after": "2026-11-16T23:01:43.300499+00:00",
+    "last_attempt_at": "2026-11-15T23:46:40.469772+00:00",
+    "retry_after": "2026-11-16T23:46:40.469774+00:00",
     "search_hydrated": true
   },
   {
@@ -32532,9 +32532,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-01T23:11:22.318532+00:00",
-    "retry_after": "2026-11-15T23:11:22.318549+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-15T23:50:42.265129+00:00",
+    "retry_after": "2026-12-15T23:50:42.265145+00:00",
     "search_hydrated": true
   },
   {
@@ -43490,8 +43490,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T23:01:43.300432+00:00",
-    "retry_after": "2026-11-16T23:01:43.300451+00:00",
+    "last_attempt_at": "2026-11-15T23:46:40.469708+00:00",
+    "retry_after": "2026-11-16T23:46:40.469724+00:00",
     "search_hydrated": true
   },
   {
@@ -51348,8 +51348,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T23:01:43.300474+00:00",
-    "retry_after": "2026-11-16T23:01:43.300476+00:00",
+    "last_attempt_at": "2026-11-15T23:46:40.469748+00:00",
+    "retry_after": "2026-11-16T23:46:40.469750+00:00",
     "search_hydrated": true
   },
   {
@@ -87427,9 +87427,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-08T22:10:36.902138+00:00",
-    "retry_after": "2026-11-15T22:10:36.902140+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-15T23:50:42.265232+00:00",
+    "retry_after": "2026-11-29T23:50:42.265234+00:00",
     "search_hydrated": true
   },
   {
@@ -87931,9 +87931,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-08T22:10:36.902148+00:00",
-    "retry_after": "2026-11-15T22:10:36.902150+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-15T23:50:42.265245+00:00",
+    "retry_after": "2026-11-29T23:50:42.265246+00:00",
     "search_hydrated": true
   },
   {
@@ -89380,9 +89380,9 @@
         "start_year": 1987
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-08T22:10:36.902121+00:00",
-    "retry_after": "2026-11-15T22:10:36.902125+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-15T23:50:42.265215+00:00",
+    "retry_after": "2026-11-29T23:50:42.265218+00:00",
     "search_hydrated": true
   },
   {
@@ -89391,9 +89391,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-08T22:10:36.902160+00:00",
-    "retry_after": "2026-11-15T22:10:36.902162+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-15T23:50:42.265259+00:00",
+    "retry_after": "2026-11-29T23:50:42.265261+00:00",
     "search_hydrated": true
   },
   {
@@ -94772,9 +94772,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-14T23:05:52.469305+00:00",
-    "retry_after": "2026-11-15T23:05:52.469323+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-15T23:50:59.924631+00:00",
+    "retry_after": "2026-11-18T23:50:59.924647+00:00",
     "search_hydrated": true
   },
   {
@@ -94783,9 +94783,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-14T23:05:52.469339+00:00",
-    "retry_after": "2026-11-15T23:05:52.469341+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-15T23:50:59.924666+00:00",
+    "retry_after": "2026-11-18T23:50:59.924669+00:00",
     "search_hydrated": true
   },
   {
@@ -96248,6 +96248,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-15T23:06:36.711571+00:00",
     "retry_after": "2026-11-16T23:06:36.711589+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Marvel Comics Art of Wally Wood",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63618,
+        "name": "Marvel Comics Art of Wally Wood",
+        "publisher": "Thumbtack Books",
+        "start_year": 1982
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T23:50:59.924699+00:00",
+    "retry_after": "2026-11-16T23:50:59.924701+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Unchained",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65051,
+        "name": "Simpsons Comics Unchained",
+        "publisher": "HarperCollins",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T23:50:59.924718+00:00",
+    "retry_after": "2026-11-16T23:50:59.924720+00:00",
     "search_hydrated": true
   }
 ]

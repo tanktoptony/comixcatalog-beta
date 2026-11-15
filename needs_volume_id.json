@@ -22986,9 +22986,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-12T15:10:22.878537+00:00",
-    "retry_after": "2026-11-15T15:10:22.878538+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-15T16:06:24.678650+00:00",
+    "retry_after": "2026-11-22T16:06:24.678652+00:00",
     "search_hydrated": true
   },
   {
@@ -23133,9 +23133,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-12T15:10:22.878516+00:00",
-    "retry_after": "2026-11-15T15:10:22.878518+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-15T16:06:24.678617+00:00",
+    "retry_after": "2026-11-22T16:06:24.678634+00:00",
     "search_hydrated": true
   },
   {
@@ -27466,21 +27466,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
-      {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T15:01:43.166650+00:00",
-    "retry_after": "2026-11-16T15:01:43.166652+00:00",
+    "last_attempt_at": "2026-11-15T16:02:35.077801+00:00",
+    "retry_after": "2026-11-16T16:02:35.077803+00:00",
     "search_hydrated": true
   },
   {
@@ -43477,21 +43477,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
-      {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T15:01:43.166619+00:00",
-    "retry_after": "2026-11-16T15:01:43.166621+00:00",
+    "last_attempt_at": "2026-11-15T16:02:35.077768+00:00",
+    "retry_after": "2026-11-16T16:02:35.077770+00:00",
     "search_hydrated": true
   },
   {
@@ -51348,8 +51348,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T15:01:43.166635+00:00",
-    "retry_after": "2026-11-16T15:01:43.166636+00:00",
+    "last_attempt_at": "2026-11-15T16:02:35.077784+00:00",
+    "retry_after": "2026-11-16T16:02:35.077785+00:00",
     "search_hydrated": true
   },
   {
@@ -95499,6 +95499,186 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-15T14:05:42.261105+00:00",
     "retry_after": "2026-11-16T14:05:42.261106+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "In Rage",
+    "publisher": "CFD Productions",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88863,
+        "name": "In Rage",
+        "publisher": "Creative Force Designs",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T16:01:16.955815+00:00",
+    "retry_after": "2026-11-16T16:01:16.955817+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "In Rage",
+    "publisher": "Unknown Publisher",
+    "year": null,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88863,
+        "name": "In Rage",
+        "publisher": "Creative Force Designs",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T16:02:35.077721+00:00",
+    "retry_after": "2026-11-16T16:02:35.077741+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Avengers",
+    "publisher": "Marvel Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 2128,
+        "name": "The Avengers",
+        "publisher": "Marvel",
+        "start_year": 1963
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T16:06:25.901433+00:00",
+    "retry_after": "2026-11-16T16:06:25.901436+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mystic: The Tenth Apprentice",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88473,
+        "name": "Mystic: The Tenth Apprentice",
+        "publisher": "Crossgen",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T16:06:40.550591+00:00",
+    "retry_after": "2026-11-16T16:06:40.550610+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deadworld: The Last Siesta",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75600,
+        "name": "Deadworld: The Last Siesta",
+        "publisher": "Caliber Comics",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T16:06:40.550640+00:00",
+    "retry_after": "2026-11-16T16:06:40.550642+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Meltdown",
+    "publisher": "Titan Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161288,
+        "name": "Simpsons Comics Meltdown",
+        "publisher": "HarperCollins",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T16:06:40.550660+00:00",
+    "retry_after": "2026-11-16T16:06:40.550662+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mouse Guard: Baldwin the Brave & Other Tales",
+    "publisher": "BOOM! Studios",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78073,
+        "name": "Mouse Guard: Baldwin the Brave & Other Tales",
+        "publisher": "Archaia",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T16:06:40.550676+00:00",
+    "retry_after": "2026-11-16T16:06:40.550677+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kick-Ass 2 Prelude: Hit Girl",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58598,
+        "name": "Kick-Ass 2 Prelude: Hit-Girl",
+        "publisher": "Icon Books",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T16:06:40.550689+00:00",
+    "retry_after": "2026-11-16T16:06:40.550691+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Doctor Who Magazine",
+    "publisher": "Marvel Comics",
+    "year": 1985,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26877,
+        "name": "Doctor Who Magazine",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T16:06:48.415173+00:00",
+    "retry_after": "2026-11-16T16:06:48.415194+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tom and Jerry Present the Two Mouseketeers",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64345,
+        "name": "Tom and Jerry Present the Two Mouseketeers",
+        "publisher": "Magazine Management",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T16:06:48.415276+00:00",
+    "retry_after": "2026-11-16T16:06:48.415279+00:00",
     "search_hydrated": true
   }
 ]

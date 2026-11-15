@@ -132,7 +132,7 @@ export function EpisodeAudio({ audio, episodeId }) {
           <Audio
             src={sting}
             trimBefore={Math.round((audio.sting.from ?? 0) * fps)}
-            volume={(f) => clampFade(f, Math.round((audio.sting.dur ?? 8) * fps), 0, audio.sting.fadeOut, audio.sting.volume ?? 0.35)}
+            volume={(f) => clampFade(f, Math.round((audio.sting.dur ?? 8) * fps), audio.sting.fadeIn, audio.sting.fadeOut, audio.sting.volume ?? 0.35)}
           />
         </Sequence>
       )}

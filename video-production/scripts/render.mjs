@@ -15,6 +15,9 @@ import { VIDEO } from "../shared/brand.js";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const id = process.argv[2];
 const preview = process.argv.includes("--preview");
+// --frames=1597-2130 renders just that inclusive range (for splicing a fix into a finished master).
+const framesArg = process.argv.find((a) => a.startsWith("--frames="));
+const frameRange = framesArg ? framesArg.slice(9).split("-").map(Number) : null;
 const ep = EPISODES.find((e) => e.id === id);
 if (!ep) throw new Error(`Unknown episode "${id}". Known: ${EPISODES.map((e) => e.id).join(", ")}`);
 if (!ep.segments.length) {
@@ -25,7 +28,7 @@ if (!ep.segments.length) {
 const timeline = normalizeTimeline(ep, VIDEO.fps);
 const outDir = path.join(root, ep.outputDir ?? ep.id, "output");
 fs.mkdirSync(outDir, { recursive: true });
-const outputLocation = path.join(outDir, `${ep.outputName ?? `${ep.id}-visual-track`}${preview ? "-preview" : ""}.mp4`);
+const outputLocation = path.join(outDir, `${ep.outputName ?? `${ep.id}-visual-track`}${preview ? "-preview" : ""}${frameRange ? `-f${frameRange.join("-")}` : ""}.mp4`);
 
 console.log(`Bundling...`);
 const serveUrl = await bundle({ entryPoint: path.join(root, "src", "index.jsx"), publicDir: path.join(root, "public") });
@@ -45,6 +48,7 @@ await renderMedia({
   scale: preview ? 0.5 : 1,
   x264Preset: preview ? "veryfast" : "medium",
   outputLocation,
+  ...(frameRange ? { frameRange } : {}),
   onProgress: ({ progress }) => {
     const pct = Math.floor(progress * 100);
     if (pct % 5 === 0 && pct !== lastPct) {

@@ -303,7 +303,8 @@ const segments = CUES.map(([anchor, seg], i) => {
   }
   return out;
 });
-segments.push({ type: "sting", at: plan.sting.at, beat: "Channel sting", transition: "cut", tagline: "Catalog. Collect. Connect." });
+// 2026-11-15 Tony: the hard cut into the card was jarring, so it fades up from the dip instead.
+segments.push({ type: "sting", at: plan.sting.at, beat: "Channel sting", transitionOut: "cut", fadeIn: 8, tagline: "Catalog. Collect. Connect." });
 segments.push({ type: "end", at: plan.endCard, dur: plan.duration - plan.endCard, beat: "End card", title: "Which Batman got you into the character?", sub: "Tell me in the comments", transitionIn: "cut" });
 segments.sort((x, y) => x.at - y.at);
 
@@ -313,7 +314,8 @@ export default {
   audio: {
     narration: { asset: "audio/VOICE_PROGRAM.wav", at: 0, volume: 1 },
     // Double Drift (Ep 006's bed, stored 6 dB down); Tony's real read is less dense than TTS, so 0.4 as in 006.
-    music: { asset: "audio/MUSIC_BED_DOUBLE_DRIFT.wav", volume: 0.4, fadeIn: 2, fadeOut: 4, loop: false, duck: [{ from: plan.sting.at, to: plan.sting.at + plan.sting.dur }] },
-    sting: { asset: "audio/MUSIC_STING.mp3", at: plan.sting.at, from: 7.1, dur: plan.sting.dur, volume: 1, fadeOut: 0.4 },
+    music: { asset: "audio/MUSIC_BED_DOUBLE_DRIFT.wav", volume: 0.4, fadeIn: 2, fadeOut: 4, loop: false, duck: [{ from: plan.sting.at + 0.35, to: plan.sting.at + plan.sting.dur }] },
+    // Bed hands off under the sting (no silent hole before it), sting eases in 3 dB lower.
+    sting: { asset: "audio/MUSIC_STING.mp3", at: plan.sting.at, from: 7.1, dur: plan.sting.dur, volume: 0.7, fadeIn: 0.15, fadeOut: 0.4 },
   },
 };

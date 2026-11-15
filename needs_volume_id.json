@@ -27476,8 +27476,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T12:01:46.889443+00:00",
-    "retry_after": "2026-11-16T12:01:46.889444+00:00",
+    "last_attempt_at": "2026-11-15T12:38:36.772106+00:00",
+    "retry_after": "2026-11-16T12:38:36.772109+00:00",
     "search_hydrated": true
   },
   {
@@ -43485,8 +43485,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T12:01:46.889379+00:00",
-    "retry_after": "2026-11-16T12:01:46.889397+00:00",
+    "last_attempt_at": "2026-11-15T12:38:36.772031+00:00",
+    "retry_after": "2026-11-16T12:38:36.772044+00:00",
     "search_hydrated": true
   },
   {
@@ -51343,8 +51343,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T12:01:46.889421+00:00",
-    "retry_after": "2026-11-16T12:01:46.889423+00:00",
+    "last_attempt_at": "2026-11-15T12:38:36.772073+00:00",
+    "retry_after": "2026-11-16T12:38:36.772076+00:00",
     "search_hydrated": true
   },
   {
@@ -89225,9 +89225,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-08T12:10:19.299165+00:00",
-    "retry_after": "2026-11-15T12:10:19.299168+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-15T12:42:26.280270+00:00",
+    "retry_after": "2026-11-29T12:42:26.280284+00:00",
     "search_hydrated": true
   },
   {
@@ -89254,9 +89254,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-08T12:10:19.299185+00:00",
-    "retry_after": "2026-11-15T12:10:19.299187+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-15T12:42:26.280309+00:00",
+    "retry_after": "2026-11-29T12:42:26.280313+00:00",
     "search_hydrated": true
   },
   {
@@ -89265,9 +89265,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-08T12:10:19.299193+00:00",
-    "retry_after": "2026-11-15T12:10:19.299195+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-15T12:42:26.280328+00:00",
+    "retry_after": "2026-11-29T12:42:26.280331+00:00",
     "search_hydrated": true
   },
   {
@@ -94645,9 +94645,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-14T12:10:00.197317+00:00",
-    "retry_after": "2026-11-15T12:10:00.197328+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-15T12:42:26.280399+00:00",
+    "retry_after": "2026-11-18T12:42:26.280402+00:00",
     "search_hydrated": true
   },
   {
@@ -96128,6 +96128,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-15T12:06:02.038935+00:00",
     "retry_after": "2026-11-16T12:06:02.038938+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Edgar Rice Burroughs' John Carter of Mars: The Jesse Marsh Years",
+    "publisher": "Dark Horse Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-15T12:42:37.842387+00:00",
+    "retry_after": "2026-11-16T12:42:37.842401+00:00",
     "search_hydrated": true
   }
 ]

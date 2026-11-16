@@ -22886,21 +22886,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 161543,
+        "id": 156859,
         "name": "The Infernals",
         "publisher": "Image",
         "start_year": 2024
       },
       {
-        "id": 156859,
+        "id": 161543,
         "name": "The Infernals",
         "publisher": "Image",
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T08:05:46.157595+00:00",
-    "retry_after": "2026-11-16T08:05:46.157598+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T09:05:22.363313+00:00",
+    "retry_after": "2026-11-19T09:05:22.363330+00:00",
     "search_hydrated": true
   },
   {
@@ -27479,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T08:01:43.205672+00:00",
-    "retry_after": "2026-11-17T08:01:43.205674+00:00",
+    "last_attempt_at": "2026-11-16T09:01:39.796363+00:00",
+    "retry_after": "2026-11-17T09:01:39.796365+00:00",
     "search_hydrated": true
   },
   {
@@ -43491,8 +43491,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T08:01:43.205609+00:00",
-    "retry_after": "2026-11-17T08:01:43.205624+00:00",
+    "last_attempt_at": "2026-11-16T09:01:39.796298+00:00",
+    "retry_after": "2026-11-17T09:01:39.796316+00:00",
     "search_hydrated": true
   },
   {
@@ -51349,8 +51349,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T08:01:43.205648+00:00",
-    "retry_after": "2026-11-17T08:01:43.205650+00:00",
+    "last_attempt_at": "2026-11-16T09:01:39.796340+00:00",
+    "retry_after": "2026-11-17T09:01:39.796341+00:00",
     "search_hydrated": true
   },
   {
@@ -55185,9 +55185,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-02T08:10:09.466367+00:00",
-    "retry_after": "2026-11-16T08:10:09.466368+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-16T09:01:39.796376+00:00",
+    "retry_after": "2026-12-16T09:01:39.796378+00:00",
     "search_hydrated": true
   },
   {
@@ -96426,6 +96426,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-16T08:06:09.883092+00:00",
     "retry_after": "2026-11-17T08:06:09.883109+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Punisher Epic Collection",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T09:05:22.363357+00:00",
+    "retry_after": "2026-11-17T09:05:22.363360+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Punisher MAX: The Platoon",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T09:05:22.363370+00:00",
+    "retry_after": "2026-11-17T09:05:22.363372+00:00",
     "search_hydrated": true
   }
 ]

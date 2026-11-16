@@ -27450,13 +27450,13 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-16T19:01:51.646884+00:00",
-    "retry_after": "2026-11-23T19:01:51.646887+00:00",
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T20:06:22.847649+00:00",
+    "retry_after": "2026-11-17T20:06:22.847667+00:00",
     "search_hydrated": true
   },
   {
@@ -27479,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T19:01:51.646862+00:00",
-    "retry_after": "2026-11-17T19:01:51.646863+00:00",
+    "last_attempt_at": "2026-11-16T20:01:54.586054+00:00",
+    "retry_after": "2026-11-17T20:01:54.586056+00:00",
     "search_hydrated": true
   },
   {
@@ -43491,8 +43491,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T19:01:51.646797+00:00",
-    "retry_after": "2026-11-17T19:01:51.646814+00:00",
+    "last_attempt_at": "2026-11-16T20:01:54.585989+00:00",
+    "retry_after": "2026-11-17T20:01:54.586008+00:00",
     "search_hydrated": true
   },
   {
@@ -51349,8 +51349,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T19:01:51.646838+00:00",
-    "retry_after": "2026-11-17T19:01:51.646840+00:00",
+    "last_attempt_at": "2026-11-16T20:01:54.586033+00:00",
+    "retry_after": "2026-11-17T20:01:54.586035+00:00",
     "search_hydrated": true
   },
   {
@@ -67598,9 +67598,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-02T19:10:10.144566+00:00",
-    "retry_after": "2026-11-16T19:10:10.144582+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-16T20:06:02.612261+00:00",
+    "retry_after": "2026-12-16T20:06:02.612280+00:00",
     "search_hydrated": true
   },
   {
@@ -91766,9 +91766,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-09T19:11:05.246231+00:00",
-    "retry_after": "2026-11-16T19:11:05.246248+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-16T20:06:02.612419+00:00",
+    "retry_after": "2026-11-30T20:06:02.612421+00:00",
     "search_hydrated": true
   },
   {
@@ -94022,9 +94022,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-13T19:10:45.503953+00:00",
-    "retry_after": "2026-11-16T19:10:45.503955+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-16T20:06:02.612436+00:00",
+    "retry_after": "2026-11-23T20:06:02.612438+00:00",
     "search_hydrated": true
   },
   {
@@ -95533,9 +95533,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T19:05:51.105745+00:00",
-    "retry_after": "2026-11-16T19:05:51.105748+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T20:06:02.612455+00:00",
+    "retry_after": "2026-11-19T20:06:02.612457+00:00",
     "search_hydrated": true
   },
   {
@@ -95909,6 +95909,114 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-16T19:05:55.239639+00:00",
     "retry_after": "2026-11-17T19:05:55.239642+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Super Adventure Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79594,
+        "name": "Marvel Super Adventure Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T20:06:13.695999+00:00",
+    "retry_after": "2026-11-17T20:06:13.696021+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Trio Grande: Adios Palomita",
+    "publisher": "Heavy Metal",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27096,
+        "name": "Trio Grande: Adios Palomita",
+        "publisher": "Tundra",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T20:06:13.696058+00:00",
+    "retry_after": "2026-11-17T20:06:13.696062+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deadworld: The Last Siesta",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75600,
+        "name": "Deadworld: The Last Siesta",
+        "publisher": "Caliber Comics",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T20:06:13.696082+00:00",
+    "retry_after": "2026-11-17T20:06:13.696084+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Silver Surfer Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79670,
+        "name": "Silver Surfer Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1982
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T20:06:13.696100+00:00",
+    "retry_after": "2026-11-17T20:06:13.696101+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Shake-Up",
+    "publisher": "Titan Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 70715,
+        "name": "Simpsons Comics: Shake-Up",
+        "publisher": "Bongo",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T20:06:13.696113+00:00",
+    "retry_after": "2026-11-17T20:06:13.696115+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mad Classics",
+    "publisher": "EC Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18767,
+        "name": "Mad Classics",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T20:06:22.847701+00:00",
+    "retry_after": "2026-11-17T20:06:22.847704+00:00",
     "search_hydrated": true
   }
 ]

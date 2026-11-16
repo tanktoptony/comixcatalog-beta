@@ -27479,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T16:02:03.740798+00:00",
-    "retry_after": "2026-11-17T16:02:03.740800+00:00",
+    "last_attempt_at": "2026-11-16T17:01:55.673726+00:00",
+    "retry_after": "2026-11-17T17:01:55.673727+00:00",
     "search_hydrated": true
   },
   {
@@ -43491,8 +43491,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T16:02:03.740713+00:00",
-    "retry_after": "2026-11-17T16:02:03.740729+00:00",
+    "last_attempt_at": "2026-11-16T17:01:55.673664+00:00",
+    "retry_after": "2026-11-17T17:01:55.673678+00:00",
     "search_hydrated": true
   },
   {
@@ -51349,8 +51349,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T16:02:03.740751+00:00",
-    "retry_after": "2026-11-17T16:02:03.740753+00:00",
+    "last_attempt_at": "2026-11-16T17:01:55.673701+00:00",
+    "retry_after": "2026-11-17T17:01:55.673703+00:00",
     "search_hydrated": true
   },
   {
@@ -95540,9 +95540,9 @@
         "start_year": 1963
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T16:06:25.901433+00:00",
-    "retry_after": "2026-11-16T16:06:25.901436+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T17:06:49.900114+00:00",
+    "retry_after": "2026-11-19T17:06:49.900118+00:00",
     "search_hydrated": true
   },
   {
@@ -95558,9 +95558,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T16:06:40.550591+00:00",
-    "retry_after": "2026-11-16T16:06:40.550610+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T17:08:46.481500+00:00",
+    "retry_after": "2026-11-19T17:08:46.481516+00:00",
     "search_hydrated": true
   },
   {
@@ -95576,9 +95576,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T16:06:40.550640+00:00",
-    "retry_after": "2026-11-16T16:06:40.550642+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T17:08:46.481548+00:00",
+    "retry_after": "2026-11-19T17:08:46.481551+00:00",
     "search_hydrated": true
   },
   {
@@ -95594,9 +95594,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T16:06:40.550660+00:00",
-    "retry_after": "2026-11-16T16:06:40.550662+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T17:08:46.481570+00:00",
+    "retry_after": "2026-11-19T17:08:46.481572+00:00",
     "search_hydrated": true
   },
   {
@@ -95612,9 +95612,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T16:06:40.550676+00:00",
-    "retry_after": "2026-11-16T16:06:40.550677+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T17:08:46.481588+00:00",
+    "retry_after": "2026-11-19T17:08:46.481590+00:00",
     "search_hydrated": true
   },
   {
@@ -95630,9 +95630,9 @@
         "start_year": 2013
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T16:06:40.550689+00:00",
-    "retry_after": "2026-11-16T16:06:40.550691+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T17:08:46.481605+00:00",
+    "retry_after": "2026-11-19T17:08:46.481606+00:00",
     "search_hydrated": true
   },
   {
@@ -95648,9 +95648,9 @@
         "start_year": 1979
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T16:06:48.415173+00:00",
-    "retry_after": "2026-11-16T16:06:48.415194+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T17:08:53.575154+00:00",
+    "retry_after": "2026-11-19T17:08:53.575171+00:00",
     "search_hydrated": true
   },
   {
@@ -95666,9 +95666,9 @@
         "start_year": null
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T16:06:48.415276+00:00",
-    "retry_after": "2026-11-16T16:06:48.415279+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T17:08:53.575250+00:00",
+    "retry_after": "2026-11-19T17:08:53.575253+00:00",
     "search_hydrated": true
   },
   {
@@ -96539,6 +96539,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-16T16:06:05.121228+00:00",
     "retry_after": "2026-11-17T16:06:05.121230+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Rom",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 3010,
+        "name": "Rom",
+        "publisher": "Marvel",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T17:06:55.186217+00:00",
+    "retry_after": "2026-11-17T17:06:55.186234+00:00",
     "search_hydrated": true
   }
 ]

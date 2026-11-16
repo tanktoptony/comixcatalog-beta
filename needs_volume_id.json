@@ -24283,9 +24283,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-02T15:10:16.289432+00:00",
-    "retry_after": "2026-11-16T15:10:16.289452+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-16T16:05:49.734730+00:00",
+    "retry_after": "2026-12-16T16:05:49.734747+00:00",
     "search_hydrated": true
   },
   {
@@ -27479,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T15:02:04.151391+00:00",
-    "retry_after": "2026-11-17T15:02:04.151394+00:00",
+    "last_attempt_at": "2026-11-16T16:02:03.740798+00:00",
+    "retry_after": "2026-11-17T16:02:03.740800+00:00",
     "search_hydrated": true
   },
   {
@@ -43491,8 +43491,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T15:02:04.151315+00:00",
-    "retry_after": "2026-11-17T15:02:04.151329+00:00",
+    "last_attempt_at": "2026-11-16T16:02:03.740713+00:00",
+    "retry_after": "2026-11-17T16:02:03.740729+00:00",
     "search_hydrated": true
   },
   {
@@ -48652,9 +48652,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-02T15:10:16.289485+00:00",
-    "retry_after": "2026-11-16T15:10:16.289486+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-16T16:05:49.734800+00:00",
+    "retry_after": "2026-12-16T16:05:49.734802+00:00",
     "search_hydrated": true
   },
   {
@@ -51349,8 +51349,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T15:02:04.151358+00:00",
-    "retry_after": "2026-11-17T15:02:04.151362+00:00",
+    "last_attempt_at": "2026-11-16T16:02:03.740751+00:00",
+    "retry_after": "2026-11-17T16:02:03.740753+00:00",
     "search_hydrated": true
   },
   {
@@ -57666,9 +57666,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-02T15:10:16.289471+00:00",
-    "retry_after": "2026-11-16T15:10:16.289473+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-16T16:05:49.734784+00:00",
+    "retry_after": "2026-12-16T16:05:49.734787+00:00",
     "search_hydrated": true
   },
   {
@@ -95522,27 +95522,9 @@
         "start_year": 1994
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T16:01:16.955815+00:00",
-    "retry_after": "2026-11-16T16:01:16.955817+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "In Rage",
-    "publisher": "Unknown Publisher",
-    "year": null,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 88863,
-        "name": "In Rage",
-        "publisher": "Creative Force Designs",
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T16:02:35.077721+00:00",
-    "retry_after": "2026-11-16T16:02:35.077741+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T16:01:58.473997+00:00",
+    "retry_after": "2026-11-19T16:01:58.473999+00:00",
     "search_hydrated": true
   },
   {
@@ -96535,6 +96517,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-16T15:06:03.993515+00:00",
     "retry_after": "2026-11-17T15:06:03.993530+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ultimate Amazing X-Men",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T16:06:05.121185+00:00",
+    "retry_after": "2026-11-17T16:06:05.121202+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "S.H.I.E.L.D. by Steranko: The Complete Collection",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T16:06:05.121228+00:00",
+    "retry_after": "2026-11-17T16:06:05.121230+00:00",
     "search_hydrated": true
   }
 ]

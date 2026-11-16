@@ -27479,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T05:06:30.106474+00:00",
-    "retry_after": "2026-11-17T05:06:30.106476+00:00",
+    "last_attempt_at": "2026-11-16T06:01:51.381263+00:00",
+    "retry_after": "2026-11-17T06:01:51.381266+00:00",
     "search_hydrated": true
   },
   {
@@ -43490,8 +43490,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T05:06:30.106408+00:00",
-    "retry_after": "2026-11-17T05:06:30.106425+00:00",
+    "last_attempt_at": "2026-11-16T06:01:51.381183+00:00",
+    "retry_after": "2026-11-17T06:01:51.381199+00:00",
     "search_hydrated": true
   },
   {
@@ -51348,8 +51348,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T05:06:30.106449+00:00",
-    "retry_after": "2026-11-17T05:06:30.106451+00:00",
+    "last_attempt_at": "2026-11-16T06:01:51.381226+00:00",
+    "retry_after": "2026-11-17T06:01:51.381228+00:00",
     "search_hydrated": true
   },
   {
@@ -95045,9 +95045,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T04:05:46.081205+00:00",
-    "retry_after": "2026-11-16T04:05:46.081219+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T06:06:14.948114+00:00",
+    "retry_after": "2026-11-19T06:06:14.948128+00:00",
     "search_hydrated": true
   },
   {
@@ -95063,9 +95063,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T04:05:53.417864+00:00",
-    "retry_after": "2026-11-16T04:05:53.417877+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T06:06:15.061040+00:00",
+    "retry_after": "2026-11-19T06:06:15.061056+00:00",
     "search_hydrated": true
   },
   {
@@ -95092,9 +95092,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T06:05:39.048520+00:00",
-    "retry_after": "2026-11-16T06:05:39.048537+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T06:06:15.171923+00:00",
+    "retry_after": "2026-11-19T06:06:15.171937+00:00",
     "search_hydrated": true
   },
   {
@@ -95110,9 +95110,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T06:05:39.167501+00:00",
-    "retry_after": "2026-11-16T06:05:39.167518+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T06:06:15.277768+00:00",
+    "retry_after": "2026-11-19T06:06:15.277780+00:00",
     "search_hydrated": true
   },
   {
@@ -95128,9 +95128,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T06:05:39.247665+00:00",
-    "retry_after": "2026-11-16T06:05:39.247680+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T06:06:15.356575+00:00",
+    "retry_after": "2026-11-19T06:06:15.356589+00:00",
     "search_hydrated": true
   },
   {
@@ -95146,9 +95146,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T06:05:39.326164+00:00",
-    "retry_after": "2026-11-16T06:05:39.326180+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T06:06:15.463446+00:00",
+    "retry_after": "2026-11-19T06:06:15.463458+00:00",
     "search_hydrated": true
   },
   {
@@ -95164,9 +95164,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T06:05:39.397390+00:00",
-    "retry_after": "2026-11-16T06:05:39.397405+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T06:06:15.566631+00:00",
+    "retry_after": "2026-11-19T06:06:15.566643+00:00",
     "search_hydrated": true
   },
   {
@@ -95182,9 +95182,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T06:05:39.472772+00:00",
-    "retry_after": "2026-11-16T06:05:39.472787+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T06:06:18.920219+00:00",
+    "retry_after": "2026-11-19T06:06:18.920235+00:00",
     "search_hydrated": true
   },
   {
@@ -96378,6 +96378,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-16T04:06:55.947002+00:00",
     "retry_after": "2026-11-17T04:06:55.947007+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Night Force by Marv Wolfman and Gene Colan: The Complete Collection",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T06:06:18.809830+00:00",
+    "retry_after": "2026-11-17T06:06:18.809848+00:00",
     "search_hydrated": true
   }
 ]

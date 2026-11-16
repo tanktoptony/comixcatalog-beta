@@ -27373,9 +27373,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-13T22:11:24.378486+00:00",
-    "retry_after": "2026-11-16T22:11:24.378488+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-16T23:19:02.298000+00:00",
+    "retry_after": "2026-11-23T23:19:02.298004+00:00",
     "search_hydrated": true
   },
   {
@@ -27450,13 +27450,13 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T23:02:22.764866+00:00",
-    "retry_after": "2026-11-17T23:02:22.764868+00:00",
+    "last_attempt_at": "2026-11-16T23:19:49.566267+00:00",
+    "retry_after": "2026-11-17T23:19:49.566284+00:00",
     "search_hydrated": true
   },
   {
@@ -27479,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T23:02:22.764846+00:00",
-    "retry_after": "2026-11-17T23:02:22.764850+00:00",
+    "last_attempt_at": "2026-11-16T23:15:24.543658+00:00",
+    "retry_after": "2026-11-17T23:15:24.543661+00:00",
     "search_hydrated": true
   },
   {
@@ -43491,8 +43491,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T23:02:22.764764+00:00",
-    "retry_after": "2026-11-17T23:02:22.764780+00:00",
+    "last_attempt_at": "2026-11-16T23:15:24.543582+00:00",
+    "retry_after": "2026-11-17T23:15:24.543598+00:00",
     "search_hydrated": true
   },
   {
@@ -51349,8 +51349,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T23:02:22.764811+00:00",
-    "retry_after": "2026-11-17T23:02:22.764815+00:00",
+    "last_attempt_at": "2026-11-16T23:15:24.543627+00:00",
+    "retry_after": "2026-11-17T23:15:24.543630+00:00",
     "search_hydrated": true
   },
   {
@@ -94115,21 +94115,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 70150,
-        "name": "World of Warcraft",
-        "publisher": "DC Comics",
-        "start_year": 2008
-      },
-      {
         "id": 19669,
         "name": "World of Warcraft",
         "publisher": "DC Comics",
         "start_year": 2007
+      },
+      {
+        "id": 70150,
+        "name": "World of Warcraft",
+        "publisher": "DC Comics",
+        "start_year": 2008
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-13T22:11:24.378468+00:00",
-    "retry_after": "2026-11-16T22:11:24.378470+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-16T23:19:02.297953+00:00",
+    "retry_after": "2026-11-23T23:19:02.297971+00:00",
     "search_hydrated": true
   },
   {
@@ -94145,9 +94145,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-13T22:11:28.438814+00:00",
-    "retry_after": "2026-11-16T22:11:28.438827+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-16T23:19:04.965583+00:00",
+    "retry_after": "2026-11-23T23:19:04.965599+00:00",
     "search_hydrated": true
   },
   {
@@ -95580,9 +95580,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T23:06:04.104643+00:00",
-    "retry_after": "2026-11-16T23:06:04.104661+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T23:19:04.702086+00:00",
+    "retry_after": "2026-11-19T23:19:04.702101+00:00",
     "search_hydrated": true
   },
   {
@@ -96287,6 +96287,60 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-16T23:06:21.631319+00:00",
     "retry_after": "2026-11-17T23:06:21.631322+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "???????: ???? ????????????",
+    "publisher": "BOOM! Studios",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 172641,
+        "name": "!",
+        "publisher": "Alpha Polis",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T23:19:37.558492+00:00",
+    "retry_after": "2026-11-17T23:19:37.558509+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Boo and the Midnight Monsters",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 122409,
+        "name": "Johnny Boo and the Midnight Monsters",
+        "publisher": "Top Shelf",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T23:19:37.558539+00:00",
+    "retry_after": "2026-11-17T23:19:37.558543+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Boo and the Silly Blizzard",
+    "publisher": "IDW Publishing",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 133882,
+        "name": "Johnny Boo and the Silly Blizzard",
+        "publisher": "Top Shelf",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T23:19:37.558563+00:00",
+    "retry_after": "2026-11-17T23:19:37.558566+00:00",
     "search_hydrated": true
   }
 ]

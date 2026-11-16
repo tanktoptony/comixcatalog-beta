@@ -27479,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T23:46:40.469772+00:00",
-    "retry_after": "2026-11-16T23:46:40.469774+00:00",
+    "last_attempt_at": "2026-11-16T00:01:44.546345+00:00",
+    "retry_after": "2026-11-17T00:01:44.546347+00:00",
     "search_hydrated": true
   },
   {
@@ -43490,8 +43490,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T23:46:40.469708+00:00",
-    "retry_after": "2026-11-16T23:46:40.469724+00:00",
+    "last_attempt_at": "2026-11-16T00:01:44.546282+00:00",
+    "retry_after": "2026-11-17T00:01:44.546296+00:00",
     "search_hydrated": true
   },
   {
@@ -51348,8 +51348,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-15T23:46:40.469748+00:00",
-    "retry_after": "2026-11-16T23:46:40.469750+00:00",
+    "last_attempt_at": "2026-11-16T00:01:44.546321+00:00",
+    "retry_after": "2026-11-17T00:01:44.546323+00:00",
     "search_hydrated": true
   },
   {
@@ -94743,9 +94743,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-14T22:05:43.143689+00:00",
-    "retry_after": "2026-11-15T22:05:43.143706+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T00:05:46.422618+00:00",
+    "retry_after": "2026-11-19T00:05:46.422635+00:00",
     "search_hydrated": true
   },
   {
@@ -94761,9 +94761,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-14T22:05:43.413527+00:00",
-    "retry_after": "2026-11-15T22:05:43.413549+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T00:05:46.673895+00:00",
+    "retry_after": "2026-11-19T00:05:46.673911+00:00",
     "search_hydrated": true
   },
   {
@@ -94801,9 +94801,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-14T23:44:08.624961+00:00",
-    "retry_after": "2026-11-15T23:44:08.624991+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T00:05:46.674009+00:00",
+    "retry_after": "2026-11-19T00:05:46.674012+00:00",
     "search_hydrated": true
   },
   {
@@ -94819,9 +94819,9 @@
         "start_year": 1983
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-14T23:44:08.625017+00:00",
-    "retry_after": "2026-11-15T23:44:08.625019+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T00:05:46.674026+00:00",
+    "retry_after": "2026-11-19T00:05:46.674027+00:00",
     "search_hydrated": true
   },
   {
@@ -94863,9 +94863,9 @@
     "year": 2002,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T00:05:58.818814+00:00",
-    "retry_after": "2026-11-16T00:05:58.818831+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T00:06:17.261138+00:00",
+    "retry_after": "2026-11-19T00:06:17.261160+00:00",
     "search_hydrated": true
   },
   {
@@ -96284,6 +96284,53 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-15T23:50:59.924718+00:00",
     "retry_after": "2026-11-16T23:50:59.924720+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mr. Punch: The 20th Anniversary Edition",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 76731,
+        "name": "Mr. Punch 20th Anniversary Edition",
+        "publisher": "DC Comics",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T00:05:46.674252+00:00",
+    "retry_after": "2026-11-17T00:05:46.674254+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "New Super-Man",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 92192,
+        "name": "New Super-Man",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T00:06:08.189114+00:00",
+    "retry_after": "2026-11-17T00:06:08.189130+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Manly World of Lloyd Llewellyn: A Golden Treasury of His Complete Works",
+    "publisher": "Fantagraphics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T00:06:17.261207+00:00",
+    "retry_after": "2026-11-17T00:06:17.261211+00:00",
     "search_hydrated": true
   }
 ]

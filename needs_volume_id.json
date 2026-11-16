@@ -27479,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T06:01:51.381263+00:00",
-    "retry_after": "2026-11-17T06:01:51.381266+00:00",
+    "last_attempt_at": "2026-11-16T07:01:48.060626+00:00",
+    "retry_after": "2026-11-17T07:01:48.060628+00:00",
     "search_hydrated": true
   },
   {
@@ -43490,8 +43490,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T06:01:51.381183+00:00",
-    "retry_after": "2026-11-17T06:01:51.381199+00:00",
+    "last_attempt_at": "2026-11-16T07:01:48.060564+00:00",
+    "retry_after": "2026-11-17T07:01:48.060578+00:00",
     "search_hydrated": true
   },
   {
@@ -50268,9 +50268,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T07:05:36.997815+00:00",
-    "retry_after": "2026-11-16T07:05:36.997818+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T07:07:26.075911+00:00",
+    "retry_after": "2026-11-19T07:07:26.075915+00:00",
     "search_hydrated": true
   },
   {
@@ -51348,8 +51348,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T06:01:51.381226+00:00",
-    "retry_after": "2026-11-17T06:01:51.381228+00:00",
+    "last_attempt_at": "2026-11-16T07:01:48.060602+00:00",
+    "retry_after": "2026-11-17T07:01:48.060604+00:00",
     "search_hydrated": true
   },
   {
@@ -95228,9 +95228,9 @@
         "start_year": 2013
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T07:05:36.997764+00:00",
-    "retry_after": "2026-11-16T07:05:36.997782+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T07:07:26.075870+00:00",
+    "retry_after": "2026-11-19T07:07:26.075886+00:00",
     "search_hydrated": true
   },
   {
@@ -95239,9 +95239,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T07:05:36.997858+00:00",
-    "retry_after": "2026-11-16T07:05:36.997860+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T07:07:26.075929+00:00",
+    "retry_after": "2026-11-19T07:07:26.075931+00:00",
     "search_hydrated": true
   },
   {

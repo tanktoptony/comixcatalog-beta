@@ -27479,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T03:01:58.489236+00:00",
-    "retry_after": "2026-11-17T03:01:58.489239+00:00",
+    "last_attempt_at": "2026-11-16T04:01:53.186059+00:00",
+    "retry_after": "2026-11-17T04:01:53.186062+00:00",
     "search_hydrated": true
   },
   {
@@ -33333,9 +33333,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-02T03:18:00.466225+00:00",
-    "retry_after": "2026-11-16T03:18:00.466228+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-16T04:06:39.777644+00:00",
+    "retry_after": "2026-12-16T04:06:39.777660+00:00",
     "search_hydrated": true
   },
   {
@@ -43490,8 +43490,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T03:01:58.489146+00:00",
-    "retry_after": "2026-11-17T03:01:58.489162+00:00",
+    "last_attempt_at": "2026-11-16T04:01:53.185990+00:00",
+    "retry_after": "2026-11-17T04:01:53.186005+00:00",
     "search_hydrated": true
   },
   {
@@ -51348,8 +51348,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T03:01:58.489201+00:00",
-    "retry_after": "2026-11-17T03:01:58.489204+00:00",
+    "last_attempt_at": "2026-11-16T04:01:53.186031+00:00",
+    "retry_after": "2026-11-17T04:01:53.186034+00:00",
     "search_hydrated": true
   },
   {
@@ -89442,9 +89442,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-09T03:10:39.369439+00:00",
-    "retry_after": "2026-11-16T03:10:39.369454+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-16T04:06:39.777684+00:00",
+    "retry_after": "2026-11-30T04:06:39.777688+00:00",
     "search_hydrated": true
   },
   {
@@ -89453,9 +89453,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-09T03:10:39.369475+00:00",
-    "retry_after": "2026-11-16T03:10:39.369479+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-16T04:06:39.777705+00:00",
+    "retry_after": "2026-11-30T04:06:39.777709+00:00",
     "search_hydrated": true
   },
   {
@@ -89464,9 +89464,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-09T03:10:40.943342+00:00",
-    "retry_after": "2026-11-16T03:10:40.943361+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-16T04:06:41.209695+00:00",
+    "retry_after": "2026-11-30T04:06:41.209713+00:00",
     "search_hydrated": true
   },
   {
@@ -89494,9 +89494,9 @@
         "start_year": 2006
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-09T03:10:40.943451+00:00",
-    "retry_after": "2026-11-16T03:10:40.943455+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-16T04:06:41.209806+00:00",
+    "retry_after": "2026-11-30T04:06:41.209810+00:00",
     "search_hydrated": true
   },
   {
@@ -95074,9 +95074,9 @@
     "year": 2002,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T04:06:03.829424+00:00",
-    "retry_after": "2026-11-16T04:06:03.829440+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T04:06:55.946933+00:00",
+    "retry_after": "2026-11-19T04:06:55.946949+00:00",
     "search_hydrated": true
   },
   {
@@ -96360,6 +96360,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-16T01:07:35.814905+00:00",
     "retry_after": "2026-11-17T01:07:35.814910+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Muppet Show",
+    "publisher": "BOOM! Studios",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46037,
+        "name": "Muppet Show",
+        "publisher": "Semic Press AB",
+        "start_year": 1981
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T04:06:55.947002+00:00",
+    "retry_after": "2026-11-17T04:06:55.947007+00:00",
     "search_hydrated": true
   }
 ]

@@ -27479,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T13:26:04.575981+00:00",
-    "retry_after": "2026-11-17T13:26:04.575982+00:00",
+    "last_attempt_at": "2026-11-16T14:01:59.892943+00:00",
+    "retry_after": "2026-11-17T14:01:59.892946+00:00",
     "search_hydrated": true
   },
   {
@@ -43491,8 +43491,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T13:26:04.575925+00:00",
-    "retry_after": "2026-11-17T13:26:04.575940+00:00",
+    "last_attempt_at": "2026-11-16T14:01:59.892854+00:00",
+    "retry_after": "2026-11-17T14:01:59.892870+00:00",
     "search_hydrated": true
   },
   {
@@ -51349,8 +51349,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T13:26:04.575962+00:00",
-    "retry_after": "2026-11-17T13:26:04.575964+00:00",
+    "last_attempt_at": "2026-11-16T14:01:59.892900+00:00",
+    "retry_after": "2026-11-17T14:01:59.892907+00:00",
     "search_hydrated": true
   },
   {
@@ -95453,9 +95453,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T13:05:35.671148+00:00",
-    "retry_after": "2026-11-16T13:05:35.671164+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T14:05:41.685080+00:00",
+    "retry_after": "2026-11-19T14:05:41.685096+00:00",
     "search_hydrated": true
   },
   {
@@ -95493,9 +95493,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T14:05:42.261060+00:00",
-    "retry_after": "2026-11-16T14:05:42.261062+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T14:05:49.082742+00:00",
+    "retry_after": "2026-11-19T14:05:49.082760+00:00",
     "search_hydrated": true
   },
   {
@@ -95504,9 +95504,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T14:05:42.261105+00:00",
-    "retry_after": "2026-11-16T14:05:42.261106+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T14:05:49.082784+00:00",
+    "retry_after": "2026-11-19T14:05:49.082787+00:00",
     "search_hydrated": true
   },
   {
@@ -96459,6 +96459,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-16T13:30:02.950470+00:00",
     "retry_after": "2026-11-17T13:30:02.950487+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Renato Jones: The One%, Season One",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T14:05:41.685156+00:00",
+    "retry_after": "2026-11-17T14:05:41.685161+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Man: Strange Adventures",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T14:05:59.240917+00:00",
+    "retry_after": "2026-11-17T14:05:59.240933+00:00",
     "search_hydrated": true
   }
 ]

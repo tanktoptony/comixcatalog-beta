@@ -27479,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T14:01:59.892943+00:00",
-    "retry_after": "2026-11-17T14:01:59.892946+00:00",
+    "last_attempt_at": "2026-11-16T15:02:04.151391+00:00",
+    "retry_after": "2026-11-17T15:02:04.151394+00:00",
     "search_hydrated": true
   },
   {
@@ -43491,8 +43491,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T14:01:59.892854+00:00",
-    "retry_after": "2026-11-17T14:01:59.892870+00:00",
+    "last_attempt_at": "2026-11-16T15:02:04.151315+00:00",
+    "retry_after": "2026-11-17T15:02:04.151329+00:00",
     "search_hydrated": true
   },
   {
@@ -51349,8 +51349,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T14:01:59.892900+00:00",
-    "retry_after": "2026-11-17T14:01:59.892907+00:00",
+    "last_attempt_at": "2026-11-16T15:02:04.151358+00:00",
+    "retry_after": "2026-11-17T15:02:04.151362+00:00",
     "search_hydrated": true
   },
   {
@@ -96481,6 +96481,60 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-16T14:05:59.240917+00:00",
     "retry_after": "2026-11-17T14:05:59.240933+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Red Hood and the Outlaws",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 42919,
+        "name": "Red Hood and the Outlaws",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T15:05:51.726179+00:00",
+    "retry_after": "2026-11-17T15:05:51.726203+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Renato Jones, Season Two: Freelancer",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 108118,
+        "name": "Renato Jones, Season Two: The Freelancer",
+        "publisher": "Image",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T15:05:59.998183+00:00",
+    "retry_after": "2026-11-17T15:05:59.998196+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Robin War",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 89620,
+        "name": "Robin War",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T15:06:03.993515+00:00",
+    "retry_after": "2026-11-17T15:06:03.993530+00:00",
     "search_hydrated": true
   }
 ]

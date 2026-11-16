@@ -27479,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T13:02:02.584652+00:00",
-    "retry_after": "2026-11-17T13:02:02.584654+00:00",
+    "last_attempt_at": "2026-11-16T13:26:04.575981+00:00",
+    "retry_after": "2026-11-17T13:26:04.575982+00:00",
     "search_hydrated": true
   },
   {
@@ -43491,8 +43491,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T13:02:02.584587+00:00",
-    "retry_after": "2026-11-17T13:02:02.584606+00:00",
+    "last_attempt_at": "2026-11-16T13:26:04.575925+00:00",
+    "retry_after": "2026-11-17T13:26:04.575940+00:00",
     "search_hydrated": true
   },
   {
@@ -51349,8 +51349,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T13:02:02.584631+00:00",
-    "retry_after": "2026-11-17T13:02:02.584633+00:00",
+    "last_attempt_at": "2026-11-16T13:26:04.575962+00:00",
+    "retry_after": "2026-11-17T13:26:04.575964+00:00",
     "search_hydrated": true
   },
   {
@@ -95356,9 +95356,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T11:05:43.191985+00:00",
-    "retry_after": "2026-11-16T11:05:43.191996+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T13:29:50.028340+00:00",
+    "retry_after": "2026-11-19T13:29:50.028356+00:00",
     "search_hydrated": true
   },
   {
@@ -95374,9 +95374,9 @@
         "start_year": 2004
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T11:05:43.192044+00:00",
-    "retry_after": "2026-11-16T11:05:43.192046+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T13:29:50.028401+00:00",
+    "retry_after": "2026-11-19T13:29:50.028402+00:00",
     "search_hydrated": true
   },
   {
@@ -95385,9 +95385,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T12:05:48.845537+00:00",
-    "retry_after": "2026-11-16T12:05:48.845540+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T13:29:43.071689+00:00",
+    "retry_after": "2026-11-19T13:29:43.071707+00:00",
     "search_hydrated": true
   },
   {
@@ -95396,9 +95396,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T12:05:48.845552+00:00",
-    "retry_after": "2026-11-16T12:05:48.845554+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T13:29:43.071723+00:00",
+    "retry_after": "2026-11-19T13:29:43.071725+00:00",
     "search_hydrated": true
   },
   {
@@ -95429,9 +95429,9 @@
     "year": 2010,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T12:42:37.842387+00:00",
-    "retry_after": "2026-11-16T12:42:37.842401+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T13:30:01.717836+00:00",
+    "retry_after": "2026-11-19T13:30:01.717854+00:00",
     "search_hydrated": true
   },
   {
@@ -95471,9 +95471,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T13:05:46.010238+00:00",
-    "retry_after": "2026-11-16T13:05:46.010254+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T13:29:50.174309+00:00",
+    "retry_after": "2026-11-19T13:29:50.174324+00:00",
     "search_hydrated": true
   },
   {
@@ -95482,9 +95482,9 @@
     "year": 2007,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T13:06:35.232394+00:00",
-    "retry_after": "2026-11-16T13:06:35.232428+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T13:30:01.717872+00:00",
+    "retry_after": "2026-11-19T13:30:01.717874+00:00",
     "search_hydrated": true
   },
   {
@@ -96448,6 +96448,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-16T09:05:22.363370+00:00",
     "retry_after": "2026-11-17T09:05:22.363372+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Transformers: The Animated Movie TPB",
+    "publisher": "IDW Publishing",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T13:30:02.950470+00:00",
+    "retry_after": "2026-11-17T13:30:02.950487+00:00",
     "search_hydrated": true
   }
 ]

@@ -24451,9 +24451,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-02T22:10:33.566636+00:00",
-    "retry_after": "2026-11-16T22:10:33.566641+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-16T23:06:06.925415+00:00",
+    "retry_after": "2026-12-16T23:06:06.925418+00:00",
     "search_hydrated": true
   },
   {
@@ -27450,13 +27450,13 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T22:06:02.904672+00:00",
-    "retry_after": "2026-11-17T22:06:02.904690+00:00",
+    "last_attempt_at": "2026-11-16T23:02:22.764866+00:00",
+    "retry_after": "2026-11-17T23:02:22.764868+00:00",
     "search_hydrated": true
   },
   {
@@ -27479,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T22:02:06.130515+00:00",
-    "retry_after": "2026-11-17T22:02:06.130518+00:00",
+    "last_attempt_at": "2026-11-16T23:02:22.764846+00:00",
+    "retry_after": "2026-11-17T23:02:22.764850+00:00",
     "search_hydrated": true
   },
   {
@@ -43491,8 +43491,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T22:02:06.130406+00:00",
-    "retry_after": "2026-11-17T22:02:06.130446+00:00",
+    "last_attempt_at": "2026-11-16T23:02:22.764764+00:00",
+    "retry_after": "2026-11-17T23:02:22.764780+00:00",
     "search_hydrated": true
   },
   {
@@ -51349,8 +51349,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T22:02:06.130480+00:00",
-    "retry_after": "2026-11-17T22:02:06.130483+00:00",
+    "last_attempt_at": "2026-11-16T23:02:22.764811+00:00",
+    "retry_after": "2026-11-17T23:02:22.764815+00:00",
     "search_hydrated": true
   },
   {
@@ -67710,9 +67710,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-02T22:10:33.566438+00:00",
-    "retry_after": "2026-11-16T22:10:33.566454+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-16T23:06:06.925264+00:00",
+    "retry_after": "2026-12-16T23:06:06.925280+00:00",
     "search_hydrated": true
   },
   {
@@ -67721,9 +67721,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-02T22:10:33.566483+00:00",
-    "retry_after": "2026-11-16T22:10:33.566503+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-16T23:06:06.925310+00:00",
+    "retry_after": "2026-12-16T23:06:06.925314+00:00",
     "search_hydrated": true
   },
   {
@@ -91597,9 +91597,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-09T22:05:33.569832+00:00",
-    "retry_after": "2026-11-16T22:05:33.569849+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-16T23:06:11.757794+00:00",
+    "retry_after": "2026-11-30T23:06:11.757808+00:00",
     "search_hydrated": true
   },
   {
@@ -94103,9 +94103,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-13T22:11:24.378426+00:00",
-    "retry_after": "2026-11-16T22:11:24.378429+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-16T23:06:06.925552+00:00",
+    "retry_after": "2026-11-23T23:06:06.925556+00:00",
     "search_hydrated": true
   },
   {
@@ -96215,6 +96215,78 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-16T22:05:55.536222+00:00",
     "retry_after": "2026-11-17T22:05:55.536225+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Bratty Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62713,
+        "name": "Big Bratty Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T23:06:21.631218+00:00",
+    "retry_after": "2026-11-17T23:06:21.631233+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62660,
+        "name": "Big Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T23:06:21.631265+00:00",
+    "retry_after": "2026-11-17T23:06:21.631269+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Superheroes and the Occult Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79640,
+        "name": "Marvel Superheroes and the Occult Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T23:06:21.631296+00:00",
+    "retry_after": "2026-11-17T23:06:21.631299+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I'm Still Alive",
+    "publisher": "BOOM! Studios",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 147126,
+        "name": "I'm Still Alive",
+        "publisher": "Archaia",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T23:06:21.631319+00:00",
+    "retry_after": "2026-11-17T23:06:21.631322+00:00",
     "search_hydrated": true
   }
 ]

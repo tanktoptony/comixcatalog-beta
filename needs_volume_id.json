@@ -27455,8 +27455,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T20:06:22.847649+00:00",
-    "retry_after": "2026-11-17T20:06:22.847667+00:00",
+    "last_attempt_at": "2026-11-16T21:06:08.600028+00:00",
+    "retry_after": "2026-11-17T21:06:08.600043+00:00",
     "search_hydrated": true
   },
   {
@@ -27479,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T20:01:54.586054+00:00",
-    "retry_after": "2026-11-17T20:01:54.586056+00:00",
+    "last_attempt_at": "2026-11-16T21:01:59.093848+00:00",
+    "retry_after": "2026-11-17T21:01:59.093851+00:00",
     "search_hydrated": true
   },
   {
@@ -41444,9 +41444,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-02T20:11:07.234603+00:00",
-    "retry_after": "2026-11-16T20:11:07.234605+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-16T21:05:28.490964+00:00",
+    "retry_after": "2026-12-16T21:05:28.490971+00:00",
     "search_hydrated": true
   },
   {
@@ -43491,8 +43491,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T20:01:54.585989+00:00",
-    "retry_after": "2026-11-17T20:01:54.586008+00:00",
+    "last_attempt_at": "2026-11-16T21:01:59.093768+00:00",
+    "retry_after": "2026-11-17T21:01:59.093783+00:00",
     "search_hydrated": true
   },
   {
@@ -51349,8 +51349,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T20:01:54.586033+00:00",
-    "retry_after": "2026-11-17T20:01:54.586035+00:00",
+    "last_attempt_at": "2026-11-16T21:01:59.093814+00:00",
+    "retry_after": "2026-11-17T21:01:59.093817+00:00",
     "search_hydrated": true
   },
   {
@@ -67619,9 +67619,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-02T20:10:23.476378+00:00",
-    "retry_after": "2026-11-16T20:10:23.476393+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-16T21:05:28.490764+00:00",
+    "retry_after": "2026-12-16T21:05:28.490779+00:00",
     "search_hydrated": true
   },
   {
@@ -68096,9 +68096,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T18:06:00.595841+00:00",
-    "retry_after": "2026-11-16T18:06:00.595864+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T21:05:30.649517+00:00",
+    "retry_after": "2026-11-19T21:05:30.649521+00:00",
     "search_hydrated": true
   },
   {
@@ -95551,9 +95551,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-15T20:06:25.816981+00:00",
-    "retry_after": "2026-11-16T20:06:25.816999+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-16T21:05:30.716847+00:00",
+    "retry_after": "2026-11-19T21:05:30.716858+00:00",
     "search_hydrated": true
   },
   {
@@ -96017,6 +96017,132 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-16T20:06:22.847701+00:00",
     "retry_after": "2026-11-17T20:06:22.847704+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Saucer Country",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 46573,
+        "name": "Saucer Country",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T21:05:30.717003+00:00",
+    "retry_after": "2026-11-17T21:05:30.717009+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Scalped",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 18247,
+        "name": "Scalped",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T21:05:52.866000+00:00",
+    "retry_after": "2026-11-17T21:05:52.866022+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: The Death of Clark Kent",
+    "publisher": "Titan Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 31905,
+        "name": "Superman: The Death of Clark Kent",
+        "publisher": "DC Comics",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T21:06:01.415018+00:00",
+    "retry_after": "2026-11-17T21:06:01.415033+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Team-Up Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52549,
+        "name": "Marvel Team-Up Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T21:06:01.415084+00:00",
+    "retry_after": "2026-11-17T21:06:01.415089+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Les Aventures d'une étudiante lesbienne",
+    "publisher": "Dynamite Entertainment",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 130157,
+        "name": "Les Aventures d'une Étudiante Lesbienne",
+        "publisher": "Dynamite (France)",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T21:06:01.415116+00:00",
+    "retry_after": "2026-11-17T21:06:01.415119+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mystic: The Tenth Apprentice",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88473,
+        "name": "Mystic: The Tenth Apprentice",
+        "publisher": "Crossgen",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T21:06:01.415140+00:00",
+    "retry_after": "2026-11-17T21:06:01.415143+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Conan Exiles",
+    "publisher": "Dark Horse Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141912,
+        "name": "Conan: Exiles",
+        "publisher": "Marvel",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-16T21:06:01.415162+00:00",
+    "retry_after": "2026-11-17T21:06:01.415164+00:00",
     "search_hydrated": true
   }
 ]

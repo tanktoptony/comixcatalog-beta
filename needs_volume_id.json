@@ -27450,13 +27450,13 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T01:02:00.425596+00:00",
-    "retry_after": "2026-11-18T01:02:00.425598+00:00",
+    "last_attempt_at": "2026-11-17T03:05:49.670959+00:00",
+    "retry_after": "2026-11-18T03:05:49.670974+00:00",
     "search_hydrated": true
   },
   {
@@ -27479,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T02:01:48.947328+00:00",
-    "retry_after": "2026-11-18T02:01:48.947330+00:00",
+    "last_attempt_at": "2026-11-17T03:01:48.480555+00:00",
+    "retry_after": "2026-11-18T03:01:48.480557+00:00",
     "search_hydrated": true
   },
   {
@@ -35009,9 +35009,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-03T02:16:55.240269+00:00",
-    "retry_after": "2026-11-17T02:16:55.240286+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-17T03:05:22.130659+00:00",
+    "retry_after": "2026-12-17T03:05:22.130675+00:00",
     "search_hydrated": true
   },
   {
@@ -43090,9 +43090,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-03T02:16:55.240309+00:00",
-    "retry_after": "2026-11-17T02:16:55.240313+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-17T03:05:22.130693+00:00",
+    "retry_after": "2026-12-17T03:05:22.130696+00:00",
     "search_hydrated": true
   },
   {
@@ -43132,9 +43132,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-03T02:16:55.240332+00:00",
-    "retry_after": "2026-11-17T02:16:55.240335+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-17T03:05:22.130710+00:00",
+    "retry_after": "2026-12-17T03:05:22.130712+00:00",
     "search_hydrated": true
   },
   {
@@ -43491,8 +43491,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T02:01:48.947261+00:00",
-    "retry_after": "2026-11-18T02:01:48.947278+00:00",
+    "last_attempt_at": "2026-11-17T03:01:48.480494+00:00",
+    "retry_after": "2026-11-18T03:01:48.480507+00:00",
     "search_hydrated": true
   },
   {
@@ -51349,8 +51349,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T02:01:48.947303+00:00",
-    "retry_after": "2026-11-18T02:01:48.947305+00:00",
+    "last_attempt_at": "2026-11-17T03:01:48.480530+00:00",
+    "retry_after": "2026-11-18T03:01:48.480533+00:00",
     "search_hydrated": true
   },
   {
@@ -96518,6 +96518,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-17T02:05:38.198012+00:00",
     "retry_after": "2026-11-18T02:05:38.198028+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Suffrage Song: The Haunted History of Gender, Race and Voting Rights in the U.S.",
+    "publisher": "Fantagraphics",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T03:05:33.876004+00:00",
+    "retry_after": "2026-11-18T03:05:33.876020+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Plate Tectonics",
+    "publisher": "BOOM! Studios",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T03:05:33.876050+00:00",
+    "retry_after": "2026-11-18T03:05:33.876053+00:00",
     "search_hydrated": true
   }
 ]

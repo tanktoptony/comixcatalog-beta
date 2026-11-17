@@ -17446,9 +17446,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-14T23:43:56.083331+00:00",
-    "retry_after": "2026-11-17T23:43:56.083349+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-17T23:49:50.864540+00:00",
+    "retry_after": "2026-11-24T23:49:50.864542+00:00",
     "search_hydrated": true
   },
   {
@@ -27460,8 +27460,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T23:06:25.950874+00:00",
-    "retry_after": "2026-11-18T23:06:25.950890+00:00",
+    "last_attempt_at": "2026-11-17T23:50:56.071043+00:00",
+    "retry_after": "2026-11-18T23:50:56.071055+00:00",
     "search_hydrated": true
   },
   {
@@ -27484,8 +27484,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T23:02:17.834617+00:00",
-    "retry_after": "2026-11-18T23:02:17.834620+00:00",
+    "last_attempt_at": "2026-11-17T23:46:04.727370+00:00",
+    "retry_after": "2026-11-18T23:46:04.727371+00:00",
     "search_hydrated": true
   },
   {
@@ -36348,9 +36348,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-03T23:20:22.389927+00:00",
-    "retry_after": "2026-11-17T23:20:22.389941+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-17T23:49:50.864428+00:00",
+    "retry_after": "2026-12-17T23:49:50.864439+00:00",
     "search_hydrated": true
   },
   {
@@ -43496,8 +43496,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T23:02:17.834530+00:00",
-    "retry_after": "2026-11-18T23:02:17.834554+00:00",
+    "last_attempt_at": "2026-11-17T23:46:04.727312+00:00",
+    "retry_after": "2026-11-18T23:46:04.727328+00:00",
     "search_hydrated": true
   },
   {
@@ -51354,8 +51354,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T23:02:17.834584+00:00",
-    "retry_after": "2026-11-18T23:02:17.834588+00:00",
+    "last_attempt_at": "2026-11-17T23:46:04.727350+00:00",
+    "retry_after": "2026-11-18T23:46:04.727352+00:00",
     "search_hydrated": true
   },
   {
@@ -96729,6 +96729,114 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-17T23:06:16.949848+00:00",
     "retry_after": "2026-11-18T23:06:16.949851+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Nightcrawlers",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 118808,
+        "name": "The Nightcrawlers",
+        "publisher": "Ablaze",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T23:49:50.864494+00:00",
+    "retry_after": "2026-11-18T23:49:50.864496+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars: The Force Awakens Adaptation",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 91772,
+        "name": "Star Wars: The Force Awakens Adaptation",
+        "publisher": "Marvel",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T23:50:33.964122+00:00",
+    "retry_after": "2026-11-18T23:50:33.964133+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "They Called Us Enemy – Expanded Edition",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129898,
+        "name": "They Called Us Enemy: Expanded Edition",
+        "publisher": "Top Shelf",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T23:50:48.945676+00:00",
+    "retry_after": "2026-11-18T23:50:48.945688+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Simpsorama",
+    "publisher": "Titan Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65122,
+        "name": "Simpsons Comics: Simpsorama",
+        "publisher": "HarperCollins",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T23:50:48.945709+00:00",
+    "retry_after": "2026-11-18T23:50:48.945712+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kick-Ass 2 Prelude: Hit Girl",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58598,
+        "name": "Kick-Ass 2 Prelude: Hit-Girl",
+        "publisher": "Icon Books",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T23:50:48.945725+00:00",
+    "retry_after": "2026-11-18T23:50:48.945727+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gli Albi dei Super-Eroi",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34647,
+        "name": "Gli Albi dei Super-Eroi",
+        "publisher": "Editoriale Corno",
+        "start_year": 1973
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T23:50:48.945737+00:00",
+    "retry_after": "2026-11-18T23:50:48.945739+00:00",
     "search_hydrated": true
   }
 ]

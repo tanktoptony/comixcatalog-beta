@@ -27458,8 +27458,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T06:51:03.769423+00:00",
-    "retry_after": "2026-11-18T06:51:03.769443+00:00",
+    "last_attempt_at": "2026-11-17T07:06:26.431948+00:00",
+    "retry_after": "2026-11-18T07:06:26.431984+00:00",
     "search_hydrated": true
   },
   {
@@ -27482,8 +27482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T06:45:39.435909+00:00",
-    "retry_after": "2026-11-18T06:45:39.435911+00:00",
+    "last_attempt_at": "2026-11-17T07:01:45.744418+00:00",
+    "retry_after": "2026-11-18T07:01:45.744420+00:00",
     "search_hydrated": true
   },
   {
@@ -43494,8 +43494,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T06:45:39.435842+00:00",
-    "retry_after": "2026-11-18T06:45:39.435858+00:00",
+    "last_attempt_at": "2026-11-17T07:01:45.744353+00:00",
+    "retry_after": "2026-11-18T07:01:45.744369+00:00",
     "search_hydrated": true
   },
   {
@@ -51352,8 +51352,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T06:45:39.435883+00:00",
-    "retry_after": "2026-11-18T06:45:39.435885+00:00",
+    "last_attempt_at": "2026-11-17T07:01:45.744393+00:00",
+    "retry_after": "2026-11-18T07:01:45.744395+00:00",
     "search_hydrated": true
   },
   {
@@ -96645,6 +96645,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-17T06:05:32.090187+00:00",
     "retry_after": "2026-11-18T06:05:32.090205+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Fantastic Four: Heroes Reborn",
+    "publisher": "Marvel Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T07:06:01.459038+00:00",
+    "retry_after": "2026-11-18T07:06:01.459053+00:00",
     "search_hydrated": true
   }
 ]

@@ -27459,8 +27459,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T21:05:34.088379+00:00",
-    "retry_after": "2026-11-18T21:05:34.088396+00:00",
+    "last_attempt_at": "2026-11-17T22:06:54.630973+00:00",
+    "retry_after": "2026-11-18T22:06:54.630989+00:00",
     "search_hydrated": true
   },
   {
@@ -27483,8 +27483,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T21:01:44.635056+00:00",
-    "retry_after": "2026-11-18T21:01:44.635058+00:00",
+    "last_attempt_at": "2026-11-17T22:02:03.086178+00:00",
+    "retry_after": "2026-11-18T22:02:03.086180+00:00",
     "search_hydrated": true
   },
   {
@@ -43495,8 +43495,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T21:01:44.634997+00:00",
-    "retry_after": "2026-11-18T21:01:44.635015+00:00",
+    "last_attempt_at": "2026-11-17T22:02:03.086108+00:00",
+    "retry_after": "2026-11-18T22:02:03.086126+00:00",
     "search_hydrated": true
   },
   {
@@ -51353,8 +51353,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T21:01:44.635036+00:00",
-    "retry_after": "2026-11-18T21:01:44.635038+00:00",
+    "last_attempt_at": "2026-11-17T22:02:03.086151+00:00",
+    "retry_after": "2026-11-18T22:02:03.086154+00:00",
     "search_hydrated": true
   },
   {
@@ -95874,9 +95874,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-16T21:05:30.717003+00:00",
-    "retry_after": "2026-11-17T21:05:30.717009+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-17T22:05:46.969577+00:00",
+    "retry_after": "2026-11-20T22:05:46.969582+00:00",
     "search_hydrated": true
   },
   {
@@ -95892,9 +95892,9 @@
         "start_year": 2007
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-16T21:05:52.866000+00:00",
-    "retry_after": "2026-11-17T21:05:52.866022+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-17T22:05:46.969604+00:00",
+    "retry_after": "2026-11-20T22:05:46.969606+00:00",
     "search_hydrated": true
   },
   {
@@ -96555,6 +96555,107 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-17T21:05:26.918437+00:00",
     "retry_after": "2026-11-18T21:05:26.918438+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spidey",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 86399,
+        "name": "Spidey",
+        "publisher": "Marvel",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T22:05:52.811422+00:00",
+    "retry_after": "2026-11-18T22:05:52.811438+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars: Darth Vader by Kieron Gillen & Salvador Larroca Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T22:06:37.825297+00:00",
+    "retry_after": "2026-11-18T22:06:37.825313+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I'm Still Alive",
+    "publisher": "BOOM! Studios",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 147126,
+        "name": "I'm Still Alive",
+        "publisher": "Archaia",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T22:06:47.019344+00:00",
+    "retry_after": "2026-11-18T22:06:47.019361+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "???????: ???? ????????????",
+    "publisher": "BOOM! Studios",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 172641,
+        "name": "!",
+        "publisher": "Alpha Polis",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T22:06:47.019385+00:00",
+    "retry_after": "2026-11-18T22:06:47.019388+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Boo and the Midnight Monsters",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 122409,
+        "name": "Johnny Boo and the Midnight Monsters",
+        "publisher": "Top Shelf",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T22:06:47.019405+00:00",
+    "retry_after": "2026-11-18T22:06:47.019407+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Boo and the Silly Blizzard",
+    "publisher": "IDW Publishing",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 133882,
+        "name": "Johnny Boo and the Silly Blizzard",
+        "publisher": "Top Shelf",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T22:06:47.019421+00:00",
+    "retry_after": "2026-11-18T22:06:47.019423+00:00",
     "search_hydrated": true
   }
 ]

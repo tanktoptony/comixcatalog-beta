@@ -27458,8 +27458,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T08:06:14.959208+00:00",
-    "retry_after": "2026-11-18T08:06:14.959224+00:00",
+    "last_attempt_at": "2026-11-17T09:06:08.322271+00:00",
+    "retry_after": "2026-11-18T09:06:08.322288+00:00",
     "search_hydrated": true
   },
   {
@@ -27482,8 +27482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T08:01:55.644699+00:00",
-    "retry_after": "2026-11-18T08:01:55.644701+00:00",
+    "last_attempt_at": "2026-11-17T09:02:02.578088+00:00",
+    "retry_after": "2026-11-18T09:02:02.578090+00:00",
     "search_hydrated": true
   },
   {
@@ -43494,8 +43494,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T08:01:55.644632+00:00",
-    "retry_after": "2026-11-18T08:01:55.644649+00:00",
+    "last_attempt_at": "2026-11-17T09:02:02.578022+00:00",
+    "retry_after": "2026-11-18T09:02:02.578038+00:00",
     "search_hydrated": true
   },
   {
@@ -51352,8 +51352,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T08:01:55.644673+00:00",
-    "retry_after": "2026-11-18T08:01:55.644676+00:00",
+    "last_attempt_at": "2026-11-17T09:02:02.578062+00:00",
+    "retry_after": "2026-11-18T09:02:02.578065+00:00",
     "search_hydrated": true
   },
   {
@@ -96678,6 +96678,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-17T08:05:56.698250+00:00",
     "retry_after": "2026-11-18T08:05:56.698254+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Giant-Size X-Men No. 1 [MGA Die-Cast Car]",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T09:05:50.390013+00:00",
+    "retry_after": "2026-11-18T09:05:50.390030+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Hellboy and the B.P.R.D.: 1957 - Family Ties",
+    "publisher": "Dark Horse Comics",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T09:05:50.390063+00:00",
+    "retry_after": "2026-11-18T09:05:50.390066+00:00",
     "search_hydrated": true
   }
 ]

@@ -27458,8 +27458,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T05:06:17.695441+00:00",
-    "retry_after": "2026-11-18T05:06:17.695459+00:00",
+    "last_attempt_at": "2026-11-17T06:05:51.311136+00:00",
+    "retry_after": "2026-11-18T06:05:51.311154+00:00",
     "search_hydrated": true
   },
   {
@@ -27482,8 +27482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T05:01:52.444351+00:00",
-    "retry_after": "2026-11-18T05:01:52.444353+00:00",
+    "last_attempt_at": "2026-11-17T06:01:45.615400+00:00",
+    "retry_after": "2026-11-18T06:01:45.615402+00:00",
     "search_hydrated": true
   },
   {
@@ -43494,8 +43494,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T05:01:52.444284+00:00",
-    "retry_after": "2026-11-18T05:01:52.444303+00:00",
+    "last_attempt_at": "2026-11-17T06:01:45.615339+00:00",
+    "retry_after": "2026-11-18T06:01:45.615357+00:00",
     "search_hydrated": true
   },
   {
@@ -51352,8 +51352,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T05:01:52.444327+00:00",
-    "retry_after": "2026-11-18T05:01:52.444329+00:00",
+    "last_attempt_at": "2026-11-17T06:01:45.615380+00:00",
+    "retry_after": "2026-11-18T06:01:45.615382+00:00",
     "search_hydrated": true
   },
   {
@@ -96623,6 +96623,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-17T05:06:00.732862+00:00",
     "retry_after": "2026-11-18T05:06:00.732865+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Man by David Michelinie and Erik Larsen Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T06:05:20.394772+00:00",
+    "retry_after": "2026-11-18T06:05:20.394802+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ghost Rider No. 39 [Marvel Legends Reprint]",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T06:05:32.090187+00:00",
+    "retry_after": "2026-11-18T06:05:32.090205+00:00",
     "search_hydrated": true
   }
 ]

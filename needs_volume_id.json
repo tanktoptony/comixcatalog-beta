@@ -27465,7 +27465,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27483,8 +27483,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T17:02:07.413248+00:00",
-    "retry_after": "2026-11-18T17:02:07.413250+00:00",
+    "last_attempt_at": "2026-11-17T18:01:44.982143+00:00",
+    "retry_after": "2026-11-18T18:01:44.982162+00:00",
     "search_hydrated": true
   },
   {
@@ -34960,9 +34960,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-03T17:13:37.671175+00:00",
-    "retry_after": "2026-11-17T17:13:37.671177+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-17T18:06:06.621178+00:00",
+    "retry_after": "2026-12-17T18:06:06.621180+00:00",
     "search_hydrated": true
   },
   {
@@ -38506,9 +38506,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-03T17:13:37.671141+00:00",
-    "retry_after": "2026-11-17T17:13:37.671159+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-17T18:06:06.621164+00:00",
+    "retry_after": "2026-12-17T18:06:06.621167+00:00",
     "search_hydrated": true
   },
   {
@@ -43477,7 +43477,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43495,8 +43495,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T17:02:07.413169+00:00",
-    "retry_after": "2026-11-18T17:02:07.413186+00:00",
+    "last_attempt_at": "2026-11-17T18:01:44.982213+00:00",
+    "retry_after": "2026-11-18T18:01:44.982215+00:00",
     "search_hydrated": true
   },
   {
@@ -51348,13 +51348,13 @@
   },
   {
     "name": "Scud: The Disposable Assassin",
-    "publisher": "Fireman Press, Ltd",
+    "publisher": "Fireman Press",
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T17:02:07.413215+00:00",
-    "retry_after": "2026-11-18T17:02:07.413219+00:00",
+    "last_attempt_at": "2026-11-17T18:01:46.842673+00:00",
+    "retry_after": "2026-11-18T18:01:46.842692+00:00",
     "search_hydrated": true
   },
   {
@@ -94481,9 +94481,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-14T18:01:26.888959+00:00",
-    "retry_after": "2026-11-17T18:01:26.888962+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-17T18:01:44.982190+00:00",
+    "retry_after": "2026-11-24T18:01:44.982192+00:00",
     "search_hydrated": true
   },
   {
@@ -94492,9 +94492,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-14T18:05:44.274127+00:00",
-    "retry_after": "2026-11-17T18:05:44.274129+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-17T18:06:06.621059+00:00",
+    "retry_after": "2026-11-24T18:06:06.621079+00:00",
     "search_hydrated": true
   },
   {
@@ -96195,6 +96195,132 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-17T17:05:43.593737+00:00",
     "retry_after": "2026-11-18T17:05:43.593775+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "In Rage",
+    "publisher": "CFD Productions",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88863,
+        "name": "In Rage",
+        "publisher": "Creative Force Designs",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T18:01:44.982230+00:00",
+    "retry_after": "2026-11-18T18:01:44.982232+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Super Adventure Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79594,
+        "name": "Marvel Super Adventure Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T18:06:23.729845+00:00",
+    "retry_after": "2026-11-18T18:06:23.729865+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Trio Grande: Adios Palomita",
+    "publisher": "Heavy Metal",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27096,
+        "name": "Trio Grande: Adios Palomita",
+        "publisher": "Tundra",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T18:06:23.729897+00:00",
+    "retry_after": "2026-11-18T18:06:23.729900+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deadworld: The Last Siesta",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75600,
+        "name": "Deadworld: The Last Siesta",
+        "publisher": "Caliber Comics",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T18:06:23.729917+00:00",
+    "retry_after": "2026-11-18T18:06:23.729918+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Silver Surfer Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79670,
+        "name": "Silver Surfer Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1982
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T18:06:23.729933+00:00",
+    "retry_after": "2026-11-18T18:06:23.729934+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Shake-Up",
+    "publisher": "Titan Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 70715,
+        "name": "Simpsons Comics: Shake-Up",
+        "publisher": "Bongo",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T18:06:23.729945+00:00",
+    "retry_after": "2026-11-18T18:06:23.729947+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mad Classics",
+    "publisher": "EC Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18767,
+        "name": "Mad Classics",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T18:06:32.206674+00:00",
+    "retry_after": "2026-11-18T18:06:32.206696+00:00",
     "search_hydrated": true
   }
 ]

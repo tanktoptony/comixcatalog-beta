@@ -12426,9 +12426,10 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 5,
-    "last_attempt_at": "2026-10-18T03:34:25.870483+00:00",
-    "retry_after": "2026-11-17T03:34:25.870501+00:00"
+    "attempts": 6,
+    "last_attempt_at": "2026-11-17T04:01:49.392302+00:00",
+    "retry_after": "2026-12-17T04:01:49.392303+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Street Fighter Special",
@@ -12436,9 +12437,10 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 5,
-    "last_attempt_at": "2026-10-18T03:34:25.507160+00:00",
-    "retry_after": "2026-11-17T03:34:25.507177+00:00"
+    "attempts": 6,
+    "last_attempt_at": "2026-11-17T04:01:49.392291+00:00",
+    "retry_after": "2026-12-17T04:01:49.392293+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Street Fighter",
@@ -12477,9 +12479,10 @@
         "start_year": 2017
       }
     ],
-    "attempts": 5,
-    "last_attempt_at": "2026-10-18T03:34:25.190803+00:00",
-    "retry_after": "2026-11-17T03:34:25.190820+00:00"
+    "attempts": 6,
+    "last_attempt_at": "2026-11-17T04:01:49.392255+00:00",
+    "retry_after": "2026-12-17T04:01:49.392256+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Transformers / Ghostbusters [ashcan]",
@@ -27455,8 +27458,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T03:05:49.670959+00:00",
-    "retry_after": "2026-11-18T03:05:49.670974+00:00",
+    "last_attempt_at": "2026-11-17T04:07:45.403317+00:00",
+    "retry_after": "2026-11-18T04:07:45.403336+00:00",
     "search_hydrated": true
   },
   {
@@ -27479,8 +27482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T03:01:48.480555+00:00",
-    "retry_after": "2026-11-18T03:01:48.480557+00:00",
+    "last_attempt_at": "2026-11-17T04:01:49.392208+00:00",
+    "retry_after": "2026-11-18T04:01:49.392210+00:00",
     "search_hydrated": true
   },
   {
@@ -43491,8 +43494,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T03:01:48.480494+00:00",
-    "retry_after": "2026-11-18T03:01:48.480507+00:00",
+    "last_attempt_at": "2026-11-17T04:01:49.392144+00:00",
+    "retry_after": "2026-11-18T04:01:49.392163+00:00",
     "search_hydrated": true
   },
   {
@@ -51349,8 +51352,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T03:01:48.480530+00:00",
-    "retry_after": "2026-11-18T03:01:48.480533+00:00",
+    "last_attempt_at": "2026-11-17T04:01:49.392187+00:00",
+    "retry_after": "2026-11-18T04:01:49.392189+00:00",
     "search_hydrated": true
   },
   {
@@ -96540,6 +96543,64 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-17T03:05:33.876050+00:00",
     "retry_after": "2026-11-18T03:05:33.876053+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Seven to Eternity",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 94290,
+        "name": "Seven To Eternity",
+        "publisher": "Image",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T04:05:34.885909+00:00",
+    "retry_after": "2026-11-18T04:05:34.885928+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Snotgirl",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 92387,
+        "name": "Snotgirl",
+        "publisher": "Image",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T04:07:12.473219+00:00",
+    "retry_after": "2026-11-18T04:07:12.473238+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Sonic the Hedgehog 30th Anniversary Celebration: The Deluxe Edition",
+    "publisher": "IDW Publishing",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T04:07:28.270746+00:00",
+    "retry_after": "2026-11-18T04:07:28.270764+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Amazing Spider-Man No. 300 [Spider-Man II Wal-Mart Movie Edition]",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T04:07:28.270788+00:00",
+    "retry_after": "2026-11-18T04:07:28.270790+00:00",
     "search_hydrated": true
   }
 ]

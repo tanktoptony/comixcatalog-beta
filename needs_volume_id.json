@@ -14986,9 +14986,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-14T14:05:57.119434+00:00",
-    "retry_after": "2026-11-17T14:05:57.119437+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-17T15:06:00.011773+00:00",
+    "retry_after": "2026-11-24T15:06:00.011791+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T14:06:14.157725+00:00",
-    "retry_after": "2026-11-18T14:06:14.157741+00:00",
+    "last_attempt_at": "2026-11-17T15:06:32.010141+00:00",
+    "retry_after": "2026-11-18T15:06:32.010158+00:00",
     "search_hydrated": true
   },
   {
@@ -27482,8 +27482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T14:02:03.983637+00:00",
-    "retry_after": "2026-11-18T14:02:03.983640+00:00",
+    "last_attempt_at": "2026-11-17T15:02:17.553339+00:00",
+    "retry_after": "2026-11-18T15:02:17.553343+00:00",
     "search_hydrated": true
   },
   {
@@ -43494,8 +43494,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T14:02:03.983561+00:00",
-    "retry_after": "2026-11-18T14:02:03.983575+00:00",
+    "last_attempt_at": "2026-11-17T15:02:17.553206+00:00",
+    "retry_after": "2026-11-18T15:02:17.553267+00:00",
     "search_hydrated": true
   },
   {
@@ -51352,8 +51352,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T14:02:03.983604+00:00",
-    "retry_after": "2026-11-18T14:02:03.983608+00:00",
+    "last_attempt_at": "2026-11-17T15:02:17.553303+00:00",
+    "retry_after": "2026-11-18T15:02:17.553306+00:00",
     "search_hydrated": true
   },
   {
@@ -95750,9 +95750,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-16T14:05:41.685156+00:00",
-    "retry_after": "2026-11-17T14:05:41.685161+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-17T15:06:00.011814+00:00",
+    "retry_after": "2026-11-20T15:06:00.011818+00:00",
     "search_hydrated": true
   },
   {
@@ -96791,6 +96791,46 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-17T14:05:53.113733+00:00",
     "retry_after": "2026-11-18T14:05:53.113737+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Locke & Key: Welcome to Lovecraft #1 - Convention Edition 2014",
+    "publisher": "IDW Publishing",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T15:06:15.097298+00:00",
+    "retry_after": "2026-11-18T15:06:15.097314+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Walking Dead #1 Wizard World Chicago Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T15:06:15.097338+00:00",
+    "retry_after": "2026-11-18T15:06:15.097342+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cynthia Petal's Really Fantastic Alien Sex Frenzy!",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51946,
+        "name": "Cynthia Petal's Really Fantastic Alien Sex Frenzy!",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T15:06:16.418707+00:00",
+    "retry_after": "2026-11-18T15:06:16.418723+00:00",
     "search_hydrated": true
   }
 ]

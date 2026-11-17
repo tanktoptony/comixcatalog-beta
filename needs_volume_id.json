@@ -7376,9 +7376,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-14T13:10:16.905465+00:00",
-    "retry_after": "2026-11-17T13:10:16.905482+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-17T14:05:36.791790+00:00",
+    "retry_after": "2026-11-24T14:05:36.791795+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T13:06:39.582475+00:00",
-    "retry_after": "2026-11-18T13:06:39.582493+00:00",
+    "last_attempt_at": "2026-11-17T14:06:14.157725+00:00",
+    "retry_after": "2026-11-18T14:06:14.157741+00:00",
     "search_hydrated": true
   },
   {
@@ -27482,8 +27482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T13:02:18.461579+00:00",
-    "retry_after": "2026-11-18T13:02:18.461582+00:00",
+    "last_attempt_at": "2026-11-17T14:02:03.983637+00:00",
+    "retry_after": "2026-11-18T14:02:03.983640+00:00",
     "search_hydrated": true
   },
   {
@@ -43494,8 +43494,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T13:02:18.461498+00:00",
-    "retry_after": "2026-11-18T13:02:18.461517+00:00",
+    "last_attempt_at": "2026-11-17T14:02:03.983561+00:00",
+    "retry_after": "2026-11-18T14:02:03.983575+00:00",
     "search_hydrated": true
   },
   {
@@ -51352,8 +51352,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T13:02:18.461546+00:00",
-    "retry_after": "2026-11-18T13:02:18.461550+00:00",
+    "last_attempt_at": "2026-11-17T14:02:03.983604+00:00",
+    "retry_after": "2026-11-18T14:02:03.983608+00:00",
     "search_hydrated": true
   },
   {
@@ -69966,9 +69966,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-03T13:25:07.371592+00:00",
-    "retry_after": "2026-11-17T13:25:07.371608+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-17T14:05:36.791653+00:00",
+    "retry_after": "2026-12-17T14:05:36.791669+00:00",
     "search_hydrated": true
   },
   {
@@ -96769,6 +96769,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-17T13:06:18.352045+00:00",
     "retry_after": "2026-11-18T13:06:18.352049+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Beavis and Butt-Head's Greatest Hits",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T14:05:53.113685+00:00",
+    "retry_after": "2026-11-18T14:05:53.113699+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "From Bloom County to Mars: The Imagination of Berkeley Breathed",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T14:05:53.113733+00:00",
+    "retry_after": "2026-11-18T14:05:53.113737+00:00",
     "search_hydrated": true
   }
 ]

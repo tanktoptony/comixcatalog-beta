@@ -27450,13 +27450,13 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T00:07:36.310712+00:00",
-    "retry_after": "2026-11-18T00:07:36.310731+00:00",
+    "last_attempt_at": "2026-11-17T01:02:00.425596+00:00",
+    "retry_after": "2026-11-18T01:02:00.425598+00:00",
     "search_hydrated": true
   },
   {
@@ -27479,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T00:02:05.577068+00:00",
-    "retry_after": "2026-11-18T00:02:05.577070+00:00",
+    "last_attempt_at": "2026-11-17T01:02:00.425585+00:00",
+    "retry_after": "2026-11-18T01:02:00.425586+00:00",
     "search_hydrated": true
   },
   {
@@ -43491,8 +43491,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T00:02:05.576970+00:00",
-    "retry_after": "2026-11-18T00:02:05.577011+00:00",
+    "last_attempt_at": "2026-11-17T01:02:00.425519+00:00",
+    "retry_after": "2026-11-18T01:02:00.425538+00:00",
     "search_hydrated": true
   },
   {
@@ -51349,8 +51349,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T00:02:05.577040+00:00",
-    "retry_after": "2026-11-18T00:02:05.577043+00:00",
+    "last_attempt_at": "2026-11-17T01:02:00.425562+00:00",
+    "retry_after": "2026-11-18T01:02:00.425564+00:00",
     "search_hydrated": true
   },
   {
@@ -94156,9 +94156,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-14T00:24:21.310514+00:00",
-    "retry_after": "2026-11-17T00:24:21.310529+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-17T01:05:48.585653+00:00",
+    "retry_after": "2026-11-24T01:05:48.585670+00:00",
     "search_hydrated": true
   },
   {
@@ -94167,9 +94167,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-14T00:24:21.310557+00:00",
-    "retry_after": "2026-11-17T00:24:21.310562+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-17T01:05:48.585691+00:00",
+    "retry_after": "2026-11-24T01:05:48.585694+00:00",
     "search_hydrated": true
   },
   {
@@ -94178,9 +94178,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-14T00:24:21.310578+00:00",
-    "retry_after": "2026-11-17T00:24:21.310581+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-17T01:05:48.585704+00:00",
+    "retry_after": "2026-11-24T01:05:48.585706+00:00",
     "search_hydrated": true
   },
   {
@@ -96424,6 +96424,89 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-17T00:07:24.048215+00:00",
     "retry_after": "2026-11-18T00:07:24.048218+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Shazam!: The New Beginning 30th Anniversary Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T01:05:48.585728+00:00",
+    "retry_after": "2026-11-18T01:05:48.585730+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "They Called Us Enemy – Expanded Edition",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129898,
+        "name": "They Called Us Enemy: Expanded Edition",
+        "publisher": "Top Shelf",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T01:06:00.730564+00:00",
+    "retry_after": "2026-11-18T01:06:00.730583+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Simpsorama",
+    "publisher": "Titan Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65122,
+        "name": "Simpsons Comics: Simpsorama",
+        "publisher": "HarperCollins",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T01:06:00.730606+00:00",
+    "retry_after": "2026-11-18T01:06:00.730609+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kick-Ass 2 Prelude: Hit Girl",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58598,
+        "name": "Kick-Ass 2 Prelude: Hit-Girl",
+        "publisher": "Icon Books",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T01:06:00.730625+00:00",
+    "retry_after": "2026-11-18T01:06:00.730626+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gli Albi dei Super-Eroi",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34647,
+        "name": "Gli Albi dei Super-Eroi",
+        "publisher": "Editoriale Corno",
+        "start_year": 1973
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T01:06:00.730639+00:00",
+    "retry_after": "2026-11-18T01:06:00.730641+00:00",
     "search_hydrated": true
   }
 ]

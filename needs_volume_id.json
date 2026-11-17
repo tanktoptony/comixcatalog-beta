@@ -27458,8 +27458,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T10:06:10.013331+00:00",
-    "retry_after": "2026-11-18T10:06:10.013343+00:00",
+    "last_attempt_at": "2026-11-17T11:06:15.879367+00:00",
+    "retry_after": "2026-11-18T11:06:15.879385+00:00",
     "search_hydrated": true
   },
   {
@@ -27482,8 +27482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T10:01:51.363033+00:00",
-    "retry_after": "2026-11-18T10:01:51.363035+00:00",
+    "last_attempt_at": "2026-11-17T11:01:58.966602+00:00",
+    "retry_after": "2026-11-18T11:01:58.966604+00:00",
     "search_hydrated": true
   },
   {
@@ -43494,8 +43494,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T10:01:51.362977+00:00",
-    "retry_after": "2026-11-18T10:01:51.362991+00:00",
+    "last_attempt_at": "2026-11-17T11:01:58.966535+00:00",
+    "retry_after": "2026-11-18T11:01:58.966551+00:00",
     "search_hydrated": true
   },
   {
@@ -51352,8 +51352,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T10:01:51.363013+00:00",
-    "retry_after": "2026-11-18T10:01:51.363014+00:00",
+    "last_attempt_at": "2026-11-17T11:01:58.966576+00:00",
+    "retry_after": "2026-11-18T11:01:58.966578+00:00",
     "search_hydrated": true
   },
   {
@@ -94311,9 +94311,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-14T10:10:24.925088+00:00",
-    "retry_after": "2026-11-17T10:10:24.925106+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-17T11:05:42.400757+00:00",
+    "retry_after": "2026-11-24T11:05:42.400773+00:00",
     "search_hydrated": true
   },
   {
@@ -96729,6 +96729,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-17T10:05:48.849607+00:00",
     "retry_after": "2026-11-18T10:05:48.849610+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Godzilla: Monsters & Protectors - Summer Smash",
+    "publisher": "IDW Publishing",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T11:05:51.499392+00:00",
+    "retry_after": "2026-11-18T11:05:51.499408+00:00",
     "search_hydrated": true
   }
 ]

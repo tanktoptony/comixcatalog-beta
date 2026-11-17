@@ -27459,8 +27459,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T20:06:00.045278+00:00",
-    "retry_after": "2026-11-18T20:06:00.045289+00:00",
+    "last_attempt_at": "2026-11-17T21:05:34.088379+00:00",
+    "retry_after": "2026-11-18T21:05:34.088396+00:00",
     "search_hydrated": true
   },
   {
@@ -27483,8 +27483,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T20:01:46.433452+00:00",
-    "retry_after": "2026-11-18T20:01:46.433454+00:00",
+    "last_attempt_at": "2026-11-17T21:01:44.635056+00:00",
+    "retry_after": "2026-11-18T21:01:44.635058+00:00",
     "search_hydrated": true
   },
   {
@@ -36708,9 +36708,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-03T20:14:41.139682+00:00",
-    "retry_after": "2026-11-17T20:14:41.139697+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-17T21:05:14.957126+00:00",
+    "retry_after": "2026-12-17T21:05:14.957143+00:00",
     "search_hydrated": true
   },
   {
@@ -43495,8 +43495,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T20:01:46.433399+00:00",
-    "retry_after": "2026-11-18T20:01:46.433410+00:00",
+    "last_attempt_at": "2026-11-17T21:01:44.634997+00:00",
+    "retry_after": "2026-11-18T21:01:44.635015+00:00",
     "search_hydrated": true
   },
   {
@@ -51353,8 +51353,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T20:01:46.433432+00:00",
-    "retry_after": "2026-11-18T20:01:46.433434+00:00",
+    "last_attempt_at": "2026-11-17T21:01:44.635036+00:00",
+    "retry_after": "2026-11-18T21:01:44.635038+00:00",
     "search_hydrated": true
   },
   {
@@ -51825,9 +51825,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-03T20:14:41.139726+00:00",
-    "retry_after": "2026-11-17T20:14:41.139731+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-17T21:05:14.957163+00:00",
+    "retry_after": "2026-12-17T21:05:14.957165+00:00",
     "search_hydrated": true
   },
   {
@@ -92262,9 +92262,9 @@
     "year": 1990,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-10T20:16:06.185072+00:00",
-    "retry_after": "2026-11-17T20:16:06.185088+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-17T21:01:26.645370+00:00",
+    "retry_after": "2026-12-01T21:01:26.645386+00:00",
     "search_hydrated": true
   },
   {
@@ -96483,6 +96483,78 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-17T20:05:50.543982+00:00",
     "retry_after": "2026-11-18T20:05:50.543983+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mouse Guard: Baldwin the Brave & Other Tales",
+    "publisher": "BOOM! Studios",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78073,
+        "name": "Mouse Guard: Baldwin the Brave & Other Tales",
+        "publisher": "Archaia",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T21:05:26.918335+00:00",
+    "retry_after": "2026-11-18T21:05:26.918352+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Bratty Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62713,
+        "name": "Big Bratty Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T21:05:26.918409+00:00",
+    "retry_after": "2026-11-18T21:05:26.918412+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62660,
+        "name": "Big Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T21:05:26.918424+00:00",
+    "retry_after": "2026-11-18T21:05:26.918426+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Superheroes and the Occult Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79640,
+        "name": "Marvel Superheroes and the Occult Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T21:05:26.918437+00:00",
+    "retry_after": "2026-11-18T21:05:26.918438+00:00",
     "search_hydrated": true
   }
 ]

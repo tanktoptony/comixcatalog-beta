@@ -18687,9 +18687,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-03T18:19:11.972096+00:00",
-    "retry_after": "2026-11-17T18:19:11.972099+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-17T19:06:17.004089+00:00",
+    "retry_after": "2026-12-17T19:06:17.004092+00:00",
     "search_hydrated": true
   },
   {
@@ -27459,13 +27459,13 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T17:06:09.734157+00:00",
-    "retry_after": "2026-11-18T17:06:09.734173+00:00",
+    "last_attempt_at": "2026-11-17T19:06:38.652451+00:00",
+    "retry_after": "2026-11-18T19:06:38.652469+00:00",
     "search_hydrated": true
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27483,8 +27483,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T18:01:44.982143+00:00",
-    "retry_after": "2026-11-18T18:01:44.982162+00:00",
+    "last_attempt_at": "2026-11-17T19:02:33.190915+00:00",
+    "retry_after": "2026-11-18T19:02:33.190916+00:00",
     "search_hydrated": true
   },
   {
@@ -35576,9 +35576,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-03T18:19:11.972063+00:00",
-    "retry_after": "2026-11-17T18:19:11.972080+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-17T19:06:17.004055+00:00",
+    "retry_after": "2026-12-17T19:06:17.004073+00:00",
     "search_hydrated": true
   },
   {
@@ -39096,9 +39096,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-03T18:19:11.972109+00:00",
-    "retry_after": "2026-11-17T18:19:11.972110+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-17T19:06:17.004106+00:00",
+    "retry_after": "2026-12-17T19:06:17.004108+00:00",
     "search_hydrated": true
   },
   {
@@ -43477,7 +43477,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43495,8 +43495,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T18:01:44.982213+00:00",
-    "retry_after": "2026-11-18T18:01:44.982215+00:00",
+    "last_attempt_at": "2026-11-17T19:02:33.190870+00:00",
+    "retry_after": "2026-11-18T19:02:33.190877+00:00",
     "search_hydrated": true
   },
   {
@@ -51348,13 +51348,13 @@
   },
   {
     "name": "Scud: The Disposable Assassin",
-    "publisher": "Fireman Press",
+    "publisher": "Fireman Press, Ltd",
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T18:01:46.842673+00:00",
-    "retry_after": "2026-11-18T18:01:46.842692+00:00",
+    "last_attempt_at": "2026-11-17T19:02:33.190896+00:00",
+    "retry_after": "2026-11-18T19:02:33.190898+00:00",
     "search_hydrated": true
   },
   {
@@ -94510,9 +94510,9 @@
         "start_year": 2008
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-14T19:05:37.163314+00:00",
-    "retry_after": "2026-11-17T19:05:37.163318+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-17T19:06:20.616232+00:00",
+    "retry_after": "2026-11-24T19:06:20.616234+00:00",
     "search_hydrated": true
   },
   {
@@ -95856,9 +95856,9 @@
         "start_year": 1979
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-16T17:06:55.186217+00:00",
-    "retry_after": "2026-11-17T17:06:55.186234+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-17T19:06:20.616512+00:00",
+    "retry_after": "2026-11-20T19:06:20.616514+00:00",
     "search_hydrated": true
   },
   {
@@ -96321,6 +96321,96 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-17T18:06:32.206674+00:00",
     "retry_after": "2026-11-18T18:06:32.206696+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Radiant Pink",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 146745,
+        "name": "Radiant Pink",
+        "publisher": "Image",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T19:06:19.824253+00:00",
+    "retry_after": "2026-11-18T19:06:19.824268+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: The Death of Clark Kent",
+    "publisher": "Titan Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 31905,
+        "name": "Superman: The Death of Clark Kent",
+        "publisher": "DC Comics",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T19:06:29.405662+00:00",
+    "retry_after": "2026-11-18T19:06:29.405680+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Team-Up Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52549,
+        "name": "Marvel Team-Up Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T19:06:29.405705+00:00",
+    "retry_after": "2026-11-18T19:06:29.405708+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Les Aventures d'une étudiante lesbienne",
+    "publisher": "Dynamite Entertainment",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 130157,
+        "name": "Les Aventures d'une Étudiante Lesbienne",
+        "publisher": "Dynamite (France)",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T19:06:29.405724+00:00",
+    "retry_after": "2026-11-18T19:06:29.405726+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mystic: The Tenth Apprentice",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88473,
+        "name": "Mystic: The Tenth Apprentice",
+        "publisher": "Crossgen",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T19:06:29.405737+00:00",
+    "retry_after": "2026-11-18T19:06:29.405738+00:00",
     "search_hydrated": true
   }
 ]

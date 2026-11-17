@@ -27455,8 +27455,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T23:19:49.566267+00:00",
-    "retry_after": "2026-11-17T23:19:49.566284+00:00",
+    "last_attempt_at": "2026-11-17T00:07:36.310712+00:00",
+    "retry_after": "2026-11-18T00:07:36.310731+00:00",
     "search_hydrated": true
   },
   {
@@ -27479,8 +27479,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T23:15:24.543658+00:00",
-    "retry_after": "2026-11-17T23:15:24.543661+00:00",
+    "last_attempt_at": "2026-11-17T00:02:05.577068+00:00",
+    "retry_after": "2026-11-18T00:02:05.577070+00:00",
     "search_hydrated": true
   },
   {
@@ -43491,8 +43491,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T23:15:24.543582+00:00",
-    "retry_after": "2026-11-17T23:15:24.543598+00:00",
+    "last_attempt_at": "2026-11-17T00:02:05.576970+00:00",
+    "retry_after": "2026-11-18T00:02:05.577011+00:00",
     "search_hydrated": true
   },
   {
@@ -51349,8 +51349,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-16T23:15:24.543627+00:00",
-    "retry_after": "2026-11-17T23:15:24.543630+00:00",
+    "last_attempt_at": "2026-11-17T00:02:05.577040+00:00",
+    "retry_after": "2026-11-18T00:02:05.577043+00:00",
     "search_hydrated": true
   },
   {
@@ -95598,9 +95598,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-16T00:05:46.674252+00:00",
-    "retry_after": "2026-11-17T00:05:46.674254+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-17T00:06:53.370154+00:00",
+    "retry_after": "2026-11-20T00:06:53.370157+00:00",
     "search_hydrated": true
   },
   {
@@ -95616,9 +95616,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-16T00:06:08.189114+00:00",
-    "retry_after": "2026-11-17T00:06:08.189130+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-17T00:06:53.509762+00:00",
+    "retry_after": "2026-11-20T00:06:53.509778+00:00",
     "search_hydrated": true
   },
   {
@@ -96341,6 +96341,89 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-16T23:19:37.558563+00:00",
     "retry_after": "2026-11-17T23:19:37.558566+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Sensation Comics 1 Special Convention Exclusive",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T00:06:46.546822+00:00",
+    "retry_after": "2026-11-18T00:06:46.546839+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tits ! Tits ! Tits !",
+    "publisher": "Dynamite Entertainment",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167384,
+        "name": "Tits! Tits! Tits!",
+        "publisher": "Dynamite (France)",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T00:07:24.048138+00:00",
+    "retry_after": "2026-11-18T00:07:24.048154+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Death",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40889,
+        "name": "Death",
+        "publisher": "Panini Verlag",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T00:07:24.048179+00:00",
+    "retry_after": "2026-11-18T00:07:24.048182+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Meltdown",
+    "publisher": "Titan Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161288,
+        "name": "Simpsons Comics Meltdown",
+        "publisher": "HarperCollins",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T00:07:24.048200+00:00",
+    "retry_after": "2026-11-18T00:07:24.048202+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vuzz",
+    "publisher": "Titan Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85799,
+        "name": "Vuzz",
+        "publisher": "Dargaud",
+        "start_year": 1974
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T00:07:24.048215+00:00",
+    "retry_after": "2026-11-18T00:07:24.048218+00:00",
     "search_hydrated": true
   }
 ]

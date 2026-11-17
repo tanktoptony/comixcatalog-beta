@@ -27458,8 +27458,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T04:07:45.403317+00:00",
-    "retry_after": "2026-11-18T04:07:45.403336+00:00",
+    "last_attempt_at": "2026-11-17T05:06:17.695441+00:00",
+    "retry_after": "2026-11-18T05:06:17.695459+00:00",
     "search_hydrated": true
   },
   {
@@ -27482,8 +27482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T04:01:49.392208+00:00",
-    "retry_after": "2026-11-18T04:01:49.392210+00:00",
+    "last_attempt_at": "2026-11-17T05:01:52.444351+00:00",
+    "retry_after": "2026-11-18T05:01:52.444353+00:00",
     "search_hydrated": true
   },
   {
@@ -43494,8 +43494,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T04:01:49.392144+00:00",
-    "retry_after": "2026-11-18T04:01:49.392163+00:00",
+    "last_attempt_at": "2026-11-17T05:01:52.444284+00:00",
+    "retry_after": "2026-11-18T05:01:52.444303+00:00",
     "search_hydrated": true
   },
   {
@@ -51352,8 +51352,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T04:01:49.392187+00:00",
-    "retry_after": "2026-11-18T04:01:49.392189+00:00",
+    "last_attempt_at": "2026-11-17T05:01:52.444327+00:00",
+    "retry_after": "2026-11-18T05:01:52.444329+00:00",
     "search_hydrated": true
   },
   {
@@ -91485,9 +91485,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-10T04:10:19.915563+00:00",
-    "retry_after": "2026-11-17T04:10:19.915601+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-17T05:05:39.825513+00:00",
+    "retry_after": "2026-12-01T05:05:39.825525+00:00",
     "search_hydrated": true
   },
   {
@@ -91503,9 +91503,9 @@
         "start_year": 1991
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-10T04:10:19.915716+00:00",
-    "retry_after": "2026-11-17T04:10:19.915718+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-17T05:05:39.825623+00:00",
+    "retry_after": "2026-12-01T05:05:39.825625+00:00",
     "search_hydrated": true
   },
   {
@@ -96601,6 +96601,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-17T04:07:28.270788+00:00",
     "retry_after": "2026-11-18T04:07:28.270790+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Sonic the Hedgehog: Bonds of Friendship",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T05:06:00.732829+00:00",
+    "retry_after": "2026-11-18T05:06:00.732847+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Brûlantes !",
+    "publisher": "Dynamite Entertainment",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T05:06:00.732862+00:00",
+    "retry_after": "2026-11-18T05:06:00.732865+00:00",
     "search_hydrated": true
   }
 ]

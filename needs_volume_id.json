@@ -27458,8 +27458,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T09:06:08.322271+00:00",
-    "retry_after": "2026-11-18T09:06:08.322288+00:00",
+    "last_attempt_at": "2026-11-17T10:06:10.013331+00:00",
+    "retry_after": "2026-11-18T10:06:10.013343+00:00",
     "search_hydrated": true
   },
   {
@@ -27482,8 +27482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T09:02:02.578088+00:00",
-    "retry_after": "2026-11-18T09:02:02.578090+00:00",
+    "last_attempt_at": "2026-11-17T10:01:51.363033+00:00",
+    "retry_after": "2026-11-18T10:01:51.363035+00:00",
     "search_hydrated": true
   },
   {
@@ -43104,9 +43104,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-03T09:16:26.464943+00:00",
-    "retry_after": "2026-11-17T09:16:26.464957+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-17T10:05:32.004307+00:00",
+    "retry_after": "2026-12-17T10:05:32.004325+00:00",
     "search_hydrated": true
   },
   {
@@ -43494,8 +43494,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T09:02:02.578022+00:00",
-    "retry_after": "2026-11-18T09:02:02.578038+00:00",
+    "last_attempt_at": "2026-11-17T10:01:51.362977+00:00",
+    "retry_after": "2026-11-18T10:01:51.362991+00:00",
     "search_hydrated": true
   },
   {
@@ -51352,8 +51352,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T09:02:02.578062+00:00",
-    "retry_after": "2026-11-18T09:02:02.578065+00:00",
+    "last_attempt_at": "2026-11-17T10:01:51.363013+00:00",
+    "retry_after": "2026-11-18T10:01:51.363014+00:00",
     "search_hydrated": true
   },
   {
@@ -95688,9 +95688,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-16T08:05:45.286074+00:00",
-    "retry_after": "2026-11-17T08:05:45.286087+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-17T10:05:37.471860+00:00",
+    "retry_after": "2026-11-20T10:05:37.471894+00:00",
     "search_hydrated": true
   },
   {
@@ -95706,9 +95706,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-16T08:06:09.883092+00:00",
-    "retry_after": "2026-11-17T08:06:09.883109+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-17T10:05:37.604542+00:00",
+    "retry_after": "2026-11-20T10:05:37.604544+00:00",
     "search_hydrated": true
   },
   {
@@ -95717,9 +95717,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-16T09:05:22.363357+00:00",
-    "retry_after": "2026-11-17T09:05:22.363360+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-17T10:05:32.004413+00:00",
+    "retry_after": "2026-11-20T10:05:32.004415+00:00",
     "search_hydrated": true
   },
   {
@@ -95728,9 +95728,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-16T09:05:22.363370+00:00",
-    "retry_after": "2026-11-17T09:05:22.363372+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-17T10:05:32.004424+00:00",
+    "retry_after": "2026-11-20T10:05:32.004425+00:00",
     "search_hydrated": true
   },
   {
@@ -96700,6 +96700,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-17T09:05:50.390063+00:00",
     "retry_after": "2026-11-18T09:05:50.390066+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Don't Let the Penguin Drive the Batmobile",
+    "publisher": "EC Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 114242,
+        "name": "Don't Let the Penguin Drive the Batmobile!",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T10:05:48.849569+00:00",
+    "retry_after": "2026-11-18T10:05:48.849583+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Maakies with the Wrinkled Knees",
+    "publisher": "Fantagraphics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T10:05:48.849607+00:00",
+    "retry_after": "2026-11-18T10:05:48.849610+00:00",
     "search_hydrated": true
   }
 ]

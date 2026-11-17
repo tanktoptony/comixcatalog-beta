@@ -27459,8 +27459,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T19:06:38.652451+00:00",
-    "retry_after": "2026-11-18T19:06:38.652469+00:00",
+    "last_attempt_at": "2026-11-17T20:06:00.045278+00:00",
+    "retry_after": "2026-11-18T20:06:00.045289+00:00",
     "search_hydrated": true
   },
   {
@@ -27483,8 +27483,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T19:02:33.190915+00:00",
-    "retry_after": "2026-11-18T19:02:33.190916+00:00",
+    "last_attempt_at": "2026-11-17T20:01:46.433452+00:00",
+    "retry_after": "2026-11-18T20:01:46.433454+00:00",
     "search_hydrated": true
   },
   {
@@ -35167,9 +35167,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-03T19:25:58.263033+00:00",
-    "retry_after": "2026-11-17T19:25:58.263049+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-17T20:05:28.277552+00:00",
+    "retry_after": "2026-12-17T20:05:28.277564+00:00",
     "search_hydrated": true
   },
   {
@@ -43495,8 +43495,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T19:02:33.190870+00:00",
-    "retry_after": "2026-11-18T19:02:33.190877+00:00",
+    "last_attempt_at": "2026-11-17T20:01:46.433399+00:00",
+    "retry_after": "2026-11-18T20:01:46.433410+00:00",
     "search_hydrated": true
   },
   {
@@ -51353,8 +51353,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T19:02:33.190896+00:00",
-    "retry_after": "2026-11-18T19:02:33.190898+00:00",
+    "last_attempt_at": "2026-11-17T20:01:46.433432+00:00",
+    "retry_after": "2026-11-18T20:01:46.433434+00:00",
     "search_hydrated": true
   },
   {
@@ -96411,6 +96411,78 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-17T19:06:29.405737+00:00",
     "retry_after": "2026-11-18T19:06:29.405738+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Conan Exiles",
+    "publisher": "Dark Horse Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141912,
+        "name": "Conan: Exiles",
+        "publisher": "Marvel",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T20:05:50.543907+00:00",
+    "retry_after": "2026-11-18T20:05:50.543919+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Unchained",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65051,
+        "name": "Simpsons Comics Unchained",
+        "publisher": "HarperCollins",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T20:05:50.543944+00:00",
+    "retry_after": "2026-11-18T20:05:50.543947+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Links",
+    "publisher": "VIZ Media",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148145,
+        "name": "Links",
+        "publisher": "Milky Way Ediciones",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T20:05:50.543961+00:00",
+    "retry_after": "2026-11-18T20:05:50.543963+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Extravaganza",
+    "publisher": "Titan Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64945,
+        "name": "Simpsons Comics Extravaganza",
+        "publisher": "HarperCollins",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T20:05:50.543982+00:00",
+    "retry_after": "2026-11-18T20:05:50.543983+00:00",
     "search_hydrated": true
   }
 ]

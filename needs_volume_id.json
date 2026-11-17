@@ -6902,9 +6902,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-10T12:28:50.496839+00:00",
-    "retry_after": "2026-11-17T12:28:50.496854+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-17T13:06:03.902290+00:00",
+    "retry_after": "2026-12-01T13:06:03.902309+00:00",
     "search_hydrated": true
   },
   {
@@ -22978,9 +22978,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-14T12:10:00.197342+00:00",
-    "retry_after": "2026-11-17T12:10:00.197344+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-17T13:06:03.902380+00:00",
+    "retry_after": "2026-11-24T13:06:03.902384+00:00",
     "search_hydrated": true
   },
   {
@@ -27458,8 +27458,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T12:07:49.828649+00:00",
-    "retry_after": "2026-11-18T12:07:49.828665+00:00",
+    "last_attempt_at": "2026-11-17T13:06:39.582475+00:00",
+    "retry_after": "2026-11-18T13:06:39.582493+00:00",
     "search_hydrated": true
   },
   {
@@ -27482,8 +27482,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T12:02:01.872940+00:00",
-    "retry_after": "2026-11-18T12:02:01.872942+00:00",
+    "last_attempt_at": "2026-11-17T13:02:18.461579+00:00",
+    "retry_after": "2026-11-18T13:02:18.461582+00:00",
     "search_hydrated": true
   },
   {
@@ -43494,8 +43494,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T12:02:01.872874+00:00",
-    "retry_after": "2026-11-18T12:02:01.872889+00:00",
+    "last_attempt_at": "2026-11-17T13:02:18.461498+00:00",
+    "retry_after": "2026-11-18T13:02:18.461517+00:00",
     "search_hydrated": true
   },
   {
@@ -51352,8 +51352,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T12:02:01.872914+00:00",
-    "retry_after": "2026-11-18T12:02:01.872916+00:00",
+    "last_attempt_at": "2026-11-17T13:02:18.461546+00:00",
+    "retry_after": "2026-11-18T13:02:18.461550+00:00",
     "search_hydrated": true
   },
   {
@@ -96740,6 +96740,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-17T11:05:51.499392+00:00",
     "retry_after": "2026-11-18T11:05:51.499408+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Wolverton Bible: The Old Testament & Book of Revelation Through the Pen of Basil Wolverton",
+    "publisher": "Fantagraphics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T13:06:18.351973+00:00",
+    "retry_after": "2026-11-18T13:06:18.351992+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Run Wild",
+    "publisher": "BOOM! Studios",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 112198,
+        "name": "Run Wild",
+        "publisher": "Archaia",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-17T13:06:18.352045+00:00",
+    "retry_after": "2026-11-18T13:06:18.352049+00:00",
     "search_hydrated": true
   }
 ]

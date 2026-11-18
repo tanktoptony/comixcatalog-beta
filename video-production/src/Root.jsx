@@ -15,9 +15,9 @@ import { ShortClip } from "./Shorts.jsx";
 import { ChannelBanner, ChannelBannerComic } from "./Banner.jsx";
 import { ChannelIntro, ChannelSting } from "./ChannelIntro.jsx";
 import { FoundersStory } from "./FoundersStory.jsx";
-import { StingSpotlight, StingCoverWall, StingFoil } from "../shared/components/stingOptions.jsx";
+import { PageFlipSting } from "../shared/components/pageFlipSting.jsx";
+import { STING_PAGES as STING_PAGES_008 } from "../episode-008/sting.js";
 
-const STING_COVERS_008 = ["lake-01", "lake-03", "lake-05", "lake-07", "lake-09", "lake-11", "sea-01", "lake-02", "lake-04", "lake-06", "lake-08", "lake-10", "lake-12", "sea-02"].map((n) => `episode-008/covers/${n}.jpg`);
 import { SHORTS, END_CARD, shortRange } from "../shorts.js";
 import { narrationWords as narrationWords001 } from "../episode-001/timeline.v3.js";
 import { narrationWords as narrationWords002 } from "../episode-002/timeline.js";
@@ -129,9 +129,7 @@ export function Root() {
       })}
       <Composition id="ChannelIntro" component={ChannelIntro} durationInFrames={CHANNEL_INTRO.frames} fps={VIDEO.fps} width={VIDEO.width} height={VIDEO.height} />
       <Composition id="ChannelSting" component={ChannelSting} durationInFrames={Math.round(2.5 * VIDEO.fps)} fps={VIDEO.fps} width={VIDEO.width} height={VIDEO.height} />
-      <Composition id="StingSpotlight" component={StingSpotlight} defaultProps={{ covers: STING_COVERS_008 }} durationInFrames={Math.round(2.5 * VIDEO.fps)} fps={VIDEO.fps} width={VIDEO.width} height={VIDEO.height} />
-      <Composition id="StingCoverWall" component={StingCoverWall} defaultProps={{ covers: STING_COVERS_008 }} durationInFrames={Math.round(2.5 * VIDEO.fps)} fps={VIDEO.fps} width={VIDEO.width} height={VIDEO.height} />
-      <Composition id="StingFoil" component={StingFoil} defaultProps={{ covers: STING_COVERS_008 }} durationInFrames={Math.round(2.5 * VIDEO.fps)} fps={VIDEO.fps} width={VIDEO.width} height={VIDEO.height} />
+      <Composition id="StingPageFlip" component={PageFlipSting} defaultProps={{ pages: STING_PAGES_008, sound: "episode-008/audio/STING_PAGEFLIP.wav" }} durationInFrames={Math.round(3 * VIDEO.fps)} fps={VIDEO.fps} width={VIDEO.width} height={VIDEO.height} />
       <Composition id="FoundersStory" component={FoundersStory} durationInFrames={1} fps={30} width={1080} height={1920} defaultProps={{ left: 71 }} />
       <Composition id="ChannelBanner" component={ChannelBanner} durationInFrames={1} fps={30} width={2560} height={1440} />
       <Composition id="ChannelBannerComic" component={ChannelBannerComic} durationInFrames={1} fps={30} width={2560} height={1440} />

@@ -16,6 +16,7 @@ import { DossierReveal } from "./components/dossier.jsx";
 import { PackOpen, RetroCard } from "./components/packOpen.jsx";
 import { CameraShot } from "./components/camera.jsx";
 import { RotatePage } from "./components/rotatePage.jsx";
+import { PageFlipSting } from "./components/pageFlipSting.jsx";
 
 const StingCard = ({ tagline }) => <Logo tagline={tagline} />;
 
@@ -37,6 +38,7 @@ export const SEGMENT_TYPES = {
   shelfLater: ShelfLater,
   screen: ScreenCapture,
   sting: StingCard,
+  pageFlipSting: PageFlipSting,
   quote: QuoteCard,
   comixcatalog: ComixCatalogCard,
   end: EndCard,

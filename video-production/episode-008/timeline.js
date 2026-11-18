@@ -12,6 +12,7 @@
 import words from "./narration.words.js";
 import plan from "./audio-plan.json" with { type: "json" };
 import SIZES from "./sizes.js";
+import { STING_PAGES } from "./sting.js";
 import { resolveAnchors } from "../shared/anchors.js";
 
 const LEAD = 0.12;
@@ -280,7 +281,8 @@ if (anchorMisses.length) throw new Error(`episode-008: unresolved anchors:\n${an
 const segments = CUES.map(([anchor, seg], i) => ({ ...seg, at: +Math.max(0, resolved.times[i] - LEAD).toFixed(3), beat: anchor }));
 // The cold open starts on picture with the first word.
 segments[0].at = 0;
-segments.push({ type: "sting", at: plan.sting.at, beat: "Channel sting", transitionOut: "cut", fadeIn: 8, tagline: "Catalog. Collect. Connect." });
+// Page-flip sting (Tony 2026-11-18): replaces the blue-burst logo card, its tagline and Funkorama.
+segments.push({ type: "pageFlipSting", at: plan.sting.at, beat: "Channel sting", transitionOut: "cut", fadeIn: 6, pages: STING_PAGES });
 segments.push({ type: "end", at: plan.endCard, dur: plan.duration - plan.endCard, beat: "End card", title: "Read either series?", sub: "Tell me what you thought in the comments", transitionIn: "cut" });
 segments.sort((x, y) => x.at - y.at);
 
@@ -290,7 +292,8 @@ export default {
   audio: {
     narration: { asset: "audio/VOICE_PROGRAM.wav", at: 0, volume: 1 },
     // Same bed and levels as Ep 006/007: Double Drift stored 6 dB down. TTS is denser than a live read, so 0.4 like Ep 006 (also TTS).
-    music: { asset: "audio/MUSIC_BED_DOUBLE_DRIFT.wav", volume: 0.4, fadeIn: 2, fadeOut: 4, loop: false, duck: [{ from: plan.sting.at + 0.35, to: plan.sting.at + plan.sting.dur }] },
-    sting: { asset: "audio/MUSIC_STING.mp3", at: plan.sting.at, from: 7.1, dur: plan.sting.dur, volume: 0.7, fadeIn: 0.15, fadeOut: 0.4 },
+    music: { asset: "audio/MUSIC_BED_DOUBLE_DRIFT.wav", volume: 0.4, fadeIn: 2, fadeOut: 4, loop: false, duck: [{ from: plan.sting.at, to: plan.sting.at + plan.sting.dur }] },
+    // CC0 page flips + thump, built by scripts/build-pageflip-sting.py to match the picture.
+    sting: { asset: "audio/STING_PAGEFLIP.wav", at: plan.sting.at, from: 0, dur: plan.sting.dur, volume: 1, fadeIn: 0, fadeOut: 0.1 },
   },
 };

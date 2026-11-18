@@ -19446,9 +19446,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-04T00:23:14.841122+00:00",
-    "retry_after": "2026-11-18T00:23:14.841123+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-18T01:06:19.412402+00:00",
+    "retry_after": "2026-12-18T01:06:19.412404+00:00",
     "search_hydrated": true
   },
   {
@@ -27461,8 +27461,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T00:06:09.806364+00:00",
-    "retry_after": "2026-11-19T00:06:09.806381+00:00",
+    "last_attempt_at": "2026-11-18T01:06:57.242896+00:00",
+    "retry_after": "2026-11-19T01:06:57.242913+00:00",
     "search_hydrated": true
   },
   {
@@ -27485,8 +27485,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T00:01:40.647382+00:00",
-    "retry_after": "2026-11-19T00:01:40.647384+00:00",
+    "last_attempt_at": "2026-11-18T01:02:18.178315+00:00",
+    "retry_after": "2026-11-19T01:02:18.178317+00:00",
     "search_hydrated": true
   },
   {
@@ -35057,9 +35057,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-04T00:23:14.841112+00:00",
-    "retry_after": "2026-11-18T00:23:14.841113+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-18T01:06:19.412385+00:00",
+    "retry_after": "2026-12-18T01:06:19.412388+00:00",
     "search_hydrated": true
   },
   {
@@ -35667,9 +35667,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-04T00:23:14.841099+00:00",
-    "retry_after": "2026-11-18T00:23:14.841101+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-18T01:06:19.412357+00:00",
+    "retry_after": "2026-12-18T01:06:19.412359+00:00",
     "search_hydrated": true
   },
   {
@@ -36531,9 +36531,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-04T00:23:14.841060+00:00",
-    "retry_after": "2026-11-18T00:23:14.841081+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-18T01:06:19.412319+00:00",
+    "retry_after": "2026-12-18T01:06:19.412337+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T00:01:40.647323+00:00",
-    "retry_after": "2026-11-19T00:01:40.647341+00:00",
+    "last_attempt_at": "2026-11-18T01:02:18.178250+00:00",
+    "retry_after": "2026-11-19T01:02:18.178268+00:00",
     "search_hydrated": true
   },
   {
@@ -51355,8 +51355,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T00:01:40.647363+00:00",
-    "retry_after": "2026-11-19T00:01:40.647364+00:00",
+    "last_attempt_at": "2026-11-18T01:02:18.178292+00:00",
+    "retry_after": "2026-11-19T01:02:18.178294+00:00",
     "search_hydrated": true
   },
   {
@@ -92276,21 +92276,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 111537,
-        "name": "The Magic Order",
-        "publisher": "Image",
-        "start_year": 2018
-      },
-      {
         "id": 118385,
         "name": "The Magic Order",
         "publisher": "Image",
         "start_year": 2019
+      },
+      {
+        "id": 111537,
+        "name": "The Magic Order",
+        "publisher": "Image",
+        "start_year": 2018
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-11T00:10:30.430314+00:00",
-    "retry_after": "2026-11-18T00:10:30.430332+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-18T01:06:19.412467+00:00",
+    "retry_after": "2026-12-02T01:06:19.412470+00:00",
     "search_hydrated": true
   },
   {
@@ -92306,9 +92306,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-11T00:10:32.733494+00:00",
-    "retry_after": "2026-11-18T00:10:32.733510+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-18T01:06:23.333846+00:00",
+    "retry_after": "2026-12-02T01:06:23.333863+00:00",
     "search_hydrated": true
   },
   {
@@ -92330,9 +92330,9 @@
         "start_year": 1997
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-11T00:10:30.430401+00:00",
-    "retry_after": "2026-11-18T00:10:30.430403+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-18T01:06:19.412510+00:00",
+    "retry_after": "2026-12-02T01:06:19.412512+00:00",
     "search_hydrated": true
   },
   {
@@ -96892,6 +96892,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-18T00:05:59.385023+00:00",
     "retry_after": "2026-11-19T00:05:59.385025+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Edmund White’s A Boy’s Own Story",
+    "publisher": "IDW Publishing",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T01:06:34.619473+00:00",
+    "retry_after": "2026-11-19T01:06:34.619490+00:00",
     "search_hydrated": true
   }
 ]

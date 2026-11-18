@@ -1,7 +1,10 @@
 """Episode 008 voice read: every SCRIPT.md section through Tony's HeyGen
 voice clone, one file per section, plus one combined leveled WAV.
 
-    .venv python -I episode-008/build_voice.py [--only 01,05] [--dry]
+    .venv python -I episode-008/build_voice.py [--only 01,05,short-2] [--dry]
+
+Also voices SHORTS.md (short-1..3, Tony OKed the words 2026-11-18) as
+`short-N - title.wav` beside the sections; NARRATION_COMBINED stays episode-only.
 
 Tony didn't record this episode (2026-11-17): the whole script, ON CAMERA
 lines included, is his clone. Narration is every plain paragraph under a
@@ -45,7 +48,8 @@ CACHE = OUT / "tts"
 SAY = [
     ("ComixCatalog", "Comix Catalog"),
     ("ComicVine", "Comic Vine"),
-    ("Tynion", "Tie-nin"),          # /ˈtaɪnən/ (Wikipedia IPA; SKTCHD: "Tie-Nin")
+    ("Álvaro Martínez Bueno", "Alvaro Martinez Bueno"),  # Tony 11-18 picked take 2 of four (accented spelling read badly)
+    ("Tynion", "Tynen"),            # /ˈtaɪnən/, Tony: TIE-nin. "Tie-nin" came out "Tienen"; take 2 won
     ("C2E2", "C-two-E-two"),
     ("Angoulême", "Ahn-goo-lem"),
     ("Bellaire", "Bell-air"),
@@ -55,7 +59,7 @@ SAY = [
 ]
 # Spoken token sequences -> caption text.
 DISPLAY = [
-    (["comix", "catalog"], "ComixCatalog"), (["comic", "vine"], "ComicVine"), (["tie-nin"], "Tynion"),
+    (["comix", "catalog"], "ComixCatalog"), (["comic", "vine"], "ComicVine"), (["tynen"], "Tynion"), (["alvaro"], "Álvaro"), (["martinez"], "Martínez"),
     (["c-two-e-two"], "C2E2"), (["ahn-goo-lem"], "Angoulême"), (["bell-air"], "Bellaire"), (["and", "world"], "AndWorld"),
     (["twenty", "twenty-one"], "2021"), (["twenty", "twenty-two"], "2022"), (["twenty", "twenty-three"], "2023"),
     (["twenty", "twenty-four"], "2024"), (["twenty", "twenty-six"], "2026"),
@@ -77,6 +81,21 @@ def sections():
                 continue
             paras.append(p.replace("*", ""))
         out.append((m.group(1), f"{m.group(1)} - {m.group(2).replace('-', ' ')}", paras))
+    return out
+
+
+def shorts():
+    """SHORTS.md: `## short-N · title (~40 s)` blocks; `>` lines are visual notes."""
+    text = (HERE / "SHORTS.md").read_text(encoding="utf-8")
+    out = []
+    for block in re.split(r"^## ", text, flags=re.M)[1:]:
+        title, _, body = block.partition("\n")
+        m = re.match(r"(short-\d)\s*·\s*(.+?)\s*\(~?\d+ s\)", title.strip())
+        if not m:
+            continue
+        paras = [" ".join(l.strip() for l in p.strip().splitlines()) for p in re.split(r"\n\s*\n", body)]
+        paras = [p.replace("*", "") for p in paras if p and p != "---" and not p.startswith(">")]
+        out.append((m.group(1), f"{m.group(1)} - " + re.sub(r'[<>:"/\|?*,]', "", m.group(2).lower()), paras))
     return out
 
 
@@ -166,7 +185,7 @@ def main():
     args = sys.argv[1:]
     only = set(args[args.index("--only") + 1].split(",")) if "--only" in args else None
     dry = "--dry" in args
-    todo = [s for s in sections() if not only or s[0] in only]
+    todo = [s for s in sections() + shorts() if not only or s[0] in only]
     if dry:
         total = 0
         for key, name, paras in todo:

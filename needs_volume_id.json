@@ -19760,9 +19760,10 @@
     "year": 1986,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 5,
-    "last_attempt_at": "2026-10-19T00:00:45.179415+00:00",
-    "retry_after": "2026-11-18T00:00:45.179430+00:00"
+    "attempts": 6,
+    "last_attempt_at": "2026-11-18T00:01:36.206694+00:00",
+    "retry_after": "2026-12-18T00:01:36.206713+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Robin II",
@@ -27460,8 +27461,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T23:50:56.071043+00:00",
-    "retry_after": "2026-11-18T23:50:56.071055+00:00",
+    "last_attempt_at": "2026-11-18T00:06:09.806364+00:00",
+    "retry_after": "2026-11-19T00:06:09.806381+00:00",
     "search_hydrated": true
   },
   {
@@ -27484,8 +27485,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T23:46:04.727370+00:00",
-    "retry_after": "2026-11-18T23:46:04.727371+00:00",
+    "last_attempt_at": "2026-11-18T00:01:40.647382+00:00",
+    "retry_after": "2026-11-19T00:01:40.647384+00:00",
     "search_hydrated": true
   },
   {
@@ -43496,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T23:46:04.727312+00:00",
-    "retry_after": "2026-11-18T23:46:04.727328+00:00",
+    "last_attempt_at": "2026-11-18T00:01:40.647323+00:00",
+    "retry_after": "2026-11-19T00:01:40.647341+00:00",
     "search_hydrated": true
   },
   {
@@ -51354,8 +51355,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-17T23:46:04.727350+00:00",
-    "retry_after": "2026-11-18T23:46:04.727352+00:00",
+    "last_attempt_at": "2026-11-18T00:01:40.647363+00:00",
+    "retry_after": "2026-11-19T00:01:40.647364+00:00",
     "search_hydrated": true
   },
   {
@@ -92351,9 +92352,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-07T23:37:17.128661+00:00",
-    "retry_after": "2026-11-10T23:37:17.128665+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-18T00:05:14.770784+00:00",
+    "retry_after": "2026-11-25T00:05:14.770802+00:00",
     "search_hydrated": true
   },
   {
@@ -96837,6 +96838,60 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-17T23:50:48.945737+00:00",
     "retry_after": "2026-11-18T23:50:48.945739+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Don't Let the Penguin Drive the Batmobile",
+    "publisher": "EC Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 114242,
+        "name": "Don't Let the Penguin Drive the Batmobile!",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T00:05:59.384968+00:00",
+    "retry_after": "2026-11-19T00:05:59.384986+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Run Wild",
+    "publisher": "BOOM! Studios",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 112198,
+        "name": "Run Wild",
+        "publisher": "Archaia",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T00:05:59.385007+00:00",
+    "retry_after": "2026-11-19T00:05:59.385009+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cynthia Petal's Really Fantastic Alien Sex Frenzy!",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51946,
+        "name": "Cynthia Petal's Really Fantastic Alien Sex Frenzy!",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T00:05:59.385023+00:00",
+    "retry_after": "2026-11-19T00:05:59.385025+00:00",
     "search_hydrated": true
   }
 ]

@@ -27467,7 +27467,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27485,8 +27485,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T17:02:28.524201+00:00",
-    "retry_after": "2026-11-19T17:02:28.524204+00:00",
+    "last_attempt_at": "2026-11-18T18:01:53.840239+00:00",
+    "retry_after": "2026-11-19T18:01:53.840256+00:00",
     "search_hydrated": true
   },
   {
@@ -35516,9 +35516,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-04T17:12:09.124492+00:00",
-    "retry_after": "2026-11-18T17:12:09.124508+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-18T18:06:11.681949+00:00",
+    "retry_after": "2026-12-18T18:06:11.681952+00:00",
     "search_hydrated": true
   },
   {
@@ -43479,26 +43479,26 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
-      {
-        "id": 2930,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1977
-      },
       {
         "id": 116293,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T17:02:28.524124+00:00",
-    "retry_after": "2026-11-19T17:02:28.524143+00:00",
+    "last_attempt_at": "2026-11-18T18:01:53.840289+00:00",
+    "retry_after": "2026-11-19T18:01:53.840292+00:00",
     "search_hydrated": true
   },
   {
@@ -51350,13 +51350,13 @@
   },
   {
     "name": "Scud: The Disposable Assassin",
-    "publisher": "Fireman Press, Ltd",
+    "publisher": "Fireman Press",
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T17:02:28.524173+00:00",
-    "retry_after": "2026-11-19T17:02:28.524176+00:00",
+    "last_attempt_at": "2026-11-18T18:01:58.614532+00:00",
+    "retry_after": "2026-11-19T18:01:58.614549+00:00",
     "search_hydrated": true
   },
   {
@@ -96469,6 +96469,143 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-18T16:17:43.592353+00:00",
     "retry_after": "2026-11-19T16:17:43.592371+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "In Rage",
+    "publisher": "CFD Productions",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88863,
+        "name": "In Rage",
+        "publisher": "Creative Force Designs",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T18:01:53.840310+00:00",
+    "retry_after": "2026-11-19T18:01:53.840312+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman by Darwyn Cooke: The Absolute Edition",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T18:06:11.681815+00:00",
+    "retry_after": "2026-11-19T18:06:11.681833+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Super Adventure Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79594,
+        "name": "Marvel Super Adventure Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T18:06:30.234408+00:00",
+    "retry_after": "2026-11-19T18:06:30.234428+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Trio Grande: Adios Palomita",
+    "publisher": "Heavy Metal",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27096,
+        "name": "Trio Grande: Adios Palomita",
+        "publisher": "Tundra",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T18:06:30.234460+00:00",
+    "retry_after": "2026-11-19T18:06:30.234463+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deadworld: The Last Siesta",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75600,
+        "name": "Deadworld: The Last Siesta",
+        "publisher": "Caliber Comics",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T18:06:30.234481+00:00",
+    "retry_after": "2026-11-19T18:06:30.234483+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Silver Surfer Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79670,
+        "name": "Silver Surfer Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1982
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T18:06:30.234499+00:00",
+    "retry_after": "2026-11-19T18:06:30.234501+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Shake-Up",
+    "publisher": "Titan Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 70715,
+        "name": "Simpsons Comics: Shake-Up",
+        "publisher": "Bongo",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T18:06:30.234514+00:00",
+    "retry_after": "2026-11-19T18:06:30.234515+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mad Classics",
+    "publisher": "EC Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18767,
+        "name": "Mad Classics",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T18:06:37.195774+00:00",
+    "retry_after": "2026-11-19T18:06:37.195793+00:00",
     "search_hydrated": true
   }
 ]

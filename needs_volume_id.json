@@ -27461,8 +27461,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T04:06:14.220633+00:00",
-    "retry_after": "2026-11-19T04:06:14.220650+00:00",
+    "last_attempt_at": "2026-11-18T05:06:05.530299+00:00",
+    "retry_after": "2026-11-19T05:06:05.530317+00:00",
     "search_hydrated": true
   },
   {
@@ -27485,8 +27485,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T04:01:57.968620+00:00",
-    "retry_after": "2026-11-19T04:01:57.968622+00:00",
+    "last_attempt_at": "2026-11-18T05:01:58.617122+00:00",
+    "retry_after": "2026-11-19T05:01:58.617124+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T04:01:57.968554+00:00",
-    "retry_after": "2026-11-19T04:01:57.968570+00:00",
+    "last_attempt_at": "2026-11-18T05:01:58.617054+00:00",
+    "retry_after": "2026-11-19T05:01:58.617072+00:00",
     "search_hydrated": true
   },
   {
@@ -51355,8 +51355,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T04:01:57.968595+00:00",
-    "retry_after": "2026-11-19T04:01:57.968597+00:00",
+    "last_attempt_at": "2026-11-18T05:01:58.617095+00:00",
+    "retry_after": "2026-11-19T05:01:58.617098+00:00",
     "search_hydrated": true
   },
   {
@@ -95967,9 +95967,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-17T04:05:34.885909+00:00",
-    "retry_after": "2026-11-18T04:05:34.885928+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-18T05:05:33.371323+00:00",
+    "retry_after": "2026-11-21T05:05:33.371339+00:00",
     "search_hydrated": true
   },
   {
@@ -95985,9 +95985,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-17T04:07:12.473219+00:00",
-    "retry_after": "2026-11-18T04:07:12.473238+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-18T05:05:33.447413+00:00",
+    "retry_after": "2026-11-21T05:05:33.447427+00:00",
     "search_hydrated": true
   },
   {
@@ -95996,9 +95996,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-17T04:07:28.270746+00:00",
-    "retry_after": "2026-11-18T04:07:28.270764+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-18T05:05:50.157486+00:00",
+    "retry_after": "2026-11-21T05:05:50.157502+00:00",
     "search_hydrated": true
   },
   {
@@ -96007,9 +96007,9 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-17T04:07:28.270788+00:00",
-    "retry_after": "2026-11-18T04:07:28.270790+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-18T05:05:50.157539+00:00",
+    "retry_after": "2026-11-21T05:05:50.157542+00:00",
     "search_hydrated": true
   },
   {
@@ -96954,6 +96954,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-18T04:05:32.984793+00:00",
     "retry_after": "2026-11-19T04:05:32.984805+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Suicide Squad: The Black Vault",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T05:05:28.429001+00:00",
+    "retry_after": "2026-11-19T05:05:28.429018+00:00",
     "search_hydrated": true
   }
 ]

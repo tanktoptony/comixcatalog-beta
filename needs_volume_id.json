@@ -27461,8 +27461,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T16:05:53.997256+00:00",
-    "retry_after": "2026-11-19T16:05:53.997274+00:00",
+    "last_attempt_at": "2026-11-18T16:17:57.501739+00:00",
+    "retry_after": "2026-11-19T16:17:57.501754+00:00",
     "search_hydrated": true
   },
   {
@@ -27485,8 +27485,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T16:01:55.295217+00:00",
-    "retry_after": "2026-11-19T16:01:55.295219+00:00",
+    "last_attempt_at": "2026-11-18T16:13:41.192672+00:00",
+    "retry_after": "2026-11-19T16:13:41.192673+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T16:01:55.295150+00:00",
-    "retry_after": "2026-11-19T16:01:55.295169+00:00",
+    "last_attempt_at": "2026-11-18T16:13:41.192619+00:00",
+    "retry_after": "2026-11-19T16:13:41.192632+00:00",
     "search_hydrated": true
   },
   {
@@ -51355,8 +51355,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T16:01:55.295193+00:00",
-    "retry_after": "2026-11-19T16:01:55.295195+00:00",
+    "last_attempt_at": "2026-11-18T16:13:41.192653+00:00",
+    "retry_after": "2026-11-19T16:13:41.192655+00:00",
     "search_hydrated": true
   },
   {
@@ -92425,9 +92425,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-11T16:03:06.527296+00:00",
-    "retry_after": "2026-11-18T16:03:06.527299+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-18T16:13:16.084864+00:00",
+    "retry_after": "2026-12-02T16:13:16.084867+00:00",
     "search_hydrated": true
   },
   {
@@ -97088,6 +97088,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-18T12:06:24.285169+00:00",
     "retry_after": "2026-11-19T12:06:24.285172+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Teen Titans",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 95242,
+        "name": "Teen Titans",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T16:17:30.468920+00:00",
+    "retry_after": "2026-11-19T16:17:30.468933+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Guardsmen of Infinity Portfolio",
+    "publisher": "Fantagraphics",
+    "year": 1972,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T16:17:43.592353+00:00",
+    "retry_after": "2026-11-19T16:17:43.592371+00:00",
     "search_hydrated": true
   }
 ]

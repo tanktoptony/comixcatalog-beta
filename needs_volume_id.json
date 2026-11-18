@@ -14464,9 +14464,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-15T08:05:46.157626+00:00",
-    "retry_after": "2026-11-18T08:05:46.157629+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-18T09:05:54.845752+00:00",
+    "retry_after": "2026-11-25T09:05:54.845756+00:00",
     "search_hydrated": true
   },
   {
@@ -27461,8 +27461,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T08:06:08.331948+00:00",
-    "retry_after": "2026-11-19T08:06:08.331966+00:00",
+    "last_attempt_at": "2026-11-18T09:06:19.094867+00:00",
+    "retry_after": "2026-11-19T09:06:19.094886+00:00",
     "search_hydrated": true
   },
   {
@@ -27485,8 +27485,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T08:01:46.261001+00:00",
-    "retry_after": "2026-11-19T08:01:46.261002+00:00",
+    "last_attempt_at": "2026-11-18T09:02:15.342259+00:00",
+    "retry_after": "2026-11-19T09:02:15.342262+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T08:01:46.260942+00:00",
-    "retry_after": "2026-11-19T08:01:46.260959+00:00",
+    "last_attempt_at": "2026-11-18T09:02:15.342180+00:00",
+    "retry_after": "2026-11-19T09:02:15.342198+00:00",
     "search_hydrated": true
   },
   {
@@ -51355,8 +51355,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T08:01:46.260980+00:00",
-    "retry_after": "2026-11-19T08:01:46.260982+00:00",
+    "last_attempt_at": "2026-11-18T09:02:15.342228+00:00",
+    "retry_after": "2026-11-19T09:02:15.342231+00:00",
     "search_hydrated": true
   },
   {
@@ -94624,9 +94624,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-15T09:05:30.254239+00:00",
-    "retry_after": "2026-11-18T09:05:30.254255+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-18T09:05:54.845693+00:00",
+    "retry_after": "2026-11-25T09:05:54.845711+00:00",
     "search_hydrated": true
   },
   {
@@ -96073,9 +96073,9 @@
     "year": 2015,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-17T08:05:56.698211+00:00",
-    "retry_after": "2026-11-18T08:05:56.698227+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-18T09:06:11.298935+00:00",
+    "retry_after": "2026-11-21T09:06:11.298953+00:00",
     "search_hydrated": true
   },
   {
@@ -96084,9 +96084,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-17T08:05:56.698250+00:00",
-    "retry_after": "2026-11-18T08:05:56.698254+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-18T09:06:11.298974+00:00",
+    "retry_after": "2026-11-21T09:06:11.298978+00:00",
     "search_hydrated": true
   },
   {
@@ -96095,9 +96095,9 @@
     "year": 2007,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-17T09:05:50.390013+00:00",
-    "retry_after": "2026-11-18T09:05:50.390030+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-18T09:06:11.298992+00:00",
+    "retry_after": "2026-11-21T09:06:11.298994+00:00",
     "search_hydrated": true
   },
   {
@@ -96106,9 +96106,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-17T09:05:50.390063+00:00",
-    "retry_after": "2026-11-18T09:05:50.390066+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-18T09:06:11.299005+00:00",
+    "retry_after": "2026-11-21T09:06:11.299007+00:00",
     "search_hydrated": true
   },
   {
@@ -96965,6 +96965,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-18T05:05:28.429001+00:00",
     "retry_after": "2026-11-19T05:05:28.429018+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman / Batman: Saga of the Super Sons",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T09:05:54.845789+00:00",
+    "retry_after": "2026-11-19T09:05:54.845792+00:00",
     "search_hydrated": true
   }
 ]

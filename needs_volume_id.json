@@ -36603,9 +36603,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-04T18:10:51.399561+00:00",
-    "retry_after": "2026-11-18T18:10:51.399577+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-18T19:06:14.649081+00:00",
+    "retry_after": "2026-12-18T19:06:14.649099+00:00",
     "search_hydrated": true
   },
   {
@@ -96606,6 +96606,114 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-18T18:06:37.195774+00:00",
     "retry_after": "2026-11-19T18:06:37.195793+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: The Death of Clark Kent",
+    "publisher": "Titan Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 31905,
+        "name": "Superman: The Death of Clark Kent",
+        "publisher": "DC Comics",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T19:06:32.279570+00:00",
+    "retry_after": "2026-11-19T19:06:32.279589+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Team-Up Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52549,
+        "name": "Marvel Team-Up Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T19:06:32.279622+00:00",
+    "retry_after": "2026-11-19T19:06:32.279624+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Les Aventures d'une étudiante lesbienne",
+    "publisher": "Dynamite Entertainment",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 130157,
+        "name": "Les Aventures d'une Étudiante Lesbienne",
+        "publisher": "Dynamite (France)",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T19:06:32.279644+00:00",
+    "retry_after": "2026-11-19T19:06:32.279646+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mystic: The Tenth Apprentice",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88473,
+        "name": "Mystic: The Tenth Apprentice",
+        "publisher": "Crossgen",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T19:06:32.279661+00:00",
+    "retry_after": "2026-11-19T19:06:32.279662+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Conan Exiles",
+    "publisher": "Dark Horse Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141912,
+        "name": "Conan: Exiles",
+        "publisher": "Marvel",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T19:06:32.279692+00:00",
+    "retry_after": "2026-11-19T19:06:32.279694+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I Vendicatori",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 151292,
+        "name": "I Vendicatori",
+        "publisher": "Panini Comics",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T19:06:40.143400+00:00",
+    "retry_after": "2026-11-19T19:06:40.143418+00:00",
     "search_hydrated": true
   }
 ]

@@ -27461,8 +27461,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T03:06:12.501226+00:00",
-    "retry_after": "2026-11-19T03:06:12.501244+00:00",
+    "last_attempt_at": "2026-11-18T04:06:14.220633+00:00",
+    "retry_after": "2026-11-19T04:06:14.220650+00:00",
     "search_hydrated": true
   },
   {
@@ -27485,8 +27485,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T03:02:06.705471+00:00",
-    "retry_after": "2026-11-19T03:02:06.705473+00:00",
+    "last_attempt_at": "2026-11-18T04:01:57.968620+00:00",
+    "retry_after": "2026-11-19T04:01:57.968622+00:00",
     "search_hydrated": true
   },
   {
@@ -43149,9 +43149,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-04T03:23:33.832663+00:00",
-    "retry_after": "2026-11-18T03:23:33.832679+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-18T04:05:29.885495+00:00",
+    "retry_after": "2026-12-18T04:05:29.885511+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T03:02:06.705395+00:00",
-    "retry_after": "2026-11-19T03:02:06.705413+00:00",
+    "last_attempt_at": "2026-11-18T04:01:57.968554+00:00",
+    "retry_after": "2026-11-19T04:01:57.968570+00:00",
     "search_hydrated": true
   },
   {
@@ -51355,8 +51355,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T03:02:06.705442+00:00",
-    "retry_after": "2026-11-19T03:02:06.705444+00:00",
+    "last_attempt_at": "2026-11-18T04:01:57.968595+00:00",
+    "retry_after": "2026-11-19T04:01:57.968597+00:00",
     "search_hydrated": true
   },
   {
@@ -96936,6 +96936,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-18T02:05:34.270488+00:00",
     "retry_after": "2026-11-19T02:05:34.270490+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Rockstars",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 96672,
+        "name": "Rockstars",
+        "publisher": "Image",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T04:05:32.984793+00:00",
+    "retry_after": "2026-11-19T04:05:32.984805+00:00",
     "search_hydrated": true
   }
 ]

@@ -293,7 +293,7 @@ export default {
     narration: { asset: "audio/VOICE_PROGRAM.wav", at: 0, volume: 1 },
     // Same bed and levels as Ep 006/007: Double Drift stored 6 dB down. TTS is denser than a live read, so 0.4 like Ep 006 (also TTS).
     music: { asset: "audio/MUSIC_BED_DOUBLE_DRIFT.wav", volume: 0.4, fadeIn: 2, fadeOut: 4, loop: false, duck: [{ from: plan.sting.at, to: plan.sting.at + plan.sting.dur }] },
-    // CC0 page flips + thump + orchestral hit (its ring-out runs 1.6 s past the picture), built by scripts/build-pageflip-sting.py to match the picture.
-    sting: { asset: "audio/STING_PAGEFLIP.wav", at: plan.sting.at, from: 0, dur: 4.6, volume: 1, fadeIn: 0, fadeOut: 0.3 },
+    // CC0 page flips + riser + thump + orchestral hit (its ring-out runs under the next line), built by scripts/build-pageflip-sting.py to match the picture.
+    sting: { asset: "audio/STING_PAGEFLIP.wav", at: plan.sting.at, from: 0, dur: 5.6, volume: 1, fadeIn: 0, fadeOut: 0.3 },
   },
 };

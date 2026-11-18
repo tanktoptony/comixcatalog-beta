@@ -11,7 +11,7 @@ clock) and episode-008/audio-plan.json (section times, sting, end card).
 The bed (MUSIC_BED_DOUBLE_DRIFT.wav, 20 min, stored 6 dB down) and
 MUSIC_STING.mp3 are copied as-is from public/episode-007/audio.
 
-Layout: 01 cold open, a short hold, the 3.0 s page-flip channel sting, then 02 to 12,
+Layout: 01 cold open, a short hold, the 4.8 s page-flip channel sting, then 02 to 12,
 then the end card. Each section file carries 0.3 s of lead and a 0.55 s tail,
 so GAP only adds a breath on top; the spoiler warning and the all-clear get
 a little more room so their cards can land.
@@ -37,7 +37,7 @@ SR = 48000
 ORDER = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
 START = 0.6          # black-to-picture before the first word
 HOLD = 0.5           # after the cold open, before the sting
-STING = 3.0
+STING = 4.8
 GAP = 0.45           # extra breath between sections
 EXTRA = {"10": 1.2, "11": 0.8}   # spoiler warning card / all-clear card get room before the section
 END_CARD = 8.0

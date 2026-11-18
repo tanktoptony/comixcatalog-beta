@@ -13241,9 +13241,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-15T01:05:40.446089+00:00",
-    "retry_after": "2026-11-18T01:05:40.446105+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-18T02:05:22.727606+00:00",
+    "retry_after": "2026-11-25T02:05:22.727607+00:00",
     "search_hydrated": true
   },
   {
@@ -15028,9 +15028,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-15T00:05:47.879836+00:00",
-    "retry_after": "2026-11-18T00:05:47.879852+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-18T02:05:22.727585+00:00",
+    "retry_after": "2026-11-25T02:05:22.727586+00:00",
     "search_hydrated": true
   },
   {
@@ -15505,9 +15505,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-04T01:14:14.907345+00:00",
-    "retry_after": "2026-11-18T01:14:14.907361+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-18T02:05:22.727456+00:00",
+    "retry_after": "2026-12-18T02:05:22.727473+00:00",
     "search_hydrated": true
   },
   {
@@ -27461,8 +27461,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T01:06:57.242896+00:00",
-    "retry_after": "2026-11-19T01:06:57.242913+00:00",
+    "last_attempt_at": "2026-11-18T02:05:43.326482+00:00",
+    "retry_after": "2026-11-19T02:05:43.326499+00:00",
     "search_hydrated": true
   },
   {
@@ -27485,8 +27485,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T01:02:18.178315+00:00",
-    "retry_after": "2026-11-19T01:02:18.178317+00:00",
+    "last_attempt_at": "2026-11-18T02:01:47.847921+00:00",
+    "retry_after": "2026-11-19T02:01:47.847923+00:00",
     "search_hydrated": true
   },
   {
@@ -34993,9 +34993,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-04T01:14:14.907389+00:00",
-    "retry_after": "2026-11-18T01:14:14.907393+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-18T02:05:22.727496+00:00",
+    "retry_after": "2026-12-18T02:05:22.727498+00:00",
     "search_hydrated": true
   },
   {
@@ -36572,9 +36572,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-04T01:14:14.907411+00:00",
-    "retry_after": "2026-11-18T01:14:14.907414+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-18T02:05:22.727510+00:00",
+    "retry_after": "2026-12-18T02:05:22.727512+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T01:02:18.178250+00:00",
-    "retry_after": "2026-11-19T01:02:18.178268+00:00",
+    "last_attempt_at": "2026-11-18T02:01:47.847857+00:00",
+    "retry_after": "2026-11-19T02:01:47.847876+00:00",
     "search_hydrated": true
   },
   {
@@ -51355,8 +51355,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T01:02:18.178292+00:00",
-    "retry_after": "2026-11-19T01:02:18.178294+00:00",
+    "last_attempt_at": "2026-11-18T02:01:47.847900+00:00",
+    "retry_after": "2026-11-19T02:01:47.847902+00:00",
     "search_hydrated": true
   },
   {
@@ -56667,9 +56667,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-15T00:05:47.879907+00:00",
-    "retry_after": "2026-11-18T00:05:47.879909+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-18T02:05:22.727595+00:00",
+    "retry_after": "2026-11-25T02:05:22.727597+00:00",
     "search_hydrated": true
   },
   {
@@ -96903,6 +96903,39 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-18T01:06:34.619473+00:00",
     "retry_after": "2026-11-19T01:06:34.619490+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Nick Fury: Who Is Scorpio?",
+    "publisher": "Marvel Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T02:05:34.270436+00:00",
+    "retry_after": "2026-11-19T02:05:34.270451+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Iron Man: Execute Program",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T02:05:34.270476+00:00",
+    "retry_after": "2026-11-19T02:05:34.270478+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Robot Archie and the Time Machine",
+    "publisher": "Rebellion",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T02:05:34.270488+00:00",
+    "retry_after": "2026-11-19T02:05:34.270490+00:00",
     "search_hydrated": true
   }
 ]

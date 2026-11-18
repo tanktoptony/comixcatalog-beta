@@ -27465,8 +27465,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T22:04:00.727247+00:00",
-    "retry_after": "2026-11-19T22:04:00.727262+00:00",
+    "last_attempt_at": "2026-11-18T23:04:40.582853+00:00",
+    "retry_after": "2026-11-19T23:04:40.582869+00:00",
     "search_hydrated": true
   },
   {
@@ -27489,8 +27489,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T22:02:00.299659+00:00",
-    "retry_after": "2026-11-19T22:02:00.299664+00:00",
+    "last_attempt_at": "2026-11-18T23:02:51.305179+00:00",
+    "retry_after": "2026-11-19T23:02:51.305181+00:00",
     "search_hydrated": true
   },
   {
@@ -36262,9 +36262,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-04T22:42:09.460858+00:00",
-    "retry_after": "2026-11-18T22:42:09.460875+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-18T23:04:17.096309+00:00",
+    "retry_after": "2026-12-18T23:04:17.096311+00:00",
     "search_hydrated": true
   },
   {
@@ -36440,9 +36440,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-04T22:15:07.280354+00:00",
-    "retry_after": "2026-11-18T22:15:07.280371+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-18T23:04:17.096272+00:00",
+    "retry_after": "2026-12-18T23:04:17.096290+00:00",
     "search_hydrated": true
   },
   {
@@ -43501,8 +43501,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T22:02:00.299565+00:00",
-    "retry_after": "2026-11-19T22:02:00.299579+00:00",
+    "last_attempt_at": "2026-11-18T23:02:51.305112+00:00",
+    "retry_after": "2026-11-19T23:02:51.305128+00:00",
     "search_hydrated": true
   },
   {
@@ -51359,8 +51359,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T22:02:00.299607+00:00",
-    "retry_after": "2026-11-19T22:02:00.299610+00:00",
+    "last_attempt_at": "2026-11-18T23:02:51.305152+00:00",
+    "retry_after": "2026-11-19T23:02:51.305154+00:00",
     "search_hydrated": true
   },
   {
@@ -92418,9 +92418,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-11T22:10:34.238048+00:00",
-    "retry_after": "2026-11-18T22:10:34.238054+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-18T23:04:21.366125+00:00",
+    "retry_after": "2026-12-02T23:04:21.366140+00:00",
     "search_hydrated": true
   },
   {
@@ -96234,9 +96234,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-17T22:05:52.811422+00:00",
-    "retry_after": "2026-11-18T22:05:52.811438+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-18T23:04:21.717148+00:00",
+    "retry_after": "2026-11-21T23:04:21.717163+00:00",
     "search_hydrated": true
   },
   {
@@ -96245,9 +96245,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-17T22:06:37.825297+00:00",
-    "retry_after": "2026-11-18T22:06:37.825313+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-18T23:04:17.096401+00:00",
+    "retry_after": "2026-11-21T23:04:17.096404+00:00",
     "search_hydrated": true
   },
   {
@@ -97027,6 +97027,167 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-18T22:03:52.208811+00:00",
     "retry_after": "2026-11-19T22:03:52.208814+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Incredible Hulk",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "multiple_near_year_tied",
+    "candidates": [
+      {
+        "id": 43516,
+        "name": "Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 2011
+      },
+      {
+        "id": 24715,
+        "name": "Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T23:02:08.166304+00:00",
+    "retry_after": "2026-11-19T23:02:08.166340+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars #20",
+    "publisher": "Marvel",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T23:02:08.166417+00:00",
+    "retry_after": "2026-11-19T23:02:08.166421+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "X-Men",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2133,
+        "name": "The X-Men",
+        "publisher": "Marvel",
+        "start_year": 1963
+      },
+      {
+        "id": 10731,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2004
+      },
+      {
+        "id": 34221,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 137402,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2021
+      },
+      {
+        "id": 4605,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 1991
+      },
+      {
+        "id": 62383,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 122077,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T23:02:08.166560+00:00",
+    "retry_after": "2026-11-19T23:02:08.166562+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Death",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40889,
+        "name": "Death",
+        "publisher": "Panini Verlag",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T23:04:32.496342+00:00",
+    "retry_after": "2026-11-19T23:04:32.496358+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Meltdown",
+    "publisher": "Titan Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161288,
+        "name": "Simpsons Comics Meltdown",
+        "publisher": "HarperCollins",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T23:04:32.496383+00:00",
+    "retry_after": "2026-11-19T23:04:32.496386+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vuzz",
+    "publisher": "Titan Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85799,
+        "name": "Vuzz",
+        "publisher": "Dargaud",
+        "start_year": 1974
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T23:04:32.496403+00:00",
+    "retry_after": "2026-11-19T23:04:32.496405+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "They Called Us Enemy – Expanded Edition",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129898,
+        "name": "They Called Us Enemy: Expanded Edition",
+        "publisher": "Top Shelf",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T23:04:32.496421+00:00",
+    "retry_after": "2026-11-19T23:04:32.496423+00:00",
     "search_hydrated": true
   }
 ]

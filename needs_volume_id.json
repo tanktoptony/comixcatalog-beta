@@ -12977,9 +12977,10 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-21T15:00:58.699779+00:00",
-    "retry_after": "2026-09-24T15:00:58.699793+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-18T22:03:37.565140+00:00",
+    "retry_after": "2026-11-25T22:03:37.565143+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Rocket Raccoon - Hasbro Custom Edition [Marvel Legends]",
@@ -27459,13 +27460,13 @@
   },
   {
     "name": "Cerebus Church & State",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T21:02:05.841561+00:00",
-    "retry_after": "2026-11-19T21:02:05.841564+00:00",
+    "last_attempt_at": "2026-11-18T22:04:00.727247+00:00",
+    "retry_after": "2026-11-19T22:04:00.727262+00:00",
     "search_hydrated": true
   },
   {
@@ -27488,8 +27489,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T21:02:05.841541+00:00",
-    "retry_after": "2026-11-19T21:02:05.841545+00:00",
+    "last_attempt_at": "2026-11-18T22:02:00.299659+00:00",
+    "retry_after": "2026-11-19T22:02:00.299664+00:00",
     "search_hydrated": true
   },
   {
@@ -43500,8 +43501,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T21:02:05.841458+00:00",
-    "retry_after": "2026-11-19T21:02:05.841474+00:00",
+    "last_attempt_at": "2026-11-18T22:02:00.299565+00:00",
+    "retry_after": "2026-11-19T22:02:00.299579+00:00",
     "search_hydrated": true
   },
   {
@@ -51358,8 +51359,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T21:02:05.841506+00:00",
-    "retry_after": "2026-11-19T21:02:05.841510+00:00",
+    "last_attempt_at": "2026-11-18T22:02:00.299607+00:00",
+    "retry_after": "2026-11-19T22:02:00.299610+00:00",
     "search_hydrated": true
   },
   {
@@ -96921,6 +96922,111 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-18T21:05:08.363843+00:00",
     "retry_after": "2026-11-19T21:05:08.363846+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Flash Omnibus by Francis Manapul and Brian Buccellato",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T22:03:36.370173+00:00",
+    "retry_after": "2026-11-19T22:03:36.370189+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Flash Unwrapped by Francis Manapul",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T22:03:37.565090+00:00",
+    "retry_after": "2026-11-19T22:03:37.565107+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Fourth World Omnibus by Jack Kirby",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T22:03:38.611539+00:00",
+    "retry_after": "2026-11-19T22:03:38.611554+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "???????: ???? ????????????",
+    "publisher": "BOOM! Studios",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 172641,
+        "name": "!",
+        "publisher": "Alpha Polis",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T22:03:52.208705+00:00",
+    "retry_after": "2026-11-19T22:03:52.208720+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Boo and the Midnight Monsters",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 122409,
+        "name": "Johnny Boo and the Midnight Monsters",
+        "publisher": "Top Shelf",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T22:03:52.208753+00:00",
+    "retry_after": "2026-11-19T22:03:52.208758+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Boo and the Silly Blizzard",
+    "publisher": "IDW Publishing",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 133882,
+        "name": "Johnny Boo and the Silly Blizzard",
+        "publisher": "Top Shelf",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T22:03:52.208786+00:00",
+    "retry_after": "2026-11-19T22:03:52.208791+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tits ! Tits ! Tits !",
+    "publisher": "Dynamite Entertainment",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167384,
+        "name": "Tits! Tits! Tits!",
+        "publisher": "Dynamite (France)",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T22:03:52.208811+00:00",
+    "retry_after": "2026-11-19T22:03:52.208814+00:00",
     "search_hydrated": true
   }
 ]

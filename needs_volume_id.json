@@ -27461,8 +27461,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T11:06:00.553098+00:00",
-    "retry_after": "2026-11-19T11:06:00.553116+00:00",
+    "last_attempt_at": "2026-11-18T12:06:39.185146+00:00",
+    "retry_after": "2026-11-19T12:06:39.185163+00:00",
     "search_hydrated": true
   },
   {
@@ -27485,8 +27485,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T11:01:56.390648+00:00",
-    "retry_after": "2026-11-19T11:01:56.390650+00:00",
+    "last_attempt_at": "2026-11-18T12:02:11.883686+00:00",
+    "retry_after": "2026-11-19T12:02:11.883688+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T11:01:56.390580+00:00",
-    "retry_after": "2026-11-19T11:01:56.390597+00:00",
+    "last_attempt_at": "2026-11-18T12:02:11.883614+00:00",
+    "retry_after": "2026-11-19T12:02:11.883633+00:00",
     "search_hydrated": true
   },
   {
@@ -51355,8 +51355,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T11:01:56.390622+00:00",
-    "retry_after": "2026-11-19T11:01:56.390625+00:00",
+    "last_attempt_at": "2026-11-18T12:02:11.883659+00:00",
+    "retry_after": "2026-11-19T12:02:11.883662+00:00",
     "search_hydrated": true
   },
   {
@@ -94635,9 +94635,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-15T12:05:48.845453+00:00",
-    "retry_after": "2026-11-18T12:05:48.845470+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-18T12:06:13.376154+00:00",
+    "retry_after": "2026-11-25T12:06:13.376170+00:00",
     "search_hydrated": true
   },
   {
@@ -96128,9 +96128,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-17T11:05:51.499392+00:00",
-    "retry_after": "2026-11-18T11:05:51.499408+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-18T12:06:24.285116+00:00",
+    "retry_after": "2026-11-21T12:06:24.285133+00:00",
     "search_hydrated": true
   },
   {
@@ -97077,6 +97077,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-18T11:05:42.504539+00:00",
     "retry_after": "2026-11-19T11:05:42.504555+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ultimate X-Calibre",
+    "publisher": "Marvel Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T12:06:24.285169+00:00",
+    "retry_after": "2026-11-19T12:06:24.285172+00:00",
     "search_hydrated": true
   }
 ]

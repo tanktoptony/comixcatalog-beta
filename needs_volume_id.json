@@ -16499,9 +16499,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-04T10:14:36.148568+00:00",
-    "retry_after": "2026-11-18T10:14:36.148570+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-18T11:05:30.528492+00:00",
+    "retry_after": "2026-12-18T11:05:30.528494+00:00",
     "search_hydrated": true
   },
   {
@@ -27461,8 +27461,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T10:06:35.415726+00:00",
-    "retry_after": "2026-11-19T10:06:35.415745+00:00",
+    "last_attempt_at": "2026-11-18T11:06:00.553098+00:00",
+    "retry_after": "2026-11-19T11:06:00.553116+00:00",
     "search_hydrated": true
   },
   {
@@ -27485,8 +27485,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T10:02:10.410085+00:00",
-    "retry_after": "2026-11-19T10:02:10.410088+00:00",
+    "last_attempt_at": "2026-11-18T11:01:56.390648+00:00",
+    "retry_after": "2026-11-19T11:01:56.390650+00:00",
     "search_hydrated": true
   },
   {
@@ -29962,9 +29962,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-04T10:14:36.148543+00:00",
-    "retry_after": "2026-11-18T10:14:36.148546+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-18T11:05:30.528464+00:00",
+    "retry_after": "2026-12-18T11:05:30.528467+00:00",
     "search_hydrated": true
   },
   {
@@ -35780,9 +35780,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-04T10:14:36.148487+00:00",
-    "retry_after": "2026-11-18T10:14:36.148507+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-18T11:05:30.528414+00:00",
+    "retry_after": "2026-12-18T11:05:30.528430+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T10:02:10.410004+00:00",
-    "retry_after": "2026-11-19T10:02:10.410020+00:00",
+    "last_attempt_at": "2026-11-18T11:01:56.390580+00:00",
+    "retry_after": "2026-11-19T11:01:56.390597+00:00",
     "search_hydrated": true
   },
   {
@@ -48943,9 +48943,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-04T10:14:36.148557+00:00",
-    "retry_after": "2026-11-18T10:14:36.148559+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-18T11:05:30.528479+00:00",
+    "retry_after": "2026-12-18T11:05:30.528481+00:00",
     "search_hydrated": true
   },
   {
@@ -51355,8 +51355,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T10:02:10.410050+00:00",
-    "retry_after": "2026-11-19T10:02:10.410053+00:00",
+    "last_attempt_at": "2026-11-18T11:01:56.390622+00:00",
+    "retry_after": "2026-11-19T11:01:56.390625+00:00",
     "search_hydrated": true
   },
   {
@@ -97059,6 +97059,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-18T10:06:19.903021+00:00",
     "retry_after": "2026-11-19T10:06:19.903026+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Jam-Packed Jamboree",
+    "publisher": "Titan Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46780,
+        "name": "Simpsons Comics: Jam-Packed Jamboree",
+        "publisher": "Bongo",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T11:05:42.504539+00:00",
+    "retry_after": "2026-11-19T11:05:42.504555+00:00",
     "search_hydrated": true
   }
 ]

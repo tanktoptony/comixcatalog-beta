@@ -27461,8 +27461,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T09:06:19.094867+00:00",
-    "retry_after": "2026-11-19T09:06:19.094886+00:00",
+    "last_attempt_at": "2026-11-18T10:06:35.415726+00:00",
+    "retry_after": "2026-11-19T10:06:35.415745+00:00",
     "search_hydrated": true
   },
   {
@@ -27485,8 +27485,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T09:02:15.342259+00:00",
-    "retry_after": "2026-11-19T09:02:15.342262+00:00",
+    "last_attempt_at": "2026-11-18T10:02:10.410085+00:00",
+    "retry_after": "2026-11-19T10:02:10.410088+00:00",
     "search_hydrated": true
   },
   {
@@ -43497,8 +43497,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T09:02:15.342180+00:00",
-    "retry_after": "2026-11-19T09:02:15.342198+00:00",
+    "last_attempt_at": "2026-11-18T10:02:10.410004+00:00",
+    "retry_after": "2026-11-19T10:02:10.410020+00:00",
     "search_hydrated": true
   },
   {
@@ -51355,8 +51355,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T09:02:15.342228+00:00",
-    "retry_after": "2026-11-19T09:02:15.342231+00:00",
+    "last_attempt_at": "2026-11-18T10:02:10.410050+00:00",
+    "retry_after": "2026-11-19T10:02:10.410053+00:00",
     "search_hydrated": true
   },
   {
@@ -96117,9 +96117,9 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-17T10:05:48.849607+00:00",
-    "retry_after": "2026-11-18T10:05:48.849610+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-18T10:06:19.902954+00:00",
+    "retry_after": "2026-11-21T10:06:19.902971+00:00",
     "search_hydrated": true
   },
   {
@@ -96976,6 +96976,89 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-18T09:05:54.845789+00:00",
     "retry_after": "2026-11-19T09:05:54.845792+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: American Alien",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 94821,
+        "name": "Superman: American Alien",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T10:05:57.538415+00:00",
+    "retry_after": "2026-11-19T10:05:57.538429+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: The Final Days of Superman",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 95241,
+        "name": "Superman: The Final Days of Superman",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T10:06:06.996290+00:00",
+    "retry_after": "2026-11-19T10:06:06.996307+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superwoman",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 92976,
+        "name": "Superwoman",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T10:06:07.066739+00:00",
+    "retry_after": "2026-11-19T10:06:07.066756+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Surgeon X",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 94453,
+        "name": "Surgeon X",
+        "publisher": "Image",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T10:06:07.840874+00:00",
+    "retry_after": "2026-11-19T10:06:07.840887+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Eternals by Jack Kirby [The Eternals Omnibus]",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T10:06:19.903021+00:00",
+    "retry_after": "2026-11-19T10:06:19.903026+00:00",
     "search_hydrated": true
   }
 ]

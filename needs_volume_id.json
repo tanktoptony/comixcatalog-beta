@@ -19771,9 +19771,10 @@
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 5,
-    "last_attempt_at": "2026-10-19T19:14:49.459131+00:00",
-    "retry_after": "2026-11-18T19:14:49.459146+00:00"
+    "attempts": 6,
+    "last_attempt_at": "2026-11-18T20:01:56.537579+00:00",
+    "retry_after": "2026-12-18T20:01:56.537581+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Starmasters",
@@ -19781,9 +19782,10 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 5,
-    "last_attempt_at": "2026-10-19T19:14:48.891777+00:00",
-    "retry_after": "2026-11-18T19:14:48.891792+00:00"
+    "attempts": 6,
+    "last_attempt_at": "2026-11-18T20:01:56.537571+00:00",
+    "retry_after": "2026-12-18T20:01:56.537572+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Justice League of America [So Much Fun]",
@@ -23853,9 +23855,10 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 5,
-    "last_attempt_at": "2026-10-19T19:14:37.890144+00:00",
-    "retry_after": "2026-11-18T19:14:37.890160+00:00"
+    "attempts": 6,
+    "last_attempt_at": "2026-11-18T20:01:56.537513+00:00",
+    "retry_after": "2026-12-18T20:01:56.537515+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Chilling Adventures of Sabrina - Halloween Comicfest Edition #1",
@@ -26421,9 +26424,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-04T19:13:30.382716+00:00",
-    "retry_after": "2026-11-18T19:13:30.382732+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-18T20:04:02.810161+00:00",
+    "retry_after": "2026-12-18T20:04:02.810175+00:00",
     "search_hydrated": true
   },
   {
@@ -27461,32 +27464,32 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T17:07:23.437581+00:00",
-    "retry_after": "2026-11-19T17:07:23.437599+00:00",
+    "last_attempt_at": "2026-11-18T20:04:29.646595+00:00",
+    "retry_after": "2026-11-19T20:04:29.646606+00:00",
     "search_hydrated": true
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
-      {
-        "id": 2930,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1977
-      },
       {
         "id": 116293,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T18:01:53.840239+00:00",
-    "retry_after": "2026-11-19T18:01:53.840256+00:00",
+    "last_attempt_at": "2026-11-18T20:01:56.537532+00:00",
+    "retry_after": "2026-11-19T20:01:56.537533+00:00",
     "search_hydrated": true
   },
   {
@@ -43479,26 +43482,26 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
-      {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
       {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T18:01:53.840289+00:00",
-    "retry_after": "2026-11-19T18:01:53.840292+00:00",
+    "last_attempt_at": "2026-11-18T20:01:56.537462+00:00",
+    "retry_after": "2026-11-19T20:01:56.537478+00:00",
     "search_hydrated": true
   },
   {
@@ -51350,13 +51353,13 @@
   },
   {
     "name": "Scud: The Disposable Assassin",
-    "publisher": "Fireman Press",
+    "publisher": "Fireman Press, Ltd",
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T18:01:58.614532+00:00",
-    "retry_after": "2026-11-19T18:01:58.614549+00:00",
+    "last_attempt_at": "2026-11-18T20:01:56.537499+00:00",
+    "retry_after": "2026-11-19T20:01:56.537500+00:00",
     "search_hydrated": true
   },
   {
@@ -96212,9 +96215,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-17T19:06:19.824253+00:00",
-    "retry_after": "2026-11-18T19:06:19.824268+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-18T20:04:07.471125+00:00",
+    "retry_after": "2026-11-21T20:04:07.471131+00:00",
     "search_hydrated": true
   },
   {
@@ -96714,6 +96717,114 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-18T19:06:40.143400+00:00",
     "retry_after": "2026-11-19T19:06:40.143418+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Dark Fang",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 106117,
+        "name": "Dark Fang",
+        "publisher": "Image",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T20:04:08.136402+00:00",
+    "retry_after": "2026-11-19T20:04:08.136408+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Black Monday Murders",
+    "publisher": "Image Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 92953,
+        "name": "The Black Monday Murders",
+        "publisher": "Image",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T20:04:08.535620+00:00",
+    "retry_after": "2026-11-19T20:04:08.535627+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Unchained",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65051,
+        "name": "Simpsons Comics Unchained",
+        "publisher": "HarperCollins",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T20:04:21.777109+00:00",
+    "retry_after": "2026-11-19T20:04:21.777123+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Links",
+    "publisher": "VIZ Media",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148145,
+        "name": "Links",
+        "publisher": "Milky Way Ediciones",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T20:04:21.777154+00:00",
+    "retry_after": "2026-11-19T20:04:21.777156+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Extravaganza",
+    "publisher": "Titan Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64945,
+        "name": "Simpsons Comics Extravaganza",
+        "publisher": "HarperCollins",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T20:04:21.777171+00:00",
+    "retry_after": "2026-11-19T20:04:21.777173+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mouse Guard: Baldwin the Brave & Other Tales",
+    "publisher": "BOOM! Studios",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78073,
+        "name": "Mouse Guard: Baldwin the Brave & Other Tales",
+        "publisher": "Archaia",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-18T20:04:21.777184+00:00",
+    "retry_after": "2026-11-19T20:04:21.777185+00:00",
     "search_hydrated": true
   }
 ]

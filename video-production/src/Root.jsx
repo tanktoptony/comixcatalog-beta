@@ -129,7 +129,7 @@ export function Root() {
       })}
       <Composition id="ChannelIntro" component={ChannelIntro} durationInFrames={CHANNEL_INTRO.frames} fps={VIDEO.fps} width={VIDEO.width} height={VIDEO.height} />
       <Composition id="ChannelSting" component={ChannelSting} durationInFrames={Math.round(2.5 * VIDEO.fps)} fps={VIDEO.fps} width={VIDEO.width} height={VIDEO.height} />
-      <Composition id="StingPageFlip" component={PageFlipSting} defaultProps={{ pages: STING_PAGES_008, sound: "episode-008/audio/STING_PAGEFLIP.wav" }} durationInFrames={Math.round(3 * VIDEO.fps)} fps={VIDEO.fps} width={VIDEO.width} height={VIDEO.height} />
+      <Composition id="StingPageFlip" component={PageFlipSting} defaultProps={{ pages: STING_PAGES_008, sound: "episode-008/audio/STING_PAGEFLIP.wav" }} durationInFrames={Math.round(4 * VIDEO.fps)} fps={VIDEO.fps} width={VIDEO.width} height={VIDEO.height} />
       <Composition id="FoundersStory" component={FoundersStory} durationInFrames={1} fps={30} width={1080} height={1920} defaultProps={{ left: 71 }} />
       <Composition id="ChannelBanner" component={ChannelBanner} durationInFrames={1} fps={30} width={2560} height={1440} />
       <Composition id="ChannelBannerComic" component={ChannelBannerComic} durationInFrames={1} fps={30} width={2560} height={1440} />

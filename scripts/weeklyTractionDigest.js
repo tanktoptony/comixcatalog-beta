@@ -6,6 +6,7 @@ import { buildSignupSources, signupSourcesHtml, sourceReportFrom } from "../src/
 import { checkInstagramToken, instagramTokenHtml } from "../src/lib/instagramToken.js";
 import { TEST_ACCOUNT_USERNAMES } from "../src/lib/traction.js";
 import { youtubeDigestHtml } from "../src/lib/youtubeStats.js";
+import { loadWeeklyScoreboard, releaseResultsHtml, scoreboardHtml } from "../src/lib/weeklyScoreboard.js";
 
 export function digestHtml(report) {
   const latest = report.cohorts.at(-2) || {};
@@ -19,9 +20,20 @@ export function digestHtml(report) {
 async function main() {
   for (const name of ["NEXT_PUBLIC_SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"]) if (!process.env[name]) throw new Error(`${name} is not set`);
   const client = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, { auth: { persistSession: false } });
+  const dryRun = process.argv.includes("--dry-run");
+  let scoreboard = null;
+  let html = "";
+  try {
+    scoreboard = await loadWeeklyScoreboard(client);
+    html += scoreboardHtml(scoreboard.metrics, scoreboard.previous);
+    html += releaseResultsHtml(scoreboard);
+  } catch (error) {
+    console.error(`Scoreboard skipped: ${error.message}`);
+    html += "<p>The scoreboard could not be loaded this week.</p>";
+  }
   const { data, error } = await client.rpc("traction_report", { p_excluded_usernames: TEST_ACCOUNT_USERNAMES });
   if (error) throw error;
-  let html = digestHtml(data);
+  html += digestHtml(data);
   try {
     const now = Date.now();
     const signups = await fetchAllPages(() => client.from("profiles").select("id, username, created_at, signup_source, signup_medium, signup_campaign, invited_by").gte("created_at", sourceReportFrom(now)));
@@ -45,10 +57,14 @@ async function main() {
     console.error(`YouTube digest section skipped: ${error.message}`);
   }
   html += instagramTokenHtml(await checkInstagramToken({ token: process.env.INSTAGRAM_ACCESS_TOKEN, igUserId: process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID }));
-  if (process.argv.includes("--dry-run")) { console.log(html); return; }
+  if (dryRun) { console.log(html); return; }
+  if (scoreboard) {
+    const { error: snapshotError } = await client.from("weekly_scoreboard_snapshots").upsert({ week_start: scoreboard.weekStart, metrics: scoreboard.metrics }, { onConflict: "week_start" });
+    if (snapshotError) console.error(`Scoreboard snapshot not saved: ${snapshotError.message}`);
+  }
   if (!process.env.REPORTS_NOTIFY_EMAIL) throw new Error("REPORTS_NOTIFY_EMAIL is not set");
-  await resendBatch([{ to: process.env.REPORTS_NOTIFY_EMAIL, subject: "ComixCatalog weekly traction", html }]);
-  console.log(`Sent weekly traction digest to ${process.env.REPORTS_NOTIFY_EMAIL}`);
+  await resendBatch([{ to: process.env.REPORTS_NOTIFY_EMAIL, subject: "ComixCatalog weekly scoreboard", html }]);
+  console.log(`Sent weekly scoreboard to ${process.env.REPORTS_NOTIFY_EMAIL}`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main().catch((error) => { console.error(error); process.exitCode = 1; });

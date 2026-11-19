@@ -32320,9 +32320,10 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-03T05:08:18.617993+00:00",
-    "retry_after": "2026-10-10T05:08:18.618002+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-11-19T23:27:40.865154+00:00",
+    "retry_after": "2026-12-03T23:27:40.865169+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Mantra / Freex Ashcan Edition",
@@ -34742,21 +34743,22 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 54243,
-        "name": "Predator vs. Magnus Robot Fighter",
-        "publisher": "Valiant/Acclaim",
-        "start_year": 1994
-      },
-      {
         "id": 5191,
         "name": "Predator vs. Magnus Robot Fighter",
         "publisher": "Valiant/Acclaim",
         "start_year": 1993
+      },
+      {
+        "id": 54243,
+        "name": "Predator vs. Magnus Robot Fighter",
+        "publisher": "Valiant/Acclaim",
+        "start_year": 1994
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-01T20:00:54.475306+00:00",
-    "retry_after": "2026-10-04T20:00:54.475322+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-19T23:27:09.994779+00:00",
+    "retry_after": "2026-11-26T23:27:09.994797+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Nisekoi: False Love",
@@ -44939,9 +44941,10 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-15T04:15:50.323303+00:00",
-    "retry_after": "2026-10-22T04:15:50.323322+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-11-19T23:26:00.218265+00:00",
+    "retry_after": "2026-12-03T23:26:00.218268+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Flash Comics [ashcan]",
@@ -72621,9 +72624,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T23:11:33.423770+00:00",
-    "retry_after": "2026-11-19T23:11:33.423789+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T23:33:58.091245+00:00",
+    "retry_after": "2026-12-19T23:33:58.091257+00:00",
     "search_hydrated": true
   },
   {
@@ -72632,9 +72635,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T23:11:33.423813+00:00",
-    "retry_after": "2026-11-19T23:11:33.423816+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T23:33:58.091278+00:00",
+    "retry_after": "2026-12-19T23:33:58.091280+00:00",
     "search_hydrated": true
   },
   {
@@ -72643,9 +72646,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T23:11:33.423828+00:00",
-    "retry_after": "2026-11-19T23:11:33.423829+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T23:33:58.091291+00:00",
+    "retry_after": "2026-12-19T23:33:58.091293+00:00",
     "search_hydrated": true
   },
   {
@@ -72654,20 +72657,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T23:11:33.423838+00:00",
-    "retry_after": "2026-11-19T23:11:33.423840+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "DC Finest: Horror: Where Dead Men Walk",
-    "publisher": "DC Comics",
-    "year": 2026,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T23:11:33.423848+00:00",
-    "retry_after": "2026-11-19T23:11:33.423849+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T23:33:58.091301+00:00",
+    "retry_after": "2026-12-19T23:33:58.091302+00:00",
     "search_hydrated": true
   },
   {
@@ -72676,9 +72668,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T23:11:33.423857+00:00",
-    "retry_after": "2026-11-19T23:11:33.423858+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T23:33:58.091317+00:00",
+    "retry_after": "2026-12-19T23:33:58.091318+00:00",
     "search_hydrated": true
   },
   {
@@ -72687,9 +72679,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T23:11:33.423865+00:00",
-    "retry_after": "2026-11-19T23:11:33.423866+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T23:33:58.091325+00:00",
+    "retry_after": "2026-12-19T23:33:58.091326+00:00",
     "search_hydrated": true
   },
   {
@@ -72698,9 +72690,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T23:11:33.423874+00:00",
-    "retry_after": "2026-11-19T23:11:33.423875+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T23:33:58.091332+00:00",
+    "retry_after": "2026-12-19T23:33:58.091333+00:00",
     "search_hydrated": true
   },
   {
@@ -72731,9 +72723,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T23:11:33.423882+00:00",
-    "retry_after": "2026-11-19T23:11:33.423883+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T23:33:58.091340+00:00",
+    "retry_after": "2026-12-19T23:33:58.091341+00:00",
     "search_hydrated": true
   },
   {
@@ -72742,9 +72734,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T23:11:33.423889+00:00",
-    "retry_after": "2026-11-19T23:11:33.423890+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T23:33:58.091346+00:00",
+    "retry_after": "2026-12-19T23:33:58.091348+00:00",
     "search_hydrated": true
   },
   {
@@ -96418,24 +96410,24 @@
     "name": "The Incredible Hulk",
     "publisher": "Marvel Comics",
     "year": 2010,
-    "reason": "multiple_near_year_tied",
+    "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 43516,
-        "name": "Incredible Hulk",
+        "id": 2077,
+        "name": "The Incredible Hulk",
         "publisher": "Marvel",
-        "start_year": 2011
+        "start_year": 1962
       },
       {
-        "id": 24715,
-        "name": "Incredible Hulk",
+        "id": 2406,
+        "name": "The Incredible Hulk",
         "publisher": "Marvel",
-        "start_year": 2009
+        "start_year": 1968
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-18T23:02:08.166304+00:00",
-    "retry_after": "2026-11-19T23:02:08.166340+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-19T23:25:42.710446+00:00",
+    "retry_after": "2026-11-22T23:25:42.710462+00:00",
     "search_hydrated": true
   },
   {
@@ -96444,9 +96436,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-18T23:02:08.166417+00:00",
-    "retry_after": "2026-11-19T23:02:08.166421+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-19T23:25:42.710482+00:00",
+    "retry_after": "2026-11-22T23:25:42.710484+00:00",
     "search_hydrated": true
   },
   {
@@ -96498,9 +96490,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-18T23:02:08.166560+00:00",
-    "retry_after": "2026-11-19T23:02:08.166562+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-19T23:25:42.710539+00:00",
+    "retry_after": "2026-11-22T23:25:42.710541+00:00",
     "search_hydrated": true
   },
   {
@@ -97522,6 +97514,201 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-19T23:10:27.719430+00:00",
     "retry_after": "2026-11-20T23:10:27.719448+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gun Runner",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 5014,
+        "name": "Gun Runner",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T23:26:00.218226+00:00",
+    "retry_after": "2026-11-20T23:26:00.218241+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Plasmer",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 5037,
+        "name": "Plasmer",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T23:26:00.218292+00:00",
+    "retry_after": "2026-11-20T23:26:00.218294+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Shadow Riders",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27172,
+        "name": "Shadow Riders",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T23:26:00.218306+00:00",
+    "retry_after": "2026-11-20T23:26:00.218307+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "WildThing",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T23:26:00.218320+00:00",
+    "retry_after": "2026-11-20T23:26:00.218322+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Pitt",
+    "publisher": "Image Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 5917,
+        "name": "Pitt",
+        "publisher": "Full Bleed Studios",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T23:26:00.218352+00:00",
+    "retry_after": "2026-11-20T23:26:00.218353+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Silicon Bandits",
+    "publisher": "Magma Comix",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T23:27:40.865216+00:00",
+    "retry_after": "2026-11-20T23:27:40.865218+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mark Spears Monsters",
+    "publisher": "Keenspot Entertainment",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T23:29:52.364651+00:00",
+    "retry_after": "2026-11-20T23:29:52.364669+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Death",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40889,
+        "name": "Death",
+        "publisher": "Panini Verlag",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T23:34:11.139006+00:00",
+    "retry_after": "2026-11-20T23:34:11.139017+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Meltdown",
+    "publisher": "Titan Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161288,
+        "name": "Simpsons Comics Meltdown",
+        "publisher": "HarperCollins",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T23:34:11.139040+00:00",
+    "retry_after": "2026-11-20T23:34:11.139042+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vuzz",
+    "publisher": "Titan Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85799,
+        "name": "Vuzz",
+        "publisher": "Dargaud",
+        "start_year": 1974
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T23:34:11.139056+00:00",
+    "retry_after": "2026-11-20T23:34:11.139057+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "They Called Us Enemy – Expanded Edition",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129898,
+        "name": "They Called Us Enemy: Expanded Edition",
+        "publisher": "Top Shelf",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T23:34:11.139069+00:00",
+    "retry_after": "2026-11-20T23:34:11.139070+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Phil Corrigan Secret Agent X9",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161990,
+        "name": "Phil Corrigan Secret Agent X9 ",
+        "publisher": "Atlas Publications Pty. Ltd.",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T23:34:19.021189+00:00",
+    "retry_after": "2026-11-20T23:34:19.021204+00:00",
     "search_hydrated": true
   }
 ]

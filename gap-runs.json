@@ -105,18 +105,18 @@
     "series_gcd_id": 75376
   },
   {
-    "name": "Detective Comics",
-    "publisher": "DC",
-    "year": 2011,
-    "volume_id": 91098,
-    "series_gcd_id": 60830
-  },
-  {
     "name": "Action Comics",
     "publisher": "DC",
     "year": 2011,
     "volume_id": 91078,
     "series_gcd_id": 59922
+  },
+  {
+    "name": "Detective Comics",
+    "publisher": "DC",
+    "year": 2011,
+    "volume_id": 91098,
+    "series_gcd_id": 60830
   },
   {
     "name": "The Spirit",
@@ -483,13 +483,6 @@
     "series_gcd_id": 224191
   },
   {
-    "name": "Archie vs. the Terminator",
-    "publisher": "Dynamite Entertainment",
-    "year": 2026,
-    "volume_id": 177461,
-    "series_gcd_id": 241344
-  },
-  {
     "name": "Star Brand",
     "publisher": "Marvel",
     "year": 1986,
@@ -530,6 +523,13 @@
     "year": 1999,
     "volume_id": 6663,
     "series_gcd_id": 7166
+  },
+  {
+    "name": "Archie vs. the Terminator",
+    "publisher": "Dynamite Entertainment",
+    "year": 2026,
+    "volume_id": 177461,
+    "series_gcd_id": 241344
   },
   {
     "name": "The Muppet Show: The Comic Book",
@@ -882,13 +882,6 @@
     "series_gcd_id": 125575
   },
   {
-    "name": "Hammer Head",
-    "publisher": "Mad Cave Studios",
-    "year": 2026,
-    "volume_id": 177470,
-    "series_gcd_id": 241320
-  },
-  {
     "name": "Chicks and Chuckles",
     "publisher": "Marvel",
     "year": 1955,
@@ -915,13 +908,6 @@
     "year": 2015,
     "volume_id": 138173,
     "series_gcd_id": 94164
-  },
-  {
-    "name": "The Eye Collector",
-    "publisher": "Image",
-    "year": 2026,
-    "volume_id": 173285,
-    "series_gcd_id": 238478
   },
   {
     "name": "Clayface: Celebrity Dirt",
@@ -1006,6 +992,13 @@
     "year": 2008,
     "volume_id": 20837,
     "series_gcd_id": 29916
+  },
+  {
+    "name": "Hammer Head",
+    "publisher": "Mad Cave Studios",
+    "year": 2026,
+    "volume_id": 177470,
+    "series_gcd_id": 241320
   },
   {
     "name": "Vagabond [Definitive Edition]",
@@ -1097,6 +1090,13 @@
     "year": 2026,
     "volume_id": 170952,
     "series_gcd_id": 234848
+  },
+  {
+    "name": "The Eye Collector",
+    "publisher": "Image",
+    "year": 2026,
+    "volume_id": 173285,
+    "series_gcd_id": 238478
   },
   {
     "name": "Slingers",

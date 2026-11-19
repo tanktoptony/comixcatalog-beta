@@ -1092,6 +1092,20 @@
     "series_gcd_id": 232485
   },
   {
+    "name": "Robin & Batman: Jason Todd",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": null,
+    "series_gcd_id": 241795
+  },
+  {
+    "name": "Rogue: Shadows of the Past",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "volume_id": null,
+    "series_gcd_id": 241518
+  },
+  {
     "name": "ROM Special",
     "publisher": "Image Comics",
     "year": 2026,
@@ -1594,6 +1608,13 @@
     "year": 2026,
     "volume_id": null,
     "series_gcd_id": 238958
+  },
+  {
+    "name": "Wytches Pledged Edition",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "volume_id": null,
+    "series_gcd_id": 241508
   },
   {
     "name": "X-Men: Age of Krakoa - Reign of X Omnibus",
@@ -4758,13 +4779,6 @@
     "year": 2024,
     "volume_id": null,
     "series_gcd_id": 215442
-  },
-  {
-    "name": "The Nightcrawlers",
-    "publisher": "Marvel Comics",
-    "year": 2024,
-    "volume_id": 118808,
-    "series_gcd_id": 215462
   },
   {
     "name": "The Sacrificers Giant-Sized Artists' Proof Edition",
@@ -11725,55 +11739,6 @@
     "series_gcd_id": 111743
   },
   {
-    "name": "The Black Racer and Shilo Norman Special",
-    "publisher": "DC Comics",
-    "year": 2017,
-    "volume_id": null,
-    "series_gcd_id": 116110
-  },
-  {
-    "name": "The Complete Suiciders: The Big Shake",
-    "publisher": "DC Comics",
-    "year": 2017,
-    "volume_id": 95816,
-    "series_gcd_id": 109544
-  },
-  {
-    "name": "The Complete Tales from the Con",
-    "publisher": "Image Comics",
-    "year": 2017,
-    "volume_id": null,
-    "series_gcd_id": 112523
-  },
-  {
-    "name": "The DC Universe by Mike Mignola",
-    "publisher": "DC Comics",
-    "year": 2017,
-    "volume_id": null,
-    "series_gcd_id": 114320
-  },
-  {
-    "name": "The Demon by Jack Kirby",
-    "publisher": "DC Comics",
-    "year": 2017,
-    "volume_id": 104934,
-    "series_gcd_id": 117386
-  },
-  {
-    "name": "The Divided States of Hysteria",
-    "publisher": "Image Comics",
-    "year": 2017,
-    "volume_id": null,
-    "series_gcd_id": 114862
-  },
-  {
-    "name": "The Fall and Rise of Captain Atom",
-    "publisher": "DC Comics",
-    "year": 2017,
-    "volume_id": null,
-    "series_gcd_id": 111058
-  },
-  {
     "name": "The Filth",
     "publisher": "DC Comics",
     "year": 2017,
@@ -14910,13 +14875,6 @@
     "series_gcd_id": 99640
   },
   {
-    "name": "Star Wars: Chewbacca",
-    "publisher": "Marvel Comics",
-    "year": 2016,
-    "volume_id": 88406,
-    "series_gcd_id": 97679
-  },
-  {
     "name": "Star Wars: Droids and Ewoks Omnibus",
     "publisher": "Marvel Comics",
     "year": 2016,
@@ -15881,13 +15839,6 @@
     "year": 2015,
     "volume_id": null,
     "series_gcd_id": 90726
-  },
-  {
-    "name": "Age of Apocalypse: Warzones!",
-    "publisher": "Marvel Comics",
-    "year": 2015,
-    "volume_id": null,
-    "series_gcd_id": 93582
   },
   {
     "name": "All-New Captain America",
@@ -17813,27 +17764,6 @@
     "year": 2015,
     "volume_id": null,
     "series_gcd_id": 90561
-  },
-  {
-    "name": "Spider-Island: Warzones!",
-    "publisher": "Marvel Comics",
-    "year": 2015,
-    "volume_id": 86061,
-    "series_gcd_id": 93788
-  },
-  {
-    "name": "Spider-Man & the X-Men",
-    "publisher": "Marvel Comics",
-    "year": 2015,
-    "volume_id": null,
-    "series_gcd_id": 85113
-  },
-  {
-    "name": "Spider-Man and the X-Men",
-    "publisher": "Marvel Comics",
-    "year": 2015,
-    "volume_id": null,
-    "series_gcd_id": 90887
   },
   {
     "name": "Spider-Verse: Warzones!",
@@ -20998,5 +20928,75 @@
     "year": 2014,
     "volume_id": null,
     "series_gcd_id": 148020
+  },
+  {
+    "name": "The Superannuated Man",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 81117
+  },
+  {
+    "name": "The Superior Foes of Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 87153
+  },
+  {
+    "name": "The Twelve: The Complete Series",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 210235
+  },
+  {
+    "name": "The United States of Murder Inc.",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 80710
+  },
+  {
+    "name": "The Unwritten: Apocalypse",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 78698
+  },
+  {
+    "name": "The Unwritten: Tommy Taylor and the Ship That Sank Twice",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 84455
+  },
+  {
+    "name": "The Walking Dead #1 Amazing Arizona Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 167272
+  },
+  {
+    "name": "The Walking Dead #1 Emerald City 2014 Comicon Exclusive",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 108342
+  },
+  {
+    "name": "The Walking Dead, All Out War AP Edition",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 180125
+  },
+  {
+    "name": "Thor",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 83260
   }
 ]

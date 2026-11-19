@@ -1,0 +1,65 @@
+name: PriceCharting refresh (daily)
+
+# Loads PriceCharting's comic price guide into pricecharting_prices
+# (migration 0105) via scripts/fetchPriceCharting.js. PriceCharting rebuilds
+# the CSV once every 24 hours and allows one download per 10 minutes, so
+# daily is the right cadence.
+#
+# 08:20 UTC (2:20 AM Central): off-peak, clear of the top-of-hour cover
+# ingest. Only changed rows are written.
+#
+# Needs the PRICECHARTING_TOKEN repo secret (PriceCharting > Subscriptions >
+# API/Download). To run by hand: Actions tab > PriceCharting refresh > Run
+# workflow; dry_run=true downloads and reports the match rate without writing.
+
+on:
+  schedule:
+    - cron: '20 8 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Report only, write nothing'
+        default: 'false'
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    concurrency:
+      group: pricecharting-refresh
+      cancel-in-progress: false
+
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      PRICECHARTING_TOKEN: ${{ secrets.PRICECHARTING_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - run: npm ci --no-audit --no-fund
+
+      - name: Check token is present
+        run: |
+          if [ -z "$PRICECHARTING_TOKEN" ]; then
+            echo "::error::Missing repo secret PRICECHARTING_TOKEN"
+            exit 1
+          fi
+
+      # No continue-on-error: a run that loads nothing must go red.
+      - name: Load price guide
+        run: |
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            node scripts/fetchPriceCharting.js
+          else
+            node scripts/fetchPriceCharting.js --apply
+          fi

@@ -362,3 +362,19 @@ export function rawConditionFromNumber(value) {
   if (grade >= 1.0) return "Fair";
   return "Poor";
 }
+
+// Some files have no grading-company column and carry the slab in the cert
+// or notes column instead ("cgc cert: 3703146004", "21-4535701-094"). A
+// graded number with one of those is a slab, not a raw book. Returns
+// { company, cert } or null. CGC certs are 10 digits; CBCS certs read
+// NN-NNNNNNN-NNN.
+export function inferSlab(...texts) {
+  const text = texts.map((value) => String(value ?? "")).join(" ");
+  const named = text.match(/\b(cgc|cbcs|pgx)\b/i)?.[1]?.toUpperCase() ?? null;
+  const cbcs = text.match(/\b\d{2}-[0-9A-Z]{7}-\d{3}\b/i)?.[0] ?? null;
+  const cgc = text.match(/\b\d{10}\b/)?.[0] ?? null;
+  if (named) return { company: named, cert: named === "CBCS" ? cbcs ?? cgc : cgc ?? cbcs };
+  if (cbcs) return { company: "CBCS", cert: cbcs };
+  if (cgc) return { company: "CGC", cert: cgc };
+  return null;
+}

@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
-  autoMapColumns, autoMapHeaders, clampQuantity, legacySeriesAlias, listFromRow, rawConditionFromNumber, rawConditionName, mapRow, parseGrade, parsePrice, parseYear, pickSheet, planOwnedCopies,
+  autoMapColumns, autoMapHeaders, clampQuantity, inferSlab, legacySeriesAlias, listFromRow, rawConditionFromNumber, rawConditionName, mapRow, parseGrade, parsePrice, parseYear, pickSheet, planOwnedCopies,
   narrowHolders, runSequentialBatches, seriesFormatLabel, shownNumber, splitBatches, splitBatchesBy, splitFullTitle, splitSeriesTitle, statusFromValue,
   tableFromGrid, wishlistFromFilename,
 } from "./import.js";
@@ -301,4 +301,15 @@ test("raw grades are saved as the condition names the grade editor offers", () =
   assert.equal(rawConditionFromNumber(0.5), "Poor");
   assert.equal(rawConditionFromNumber(10), "Mint");
   assert.equal(rawConditionFromNumber("x"), null);
+});
+
+test("a slab named only in the cert or notes column is still a slab", () => {
+  assert.deepEqual(inferSlab("", "cgc cert: 3703146004"), { company: "CGC", cert: "3703146004" });
+  assert.deepEqual(inferSlab("", "cgc 4525667020"), { company: "CGC", cert: "4525667020" });
+  assert.deepEqual(inferSlab("", "21-4535701-094"), { company: "CBCS", cert: "21-4535701-094" });
+  assert.deepEqual(inferSlab("22-25A437B-028", ""), { company: "CBCS", cert: "22-25A437B-028" });
+  assert.deepEqual(inferSlab("4435143002"), { company: "CGC", cert: "4435143002" });
+  assert.equal(inferSlab("", "won in a giveaway"), null);
+  assert.equal(inferSlab("", "signed"), null);
+  assert.equal(inferSlab("", "paid $40 at a show"), null);
 });

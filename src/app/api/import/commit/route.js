@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getAuthedUser } from "@/lib/authServer";
-import { parseGrade, parsePrice, planOwnedCopies, rawConditionFromNumber, rawConditionName, statusFromValue } from "@/lib/import/import";
+import { parseGrade, parsePrice, planOwnedCopies, inferSlab, rawConditionFromNumber, rawConditionName, statusFromValue } from "@/lib/import/import";
 import { getServiceClient } from "@/lib/supabase/service";
 import { normalizeRawCondition, normalizeSlabCompany, snapToCgcGrade } from "@/lib/valuation";
 
@@ -11,7 +11,8 @@ function details(row) {
   // Spreadsheets often fill the company column with "Raw" or "None" for an
   // unslabbed book; any other text would read as an unknown slab company.
   const company = /^(raw|none|ungraded|unslabbed|n\/?a|-+)$/i.test(String(row.slab_company ?? "").trim()) ? null : row.slab_company;
-  const slab = normalizeSlabCompany(company);
+  const inferred = !normalizeSlabCompany(company) && parsedGrade.numeric != null ? inferSlab(row.cert, row.notes) : null;
+  const slab = normalizeSlabCompany(company) ?? inferred?.company ?? null;
   // A number with no slab company is a raw book graded on the 10-point
   // scale. It is kept as its condition name, and the exact number in notes.
   const rawNumber = !slab && parsedGrade.numeric != null ? parsedGrade.numeric : null;
@@ -27,7 +28,7 @@ function details(row) {
     grade_numeric: parsedGrade.numeric == null || rawNumber != null ? null : snapToCgcGrade(parsedGrade.numeric),
     condition,
     slab_company: slab,
-    slab_cert_number: slab ? String(row.cert ?? "").trim().slice(0, 120) || null : null,
+    slab_cert_number: slab ? (String(row.cert ?? "").trim() || inferred?.cert || "").slice(0, 120) || null : null,
     purchase_price: parsePrice(row.price_paid),
     variant_label: String(row.variant ?? "").trim().slice(0, 120) || null,
     notes: [String(row.notes ?? "").trim(), unplaced].filter(Boolean).join(" · ").slice(0, 2000) || null,

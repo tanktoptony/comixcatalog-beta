@@ -9610,9 +9610,9 @@
         "start_year": 1987
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T17:04:48.372443+00:00",
-    "retry_after": "2026-11-19T17:04:48.372446+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T19:03:09.385209+00:00",
+    "retry_after": "2026-12-19T19:03:09.385212+00:00",
     "search_hydrated": true
   },
   {
@@ -12577,9 +12577,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T17:04:48.372372+00:00",
-    "retry_after": "2026-11-19T17:04:48.372376+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T19:03:09.385150+00:00",
+    "retry_after": "2026-12-19T19:03:09.385153+00:00",
     "search_hydrated": true
   },
   {
@@ -27471,7 +27471,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1986,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -27489,8 +27489,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-19T16:20:47.297842+00:00",
-    "retry_after": "2026-11-20T16:20:47.297846+00:00",
+    "last_attempt_at": "2026-11-19T19:03:09.384935+00:00",
+    "retry_after": "2026-11-20T19:03:09.384953+00:00",
     "search_hydrated": true
   },
   {
@@ -43483,7 +43483,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43501,8 +43501,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-19T16:20:47.297740+00:00",
-    "retry_after": "2026-11-20T16:20:47.297755+00:00",
+    "last_attempt_at": "2026-11-19T19:03:09.385037+00:00",
+    "retry_after": "2026-11-20T19:03:09.385040+00:00",
     "search_hydrated": true
   },
   {
@@ -43924,21 +43924,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 2930,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1977
-      },
-      {
         "id": 116293,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T17:04:48.372208+00:00",
-    "retry_after": "2026-11-19T17:04:48.372225+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T19:03:09.385009+00:00",
+    "retry_after": "2026-12-19T19:03:09.385013+00:00",
     "search_hydrated": true
   },
   {
@@ -46418,13 +46418,14 @@
   },
   {
     "name": "2026 Street Fighter Swimsuit Special",
-    "publisher": "Udon Comics",
+    "publisher": "UDON",
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-15T13:15:56.483320+00:00",
-    "retry_after": "2026-10-22T13:15:56.483335+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T19:03:47.166125+00:00",
+    "retry_after": "2026-11-20T19:03:47.166129+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Tweety Et Sylvester",
@@ -51354,13 +51355,13 @@
   },
   {
     "name": "Scud: The Disposable Assassin",
-    "publisher": "Fireman Press, Ltd",
+    "publisher": "Fireman Press",
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-19T16:20:47.297784+00:00",
-    "retry_after": "2026-11-20T16:20:47.297787+00:00",
+    "last_attempt_at": "2026-11-19T19:03:09.385055+00:00",
+    "retry_after": "2026-11-20T19:03:09.385057+00:00",
     "search_hydrated": true
   },
   {
@@ -63340,29 +63341,6 @@
     "retry_after": "2026-10-23T03:16:28.841201+00:00"
   },
   {
-    "name": "The DNAgents",
-    "publisher": "Eclipse Comics",
-    "year": 1983,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 3254,
-        "name": "DNAgents",
-        "publisher": null,
-        "start_year": 1983
-      },
-      {
-        "id": 29764,
-        "name": "DNAgents",
-        "publisher": null,
-        "start_year": 2004
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T03:16:30.275943+00:00",
-    "retry_after": "2026-10-23T03:16:30.275952+00:00"
-  },
-  {
     "name": "Unknown Worlds of Science Fiction",
     "publisher": "Marvel Comics",
     "year": 1976,
@@ -66613,41 +66591,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T12:15:54.925144+00:00",
     "retry_after": "2026-10-23T12:15:54.925163+00:00"
-  },
-  {
-    "name": "Crazy",
-    "publisher": "Marvel Comics",
-    "year": 1973,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 124289,
-        "name": "Crazy",
-        "publisher": null,
-        "start_year": 2020
-      },
-      {
-        "id": 1574,
-        "name": "Crazy",
-        "publisher": null,
-        "start_year": 1953
-      },
-      {
-        "id": 2631,
-        "name": "Crazy",
-        "publisher": null,
-        "start_year": 1973
-      },
-      {
-        "id": 122066,
-        "name": "Crazy",
-        "publisher": null,
-        "start_year": 2019
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T12:15:56.989730+00:00",
-    "retry_after": "2026-10-23T12:15:56.989749+00:00"
   },
   {
     "name": "The Ultimates",
@@ -71700,9 +71643,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T17:09:58.015509+00:00",
-    "retry_after": "2026-11-19T17:09:58.015522+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T19:05:05.681621+00:00",
+    "retry_after": "2026-12-19T19:05:05.681640+00:00",
     "search_hydrated": true
   },
   {
@@ -71718,9 +71661,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T17:09:59.440001+00:00",
-    "retry_after": "2026-11-19T17:09:59.440013+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T19:05:06.835878+00:00",
+    "retry_after": "2026-12-19T19:05:06.835895+00:00",
     "search_hydrated": true
   },
   {
@@ -71729,9 +71672,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T17:09:58.015583+00:00",
-    "retry_after": "2026-11-19T17:09:58.015588+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T19:05:05.681701+00:00",
+    "retry_after": "2026-12-19T19:05:05.681705+00:00",
     "search_hydrated": true
   },
   {
@@ -71868,9 +71811,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T17:09:59.513909+00:00",
-    "retry_after": "2026-11-19T17:09:59.513918+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T19:05:06.904981+00:00",
+    "retry_after": "2026-12-19T19:05:06.904996+00:00",
     "search_hydrated": true
   },
   {
@@ -71904,9 +71847,9 @@
         "start_year": 1988
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T17:09:58.015653+00:00",
-    "retry_after": "2026-11-19T17:09:58.015657+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T19:05:05.681767+00:00",
+    "retry_after": "2026-12-19T19:05:05.681770+00:00",
     "search_hydrated": true
   },
   {
@@ -71933,9 +71876,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T17:09:59.594422+00:00",
-    "retry_after": "2026-11-19T17:09:59.594431+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T19:05:06.972153+00:00",
+    "retry_after": "2026-12-19T19:05:06.972168+00:00",
     "search_hydrated": true
   },
   {
@@ -71944,9 +71887,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T17:09:58.015689+00:00",
-    "retry_after": "2026-11-19T17:09:58.015691+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T19:05:05.681797+00:00",
+    "retry_after": "2026-12-19T19:05:05.681800+00:00",
     "search_hydrated": true
   },
   {
@@ -92717,9 +92660,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-12T17:06:56.679272+00:00",
-    "retry_after": "2026-11-19T17:06:56.679290+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-19T19:05:05.681812+00:00",
+    "retry_after": "2026-12-03T19:05:05.681814+00:00",
     "search_hydrated": true
   },
   {
@@ -96481,9 +96424,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-18T18:06:11.681815+00:00",
-    "retry_after": "2026-11-19T18:06:11.681833+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-19T19:05:05.681828+00:00",
+    "retry_after": "2026-11-22T19:05:05.681830+00:00",
     "search_hydrated": true
   },
   {
@@ -96761,6 +96704,230 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-19T09:05:37.785310+00:00",
     "retry_after": "2026-11-20T09:05:37.785323+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "All-Star Comics",
+    "publisher": "DC Comics",
+    "year": 1976,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2833,
+        "name": "All-Star Comics",
+        "publisher": "DC Comics",
+        "start_year": 1940
+      },
+      {
+        "id": 6596,
+        "name": "All Star Comics",
+        "publisher": "DC Comics",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T19:02:20.591029+00:00",
+    "retry_after": "2026-11-20T19:02:20.591048+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Iron Man Annual",
+    "publisher": "Marvel Comics",
+    "year": 1976,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2905,
+        "name": "Iron Man Annual",
+        "publisher": "Marvel",
+        "start_year": 1970
+      },
+      {
+        "id": 71801,
+        "name": "Iron Man Annual",
+        "publisher": "Marvel",
+        "start_year": 2014
+      },
+      {
+        "id": 136620,
+        "name": "Iron Man Annual",
+        "publisher": "Marvel",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T19:02:20.591094+00:00",
+    "retry_after": "2026-11-20T19:02:20.591098+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Escapades of Ponchi Panda",
+    "publisher": "Cosmic Lion Productions",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T19:03:47.166059+00:00",
+    "retry_after": "2026-11-20T19:03:47.166077+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Olympus Saga: Megalith",
+    "publisher": "Bad Idea",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T19:03:47.166145+00:00",
+    "retry_after": "2026-11-20T19:03:47.166148+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "EroTech",
+    "publisher": "SHP Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T19:03:47.166204+00:00",
+    "retry_after": "2026-11-20T19:03:47.166206+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Maid Cafe",
+    "publisher": "Keenspot Entertainment",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T19:03:58.995362+00:00",
+    "retry_after": "2026-11-20T19:03:58.995381+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Super Adventure Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79594,
+        "name": "Marvel Super Adventure Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T19:05:18.675607+00:00",
+    "retry_after": "2026-11-20T19:05:18.675624+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Trio Grande: Adios Palomita",
+    "publisher": "Heavy Metal",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27096,
+        "name": "Trio Grande: Adios Palomita",
+        "publisher": "Tundra",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T19:05:18.675662+00:00",
+    "retry_after": "2026-11-20T19:05:18.675666+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deadworld: The Last Siesta",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75600,
+        "name": "Deadworld: The Last Siesta",
+        "publisher": "Caliber Comics",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T19:05:18.675690+00:00",
+    "retry_after": "2026-11-20T19:05:18.675693+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Silver Surfer Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79670,
+        "name": "Silver Surfer Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1982
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T19:05:18.675713+00:00",
+    "retry_after": "2026-11-20T19:05:18.675715+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Shake-Up",
+    "publisher": "Titan Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 70715,
+        "name": "Simpsons Comics: Shake-Up",
+        "publisher": "Bongo",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T19:05:18.675736+00:00",
+    "retry_after": "2026-11-20T19:05:18.675739+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Maxi Zagor",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45725,
+        "name": "Maxi Zagor",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T19:05:25.642874+00:00",
+    "retry_after": "2026-11-20T19:05:25.642892+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mad Classics",
+    "publisher": "EC Comics",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18767,
+        "name": "Mad Classics",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T19:05:25.642921+00:00",
+    "retry_after": "2026-11-20T19:05:25.642925+00:00",
     "search_hydrated": true
   }
 ]

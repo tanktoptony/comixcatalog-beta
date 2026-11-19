@@ -26549,9 +26549,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T18:10:16.152078+00:00",
-    "retry_after": "2026-11-19T18:10:16.152093+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T20:09:29.139191+00:00",
+    "retry_after": "2026-12-19T20:09:29.139193+00:00",
     "search_hydrated": true
   },
   {
@@ -72063,9 +72063,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T19:06:40.127528+00:00",
-    "retry_after": "2026-11-19T19:06:40.127544+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T20:09:29.139001+00:00",
+    "retry_after": "2026-12-19T20:09:29.139019+00:00",
     "search_hydrated": true
   },
   {
@@ -95475,9 +95475,9 @@
         "start_year": 1963
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-16T17:06:49.900114+00:00",
-    "retry_after": "2026-11-19T17:06:49.900118+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-19T20:09:32.820581+00:00",
+    "retry_after": "2026-11-26T20:09:32.820582+00:00",
     "search_hydrated": true
   },
   {
@@ -96928,6 +96928,274 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-19T19:05:25.642921+00:00",
     "retry_after": "2026-11-20T19:05:25.642925+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Moon Knight",
+    "publisher": "Marvel Comics",
+    "year": 1985,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 137698,
+        "name": "Moon Knight",
+        "publisher": "Marvel",
+        "start_year": 2021
+      },
+      {
+        "id": 89613,
+        "name": "Moon Knight",
+        "publisher": "Marvel",
+        "start_year": 2016
+      },
+      {
+        "id": 18105,
+        "name": "Moon Knight",
+        "publisher": "Marvel",
+        "start_year": 2006
+      },
+      {
+        "id": 39957,
+        "name": "Moon Knight",
+        "publisher": "Marvel",
+        "start_year": 2011
+      },
+      {
+        "id": 3052,
+        "name": "Moon Knight",
+        "publisher": "Marvel",
+        "start_year": 1980
+      },
+      {
+        "id": 72112,
+        "name": "Moon Knight",
+        "publisher": "Marvel",
+        "start_year": 2014
+      },
+      {
+        "id": 28617,
+        "name": "Moon Knight",
+        "publisher": "Marvel",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T20:01:46.203200+00:00",
+    "retry_after": "2026-11-20T20:01:46.203215+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Border Worlds",
+    "publisher": "Kitchen Sink Press",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3660,
+        "name": "Border Worlds",
+        "publisher": "Kitchen Sink",
+        "start_year": 1986
+      },
+      {
+        "id": 103506,
+        "name": "Border Worlds",
+        "publisher": "Dover Publications",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T20:01:46.203289+00:00",
+    "retry_after": "2026-11-20T20:01:46.203292+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "2000 AD Presents",
+    "publisher": "Quality Periodicals",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3759,
+        "name": "2000 AD Presents",
+        "publisher": "Quality Communications",
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T20:04:05.472477+00:00",
+    "retry_after": "2026-11-20T20:04:05.472490+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spellbinders",
+    "publisher": "Quality Periodicals",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3762,
+        "name": "Spellbinders",
+        "publisher": "Quality Communications",
+        "start_year": 1986
+      },
+      {
+        "id": 19717,
+        "name": "Spellbinders",
+        "publisher": "Marvel",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T20:04:05.472512+00:00",
+    "retry_after": "2026-11-20T20:04:05.472514+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Rogue: Shadows of the Past",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T20:09:29.139075+00:00",
+    "retry_after": "2026-11-20T20:09:29.139077+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wytches Pledged Edition",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T20:09:29.139094+00:00",
+    "retry_after": "2026-11-20T20:09:29.139096+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Robin & Batman: Jason Todd",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 165023,
+        "name": "Robin & Batman: Jason Todd",
+        "publisher": "DC Comics",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T20:09:31.045081+00:00",
+    "retry_after": "2026-11-20T20:09:31.045093+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: The Death of Clark Kent",
+    "publisher": "Titan Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 31905,
+        "name": "Superman: The Death of Clark Kent",
+        "publisher": "DC Comics",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T20:09:45.781589+00:00",
+    "retry_after": "2026-11-20T20:09:45.781607+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Team-Up Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52549,
+        "name": "Marvel Team-Up Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T20:09:45.781637+00:00",
+    "retry_after": "2026-11-20T20:09:45.781639+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Les Aventures d'une étudiante lesbienne",
+    "publisher": "Dynamite Entertainment",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 130157,
+        "name": "Les Aventures d'une Étudiante Lesbienne",
+        "publisher": "Dynamite (France)",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T20:09:45.781658+00:00",
+    "retry_after": "2026-11-20T20:09:45.781660+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mystic: The Tenth Apprentice",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88473,
+        "name": "Mystic: The Tenth Apprentice",
+        "publisher": "Crossgen",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T20:09:45.781672+00:00",
+    "retry_after": "2026-11-20T20:09:45.781674+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Conan Exiles",
+    "publisher": "Dark Horse Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141912,
+        "name": "Conan: Exiles",
+        "publisher": "Marvel",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T20:09:45.781685+00:00",
+    "retry_after": "2026-11-20T20:09:45.781686+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I Vendicatori",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 151292,
+        "name": "I Vendicatori",
+        "publisher": "Panini Comics",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T20:09:53.274076+00:00",
+    "retry_after": "2026-11-20T20:09:53.274093+00:00",
     "search_hydrated": true
   }
 ]

@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
-  autoMapColumns, autoMapHeaders, clampQuantity, listFromRow, mapRow, parseGrade, parsePrice, parseYear, pickSheet, planOwnedCopies,
+  autoMapColumns, autoMapHeaders, clampQuantity, inferSlab, legacySeriesAlias, listFromRow, rawConditionFromNumber, rawConditionName, mapRow, parseGrade, parsePrice, parseYear, pickSheet, planOwnedCopies,
   narrowHolders, runSequentialBatches, seriesFormatLabel, shownNumber, splitBatches, splitBatchesBy, splitFullTitle, splitSeriesTitle, statusFromValue,
   tableFromGrid, wishlistFromFilename,
 } from "./import.js";
@@ -110,6 +110,18 @@ test("a CLZ-style file keeps its own columns and its own status", () => {
   assert.equal(statusFromValue(second.status), "owned");
 });
 
+test("CLZ collection statuses leave sold books out", () => {
+  const expected = {
+    "In Collection": "owned", "For Sale": "owned", "On Order": "owned", "Wish List": "wishlist",
+    Sold: "skip", "Not in Collection": "skip",
+  };
+  for (const [status, list] of Object.entries(expected)) {
+    const row = mapRow({ Series: "Batman", Issue: "1", Status: status }, 0, { Series: "series", Issue: "issue", Status: "status" });
+    assert.equal(row.skip ? "skip" : statusFromValue(row.status), list, status);
+  }
+  for (const status of ["notowned", "traded", "gone"]) assert.equal(listFromRow({ status }), "skip");
+});
+
 test("a blank Collection column doesn't drop the file", () => {
   const rows = [{ Series: "Batman", Issue: "1", Collection: "" }];
   const mapping = autoMapColumns(["Series", "Issue", "Collection"], rows);
@@ -120,6 +132,33 @@ test("a blank Collection column doesn't drop the file", () => {
 test("auto-maps CLZ headers", () => {
   const headers = ["Series", "Issue", "Variant Description", "Publisher", "Release Date", "Grade", "Grading Company", "Slab Certification Number", "Purchase Price", "Notes", "Storage Box", "Quantity"];
   assert.deepEqual(Object.values(autoMapHeaders(headers)), ["series", "issue", "variant", "publisher", "year", "grade", "slab_company", "cert", "price_paid", "notes", "", "quantity"]);
+});
+
+test("prefers CLZ's variant description over its letter", () => {
+  const mapping = autoMapHeaders(["Variant", "Variant Description"]);
+  assert.deepEqual(mapping, { Variant: "", "Variant Description": "variant" });
+});
+
+test("auto-maps a ComixCatalog export", () => {
+  const headers = ["series_title", "issue_number", "publisher", "release_year", "status", "condition", "slab_company", "grade_numeric", "slab_cert_number", "purchase_price", "market_value", "notes", "added_at", "source", "series_year", "variant", "copy_number", "grade"];
+  const mapping = autoMapHeaders(headers);
+  assert.equal(mapping.series_title, "series");
+  assert.equal(mapping.issue_number, "issue");
+  assert.equal(mapping.publisher, "publisher");
+  assert.equal(mapping.release_year, "year");
+  assert.equal(mapping.status, "status");
+  assert.equal(mapping.grade, "grade");
+  assert.equal(mapping.grade_numeric, "");
+  assert.equal(mapping.condition, "");
+  assert.equal(mapping.slab_company, "slab_company");
+  assert.equal(mapping.slab_cert_number, "cert");
+  assert.equal(mapping.purchase_price, "price_paid");
+  assert.equal(mapping.notes, "notes");
+  assert.equal(mapping.series_year, "series_year");
+  assert.equal(mapping.variant, "variant");
+  const row = mapRow({ series_title: "Batman", issue_number: "1", series_year: "2016" }, 0, mapping);
+  assert.equal(row.series_year, 2016);
+  for (const [status, expected] of [["owned", "owned"], ["for_sale", "owned"], ["wishlist", "wishlist"]]) assert.equal(statusFromValue(status), expected);
 });
 
 test("auto-maps League-style and punctuation-insensitive headers", () => {
@@ -220,6 +259,21 @@ test("narrowHolders prefers US editions over foreign ones", () => {
   assert.equal(narrowHolders([holder(73057, false), holder(69511, false)], {}).length, 2);
 });
 
+test("narrowHolders prefers a single-issue comic over collected editions", () => {
+  const holder = (id, format) => ({ series: { gcd_id: id, us_market: true }, issue: { key_date: "2012-03-00" }, format });
+  assert.deepEqual(narrowHolders([holder(1, "Comic"), holder(2, "Trade paperback"), holder(3, "Hardcover")]).map((item) => item.series.gcd_id), [1]);
+  assert.deepEqual(narrowHolders([holder(1, null), holder(2, "Collected edition")]).map((item) => item.series.gcd_id), [1]);
+  assert.equal(narrowHolders([holder(1, "Comic"), holder(2, "Comic")]).length, 2);
+});
+
+test("legacy aliases only apply to their renamed issue ranges", () => {
+  assert.equal(legacySeriesAlias("Uncanny X-Men", "94"), "The X-Men");
+  assert.equal(legacySeriesAlias("Uncanny X-Men", "142"), null);
+  assert.equal(legacySeriesAlias("Thor", "83"), "Journey into Mystery");
+  assert.equal(legacySeriesAlias("Thor", "125"), "Journey into Mystery");
+  assert.equal(legacySeriesAlias("Thor", "126"), null);
+});
+
 test("seriesFormatLabel tells the comic from its collected editions", () => {
   assert.equal(seriesFormatLabel({ publishing_format: "ongoing series", binding: "saddle-stitched", publication_type: "magazine" }), "Comic");
   assert.equal(seriesFormatLabel({ publishing_format: "Collected Series", binding: "Squarebound; Trade Paperback" }), "Trade paperback");
@@ -232,4 +286,30 @@ test("shownNumber drops an export's leading #", () => {
   assert.equal(shownNumber("#1"), "1");
   assert.equal(shownNumber(" ## 12 "), "12");
   assert.equal(shownNumber("1 [Cover A]"), "1 [Cover A]");
+});
+
+test("raw grades are saved as the condition names the grade editor offers", () => {
+  assert.equal(rawConditionName("NM"), "Near Mint");
+  assert.equal(rawConditionName("PR"), "Poor");
+  assert.equal(rawConditionName("XX"), null);
+  assert.equal(rawConditionFromNumber(9.4), "Near Mint");
+  assert.equal(rawConditionFromNumber(9.0), "Very Fine");
+  assert.equal(rawConditionFromNumber(6.0), "Fine");
+  assert.equal(rawConditionFromNumber(4.5), "Very Good");
+  assert.equal(rawConditionFromNumber(2.0), "Good");
+  assert.equal(rawConditionFromNumber(1.0), "Fair");
+  assert.equal(rawConditionFromNumber(0.5), "Poor");
+  assert.equal(rawConditionFromNumber(10), "Mint");
+  assert.equal(rawConditionFromNumber("x"), null);
+});
+
+test("a slab named only in the cert or notes column is still a slab", () => {
+  assert.deepEqual(inferSlab("", "cgc cert: 3703146004"), { company: "CGC", cert: "3703146004" });
+  assert.deepEqual(inferSlab("", "cgc 4525667020"), { company: "CGC", cert: "4525667020" });
+  assert.deepEqual(inferSlab("", "21-4535701-094"), { company: "CBCS", cert: "21-4535701-094" });
+  assert.deepEqual(inferSlab("22-25A437B-028", ""), { company: "CBCS", cert: "22-25A437B-028" });
+  assert.deepEqual(inferSlab("4435143002"), { company: "CGC", cert: "4435143002" });
+  assert.equal(inferSlab("", "won in a giveaway"), null);
+  assert.equal(inferSlab("", "signed"), null);
+  assert.equal(inferSlab("", "paid $40 at a show"), null);
 });

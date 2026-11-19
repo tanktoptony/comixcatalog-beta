@@ -3209,10 +3209,12 @@
     "name": "Nick Fury, Agent of S.H.I.E.L.D.",
     "publisher": "Marvel Comics",
     "year": 1989,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554528+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-19T21:05:16.695652+00:00",
+    "retry_after": "2026-11-22T21:05:16.695668+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Judge Dredd: The Complete Case Files",
@@ -72191,9 +72193,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T20:11:41.601912+00:00",
-    "retry_after": "2026-11-19T20:11:41.601925+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T21:10:56.983697+00:00",
+    "retry_after": "2026-12-19T21:10:56.983713+00:00",
     "search_hydrated": true
   },
   {
@@ -72202,9 +72204,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T20:11:41.601948+00:00",
-    "retry_after": "2026-11-19T20:11:41.601950+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T21:10:56.983736+00:00",
+    "retry_after": "2026-12-19T21:10:56.983739+00:00",
     "search_hydrated": true
   },
   {
@@ -72226,9 +72228,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T20:11:41.601991+00:00",
-    "retry_after": "2026-11-19T20:11:41.601993+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T21:10:56.983783+00:00",
+    "retry_after": "2026-12-19T21:10:56.983785+00:00",
     "search_hydrated": true
   },
   {
@@ -72237,9 +72239,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T20:11:41.602005+00:00",
-    "retry_after": "2026-11-19T20:11:41.602006+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T21:10:56.983799+00:00",
+    "retry_after": "2026-12-19T21:10:56.983801+00:00",
     "search_hydrated": true
   },
   {
@@ -72248,9 +72250,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T20:11:41.602014+00:00",
-    "retry_after": "2026-11-19T20:11:41.602016+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T21:10:56.983811+00:00",
+    "retry_after": "2026-12-19T21:10:56.983813+00:00",
     "search_hydrated": true
   },
   {
@@ -72266,9 +72268,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T20:11:42.302038+00:00",
-    "retry_after": "2026-11-19T20:11:42.302045+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T21:10:58.351593+00:00",
+    "retry_after": "2026-12-19T21:10:58.351608+00:00",
     "search_hydrated": true
   },
   {
@@ -72290,9 +72292,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T20:11:41.602045+00:00",
-    "retry_after": "2026-11-19T20:11:41.602046+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T21:10:56.983848+00:00",
+    "retry_after": "2026-12-19T21:10:56.983850+00:00",
     "search_hydrated": true
   },
   {
@@ -72301,27 +72303,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T20:11:41.602054+00:00",
-    "retry_after": "2026-11-19T20:11:41.602055+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Batman: The Dark Knight Returns",
-    "publisher": "DC Comics",
-    "year": 2026,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 38859,
-        "name": "Batman: The Dark Knight Returns",
-        "publisher": "DC Comics",
-        "start_year": 1986
-      }
-    ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T20:11:42.302090+00:00",
-    "retry_after": "2026-11-19T20:11:42.302092+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T21:10:56.983860+00:00",
+    "retry_after": "2026-12-19T21:10:56.983862+00:00",
     "search_hydrated": true
   },
   {
@@ -72330,9 +72314,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T20:11:41.602066+00:00",
-    "retry_after": "2026-11-19T20:11:41.602068+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T21:10:56.983871+00:00",
+    "retry_after": "2026-12-19T21:10:56.983872+00:00",
     "search_hydrated": true
   },
   {
@@ -97196,6 +97180,141 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-19T20:09:53.274076+00:00",
     "retry_after": "2026-11-20T20:09:53.274093+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Xenozoic Tales",
+    "publisher": "Kitchen Sink Press",
+    "year": 1987,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3872,
+        "name": "Xenozoic Tales",
+        "publisher": "Kitchen Sink",
+        "start_year": 1987
+      },
+      {
+        "id": 87245,
+        "name": "Xenozoic Tales",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2003
+      },
+      {
+        "id": 87276,
+        "name": "Xenozoic Tales",
+        "publisher": "Planeta DeAgostini",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T21:02:12.972896+00:00",
+    "retry_after": "2026-11-20T21:02:12.972912+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Aristocratic Xtraterrestrial Time-Traveling Thieves",
+    "publisher": "Fictioneer Books",
+    "year": 1987,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T21:02:12.972942+00:00",
+    "retry_after": "2026-11-20T21:02:12.972945+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "2000 A. D. Presents",
+    "publisher": "Fleetway/Quality",
+    "year": 1987,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T21:02:12.972956+00:00",
+    "retry_after": "2026-11-20T21:02:12.972958+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mark Spears Monsters: The Monster and the Wolf",
+    "publisher": "Keenspot Entertainment",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T21:05:55.431446+00:00",
+    "retry_after": "2026-11-20T21:05:55.431463+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Unchained",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65051,
+        "name": "Simpsons Comics Unchained",
+        "publisher": "HarperCollins",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T21:11:09.300017+00:00",
+    "retry_after": "2026-11-20T21:11:09.300034+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Links",
+    "publisher": "VIZ Media",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148145,
+        "name": "Links",
+        "publisher": "Milky Way Ediciones",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T21:11:09.300078+00:00",
+    "retry_after": "2026-11-20T21:11:09.300082+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Extravaganza",
+    "publisher": "Titan Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64945,
+        "name": "Simpsons Comics Extravaganza",
+        "publisher": "HarperCollins",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T21:11:09.300099+00:00",
+    "retry_after": "2026-11-20T21:11:09.300101+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mouse Guard: Baldwin the Brave & Other Tales",
+    "publisher": "BOOM! Studios",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78073,
+        "name": "Mouse Guard: Baldwin the Brave & Other Tales",
+        "publisher": "Archaia",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T21:11:09.300116+00:00",
+    "retry_after": "2026-11-20T21:11:09.300118+00:00",
     "search_hydrated": true
   }
 ]

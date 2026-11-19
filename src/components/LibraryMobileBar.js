@@ -110,7 +110,7 @@ export default function LibraryMobileBar(props) {
         <div className="library-mobile-action-label">Import and export</div>
         <Link href="/switch" className="library-mobile-action" onClick={closeSheet}><ActionIcon name="importCsv" />Import from CLZ, League or a spreadsheet</Link>
         <button type="button" className="library-mobile-action" disabled={csvExporting} onClick={() => run(handleExportCsv)}><ActionIcon name="exportCsv" />{csvExporting ? "Exporting..." : "Export CSV"}</button>
-        <button type="button" className="library-mobile-action" disabled={pdfExporting} onClick={() => run(handleExportPdf)}><ActionIcon name="pdf" />{pdfExporting ? "Generating..." : "Export PDF"}</button>
+        <button type="button" className="library-mobile-action" disabled={pdfExporting} onClick={() => run(handleExportPdf)}><ActionIcon name="pdf" />{pdfExporting ? (stats.owned > 1000 ? "Generating, big collections take a few minutes" : "Generating...") : "Export PDF"}</button>
         <button type="button" className="library-mobile-action" disabled={catalogAuditing} onClick={() => run(handleCatalogAudit)}><ActionIcon name="link" />{catalogAuditing ? "Scanning..." : "Link books to the catalog"}</button>
       </Sheet>}
     </section>

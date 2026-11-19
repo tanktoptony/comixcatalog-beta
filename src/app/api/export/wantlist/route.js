@@ -9,6 +9,8 @@ import { NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase/service";
 import Papa from "papaparse";
 import { getAuthedUser } from "@/lib/authServer";
+import { fetchInChunks } from "@/lib/exportData";
+import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { bestYearFor } from "@/lib/years";
 
 function csvSafe(value) {
@@ -26,29 +28,20 @@ export async function POST(req) {
 
     const supabase = getServiceClient();
 
-    const [{ data: profile }, { data: collection, error: collErr }] = await Promise.all([
+    const [{ data: profile }, collection] = await Promise.all([
       supabase
         .from("profiles")
         .select("username")
         .eq("id", user_id)
         .single(),
-      supabase
+      fetchAllPages(() => supabase
         .from("user_collections")
         .select(
           "id, status, comic_id, gcd_issue_id, notes, market_value, created_at"
         )
         .eq("user_id", user_id)
-        .eq("status", "wishlist")
-        .order("created_at", { ascending: false }),
+        .eq("status", "wishlist"), "id"),
     ]);
-
-    if (collErr) {
-      console.error("Wantlist export: query failed", collErr);
-      return NextResponse.json(
-        { error: `Failed to fetch wantlist: ${collErr.message}` },
-        { status: 500 }
-      );
-    }
 
     if (!collection?.length) {
       return NextResponse.json(
@@ -63,15 +56,11 @@ export async function POST(req) {
     ];
     const localById = {};
     if (localIds.length > 0) {
-      const { data: localRows, error: localRowsError } = await supabase
+      const localRows = await fetchInChunks(localIds, (ids) => supabase
         .from("comics")
         .select("id, series_title, issue_number, publisher, release_year")
-        .in("id", localIds);
-      if (localRowsError) {
-        console.error("wantlist export local comics lookup failed:", localRowsError.code, localRowsError.message);
-        return NextResponse.json({ error: "Failed to load export rows" }, { status: 502 });
-      }
-      for (const row of localRows ?? []) localById[row.id] = row;
+        .in("id", ids), "id");
+      for (const row of localRows) localById[row.id] = row;
     }
 
     const gcdIds = [
@@ -85,29 +74,21 @@ export async function POST(req) {
     ];
     const gcdById = {};
     if (gcdIds.length > 0) {
-      const { data: issues, error: issuesError } = await supabase
+      const issues = await fetchInChunks(gcdIds, (ids) => supabase
         .from("gcd_issues")
         .select("gcd_id, series_gcd_id, issue_number, publication_date, key_date")
-        .in("gcd_id", gcdIds);
-      if (issuesError) {
-        console.error("wantlist export issues lookup failed:", issuesError.code, issuesError.message);
-        return NextResponse.json({ error: "Failed to load export rows" }, { status: 502 });
-      }
+        .in("gcd_id", ids), "gcd_id");
 
       const seriesGcdIds = [
         ...new Set((issues ?? []).map((i) => i.series_gcd_id).filter(Boolean)),
       ];
       const seriesByGcdId = {};
       if (seriesGcdIds.length > 0) {
-        const { data: seriesRows, error: seriesRowsError } = await supabase
+        const seriesRows = await fetchInChunks(seriesGcdIds, (ids) => supabase
           .from("series")
-          .select("gcd_id, title, resolved_publisher_cached")
-          .in("gcd_id", seriesGcdIds);
-        if (seriesRowsError) {
-          console.error("wantlist export series lookup failed:", seriesRowsError.code, seriesRowsError.message);
-          return NextResponse.json({ error: "Failed to load export rows" }, { status: 502 });
-        }
-        for (const s of seriesRows ?? []) {
+          .select("id, gcd_id, title, resolved_publisher_cached, year_start_cached")
+          .in("gcd_id", ids), "id");
+        for (const s of seriesRows) {
           seriesByGcdId[String(s.gcd_id)] = s;
         }
       }
@@ -119,6 +100,7 @@ export async function POST(req) {
           publisher: s?.resolved_publisher_cached ?? null,
           issue_number: issue.issue_number,
           release_year: bestYearFor(issue),
+          series_year: s?.year_start_cached ?? null,
         };
       }
     }
@@ -134,6 +116,7 @@ export async function POST(req) {
             issue_number: c.issue_number,
             publisher: c.publisher,
             release_year: c.release_year,
+            series_year: null,
           };
         } else if (item.gcd_issue_id && gcdById[item.gcd_issue_id]) {
           meta = gcdById[item.gcd_issue_id];
@@ -143,6 +126,7 @@ export async function POST(req) {
           issue_number: csvSafe(meta?.issue_number),
           publisher: csvSafe(meta?.publisher),
           release_year: csvSafe(meta?.release_year),
+          series_year: csvSafe(meta?.series_year),
           target_price: csvSafe(item.market_value),
           notes: csvSafe(item.notes),
           added_at: csvSafe(item.created_at),

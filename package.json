@@ -14,6 +14,7 @@
     "test:review": "node --test src/lib/review.test.js",
     "test:covers": "node --test src/lib/catalog/covers.test.js src/lib/catalog/seriesCoverStages.test.js src/lib/catalog/seriesCardCovers.test.js",
     "test:fetch-all": "node --test src/lib/supabase/fetchAllPages.test.js",
+    "test:exports": "node --test src/lib/exportData.test.js",
     "test:creator-page": "node --test src/lib/creatorPage.test.js",
     "test:sitemap": "node --test src/lib/sitemapCore.test.js",
     "test:years": "node --test src/lib/years.test.js",

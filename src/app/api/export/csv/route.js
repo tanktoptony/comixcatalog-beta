@@ -10,18 +10,8 @@ import { getServiceClient } from "@/lib/supabase/service";
 import Papa from "papaparse";
 import { getAuthedUser } from "@/lib/authServer";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
+import { fetchInChunks } from "@/lib/exportData";
 import { bestYearFor } from "@/lib/years";
-
-const IN_CHUNK = 500;
-
-async function fetchInChunks(ids, build, orderCol) {
-  const rows = [];
-  for (let i = 0; i < ids.length; i += IN_CHUNK) {
-    const chunk = ids.slice(i, i + IN_CHUNK);
-    rows.push(...(await fetchAllPages(() => build(chunk), orderCol)));
-  }
-  return rows;
-}
 
 function csvSafe(value) {
   // Papa handles escaping. Just normalize null/undefined to empty string so
@@ -40,28 +30,19 @@ export async function POST(req) {
 
     const supabase = getServiceClient();
 
-    const [{ data: profile }, { data: collection, error: collErr }] = await Promise.all([
+    const [{ data: profile }, collection] = await Promise.all([
       supabase
         .from("profiles")
         .select("username")
         .eq("id", user_id)
         .single(),
-      supabase
+      fetchAllPages(() => supabase
         .from("user_collections")
         .select(
-          "id, status, comic_id, gcd_issue_id, condition, grade_numeric, slab_company, slab_cert_number, notes, purchase_price, market_value, created_at"
+          "id, status, comic_id, gcd_issue_id, condition, grade_numeric, slab_company, slab_cert_number, notes, purchase_price, market_value, created_at, variant_label, copy_number"
         )
-        .eq("user_id", user_id)
-        .order("created_at", { ascending: false }),
+        .eq("user_id", user_id), "id"),
     ]);
-
-    if (collErr) {
-      console.error("CSV export: user_collections query failed", collErr);
-      return NextResponse.json(
-        { error: `Failed to fetch collection: ${collErr.message}` },
-        { status: 500 }
-      );
-    }
 
     if (!collection?.length) {
       return NextResponse.json(
@@ -76,15 +57,11 @@ export async function POST(req) {
     ];
     const localById = {};
     if (localIds.length > 0) {
-      const { data: localRows, error: localRowsError } = await supabase
+      const localRows = await fetchInChunks(localIds, (ids) => supabase
         .from("comics")
         .select("id, series_title, issue_number, publisher, release_year")
-        .in("id", localIds);
-      if (localRowsError) {
-        console.error("CSV export local comics lookup failed:", localRowsError.code, localRowsError.message);
-        return NextResponse.json({ error: "Failed to load export rows" }, { status: 502 });
-      }
-      for (const row of localRows ?? []) localById[row.id] = row;
+        .in("id", ids), "id");
+      for (const row of localRows) localById[row.id] = row;
     }
 
     // Resolve GCD issue metadata + series (for title + publisher).
@@ -117,7 +94,7 @@ export async function POST(req) {
           seriesGcdIds,
           (ids) => supabase
             .from("series")
-            .select("id, gcd_id, title, resolved_publisher_cached")
+            .select("id, gcd_id, title, resolved_publisher_cached, year_start_cached")
             .in("gcd_id", ids),
           "id"
         );
@@ -133,6 +110,7 @@ export async function POST(req) {
           publisher: s?.resolved_publisher_cached ?? null,
           issue_number: issue.issue_number,
           release_year: bestYearFor(issue),
+          series_year: s?.year_start_cached ?? null,
         };
       }
     }
@@ -147,6 +125,7 @@ export async function POST(req) {
           issue_number: c.issue_number,
           publisher: c.publisher,
           release_year: c.release_year,
+          series_year: null,
         };
         source = "user";
       } else if (item.gcd_issue_id && gcdById[item.gcd_issue_id]) {
@@ -159,8 +138,12 @@ export async function POST(req) {
         issue_number: csvSafe(meta?.issue_number),
         publisher: csvSafe(meta?.publisher),
         release_year: csvSafe(meta?.release_year),
+        series_year: csvSafe(meta?.series_year),
         status: csvSafe(item.status),
         condition: csvSafe(item.condition),
+        variant: csvSafe(item.variant_label),
+        copy_number: csvSafe(item.copy_number),
+        grade: csvSafe(item.grade_numeric ?? item.condition),
         slab_company: csvSafe(item.slab_company),
         grade_numeric: csvSafe(item.grade_numeric),
         slab_cert_number: csvSafe(item.slab_cert_number),

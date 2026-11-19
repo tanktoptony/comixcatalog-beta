@@ -9,13 +9,17 @@ import { getAuthedUser } from "@/lib/authServer";
 import { OWNED_STATUSES } from "@/lib/collectionStatus";
 import { resolveCovers } from "@/lib/catalog/covers";
 import { pdfGradeLabel } from "@/lib/pdfGrade";
+import { compareExportItems, fetchInChunks } from "@/lib/exportData";
+import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 
-export const maxDuration = 60;
+export const maxDuration = 300;
 
 // Cover thumbnails in the report render at IMG_W=38pt (~50px at 96dpi).
-// Resizing to 200px wide gives 4x headroom for clarity at zoom without
-// blowing up the PDF. A 57MB PDF (51 books, full-res JPGs) drops to ~1MB.
-const COVER_RESIZE_WIDTH = 200;
+// Resizing to 96px wide leaves useful zoom headroom without making large
+// collection reports balloon from embedded full-resolution cover files.
+const COVER_RESIZE_WIDTH = 96;
+const COVER_CONCURRENCY = 16;
+const COVER_BUDGET_MS = 120_000;
 
 const NAVY   = rgb(0.043, 0.118, 0.420);
 const GOLD   = rgb(0.957, 0.816, 0.247);
@@ -55,10 +59,10 @@ function pdfSafe(text) {
   return s;
 }
 
-async function fetchImageBytes(url) {
+async function fetchImageBytes(url, timeoutMs = 5000) {
   if (!url) return null;
   try {
-    const res = await fetch(url, { signal: AbortSignal.timeout(5000) });
+    const res = await fetch(url, { signal: AbortSignal.timeout(Math.max(1, timeoutMs)) });
     if (!res.ok) return null;
     const raw = Buffer.from(await res.arrayBuffer());
 
@@ -73,7 +77,7 @@ async function fetchImageBytes(url) {
       const resized = await sharp(raw)
         .rotate()
         .resize({ width: COVER_RESIZE_WIDTH, withoutEnlargement: true })
-        .jpeg({ quality: 80, mozjpeg: true })
+        .jpeg({ quality: 70, mozjpeg: true })
         .toBuffer();
       return { bytes: new Uint8Array(resized), isPng: false };
     } catch (sharpErr) {
@@ -136,28 +140,19 @@ export async function POST(req) {
     const user_id = authedUser.id;
 
     const supabase = getServiceClient();
+    const requestStart = Date.now();
+    const phases = {};
+    let phaseStart = Date.now();
+    const mark = (name) => { phases[name] = Date.now() - phaseStart; phaseStart = Date.now(); };
 
-    const [{ data: profile }, { data: collRows, error: collErr }] = await Promise.all([
+    const [{ data: profile }, collRows] = await Promise.all([
       supabase.from("profiles").select("username").eq("id", user_id).single(),
-      supabase
+      fetchAllPages(() => supabase
         .from("user_collections")
-        .select("id, comic_id, gcd_issue_id, condition, grade_numeric, slab_company, slab_cert_number, notes, purchase_price, market_value, user_cover_url")
+        .select("id, comic_id, gcd_issue_id, condition, grade_numeric, slab_company, slab_cert_number, notes, purchase_price, market_value, user_cover_url, variant_label, copy_number")
         .eq("user_id", user_id)
-        .in("status", OWNED_STATUSES),
+        .in("status", OWNED_STATUSES), "id"),
     ]);
-
-    if (collErr) {
-      console.error("PDF export: user_collections query failed", {
-        message: collErr.message,
-        details: collErr.details,
-        hint: collErr.hint,
-        code: collErr.code,
-      });
-      return NextResponse.json(
-        { error: `Failed to fetch collection: ${collErr.message}` },
-        { status: 500 }
-      );
-    }
     if (!collRows?.length) {
       return NextResponse.json({ error: "No owned comics in collection" }, { status: 404 });
     }
@@ -168,15 +163,10 @@ export async function POST(req) {
     // ── Local comics ──
     const localIds = collRows.filter((r) => r.comic_id).map((r) => r.comic_id);
     if (localIds.length > 0) {
-      const { data: comics, error: comicsError } = await supabase
+      const comics = await fetchInChunks([...new Set(localIds)], (ids) => supabase
         .from("comics")
         .select("id, series_title, publisher, issue_number, release_year, comic_covers(image_path, is_primary)")
-        .in("id", localIds);
-
-      if (comicsError) {
-        console.error("PDF export local comics lookup failed:", comicsError.code, comicsError.message);
-        return NextResponse.json({ error: "Failed to load export rows" }, { status: 502 });
-      }
+        .in("id", ids), "id");
 
       for (const c of comics || []) {
         const path = c.comic_covers?.find((x) => x.is_primary)?.image_path ?? null;
@@ -185,6 +175,7 @@ export async function POST(req) {
           issueNumber: c.issue_number ?? "",
           publisher: c.publisher || "Unknown",
           year: c.release_year ?? null,
+          seriesYear: null,
           coverUrl: path
             ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/comic-covers/${path}`
             : null,
@@ -195,26 +186,16 @@ export async function POST(req) {
     // ── GCD issues ──
     const gcdIds = collRows.filter((r) => r.gcd_issue_id).map((r) => r.gcd_issue_id);
     if (gcdIds.length > 0) {
-      const { data: issues, error: issuesError } = await supabase
+      const issues = await fetchInChunks([...new Set(gcdIds)], (ids) => supabase
         .from("gcd_issues")
         .select("gcd_id, issue_number, publication_date, series_gcd_id, title")
-        .in("gcd_id", gcdIds);
-
-      if (issuesError) {
-        console.error("PDF export issues lookup failed:", issuesError.code, issuesError.message);
-        return NextResponse.json({ error: "Failed to load export rows" }, { status: 502 });
-      }
+        .in("gcd_id", ids), "gcd_id");
 
       const seriesGcdIds = [...new Set((issues || []).map((i) => i.series_gcd_id).filter(Boolean))];
-      const seriesRows = [];
-      for (let index = 0; index < seriesGcdIds.length; index += 180) {
-        const { data, error } = await supabase
+      const seriesRows = await fetchInChunks(seriesGcdIds, (ids) => supabase
           .from("series")
           .select("gcd_id, title, year_start_cached, year_end_cached, resolved_publisher_cached, publisher:publisher_id(id, name)")
-          .in("gcd_id", seriesGcdIds.slice(index, index + 180));
-        if (error) throw error;
-        seriesRows.push(...(data ?? []));
-      }
+          .in("gcd_id", ids), "gcd_id");
 
       const seriesMap = {};
       for (const s of seriesRows || []) seriesMap[s.gcd_id] = s;
@@ -254,6 +235,7 @@ export async function POST(req) {
           issueNumber: item.issueNumber,
           publisher: item.publisher ?? "Unknown",
           year: item.year,
+          seriesYear: item.seriesYearStart,
           coverUrl: storagePath ? `${canonicalCoverBase}${storagePath}` : null,
         };
       }
@@ -265,6 +247,7 @@ export async function POST(req) {
     //   2. market_comps median (sold-comp / asking-price from eBay)
     //   3. era-based cover-price floor - handled below
     // We pass each issue's grade signal so the median bucket is right.
+    mark("catalog");
     const marketValueMap = await getMarketValuesBulk({
       supabase,
       items: collRows
@@ -311,22 +294,36 @@ export async function POST(req) {
           issueNumber: meta.issueNumber ?? "",
           publisher: meta.publisher ?? "Unknown",
           year: meta.year ?? null,
+          seriesYear: meta.seriesYear ?? null,
           coverUrl: row.user_cover_url || meta.coverUrl || null,
           effective_market_value: effective,
           value_source,
         };
       })
-      .sort((a, b) => a.title.localeCompare(b.title));
+      .sort(compareExportItems);
 
-    // ── Pre-fetch cover images in parallel ──
+    // Bound parallel image work and stop starting covers at the report-wide
+    // deadline. Unfetched covers use the same gray placeholder as failures.
+    mark("values");
     const imgCache = {};
-    await Promise.all(
-      [...new Set(items.map((i) => i.coverUrl).filter(Boolean))].map(async (url) => {
-        const data = await fetchImageBytes(url);
+    const coverUrls = [...new Set(items.map((i) => i.coverUrl).filter(Boolean))];
+    // Covers get up to two minutes, but never past 200s into the request, so
+    // a very large collection still renders inside maxDuration (300s).
+    const coverDeadline = Math.min(Date.now() + COVER_BUDGET_MS, requestStart + 200_000);
+    let coverIndex = 0;
+    async function coverWorker() {
+      while (coverIndex < coverUrls.length && Date.now() < coverDeadline) {
+        const url = coverUrls[coverIndex++];
+        const remaining = coverDeadline - Date.now();
+        const data = await fetchImageBytes(url, Math.min(5000, remaining));
         if (data) imgCache[url] = data;
-      })
+      }
+    }
+    await Promise.all(
+      Array.from({ length: Math.min(COVER_CONCURRENCY, coverUrls.length) }, coverWorker)
     );
 
+    mark("covers");
     // ── Build PDF ──
     const doc = await PDFDocument.create();
     const bold   = await doc.embedFont(StandardFonts.HelveticaBold);
@@ -547,10 +544,27 @@ export async function POST(req) {
       const ty = rowBottom + ROW_H / 2 - 3;
       const ts = 7.5;
 
-      // Title
-      page.drawText(truncate(item.title, bold, ts, CW.title - 4), {
-        x: CX.title + 2, y: ty + 4, size: ts, font: bold, color: DGRAY,
+      // Include the volume year so repeated series names are unambiguous.
+      // A variant uses the lower line; otherwise the title may wrap there.
+      const displayTitle = item.seriesYear ? `${item.title} (${item.seriesYear})` : item.title;
+      const titleLines = wrapText(displayTitle, bold, ts, CW.title - 4);
+      const hasVariant = Boolean(item.variant_label);
+      const shownTitleLines = titleLines.slice(0, hasVariant ? 1 : 2);
+      if (titleLines.length > shownTitleLines.length && shownTitleLines.length > 0) {
+        const last = shownTitleLines.length - 1;
+        shownTitleLines[last] = truncate(`${shownTitleLines[last]}...`, bold, ts, CW.title - 4);
+      }
+      const titleStartY = hasVariant || shownTitleLines.length > 1 ? ty + 9 : ty + 4;
+      shownTitleLines.forEach((line, index) => {
+        page.drawText(truncate(line, bold, ts, CW.title - 4), {
+          x: CX.title + 2, y: titleStartY - index * 10, size: ts, font: bold, color: DGRAY,
+        });
       });
+      if (hasVariant) {
+        page.drawText(truncate(item.variant_label, reg, 6.5, CW.title - 4), {
+          x: CX.title + 2, y: ty - 2, size: 6.5, font: reg, color: MGRAY,
+        });
+      }
       // Issue
       if (item.issueNumber) {
         page.drawText(truncate(`#${item.issueNumber}`, reg, ts, CW.issue - 2), {
@@ -660,13 +674,25 @@ export async function POST(req) {
 
     // ── Return PDF ──
     const bytes = await doc.save();
+    mark("render");
+    // One line per export, so a slow or oversized report shows up in the logs.
+    console.log("pdf export", JSON.stringify({ books: items.length, covers: Object.keys(imgCache).length, coverUrls: coverUrls.length, bytes: bytes.length, ms: phases }));
     const filename = `comixcatalog-collection-${new Date().toISOString().split("T")[0]}.pdf`;
 
-    return new Response(bytes, {
+    const chunkSize = 256 * 1024;
+    const stream = new ReadableStream({
+      start(controller) {
+        for (let offset = 0; offset < bytes.length; offset += chunkSize) {
+          controller.enqueue(bytes.slice(offset, offset + chunkSize));
+        }
+        controller.close();
+      },
+    });
+
+    return new Response(stream, {
       headers: {
         "Content-Type": "application/pdf",
         "Content-Disposition": `attachment; filename="${filename}"`,
-        "Content-Length": String(bytes.length),
       },
     });
   } catch (err) {

@@ -272,7 +272,7 @@ export default function ProfileTabs({ collection, isOwner, visibility = {}, prof
         ) : activeItems.length === 0 ? (
           <EmptyTab tab={activeTab} isOwner={isOwner} />
         ) : viewMode === "rows" ? (
-          <SeriesRowsView items={activeItems} activeTab={activeTab} />
+          <SeriesRowsView items={activeItems} activeTab={activeTab} askAbout={!isOwner && user ? profileUsername : null} />
         ) : (
           <div className={`comic-grid${activeTab === "owned" ? " comic-grid--wall" : ""}`}>
             {activeItems.slice(0, visibleGridItems).map((item) => {
@@ -397,7 +397,7 @@ export default function ProfileTabs({ collection, isOwner, visibility = {}, prof
   );
 }
 
-function SeriesRowsView({ items, activeTab }) {
+function SeriesRowsView({ items, activeTab, askAbout = null }) {
   // Group by series (title + year as disambiguator for multi-volume runs).
   // We use display.title because that's already the resolved series title
   // (not the issue title), matching how cards label themselves.
@@ -508,7 +508,8 @@ function SeriesRowsView({ items, activeTab }) {
                       : null;
                   const cardHref = isForSale && item.listing_id ? `/listing/${item.listing_id}` : d.href;
                   return (
-                    <Link key={item.id} href={cardHref} className="comic-card">
+                    <div key={item.id} className="profile-book-contact-wrap">
+                    <Link href={cardHref} className="comic-card">
                       <div className="comic-card-cover" style={{ position: "relative" }}>
                         <img src={coverThumb(coverUrl)} alt={d.title} width="400" height="600" loading="lazy" decoding="async" />
                         {item.slab_company && item.grade_numeric ? (
@@ -536,6 +537,10 @@ function SeriesRowsView({ items, activeTab }) {
                         ) : null}
                       </div>
                     </Link>
+                    {askAbout && item.gcd_issue_id && (activeTab === "owned" || activeTab === "for_sale") && (
+                      <Link className="profile-book-contact" href={`/inbox/${encodeURIComponent(askAbout)}?issue=${Number(item.gcd_issue_id)}&copy=${encodeURIComponent(item.id)}&ask=sell`}>Ask about it</Link>
+                    )}
+                    </div>
                   );
                 })}
               </div>

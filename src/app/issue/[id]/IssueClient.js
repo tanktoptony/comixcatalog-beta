@@ -20,6 +20,7 @@ import { conditionLabel, contactLabel, formatValue, offerHref } from "@/lib/mark
 import Avatar from "@/components/Avatar";
 
 function CollectorRow({ label, bucket, actionLabel, actionKind, issueId, viewerId }) {
+  if (!bucket?.total) return null;
   return <div className="issue-collector-row"><strong>{label}</strong><div className="issue-collector-members">
     {(bucket?.members ?? []).map((member) => <div key={member.id} className="issue-collector-member">
       <Link href={`/u/${encodeURIComponent(member.username)}`} className="issue-collector-person"><span className="issue-collector-avatar"><Avatar profile={member} /></span><span>@{member.username}</span></Link>

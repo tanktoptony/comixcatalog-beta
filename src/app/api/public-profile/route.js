@@ -101,6 +101,7 @@ export async function GET(req) {
       user_cover_url,
       variant_label,
       copy_number,
+      open_to_trade,
       comics!user_collections_comic_id_fkey (
         id,
         issue_number,
@@ -488,6 +489,7 @@ export async function GET(req) {
     gcd_issue_id: item.gcd_issue_id,
     variant_label: item.variant_label,
     copy_number: item.copy_number,
+    open_to_trade: item.open_to_trade,
     display,
     key_issue: keyIssue,
   });

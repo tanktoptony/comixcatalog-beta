@@ -174,6 +174,8 @@ Private Stripe Connect onboarding and seller-standing state keyed by `user_id`. 
 One-way member relationships keyed by `(follower_id, followee_id)`. Participants can read rows; all writes use the rate-limited `/api/follows` service route, which also enforces privacy and blocks. Public member search lives at `/people`.
 
 #### `user_collections`
+Trade matches: `open_to_trade` marks owned or for-sale copies a collector is willing to trade. The service-only `social_trade_matches(uuid)` RPC matches base GCD issues in both directions while enforcing profile privacy and blocks. The signed-in experience lives at `/matches`.
+
 PK `id` (uuid). FKs: `user_id` → `auth.users`, `comic_id` → `comics.id`, plus a non-FK `gcd_issue_id` (int4) link.
 Columns: `status`, `condition`, `grade_numeric` (numeric), `slab_company`, `slab_cert_number`, `notes`, `purchase_price` (numeric), `market_value` (numeric), `publisher`, `created_at`, `created_by`, `user_cover_url`, `auto_market_value` (numeric), `auto_market_value_at` (timestamptz), `auto_market_value_n` (int4).
 - A row is either-or: `comic_id` set (local comic) OR `gcd_issue_id` set (GCD issue). Never both.

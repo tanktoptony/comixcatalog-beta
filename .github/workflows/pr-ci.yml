@@ -109,6 +109,9 @@ jobs:
       - name: Library mutation tests
         run: npm run test:library-mutations
 
+      - name: Trade match tests
+        run: npm run test:trade-matches
+
       - name: Chunk helper tests
         run: npm run test:chunk
 

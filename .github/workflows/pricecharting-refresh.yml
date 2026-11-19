@@ -1,16 +1,17 @@
 name: PriceCharting refresh (daily)
 
-# Loads PriceCharting's comic price guide into pricecharting_prices
-# (migration 0105) via scripts/fetchPriceCharting.js. PriceCharting rebuilds
-# the CSV once every 24 hours and allows one download per 10 minutes, so
-# daily is the right cadence.
+# Prices our comics from PriceCharting's API into pricecharting_prices
+# (migrations 0105, 0106) via scripts/fetchPriceCharting.js. There is no
+# comics CSV, so it searches once per base issue (collections and wantlists
+# first, then key issues) at PriceCharting's limit of one call per second.
+# Each issue is re-searched every 7 days; 3,000 calls is about 55 minutes.
 #
 # 08:20 UTC (2:20 AM Central): off-peak, clear of the top-of-hour cover
-# ingest. Only changed rows are written.
+# ingest. Writes are small.
 #
-# Needs the PRICECHARTING_TOKEN repo secret (PriceCharting > Subscriptions >
-# API/Download). To run by hand: Actions tab > PriceCharting refresh > Run
-# workflow; dry_run=true downloads and reports the match rate without writing.
+# Needs the PRICECHARTING_TOKEN repo secret. To run by hand: Actions tab >
+# PriceCharting refresh > Run workflow; dry_run=true prints 20 links and
+# writes nothing.
 
 on:
   schedule:
@@ -28,7 +29,7 @@ permissions:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 75
 
     concurrency:
       group: pricecharting-refresh
@@ -56,10 +57,10 @@ jobs:
           fi
 
       # No continue-on-error: a run that loads nothing must go red.
-      - name: Load price guide
+      - name: Price comics
         run: |
           if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
             node scripts/fetchPriceCharting.js
           else
-            node scripts/fetchPriceCharting.js --apply
+            node scripts/fetchPriceCharting.js --apply --max-calls=3000 --max-age-days=7
           fi

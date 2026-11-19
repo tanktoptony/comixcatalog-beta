@@ -1,8 +1,8 @@
 -- 0105_pricecharting_prices.sql
 --
 -- PriceCharting's comic price guide, one row per PriceCharting product that
--- links to a GCD issue. Filled daily by scripts/fetchPriceCharting.js from the
--- Legendary subscription's comics CSV.
+-- links to a GCD issue. Filled daily by scripts/fetchPriceCharting.js from
+-- the Legendary subscription's API (see 0106; there is no comics CSV).
 --
 -- Prices are integer cents keyed by grade label, from PriceCharting's comic
 -- key table: {"ungraded": 10840, "2.0": 4500, ..., "9.8": 53999, "10.0": 70200}.

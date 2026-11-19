@@ -88,7 +88,8 @@ export function parseProduct({ productName, consoleName, releaseDate } = {}) {
 }
 
 export function normalizeIssueNumber(raw) {
-  const s = String(raw ?? "").trim();
+  // GCD's legacy "40 (340)" form carries the overall number in parentheses.
+  const s = String(raw ?? "").trim().replace(/\s*\([^)]*\)$/, "");
   if (!s) return null;
   // "001" -> "1", but keep "0", "1/2", "1.MU", "Annual 1" untouched.
   return /^\d+$/.test(s) ? String(Number(s)) : s;
@@ -96,6 +97,9 @@ export function normalizeIssueNumber(raw) {
 
 export function normalizeSeriesName(name) {
   return String(name ?? "")
+    // "Kaitō" in GCD, "Kaito" at PriceCharting.
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
     .toLowerCase()
     .replace(/^the\s+/, "")
     .replace(/&/g, "and")
@@ -170,6 +174,46 @@ export function matchProduct(parsed, issues) {
     return { reason: "ambiguous", candidates: picks.map((i) => i.gcd_id) };
   }
   return { gcd_issue_id: Number(picks[0].gcd_id), method: parsed.variant ? "name-variant" : "name" };
+}
+
+// The /api/products search for one base issue. PriceCharting names drop
+// GCD's leading "The"; the year is added only on a retry, because a year one
+// off from PriceCharting's would hide the book.
+export function searchQuery({ seriesName, issueNumber, year } = {}) {
+  const name = String(seriesName ?? "").trim().replace(/^the\s+/i, "");
+  const num = normalizeIssueNumber(issueNumber);
+  return [name, num, year || null].filter(Boolean).join(" ");
+}
+
+// Link one search's products to a base GCD issue and its GCD variants.
+// Products from a differently named series (facsimiles, homages, card sets)
+// are dropped before matching, so they can never take the base book's price.
+export function linkSearchResults({ products, base, variants = [], seriesName } = {}) {
+  const want = normalizeSeriesName(seriesName);
+  const candidates = [base, ...variants].filter(Boolean);
+  const rows = [];
+  for (const p of Array.isArray(products) ? products : []) {
+    const parsed = parseProduct({ productName: p["product-name"], consoleName: p["console-name"], releaseDate: p["release-date"] });
+    if (!parsed || parsed.seriesNorm !== want) continue;
+    const link = matchProduct(parsed, candidates);
+    if (!link.gcd_issue_id) continue;
+    const prices = pricesFromRow(p, { pennies: true });
+    if (Object.keys(prices).length === 0) continue;
+    const salesVolume = Number(p["sales-volume"]);
+    const row = {
+      pc_id: Number(p.id),
+      gcd_issue_id: link.gcd_issue_id,
+      product_name: String(p["product-name"]).trim(),
+      console_name: String(p["console-name"]).trim(),
+      release_date: /^\d{4}-\d{2}-\d{2}$/.test(String(p["release-date"] ?? "")) ? p["release-date"] : null,
+      prices,
+      sales_volume: Number.isFinite(salesVolume) && salesVolume > 0 ? Math.round(salesVolume) : null,
+      match_method: link.method,
+    };
+    row.row_hash = rowHash(row);
+    rows.push(row);
+  }
+  return { rows, baseLinked: rows.some((r) => r.gcd_issue_id === Number(base?.gcd_id)) };
 }
 
 // Stable fingerprint of what we store, so a daily run writes only rows whose

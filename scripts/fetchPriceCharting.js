@@ -1,41 +1,33 @@
-// fetchPriceCharting.js: load PriceCharting's comic price guide into
+// fetchPriceCharting.js: price our comics from PriceCharting's API into
 // pricecharting_prices (migration 0105), linked to GCD issues.
 //
-// One CSV download per run (Legendary subscription; PriceCharting regenerates
-// it every 24 hours and allows one download per 10 minutes). Each comic
-// product is parsed and linked to a GCD issue by series name, issue number,
-// year and variant (scripts/lib/priceCharting.js, tested). If the CSV carries
-// a comics.org id column, that wins, since GCD ids are comics.org ids.
+// PriceCharting has no comics CSV (the Legendary download page offers video
+// games and card categories only), so this searches the API once per base
+// GCD issue. One /api/products search ("Uncanny X-Men 266") returns up to 20
+// products with full prices: the base book, its newsstand and other variants.
+// scripts/lib/priceCharting.js links them (tested): same series name, issue
+// number, year within 1, and a bracketed variant only to the GCD variant of
+// the same name.
 //
-// Only rows whose prices or link changed are written, so a daily run does
-// not rewrite the whole table (the database is small; see playbook ops).
+// Queue, in order: base issues in member collections and wantlists, then key
+// issues. pricecharting_searches (migration 0106) records each search, and
+// issues searched within --max-age-days are skipped. The API allows one call
+// per second ("Any more than that and your calls will be blocked"), so calls
+// are spaced 1.1 s apart and --max-calls caps a run.
 //
 // Usage:
-//   node scripts/fetchPriceCharting.js                    dry run: download, link, report
-//   node scripts/fetchPriceCharting.js --apply            write changes
-//   node scripts/fetchPriceCharting.js --file=guide.csv   use a saved CSV instead of downloading
-//   node scripts/fetchPriceCharting.js --save=guide.csv   keep the downloaded CSV
+//   node scripts/fetchPriceCharting.js                      dry run, 20 searches, prints links
+//   node scripts/fetchPriceCharting.js --apply              write
+//   node scripts/fetchPriceCharting.js --apply --max-calls=3000 --max-age-days=7
+//   node scripts/fetchPriceCharting.js --ids=48391,44451    only these issues (ignores max age)
 //
-// Env: PRICECHARTING_TOKEN (40 chars, PriceCharting > Subscriptions >
-// API/Download), NEXT_PUBLIC_SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY.
-// PRICECHARTING_CSV_URL overrides the download URL; "{token}" in it is
-// replaced with the token.
+// Env: PRICECHARTING_TOKEN, NEXT_PUBLIC_SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY.
 
 import dotenv from "dotenv";
-import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import Papa from "papaparse";
 import { createClient } from "@supabase/supabase-js";
-import {
-  parseProduct,
-  matchProduct,
-  pricesFromRow,
-  gcdNameCandidates,
-  normalizeSeriesName,
-  normalizeIssueNumber,
-  rowHash,
-} from "./lib/priceCharting.js";
+import { linkSearchResults, searchQuery } from "./lib/priceCharting.js";
 import { withRetry } from "./lib/withRetry.js";
 import { describeError } from "./lib/describeError.js";
 
@@ -49,15 +41,17 @@ const args = Object.fromEntries(
   })
 );
 const APPLY = !!args.apply;
+const MAX_CALLS = Number(args["max-calls"] ?? (APPLY ? 3000 : 20));
+const MAX_AGE_DAYS = Number(args["max-age-days"] ?? 7);
+const ONLY_IDS = args.ids ? String(args.ids).split(",").map(Number).filter(Boolean) : null;
+const CALL_GAP_MS = 1100;
+const FLUSH_EVERY = 50;
 const PAGE = 1000;
-const WRITE_BATCH = 500;
-// Never prune when today's file links far fewer products than are stored:
-// that is a bad download or a matcher regression, not 30% of comics vanishing.
-const PRUNE_MIN_RATIO = 0.9;
+const API = "https://www.pricecharting.com/api/products";
 
-const DEFAULT_CSV_URL = "https://www.pricecharting.com/price-guide/download-custom?t={token}&category=comic-books";
-
+const TOKEN = process.env.PRICECHARTING_TOKEN;
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 function chunked(values, size) {
   const out = [];
@@ -80,199 +74,164 @@ async function readAllKeyset(label, build, keyCol) {
   }
 }
 
-async function loadCsvText() {
-  if (args.file) return fs.readFileSync(String(args.file), "utf8");
-  const token = process.env.PRICECHARTING_TOKEN;
-  if (!token) throw new Error("PRICECHARTING_TOKEN is not set");
-  const url = (process.env.PRICECHARTING_CSV_URL || DEFAULT_CSV_URL).replace("{token}", encodeURIComponent(token));
-  const res = await fetch(url, { redirect: "follow" });
-  const text = await res.text();
-  if (!res.ok) {
-    // Never print the URL: it carries the token.
-    throw new Error(`CSV download failed: HTTP ${res.status} ${text.slice(0, 300)}`);
+const ISSUE_COLS = "gcd_id, series_gcd_id, issue_number, key_date, publication_date, variant_of_gcd_id, variant_name";
+
+async function issuesById(ids) {
+  const out = new Map();
+  for (const chunk of chunked([...new Set(ids)], 300)) {
+    const rows = await withRetry("gcd_issues by id", () => supabase.from("gcd_issues").select(ISSUE_COLS).in("gcd_id", chunk).limit(PAGE));
+    for (const r of rows ?? []) out.set(Number(r.gcd_id), r);
   }
-  if (args.save) fs.writeFileSync(String(args.save), text);
-  return text;
+  return out;
 }
 
-function findGcdIdColumn(fields) {
-  return fields.find((f) => /comic.?s?.?org|comicsorg|gcd/i.test(f)) ?? null;
+async function buildQueue() {
+  let ordered;
+  if (ONLY_IDS) {
+    ordered = ONLY_IDS;
+  } else {
+    const coll = await readAllKeyset(
+      "user_collections",
+      () => supabase.from("user_collections").select("id, gcd_issue_id, notes").not("gcd_issue_id", "is", null),
+      "id"
+    );
+    // audit-seed-1119: test rows on a test account, not real books.
+    const collIds = coll.filter((r) => r.notes !== "audit-seed-1119").map((r) => Number(r.gcd_issue_id));
+    const keys = await readAllKeyset("key_issues", () => supabase.from("key_issues").select("id, gcd_issue_id").not("gcd_issue_id", "is", null), "id");
+    ordered = [...collIds, ...keys.map((k) => Number(k.gcd_issue_id))];
+  }
+
+  // Collapse variants to their base: one search covers base and variants.
+  const rows = await issuesById(ordered);
+  const bases = [];
+  const seen = new Set();
+  for (const id of ordered) {
+    const r = rows.get(id);
+    if (!r) continue;
+    const base = Number(r.variant_of_gcd_id ?? r.gcd_id);
+    if (seen.has(base)) continue;
+    seen.add(base);
+    bases.push(base);
+  }
+
+  let fresh = new Set();
+  if (!ONLY_IDS) {
+    const cutoff = new Date(Date.now() - MAX_AGE_DAYS * 86400000).toISOString();
+    const recent = await readAllKeyset(
+      "recent searches",
+      () => supabase.from("pricecharting_searches").select("gcd_issue_id").gte("searched_at", cutoff),
+      "gcd_issue_id"
+    );
+    fresh = new Set(recent.map((r) => Number(r.gcd_issue_id)));
+  }
+  const due = bases.filter((b) => !fresh.has(b));
+  console.log(`Queue: ${bases.length} base issues, ${bases.length - due.length} searched in the last ${MAX_AGE_DAYS} days, ${due.length} due`);
+  return due;
+}
+
+let lastCall = 0;
+async function searchProducts(q) {
+  for (let attempt = 1; attempt <= 4; attempt += 1) {
+    const wait = lastCall + CALL_GAP_MS - Date.now();
+    if (wait > 0) await sleep(wait);
+    lastCall = Date.now();
+    let res;
+    let body;
+    try {
+      res = await fetch(`${API}?t=${encodeURIComponent(TOKEN)}&q=${encodeURIComponent(q)}`);
+      body = await res.json().catch(() => null);
+    } catch (error) {
+      if (attempt === 4) throw error;
+      await sleep(5000 * attempt);
+      continue;
+    }
+    if (res.ok && body?.status === "success") return body.products ?? [];
+    const message = body?.["error-message"] ?? `HTTP ${res.status}`;
+    if (res.status === 401 || res.status === 403 || /token/i.test(message)) throw new Error(`PriceCharting refused the token: ${message}`);
+    if (attempt === 4) throw new Error(`PriceCharting search failed for "${q}": ${message}`);
+    // 429 or 5xx: back off well past the 1/s limit before trying again.
+    await sleep(10000 * attempt);
+  }
+  return [];
 }
 
 async function main() {
+  if (!TOKEN) throw new Error("PRICECHARTING_TOKEN is not set");
   const startedAt = Date.now();
-  const text = await loadCsvText();
-  const parsedCsv = Papa.parse(text, { header: true, skipEmptyLines: true });
-  const fields = parsedCsv.meta.fields ?? [];
-  if (!fields.includes("id") || !fields.includes("product-name") || !fields.includes("console-name")) {
-    throw new Error(`Unexpected CSV header: ${fields.join(", ").slice(0, 500)}`);
-  }
-  const gcdCol = findGcdIdColumn(fields);
-  console.log(`CSV: ${parsedCsv.data.length} rows, ${fields.length} columns${gcdCol ? `, comics.org id column "${gcdCol}"` : ", no comics.org id column"}`);
-  console.log(`Columns: ${fields.join(", ")}`);
+  const due = (await buildQueue()).slice(0, MAX_CALLS);
+  if (due.length === 0) return console.log("Nothing due.");
 
-  const products = [];
-  let notComic = 0;
-  let unparsed = 0;
-  for (const row of parsedCsv.data) {
-    const parsed = parseProduct({
-      productName: row["product-name"],
-      consoleName: row["console-name"],
-      releaseDate: row["release-date"],
-    });
-    if (!parsed) {
-      if (String(row["console-name"] ?? "").startsWith("Comic Books ")) unparsed += 1;
-      else notComic += 1;
+  const baseRows = await issuesById(due);
+  const seriesIds = [...new Set([...baseRows.values()].map((r) => Number(r.series_gcd_id)))];
+  const seriesName = new Map();
+  for (const chunk of chunked(seriesIds, 300)) {
+    const rows = await withRetry("gcd_series", () => supabase.from("gcd_series").select("gcd_id, name").in("gcd_id", chunk).limit(PAGE));
+    for (const s of rows ?? []) seriesName.set(Number(s.gcd_id), s.name);
+  }
+  const variantsByBase = new Map();
+  for (const chunk of chunked(due, 200)) {
+    const rows = await readAllKeyset("variants", () => supabase.from("gcd_issues").select(ISSUE_COLS).in("variant_of_gcd_id", chunk), "gcd_id");
+    for (const v of rows) {
+      const b = Number(v.variant_of_gcd_id);
+      if (!variantsByBase.has(b)) variantsByBase.set(b, []);
+      variantsByBase.get(b).push(v);
+    }
+  }
+
+  let calls = 0;
+  let baseLinkedCount = 0;
+  let rowsLinked = 0;
+  let pendingRows = [];
+  let pendingSearches = [];
+
+  async function flush() {
+    if (!APPLY) { pendingRows = []; pendingSearches = []; return; }
+    const byId = new Map(pendingRows.map((r) => [r.pc_id, { ...r, updated_at: new Date().toISOString() }]));
+    if (byId.size) await withRetry("upsert prices", () => supabase.from("pricecharting_prices").upsert([...byId.values()], { onConflict: "pc_id" }));
+    if (pendingSearches.length) await withRetry("upsert searches", () => supabase.from("pricecharting_searches").upsert(pendingSearches, { onConflict: "gcd_issue_id" }));
+    pendingRows = [];
+    pendingSearches = [];
+  }
+
+  for (let i = 0; i < due.length; i += 1) {
+    const baseId = due[i];
+    const base = baseRows.get(baseId);
+    const name = base && seriesName.get(Number(base.series_gcd_id));
+    if (!base || !name || !base.issue_number) {
+      pendingSearches.push({ gcd_issue_id: baseId, searched_at: new Date().toISOString(), products_found: 0, linked: 0 });
       continue;
     }
-    const pcId = Number(row.id);
-    if (!Number.isFinite(pcId)) continue;
-    const gcdHint = gcdCol ? Number(String(row[gcdCol] ?? "").replace(/\D/g, "")) || null : null;
-    products.push({ pcId, row, parsed, gcdHint });
-  }
-  console.log(`Comic products: ${products.length} (skipped ${notComic} non-comic, ${unparsed} comic names that didn't parse)`);
-
-  // 1. comics.org id from the CSV, when present and real.
-  const linked = new Map(); // pcId -> { gcd_issue_id, method }
-  const hinted = products.filter((p) => p.gcdHint);
-  if (hinted.length) {
-    const known = new Set();
-    for (const ids of chunked([...new Set(hinted.map((p) => p.gcdHint))], 300)) {
-      const data = await withRetry("gcd id check", () => supabase.from("gcd_issues").select("gcd_id").in("gcd_id", ids).limit(PAGE));
-      for (const r of data ?? []) known.add(Number(r.gcd_id));
+    const variants = variantsByBase.get(baseId) ?? [];
+    let products = await searchProducts(searchQuery({ seriesName: name, issueNumber: base.issue_number }));
+    calls += 1;
+    let result = linkSearchResults({ products, base, variants, seriesName: name });
+    // A full page without our book: popular numbers (#1) crowd it out. Retry
+    // with the year, which PriceCharting puts in every comic's name.
+    const year = Number(String(base.key_date ?? base.publication_date ?? "").slice(0, 4));
+    if (!result.baseLinked && products.length >= 20 && year > 1800) {
+      const more = await searchProducts(searchQuery({ seriesName: name, issueNumber: base.issue_number, year }));
+      calls += 1;
+      products = [...products, ...more];
+      result = linkSearchResults({ products, base, variants, seriesName: name });
     }
-    for (const p of hinted) if (known.has(p.gcdHint)) linked.set(p.pcId, { gcd_issue_id: p.gcdHint, method: "comics-org-id" });
-  }
-
-  // 2. Name, number, year, variant for the rest.
-  const rest = products.filter((p) => !linked.has(p.pcId));
-  const seriesNames = [...new Set(rest.map((p) => p.parsed.seriesName))];
-  const seriesIdsByNorm = new Map();
-  for (const names of chunked(seriesNames, 100)) {
-    const candidates = names.flatMap(gcdNameCandidates);
-    const rows = await readAllKeyset("gcd_series by name", () => supabase.from("gcd_series").select("gcd_id, name").in("name", candidates), "gcd_id");
-    for (const s of rows) {
-      const norm = normalizeSeriesName(s.name);
-      if (!seriesIdsByNorm.has(norm)) seriesIdsByNorm.set(norm, new Set());
-      seriesIdsByNorm.get(norm).add(Number(s.gcd_id));
+    if (result.baseLinked) baseLinkedCount += 1;
+    rowsLinked += result.rows.length;
+    pendingRows.push(...result.rows);
+    pendingSearches.push({ gcd_issue_id: baseId, searched_at: new Date().toISOString(), products_found: products.length, linked: result.rows.length });
+    if (!APPLY) {
+      const links = result.rows.map((r) => `${r.product_name} -> ${r.gcd_issue_id} (raw $${((r.prices.ungraded ?? 0) / 100).toFixed(2)})`).join("; ");
+      console.log(`${name} #${base.issue_number}: ${links || "no link"}`);
+    }
+    if ((i + 1) % FLUSH_EVERY === 0) {
+      await flush();
+      const mins = ((Date.now() - startedAt) / 60000).toFixed(1);
+      console.log(`  ${i + 1}/${due.length} searched, base book priced for ${baseLinkedCount}, ${rowsLinked} products linked, ${mins} min`);
     }
   }
+  await flush();
 
-  // Issue numbers each GCD series needs, then one read per chunk of series.
-  const numbersBySeries = new Map();
-  for (const p of rest) {
-    for (const sid of seriesIdsByNorm.get(p.parsed.seriesNorm) ?? []) {
-      if (!numbersBySeries.has(sid)) numbersBySeries.set(sid, new Set());
-      numbersBySeries.get(sid).add(p.parsed.issueNumber);
-    }
-  }
-  const issuesBySeries = new Map();
-  const seriesIds = [...numbersBySeries.keys()];
-  for (const ids of chunked(seriesIds, 40)) {
-    const numbers = new Set();
-    for (const sid of ids) for (const n of numbersBySeries.get(sid)) numbers.add(n);
-    // GCD stores some numbers zero-padded; ask for both spellings.
-    const asked = new Set(numbers);
-    for (const n of numbers) if (/^\d+$/.test(n)) { asked.add(n.padStart(2, "0")); asked.add(n.padStart(3, "0")); }
-    for (const nums of chunked([...asked], 250)) {
-      const rows = await readAllKeyset(
-        "gcd_issues by series",
-        () => supabase
-          .from("gcd_issues")
-          .select("gcd_id, series_gcd_id, issue_number, key_date, publication_date, variant_of_gcd_id, variant_name")
-          .in("series_gcd_id", ids)
-          .in("issue_number", nums),
-        "gcd_id"
-      );
-      for (const r of rows) {
-        const sid = Number(r.series_gcd_id);
-        if (!issuesBySeries.has(sid)) issuesBySeries.set(sid, []);
-        issuesBySeries.get(sid).push(r);
-      }
-    }
-  }
-
-  const reasons = {};
-  const unmatchedBySeries = new Map();
-  for (const p of rest) {
-    const want = normalizeIssueNumber(p.parsed.issueNumber);
-    const issues = [];
-    for (const sid of seriesIdsByNorm.get(p.parsed.seriesNorm) ?? []) {
-      for (const i of issuesBySeries.get(sid) ?? []) if (normalizeIssueNumber(i.issue_number) === want) issues.push(i);
-    }
-    const hasSeries = seriesIdsByNorm.has(p.parsed.seriesNorm);
-    const result = hasSeries ? matchProduct(p.parsed, issues) : { reason: "no-gcd-series" };
-    if (result.gcd_issue_id) {
-      linked.set(p.pcId, result);
-    } else {
-      reasons[result.reason] = (reasons[result.reason] ?? 0) + 1;
-      unmatchedBySeries.set(p.parsed.seriesName, (unmatchedBySeries.get(p.parsed.seriesName) ?? 0) + 1);
-    }
-  }
-
-  const methods = {};
-  for (const v of linked.values()) methods[v.method] = (methods[v.method] ?? 0) + 1;
-  const pct = products.length ? ((linked.size / products.length) * 100).toFixed(1) : "0";
-  console.log(`Linked ${linked.size} of ${products.length} comic products (${pct}%): ${JSON.stringify(methods)}`);
-  console.log(`Not linked: ${JSON.stringify(reasons)}`);
-  const topMissing = [...unmatchedBySeries.entries()].sort((a, b) => b[1] - a[1]).slice(0, 25);
-  console.log(`Most unlinked series: ${topMissing.map(([n, c]) => `${n} (${c})`).join("; ")}`);
-
-  // Build rows; drop products with no price at all.
-  const rows = [];
-  for (const p of products) {
-    const link = linked.get(p.pcId);
-    if (!link) continue;
-    const prices = pricesFromRow(p.row);
-    if (Object.keys(prices).length === 0) continue;
-    const releaseDate = /^\d{4}-\d{2}-\d{2}$/.test(String(p.row["release-date"] ?? "")) ? p.row["release-date"] : null;
-    const salesVolume = Number(p.row["sales-volume"]);
-    const out = {
-      pc_id: p.pcId,
-      gcd_issue_id: link.gcd_issue_id,
-      product_name: String(p.row["product-name"]).trim(),
-      console_name: String(p.row["console-name"]).trim(),
-      release_date: releaseDate,
-      prices,
-      sales_volume: Number.isFinite(salesVolume) && salesVolume > 0 ? Math.round(salesVolume) : null,
-      match_method: link.method,
-    };
-    out.row_hash = rowHash(out);
-    rows.push(out);
-  }
-  console.log(`Rows with at least one price: ${rows.length}`);
-
-  const existing = await readAllKeyset("existing hashes", () => supabase.from("pricecharting_prices").select("pc_id, row_hash"), "pc_id");
-  const existingHash = new Map(existing.map((r) => [Number(r.pc_id), r.row_hash]));
-  const changed = rows.filter((r) => existingHash.get(r.pc_id) !== r.row_hash);
-  const keep = new Set(rows.map((r) => r.pc_id));
-  const stale = existing.map((r) => Number(r.pc_id)).filter((id) => !keep.has(id));
-  console.log(`Stored ${existing.length}; ${changed.length} new or changed; ${stale.length} no longer linked`);
-
-  if (!APPLY) {
-    console.log("Dry run. Pass --apply to write.");
-    return;
-  }
-
-  const now = new Date().toISOString();
-  let written = 0;
-  for (const batch of chunked(changed, WRITE_BATCH)) {
-    await withRetry("upsert pricecharting_prices", () =>
-      supabase.from("pricecharting_prices").upsert(batch.map((r) => ({ ...r, updated_at: now })), { onConflict: "pc_id" })
-    );
-    written += batch.length;
-  }
-  console.log(`Wrote ${written} rows`);
-
-  if (stale.length && rows.length >= existing.length * PRUNE_MIN_RATIO) {
-    for (const ids of chunked(stale, 300)) {
-      await withRetry("prune pricecharting_prices", () => supabase.from("pricecharting_prices").delete().in("pc_id", ids));
-    }
-    console.log(`Removed ${stale.length} rows no longer in the guide or no longer linked`);
-  } else if (stale.length) {
-    console.log(`Skipped pruning ${stale.length} rows: today's ${rows.length} rows are under ${PRUNE_MIN_RATIO * 100}% of the ${existing.length} stored`);
-  }
-  console.log(`Done in ${Math.round((Date.now() - startedAt) / 1000)}s`);
+  const pct = due.length ? ((baseLinkedCount / due.length) * 100).toFixed(1) : "0";
+  console.log(`Done: ${due.length} issues, ${calls} API calls, base book priced for ${baseLinkedCount} (${pct}%), ${rowsLinked} products linked including variants, ${Math.round((Date.now() - startedAt) / 1000)}s${APPLY ? "" : " (dry run, nothing written)"}`);
 }
 
 main().catch((error) => {

@@ -9,6 +9,8 @@ import {
   normalizeSeriesName,
   rowHash,
   productUrl,
+  linkSearchResults,
+  searchQuery,
 } from "./priceCharting.js";
 
 // Real GCD rows for Uncanny X-Men #266 (1990): base 48391 (Direct) and the
@@ -105,4 +107,40 @@ test("row hash changes when a price changes and not otherwise", () => {
 
 test("product link points at PriceCharting's product page", () => {
   assert.equal(productUrl(2317636), "https://www.pricecharting.com/game/2317636");
+});
+
+// Trimmed from the live /api/products?q=uncanny+x-men+266 response, 2026-11-19.
+const UXM_SEARCH = [
+  { id: "2317636", "console-name": "Comic Books Uncanny X-Men", "product-name": "Uncanny X-Men #266 (1990)", "release-date": "1990-08-01", "loose-price": 10840, "manual-only-price": 53999, "sales-volume": "789" },
+  { id: "3470753", "console-name": "Comic Books Uncanny X-Men", "product-name": "Uncanny X-Men [Newsstand] #266 (1990)", "release-date": "1990-08-01", "loose-price": 16815, "manual-only-price": 192188 },
+  { id: "6337071", "console-name": "Comic Books Uncanny X-Men", "product-name": "Uncanny X-Men [Jewelers] #266 (1990)", "release-date": "1990-08-01", "loose-price": 35833 },
+  { id: "3553927", "console-name": "Comic Books Uncanny X-Men Facsimile Edition", "product-name": "Uncanny X-Men Facsimile Edition #266 (2019)", "loose-price": 1715 },
+  { id: "10237292", "console-name": "Marvel 2020 Upper Deck Ages Copper Metal Relics", "product-name": "Uncanny X-Men 266 #CMR-3" },
+];
+
+test("one search links the base book and its newsstand, and nothing else", () => {
+  const { rows, baseLinked } = linkSearchResults({
+    products: UXM_SEARCH,
+    base: UXM_266[0],
+    variants: [UXM_266[1]],
+    seriesName: "The Uncanny X-Men",
+  });
+  assert.equal(baseLinked, true);
+  assert.deepEqual(rows.map((r) => [r.pc_id, r.gcd_issue_id]), [[2317636, 48391], [3470753, 2357124]]);
+  assert.deepEqual(rows[0].prices, { ungraded: 10840, "9.8": 53999 });
+  assert.equal(rows[0].sales_volume, 789);
+});
+
+test("a facsimile of the same number never prices the original", () => {
+  const { rows } = linkSearchResults({ products: [UXM_SEARCH[3]], base: UXM_266[0], seriesName: "The Uncanny X-Men" });
+  assert.equal(rows.length, 0);
+});
+
+test("search query drops the leading The and GCD's overall number", () => {
+  assert.equal(searchQuery({ seriesName: "The Uncanny X-Men", issueNumber: "266" }), "Uncanny X-Men 266");
+  assert.equal(searchQuery({ seriesName: "Action Comics", issueNumber: "40 (340)", year: 1941 }), "Action Comics 40 1941");
+});
+
+test("accents don't block a series match", () => {
+  assert.equal(normalizeSeriesName("Usagi Yojimbo: Kaitō '84"), normalizeSeriesName("Usagi Yojimbo: Kaito '84"));
 });

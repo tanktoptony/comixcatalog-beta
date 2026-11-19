@@ -27465,8 +27465,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-19T08:07:19.205100+00:00",
-    "retry_after": "2026-11-20T08:07:19.205118+00:00",
+    "last_attempt_at": "2026-11-19T09:06:01.372079+00:00",
+    "retry_after": "2026-11-20T09:06:01.372095+00:00",
     "search_hydrated": true
   },
   {
@@ -27489,8 +27489,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-19T08:02:04.365498+00:00",
-    "retry_after": "2026-11-20T08:02:04.365502+00:00",
+    "last_attempt_at": "2026-11-19T09:02:04.575235+00:00",
+    "retry_after": "2026-11-20T09:02:04.575239+00:00",
     "search_hydrated": true
   },
   {
@@ -34781,9 +34781,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-12T08:11:00.214493+00:00",
-    "retry_after": "2026-11-19T08:11:00.214496+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-19T09:05:35.422534+00:00",
+    "retry_after": "2026-12-03T09:05:35.422538+00:00",
     "search_hydrated": true
   },
   {
@@ -38853,9 +38853,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-12T08:11:00.214475+00:00",
-    "retry_after": "2026-11-19T08:11:00.214478+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-19T09:05:35.422495+00:00",
+    "retry_after": "2026-12-03T09:05:35.422510+00:00",
     "search_hydrated": true
   },
   {
@@ -43501,8 +43501,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-19T08:02:04.365411+00:00",
-    "retry_after": "2026-11-20T08:02:04.365428+00:00",
+    "last_attempt_at": "2026-11-19T09:02:04.575115+00:00",
+    "retry_after": "2026-11-20T09:02:04.575138+00:00",
     "search_hydrated": true
   },
   {
@@ -51359,8 +51359,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-19T08:02:04.365462+00:00",
-    "retry_after": "2026-11-20T08:02:04.365465+00:00",
+    "last_attempt_at": "2026-11-19T09:02:04.575194+00:00",
+    "retry_after": "2026-11-20T09:02:04.575200+00:00",
     "search_hydrated": true
   },
   {
@@ -94754,9 +94754,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-16T00:05:46.422618+00:00",
-    "retry_after": "2026-11-19T00:05:46.422635+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-19T09:05:37.989550+00:00",
+    "retry_after": "2026-11-26T09:05:37.989566+00:00",
     "search_hydrated": true
   },
   {
@@ -94772,9 +94772,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-16T00:05:46.673895+00:00",
-    "retry_after": "2026-11-19T00:05:46.673911+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-19T09:05:38.107254+00:00",
+    "retry_after": "2026-11-26T09:05:38.107270+00:00",
     "search_hydrated": true
   },
   {
@@ -97391,6 +97391,60 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-19T07:05:40.558771+00:00",
     "retry_after": "2026-11-20T07:05:40.558775+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "G.I. Joe: A Real American Hero",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 3138,
+        "name": "G.I. Joe: A Real American Hero",
+        "publisher": "Marvel",
+        "start_year": 1982
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T09:05:37.160263+00:00",
+    "retry_after": "2026-11-20T09:05:37.160271+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Joker",
+    "publisher": "DC Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 134304,
+        "name": "The Joker",
+        "publisher": "DC Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T09:05:37.785310+00:00",
+    "retry_after": "2026-11-20T09:05:37.785323+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Fathom Preview Special",
+    "publisher": "Image Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 144272,
+        "name": "Fathom Preview Special",
+        "publisher": "Aspen MLT",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T09:05:47.020212+00:00",
+    "retry_after": "2026-11-20T09:05:47.020227+00:00",
     "search_hydrated": true
   }
 ]

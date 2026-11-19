@@ -28,7 +28,7 @@ If checkout ever happens, anything you list now carries over. You will not have 
 
 **Report and block.** Every listing, profile and conversation has a Report link. Reports come straight to me. Every conversation has a Block button, and someone you block cannot message you.
 
-**Limits on brand-new accounts.** An account under a week old can only send so many messages an hour and start a few new conversations a day. If you are a real person, you will never notice. If you are a spam bot, you will notice immediately.
+**No limits on messages.** (Updated November 2026.) We used to cap how many messages an account could send an hour and how many new conversations it could start a day. Those caps are gone. Write to as many collectors as you like. Block and Report still work the same way.
 
 **You find out when someone writes.** When someone messages you, you get an email with a link to the conversation. It never includes the message itself, and it is one email per conversation every few hours at most. You can turn it off in your [account settings](https://www.comixcatalog.com/account#notifications).
 

@@ -23,6 +23,12 @@ const MAX_BODY = 4000;
 // Shown to everyone, including people who can't use checkout yet, so it can't point at checkout.
 const PAYMENT_WARNING = "Heads up: Friends and Family, Zelle, wires and gift cards come with zero buyer protection, which is exactly why scammers ask for them. PayPal Goods and Services protects you.";
 
+function deliveryStatus(message) {
+  if (message.__optimistic) return { label: "Sending…", read: false };
+  if (message.read_at) return { label: `Read ${formatTimestamp(message.read_at)}`, read: true };
+  return { label: "Delivered", read: false };
+}
+
 function formatTimestamp(iso) {
   if (!iso) return "";
   const d = new Date(iso);
@@ -72,6 +78,17 @@ export default function ThreadPage() {
   const [confirmingBlock, setConfirmingBlock] = useState(false);
   const [blockBusy, setBlockBusy] = useState(false);
   const scrollerRef = useRef(null);
+  // Only your latest message carries Sending / Delivered / Read, the way
+  // phone messaging does. The 10s poll refreshes read_at, so Read appears
+  // within seconds of the other collector opening the thread.
+  const lastMineId = useMemo(() => {
+    if (!user || !messages) return null;
+    for (let i = messages.length - 1; i >= 0; i -= 1) {
+      const m = messages[i];
+      if (m.sender_id === user.id && !m.is_system) return m.id;
+    }
+    return null;
+  }, [messages, user]);
 
   // Resolve the other user by username.
   useEffect(() => {
@@ -438,6 +455,7 @@ export default function ThreadPage() {
         )}
         {messages?.map((m, idx) => {
           const mine = m.sender_id === user.id;
+          const status = m.id === lastMineId ? deliveryStatus(m) : null;
           const prev = messages[idx - 1];
           const startsGroup = shouldStartMessageGroup(m, prev);
           const grouped = !startsGroup;
@@ -475,6 +493,11 @@ export default function ThreadPage() {
                   </div>
                 )}
                 <div className={styles.meta}>{formatTimestamp(m.created_at)}</div>
+                {status && (
+                  <div className={`${styles.status} ${status.read ? styles.statusRead : ""}`} aria-live="polite">
+                    {status.label}
+                  </div>
+                )}
               </div>
               )}
             </div>

@@ -17728,9 +17728,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-12T15:10:22.878480+00:00",
-    "retry_after": "2026-11-19T15:10:22.878499+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-19T16:03:29.903482+00:00",
+    "retry_after": "2026-12-03T16:03:29.903487+00:00",
     "search_hydrated": true
   },
   {
@@ -25231,9 +25231,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-12T15:10:22.878527+00:00",
-    "retry_after": "2026-11-19T15:10:22.878529+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-19T16:03:29.903504+00:00",
+    "retry_after": "2026-12-03T16:03:29.903507+00:00",
     "search_hydrated": true
   },
   {
@@ -27465,8 +27465,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-19T15:06:34.619287+00:00",
-    "retry_after": "2026-11-20T15:06:34.619299+00:00",
+    "last_attempt_at": "2026-11-19T16:04:08.484342+00:00",
+    "retry_after": "2026-11-20T16:04:08.484358+00:00",
     "search_hydrated": true
   },
   {
@@ -27489,8 +27489,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-19T15:02:10.053505+00:00",
-    "retry_after": "2026-11-20T15:02:10.053509+00:00",
+    "last_attempt_at": "2026-11-19T16:02:07.859677+00:00",
+    "retry_after": "2026-11-20T16:02:07.859681+00:00",
     "search_hydrated": true
   },
   {
@@ -42846,9 +42846,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T15:11:19.830663+00:00",
-    "retry_after": "2026-11-19T15:11:19.830679+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T16:03:29.903373+00:00",
+    "retry_after": "2026-12-19T16:03:29.903391+00:00",
     "search_hydrated": true
   },
   {
@@ -43501,8 +43501,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-19T15:02:10.053412+00:00",
-    "retry_after": "2026-11-20T15:02:10.053422+00:00",
+    "last_attempt_at": "2026-11-19T16:02:07.859592+00:00",
+    "retry_after": "2026-11-20T16:02:07.859608+00:00",
     "search_hydrated": true
   },
   {
@@ -51359,8 +51359,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-19T15:02:10.053449+00:00",
-    "retry_after": "2026-11-20T15:02:10.053452+00:00",
+    "last_attempt_at": "2026-11-19T16:02:07.859640+00:00",
+    "retry_after": "2026-11-20T16:02:07.859644+00:00",
     "search_hydrated": true
   },
   {
@@ -64267,9 +64267,9 @@
         "start_year": 1980
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T16:01:23.246974+00:00",
-    "retry_after": "2026-11-19T16:01:23.246990+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T16:01:56.034610+00:00",
+    "retry_after": "2026-12-19T16:01:56.034627+00:00",
     "search_hydrated": true
   },
   {
@@ -70991,9 +70991,9 @@
         "start_year": 2007
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T16:01:23.247044+00:00",
-    "retry_after": "2026-11-19T16:01:23.247049+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T16:01:56.034685+00:00",
+    "retry_after": "2026-12-19T16:01:56.034690+00:00",
     "search_hydrated": true
   },
   {
@@ -97445,6 +97445,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-19T09:05:47.020212+00:00",
     "retry_after": "2026-11-20T09:05:47.020227+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Crime Mysteries",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 10802,
+        "name": "Crime Mysteries",
+        "publisher": "Trojan Magazines",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T16:03:41.823076+00:00",
+    "retry_after": "2026-11-20T16:03:41.823092+00:00",
     "search_hydrated": true
   }
 ]

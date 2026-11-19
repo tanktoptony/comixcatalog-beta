@@ -27465,8 +27465,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T23:21:56.937491+00:00",
-    "retry_after": "2026-11-19T23:21:56.937508+00:00",
+    "last_attempt_at": "2026-11-19T00:06:18.167852+00:00",
+    "retry_after": "2026-11-20T00:06:18.167857+00:00",
     "search_hydrated": true
   },
   {
@@ -27489,8 +27489,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T23:17:53.015391+00:00",
-    "retry_after": "2026-11-19T23:17:53.015394+00:00",
+    "last_attempt_at": "2026-11-19T00:02:07.771361+00:00",
+    "retry_after": "2026-11-20T00:02:07.771365+00:00",
     "search_hydrated": true
   },
   {
@@ -43501,8 +43501,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T23:17:53.015312+00:00",
-    "retry_after": "2026-11-19T23:17:53.015329+00:00",
+    "last_attempt_at": "2026-11-19T00:02:07.771282+00:00",
+    "retry_after": "2026-11-20T00:02:07.771297+00:00",
     "search_hydrated": true
   },
   {
@@ -51359,8 +51359,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-18T23:17:53.015358+00:00",
-    "retry_after": "2026-11-19T23:17:53.015362+00:00",
+    "last_attempt_at": "2026-11-19T00:02:07.771326+00:00",
+    "retry_after": "2026-11-20T00:02:07.771330+00:00",
     "search_hydrated": true
   },
   {
@@ -97260,6 +97260,60 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-18T23:21:49.760718+00:00",
     "retry_after": "2026-11-19T23:21:49.760720+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Run Wild",
+    "publisher": "BOOM! Studios",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 112198,
+        "name": "Run Wild",
+        "publisher": "Archaia",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T00:06:04.121188+00:00",
+    "retry_after": "2026-11-20T00:06:04.121203+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cynthia Petal's Really Fantastic Alien Sex Frenzy!",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51946,
+        "name": "Cynthia Petal's Really Fantastic Alien Sex Frenzy!",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T00:06:04.121235+00:00",
+    "retry_after": "2026-11-20T00:06:04.121239+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Maxi Zagor",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45725,
+        "name": "Maxi Zagor",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T00:06:18.167816+00:00",
+    "retry_after": "2026-11-20T00:06:18.167828+00:00",
     "search_hydrated": true
   }
 ]

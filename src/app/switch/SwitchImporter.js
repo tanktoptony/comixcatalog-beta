@@ -25,7 +25,7 @@ const SOURCES = {
   },
 };
 
-const FIELD_LABELS = { series: "Series", issue: "Issue", full_title: "Series + issue", publisher: "Publisher", year: "Year", variant: "Variant", grade: "Grade", slab_company: "Slab company", cert: "Cert number", price_paid: "Price paid", notes: "Notes", quantity: "Quantity", status: "Status", in_collection: "In collection", in_wishlist: "On wantlist" };
+const FIELD_LABELS = { series: "Series", issue: "Issue", full_title: "Series + issue", publisher: "Publisher", year: "Year", series_year: "Series start year", variant: "Variant", grade: "Grade", slab_company: "Slab company", cert: "Cert number", price_paid: "Price paid", notes: "Notes", quantity: "Quantity", status: "Status", in_collection: "In collection", in_wishlist: "On wantlist" };
 const chip = { matched: ["Matched", "good"], pick: ["Pick one", "warn"], not_found: ["Not found", "miss"] };
 
 export default function SwitchImporter() {
@@ -51,7 +51,7 @@ export default function SwitchImporter() {
   const fields = Object.values(mapping);
   const matchedColumns = fields.filter(Boolean).length;
   const hasRequired = fields.includes("full_title") || (fields.includes("series") && fields.includes("issue"));
-  const fileSaysList = fields.includes("in_collection") || fields.includes("in_wishlist");
+  const fileSaysList = fields.includes("in_collection") || fields.includes("in_wishlist") || fields.includes("status");
   const matchedResults = results.filter((result) => result.result === "matched");
   const matchedCopies = matchedResults.reduce((sum, result) => sum + Math.min(20, Math.max(1, Number(rows[result.i]?.quantity) || 1)), 0);
 
@@ -173,7 +173,9 @@ export default function SwitchImporter() {
     anchor.href = url; anchor.download = `comixcatalog-import-${new Date().toISOString().slice(0, 10)}.csv`; anchor.click(); URL.revokeObjectURL(url);
   }
 
-  const picks = Object.values(Object.groupBy?.(results.filter((result) => result.result === "pick"), (result) => rows[result.i]?.series) ?? results.filter((result) => result.result === "pick").reduce((groups, result) => { const key = rows[result.i]?.series; (groups[key] ||= []).push(result); return groups; }, {}));
+  const pickRows = results.filter((result) => result.result === "pick");
+  const pickKey = (result) => `${rows[result.i]?.series}|${(result.candidates ?? []).map((item) => item.series_gcd_id).sort((a, b) => a - b).join(",")}`;
+  const picks = Object.values(Object.groupBy?.(pickRows, pickKey) ?? pickRows.reduce((groups, result) => { const key = pickKey(result); (groups[key] ||= []).push(result); return groups; }, {}));
   const importedCount = Object.entries(outcomes).reduce((sum, [i, outcome]) => ["imported", "picked"].includes(outcome) ? sum + Math.min(20, Math.max(1, Number(rows[i]?.quantity) || 1)) : sum, 0);
   const carried = rows.filter((row) => ["imported", "picked"].includes(outcomes[row.i]));
 
@@ -201,7 +203,7 @@ export default function SwitchImporter() {
 
     {screen === 3 && <section className={styles.screen}><div className={styles.big}>{importedCount} of {rows.filter((row) => !row.skip).reduce((sum, row) => sum + Math.min(20, Math.max(1, Number(row.quantity) || 1)), 0)}</div><h2>books are in. Welcome to ComixCatalog.</h2>
       <div className={styles.stats}><div className={styles.stat}><strong>{importedCount}</strong><p>Matched to the catalog. Covers, values and run tracking are on.</p><Link href="/library">See your collection →</Link></div><div className={styles.stat}><strong>{results.filter((item) => item.result === "pick").length}</strong><p>Need a pick. More than one volume shares the title, so you choose.</p></div><div className={styles.stat}><strong>{results.filter((item) => item.result === "not_found").length}</strong><p>Not in our catalog yet. Request them and we&apos;ll add them.</p></div></div>
-      {picks.map((group) => <PickGroup key={rows[group[0].i]?.series} group={group} title={rows[group[0].i]?.series} busy={busy} onPick={pickVolume} />)}
+      {picks.map((group) => { const title = rows[group[0].i]?.series; const repeated = picks.filter((item) => rows[item[0].i]?.series === title).length > 1; const issues = group.map((item) => `#${shownNumber(rows[item.i]?.issue)}`).join(", "); return <PickGroup key={pickKey(group[0])} group={group} title={`${title}${repeated ? ` ${issues}` : ""}`} busy={busy} onPick={pickVolume} />; })}
       {results.some((item) => item.result === "not_found") && <div className={styles.panel}><h3>Not in our catalog yet</h3>{results.filter((item) => item.result === "not_found").slice(0, 50).map((item) => <p key={item.i}>{rows[item.i].series}{rows[item.i].issue ? ` #${shownNumber(rows[item.i].issue)}` : ""}</p>)}<button disabled={busy} className={styles.gold} onClick={requestMissing}>Request them</button>{results.filter((item) => item.result === "not_found").length > 50 && <small>Up to 50 distinct books can be requested per click.</small>}{requested > 0 && <small>{requested} requested.</small>}</div>}
       <div className={styles.carried}><span>Came with them:</span><span><b>{carried.filter((row) => row.grade).length}</b> grades</span><span><b>{carried.filter((row) => row.slab_company && row.cert).length}</b> slabs with cert numbers</span><span><b>{carried.filter((row) => row.price_paid).length}</b> prices paid</span><span><b>{carried.filter((row) => row.variant).length}</b> variants</span></div><div className={styles.actions}><Link className={styles.gold} href="/library">See your collection</Link><button className={styles.ghost} onClick={downloadReport}>Download a report of this import</button></div>{error && <p className={styles.error}>{error}</p>}
     </section>}

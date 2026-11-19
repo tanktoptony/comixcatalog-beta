@@ -1,20 +1,21 @@
 import { publisherMatches } from "../csvImport/matchRow.js";
 
 export const IMPORT_FIELDS = [
-  "series", "issue", "full_title", "publisher", "year", "variant", "grade", "slab_company",
+  "series", "issue", "full_title", "publisher", "year", "series_year", "variant", "grade", "slab_company",
   "cert", "price_paid", "notes", "quantity", "status", "in_collection", "in_wishlist",
 ];
 
 const SYNONYMS = {
-  series: ["series", "title", "series name", "comic title"],
+  series: ["series", "series title", "title", "series name", "comic title"],
   issue: ["issue", "issue #", "issue number", "number", "no."],
   full_title: ["full title", "comic", "comic name"],
   publisher: ["publisher"],
   year: ["year", "release date", "cover date", "publication date", "release year"],
-  variant: ["variant", "variant description", "cover"],
-  grade: ["grade", "condition", "cgc grade"],
-  slab_company: ["grading company", "graded by", "slab"],
-  cert: ["slab certification number", "cert", "cert #", "certification number"],
+  series_year: ["series year", "volume year", "series start year", "volume start year"],
+  variant: ["variant description", "variant label", "variant", "cover"],
+  grade: ["grade", "grade numeric", "condition", "cgc grade"],
+  slab_company: ["slab company", "grading company", "graded by", "slab"],
+  cert: ["slab cert number", "slab certification number", "cert", "cert #", "certification number"],
   price_paid: ["purchase price", "price paid", "paid", "cost"],
   notes: ["notes"],
   quantity: ["quantity", "qty", "copies", "count"],
@@ -212,6 +213,8 @@ export function statusFromValue(value, fallback = "owned") {
   return /wish|wanted|wantlist/.test(normalized) ? "wishlist" : "owned";
 }
 
+const SKIPPED_STATUSES = new Set(["sold", "notincollection", "notowned", "traded", "gone"]);
+
 // A workbook can hold several sheets. The biggest is the collection, and the
 // page names it so anything left behind is not silently lost.
 export function pickSheet(sheets = []) {
@@ -233,6 +236,7 @@ export function listFromRow(row) {
   if (flagOn(row.in_collection)) return "owned";
   if (flagOn(row.in_wishlist)) return "wishlist";
   if (row.in_collection !== undefined) return "skip";
+  if (SKIPPED_STATUSES.has(normalizeHeader(row.status))) return "skip";
   if (/^read(list)?$/.test(normalizeHeader(row.status))) return "skip";
   return null;
 }
@@ -249,7 +253,8 @@ export function mapRow(raw, i, mapping) {
   const named = splitSeriesTitle(parsed?.series ?? (row.series || row.full_title));
   const column = splitSeriesTitle(row.series);
   row.series = named.title;
-  row.series_year = named.seriesYear ?? (normalizeHeader(column.title) === normalizeHeader(named.title) ? column.seriesYear : null);
+  row.series_year = named.seriesYear ?? (normalizeHeader(column.title) === normalizeHeader(named.title) ? column.seriesYear : null)
+    ?? parseYear(row.series_year);
   row.issue = String(row.issue ?? "").trim() || parsed?.issue;
   row.variant = row.variant || parsed?.variant || undefined;
   row.issue_year = parseYear(row.year);
@@ -296,7 +301,23 @@ export function narrowHolders(holders, { issueYear, publisher } = {}) {
     const byPublisher = pool.filter((holder) => publisherMatches(holder.series?.resolved_publisher_cached, publisher));
     if (byPublisher.length) pool = byPublisher;
   }
+  if (pool.length > 1) {
+    const comics = pool.filter((holder) => holder.format == null || holder.format === "Comic");
+    const collected = pool.filter((holder) => ["Hardcover", "Trade paperback", "Collected edition"].includes(holder.format));
+    if (comics.length && collected.length) pool = comics;
+  }
   return pool;
+}
+
+// GCD keeps a few renamed legacy runs under their original series title.
+// Keep this deliberately small: aliases only apply across known issue ranges.
+export function legacySeriesAlias(title, issueNumber) {
+  const key = normalizeHeader(title);
+  const issue = Number(String(issueNumber ?? "").trim().replace(/^#+\s*/, ""));
+  if (!Number.isInteger(issue)) return null;
+  if (key === "uncannyxmen" && issue < 142) return "The X-Men";
+  if (key === "thor" && issue >= 83 && issue <= 125) return "Journey into Mystery";
+  return null;
 }
 
 // What a volume is, from GCD's series format fields, so a pick list can tell
@@ -315,4 +336,29 @@ export function seriesFormatLabel(format) {
 // Exports often write the number as "#1"; shown as is, that read "##1".
 export function shownNumber(issueNumber) {
   return String(issueNumber ?? "").trim().replace(/^#+\s*/, "");
+}
+
+// The grade editor and the rest of the site store a raw (unslabbed) grade as
+// a condition name ("Near Mint"); grade_numeric is read as a slab grade. So a
+// raw book imported as "9.4" or "NM" is saved as "Near Mint". Saving the
+// number on a raw book valued it as a slabbed copy, and saving the code "NM"
+// showed as "Not set" in the editor, where one save would wipe it.
+const RAW_CONDITION_NAMES = { M: "Mint", NM: "Near Mint", VF: "Very Fine", FN: "Fine", VG: "Very Good", GD: "Good", FA: "Fair", PR: "Poor" };
+
+export function rawConditionName(code) {
+  return RAW_CONDITION_NAMES[String(code ?? "").toUpperCase()] ?? null;
+}
+
+// The standard 10-point scale's named bands.
+export function rawConditionFromNumber(value) {
+  const grade = Number(value);
+  if (!Number.isFinite(grade) || grade <= 0 || grade > 10) return null;
+  if (grade >= 9.9) return "Mint";
+  if (grade >= 9.2) return "Near Mint";
+  if (grade >= 7.5) return "Very Fine";
+  if (grade >= 5.5) return "Fine";
+  if (grade >= 3.5) return "Very Good";
+  if (grade >= 1.8) return "Good";
+  if (grade >= 1.0) return "Fair";
+  return "Poor";
 }

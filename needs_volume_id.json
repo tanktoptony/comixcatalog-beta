@@ -25223,9 +25223,10 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-26T12:00:43.388039+00:00",
-    "retry_after": "2026-09-29T12:00:43.388054+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-19T22:05:34.248771+00:00",
+    "retry_after": "2026-11-26T22:05:34.248786+00:00",
+    "search_hydrated": true
   },
   {
     "name": "True Believers: Phoenix - What if?",
@@ -59355,9 +59356,10 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-22T11:15:54.828988+00:00",
-    "retry_after": "2026-10-25T11:15:54.829003+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-19T22:05:34.248811+00:00",
+    "retry_after": "2026-11-26T22:05:34.248815+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Rat Queens Deluxe Hardcover",
@@ -63468,77 +63470,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T04:15:55.584243+00:00",
     "retry_after": "2026-10-23T04:15:55.584259+00:00"
-  },
-  {
-    "name": "New Avengers",
-    "publisher": "Marvel Comics",
-    "year": 2025,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 11497,
-        "name": "New Avengers",
-        "publisher": null,
-        "start_year": 2005
-      },
-      {
-        "id": 55330,
-        "name": "New Avengers",
-        "publisher": null,
-        "start_year": 2013
-      },
-      {
-        "id": 119940,
-        "name": "New Avengers",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 33777,
-        "name": "New Avengers",
-        "publisher": null,
-        "start_year": 2010
-      },
-      {
-        "id": 85301,
-        "name": "New Avengers",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 40895,
-        "name": "The New Avengers",
-        "publisher": null,
-        "start_year": 2007
-      },
-      {
-        "id": 165022,
-        "name": "New Avengers",
-        "publisher": null,
-        "start_year": 2025
-      },
-      {
-        "id": 87105,
-        "name": "New Avengers",
-        "publisher": null,
-        "start_year": 2013
-      },
-      {
-        "id": 55695,
-        "name": "New Avengers",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 170991,
-        "name": "New Avengers ",
-        "publisher": null,
-        "start_year": 2026
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T04:15:55.787441+00:00",
-    "retry_after": "2026-10-23T04:15:55.787456+00:00"
   },
   {
     "name": "Any Children?",
@@ -72325,9 +72256,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T21:11:03.954351+00:00",
-    "retry_after": "2026-11-19T21:11:03.954370+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T22:10:33.600055+00:00",
+    "retry_after": "2026-12-19T22:10:33.600071+00:00",
     "search_hydrated": true
   },
   {
@@ -72336,9 +72267,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T21:11:03.954392+00:00",
-    "retry_after": "2026-11-19T21:11:03.954395+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T22:10:33.600100+00:00",
+    "retry_after": "2026-12-19T22:10:33.600105+00:00",
     "search_hydrated": true
   },
   {
@@ -72347,9 +72278,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T22:01:24.753354+00:00",
-    "retry_after": "2026-11-19T22:01:24.753369+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T22:02:05.328906+00:00",
+    "retry_after": "2026-12-19T22:02:05.328922+00:00",
     "search_hydrated": true
   },
   {
@@ -72358,9 +72289,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T22:01:24.753398+00:00",
-    "retry_after": "2026-11-19T22:01:24.753402+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T22:02:05.328951+00:00",
+    "retry_after": "2026-12-19T22:02:05.328956+00:00",
     "search_hydrated": true
   },
   {
@@ -72369,9 +72300,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T22:01:24.753419+00:00",
-    "retry_after": "2026-11-19T22:01:24.753422+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T22:02:05.328973+00:00",
+    "retry_after": "2026-12-19T22:02:05.328976+00:00",
     "search_hydrated": true
   },
   {
@@ -72380,9 +72311,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T22:01:24.753435+00:00",
-    "retry_after": "2026-11-19T22:01:24.753438+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T22:02:05.328989+00:00",
+    "retry_after": "2026-12-19T22:02:05.328991+00:00",
     "search_hydrated": true
   },
   {
@@ -72391,9 +72322,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T22:01:24.753451+00:00",
-    "retry_after": "2026-11-19T22:01:24.753454+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T22:02:05.329003+00:00",
+    "retry_after": "2026-12-19T22:02:05.329006+00:00",
     "search_hydrated": true
   },
   {
@@ -72426,9 +72357,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T21:11:03.954438+00:00",
-    "retry_after": "2026-11-19T21:11:03.954440+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T22:10:33.600155+00:00",
+    "retry_after": "2026-12-19T22:10:33.600159+00:00",
     "search_hydrated": true
   },
   {
@@ -72437,9 +72368,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T21:11:03.954450+00:00",
-    "retry_after": "2026-11-19T21:11:03.954451+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T22:10:33.600176+00:00",
+    "retry_after": "2026-12-19T22:10:33.600178+00:00",
     "search_hydrated": true
   },
   {
@@ -72455,9 +72386,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T21:11:05.092383+00:00",
-    "retry_after": "2026-11-19T21:11:05.092401+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T22:10:34.456534+00:00",
+    "retry_after": "2026-12-19T22:10:34.456545+00:00",
     "search_hydrated": true
   },
   {
@@ -72473,9 +72404,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T21:11:05.267571+00:00",
-    "retry_after": "2026-11-19T21:11:05.267589+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T22:10:34.524934+00:00",
+    "retry_after": "2026-12-19T22:10:34.524953+00:00",
     "search_hydrated": true
   },
   {
@@ -72484,9 +72415,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T21:11:03.954474+00:00",
-    "retry_after": "2026-11-19T21:11:03.954476+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T22:10:33.600216+00:00",
+    "retry_after": "2026-12-19T22:10:33.600219+00:00",
     "search_hydrated": true
   },
   {
@@ -72495,9 +72426,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T21:11:03.954482+00:00",
-    "retry_after": "2026-11-19T21:11:03.954484+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T22:10:33.600231+00:00",
+    "retry_after": "2026-12-19T22:10:33.600250+00:00",
     "search_hydrated": true
   },
   {
@@ -72513,9 +72444,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T21:11:05.422780+00:00",
-    "retry_after": "2026-11-19T21:11:05.422798+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T22:10:34.595214+00:00",
+    "retry_after": "2026-12-19T22:10:34.595227+00:00",
     "search_hydrated": true
   },
   {
@@ -72524,9 +72455,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T21:11:03.954495+00:00",
-    "retry_after": "2026-11-19T21:11:03.954497+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-19T22:10:33.600274+00:00",
+    "retry_after": "2026-12-19T22:10:33.600276+00:00",
     "search_hydrated": true
   },
   {
@@ -97315,6 +97246,107 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-19T21:11:09.300116+00:00",
     "retry_after": "2026-11-20T21:11:09.300118+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Battletide",
+    "publisher": "Marvel Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19062,
+        "name": "BattleTide",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T22:04:27.759748+00:00",
+    "retry_after": "2026-11-20T22:04:27.759764+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Bone Grinder",
+    "publisher": "Cosmic Lion Productions",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T22:05:34.248875+00:00",
+    "retry_after": "2026-11-20T22:05:34.248879+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Bratty Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62713,
+        "name": "Big Bratty Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T22:10:43.080321+00:00",
+    "retry_after": "2026-11-20T22:10:43.080337+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62660,
+        "name": "Big Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T22:10:43.080374+00:00",
+    "retry_after": "2026-11-20T22:10:43.080379+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Superheroes and the Occult Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79640,
+        "name": "Marvel Superheroes and the Occult Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T22:10:43.080406+00:00",
+    "retry_after": "2026-11-20T22:10:43.080409+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I'm Still Alive",
+    "publisher": "BOOM! Studios",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 147126,
+        "name": "I'm Still Alive",
+        "publisher": "Archaia",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T22:10:43.080429+00:00",
+    "retry_after": "2026-11-20T22:10:43.080432+00:00",
     "search_hydrated": true
   }
 ]

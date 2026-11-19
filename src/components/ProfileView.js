@@ -360,6 +360,7 @@ export default function ProfileView({ data, isOwner = false }) {
             collection={collection}
             isOwner={isOwner}
             visibility={visibility}
+            profileUsername={profile.username}
           />
         </div>
 

@@ -3,8 +3,9 @@ import { getAuthedUser } from "@/lib/authServer";
 import { notifyRecipient } from "@/lib/messageEmail";
 import { getServiceClient } from "@/lib/supabase/service";
 import { findOffPlatformPaymentTerms } from "@/lib/messageContent";
+import { validateMessageContext } from "@/lib/messageContext";
 
-const MESSAGE_COLUMNS = "id, sender_id, recipient_id, order_id, is_system, body, read_at, created_at";
+const MESSAGE_COLUMNS = "id, sender_id, recipient_id, order_id, gcd_issue_id, collection_id, is_system, body, read_at, created_at";
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
 function jsonError(error, status) {
@@ -74,12 +75,19 @@ export async function POST(req) {
       .maybeSingle();
     if (senderError) throw new Error(`sender profile lookup failed: ${senderError.message}`);
 
+    const context = order
+      ? { gcd_issue_id: null, collection_id: null }
+      : await validateMessageContext(supabase, payload?.about, user.id, recipient.id);
+    if (!context) return jsonError("That book couldn't be attached.", 400);
+
     const { data: message, error: insertError } = await supabase
       .from("messages")
       .insert({
         sender_id: user.id,
         recipient_id: recipient.id,
         order_id: order?.id || null,
+        gcd_issue_id: context.gcd_issue_id,
+        collection_id: context.collection_id,
         body,
       })
       .select(MESSAGE_COLUMNS)

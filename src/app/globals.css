@@ -14408,3 +14408,15 @@ a.pull-issue-title:hover { color: var(--cc-gold); }
     font-size: 0.85rem;
   }
 }
+.issue-collectors-card { display: grid; gap: 14px; padding: 16px; border: 1px solid rgba(255,255,255,.08); border-radius: 12px; background: rgba(17,24,39,.7); }
+.issue-collector-row { display: grid; grid-template-columns: 90px 1fr; gap: 12px; align-items: start; }
+.issue-collector-members { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; }
+.issue-collector-member, .issue-collector-person { display: inline-flex; align-items: center; gap: 6px; }
+.issue-collector-person { color: inherit; text-decoration: none; }
+.issue-collector-avatar { width: 28px; height: 28px; overflow: hidden; border-radius: 50%; }
+.issue-collector-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.issue-collector-action { color: #f4d03f; font-size: .75rem; }
+@media (max-width: 480px) { .issue-collector-row { grid-template-columns: 1fr; gap: 6px; } }
+.profile-book-contact-wrap { min-width: 0; }
+.profile-book-contact-wrap > .comic-card { display: block; }
+.profile-book-contact { display: inline-block; margin-top: 6px; color: #f4d03f; font-size: .78rem; font-weight: 700; text-decoration: none; }

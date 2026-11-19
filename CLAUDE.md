@@ -156,6 +156,10 @@ At current ComicVine free-tier ingest pace (hourly cron, rate-limited), closing 
 
 ### Tables (Supabase `public` schema)
 
+### Social
+
+Messages may attach a catalog issue through `messages.gcd_issue_id` and optionally a specific copy through `messages.collection_id`. Issue pages show privacy-filtered public collectors in Have it, Want it, and Selling groups so conversations begin with a book.
+
 #### `profiles`
 PK `id` (uuid, FK → `auth.users.id`).
 Columns: `username`, `is_public`, `created_at`, `avatar_key`, `avatar_url`, `is_founding_collector`, `is_pro`, `membership_tier`, `stripe_customer_id`.

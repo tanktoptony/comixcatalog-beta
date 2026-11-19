@@ -13831,9 +13831,11 @@ select.input {
 .issue-discogs-table td small { display: block; margin-top: 3px; color: var(--cc-text-muted); }
 .issue-mono { color: var(--cc-gold-soft); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
 .issue-row-button { display: inline-flex; min-height: 38px; align-items: center; justify-content: center; padding: 0 12px; border: 1px solid var(--cc-line); border-radius: 9px; color: var(--cc-text); font-weight: 800; text-decoration: none; white-space: nowrap; }
-.issue-character-list { display: flex; gap: 8px; flex-wrap: wrap; }
-.issue-character-list > span { padding: 7px 12px; border: 1px solid var(--cc-line); border-radius: 999px; background: var(--cc-surface-2); color: var(--cc-text); font-weight: 700; }
-.issue-character-list small { margin-left: 5px; color: var(--cc-text-muted); font-size: .68rem; font-weight: 500; }
+/* Plain tags, not buttons: they aren't clickable, and bold pills outweighed
+   the credits and contents beside them. */
+.issue-character-list { display: flex; gap: 6px; flex-wrap: wrap; }
+.issue-character-list > span { padding: 4px 9px; border: 1px solid var(--cc-line); border-radius: 6px; background: transparent; color: color-mix(in srgb, var(--cc-text) 82%, transparent); font-size: .84rem; font-weight: 500; line-height: 1.35; }
+.issue-character-list small { margin-left: 4px; color: var(--cc-text-muted); font-size: .74rem; font-weight: 400; }
 .issue-story-credits { display: grid; gap: 4px; margin-top: 9px; font-size: .84rem; }
 .issue-story-credits > div { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 10px; }
 .issue-story-credits > div > span:first-child { color: var(--cc-text-muted); font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }

@@ -1,7 +1,6 @@
 import { after, NextResponse } from "next/server";
 import { getAuthedUser } from "@/lib/authServer";
 import { notifyRecipient } from "@/lib/messageEmail";
-import { checkLimits, MESSAGE_LIMITS } from "@/lib/messageLimits";
 import { getServiceClient } from "@/lib/supabase/service";
 import { findOffPlatformPaymentTerms } from "@/lib/messageContent";
 
@@ -10,53 +9,6 @@ const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-
 
 function jsonError(error, status) {
   return NextResponse.json({ error }, { status });
-}
-
-async function exactCount(query, label) {
-  const { count, error } = await query;
-  if (error) throw new Error(`${label}: ${error.message}`);
-  return count ?? 0;
-}
-
-async function hasConversation(supabase, senderId, recipientId, before) {
-  const outbound = supabase
-    .from("messages")
-    .select("id", { count: "exact", head: true })
-    .eq("sender_id", senderId)
-    .eq("recipient_id", recipientId);
-  const inbound = supabase
-    .from("messages")
-    .select("id", { count: "exact", head: true })
-    .eq("sender_id", recipientId)
-    .eq("recipient_id", senderId);
-  const [sent, received] = await Promise.all([
-    exactCount(before ? outbound.lt("created_at", before) : outbound, "outbound conversation lookup failed"),
-    exactCount(before ? inbound.lt("created_at", before) : inbound, "inbound conversation lookup failed"),
-  ]);
-  return sent + received > 0;
-}
-
-async function countNewConversationsToday(supabase, senderId, since) {
-  const { data, error } = await supabase
-    .from("messages")
-    .select("recipient_id, created_at")
-    .eq("sender_id", senderId)
-    .gte("created_at", since)
-    .order("created_at", { ascending: true });
-  if (error) throw new Error(`recent conversation lookup failed: ${error.message}`);
-
-  const firstSentByRecipient = new Map();
-  for (const message of data ?? []) {
-    if (!firstSentByRecipient.has(message.recipient_id)) {
-      firstSentByRecipient.set(message.recipient_id, message.created_at);
-    }
-  }
-
-  const checks = [...firstSentByRecipient].map(async ([recipientId, firstSentAt]) =>
-    (await hasConversation(supabase, senderId, recipientId, firstSentAt)) ? 0 : 1
-  );
-  const results = await Promise.all(checks);
-  return results.reduce((sum, value) => sum + value, 0);
 }
 
 export async function POST(req) {
@@ -115,48 +67,12 @@ export async function POST(req) {
       if ((blockCount ?? 0) > 0) return jsonError("You can't message this member.", 403);
     }
 
-    const now = Date.now();
-    const hourAgo = new Date(now - 60 * 60 * 1000).toISOString();
-    const dayAgo = new Date(now - 24 * 60 * 60 * 1000).toISOString();
-    const [sentLastHour, isNewConversation, profileResult] = await Promise.all([
-      exactCount(
-        supabase
-          .from("messages")
-          .select("id", { count: "exact", head: true })
-          .eq("sender_id", user.id)
-          .gte("created_at", hourAgo),
-        "hourly message count failed"
-      ),
-      hasConversation(supabase, user.id, recipient.id),
-      supabase.from("profiles").select("created_at, username").eq("id", user.id).single(),
-    ]);
-    if (profileResult.error || !profileResult.data?.created_at) {
-      throw new Error(`sender profile lookup failed: ${profileResult.error?.message || "missing created_at"}`);
-    }
-
-    const accountCreatedAt = new Date(profileResult.data.created_at).getTime();
-    if (!Number.isFinite(accountCreatedAt)) throw new Error("sender profile has invalid created_at");
-    const isNewAccount =
-      now - accountCreatedAt <
-      MESSAGE_LIMITS.newAccountDays * 24 * 60 * 60 * 1000;
-    const hourlyLimitError = checkLimits({
-      isNewAccount,
-      sentLastHour,
-      newConversationsToday: 0,
-      isNewConversation: false,
-    });
-    if (hourlyLimitError) return jsonError(hourlyLimitError.error, hourlyLimitError.status);
-
-    const newConversationsToday = isNewConversation
-      ? await countNewConversationsToday(supabase, user.id, dayAgo)
-      : 0;
-    const limitError = checkLimits({
-      isNewAccount,
-      sentLastHour,
-      newConversationsToday,
-      isNewConversation,
-    });
-    if (limitError) return jsonError(limitError.error, limitError.status);
+    const { data: sender, error: senderError } = await supabase
+      .from("profiles")
+      .select("username")
+      .eq("id", user.id)
+      .maybeSingle();
+    if (senderError) throw new Error(`sender profile lookup failed: ${senderError.message}`);
 
     const { data: message, error: insertError } = await supabase
       .from("messages")
@@ -196,7 +112,7 @@ export async function POST(req) {
     after(() => notifyRecipient({
       supabase,
       senderId: user.id,
-      senderUsername: profileResult.data.username,
+      senderUsername: sender?.username ?? null,
       recipientId: recipient.id,
       recipientUsername: recipient.username,
     }));

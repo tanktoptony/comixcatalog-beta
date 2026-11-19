@@ -45,7 +45,7 @@ Things Tony has to do outside code (not decisions): enable Connect (Express) in 
 
 **What stays:** listings remain views of `user_collections` rows (trigger from 0031). Off-platform DM sales and `/purchases/[id]` (0052, 0060) keep working for unpriced books and sellers who don't onboard.
 
-**Reuse:** `sold_items` and `confirm_sale_transfer` (0060) move the copy into the buyer's library on delivery. `requireAdmin` (aal2) gates admin. `messages` + `messageLimits` carry the order thread. Resend helpers send emails. Stripe signature verification follows `src/app/api/stripe/webhook/route.js`.
+**Reuse:** `sold_items` and `confirm_sale_transfer` (0060) move the copy into the buyer's library on delivery. `requireAdmin` (aal2) gates admin. `messages` carry the order thread. Resend helpers send emails. Stripe signature verification follows `src/app/api/stripe/webhook/route.js`.
 
 ---
 
@@ -205,7 +205,7 @@ Also covered: admin endpoint abuse (all admin actions through `requireAdmin` aal
 
 - **Checkout eligibility** (checked in `order_create`, shown in the listing editor): priced; seller onboarded with `charges_enabled`; tier `new` or `established`; slab → cert number; price >= D9 → front and back photos; new-seller caps (D10).
 - **Prohibited items** (Terms + listing editor + report reasons): undisclosed reprints or facsimiles sold as originals, counterfeit or tampered slabs and labels, stolen goods, bootlegs, anything not the catalog issue listed. A `listingEdit` keyword check nudges "facsimile", "reprint", "homage" disclosures into the right fields.
-- **Order rate limits** (`src/lib/orderLimits.js`, same shape as `messageLimits`): at most 2 unpaid orders open per buyer; 10 orders per day (3 for accounts under 7 days); 3 expired or cancelled unpaid orders in 24 hours → 24-hour checkout cooldown.
+- **Order rate limits** (`src/lib/orderLimits.js`): at most 2 unpaid orders open per buyer; 10 orders per day (3 for accounts under 7 days); 3 expired or cancelled unpaid orders in 24 hours → 24-hour checkout cooldown.
 - **Off-platform payment terms** (`src/lib/messageContent.js`): Friends and Family, Zelle, Venmo, Cash App, wire, Western Union, crypto, gift cards. On match: send goes through, both parties see a banner, admin flag recorded. Not a block (too many false positives on "I paid with Venmo last time").
 - **Feedback-based standing**: below 90% positive over the last 20 ratings, or 2 disputes lost to the buyer in 90 days → `limited` (no new orders) pending admin review.
 

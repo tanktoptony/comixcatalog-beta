@@ -4,6 +4,7 @@ import { getMarketValuesBulk } from "@/lib/marketValue";
 import { normTitle, titleVariants } from "@/lib/titleMatch";
 import { bestYearFor, parseYear } from "@/lib/years";
 import { fetchAllPagesParallel } from "@/lib/supabase/fetchAllPages";
+import { resolveCovers } from "@/lib/catalog/covers";
 
 // PostgREST silently caps any unpaginated response at 1000 rows. A single
 // series' cover query stays well under that, but a real collection's full
@@ -490,6 +491,37 @@ async function computeHydration(supabase, { comicIds, gcdIds, collectionGrades }
         canonicalCover,
         communityCover: null, // GCD-linked rows don't have community covers
       };
+    }
+
+    // Books this matcher can't place go to the shared resolver that issue,
+    // series and search pages use. It reads covers linked straight to the
+    // issue and numbers like "8 (809)" or "2 [Cover A]", which the lookup
+    // above misses. On 2026-11-19 it found 414 of the 1,537 collected issues
+    // the library showed blank. It only fills blanks; a cover found above
+    // is never replaced.
+    const blank = intermediate.filter((row) => !items[`gcd-${row.gcd_id}`]?.cover);
+    if (blank.length) {
+      const resolved = await resolveCovers(supabase, blank.map((row) => ({
+        gcd_issue_id: row.gcd_id,
+        series_gcd_id: row.seriesGcdId,
+        series_title: row.seriesTitle,
+        issue_number: row.issue_number,
+        year: bestYearFor(row),
+        series_year_start: row.seriesYearStart,
+        series_year_end: row.seriesYearEnd,
+        publisher: row.publisher,
+      }))).catch((error) => {
+        console.error("library-hydrate: shared cover fallback failed", error?.message);
+        return new Map();
+      });
+      for (const row of blank) {
+        const storagePath = resolved.get(row.gcd_id)?.storage_path;
+        const item = items[`gcd-${row.gcd_id}`];
+        if (!storagePath || !item) continue;
+        const url = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${storagePath}`;
+        item.cover = url;
+        item.canonicalCover = url;
+      }
     }
   }
 

@@ -7,6 +7,7 @@ import { isOwnedStatus } from "@/lib/collectionStatus";
 import { fetchAllPages, fetchAllPagesParallel } from "@/lib/supabase/fetchAllPages";
 import { bestYearFor, parseYear } from "@/lib/years";
 import { createServerTiming } from "@/lib/serverTiming";
+import { resolveCovers } from "@/lib/catalog/covers";
 
 // publication_date is null on ~65% of gcd_issues rows; key_date (GCD's sortable
 // approximation) fills most of that gap. Without this fallback a collector's
@@ -418,6 +419,31 @@ export async function GET(req) {
         // on the GCD lookup which is shared across users).
         href: `/issue/gcd-${row.gcd_id}`,
       };
+    }
+    // Same fallback as /api/library-hydrate: blanks go to the shared
+    // resolver issue pages use, so a profile never shows a blank the issue
+    // page fills. Only blanks are filled.
+    const blank = intermediate.filter((row) => !gcdDisplayLookup[row.gcd_id]?.canonicalCoverUrl);
+    if (blank.length) {
+      const resolved = await resolveCovers(supabase, blank.map((row) => ({
+        gcd_issue_id: row.gcd_id,
+        series_gcd_id: issueById.get(row.gcd_id)?.series_gcd_id ?? null,
+        series_title: row.seriesTitle,
+        issue_number: row.issue_number,
+        year: row.year,
+        series_year_start: row.seriesYearStart,
+        series_year_end: row.seriesYearEnd,
+        publisher: row.publisher,
+      }))).catch((error) => {
+        console.error("public-profile: shared cover fallback failed", error?.message);
+        return new Map();
+      });
+      for (const row of blank) {
+        const storagePath = resolved.get(row.gcd_id)?.storage_path;
+        if (storagePath && gcdDisplayLookup[row.gcd_id]) {
+          gcdDisplayLookup[row.gcd_id].canonicalCoverUrl = `${supabaseUrl}/storage/v1/object/public/canonical-covers/${storagePath}`;
+        }
+      }
     }
     finishCoverTiming();
   }

@@ -168,6 +168,27 @@ export const SHORTS = [
     toBeat: "Short 3 end",
     hook: "Bruce Wayne's friends are his enemies",
   },
+  {
+    id: "Short008Symbols",
+    episode: "episode-008-shorts",
+    fromBeat: "Short 1 start",
+    toBeat: "Short 1 end",
+    hook: "The secret on every cover",
+  },
+  {
+    id: "Short008LakeHouse",
+    episode: "episode-008-shorts",
+    fromBeat: "Short 2 start",
+    toBeat: "Short 2 end",
+    hook: "Your weird friend invites you to a lake house",
+  },
+  {
+    id: "Short008Villain",
+    episode: "episode-008-shorts",
+    fromBeat: "Short 3 start",
+    toBeat: "Short 3 end",
+    hook: "The villain is the writer",
+  },
 ];
 
 // Seconds of each clip. The clip stops just before the next beat.

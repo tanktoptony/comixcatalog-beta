@@ -58,6 +58,9 @@ function assetsOf(seg) {
 
 // One image, full-bleed: its own art blurred behind, the art itself cropped
 // to the frame, punching in from 1.14x and then drifting closer.
+// focus.screenY (0-1, Ep 008) moves the focus point to that height of the
+// frame, so a detail near the art's top edge (the Nice House symbol row)
+// isn't hidden behind the hook.
 function Shot({ asset, position, focus, len }) {
   const frame = useCurrentFrame();
   const { src, video } = useAsset(asset);
@@ -66,12 +69,14 @@ function Shot({ asset, position, focus, len }) {
   const objectPosition = focus ? `${focus.x * 100}% ${focus.y * 100}%` : position ?? "50% 35%";
   const zoom = focus?.zoom ? 1 + (focus.zoom - 1) * 0.5 : 1;
   const flash = interpolate(frame, [0, 5], [0.38, 0], { extrapolateRight: "clamp" });
+  // object-fit: cover at object-position p puts the image's point p at p of the frame, so this shift is exact.
+  const dy = focus?.screenY != null ? (focus.screenY - focus.y) * H : 0;
   return (
     <AbsoluteFill style={{ overflow: "hidden", backgroundColor: brand.bg }}>
       {src && !video && (
         <Img src={src} style={{ position: "absolute", inset: -100, width: W + 200, height: H + 200, objectFit: "cover", filter: "blur(50px) brightness(0.4)" }} />
       )}
-      <AbsoluteFill style={{ transform: `scale(${punch * drift * zoom})`, transformOrigin: objectPosition }}>
+      <AbsoluteFill style={{ transform: `translateY(${dy}px) scale(${punch * drift * zoom})`, transformOrigin: objectPosition }}>
         <Media asset={asset} box={{ w: W, h: H }} fit="cover" style={{ width: W, height: H, objectFit: "cover", objectPosition }} />
       </AbsoluteFill>
       <AbsoluteFill style={{ backgroundColor: "#fff", opacity: flash }} />
@@ -148,7 +153,17 @@ function SegmentShots({ seg, episodeId }) {
         </Sequence>
       ))}
       {s.title && s.type !== "chapter" && <Label text={s.title.replace(/\n/g, " ")} />}
+      {s.credit && <Credit text={s.credit} />}
     </>
+  );
+}
+
+// Small image credit (e.g. a CC BY-SA photo), under the hook.
+function Credit({ text }) {
+  return (
+    <div style={{ position: "absolute", top: 420, left: 0, right: 0, textAlign: "center", fontFamily: fonts.body, fontWeight: 700, fontSize: 26, color: "rgba(255,255,255,0.85)", textShadow: "0 2px 8px rgba(0,0,0,0.9)" }}>
+      {text}
+    </div>
   );
 }
 

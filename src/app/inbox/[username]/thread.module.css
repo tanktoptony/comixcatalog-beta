@@ -193,6 +193,17 @@
 }
 .msgGrouped .meta { display: none; }
 
+/* Delivery line under your latest message. Shown even when the bubble is
+   grouped, since it is the only place the state lives. */
+.status {
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 3px;
+  padding: 0 8px;
+  text-align: right;
+}
+.statusRead { color: var(--cc-gold, #f4d03f); }
+
 .linkWarning {
   max-width: 330px;
   margin-top: 5px;

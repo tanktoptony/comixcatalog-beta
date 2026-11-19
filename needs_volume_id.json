@@ -27465,8 +27465,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-19T06:17:25.322340+00:00",
-    "retry_after": "2026-11-20T06:17:25.322357+00:00",
+    "last_attempt_at": "2026-11-19T07:05:51.990440+00:00",
+    "retry_after": "2026-11-20T07:05:51.990458+00:00",
     "search_hydrated": true
   },
   {
@@ -27489,8 +27489,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-19T06:13:32.748596+00:00",
-    "retry_after": "2026-11-20T06:13:32.748600+00:00",
+    "last_attempt_at": "2026-11-19T07:02:01.366273+00:00",
+    "retry_after": "2026-11-20T07:02:01.366276+00:00",
     "search_hydrated": true
   },
   {
@@ -43501,8 +43501,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-19T06:13:32.748505+00:00",
-    "retry_after": "2026-11-20T06:13:32.748520+00:00",
+    "last_attempt_at": "2026-11-19T07:02:01.366198+00:00",
+    "retry_after": "2026-11-20T07:02:01.366215+00:00",
     "search_hydrated": true
   },
   {
@@ -51359,8 +51359,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-19T06:13:32.748546+00:00",
-    "retry_after": "2026-11-20T06:13:32.748549+00:00",
+    "last_attempt_at": "2026-11-19T07:02:01.366243+00:00",
+    "retry_after": "2026-11-20T07:02:01.366245+00:00",
     "search_hydrated": true
   },
   {
@@ -94929,9 +94929,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-16T03:06:07.129634+00:00",
-    "retry_after": "2026-11-19T03:06:07.129636+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-19T07:05:30.607906+00:00",
+    "retry_after": "2026-11-26T07:05:30.607924+00:00",
     "search_hydrated": true
   },
   {
@@ -97343,6 +97343,54 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-19T01:05:53.149580+00:00",
     "retry_after": "2026-11-20T01:05:53.149583+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Silky Whip",
+    "publisher": "Fantagraphics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36294,
+        "name": "Silky Whip",
+        "publisher": "Eros Comix",
+        "start_year": 1998
+      },
+      {
+        "id": 71504,
+        "name": "SIlky Whip",
+        "publisher": "Eros Comix",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T07:05:40.558698+00:00",
+    "retry_after": "2026-11-20T07:05:40.558717+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Enigma",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18609,
+        "name": "Enigma",
+        "publisher": "DC Comics",
+        "start_year": 1993
+      },
+      {
+        "id": 29695,
+        "name": "Enigma",
+        "publisher": "DC Comics",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T07:05:40.558771+00:00",
+    "retry_after": "2026-11-20T07:05:40.558775+00:00",
     "search_hydrated": true
   }
 ]

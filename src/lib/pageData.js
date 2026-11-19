@@ -10,6 +10,7 @@ import { buildVersionRows, resolveEditionRow } from "@/lib/issueEditions";
 import { toListing } from "@/lib/listingRow";
 import { publicCounts } from "@/lib/publicCounts";
 import { getIssueCollectors } from "@/lib/issueCollectors";
+import { buildPriceGuide } from "@/lib/priceGuide";
 
 // Server-side reads for pages that used to render empty and fetch their
 // data from the browser (/search, /series/[id]). The page renders with this
@@ -156,7 +157,7 @@ async function computeIssuePageData(baseGcdId, editionGcdId, hasEditionColumns) 
   const editionIds = [...new Set(editionRows.map((row) => Number(row.gcd_id)).filter(Boolean))];
   if (!editionIds.includes(baseGcdId)) editionIds.unshift(baseGcdId);
 
-  const [detailsResult, listingsResult, compsResult, baseIssueResult, statsResult, collectors] = await Promise.all([
+  const [detailsResult, listingsResult, compsResult, baseIssueResult, statsResult, collectors, guideResult] = await Promise.all([
     supabase.from("gcd_issue_details").select("gcd_issue_id, on_sale_date, price, barcode, variant_name").in("gcd_issue_id", editionIds),
     supabase.from("marketplace_listings").select("id, collection_id, gcd_issue_id, series_title, issue_number, release_year, publisher, variant_label, cover_path, condition, grade_numeric, slab_company, price_cents, shipping_cents, accepts_offers, market_value, auto_market_value, seller_username, created_at").in("gcd_issue_id", editionIds).order("created_at", { ascending: false }).limit(200),
     supabase.from("market_comps").select("sold_price, sold_date, source").in("gcd_issue_id", editionIds).eq("source", "ebay-listed").order("sold_date", { ascending: false }).limit(200),
@@ -168,7 +169,11 @@ async function computeIssuePageData(baseGcdId, editionGcdId, hasEditionColumns) 
       console.error("issue collectors lookup failed:", error?.message ?? error);
       return null;
     }),
+    // PriceCharting guide values (migration 0105). Service role only: the
+    // table has no RLS policies, so the full guide is never public over REST.
+    supabase.from("pricecharting_prices").select("pc_id, gcd_issue_id, product_name, prices, sales_volume").in("gcd_issue_id", editionIds).limit(200),
   ]);
+  if (guideResult.error) console.error("issue price guide lookup failed:", guideResult.error);
   if (detailsResult.error) console.error("issue details lookup failed:", detailsResult.error);
   if (listingsResult.error) console.error("issue listings lookup failed:", listingsResult.error);
   if (compsResult.error) console.error("issue asking-price lookup failed:", compsResult.error);
@@ -204,6 +209,7 @@ async function computeIssuePageData(baseGcdId, editionGcdId, hasEditionColumns) 
     versions,
     listings,
     market: { estimate, sample_size: asking.length, listings_count: listings.length },
+    price_guide: guideResult.error ? null : buildPriceGuide(guideResult.data, editionGcdId),
     community: statsResult.error ? null : publicCounts(statsResult.data),
     collectors,
   };
@@ -214,7 +220,7 @@ export function getIssuePageData(baseGcdId, editionGcdId, hasEditionColumns = tr
   const edition = Number(editionGcdId || base);
   return unstable_cache(
     () => computeIssuePageData(base, edition, hasEditionColumns),
-    ["issue-discogs-v2", String(base), String(edition), hasEditionColumns ? "editions" : "legacy"],
+    ["issue-discogs-v3", String(base), String(edition), hasEditionColumns ? "editions" : "legacy"],
     { revalidate: 3600, tags: [`issue:${base}`] }
   )();
 }

@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { eraForYear } from "@/lib/keyTimeline";
+import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useLibrary } from "@/context/LibraryContext";
@@ -38,6 +39,19 @@ function money(value) {
     style: "currency",
     currency: "USD",
     maximumFractionDigits: 0,
+  }).format(num);
+}
+
+// Guide values keep cents under $100 ($4.74 reads very differently from $5)
+// and round above it.
+function guideMoney(value) {
+  const num = Number(value);
+  if (!Number.isFinite(num)) return "-";
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: num < 100 ? 2 : 0,
+    maximumFractionDigits: num < 100 ? 2 : 0,
   }).format(num);
 }
 
@@ -572,7 +586,18 @@ export default function IssueClient({ initialIssue = null }) {
             </div>
 
             <aside className="issue-hero-rail">
-              {issue.market?.estimate != null && (
+              {issue.price_guide?.ungraded != null ? (
+                <div className="issue-value-card">
+                  <span className="issue-kicker">Ungraded value</span>
+                  <strong>{guideMoney(issue.price_guide.ungraded)}</strong>
+                  <small>
+                    <a href={issue.price_guide.url} target="_blank" rel="noopener" className="issue-pc-credit">
+                      Price guide by PriceCharting
+                    </a>
+                    {issue.price_guide.grades.length > 1 && <> · <a href="#price-guide">Every grade</a></>}
+                  </small>
+                </div>
+              ) : issue.market?.estimate != null && (
                 <div className="issue-value-card">
                   <span className="issue-kicker">Estimated from current asking prices</span>
                   <strong>{money(issue.market.estimate)}</strong>
@@ -655,6 +680,30 @@ export default function IssueClient({ initialIssue = null }) {
 
           </div>
         </div>
+
+        {issue.price_guide?.grades?.length > 0 && (
+          <section id="price-guide" className="issue-discogs-section issue-price-guide">
+            <div className="issue-section-heading">
+              <h2>Price guide</h2>
+              <a href={issue.price_guide.url} target="_blank" rel="noopener" className="issue-pc-credit">
+                <Image src="/img/partners/pricecharting.svg" alt="" width={18} height={16} aria-hidden="true" />
+                Values by PriceCharting
+              </a>
+            </div>
+            <div className="issue-guide-grid">
+              {issue.price_guide.grades.map((g) => (
+                <div key={g.grade} className={`issue-guide-tile${g.grade === "ungraded" ? " is-raw" : ""}`}>
+                  <span className="issue-guide-grade">{g.label}</span>
+                  <span className="issue-guide-name">{g.name}</span>
+                  <strong>{guideMoney(g.value)}</strong>
+                </div>
+              ))}
+            </div>
+            {issue.edition_name && issue.versions?.length > 1 && (
+              <p className="issue-guide-note">Values for the {issue.edition_name} edition. Other versions are priced on their own pages.</p>
+            )}
+          </section>
+        )}
 
         {issue.versions?.length > 1 && (
           <section className="issue-discogs-section issue-versions-section">

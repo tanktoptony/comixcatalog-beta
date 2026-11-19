@@ -968,6 +968,7 @@ input[type="file"] {
   text-align: right;
 }
 
+.footer-pc-credit { display: inline-flex; align-items: center; gap: 6px; }
 .footer-meta-line {
   display: inline-flex;
   align-items: center;
@@ -13817,6 +13818,18 @@ select.input {
 .issue-community-counts { display: grid; gap: 4px; padding: 14px 16px; border: 1px solid var(--cc-line); border-radius: 12px; color: var(--cc-text); background: var(--cc-surface); font-size: 0.86rem; line-height: 1.45; }
 .issue-community-counts small { color: var(--cc-text-muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; }
 .issue-kicker { color: var(--cc-text-muted); font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+/* PriceCharting price guide (issue page). Values are gold like every other value element. */
+.issue-pc-credit { display: inline-flex; align-items: center; gap: 6px; color: var(--cc-text-muted); font-size: .84rem; text-decoration: none; }
+.issue-pc-credit:hover { color: var(--cc-gold); text-decoration: underline; }
+.issue-value-card .issue-pc-credit { font-size: inherit; }
+.issue-guide-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 10px; }
+.issue-guide-tile { display: grid; gap: 2px; padding: 12px 14px; border: 1px solid var(--cc-line); border-radius: 12px; background: var(--cc-surface); min-width: 0; }
+.issue-guide-tile strong { margin-top: 6px; color: var(--cc-gold); font-family: var(--font-display); font-size: 1.45rem; line-height: 1; overflow-wrap: anywhere; }
+.issue-guide-tile.is-raw { border-color: color-mix(in srgb, var(--cc-gold) 45%, var(--cc-line)); background: color-mix(in srgb, var(--cc-gold) 8%, var(--cc-surface)); }
+.issue-guide-grade { color: var(--cc-text); font-family: var(--font-display); font-size: 1.05rem; line-height: 1; }
+.issue-guide-name { color: var(--cc-text-muted); font-size: .68rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.issue-guide-note { margin: 10px 0 0; color: var(--cc-text-muted); font-size: .8rem; }
+@media (max-width: 420px) { .issue-guide-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .issue-market-actions { display: flex; gap: 10px; margin: 0 0 20px; flex-wrap: wrap; }
 .issue-market-actions .add-comic-btn { flex: 1 1 150px; text-align: center; text-decoration: none; }
 .issue-discogs-section { margin-top: 48px; }

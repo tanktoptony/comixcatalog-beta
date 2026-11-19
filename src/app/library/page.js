@@ -991,13 +991,18 @@ function LibraryPageContent() {
       const issueA = String(a.comic.issueNumber || "");
       const issueB = String(b.comic.issueNumber || "");
 
+      // Ties fall back to title, then issue number in run order (#2 before
+      // #10), then copy. Without them a run listed as #11, #9, #2, #12.
+      const byTitle = titleA.localeCompare(titleB);
+      const byIssue = issueA.localeCompare(issueB, undefined, { numeric: true });
+      const byCopy = Number(a.copy_number ?? 1) - Number(b.copy_number ?? 1);
       switch (sortBy) {
-        case "title-asc":   return titleA.localeCompare(titleB);
-        case "title-desc":  return titleB.localeCompare(titleA);
-        case "year-desc":   return yearB - yearA;
-        case "year-asc":    return yearA - yearB;
-        case "issue-asc":   return issueA.localeCompare(issueB, undefined, { numeric: true });
-        case "issue-desc":  return issueB.localeCompare(issueA, undefined, { numeric: true });
+        case "title-asc":   return byTitle || byIssue || byCopy;
+        case "title-desc":  return -byTitle || byIssue || byCopy;
+        case "year-desc":   return yearB - yearA || byTitle || byIssue || byCopy;
+        case "year-asc":    return yearA - yearB || byTitle || byIssue || byCopy;
+        case "issue-asc":   return byIssue || byTitle || byCopy;
+        case "issue-desc":  return -byIssue || byTitle || byCopy;
         default:            return 0;
       }
     });
@@ -1377,7 +1382,7 @@ function LibraryPageContent() {
                 title="Export your collection as an insurance PDF"
               >
                 {pdfExporting
-                  ? "Generating…"
+                  ? stats.ownedCount > 1000 ? "Generating… big collections take a few minutes" : "Generating…"
                   : "Export PDF"}
               </button>
               <button

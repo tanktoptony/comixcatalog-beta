@@ -27465,8 +27465,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-19T00:06:18.167852+00:00",
-    "retry_after": "2026-11-20T00:06:18.167857+00:00",
+    "last_attempt_at": "2026-11-19T01:06:08.225745+00:00",
+    "retry_after": "2026-11-20T01:06:08.225761+00:00",
     "search_hydrated": true
   },
   {
@@ -27489,8 +27489,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-19T00:02:07.771361+00:00",
-    "retry_after": "2026-11-20T00:02:07.771365+00:00",
+    "last_attempt_at": "2026-11-19T01:01:51.576602+00:00",
+    "retry_after": "2026-11-20T01:01:51.576605+00:00",
     "search_hydrated": true
   },
   {
@@ -43501,8 +43501,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-19T00:02:07.771282+00:00",
-    "retry_after": "2026-11-20T00:02:07.771297+00:00",
+    "last_attempt_at": "2026-11-19T01:01:51.576539+00:00",
+    "retry_after": "2026-11-20T01:01:51.576554+00:00",
     "search_hydrated": true
   },
   {
@@ -51359,8 +51359,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-19T00:02:07.771326+00:00",
-    "retry_after": "2026-11-20T00:02:07.771330+00:00",
+    "last_attempt_at": "2026-11-19T01:01:51.576578+00:00",
+    "retry_after": "2026-11-20T01:01:51.576580+00:00",
     "search_hydrated": true
   },
   {
@@ -86597,9 +86597,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-12T00:10:40.984772+00:00",
-    "retry_after": "2026-11-19T00:10:40.984775+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-19T01:05:39.879093+00:00",
+    "retry_after": "2026-12-03T01:05:39.879109+00:00",
     "search_hydrated": true
   },
   {
@@ -97314,6 +97314,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-19T00:06:18.167816+00:00",
     "retry_after": "2026-11-20T00:06:18.167828+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Jam-Packed Jamboree",
+    "publisher": "Titan Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46780,
+        "name": "Simpsons Comics: Jam-Packed Jamboree",
+        "publisher": "Bongo",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T01:05:53.149546+00:00",
+    "retry_after": "2026-11-20T01:05:53.149562+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Charming Love",
+    "publisher": "Marvel Comics",
+    "year": 1955,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-19T01:05:53.149580+00:00",
+    "retry_after": "2026-11-20T01:05:53.149583+00:00",
     "search_hydrated": true
   }
 ]

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { VIDEO_GUIDES, youtubeThumbUrl, youtubeWatchUrl } from "@/lib/videoGuides";
 
 export const metadata = {
   title: "Help Center",
@@ -37,6 +38,36 @@ export default function HelpPage() {
           />
         </ul>
 
+        {VIDEO_GUIDES.length > 0 && (
+          <>
+            <h2 className="md-h2" style={{ marginTop: 32 }}>Video guides</h2>
+            <p className="cc-form-sub">Short walkthroughs of the site, recorded on the real thing.</p>
+            <ul className="help-videos">
+              {VIDEO_GUIDES.map((v) => (
+                <li key={v.youtubeId}>
+                  <a
+                    href={youtubeWatchUrl(v.youtubeId)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="help-video"
+                  >
+                    <span className="help-video-thumb">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={youtubeThumbUrl(v.youtubeId)} alt="" loading="lazy" />
+                      <span className="help-video-play" aria-hidden="true" />
+                    </span>
+                    <span className="help-video-text">
+                      <span className="help-video-title">{v.title}</span>
+                      {v.blurb && <span className="help-video-blurb">{v.blurb}</span>}
+                      {v.minutes && <span className="help-video-meta">{v.minutes} min · YouTube</span>}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+
         <h2 className="md-h2" style={{ marginTop: 32 }}>Common questions</h2>
 
         <div className="help-faq">
@@ -74,12 +105,17 @@ export default function HelpPage() {
             }
           />
           <FaqItem
-            q="When does the marketplace open?"
+            q="Can I buy and sell comics here?"
             a={
               <>
-                The marketplace is still in development. We&rsquo;ll publish the
-                opening schedule and seller fees before listings go live.
-                Founding Collectors will be invited to early testing.
+                Yes, in beta. Anyone can list books from their collection for
+                sale and browse the{" "}
+                <Link href="/marketplace" className="md-a">Marketplace</Link>,
+                and buyers can message a seller to make an offer. ComixCatalog
+                charges no fees. Buy now checkout is in testing with a small
+                group for now. <Link href="/trust" className="md-a">Trust &amp; Safety</Link>{" "}
+                covers how orders are protected and how to trade safely by
+                message.
               </>
             }
           />

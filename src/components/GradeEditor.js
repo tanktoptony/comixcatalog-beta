@@ -4,6 +4,7 @@ import { useState } from "react";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import { estimateCoverPrice } from "@/lib/coverPrice";
 import { trackEvent } from "@/lib/analytics";
+import { authedFetch } from "@/lib/apiClient";
 
 const USER_COVER_UPLOAD_ENABLED = true;
 
@@ -145,8 +146,30 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
   const [copyNumber, setCopyNumber] = useState(
     initialData.copy_number != null ? String(initialData.copy_number) : "1"
   );
+  const [openToTrade, setOpenToTrade] = useState(Boolean(initialData.open_to_trade));
+  const [tradeSaving, setTradeSaving] = useState(false);
 
   const isSlabbed = !!slabCompany;
+
+  async function toggleTrade(next) {
+    const previous = openToTrade;
+    setOpenToTrade(next);
+    setTradeSaving(true);
+    setError(null);
+    try {
+      const response = await authedFetch("/api/collection/bulk", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: collectionId, open_to_trade: next }),
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error);
+      onSave?.({ open_to_trade: next });
+    } catch (err) {
+      setOpenToTrade(previous);
+      setError(err.message || "Could not update trade setting.");
+    } finally { setTradeSaving(false); }
+  }
 
   async function handleCoverFile(file) {
     if (!file || !collectionId) return;
@@ -304,6 +327,13 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
       {/* Inline editor panel */}
       {open && (
         <div className="grade-editor-panel">
+
+          {(initialData.status === "owned" || initialData.status === "for_sale") && (
+            <label className="grade-trade-toggle">
+              <span><strong>Open to trade</strong><small>Let collectors with matching wantlists know this copy could move.</small></span>
+              <input type="checkbox" checked={openToTrade} disabled={tradeSaving} onChange={(event) => toggleTrade(event.target.checked)} />
+            </label>
+          )}
 
           {USER_COVER_UPLOAD_ENABLED && (
             <div className="grade-field grade-cover-field">

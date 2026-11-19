@@ -100,6 +100,7 @@ export default function ProfileTabs({ collection, isOwner, visibility = {}, prof
   // Default: title A–Z. Collectors typically want to scan a shelf by series.
   const [sortMode, setSortMode] = useState("title-asc");
   const [visibleGridItems, setVisibleGridItems] = useState(INITIAL_GRID_ITEMS);
+  const [tradeOnly, setTradeOnly] = useState(false);
   // View mode: "grid" (cards) or "rows" (one row per series, expand to see issues).
   // Default to rows on narrow viewports; persists in localStorage.
   const [viewMode, setViewMode] = useState("grid");
@@ -146,7 +147,7 @@ export default function ProfileTabs({ collection, isOwner, visibility = {}, prof
     activity: collection.length,
   };
 
-  const rawActiveItems =
+  const rawActiveItemsBase =
     activeTab === "owned"
       ? grouped.owned
       : activeTab === "wishlist"
@@ -154,6 +155,10 @@ export default function ProfileTabs({ collection, isOwner, visibility = {}, prof
       : activeTab === "for_sale"
       ? grouped.forSale
       : [];
+  const tradeCount = grouped.owned.filter((item) => item.open_to_trade).length;
+  const rawActiveItems = activeTab === "owned" && tradeOnly && tradeCount > 0
+    ? rawActiveItemsBase.filter((item) => item.open_to_trade)
+    : rawActiveItemsBase;
 
   // Sort. We sort against display.* (resolved title/year/issue) so the order
   // matches what the user actually sees on the cards, not the raw row data.
@@ -229,6 +234,7 @@ export default function ProfileTabs({ collection, isOwner, visibility = {}, prof
       <div className="profile-tab-panel">
         {activeTab !== "activity" && activeItems.length > 0 && (
           <div className="profile-toolbar">
+            {activeTab === "owned" && tradeCount > 0 && <button type="button" className={`profile-trade-chip${tradeOnly ? " is-active" : ""}`} aria-pressed={tradeOnly} onClick={() => setTradeOnly((value) => !value)}>Open to trade ({tradeCount})</button>}
             <div className="profile-view-toggle" role="group" aria-label="View">
               <button
                 type="button"
@@ -322,6 +328,7 @@ export default function ProfileTabs({ collection, isOwner, visibility = {}, prof
                     {!isForSale && item.status === "for_sale" && (
                       <span className="profile-forsale-tag">For sale</span>
                     )}
+                    {item.open_to_trade && <span className="profile-trade-tag">Trade</span>}
                     {item.slab_company && item.grade_numeric ? (
                       <span className="profile-grade-badge">
                         {item.slab_company} {Number(item.grade_numeric).toFixed(1)}
@@ -512,6 +519,7 @@ function SeriesRowsView({ items, activeTab, askAbout = null }) {
                     <Link href={cardHref} className="comic-card">
                       <div className="comic-card-cover" style={{ position: "relative" }}>
                         <img src={coverThumb(coverUrl)} alt={d.title} width="400" height="600" loading="lazy" decoding="async" />
+                        {item.open_to_trade && <span className="profile-trade-tag">Trade</span>}
                         {item.slab_company && item.grade_numeric ? (
                           <span className="profile-grade-badge">
                             {item.slab_company} {Number(item.grade_numeric).toFixed(1)}

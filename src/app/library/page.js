@@ -153,6 +153,8 @@ function gradeFromItem(item) {
     purchase_price: item.purchase_price ?? null,
     market_value: item.market_value ?? null,
     user_cover_url: USER_COVER_UPLOAD_ENABLED ? (item.user_cover_url ?? null) : null,
+    status: item.status,
+    open_to_trade: Boolean(item.open_to_trade),
   };
 }
 

@@ -10,6 +10,24 @@ import { getServiceClient } from "@/lib/supabase/service";
 export const maxDuration = 60;
 const INSERT_CHUNK = 250;
 
+export async function PATCH(req) {
+  const user = await getAuthedUser(req);
+  if (!user) return NextResponse.json({ error: "Sign in to update your collection." }, { status: 401 });
+  const body = await req.json().catch(() => ({}));
+  if (typeof body.open_to_trade !== "boolean" || typeof body.id !== "string") {
+    return NextResponse.json({ error: "Send a collection id and trade setting." }, { status: 400 });
+  }
+  const supabase = getServiceClient();
+  const { data, error } = await supabase.from("user_collections")
+    .update({ open_to_trade: body.open_to_trade })
+    .eq("id", body.id).eq("user_id", user.id)
+    .in("status", ["owned", "for_sale"])
+    .select("id, open_to_trade").maybeSingle();
+  if (error) return NextResponse.json({ error: "Could not update this copy." }, { status: 500 });
+  if (!data) return NextResponse.json({ error: "Only owned copies can be open to trade." }, { status: 409 });
+  return NextResponse.json({ item: data });
+}
+
 export async function POST(req) {
   const user = await getAuthedUser(req);
   if (!user) {

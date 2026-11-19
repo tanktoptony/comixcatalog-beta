@@ -103,6 +103,9 @@ jobs:
       - name: Activity feed privacy tests
         run: npm run test:activity-feed
 
+      - name: Social book-context tests
+        run: npm run test:social
+
       - name: Library mutation tests
         run: npm run test:library-mutations
 

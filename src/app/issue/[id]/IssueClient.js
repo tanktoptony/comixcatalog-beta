@@ -17,6 +17,17 @@ import { publisherHref } from "@/lib/publisherPages";
 import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 import { buildIssueDetailsRows, formatGcdDate, formatGcdPrice, humanizeStoryType, parseGcdCreditList, stripGcdCharacterNoise } from "@/lib/issueDetails";
 import { conditionLabel, contactLabel, formatValue, offerHref } from "@/lib/marketplaceFormat";
+import Avatar from "@/components/Avatar";
+
+function CollectorRow({ label, bucket, actionLabel, actionKind, issueId, viewerId }) {
+  return <div className="issue-collector-row"><strong>{label}</strong><div className="issue-collector-members">
+    {(bucket?.members ?? []).map((member) => <div key={member.id} className="issue-collector-member">
+      <Link href={`/u/${encodeURIComponent(member.username)}`} className="issue-collector-person"><span className="issue-collector-avatar"><Avatar profile={member} /></span><span>@{member.username}</span></Link>
+      {actionLabel && viewerId && viewerId !== member.id && <Link className="issue-collector-action" href={`/inbox/${encodeURIComponent(member.username)}?issue=${issueId}&ask=${actionKind}`}>{actionLabel}</Link>}
+    </div>)}
+    {(bucket?.total ?? 0) > (bucket?.members?.length ?? 0) && <span className="muted">+{bucket.total - bucket.members.length} more</span>}
+  </div></div>;
+}
 
 function money(value) {
   if (value == null || value === "") return "-";
@@ -744,6 +755,15 @@ export default function IssueClient({ initialIssue = null }) {
             </tbody></table></div>}
           </section>
         )}
+
+        {issue.source === "gcd" && <section className="issue-discogs-section">
+          <div className="issue-section-heading"><h2>Collectors</h2></div>
+          {(issue.collectors?.have?.total || issue.collectors?.want?.total || issue.collectors?.sell?.total) ? <div className="issue-collectors-card">
+            <CollectorRow label="Have it" bucket={issue.collectors.have} actionLabel="Ask about it" actionKind="sell" issueId={issue.base_gcd_issue_id} viewerId={user?.id} />
+            <CollectorRow label="Want it" bucket={issue.collectors.want} actionLabel={inCollection ? "I have one" : null} actionKind="have" issueId={issue.base_gcd_issue_id} viewerId={user?.id} />
+            <CollectorRow label="Selling" bucket={issue.collectors.sell} issueId={issue.base_gcd_issue_id} viewerId={user?.id} />
+          </div> : <div className="issue-empty-card">No public collectors have this yet.</div>}
+        </section>}
 
         {issue.related_issues?.length > 0 && (
           <section className="metadata-section issue-nearby">

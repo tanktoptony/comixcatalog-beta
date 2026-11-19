@@ -58,9 +58,18 @@ export default function ThreadPage() {
   });
   // "Make an offer" on a marketplace listing links here with ?about=<book>,
   // so the first message starts with the book already named.
-  const about = useSearchParams().get("about");
+  const searchParams = useSearchParams();
+  const about = searchParams.get("about");
+  const issueParam = Number(searchParams.get("issue"));
+  const copyParam = searchParams.get("copy");
+  const askKind = ["sell", "have", "want"].includes(searchParams.get("ask")) ? searchParams.get("ask") : null;
+  const [attachedBook, setAttachedBook] = useState(null);
+  const [contextRemoved, setContextRemoved] = useState(false);
+  const [bookCache, setBookCache] = useState({});
+  // A book link (?issue=&ask=) writes its own opener below, so ?about= only
+  // prefills when no ask kind came with it.
   const [body, setBody] = useState(() =>
-    about ? `Hi! I'm interested in your ${about.slice(0, 200)}. Would you take an offer?` : ""
+    about && !askKind ? `Hi! I'm interested in your ${about.slice(0, 200)}. Would you take an offer?` : ""
   );
   // Opening a different conversation can reuse this component, so swap to
   // that thread's cached state during render instead of briefly showing the
@@ -89,6 +98,41 @@ export default function ThreadPage() {
     }
     return null;
   }, [messages, user]);
+
+  const prefilledIssue = useRef(null);
+
+  useEffect(() => {
+    const messageIds = (messages ?? []).map((message) => Number(message.gcd_issue_id)).filter(Number.isInteger);
+    if (Number.isInteger(issueParam) && issueParam > 0) messageIds.push(issueParam);
+    const missing = [...new Set(messageIds)].filter((id) => !bookCache[id]);
+    if (!missing.length) return;
+    let cancelled = false;
+    fetch(`/api/issues/context?ids=${missing.join(",")}`)
+      .then((response) => response.ok ? response.json() : Promise.reject())
+      .then(({ issues }) => {
+        if (cancelled) return;
+        const additions = Object.fromEntries((issues ?? []).map((book) => [book.gcd_issue_id, book]));
+        setBookCache((current) => ({ ...current, ...additions }));
+        if (!contextRemoved && issueParam && additions[issueParam]) setAttachedBook(additions[issueParam]);
+      })
+      .catch(() => { if (!cancelled && issueParam) setError("Could not attach that book."); });
+    return () => { cancelled = true; };
+  }, [messages, issueParam, bookCache, attachedBook, contextRemoved]);
+
+  useEffect(() => {
+    const book = bookCache[issueParam];
+    if (!book || !askKind || body || prefilledIssue.current === issueParam) return;
+    const name = `${book.series_title}${book.issue_number ? ` #${book.issue_number}` : ""}`;
+    const text = askKind === "sell"
+      ? `Hi! Would you consider selling or trading your copy of ${name}?`
+      : askKind === "have"
+        ? `Hi! I have ${name}, which is on your wantlist. Interested?`
+        : `Hi! I'm looking for ${name}. Do you have a copy?`;
+    prefilledIssue.current = issueParam;
+    setBody(text);
+  }, [askKind, body, bookCache, issueParam]);
+
+  const contextBook = contextRemoved ? null : (attachedBook ?? bookCache[issueParam] ?? null);
 
   // Resolve the other user by username.
   useEffect(() => {
@@ -176,7 +220,7 @@ export default function ThreadPage() {
     async function load() {
       const { data, error: mErr } = await supabase
         .from("messages")
-        .select("id, sender_id, recipient_id, body, is_system, order_id, read_at, created_at")
+        .select("id, sender_id, recipient_id, body, is_system, order_id, gcd_issue_id, collection_id, read_at, created_at")
         .or(
           `and(sender_id.eq.${user.id},recipient_id.eq.${otherProfile.id}),` +
             `and(sender_id.eq.${otherProfile.id},recipient_id.eq.${user.id})`
@@ -313,6 +357,8 @@ export default function ThreadPage() {
       body: trimmed,
       read_at: null,
       created_at: new Date().toISOString(),
+      gcd_issue_id: contextBook?.gcd_issue_id ?? null,
+      collection_id: copyParam || null,
       __optimistic: true,
     };
 
@@ -325,7 +371,7 @@ export default function ThreadPage() {
       const response = await authedFetch("/api/messages", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ recipient: otherProfile.username, body: trimmed }),
+        body: JSON.stringify({ recipient: otherProfile.username, body: trimmed, ...(contextBook ? { about: { gcd_issue_id: contextBook.gcd_issue_id, ...(copyParam ? { collection_id: copyParam } : {}) } } : {}) }),
       });
       const result = await response.json().catch(() => ({}));
       if (!response.ok) sendError = result.error || "Could not send message.";
@@ -340,6 +386,8 @@ export default function ThreadPage() {
       setMessages((prev) => (prev ?? []).filter((m) => m.id !== optimistic.id));
       setBody(trimmed);
     } else {
+      // The book rides on the first message only; later replies are plain.
+      if (contextBook) { setAttachedBook(null); setContextRemoved(true); }
       // Replace optimistic with server-truth row.
       setMessages((prev) =>
         (prev ?? []).map((m) => (m.id === optimistic.id ? data : m))
@@ -484,6 +532,7 @@ export default function ThreadPage() {
               ) : (
               <div className={classNames}>
                 <div className={styles.bubble}>{m.body}</div>
+                {m.gcd_issue_id && bookCache[m.gcd_issue_id] && <BookCard book={bookCache[m.gcd_issue_id]} styles={styles} />}
                 {findOffPlatformPaymentTerms(m.body).length > 0 && (
                   <div className={styles.paymentWarning}>{PAYMENT_WARNING}</div>
                 )}
@@ -514,6 +563,7 @@ export default function ThreadPage() {
       )}
 
       <form onSubmit={handleSend} className={styles.composer}>
+        {contextBook && <div className={styles.aboutBook}><BookCard book={contextBook} styles={styles} label="About this book" /><button type="button" onClick={() => { setAttachedBook(null); setContextRemoved(true); }} aria-label="Remove book">×</button></div>}
         <textarea
           className={styles.composerInput}
           placeholder={`Message ${otherName}…`}
@@ -548,4 +598,11 @@ export default function ThreadPage() {
       </form>
     </section>
   );
+}
+
+function BookCard({ book, styles, label }) {
+  return <Link href={`/issue/gcd-${book.gcd_issue_id}`} className={styles.bookCard}>
+    {book.cover && <img src={book.cover} alt="" width="36" height="54" />}
+    <span>{label && <small>{label}</small>}<strong>{book.series_title}{book.issue_number ? ` #${book.issue_number}` : ""}</strong>{book.year && <em>{book.year}</em>}</span>
+  </Link>;
 }

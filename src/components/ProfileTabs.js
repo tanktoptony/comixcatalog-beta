@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import EmptyState from "./EmptyState";
 import { coverThumb } from "@/lib/coverThumb";
+import { useAuth } from "@/context/AuthContext";
 
 const VIEW_STORAGE_KEY = "cc:profile-view";
 const INITIAL_GRID_ITEMS = 60;
@@ -84,7 +85,8 @@ const SORT_OPTIONS = [
   { value: "added-asc",   label: "Oldest added" },
 ];
 
-export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
+export default function ProfileTabs({ collection, isOwner, visibility = {}, profileUsername }) {
+  const { user } = useAuth();
   // Filter out tabs whose section is hidden by privacy settings (unless owner).
   const visibleTabs = TAB_DEFS.filter((t) => {
     if (!t.visibilityKey) return true;
@@ -309,8 +311,8 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
               const fullTitle = `${d.title}${d.issueNumber ? ` #${d.issueNumber}` : ""}`;
 
               return (
+                <div key={item.id} className="profile-book-contact-wrap">
                 <Link
-                  key={item.id}
                   href={cardHref}
                   className={`comic-card${isWall ? " comic-card--wall" : ""}`}
                   title={isWall ? fullTitle : undefined}
@@ -372,6 +374,10 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
                     </>
                   )}
                 </Link>
+                {!isOwner && user && item.gcd_issue_id && (activeTab === "owned" || activeTab === "for_sale") && (
+                  <Link className="profile-book-contact" href={`/inbox/${encodeURIComponent(profileUsername)}?issue=${Number(item.gcd_issue_id)}&copy=${encodeURIComponent(item.id)}&ask=sell`}>Ask about it</Link>
+                )}
+                </div>
               );
             })}
             {activeItems.length > visibleGridItems && (

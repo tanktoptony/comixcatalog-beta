@@ -29502,9 +29502,10 @@
     "year": 2000,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T10:47:20.057994+00:00",
-    "retry_after": "2026-10-01T10:47:20.058011+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-20T09:02:19.359906+00:00",
+    "retry_after": "2026-11-27T09:02:19.359924+00:00",
+    "search_hydrated": true
   },
   {
     "name": "John Byrne's Compleat Next Men",
@@ -31121,9 +31122,10 @@
     "year": 2002,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-28T08:06:04.583385+00:00",
-    "retry_after": "2026-09-29T08:06:04.583399+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-20T09:02:19.359975+00:00",
+    "retry_after": "2026-11-23T09:02:19.359979+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Paradise X: Xen",
@@ -63412,29 +63414,6 @@
     "retry_after": "2026-10-23T04:15:58.005729+00:00"
   },
   {
-    "name": "Untamed",
-    "publisher": "Marvel Comics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 129086,
-        "name": "Untamed",
-        "publisher": null,
-        "start_year": 2020
-      },
-      {
-        "id": 22950,
-        "name": "Untamed",
-        "publisher": null,
-        "start_year": 1993
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T04:15:58.653683+00:00",
-    "retry_after": "2026-10-23T04:15:58.653699+00:00"
-  },
-  {
     "name": "Suneater",
     "publisher": "Heavy Metal",
     "year": 2020,
@@ -73726,9 +73705,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T07:11:49.611144+00:00",
-    "retry_after": "2026-11-20T07:11:49.611157+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T09:10:31.415356+00:00",
+    "retry_after": "2026-12-20T09:10:31.415372+00:00",
     "search_hydrated": true
   },
   {
@@ -73737,9 +73716,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T07:11:48.785737+00:00",
-    "retry_after": "2026-11-20T07:11:48.785756+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T09:10:30.150864+00:00",
+    "retry_after": "2026-12-20T09:10:30.150883+00:00",
     "search_hydrated": true
   },
   {
@@ -73748,9 +73727,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T07:11:48.785774+00:00",
-    "retry_after": "2026-11-20T07:11:48.785776+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T09:10:30.150907+00:00",
+    "retry_after": "2026-12-20T09:10:30.150911+00:00",
     "search_hydrated": true
   },
   {
@@ -73759,9 +73738,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T07:11:48.785786+00:00",
-    "retry_after": "2026-11-20T07:11:48.785788+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T09:10:30.150924+00:00",
+    "retry_after": "2026-12-20T09:10:30.150926+00:00",
     "search_hydrated": true
   },
   {
@@ -73777,9 +73756,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T07:11:49.711748+00:00",
-    "retry_after": "2026-11-20T07:11:49.711767+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T09:10:31.547800+00:00",
+    "retry_after": "2026-12-20T09:10:31.547818+00:00",
     "search_hydrated": true
   },
   {
@@ -73795,9 +73774,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T07:11:49.813067+00:00",
-    "retry_after": "2026-11-20T07:11:49.813079+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T09:10:31.678041+00:00",
+    "retry_after": "2026-12-20T09:10:31.678059+00:00",
     "search_hydrated": true
   },
   {
@@ -73806,9 +73785,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T07:11:48.785810+00:00",
-    "retry_after": "2026-11-20T07:11:48.785812+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T09:10:30.150957+00:00",
+    "retry_after": "2026-12-20T09:10:30.150959+00:00",
     "search_hydrated": true
   },
   {
@@ -73817,9 +73796,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T07:11:48.785819+00:00",
-    "retry_after": "2026-11-20T07:11:48.785821+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T09:10:30.150969+00:00",
+    "retry_after": "2026-12-20T09:10:30.150971+00:00",
     "search_hydrated": true
   },
   {
@@ -73835,9 +73814,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T07:11:49.813122+00:00",
-    "retry_after": "2026-11-20T07:11:49.813123+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T09:10:31.678117+00:00",
+    "retry_after": "2026-12-20T09:10:31.678120+00:00",
     "search_hydrated": true
   },
   {
@@ -73846,9 +73825,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T07:11:48.785843+00:00",
-    "retry_after": "2026-11-20T07:11:48.785845+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T09:10:30.150999+00:00",
+    "retry_after": "2026-12-20T09:10:30.151002+00:00",
     "search_hydrated": true
   },
   {
@@ -98264,6 +98243,39 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-20T08:10:53.317887+00:00",
     "retry_after": "2026-11-21T08:10:53.317904+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vampirella: Mind Warp",
+    "publisher": "Dynamite Entertainment",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T09:04:35.464591+00:00",
+    "retry_after": "2026-11-21T09:04:35.464609+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cradle of Filth: Maledictus Athenaeum",
+    "publisher": "Opus Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T09:04:35.464669+00:00",
+    "retry_after": "2026-11-21T09:04:35.464673+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Artist's Elite Presents",
+    "publisher": "Artist Elite Publishing",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T09:04:35.464711+00:00",
+    "retry_after": "2026-11-21T09:04:35.464714+00:00",
     "search_hydrated": true
   }
 ]

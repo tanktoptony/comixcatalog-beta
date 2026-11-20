@@ -28212,9 +28212,10 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-27T21:17:59.142877+00:00",
-    "retry_after": "2026-09-30T21:17:59.142883+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-20T08:02:07.791043+00:00",
+    "retry_after": "2026-11-27T08:02:07.791046+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Strange Adventures",
@@ -61887,77 +61888,6 @@
     "retry_after": "2026-10-23T00:16:00.822336+00:00"
   },
   {
-    "name": "New Avengers",
-    "publisher": "Marvel Comics",
-    "year": 2005,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 11497,
-        "name": "New Avengers",
-        "publisher": null,
-        "start_year": 2005
-      },
-      {
-        "id": 55330,
-        "name": "New Avengers",
-        "publisher": null,
-        "start_year": 2013
-      },
-      {
-        "id": 119940,
-        "name": "New Avengers",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 33777,
-        "name": "New Avengers",
-        "publisher": null,
-        "start_year": 2010
-      },
-      {
-        "id": 85301,
-        "name": "New Avengers",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 40895,
-        "name": "The New Avengers",
-        "publisher": null,
-        "start_year": 2007
-      },
-      {
-        "id": 165022,
-        "name": "New Avengers",
-        "publisher": null,
-        "start_year": 2025
-      },
-      {
-        "id": 87105,
-        "name": "New Avengers",
-        "publisher": null,
-        "start_year": 2013
-      },
-      {
-        "id": 55695,
-        "name": "New Avengers",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 170991,
-        "name": "New Avengers ",
-        "publisher": null,
-        "start_year": 2026
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T00:16:01.535259+00:00",
-    "retry_after": "2026-10-23T00:16:01.535282+00:00"
-  },
-  {
     "name": "Movietown's Animal Antics",
     "publisher": "DC Comics",
     "year": 1950,
@@ -73658,9 +73588,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T06:12:25.421969+00:00",
-    "retry_after": "2026-11-20T06:12:25.421984+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T08:10:41.112611+00:00",
+    "retry_after": "2026-12-20T08:10:41.112629+00:00",
     "search_hydrated": true
   },
   {
@@ -73676,9 +73606,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T06:12:26.204304+00:00",
-    "retry_after": "2026-11-20T06:12:26.204319+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T08:10:41.924940+00:00",
+    "retry_after": "2026-12-20T08:10:41.924957+00:00",
     "search_hydrated": true
   },
   {
@@ -73687,9 +73617,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T06:12:25.422038+00:00",
-    "retry_after": "2026-11-20T06:12:25.422043+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T08:10:41.112674+00:00",
+    "retry_after": "2026-12-20T08:10:41.112678+00:00",
     "search_hydrated": true
   },
   {
@@ -73698,9 +73628,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T06:12:25.422058+00:00",
-    "retry_after": "2026-11-20T06:12:25.422061+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T08:10:41.112689+00:00",
+    "retry_after": "2026-12-20T08:10:41.112691+00:00",
     "search_hydrated": true
   },
   {
@@ -73709,9 +73639,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T06:12:25.422075+00:00",
-    "retry_after": "2026-11-20T06:12:25.422078+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T08:10:41.112701+00:00",
+    "retry_after": "2026-12-20T08:10:41.112703+00:00",
     "search_hydrated": true
   },
   {
@@ -73720,9 +73650,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T06:12:25.422090+00:00",
-    "retry_after": "2026-11-20T06:12:25.422092+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T08:10:41.112711+00:00",
+    "retry_after": "2026-12-20T08:10:41.112713+00:00",
     "search_hydrated": true
   },
   {
@@ -73731,9 +73661,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T06:12:25.422105+00:00",
-    "retry_after": "2026-11-20T06:12:25.422108+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T08:10:41.112722+00:00",
+    "retry_after": "2026-12-20T08:10:41.112724+00:00",
     "search_hydrated": true
   },
   {
@@ -73749,9 +73679,9 @@
         "start_year": 2008
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T06:12:26.204390+00:00",
-    "retry_after": "2026-11-20T06:12:26.204393+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T08:10:41.925028+00:00",
+    "retry_after": "2026-12-20T08:10:41.925031+00:00",
     "search_hydrated": true
   },
   {
@@ -73760,9 +73690,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T06:12:25.422132+00:00",
-    "retry_after": "2026-11-20T06:12:25.422134+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T08:10:41.112742+00:00",
+    "retry_after": "2026-12-20T08:10:41.112743+00:00",
     "search_hydrated": true
   },
   {
@@ -73778,9 +73708,9 @@
         "start_year": 2005
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T06:12:26.204615+00:00",
-    "retry_after": "2026-11-20T06:12:26.204620+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T08:10:41.925051+00:00",
+    "retry_after": "2026-12-20T08:10:41.925053+00:00",
     "search_hydrated": true
   },
   {
@@ -98203,6 +98133,137 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-20T07:04:51.634282+00:00",
     "retry_after": "2026-11-21T07:04:51.634285+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Avengers Forever",
+    "publisher": "Marvel Comics",
+    "year": 1998,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 28054,
+        "name": "Avengers Forever",
+        "publisher": "Marvel",
+        "start_year": 2009
+      },
+      {
+        "id": 140532,
+        "name": "Avengers Forever",
+        "publisher": "Marvel",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T08:02:07.790934+00:00",
+    "retry_after": "2026-11-21T08:02:07.790951+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Blue Beetle",
+    "publisher": "Modern [1970s]",
+    "year": 1977,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1668,
+        "name": "The Blue Beetle",
+        "publisher": "Charlton",
+        "start_year": 1955
+      },
+      {
+        "id": 2170,
+        "name": "Blue Beetle",
+        "publisher": "Charlton",
+        "start_year": 1964
+      },
+      {
+        "id": 2219,
+        "name": "Blue Beetle",
+        "publisher": "Charlton",
+        "start_year": 1965
+      },
+      {
+        "id": 2330,
+        "name": "Blue Beetle",
+        "publisher": "Charlton",
+        "start_year": 1967
+      },
+      {
+        "id": 3595,
+        "name": "Blue Beetle",
+        "publisher": "DC Comics",
+        "start_year": 1986
+      },
+      {
+        "id": 11393,
+        "name": "Blue Beetle",
+        "publisher": "Modern",
+        "start_year": 1977
+      },
+      {
+        "id": 18443,
+        "name": "Blue Beetle",
+        "publisher": "DC Comics",
+        "start_year": 2006
+      },
+      {
+        "id": 19402,
+        "name": "The Blue Beetle",
+        "publisher": "Fox Comics (US)",
+        "start_year": 1939
+      },
+      {
+        "id": 42970,
+        "name": "Blue Beetle",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 54022,
+        "name": "Blue Beetle",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 94410,
+        "name": "Blue Beetle",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 101382,
+        "name": "Blue Beetle",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 113540,
+        "name": "The Blue Beetle",
+        "publisher": "Gwandanaland Comics",
+        "start_year": null
+      },
+      {
+        "id": 153329,
+        "name": "Blue Beetle",
+        "publisher": "DC Comics",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T08:03:21.412034+00:00",
+    "retry_after": "2026-11-21T08:03:21.412050+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Black Beetle: Kara Böcek",
+    "publisher": "Dark Horse Comics",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T08:10:53.317887+00:00",
+    "retry_after": "2026-11-21T08:10:53.317904+00:00",
     "search_hydrated": true
   }
 ]

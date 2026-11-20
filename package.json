@@ -22,6 +22,7 @@
     "test:activity-feed": "node --test src/lib/activityFeed.test.js",
     "test:social": "node --test src/lib/messageContext.test.js src/lib/issueCollectors.test.js",
     "test:variant-covers": "node --test src/lib/variantCovers.test.js",
+    "test:issue-seo": "node --test src/lib/issueSeo.test.js",
     "test:library-mutations": "node --test src/lib/libraryMutations.test.js",
     "test:trade-matches": "node --test src/lib/tradeMatches.test.js",
     "test:chunk": "node --test src/lib/chunk.test.js",

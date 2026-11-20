@@ -8,6 +8,24 @@ export function issueName(issue) {
   return `${series}${number}${year}`;
 }
 
+// People search "<comic> value" and "<comic> price guide". Only issues that
+// actually show a PriceCharting guide say so. No dollar figures: PriceCharting's
+// terms require a link beside every price shown, and a search result can't
+// carry one.
+export function issueTitle(issue) {
+  const name = issueName(issue);
+  return issue?.price_guide?.grades?.length ? `${name} Value & Price Guide` : name;
+}
+
+function priceGuideLine(issue) {
+  const grades = issue?.price_guide?.grades ?? [];
+  if (!grades.length) return null;
+  const raw = grades.some((g) => g.grade === "ungraded");
+  const graded = grades.some((g) => g.grade !== "ungraded");
+  if (raw && graded) return "Raw and graded values from PriceCharting.";
+  return graded ? "Graded values from PriceCharting." : "Raw copy value from PriceCharting.";
+}
+
 function fitDescription(parts, maxLength = 160) {
   let description = "";
   for (const part of parts.filter(Boolean)) {
@@ -56,6 +74,8 @@ export function buildIssueDescription(issue) {
   const creatorLine = creators.length ? `By ${joinNames(creators)}.` : null;
   return fitDescription([
     publication,
+    // Ahead of the creators: it's what the title promises.
+    priceGuideLine(issue),
     creatorLine,
     issue?.title ? `Story: ${issue.title}.` : null,
     issue?.key_issue?.reason ? `Key issue: ${issue.key_issue.reason}.` : null,

@@ -68,10 +68,6 @@ jobs:
       - name: Install deps
         run: npm ci
 
-      - name: Sync creator photos
-        continue-on-error: true
-        run: node scripts/syncCreatorPhotos.js --apply
-
       # Persist the --force resume cursor across runs. Each GitHub runner is
       # ephemeral, so scripts/.refresh-cursor (written per-batch by the script)
       # would otherwise vanish when a run ends — meaning a cancelled/evicted run
@@ -162,3 +158,18 @@ jobs:
           else
             echo "No cover-gap changes this week."
           fi
+
+      # Last on purpose: a photo problem can't hold up the cache refresh above.
+      # Exit 3 = Wikidata/Commons unavailable, nothing written (expected now
+      # and then). Any other non-zero exit is a real failure and goes red.
+      - name: Sync creator photos
+        run: |
+          set +e
+          node scripts/syncCreatorPhotos.js --apply
+          code=$?
+          set -e
+          if [ "$code" -eq 3 ]; then
+            echo "::warning::Wikidata or Commons unavailable; creator photos not synced this run."
+            exit 0
+          fi
+          exit "$code"

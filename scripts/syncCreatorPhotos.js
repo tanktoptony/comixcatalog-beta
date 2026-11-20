@@ -23,10 +23,26 @@ function chunks(values, size) {
   return result;
 }
 
+// Exit code 3 means Wikidata or Commons was unavailable: expected now and
+// then, nothing was written, and the workflow reports it as a warning. Every
+// other failure (our database, a bug) exits 1 and turns the run red.
+const UPSTREAM_EXIT = 3;
+const upstreamError = (message, cause) => Object.assign(new Error(message, { cause }), { upstream: true });
+
 async function fetchJson(url, accept) {
-  const response = await fetch(url, { headers: { Accept: accept, "User-Agent": USER_AGENT } });
-  if (!response.ok) throw new Error(`${response.status} ${response.statusText} from ${new URL(url).hostname}`);
-  return response.json();
+  const host = new URL(url).hostname;
+  let response;
+  try {
+    response = await fetch(url, { headers: { Accept: accept, "User-Agent": USER_AGENT } });
+  } catch (error) {
+    throw upstreamError(`Could not reach ${host}`, error);
+  }
+  if (!response.ok) throw upstreamError(`${response.status} ${response.statusText} from ${host}`);
+  try {
+    return await response.json();
+  } catch (error) {
+    throw upstreamError(`Unreadable response from ${host}`, error);
+  }
 }
 
 async function wikidataRows() {
@@ -44,7 +60,7 @@ async function commonsMetadata(imageByGcd) {
     const json = await fetchJson(`${COMMONS_URL}?${params}`, "application/json");
     // Commons reports maxlag and other failures as a 200 with an error body.
     // Treating that as "no image" would clear real photos, so stop instead.
-    if (json.error) throw new Error(`Commons error: ${json.error.code ?? "unknown"} ${json.error.info ?? ""}`.trim());
+    if (json.error) throw upstreamError(`Commons error: ${json.error.code ?? "unknown"} ${json.error.info ?? ""}`.trim());
     const titleKey = (value) => value.replace(/_/g, " ").toLowerCase();
     const byTitle = new Map(Object.values(json.query?.pages ?? {}).map((page) => [titleKey(page.title), page.imageinfo?.[0]]));
     for (const row of batch) metadata.set(row.gcdId, byTitle.get(titleKey(row.title)));
@@ -128,5 +144,5 @@ async function main() {
 
 main().catch((error) => {
   console.error(error);
-  process.exitCode = 1;
+  process.exitCode = error?.upstream ? UPSTREAM_EXIT : 1;
 });

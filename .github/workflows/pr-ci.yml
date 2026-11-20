@@ -241,6 +241,9 @@ jobs:
       - name: eBay comp matching tests
         run: npm run test:comp-match
 
+      - name: PriceCharting parser tests
+        run: npm run test:pricecharting
+
       - name: JSON-LD escaping tests
         run: npm run test:json-ld
 

@@ -166,6 +166,14 @@ export default function Footer() {
                 comixcatalog@gmail.com
               </a>
             </p>
+            {/* PriceCharting's terms (2026-11-10) ask for a logo or text
+                credit; issue pages also link each book's own page. */}
+            <p className="footer-meta-line">
+              <a href="https://www.pricecharting.com/" target="_blank" rel="noopener" className="footer-meta-link footer-pc-credit">
+                <Image src="/img/partners/pricecharting.svg" alt="" width={18} height={16} aria-hidden="true" />
+                Price data by PriceCharting
+              </a>
+            </p>
           </div>
         </div>
       </div>

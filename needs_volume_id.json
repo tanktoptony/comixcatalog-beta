@@ -72735,9 +72735,9 @@
         "start_year": null
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T00:12:14.107080+00:00",
-    "retry_after": "2026-11-20T00:12:14.107095+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T01:12:25.194211+00:00",
+    "retry_after": "2026-12-20T01:12:25.194229+00:00",
     "search_hydrated": true
   },
   {
@@ -72746,9 +72746,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T00:12:13.161061+00:00",
-    "retry_after": "2026-11-20T00:12:13.161080+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T01:12:24.344373+00:00",
+    "retry_after": "2026-12-20T01:12:24.344390+00:00",
     "search_hydrated": true
   },
   {
@@ -72757,9 +72757,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T00:12:13.161099+00:00",
-    "retry_after": "2026-11-20T00:12:13.161102+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T01:12:24.344419+00:00",
+    "retry_after": "2026-12-20T01:12:24.344423+00:00",
     "search_hydrated": true
   },
   {
@@ -72775,9 +72775,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T00:12:14.188383+00:00",
-    "retry_after": "2026-11-20T00:12:14.188397+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T01:12:25.441424+00:00",
+    "retry_after": "2026-12-20T01:12:25.441442+00:00",
     "search_hydrated": true
   },
   {
@@ -72797,9 +72797,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T00:12:13.161131+00:00",
-    "retry_after": "2026-11-20T00:12:13.161133+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T01:12:24.344451+00:00",
+    "retry_after": "2026-12-20T01:12:24.344453+00:00",
     "search_hydrated": true
   },
   {
@@ -72815,9 +72815,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T00:12:14.188498+00:00",
-    "retry_after": "2026-11-20T00:12:14.188502+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T01:12:25.441511+00:00",
+    "retry_after": "2026-12-20T01:12:25.441514+00:00",
     "search_hydrated": true
   },
   {
@@ -72826,9 +72826,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T00:12:13.161159+00:00",
-    "retry_after": "2026-11-20T00:12:13.161161+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T01:12:24.344478+00:00",
+    "retry_after": "2026-12-20T01:12:24.344480+00:00",
     "search_hydrated": true
   },
   {
@@ -72837,9 +72837,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T00:12:13.161172+00:00",
-    "retry_after": "2026-11-20T00:12:13.161174+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T01:12:24.344489+00:00",
+    "retry_after": "2026-12-20T01:12:24.344490+00:00",
     "search_hydrated": true
   },
   {
@@ -72848,9 +72848,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T00:12:13.161183+00:00",
-    "retry_after": "2026-11-20T00:12:13.161185+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T01:12:24.344498+00:00",
+    "retry_after": "2026-12-20T01:12:24.344499+00:00",
     "search_hydrated": true
   },
   {
@@ -72866,9 +72866,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T00:12:14.370645+00:00",
-    "retry_after": "2026-11-20T00:12:14.370660+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T01:12:25.637147+00:00",
+    "retry_after": "2026-12-20T01:12:25.637164+00:00",
     "search_hydrated": true
   },
   {
@@ -97847,6 +97847,125 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-20T00:12:42.643157+00:00",
     "retry_after": "2026-11-21T00:12:42.643176+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "X-Men",
+    "publisher": "Marvel Comics",
+    "year": 2024,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2133,
+        "name": "The X-Men",
+        "publisher": "Marvel",
+        "start_year": 1963
+      },
+      {
+        "id": 10731,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2004
+      },
+      {
+        "id": 34221,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 137402,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2021
+      },
+      {
+        "id": 4605,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 1991
+      },
+      {
+        "id": 62383,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 122077,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T01:06:06.531811+00:00",
+    "retry_after": "2026-11-21T01:06:06.531829+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Power Hour: Rise of the Witch",
+    "publisher": "Black Ops Publishing",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T01:06:06.531854+00:00",
+    "retry_after": "2026-11-21T01:06:06.531857+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Run Wild",
+    "publisher": "BOOM! Studios",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 112198,
+        "name": "Run Wild",
+        "publisher": "Archaia",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T01:12:34.166012+00:00",
+    "retry_after": "2026-11-21T01:12:34.166030+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cynthia Petal's Really Fantastic Alien Sex Frenzy!",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51946,
+        "name": "Cynthia Petal's Really Fantastic Alien Sex Frenzy!",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T01:12:34.166055+00:00",
+    "retry_after": "2026-11-21T01:12:34.166058+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Crime Mysteries",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 10802,
+        "name": "Crime Mysteries",
+        "publisher": "Trojan Magazines",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T01:12:34.166073+00:00",
+    "retry_after": "2026-11-21T01:12:34.166075+00:00",
     "search_hydrated": true
   }
 ]

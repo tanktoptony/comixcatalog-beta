@@ -12,6 +12,10 @@
 --
 -- Only platform_fee_bps changes. Keep FEE_CONFIG in src/lib/orders.js equal
 -- to this object (src/lib/orders.test.js checks it).
+--
+-- Rollback:
+--   rerun the mkt_fee_config() definition from 0070_stripe_events_payouts.sql
+--   (identical except platform_fee_bps 0), and set FEE_CONFIG back to 0.
 
 create or replace function public.mkt_fee_config() returns jsonb language sql immutable security definer set search_path=public as $$
  select '{"platform_fee_bps":500,"processing_fee_bps":290,"processing_fee_fixed_cents":30,"reservation_minutes":35,"auto_deliver_days":14,"complete_after_delivery_days":3,"tracking_required_cents":5000,"ship_to_retention_days":120}'::jsonb

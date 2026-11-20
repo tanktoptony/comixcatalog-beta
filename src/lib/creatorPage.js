@@ -79,6 +79,7 @@ export function creatorJsonLd(creator, url) {
     "@type": "Person",
     name: creator.name,
     url,
+    ...(creator.photo_url ? { image: creator.photo_url } : {}),
     ...(Number(creator.role_counts?.[role]) > 0 ? { jobTitle: labelRole(role) } : {}),
   };
 }

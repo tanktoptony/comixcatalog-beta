@@ -34,3 +34,8 @@ test("summary uses 'an' before a vowel role", () => {
   const summary = buildCreatorSummary({ name: "Karl Story", credit_count: 1, role_counts: { writer: 0, penciller: 0, inker: 1, colorist: 0, letterer: 0, cover: 0 }, year_start: 2013, year_end: 2013 });
   assert.match(summary, /mostly as an inker/);
 });
+
+test("creator JSON-LD includes a photo when available", () => {
+  const data = creatorJsonLd({ name: "Jane Artist", photo_url: "https://upload.wikimedia.org/photo.jpg", role_counts: {} }, "https://example.com/creator/jane");
+  assert.equal(data.image, "https://upload.wikimedia.org/photo.jpg");
+});

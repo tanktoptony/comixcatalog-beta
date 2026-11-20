@@ -44,8 +44,13 @@ function yearOf(issue) {
 
 async function loadCreatorPage(slug) {
   const supabase = getServiceClient();
-  const { data: creator, error: creatorError } = await supabase.from("creators")
-    .select("id, name, slug").eq("slug", slug).maybeSingle();
+  let { data: creator, error: creatorError } = await supabase.from("creators")
+    .select("id, name, slug, photo_url, photo_page_url, photo_credit, photo_license").eq("slug", slug).maybeSingle();
+  // Deploys can serve the new page before its additive migration is applied.
+  if (creatorError && (creatorError.code === "42703" || creatorError.code === "PGRST204" || /photo_(?:url|page_url|credit|license)/i.test(creatorError.message ?? ""))) {
+    ({ data: creator, error: creatorError } = await supabase.from("creators")
+      .select("id, name, slug").eq("slug", slug).maybeSingle());
+  }
   if (creatorError) throw creatorError;
   if (!creator) return null;
 

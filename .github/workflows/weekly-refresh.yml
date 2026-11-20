@@ -68,6 +68,10 @@ jobs:
       - name: Install deps
         run: npm ci
 
+      - name: Sync creator photos
+        continue-on-error: true
+        run: node scripts/syncCreatorPhotos.js --apply
+
       # Persist the --force resume cursor across runs. Each GitHub runner is
       # ephemeral, so scripts/.refresh-cursor (written per-batch by the script)
       # would otherwise vanish when a run ends — meaning a cancelled/evicted run

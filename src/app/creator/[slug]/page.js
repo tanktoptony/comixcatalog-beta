@@ -11,6 +11,8 @@ const yearLabel = (run) => run.year_start && run.year_end && run.year_start !== 
   ? `${run.year_start}-${run.year_end}`
   : String(run.year_start || run.year_end || "Years unknown");
 
+const initials = (name) => String(name ?? "").trim().split(/\s+/).filter(Boolean).slice(0, 2).map((part) => part[0]).join("").toUpperCase() || "?";
+
 export default async function CreatorPage({ params }) {
   const { slug } = await params;
   const creator = await getCreatorPage(slug);
@@ -26,8 +28,22 @@ export default async function CreatorPage({ params }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }} />
       <section className="comic-panel">
         <div className="section-label badge-x">Creator</div>
-        <h1 className="hero-title">{creator.name}</h1>
-        <p className="creator-intro">{buildCreatorSummary(creator)}</p>
+        <div className="creator-header">
+          <div className="creator-photo-block">
+            {creator.photo_url
+              ? /* Commons URLs are already fixed-width thumbnails and must remain direct for attribution. */
+                // eslint-disable-next-line @next/next/no-img-element
+                <img className="creator-photo" src={creator.photo_url} alt={creator.name} width="112" height="112" loading="eager" />
+              : <div className="creator-photo creator-monogram" aria-hidden="true">{initials(creator.name)}</div>}
+          </div>
+          <div className="creator-heading-copy">
+            <h1 className="hero-title">{creator.name}</h1>
+            <p className="creator-intro">{buildCreatorSummary(creator)}</p>
+            {creator.photo_url && (
+              <p className="creator-photo-credit">Photo: {creator.photo_credit || "Unknown author"}, {creator.photo_license}, via <a href={creator.photo_page_url} rel="noopener">Wikimedia Commons</a></p>
+            )}
+          </div>
+        </div>
         <div className="creator-stats">
           <div><strong>{creator.credit_count.toLocaleString("en-US")}</strong><span>Credits</span></div>
           <div><strong>{creator.runs.length.toLocaleString("en-US")}</strong><span>Series</span></div>

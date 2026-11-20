@@ -12072,20 +12072,22 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 37222,
-        "name": "Fantastic Comics",
-        "publisher": "Ajax-Farrell",
-        "start_year": 1954
-      },
-      {
         "id": 19504,
         "name": "Fantastic Comics",
         "publisher": "Fox Comics (US)",
         "start_year": 1940
+      },
+      {
+        "id": 37222,
+        "name": "Fantastic Comics",
+        "publisher": "Ajax-Farrell",
+        "start_year": 1954
       }
     ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556582+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-20T17:07:25.401670+00:00",
+    "retry_after": "2026-11-23T17:07:25.401681+00:00",
+    "search_hydrated": true
   },
   {
     "name": "X-Statix",
@@ -23297,8 +23299,9 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-09-24T11:02:07.382535+00:00",
-    "retry_after": "2026-09-25T11:02:07.382555+00:00"
+    "last_attempt_at": "2026-11-20T17:07:25.401749+00:00",
+    "retry_after": "2026-11-21T17:07:25.401753+00:00",
+    "search_hydrated": true
   },
   {
     "name": "X-Men: First Class Giant-Size Special",
@@ -27471,9 +27474,9 @@
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-19T16:25:04.115276+00:00",
-    "retry_after": "2026-11-20T16:25:04.115295+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-20T17:19:35.444735+00:00",
+    "retry_after": "2026-11-23T17:19:35.444740+00:00",
     "search_hydrated": true
   },
   {
@@ -74803,9 +74806,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T14:11:20.689863+00:00",
-    "retry_after": "2026-11-20T14:11:20.689869+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T17:18:47.784732+00:00",
+    "retry_after": "2026-12-20T17:18:47.784746+00:00",
     "search_hydrated": true
   },
   {
@@ -74814,9 +74817,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T14:11:19.169633+00:00",
-    "retry_after": "2026-11-20T14:11:19.169645+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T17:18:46.211211+00:00",
+    "retry_after": "2026-12-20T17:18:46.211225+00:00",
     "search_hydrated": true
   },
   {
@@ -74825,9 +74828,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T14:11:19.169667+00:00",
-    "retry_after": "2026-11-20T14:11:19.169670+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T17:18:46.211258+00:00",
+    "retry_after": "2026-12-20T17:18:46.211262+00:00",
     "search_hydrated": true
   },
   {
@@ -74843,9 +74846,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T14:11:20.809914+00:00",
-    "retry_after": "2026-11-20T14:11:20.809920+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T17:18:47.944571+00:00",
+    "retry_after": "2026-12-20T17:18:47.944584+00:00",
     "search_hydrated": true
   },
   {
@@ -74854,9 +74857,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T14:11:19.169680+00:00",
-    "retry_after": "2026-11-20T14:11:19.169682+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T17:18:46.211279+00:00",
+    "retry_after": "2026-12-20T17:18:46.211282+00:00",
     "search_hydrated": true
   },
   {
@@ -74865,9 +74868,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T14:11:19.169689+00:00",
-    "retry_after": "2026-11-20T14:11:19.169691+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T17:18:46.211295+00:00",
+    "retry_after": "2026-12-20T17:18:46.211297+00:00",
     "search_hydrated": true
   },
   {
@@ -74876,9 +74879,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T14:11:19.169699+00:00",
-    "retry_after": "2026-11-20T14:11:19.169701+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T17:18:46.211312+00:00",
+    "retry_after": "2026-12-20T17:18:46.211314+00:00",
     "search_hydrated": true
   },
   {
@@ -74887,9 +74890,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T14:11:19.169707+00:00",
-    "retry_after": "2026-11-20T14:11:19.169708+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T17:18:46.211326+00:00",
+    "retry_after": "2026-12-20T17:18:46.211328+00:00",
     "search_hydrated": true
   },
   {
@@ -74911,9 +74914,9 @@
         "start_year": 2000
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T14:11:19.169734+00:00",
-    "retry_after": "2026-11-20T14:11:19.169736+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T17:18:46.211365+00:00",
+    "retry_after": "2026-12-20T17:18:46.211368+00:00",
     "search_hydrated": true
   },
   {
@@ -97642,6 +97645,83 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-20T16:13:02.920302+00:00",
     "retry_after": "2026-11-21T16:13:02.920305+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Graphic Fantasy",
+    "publisher": "Ajax Comics",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 133599,
+        "name": "Graphic Fantasy",
+        "publisher": "Image",
+        "start_year": 2021
+      },
+      {
+        "id": 31752,
+        "name": "Graphic Fantasy",
+        "publisher": "Ajax Comics Group",
+        "start_year": 1982
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T17:09:02.430946+00:00",
+    "retry_after": "2026-11-21T17:09:02.430956+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Resistance",
+    "publisher": "AWA Studios",
+    "year": 2009,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 130936,
+        "name": "The Resistance",
+        "publisher": "AWA Studios",
+        "start_year": 2020
+      },
+      {
+        "id": 125840,
+        "name": "The Resistance",
+        "publisher": "AWA Studios",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T17:09:02.431028+00:00",
+    "retry_after": "2026-11-21T17:09:02.431032+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Picture Stories from the Bible (Complete New Testament Edition)",
+    "publisher": "EC Comics",
+    "year": 1946,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T17:18:59.724132+00:00",
+    "retry_after": "2026-11-21T17:18:59.724148+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "La Grande Dinastia dei Paperi",
+    "publisher": "Dell Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 157394,
+        "name": "La Grande Dinastia dei Paperi",
+        "publisher": "Corriere Della Sera",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T17:19:35.444673+00:00",
+    "retry_after": "2026-11-21T17:19:35.444687+00:00",
     "search_hydrated": true
   }
 ]

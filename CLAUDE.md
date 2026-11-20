@@ -236,7 +236,8 @@ PK `id` (uuid). FK `canonical_cover_id` → `canonical_covers.id`, loose `gcd_is
 Columns: `source` ('comicvine'), `source_image_id`, `original_url`, `storage_path`, `caption`, `image_tags`, `sort_order`, `created_at`.
 - Populated by `comicvine_api_to_supabase.py` from ComicVine's `associated_images` field on the same bulk issue-list call the ingester already makes — no extra API cost. Read by `src/app/api/issues/[id]/route.js`.
 - **`caption`/`image_tags` are not reliable variant labels** — ComicVine returns `caption: null` and a bucket-name `image_tags: "All Images"` for most issues. Any variant-picker UI needs to work as a grid of unlabeled thumbnails, not a labeled dropdown. See `docs/variant-and-collected-editions-spec.md`.
-- This corrects the roadmap below, which still listed proper variant schema as deferred/future work as of this writing — the schema and ingestion-time population are done; a user-facing variant picker UI is the remaining piece.
+- This corrects the roadmap below, which still listed proper variant schema as deferred/future work as of this writing — the schema and ingestion-time population are done.
+- **Issue-page cover strip is wired to editions (Nov 2026).** `src/lib/variantCovers.js` attaches each image to at most one GCD edition: exact non-base `gcd_issue_id`, else every distinctive word of the edition name appears in the caption and exactly one edition qualifies. An attached image navigates to `?edition=` so price, barcode, credits, Versions selection and PriceCharting values follow; an unattached one only swaps the picture and says so. `mergeEditionContents()` keeps the base issue's interior credits when GCD indexed a variant with only its cover. Tests: `npm run test:variant-covers`.
 
 #### `blog_comments`
 PK `id` (uuid). FKs `user_id` → `auth.users.id`, `post_id` → blog posts table.

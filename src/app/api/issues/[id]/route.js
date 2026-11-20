@@ -463,7 +463,7 @@ export async function GET(req, context) {
       if (canonicalMatch.canonical_cover_id) {
         const { data: variantRows, error: variantRowsError } = await supabase
           .from("cover_variants")
-          .select("id, storage_path, sort_order")
+          .select("id, storage_path, sort_order, caption, gcd_issue_id")
           .eq("canonical_cover_id", canonicalMatch.canonical_cover_id)
           .order("sort_order", { ascending: true });
         if (variantRowsError) {
@@ -472,6 +472,8 @@ export async function GET(req, context) {
         }
         variants = (variantRows ?? []).map((variant) => ({
           id: variant.id,
+          caption: variant.caption ?? null,
+          gcdIssueId: variant.gcd_issue_id ?? null,
           storageUrl: variant.storage_path
             ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${variant.storage_path}`
             : null,
@@ -783,7 +785,7 @@ export async function GET(req, context) {
       if (canonicalMatch.id) {
         const { data: variantRows, error: variantRowsError } = await supabase
           .from("cover_variants")
-          .select("id, storage_path, sort_order")
+          .select("id, storage_path, sort_order, caption, gcd_issue_id")
           .eq("canonical_cover_id", canonicalMatch.id)
           .order("sort_order", { ascending: true });
         if (variantRowsError) {
@@ -792,6 +794,8 @@ export async function GET(req, context) {
         }
         variants = (variantRows ?? []).map((variant) => ({
           id: variant.id,
+          caption: variant.caption ?? null,
+          gcdIssueId: variant.gcd_issue_id ?? null,
           storageUrl: variant.storage_path
             ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${variant.storage_path}`
             : null,

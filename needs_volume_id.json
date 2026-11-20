@@ -31397,9 +31397,10 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-28T11:02:51.391712+00:00",
-    "retry_after": "2026-09-29T11:02:51.391723+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-20T04:04:19.305183+00:00",
+    "retry_after": "2026-11-23T04:04:19.305203+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The Avengers [John Steed Emma Peel]",
@@ -60882,53 +60883,6 @@
     "retry_after": "2026-10-22T21:16:04.402568+00:00"
   },
   {
-    "name": "Crimson",
-    "publisher": "DC Comics",
-    "year": 1999,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 6320,
-        "name": "Crimson",
-        "publisher": null,
-        "start_year": 1999
-      },
-      {
-        "id": 91720,
-        "name": "Crimson",
-        "publisher": null,
-        "start_year": 1999
-      },
-      {
-        "id": 54841,
-        "name": "Crimson",
-        "publisher": null,
-        "start_year": 2000
-      },
-      {
-        "id": 127390,
-        "name": "Crimson",
-        "publisher": null,
-        "start_year": 1999
-      },
-      {
-        "id": 84095,
-        "name": "Crimson",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 124671,
-        "name": "Crimson",
-        "publisher": null,
-        "start_year": 2019
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T22:32:39.347817+00:00",
-    "retry_after": "2026-10-22T22:32:39.347833+00:00"
-  },
-  {
     "name": "Helga Twist",
     "publisher": "Fantagraphics",
     "year": 1994,
@@ -73150,9 +73104,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T02:12:04.419570+00:00",
-    "retry_after": "2026-11-20T02:12:04.419585+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T04:11:49.769171+00:00",
+    "retry_after": "2026-12-20T04:11:49.769190+00:00",
     "search_hydrated": true
   },
   {
@@ -73168,9 +73122,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T02:12:04.577059+00:00",
-    "retry_after": "2026-11-20T02:12:04.577075+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T04:11:49.847587+00:00",
+    "retry_after": "2026-12-20T04:11:49.847603+00:00",
     "search_hydrated": true
   },
   {
@@ -73179,9 +73133,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T02:12:04.419625+00:00",
-    "retry_after": "2026-11-20T02:12:04.419628+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T04:11:49.769237+00:00",
+    "retry_after": "2026-12-20T04:11:49.769241+00:00",
     "search_hydrated": true
   },
   {
@@ -73190,9 +73144,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T02:12:04.419641+00:00",
-    "retry_after": "2026-11-20T02:12:04.419643+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T04:11:49.769257+00:00",
+    "retry_after": "2026-12-20T04:11:49.769260+00:00",
     "search_hydrated": true
   },
   {
@@ -73201,9 +73155,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T02:12:04.419654+00:00",
-    "retry_after": "2026-11-20T02:12:04.419655+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T04:11:49.769272+00:00",
+    "retry_after": "2026-12-20T04:11:49.769274+00:00",
     "search_hydrated": true
   },
   {
@@ -73212,9 +73166,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T02:12:04.419664+00:00",
-    "retry_after": "2026-11-20T02:12:04.419666+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T04:11:49.769283+00:00",
+    "retry_after": "2026-12-20T04:11:49.769285+00:00",
     "search_hydrated": true
   },
   {
@@ -73223,9 +73177,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T02:12:04.419674+00:00",
-    "retry_after": "2026-11-20T02:12:04.419676+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T04:11:49.769294+00:00",
+    "retry_after": "2026-12-20T04:11:49.769296+00:00",
     "search_hydrated": true
   },
   {
@@ -73234,9 +73188,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T02:12:04.419683+00:00",
-    "retry_after": "2026-11-20T02:12:04.419685+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T04:11:49.769304+00:00",
+    "retry_after": "2026-12-20T04:11:49.769306+00:00",
     "search_hydrated": true
   },
   {
@@ -73245,9 +73199,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T02:12:04.419693+00:00",
-    "retry_after": "2026-11-20T02:12:04.419695+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T04:11:49.769315+00:00",
+    "retry_after": "2026-12-20T04:11:49.769317+00:00",
     "search_hydrated": true
   },
   {
@@ -73256,9 +73210,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T02:12:04.419705+00:00",
-    "retry_after": "2026-11-20T02:12:04.419707+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T04:11:49.769329+00:00",
+    "retry_after": "2026-12-20T04:11:49.769331+00:00",
     "search_hydrated": true
   },
   {
@@ -98044,6 +97998,50 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-20T03:12:45.531972+00:00",
     "retry_after": "2026-11-21T03:12:45.531990+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Orc Island",
+    "publisher": "Bad Idea",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T04:07:38.263221+00:00",
+    "retry_after": "2026-11-21T04:07:38.263240+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "True Crime Funnies",
+    "publisher": "Jim Rugg",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T04:07:38.263304+00:00",
+    "retry_after": "2026-11-21T04:07:38.263308+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kurt Busiek's Astro City: Family Album",
+    "publisher": "DC Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T04:11:59.097350+00:00",
+    "retry_after": "2026-11-21T04:11:59.097368+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Legion of Super-Heroes: The Curse The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T04:11:59.097397+00:00",
+    "retry_after": "2026-11-21T04:11:59.097400+00:00",
     "search_hydrated": true
   }
 ]

@@ -28449,9 +28449,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-12T21:55:28.697196+00:00",
-    "retry_after": "2026-11-19T21:55:28.697213+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-20T00:12:21.870171+00:00",
+    "retry_after": "2026-12-04T00:12:21.870174+00:00",
     "search_hydrated": true
   },
   {
@@ -35055,9 +35055,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T19:06:40.127659+00:00",
-    "retry_after": "2026-11-19T19:06:40.127662+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T00:12:21.870089+00:00",
+    "retry_after": "2026-12-20T00:12:21.870093+00:00",
     "search_hydrated": true
   },
   {
@@ -35412,9 +35412,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T18:10:16.152115+00:00",
-    "retry_after": "2026-11-19T18:10:16.152119+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T00:12:21.870033+00:00",
+    "retry_after": "2026-12-20T00:12:21.870052+00:00",
     "search_hydrated": true
   },
   {
@@ -60880,23 +60880,6 @@
     "retry_after": "2026-10-22T21:16:04.402568+00:00"
   },
   {
-    "name": "Cult of the Lamb",
-    "publisher": "Oni Press",
-    "year": 2024,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 158417,
-        "name": "Cult of the Lamb",
-        "publisher": null,
-        "start_year": 2024
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T22:32:38.904392+00:00",
-    "retry_after": "2026-10-22T22:32:38.904407+00:00"
-  },
-  {
     "name": "Crimson",
     "publisher": "DC Comics",
     "year": 1999,
@@ -72803,9 +72786,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T00:01:39.101568+00:00",
-    "retry_after": "2026-11-20T00:01:39.101583+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T00:02:05.641281+00:00",
+    "retry_after": "2026-12-20T00:02:05.641298+00:00",
     "search_hydrated": true
   },
   {
@@ -89419,9 +89402,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-12T21:55:28.697231+00:00",
-    "retry_after": "2026-11-19T21:55:28.697234+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-20T00:12:21.870189+00:00",
+    "retry_after": "2026-12-04T00:12:21.870192+00:00",
     "search_hydrated": true
   },
   {
@@ -97709,6 +97692,161 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-19T23:34:19.021189+00:00",
     "retry_after": "2026-11-20T23:34:19.021204+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Death Metal",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 5292,
+        "name": "Death Metal",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T00:02:22.083183+00:00",
+    "retry_after": "2026-11-21T00:02:22.083206+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Death Wreck",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20528,
+        "name": "Death Wreck",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T00:02:22.083238+00:00",
+    "retry_after": "2026-11-21T00:02:22.083242+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Zdarsky Comic News",
+    "publisher": "Zdarsky",
+    "year": 2024,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T00:06:24.463703+00:00",
+    "retry_after": "2026-11-21T00:06:24.463725+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vampirella: Hell on Earth Battlebook: Streets of Fire",
+    "publisher": "BattleBooks Inc.",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22057,
+        "name": "Vampirella: Hell on Earth Battlebook: Streets of Fire",
+        "publisher": "Battlebooks Incorporated",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T00:08:19.568458+00:00",
+    "retry_after": "2026-11-21T00:08:19.568479+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Simpsorama",
+    "publisher": "Titan Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65122,
+        "name": "Simpsons Comics: Simpsorama",
+        "publisher": "HarperCollins",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T00:12:34.400831+00:00",
+    "retry_after": "2026-11-21T00:12:34.400851+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kick-Ass 2 Prelude: Hit Girl",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58598,
+        "name": "Kick-Ass 2 Prelude: Hit-Girl",
+        "publisher": "Icon Books",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T00:12:34.400882+00:00",
+    "retry_after": "2026-11-21T00:12:34.400886+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gli Albi dei Super-Eroi",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34647,
+        "name": "Gli Albi dei Super-Eroi",
+        "publisher": "Editoriale Corno",
+        "start_year": 1973
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T00:12:34.400908+00:00",
+    "retry_after": "2026-11-21T00:12:34.400911+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Don't Let the Penguin Drive the Batmobile",
+    "publisher": "EC Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 114242,
+        "name": "Don't Let the Penguin Drive the Batmobile!",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T00:12:34.400930+00:00",
+    "retry_after": "2026-11-21T00:12:34.400933+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Mix",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57055,
+        "name": "Marvel Mix",
+        "publisher": "Panini Comics",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T00:12:42.643157+00:00",
+    "retry_after": "2026-11-21T00:12:42.643176+00:00",
     "search_hydrated": true
   }
 ]

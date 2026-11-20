@@ -72999,9 +72999,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T01:12:14.989567+00:00",
-    "retry_after": "2026-11-20T01:12:14.989586+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T03:12:32.062986+00:00",
+    "retry_after": "2026-12-20T03:12:32.063003+00:00",
     "search_hydrated": true
   },
   {
@@ -73017,9 +73017,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T01:12:15.155979+00:00",
-    "retry_after": "2026-11-20T01:12:15.155999+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T03:12:32.187388+00:00",
+    "retry_after": "2026-12-20T03:12:32.187406+00:00",
     "search_hydrated": true
   },
   {
@@ -73028,9 +73028,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T01:12:13.929012+00:00",
-    "retry_after": "2026-11-20T01:12:13.929031+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T03:12:29.712330+00:00",
+    "retry_after": "2026-12-20T03:12:29.712348+00:00",
     "search_hydrated": true
   },
   {
@@ -73039,9 +73039,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T01:12:13.929058+00:00",
-    "retry_after": "2026-11-20T01:12:13.929062+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T03:12:29.712364+00:00",
+    "retry_after": "2026-12-20T03:12:29.712366+00:00",
     "search_hydrated": true
   },
   {
@@ -73057,9 +73057,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T01:12:15.156079+00:00",
-    "retry_after": "2026-11-20T01:12:15.156083+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T03:12:32.187459+00:00",
+    "retry_after": "2026-12-20T03:12:32.187461+00:00",
     "search_hydrated": true
   },
   {
@@ -73075,9 +73075,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T01:12:15.156310+00:00",
-    "retry_after": "2026-11-20T01:12:15.156314+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T03:12:32.187475+00:00",
+    "retry_after": "2026-12-20T03:12:32.187477+00:00",
     "search_hydrated": true
   },
   {
@@ -73086,9 +73086,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T01:12:13.929105+00:00",
-    "retry_after": "2026-11-20T01:12:13.929108+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T03:12:29.712390+00:00",
+    "retry_after": "2026-12-20T03:12:29.712392+00:00",
     "search_hydrated": true
   },
   {
@@ -73097,9 +73097,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T01:12:13.929122+00:00",
-    "retry_after": "2026-11-20T01:12:13.929125+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T03:12:29.712399+00:00",
+    "retry_after": "2026-12-20T03:12:29.712400+00:00",
     "search_hydrated": true
   },
   {
@@ -73108,9 +73108,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T01:12:13.929137+00:00",
-    "retry_after": "2026-11-20T01:12:13.929140+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T03:12:29.712406+00:00",
+    "retry_after": "2026-12-20T03:12:29.712408+00:00",
     "search_hydrated": true
   },
   {
@@ -73126,9 +73126,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T01:12:15.156357+00:00",
-    "retry_after": "2026-11-20T01:12:15.156361+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T03:12:32.187502+00:00",
+    "retry_after": "2026-12-20T03:12:32.187504+00:00",
     "search_hydrated": true
   },
   {
@@ -98004,6 +98004,46 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-20T02:12:39.318312+00:00",
     "retry_after": "2026-11-21T02:12:39.318314+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Neil Gaiman's Wheel of Worlds",
+    "publisher": "Big Entertainment",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20944,
+        "name": "Neil Gaiman's Wheel of Worlds",
+        "publisher": "Tekno Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T03:02:00.336909+00:00",
+    "retry_after": "2026-11-21T03:02:00.336928+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kitty Pryde, Agent of SHIELD",
+    "publisher": "Marvel Comics",
+    "year": 1997,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T03:03:33.422526+00:00",
+    "retry_after": "2026-11-21T03:03:33.422547+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Shadow Over Innsmouth (One Shot)",
+    "publisher": "Dynamite Entertainment",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T03:12:45.531972+00:00",
+    "retry_after": "2026-11-21T03:12:45.531990+00:00",
     "search_hydrated": true
   }
 ]

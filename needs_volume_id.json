@@ -74540,9 +74540,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T12:12:09.098539+00:00",
-    "retry_after": "2026-11-20T12:12:09.098554+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T15:09:31.619789+00:00",
+    "retry_after": "2026-12-20T15:09:31.619804+00:00",
     "search_hydrated": true
   },
   {
@@ -74551,9 +74551,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T12:12:09.098584+00:00",
-    "retry_after": "2026-11-20T12:12:09.098589+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T15:09:31.619829+00:00",
+    "retry_after": "2026-12-20T15:09:31.619832+00:00",
     "search_hydrated": true
   },
   {
@@ -74562,9 +74562,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T12:12:09.098605+00:00",
-    "retry_after": "2026-11-20T12:12:09.098608+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T15:09:31.619845+00:00",
+    "retry_after": "2026-12-20T15:09:31.619847+00:00",
     "search_hydrated": true
   },
   {
@@ -74573,9 +74573,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T12:12:09.098624+00:00",
-    "retry_after": "2026-11-20T12:12:09.098627+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T15:09:31.619860+00:00",
+    "retry_after": "2026-12-20T15:09:31.619862+00:00",
     "search_hydrated": true
   },
   {
@@ -74591,9 +74591,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T12:12:09.936976+00:00",
-    "retry_after": "2026-11-20T12:12:09.936990+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T15:09:32.504310+00:00",
+    "retry_after": "2026-12-20T15:09:32.504326+00:00",
     "search_hydrated": true
   },
   {
@@ -74602,9 +74602,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T12:12:09.098696+00:00",
-    "retry_after": "2026-11-20T12:12:09.098701+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T15:09:31.619902+00:00",
+    "retry_after": "2026-12-20T15:09:31.619905+00:00",
     "search_hydrated": true
   },
   {
@@ -74613,9 +74613,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T12:12:09.098715+00:00",
-    "retry_after": "2026-11-20T12:12:09.098718+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T15:09:31.619915+00:00",
+    "retry_after": "2026-12-20T15:09:31.619916+00:00",
     "search_hydrated": true
   },
   {
@@ -74624,9 +74624,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T12:12:09.098730+00:00",
-    "retry_after": "2026-11-20T12:12:09.098733+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T15:09:31.619925+00:00",
+    "retry_after": "2026-12-20T15:09:31.619927+00:00",
     "search_hydrated": true
   },
   {
@@ -74642,9 +74642,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T12:12:10.109263+00:00",
-    "retry_after": "2026-11-20T12:12:10.109276+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T15:09:32.603577+00:00",
+    "retry_after": "2026-12-20T15:09:32.603592+00:00",
     "search_hydrated": true
   },
   {
@@ -74653,9 +74653,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T12:12:09.098761+00:00",
-    "retry_after": "2026-11-20T12:12:09.098764+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T15:09:31.619943+00:00",
+    "retry_after": "2026-12-20T15:09:31.619944+00:00",
     "search_hydrated": true
   },
   {
@@ -98749,6 +98749,64 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-20T14:04:06.755660+00:00",
     "retry_after": "2026-11-21T14:04:06.755676+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Psychoanalysis",
+    "publisher": "Gemstone",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1734,
+        "name": "Psychoanalysis",
+        "publisher": "EC",
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T14:58:16.604124+00:00",
+    "retry_after": "2026-11-21T14:58:16.604140+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ender's Game: Formic Wars - Burning Earth",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T15:09:42.471486+00:00",
+    "retry_after": "2026-11-21T15:09:42.471503+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Land of Nod Treasury",
+    "publisher": "Oni Press",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 73630,
+        "name": "Land of Nod Treasury",
+        "publisher": "Black Eye",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T15:09:42.471541+00:00",
+    "retry_after": "2026-11-21T15:09:42.471544+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Complete James Bond - Dr No: The Classic Comic Strip Collection: 1958-1960",
+    "publisher": "Titan Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T15:09:42.471560+00:00",
+    "retry_after": "2026-11-21T15:09:42.471562+00:00",
     "search_hydrated": true
   }
 ]

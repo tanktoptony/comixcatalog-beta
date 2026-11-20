@@ -61875,29 +61875,6 @@
     "retry_after": "2026-10-23T00:16:00.420015+00:00"
   },
   {
-    "name": "Absolute Carnage: Miles Morales",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 120946,
-        "name": "Absolute Carnage: Miles Morales",
-        "publisher": null,
-        "start_year": 2019
-      },
-      {
-        "id": 124284,
-        "name": "Absolute Carnage: Miles Morales",
-        "publisher": null,
-        "start_year": 2020
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T00:16:00.822316+00:00",
-    "retry_after": "2026-10-23T00:16:00.822336+00:00"
-  },
-  {
     "name": "Movietown's Animal Antics",
     "publisher": "DC Comics",
     "year": 1950,
@@ -64844,29 +64821,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T07:32:24.850701+00:00",
     "retry_after": "2026-10-23T07:32:24.850717+00:00"
-  },
-  {
-    "name": "Hulkverines",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 117215,
-        "name": "Hulkverines!",
-        "publisher": null,
-        "start_year": 2019
-      },
-      {
-        "id": 119647,
-        "name": "Hulkverines!",
-        "publisher": null,
-        "start_year": 2019
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T07:32:25.175892+00:00",
-    "retry_after": "2026-10-23T07:32:25.175908+00:00"
   },
   {
     "name": "Blüdwire",
@@ -75256,9 +75210,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T17:11:54.198120+00:00",
-    "retry_after": "2026-11-20T17:11:54.198132+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T21:11:58.877514+00:00",
+    "retry_after": "2026-12-20T21:11:58.877518+00:00",
     "search_hydrated": true
   },
   {
@@ -75267,9 +75221,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T17:11:54.198147+00:00",
-    "retry_after": "2026-11-20T17:11:54.198149+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T21:11:58.877533+00:00",
+    "retry_after": "2026-12-20T21:11:58.877536+00:00",
     "search_hydrated": true
   },
   {
@@ -75278,9 +75232,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T17:11:54.198158+00:00",
-    "retry_after": "2026-11-20T17:11:54.198160+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T21:11:58.877549+00:00",
+    "retry_after": "2026-12-20T21:11:58.877552+00:00",
     "search_hydrated": true
   },
   {
@@ -75289,9 +75243,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T17:11:54.198167+00:00",
-    "retry_after": "2026-11-20T17:11:54.198169+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T21:11:58.877564+00:00",
+    "retry_after": "2026-12-20T21:11:58.877566+00:00",
     "search_hydrated": true
   },
   {
@@ -75783,9 +75737,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T20:11:27.064202+00:00",
-    "retry_after": "2026-11-20T20:11:27.064218+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T21:12:00.576419+00:00",
+    "retry_after": "2026-12-20T21:12:00.576427+00:00",
     "search_hydrated": true
   },
   {
@@ -96609,9 +96563,9 @@
         "start_year": 2005
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-19T20:04:05.472512+00:00",
-    "retry_after": "2026-11-20T20:04:05.472514+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-20T21:02:18.910101+00:00",
+    "retry_after": "2026-11-23T21:02:18.910116+00:00",
     "search_hydrated": true
   },
   {
@@ -96620,9 +96574,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-19T20:09:29.139075+00:00",
-    "retry_after": "2026-11-20T20:09:29.139077+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-20T21:11:58.877354+00:00",
+    "retry_after": "2026-11-23T21:11:58.877370+00:00",
     "search_hydrated": true
   },
   {
@@ -96631,9 +96585,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-19T20:09:29.139094+00:00",
-    "retry_after": "2026-11-20T20:09:29.139096+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-20T21:11:58.877418+00:00",
+    "retry_after": "2026-11-23T21:11:58.877422+00:00",
     "search_hydrated": true
   },
   {
@@ -96649,9 +96603,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-19T20:09:31.045081+00:00",
-    "retry_after": "2026-11-20T20:09:31.045093+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-20T21:12:00.303022+00:00",
+    "retry_after": "2026-11-23T21:12:00.303034+00:00",
     "search_hydrated": true
   },
   {
@@ -96679,9 +96633,9 @@
         "start_year": 1999
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-19T21:02:12.972896+00:00",
-    "retry_after": "2026-11-20T21:02:12.972912+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-20T21:02:33.464440+00:00",
+    "retry_after": "2026-11-23T21:02:33.464452+00:00",
     "search_hydrated": true
   },
   {
@@ -96690,9 +96644,9 @@
     "year": 1987,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-19T21:02:12.972942+00:00",
-    "retry_after": "2026-11-20T21:02:12.972945+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-20T21:02:33.464478+00:00",
+    "retry_after": "2026-11-23T21:02:33.464481+00:00",
     "search_hydrated": true
   },
   {
@@ -96701,9 +96655,9 @@
     "year": 1987,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-19T21:02:12.972956+00:00",
-    "retry_after": "2026-11-20T21:02:12.972958+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-20T21:02:33.464497+00:00",
+    "retry_after": "2026-11-23T21:02:33.464499+00:00",
     "search_hydrated": true
   },
   {
@@ -98579,6 +98533,180 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-20T20:10:03.620115+00:00",
     "retry_after": "2026-11-21T20:10:03.620131+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cherry",
+    "publisher": "Kitchen Sink Press",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148041,
+        "name": "Cherry",
+        "publisher": "Milky Way Ediciones",
+        "start_year": 2017
+      },
+      {
+        "id": 108320,
+        "name": "Cherry!",
+        "publisher": "Beaglee Inc.",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T21:02:18.910215+00:00",
+    "retry_after": "2026-11-21T21:02:18.910220+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Pink Lemonade",
+    "publisher": "It's Alive Press",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 145289,
+        "name": "Pink Lemonade",
+        "publisher": "Oni Press",
+        "start_year": 2022
+      },
+      {
+        "id": 122513,
+        "name": "Pink Lemonade",
+        "publisher": "It's Alive",
+        "start_year": 2019
+      },
+      {
+        "id": 151940,
+        "name": "Pink Lemonade",
+        "publisher": "Oni Press",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T21:04:41.853913+00:00",
+    "retry_after": "2026-11-21T21:04:41.853929+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Killers",
+    "publisher": "Valiant Comics",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34034,
+        "name": "Killers",
+        "publisher": "Magazine Enterprises",
+        "start_year": 1947
+      },
+      {
+        "id": 60869,
+        "name": "The Killers",
+        "publisher": "Arcana Studio",
+        "start_year": 2009
+      },
+      {
+        "id": 78009,
+        "name": "Killers",
+        "publisher": "Twinned Comix",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T21:04:41.854009+00:00",
+    "retry_after": "2026-11-21T21:04:41.854014+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Bratty Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62713,
+        "name": "Big Bratty Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T21:12:10.909631+00:00",
+    "retry_after": "2026-11-21T21:12:10.909646+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62660,
+        "name": "Big Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T21:12:10.909678+00:00",
+    "retry_after": "2026-11-21T21:12:10.909683+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Superheroes and the Occult Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79640,
+        "name": "Marvel Superheroes and the Occult Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T21:12:10.909709+00:00",
+    "retry_after": "2026-11-21T21:12:10.909712+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I'm Still Alive",
+    "publisher": "BOOM! Studios",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 147126,
+        "name": "I'm Still Alive",
+        "publisher": "Archaia",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T21:12:10.909732+00:00",
+    "retry_after": "2026-11-21T21:12:10.909735+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Phil Corrigan Secret Agent X9",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161990,
+        "name": "Phil Corrigan Secret Agent X9 ",
+        "publisher": "Atlas Publications Pty. Ltd.",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T21:12:18.216610+00:00",
+    "retry_after": "2026-11-21T21:12:18.216624+00:00",
     "search_hydrated": true
   }
 ]

@@ -74541,8 +74541,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-20T15:09:31.619789+00:00",
-    "retry_after": "2026-12-20T15:09:31.619804+00:00",
+    "last_attempt_at": "2026-11-20T15:19:07.908174+00:00",
+    "retry_after": "2026-12-20T15:19:07.908191+00:00",
     "search_hydrated": true
   },
   {
@@ -74552,8 +74552,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-20T15:09:31.619829+00:00",
-    "retry_after": "2026-12-20T15:09:31.619832+00:00",
+    "last_attempt_at": "2026-11-20T15:19:07.908222+00:00",
+    "retry_after": "2026-12-20T15:19:07.908226+00:00",
     "search_hydrated": true
   },
   {
@@ -74563,8 +74563,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-20T15:09:31.619845+00:00",
-    "retry_after": "2026-12-20T15:09:31.619847+00:00",
+    "last_attempt_at": "2026-11-20T15:19:07.908242+00:00",
+    "retry_after": "2026-12-20T15:19:07.908245+00:00",
     "search_hydrated": true
   },
   {
@@ -74574,8 +74574,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-20T15:09:31.619860+00:00",
-    "retry_after": "2026-12-20T15:09:31.619862+00:00",
+    "last_attempt_at": "2026-11-20T15:19:07.908260+00:00",
+    "retry_after": "2026-12-20T15:19:07.908262+00:00",
     "search_hydrated": true
   },
   {
@@ -74592,8 +74592,8 @@
       }
     ],
     "attempts": 5,
-    "last_attempt_at": "2026-11-20T15:09:32.504310+00:00",
-    "retry_after": "2026-12-20T15:09:32.504326+00:00",
+    "last_attempt_at": "2026-11-20T15:19:08.048715+00:00",
+    "retry_after": "2026-12-20T15:19:08.048732+00:00",
     "search_hydrated": true
   },
   {
@@ -74603,8 +74603,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-20T15:09:31.619902+00:00",
-    "retry_after": "2026-12-20T15:09:31.619905+00:00",
+    "last_attempt_at": "2026-11-20T15:19:07.908310+00:00",
+    "retry_after": "2026-12-20T15:19:07.908312+00:00",
     "search_hydrated": true
   },
   {
@@ -74614,8 +74614,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-20T15:09:31.619915+00:00",
-    "retry_after": "2026-12-20T15:09:31.619916+00:00",
+    "last_attempt_at": "2026-11-20T15:19:07.908324+00:00",
+    "retry_after": "2026-12-20T15:19:07.908326+00:00",
     "search_hydrated": true
   },
   {
@@ -74625,8 +74625,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-20T15:09:31.619925+00:00",
-    "retry_after": "2026-12-20T15:09:31.619927+00:00",
+    "last_attempt_at": "2026-11-20T15:19:07.908337+00:00",
+    "retry_after": "2026-12-20T15:19:07.908339+00:00",
     "search_hydrated": true
   },
   {
@@ -74643,8 +74643,8 @@
       }
     ],
     "attempts": 5,
-    "last_attempt_at": "2026-11-20T15:09:32.603577+00:00",
-    "retry_after": "2026-12-20T15:09:32.603592+00:00",
+    "last_attempt_at": "2026-11-20T15:19:08.131180+00:00",
+    "retry_after": "2026-12-20T15:19:08.131198+00:00",
     "search_hydrated": true
   },
   {
@@ -74654,8 +74654,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-20T15:09:31.619943+00:00",
-    "retry_after": "2026-12-20T15:09:31.619944+00:00",
+    "last_attempt_at": "2026-11-20T15:19:07.908360+00:00",
+    "retry_after": "2026-12-20T15:19:07.908362+00:00",
     "search_hydrated": true
   },
   {
@@ -98765,8 +98765,44 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-20T14:58:16.604124+00:00",
-    "retry_after": "2026-11-21T14:58:16.604140+00:00",
+    "last_attempt_at": "2026-11-20T15:13:00.817091+00:00",
+    "retry_after": "2026-11-21T15:13:00.817110+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Unknown Worlds",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 2025,
+        "name": "Unknown Worlds",
+        "publisher": "American Comics Group",
+        "start_year": 1960
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T15:19:14.613172+00:00",
+    "retry_after": "2026-11-21T15:19:14.613188+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Time Wankers: First Hand Tales",
+    "publisher": "Fantagraphics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 73029,
+        "name": "Time Wankers: First Hand Tales",
+        "publisher": "Eros Comix",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T15:19:14.613223+00:00",
+    "retry_after": "2026-11-21T15:19:14.613227+00:00",
     "search_hydrated": true
   },
   {
@@ -98776,37 +98812,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-20T15:09:42.471486+00:00",
-    "retry_after": "2026-11-21T15:09:42.471503+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "The Land of Nod Treasury",
-    "publisher": "Oni Press",
-    "year": 2001,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 73630,
-        "name": "Land of Nod Treasury",
-        "publisher": "Black Eye",
-        "start_year": 1994
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T15:09:42.471541+00:00",
-    "retry_after": "2026-11-21T15:09:42.471544+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "The Complete James Bond - Dr No: The Classic Comic Strip Collection: 1958-1960",
-    "publisher": "Titan Comics",
-    "year": 2016,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T15:09:42.471560+00:00",
-    "retry_after": "2026-11-21T15:09:42.471562+00:00",
+    "last_attempt_at": "2026-11-20T15:19:14.613258+00:00",
+    "retry_after": "2026-11-21T15:19:14.613261+00:00",
     "search_hydrated": true
   }
 ]

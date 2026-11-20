@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { authedFetch } from "@/lib/apiClient";
 import FoundingQueryMessage from "@/components/FoundingQueryMessage";
+import ShareCardButton from "@/components/ShareCardButton";
+import { fillMosaic } from "@/lib/foundingShowcasePick";
 
 // initialRemaining comes from the server-rendered page (see page.js) - this
 // used to default to a hardcoded 83 in useState, which flashed to the real
@@ -17,8 +19,11 @@ import FoundingQueryMessage from "@/components/FoundingQueryMessage";
 // and a Roll of Honor of the founders so far. 2026-10-28: the wall shows
 // only claimed passes plus one "Your spot" tile, no empty slots, so it
 // reads as who's here rather than how many are missing.
+// 2026-11-20: the pass became gold foil on a mosaic of covers (the
+// founder's own once they have one), with a "Save to share" post image.
 
 const CAP = 100;
+const PASS_CELLS = 9; // covers in the mosaic behind the number
 const pad = (n) => String(n).padStart(3, "0");
 
 // Your pass number, remembered per user so a returning founder sees it on
@@ -126,6 +131,35 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
   const ownTile = isFounder && passNumber ? byNumber.get(passNumber) : null;
   const ownTileBare = Boolean(ownTile?.username && !ownTile.cover);
 
+  // The pass face: a founder's own books behind their number, everyone else
+  // the books on the wall. Held empty (plain navy) until we know whose pass
+  // it is, so a founder never sees the wall's covers swap for their own.
+  const wallCovers = roster.map((f) => f.cover).filter(Boolean);
+  const mosaicReady = claimStateKnown && (!isFounder || statusReady);
+  const mosaic = mosaicReady
+    ? fillMosaic(isFounder ? status.passCovers : [], wallCovers, PASS_CELLS)
+    : [];
+
+  // Foil sheen and tilt follow the pointer. Written straight to CSS custom
+  // properties so moving the mouse never re-renders the page; CSS turns
+  // them off for touch screens and reduced motion.
+  const passRef = useRef(null);
+  function tiltPass(event) {
+    const el = passRef.current;
+    if (!el || event.pointerType !== "mouse") return;
+    const box = el.getBoundingClientRect();
+    el.style.setProperty("--px", ((event.clientX - box.left) / box.width).toFixed(3));
+    el.style.setProperty("--py", ((event.clientY - box.top) / box.height).toFixed(3));
+    el.classList.add("is-tilting");
+  }
+  function restPass() {
+    const el = passRef.current;
+    if (!el) return;
+    el.style.removeProperty("--px");
+    el.style.removeProperty("--py");
+    el.classList.remove("is-tilting");
+  }
+
   return (
     <main className="founding-page fc">
       <section className="fc-hero">
@@ -196,20 +230,56 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
           )}
         </div>
 
-        <div className="fc-pass-wrap" aria-hidden="true">
-          <div className="fc-pass">
-            <div className="fc-pass-shine" />
-            <div className="fc-pass-top">
-              <Image src="/img/logos/cc_badge.png" alt="" width={44} height={44} />
-              <span>ComixCatalog</span>
-            </div>
-            <div className="fc-pass-title">Founding<br />Collector</div>
-            <div className="fc-pass-sub">Founding member · for life</div>
-            <div className="fc-pass-no">
-              <span>No.</span> {!claimStateKnown ? "-" : isFounder ? (passNumber ? pad(passNumber) : "★") : justClaimedSignedOut ? "★" : nextNumber == null ? "-" : pad(nextNumber)}
-              <em> / {CAP}</em>
+        <div className="fc-pass-wrap">
+          <div className="fc-pass" ref={passRef} onPointerMove={tiltPass} onPointerLeave={restPass} aria-hidden="true">
+            <div className="fc-pass-face">
+              <div className="fc-pass-mosaic">
+                {mosaic.map((src, i) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img key={i} src={src} alt="" decoding="async" />
+                ))}
+              </div>
+              <div className="fc-pass-scrim" />
+              <div className="fc-pass-body">
+                <div className="fc-pass-top">
+                  <span className="fc-pass-brand">
+                    <Image src="/img/logos/cc_badge.png" alt="" width={26} height={26} />
+                    ComixCatalog
+                  </span>
+                  <span className="fc-pass-est">Est. 2026</span>
+                </div>
+                <div className="fc-pass-no">
+                  <span className="fc-pass-no-label">No.</span>
+                  <span className="fc-pass-no-num">{!claimStateKnown ? "---" : isFounder ? (passNumber ? pad(passNumber) : "★") : justClaimedSignedOut ? "★" : nextNumber == null ? "---" : pad(nextNumber)}</span>
+                  <span className="fc-pass-no-cap">/{CAP}</span>
+                </div>
+                <div className="fc-pass-title">Founding<br />Collector</div>
+                <div className="fc-pass-foot">
+                  <span className={isFounder && profile?.username ? "" : "fc-pass-foot-muted"}>
+                    {isFounder && profile?.username ? `@${profile.username}` : "Your name here"}
+                  </span>
+                  <span className="fc-pass-foot-muted">Member for life</span>
+                </div>
+              </div>
+              <div className="fc-pass-holo" />
+              <div className="fc-pass-glare" />
             </div>
           </div>
+          {isFounder && statusReady && profile?.username && (
+            <ShareCardButton
+              ownerId={userId}
+              username={profile.username}
+              type="founding"
+              requireBooks={false}
+              className="fc-pass-share"
+              label="Save to share"
+              title="Your Founding Collector pass"
+              alt={`Founding Collector pass No. ${passNumber ? pad(passNumber) : ""} for @${profile.username}`}
+              invitePath="/founding-collectors"
+              inviteCampaign="founding_pass"
+              hint="Post it to your feed or your Story. On a Story, add a Link sticker with your invite link so whoever taps it can claim one of the passes that are left. If saving doesn't work in this browser, press and hold the image."
+            />
+          )}
         </div>
       </section>
 

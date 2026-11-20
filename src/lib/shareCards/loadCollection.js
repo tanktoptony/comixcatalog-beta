@@ -244,7 +244,7 @@ async function collectionCovers(supabase, rows, issueById) {
 // in the same process as Next's bundled sharp 0.34 broke libvips for both
 // (the /opengraph-image prerender failed, and card renders 500'd).
 // Transforms are metered per source image on Supabase's plan.
-async function coverThumb(path) {
+export async function coverThumb(path) {
   const base = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const url = `${base}/storage/v1/render/image/public/canonical-covers/${path}?width=512&height=768&resize=cover&quality=80`;
   try {

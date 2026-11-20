@@ -29,12 +29,17 @@ export function priceChartingUrl(pcId) {
 // for exactly the edition being viewed, or null. A newsstand page never shows
 // the direct edition's prices (they differ, sometimes several times over).
 // Two PriceCharting products on one edition: the one with more sales wins.
-export function buildPriceGuide(rows, editionGcdId) {
+export function pickGuideRow(rows, editionGcdId) {
   const id = Number(editionGcdId);
   const mine = (Array.isArray(rows) ? rows : []).filter((r) => Number(r.gcd_issue_id) === id && r.prices && typeof r.prices === "object");
   if (mine.length === 0) return null;
   mine.sort((a, b) => (Number(b.sales_volume) || 0) - (Number(a.sales_volume) || 0) || Number(a.pc_id) - Number(b.pc_id));
-  const row = mine[0];
+  return mine[0];
+}
+
+export function buildPriceGuide(rows, editionGcdId) {
+  const row = pickGuideRow(rows, editionGcdId);
+  if (!row) return null;
   const grades = GUIDE_GRADES
     .map((g) => ({ ...g, value: centsToDollars(row.prices[g.grade]) }))
     .filter((g) => g.value != null);

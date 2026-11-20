@@ -7,7 +7,7 @@ import EditProfileButton from "@/components/EditProfileButton";
 import MessageButton from "@/components/MessageButton";
 import ProfileTabs from "@/components/ProfileTabs";
 import ProfileAnonCta from "@/components/ProfileAnonCta";
-import CollectionStatsStrip from "@/components/CollectionStatsStrip";
+import CollectionStatsStrip, { PriceChartingCredit } from "@/components/CollectionStatsStrip";
 import CollectionInsightSidebar from "@/components/CollectionInsightSidebar";
 import RunCompletionWidget from "@/components/RunCompletionWidget";
 import { coverThumb } from "@/lib/coverThumb";
@@ -207,6 +207,7 @@ export default function ProfileView({ data, isOwner = false }) {
               <div className="profile-value-plaque-meta">
                 {ownedItems.length} book{ownedItems.length === 1 ? "" : "s"}
               </div>
+              <PriceChartingCredit />
             </div>
           )}
         </div>

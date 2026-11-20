@@ -284,6 +284,7 @@ export async function POST(req) {
           : (autoValue != null ? autoValue : coverPriceForYear(meta.year));
         let value_source;
         if (userOverride != null) value_source = "user";
+        else if (mv?.source === "pricecharting") value_source = "pricecharting";
         else if (mv?.source === "market-comp") {
           value_source = mv.comp_source === "ebay-listed" ? "ebay-listed" : "ebay-sold";
         } else if (effective != null) value_source = "cover-price";
@@ -368,13 +369,16 @@ export async function POST(req) {
       const coverCount = items.filter((i) => i.value_source === "cover-price").length;
       const ebayAskingCount = items.filter((i) => i.value_source === "ebay-listed").length;
       const ebaySoldCount = items.filter((i) => i.value_source === "ebay-sold").length;
+      const guideCount = items.filter((i) => i.value_source === "pricecharting").length;
       const total = items.reduce((sum, i) => sum + (Number(i.effective_market_value) || 0), 0);
-      const anyValued = userCount + coverCount + ebayAskingCount + ebaySoldCount > 0;
+      const anyValued = userCount + coverCount + ebayAskingCount + ebaySoldCount + guideCount > 0;
       const value = anyValued ? money(total) : "Not recorded";
       return [
         "Estimated value",
         value,
-        "Estimated from recent comparable listings and cover prices. Not a professional appraisal.",
+        guideCount > 0
+          ? "Price data by PriceCharting (pricecharting.com) where listed. Not a professional appraisal."
+          : "Estimated from recent comparable listings and cover prices. Not a professional appraisal.",
       ];
     }
 
@@ -401,7 +405,7 @@ export async function POST(req) {
 
     cover.drawRectangle({ x: MARGIN + 18, y: fy - 8, width: W - (MARGIN + 18) * 2, height: 1, color: GOLD, opacity: 0.3 });
 
-    const disclaimer = "This report is generated for insurance and collection appraisal purposes only. Purchase-price totals reflect self-reported figures entered by the collector. Market-value totals combine self-reported values, eBay-derived comps, and an era-based cover-price floor estimate for issues without a user-entered value. eBay comps are current asking prices, not confirmed sold prices, unless individually noted otherwise - they typically skew high. Neither total constitutes a formal written appraisal.";
+    const disclaimer = "This report is generated for insurance and collection appraisal purposes only. Purchase-price totals reflect self-reported figures entered by the collector. Market-value totals combine self-reported values, PriceCharting guide values (pricecharting.com, built from sold listings, matched to each copy's recorded grade), eBay-derived comps, and an era-based cover-price floor estimate for issues without a user-entered value. eBay comps are current asking prices, not confirmed sold prices, unless individually noted otherwise - they typically skew high. Neither total constitutes a formal written appraisal.";
     const dLines = wrapText(disclaimer, reg, 8.5, W - (MARGIN + 18) * 2);
     let dy = fy - 28;
     for (const line of dLines) {
@@ -621,7 +625,8 @@ export async function POST(req) {
       // Market value - uses effective_market_value (user override → cover-
       // price floor). Cover-price and eBay-asking rows draw in italic to
       // visually distinguish unconfirmed estimates from solid values
-      // (collector-entered, or a real eBay sold comp); those stay bold.
+      // (collector-entered, a PriceCharting guide value, or a real eBay
+      // sold comp); those stay bold.
       const valueLabel = item.effective_market_value != null
         ? money(Number(item.effective_market_value))
         : "-";

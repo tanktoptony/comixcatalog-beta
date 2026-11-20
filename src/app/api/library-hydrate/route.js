@@ -579,8 +579,10 @@ const ITEM_CACHE_TABLE = "library_item_cache";
 const ITEM_FRESH_MS = 10 * 60 * 1000;
 const CACHE_READ_CHUNK = 150;
 
+// mv2 (2026-11-20): values now lead with PriceCharting's guide; old mv:
+// entries held comp-only values and must not be served again.
 function valueKey(grade) {
-  return `mv:${Number(grade.gcd_issue_id)}:${grade.grade_numeric ?? ""}:${grade.slab_company ?? ""}:${grade.condition ?? ""}`;
+  return `mv2:${Number(grade.gcd_issue_id)}:${grade.grade_numeric ?? ""}:${grade.slab_company ?? ""}:${grade.condition ?? ""}`;
 }
 
 function itemKeyForGcd(id) {

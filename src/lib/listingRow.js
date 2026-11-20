@@ -33,6 +33,7 @@ export function estValue(row) {
 export function toListing(row, supabaseUrl) {
   return {
     id: row.id,
+    sellerId: row.seller_id ?? null,
     collectionId: row.collection_id,
     gcdIssueId: Number(row.gcd_issue_id),
     href: `/issue/gcd-${row.gcd_issue_id}`,

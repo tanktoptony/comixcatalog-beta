@@ -21,7 +21,7 @@ export const SITE_NEWS = [
   {
     date: "2026-11-03",
     title: "Buy now on the marketplace",
-    body: "Set up payouts once and every book you list with a price and a condition gets a Buy now button. Buyers pay by card. No ComixCatalog fees during the beta.",
+    body: "Set up payouts once and every book you list with a price and a condition gets a Buy now button. Buyers pay by card.",
     href: "/sell",
   },
   {

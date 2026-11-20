@@ -36,9 +36,10 @@ export default function SellPage() {
           $2,000 in open orders. Those limits lift after 5 completed orders.
         </p>
         <p>
-          No ComixCatalog fees during the beta. Stripe&rsquo;s card processing
-          (2.9% + 30&cent;) comes out of your payout, and every order shows the
-          breakdown.
+          Beta rate: ComixCatalog keeps 5% of each Buy now sale (item plus
+          shipping), and Stripe&rsquo;s card processing is 2.9% + 30&cent;. Both
+          come out of your payout, and every order shows the breakdown. Deals by
+          message are free.
         </p>
         <h2>Offers by message</h2>
         <p>

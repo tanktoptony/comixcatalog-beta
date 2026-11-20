@@ -8,6 +8,9 @@ import { coverPathFromUrl, toListing } from "@/lib/listingRow";
 import { KIND_LABELS, photoUrl } from "@/lib/listingPhotos";
 import { formatSellerRating } from "@/lib/feedback";
 import { MARKETPLACE_LIVEMODE } from "@/lib/marketplaceStripe";
+import { publicCounts } from "@/lib/publicCounts";
+import { loadPriceChartingRows, pcValueForIssue } from "@/lib/pcValue";
+import { buildPriceGuide } from "@/lib/priceGuide";
 
 // Marketplace v2 read model (migration 0031). Each listed copy is a row in
 // `listings` that snapshots the title, issue, publisher, cover and grade, so
@@ -95,7 +98,7 @@ export async function refreshListingSnapshots({ sellerId, sb = getServiceClient(
 }
 
 const VIEW_COLUMNS =
-  "id, collection_id, gcd_issue_id, series_title, issue_number, release_year, publisher, variant_label, cover_path, condition, grade_numeric, slab_company, price_cents, shipping_cents, accepts_offers, market_value, auto_market_value, seller_username, created_at";
+  "id, seller_id, collection_id, gcd_issue_id, series_title, issue_number, release_year, publisher, variant_label, cover_path, condition, grade_numeric, slab_company, price_cents, shipping_cents, accepts_offers, market_value, auto_market_value, seller_username, created_at";
 
 // How many wantlists each listed issue is on ("Most wanted" on the
 // marketplace landing). Chunked so the id list stays inside a URL.
@@ -112,6 +115,34 @@ async function wantCounts(sb, gcdIds) {
     for (const r of rows) counts.set(Number(r.gcd_issue_id), (counts.get(Number(r.gcd_issue_id)) ?? 0) + 1);
   }
   return counts;
+}
+
+// Privacy-filtered have/want counts (nightly issue_base_stats), shown only
+// at 3 or more like the issue page. Keyed by the listed issue id, so a
+// variant listing shows none.
+async function communityCounts(sb, gcdIds) {
+  const counts = new Map();
+  for (let i = 0; i < gcdIds.length; i += 300) {
+    const rows = await fetchAllPages(() => sb.from("issue_base_stats").select("base_gcd_issue_id, have, want, for_sale, updated_at").in("base_gcd_issue_id", gcdIds.slice(i, i + 300)), "base_gcd_issue_id");
+    for (const row of rows) counts.set(Number(row.base_gcd_issue_id), publicCounts(row));
+  }
+  return counts;
+}
+
+async function chunkedRows(ids, read) {
+  const rows = [];
+  for (let i = 0; i < ids.length; i += 300) rows.push(...await fetchAllPages(() => read(ids.slice(i, i + 300))));
+  return rows;
+}
+
+async function mapLimit(items, limit, fn) {
+  let cursor = 0;
+  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, async () => {
+    while (cursor < items.length) {
+      const index = cursor++;
+      await fn(items[index], index);
+    }
+  }));
 }
 
 // Seller photos per listed copy, for the "4 photos" note in browse.
@@ -131,12 +162,72 @@ async function computeListings() {
   await refreshListingSnapshots({ sb });
   const rows = await fetchAllPages(() => sb.from("marketplace_listings").select(VIEW_COLUMNS));
   const listings = rows.map((r) => toListing(r, process.env.NEXT_PUBLIC_SUPABASE_URL));
-  const wants = await wantCounts(sb, [...new Set(listings.map((l) => l.gcdIssueId))]);
-  const photos = await photoCounts(sb, listings.map((l) => l.collectionId));
+  const issueIds = [...new Set(listings.map((l) => l.gcdIssueId))];
+  const sellerIds = [...new Set(listings.map((l) => l.sellerId).filter(Boolean))];
+  const ids = listings.map((l) => l.id);
+  let wants = new Map(), community = new Map(), photos = new Map();
+  try { wants = await wantCounts(sb, issueIds); } catch (error) { console.error("marketplace want counts failed:", error); }
+  try { community = await communityCounts(sb, issueIds); } catch (error) { console.error("marketplace community counts failed:", error); }
+  try { photos = await photoCounts(sb, listings.map((l) => l.collectionId)); } catch (error) { console.error("marketplace photo counts failed:", error); }
   for (const l of listings) {
     l.wantCount = wants.get(l.gcdIssueId) ?? 0;
+    l.community = community.get(l.gcdIssueId) ?? null;
     l.photoCount = photos.get(l.collectionId) ?? 0;
   }
+  try {
+    const details = await chunkedRows(ids, (slice) => sb.from("listings").select("id, condition_notes, restored, signed").in("id", slice));
+    const byId = new Map(details.map((row) => [row.id, row]));
+    for (const l of listings) {
+      const detail = byId.get(l.id);
+      const note = String(detail?.condition_notes ?? "").trim();
+      l.notes = note ? `${note.slice(0, 160)}${note.length > 160 ? "…" : ""}` : null;
+      l.restored = Boolean(detail?.restored);
+      l.signed = Boolean(detail?.signed);
+    }
+  } catch (error) { console.error("marketplace listing details failed:", error); }
+  try {
+    const { rowsByIssue, error } = await loadPriceChartingRows(sb, issueIds);
+    if (error) throw error;
+    for (const l of listings) {
+      const value = pcValueForIssue(rowsByIssue, { gcd_issue_id: l.gcdIssueId, condition: l.condition, grade_numeric: l.grade, slab_company: l.slab });
+      l.guide = value?.url ? { value: value.value, url: value.url, grade: value.grade_used } : null;
+    }
+  } catch (error) { console.error("marketplace price guides failed:", error); }
+  try {
+    const keys = await chunkedRows(issueIds, (slice) => sb.from("key_issues").select("gcd_issue_id, character, reason, tier").in("gcd_issue_id", slice));
+    const byIssue = new Map();
+    for (const row of keys) if (!byIssue.has(Number(row.gcd_issue_id))) byIssue.set(Number(row.gcd_issue_id), row);
+    for (const l of listings) { const key = byIssue.get(l.gcdIssueId); l.key = key ? { character: key.character, reason: key.reason } : null; }
+  } catch (error) { console.error("marketplace key issues failed:", error); }
+  try {
+    const { data, error } = await sb.rpc("mkt_seller_ratings", { p_sellers: sellerIds });
+    if (error) throw error;
+    const bySeller = new Map((data ?? []).map((row) => [row.seller_id, row]));
+    for (const l of listings) l.sellerRating = formatSellerRating(bySeller.get(l.sellerId));
+  } catch (error) { console.error("marketplace seller ratings failed:", error); }
+  try {
+    const sales = await chunkedRows(sellerIds, (slice) => sb.from("orders").select("id, seller_id").eq("status", "completed").eq("livemode", MARKETPLACE_LIVEMODE).in("seller_id", slice));
+    const counts = new Map();
+    for (const row of sales) counts.set(row.seller_id, (counts.get(row.seller_id) ?? 0) + 1);
+    for (const l of listings) l.sellerSales = counts.get(l.sellerId) ?? 0;
+  } catch (error) { console.error("marketplace seller sales failed:", error); }
+  try {
+    const profiles = await chunkedRows(sellerIds, (slice) => sb.from("profiles").select("id, is_founding_collector, created_at").in("id", slice));
+    const bySeller = new Map(profiles.map((row) => [row.id, row]));
+    for (const l of listings) { const p = bySeller.get(l.sellerId); l.sellerFounder = Boolean(p?.is_founding_collector); l.sellerSince = p?.created_at ?? null; }
+  } catch (error) { console.error("marketplace seller profiles failed:", error); }
+  try {
+    await mapLimit(listings.filter((l) => l.price != null), 5, async (l) => {
+      try {
+        const { data, error } = await sb.rpc("mkt_listing_checkout_block", { p_listing: l.id });
+        if (error) throw error;
+        l.buyNow = data == null;
+      } catch (error) {
+        l.buyNow = false;
+        console.error(`marketplace checkout eligibility failed for ${l.id}:`, error);
+      }
+    });
+  } catch (error) { console.error("marketplace checkout eligibility failed:", error); }
   return listings.sort((a, b) => (b.listedAt ?? "").localeCompare(a.listedAt ?? ""));
 }
 
@@ -179,7 +270,7 @@ async function computeListingsForIssue(gcdIssueId) {
 // two minutes and dropped early by revalidateListings() on any listing
 // change. A failed read throws (never cached) so the page can say so
 // instead of showing an empty market.
-export const getListings = unstable_cache(computeListings, ["marketplace-listings-v6"], {
+export const getListings = unstable_cache(computeListings, ["marketplace-listings-v7"], {
   revalidate: 120,
   tags: [LISTINGS_TAG],
 });
@@ -267,8 +358,27 @@ async function computeListing(id) {
   }));
 
   const base = toListing({ ...l, ...(uc ?? {}), seller_username: seller.username }, supa);
+  let guide = null, priceGuide = null, key = null, community = null;
+  try {
+    const { rowsByIssue, error: guideError } = await loadPriceChartingRows(sb, [base.gcdIssueId]);
+    if (guideError) throw guideError;
+    const value = pcValueForIssue(rowsByIssue, { gcd_issue_id: base.gcdIssueId, condition: base.condition, grade_numeric: base.grade, slab_company: base.slab });
+    guide = value?.url ? { value: value.value, url: value.url, grade: value.grade_used } : null;
+    priceGuide = buildPriceGuide(rowsByIssue.get(base.gcdIssueId) ?? [], base.gcdIssueId);
+  } catch (guideError) { console.error("listing price guide failed:", guideError); }
+  try {
+    const { data: keyRows, error: keyError } = await sb.from("key_issues").select("gcd_issue_id, character, reason, tier").eq("gcd_issue_id", base.gcdIssueId).limit(1);
+    if (keyError) throw keyError;
+    const row = keyRows?.[0];
+    key = row ? { character: row.character, reason: row.reason } : null;
+  } catch (keyError) { console.error("listing key issue failed:", keyError); }
+  try { community = (await communityCounts(sb, [base.gcdIssueId])).get(base.gcdIssueId) ?? null; } catch (countError) { console.error("listing community counts failed:", countError); }
   return {
     ...base,
+    guide,
+    priceGuide,
+    key,
+    community,
     photos,
     status: l.status,
     certNumber: l.slab_cert_number ?? null,
@@ -292,7 +402,7 @@ async function computeListing(id) {
 }
 
 export async function getListing(id) {
-  return unstable_cache(() => computeListing(id), ["marketplace-listing-v2", String(id)], {
+  return unstable_cache(() => computeListing(id), ["marketplace-listing-v3", String(id)], {
     revalidate: 120,
     tags: [LISTINGS_TAG],
   })();

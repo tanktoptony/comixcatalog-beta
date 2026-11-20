@@ -92,6 +92,24 @@ test("price sorts use asking price and sink unpriced high estimates", () => {
   assert.deepEqual(sortListings(listings, "newest").map((l) => l.id), [3, 2, 1, 4, 5]);
 });
 
+test("deal sort puts the biggest guide discount first", () => {
+  const rows = [
+    L({ id: "new", price: 90, guide: { value: 100 }, listedAt: "2026-11-03" }),
+    L({ id: "best", price: 50, guide: { value: 100 }, listedAt: "2026-11-01" }),
+    L({ id: "plain", price: 20, listedAt: "2026-11-04" }),
+  ];
+  assert.deepEqual(sortListings(rows, "deal").map((l) => l.id), ["best", "new", "plain"]);
+});
+
+test("show facet counts overlapping listing traits", () => {
+  const rows = [
+    L({ id: 1, buyNow: true, price: 50, guide: { value: 100 }, key: { reason: "First appearance" } }),
+    L({ id: 2, key: { character: "Hero" } }),
+  ];
+  assert.deepEqual(facetCounts(rows, readFilters({})).show, [["buynow", 1], ["underguide", 1], ["keys", 2]]);
+  assert.deepEqual(filterListings(rows, readFilters({ show: "keys" })).map((l) => l.id), [1, 2]);
+});
+
 test("pagination clamps and counts past one page", () => {
   const many = Array.from({ length: PAGE_SIZE * 2 + 3 }, (_, i) => L({ id: i }));
   const p = paginate(many, 3);
@@ -117,6 +135,23 @@ test("landing shelves", () => {
   assert.equal(s.mostValuable.length, 6);
   assert.deepEqual(s.publishers[0], ["Marvel Comics", 9]);
   assert.deepEqual(s.sellers, [["tony", 6], ["pete", 5]]);
+});
+
+test("landing includes buy-now, under-guide, and key issue rails", () => {
+  const rows = Array.from({ length: 4 }, (_, i) => L({
+    id: i,
+    title: `Key ${i}`,
+    price: 40 + i,
+    guide: { value: 100 + i, url: "https://www.pricecharting.com/game/1" },
+    buyNow: true,
+    key: { reason: "First appearance" },
+    cover: "/cover.jpg",
+    listedAt: `2026-11-0${i + 1}`,
+  }));
+  const s = landingSections(rows);
+  assert.equal(s.buyNow.length, 4);
+  assert.equal(s.underGuide.length, 4);
+  assert.equal(s.keys.length, 4);
 });
 
 test("headline listings require a price and either a seller photo or catalog cover", () => {

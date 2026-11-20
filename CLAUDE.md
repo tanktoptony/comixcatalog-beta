@@ -409,7 +409,7 @@ Collectors can follow catalog series from their series pages and use `/pull-list
 
 ### Your shelf and issue community counts (shipped November 2026)
 
-Signed-in collectors land on Your shelf at `/`; `/api/shelf` supplies their value snapshot, collection counts, recent books, and runs close to complete. The nightly `issue-stats.yml` job refreshes privacy-filtered base-issue have, want, and for-sale counts in `issue_base_stats`; issue pages suppress every count below three.
+Signed-in collectors land on Your shelf at `/`; `/api/shelf` supplies their value snapshot, collection counts, recent books, and runs close to complete. The nightly `issue-stats.yml` job refreshes privacy-filtered base-issue have, want, and for-sale counts in `issue_base_stats`; issue pages suppress every count below three. Since 2026-11-20 the shelf also loads `/api/shelf/hunt` (the viewer's wantlist with PriceCharting raw guide prices and any copy listed by another seller, matched on base issue, plus marketplace picks and stats from the cached `getListings()`), helpers in `src/lib/shelfHunt.js` (tested). The value card reads the latest `collection_value_history` row, so `snapshot-collection-value.yml` also runs after each PriceCharting refresh and both jobs are in the cron watchdog; its change line only compares snapshots from `VALUE_METHOD_SINCE` on.
 
 ### Phase 3 — Daily Engagement (sequenced after Phase 2, no fixed date)
 - Portfolio value tracking with over-time charts (Phase 2's `market_comps` snapshots feed this directly)

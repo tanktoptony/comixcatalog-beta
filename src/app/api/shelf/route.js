@@ -4,6 +4,7 @@ import { baseIssueNumber } from "@/lib/coverMatch";
 import { canonicalCoverUrl, resolveCovers } from "@/lib/catalog/covers";
 import { loadRunCompletion, MIN_RUN_SIZE } from "@/lib/runCompletion";
 import { getServiceClient } from "@/lib/supabase/service";
+import { changeWindowStart, valueChange } from "@/lib/shelfHunt";
 
 // About eight indexed read stages per shelf view: value, collection rows,
 // owned issue metadata, run issues, series, keys, recent covers, gap listings.
@@ -16,13 +17,17 @@ export async function GET(req) {
     const user = await getAuthedUser(req);
     if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     const supabase = getServiceClient();
-    const [valueResult, runData] = await Promise.all([
+    const [valueResult, earlierResult, runData] = await Promise.all([
       supabase.from("collection_value_history")
         .select("total_value, owned_count, priced_count, snapshot_date")
         .eq("user_id", user.id).order("snapshot_date", { ascending: false }).limit(1).maybeSingle(),
+      supabase.from("collection_value_history")
+        .select("total_value, snapshot_date")
+        .eq("user_id", user.id).gte("snapshot_date", changeWindowStart()).order("snapshot_date", { ascending: true }).limit(1).maybeSingle(),
       loadRunCompletion(supabase, user.id),
     ]);
     if (valueResult.error) throw valueResult.error;
+    if (earlierResult.error) console.error("shelf value change read failed:", earlierResult.error);
 
     const keyReferences = new Set();
     for (const issueRows of chunks(runData.ownedIssueRows)) {
@@ -85,7 +90,8 @@ export async function GET(req) {
 
     return NextResponse.json({
       value: valueResult.data ? { total: Number(valueResult.data.total_value), owned_count: valueResult.data.owned_count,
-        priced_count: valueResult.data.priced_count, snapshot_date: valueResult.data.snapshot_date } : null,
+        priced_count: valueResult.data.priced_count, snapshot_date: valueResult.data.snapshot_date,
+        change: valueChange({ total: valueResult.data.total_value, snapshot_date: valueResult.data.snapshot_date }, earlierResult.data ?? null) } : null,
       counts: { books: runData.ownedRows.length, keys: keyCount, runs_complete: complete,
         wantlist: runData.collectionRows.filter((row) => row.status === "wishlist").length },
       recent,

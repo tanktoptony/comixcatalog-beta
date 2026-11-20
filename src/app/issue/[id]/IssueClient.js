@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { eraForYear } from "@/lib/keyTimeline";
 import Image from "next/image";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useLibrary } from "@/context/LibraryContext";
 import { useAuth } from "@/context/AuthContext";
 import { authedFetch } from "@/lib/apiClient";
@@ -19,6 +19,8 @@ import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 import { buildIssueDetailsRows, formatGcdDate, formatGcdPrice, humanizeStoryType, parseGcdCreditList, stripGcdCharacterNoise } from "@/lib/issueDetails";
 import { conditionLabel, contactLabel, formatValue, offerHref } from "@/lib/marketplaceFormat";
 import Avatar from "@/components/Avatar";
+import { cleanVariantCaption, matchVariantCovers } from "@/lib/variantCovers";
+import { coverThumb } from "@/lib/coverThumb";
 
 function CollectorRow({ label, bucket, actionLabel, actionKind, issueId, viewerId }) {
   if (!bucket?.total) return null;
@@ -144,6 +146,7 @@ function ReprintList({ title, items }) {
 
 export default function IssueClient({ initialIssue = null }) {
   const { id } = useParams();
+  const router = useRouter();
   const { collections, collectionIds, wishlistIds, addToCollection, addAnotherCopy, removeFromCollection, refreshLibrary } =
     useLibrary();
 
@@ -155,6 +158,7 @@ export default function IssueClient({ initialIssue = null }) {
   const [addCopyLabel, setAddCopyLabel] = useState("");
   const [addCopyBusy, setAddCopyBusy] = useState(false);
   const [selectedCover, setSelectedCover] = useState(null);
+  const [unmatchedCover, setUnmatchedCover] = useState(false);
   const [variantLabel, setVariantLabel] = useState("");
   const [variantSaveState, setVariantSaveState] = useState(null);
   const [versionSwitchState, setVersionSwitchState] = useState(null);
@@ -284,14 +288,74 @@ export default function IssueClient({ initialIssue = null }) {
   // picked (both live in user_cover_url). When there is one, the page leads
   // with it, and the strip below flips to the catalog cover and variants.
   const ownCover = inCollection ? gradeData?.user_cover_url ?? collectionRow?.user_cover_url ?? null : null;
-  const shownCover = selectedCover || ownCover || issue?.cover || null;
-  const coverChoices = [
-    ...(ownCover ? [{ key: "own", url: ownCover, label: "Your copy" }] : []),
-    ...(issue?.cover && issue.cover !== ownCover ? [{ key: "main", url: issue.cover, label: "Catalog" }] : []),
-    ...(issue?.variants ?? [])
-      .filter((v) => v.storageUrl && v.storageUrl !== ownCover)
-      .map((v, i) => ({ key: v.id, url: v.storageUrl, label: `Variant ${i + 1}` })),
-  ];
+  const matchedVariants = matchVariantCovers(issue?.versions, issue?.variants, {
+    baseGcdId: issue?.base_gcd_issue_id,
+    seriesTitle: issue?.series_title,
+  });
+  const coverChoices = [];
+  const addCoverChoice = (choice) => {
+    if (choice.url && !coverChoices.some((existing) => existing.url === choice.url)) coverChoices.push(choice);
+  };
+  if (ownCover) addCoverChoice({ key: "own", url: ownCover, label: "Your copy", attached: true });
+  // On a variant without its own cover, issue.cover is still the regular
+  // cover, so it belongs to (and links back to) the base edition.
+  const onVariant = issue?.edition_gcd_issue_id && issue.edition_gcd_issue_id !== issue.base_gcd_issue_id;
+  const mainIsEditionCover = onVariant && issue.edition_has_own_cover;
+  if (issue?.cover && issue.cover !== ownCover) addCoverChoice({
+    key: "main",
+    url: issue.cover,
+    label: mainIsEditionCover ? issue.edition_name : "Catalog",
+    attached: true,
+    versionGcdId: mainIsEditionCover ? issue.edition_gcd_issue_id : issue?.base_gcd_issue_id,
+  });
+  for (const variant of matchedVariants) addCoverChoice({
+    key: `variant-${variant.id}`,
+    url: variant.storageUrl,
+    label: variant.version?.name || cleanVariantCaption(variant.caption),
+    attached: Boolean(variant.versionGcdId),
+    versionGcdId: variant.versionGcdId,
+  });
+  for (const version of issue?.versions ?? []) addCoverChoice({
+    key: `version-${version.gcdId}`,
+    url: version.cover,
+    label: version.name,
+    attached: true,
+    versionGcdId: version.gcdId,
+  });
+  // A variant with no catalog cover of its own still has a picture when a
+  // strip image is matched to it; show that instead of the regular cover.
+  const editionImage = onVariant && !issue.edition_has_own_cover
+    ? coverChoices.find((choice) => choice.key !== "main" && choice.versionGcdId === issue.edition_gcd_issue_id)?.url ?? null
+    : null;
+  const shownCover = selectedCover || ownCover || editionImage || issue?.cover || null;
+  const versionCoverById = new Map((issue?.versions ?? []).map((version) => {
+    const attached = coverChoices.find((choice) => choice.versionGcdId === version.gcdId);
+    return [version.gcdId, attached?.url || version.cover || null];
+  }));
+
+  useEffect(() => {
+    if (!issue?.id) return;
+    const stored = window.sessionStorage.getItem(`issue-cover:${issue.id}`);
+    if (stored) window.sessionStorage.removeItem(`issue-cover:${issue.id}`);
+    // Every edition change starts from that edition's own picture (or the one
+    // just clicked), so a cover picked on the previous edition never lingers
+    // after a Versions-table link. Deferred until after hydration so the
+    // server and first client render agree.
+    queueMicrotask(() => {
+      setSelectedCover(stored || null);
+      setUnmatchedCover(false);
+    });
+  }, [issue?.id, issue?.edition_gcd_issue_id]);
+
+  function chooseCover(choice) {
+    setSelectedCover(choice.url);
+    setUnmatchedCover(!choice.attached);
+    if (choice.versionGcdId && choice.versionGcdId !== issue.edition_gcd_issue_id) {
+      const destinationId = `gcd-${choice.versionGcdId}`;
+      window.sessionStorage.setItem(`issue-cover:${destinationId}`, choice.url);
+      router.push(`/issue/gcd-${issue.base_gcd_issue_id}?edition=${choice.versionGcdId}`, { scroll: false });
+    }
+  }
 
   async function saveOwnedVariant() {
     if (!collectionRow?.id || issue?.source !== "gcd") return;
@@ -436,22 +500,25 @@ export default function IssueClient({ initialIssue = null }) {
                 <div className="muted" style={{ fontSize: "0.8rem", marginBottom: 8 }}>
                   {issue.variants?.length > 0 ? "Covers" : "Your copy and the catalog cover"}
                 </div>
-                <div style={{ display: "flex", gap: 8, overflowX: "auto", paddingBottom: 4 }}>
+                <div className="issue-cover-strip" style={{ display: "flex", gap: 8, overflowX: "auto", paddingBottom: 4 }}>
                   {coverChoices.map((c) => (
                     <button
                       key={c.key}
                       type="button"
-                      onClick={() => setSelectedCover(c.url)}
+                      onClick={() => chooseCover(c)}
                       aria-label={c.label}
                       aria-pressed={shownCover === c.url}
                       className={`issue-cover-pick${shownCover === c.url ? " is-on" : ""}`}
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={c.url || "/fallback-cover.png"} alt="" />
-                      <span>{c.label}</span>
+                      <span title={c.label}>{c.label}</span>
                     </button>
                   ))}
                 </div>
+                {unmatchedCover && (
+                  <p className="issue-cover-match-note">Details on this page are for {issue.edition_name || "the catalog edition"}. This cover isn&apos;t matched to an edition yet.</p>
+                )}
                 {user && inCollection && collectionRow?.id && issue.variants?.length > 0 && (
                   <div style={{ display: "flex", gap: 8, marginTop: 10, flexWrap: "wrap" }}>
                     <input value={variantLabel} onChange={(event) => setVariantLabel(event.target.value)} placeholder="Printing label (optional)" maxLength={80} className="admin-input" style={{ flex: "1 1 180px" }} />
@@ -570,7 +637,7 @@ export default function IssueClient({ initialIssue = null }) {
             )}
 
             {issue.edition_name && issue.edition_gcd_issue_id !== issue.base_gcd_issue_id && (
-              <p className="issue-edition-note">Selected edition: {issue.edition_name}{!issue.edition_has_own_cover ? ". Showing the base edition cover." : ""}</p>
+              <p className="issue-edition-note">Selected edition: {issue.edition_name}{!issue.edition_has_own_cover && !editionImage ? ". Showing the base edition cover." : ""}</p>
             )}
 
             <div className="issue-fact-chips">
@@ -710,7 +777,7 @@ export default function IssueClient({ initialIssue = null }) {
             <div className="issue-section-heading"><h2>Versions</h2><span>Own a different version? Open it to switch your copy.</span></div>
             <div className="issue-table-box"><table className="issue-discogs-table"><thead><tr><th>Version</th><th>On sale</th><th>Price</th><th>Barcode / ID</th></tr></thead><tbody>
               {issue.versions.map((version) => <tr key={version.gcdId} className={version.gcdId === issue.edition_gcd_issue_id ? "is-selected" : ""}>
-                <td><Link href={`/issue/gcd-${issue.base_gcd_issue_id}?edition=${version.gcdId}`}>{version.name}</Link></td>
+                <td><Link className="issue-version-link" href={`/issue/gcd-${issue.base_gcd_issue_id}?edition=${version.gcdId}`}><span className="issue-version-thumb">{versionCoverById.get(version.gcdId) && <img src={coverThumb(versionCoverById.get(version.gcdId))} alt="" width={22} height={32} loading="lazy" />}{/* eslint-disable-line @next/next/no-img-element */}</span><span>{version.name}</span></Link></td>
                 <td>{formatGcdDate(version.onSaleDate) || "Not indexed"}</td><td>{formatGcdPrice(version.price) || "Not indexed"}</td>
                 <td className="issue-mono">{version.barcode || `GCD ${version.gcdId}`}</td>
               </tr>)}

@@ -12735,6 +12735,9 @@ html[data-signed-in="1"] .founding-banner-guest { display: none; }
 .issue-cover-pick { display: grid; gap: 3px; justify-items: center; padding: 2px; border: 2px solid transparent; border-radius: 6px; background: none; cursor: pointer; flex-shrink: 0; color: rgba(255, 255, 255, 0.6); font-size: 0.66rem; font-weight: 700; }
 .issue-cover-pick.is-on { border-color: var(--cc-gold, #ffd700); color: #fff; }
 .issue-cover-pick img { width: 54px; height: 80px; object-fit: cover; border-radius: 4px; }
+.issue-cover-pick span { max-width: 78px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.issue-cover-strip { scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--cc-text) 22%, transparent) transparent; }
+.issue-cover-match-note { margin: 9px 0 0; color: var(--cc-text-muted); font-size: .78rem; line-height: 1.4; }
 .issue-sale-list { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 8px; }
 .issue-sale-row {
   display: grid;
@@ -13842,6 +13845,10 @@ select.input {
 .issue-discogs-table th, .issue-discogs-table td { padding: 13px 18px; border-top: 1px solid var(--cc-line); text-align: left; vertical-align: middle; }
 .issue-discogs-table thead th { border-top: 0; color: var(--cc-text-muted); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; }
 .issue-discogs-table tr.is-selected { background: color-mix(in srgb, var(--cc-gold) 10%, transparent); }
+.issue-version-link { display: inline-flex; align-items: center; gap: 9px; min-height: 32px; color: var(--cc-text); font-weight: 700; text-decoration: none; }
+.issue-version-link:hover, .issue-discogs-table tr.is-selected .issue-version-link { color: var(--cc-gold); }
+.issue-version-thumb { width: 22px; height: 32px; flex: 0 0 22px; overflow: hidden; border-radius: 3px; background: var(--cc-surface-raised); }
+.issue-version-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .issue-discogs-table td small { display: block; margin-top: 3px; color: var(--cc-text-muted); }
 .issue-mono { color: var(--cc-gold-soft); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
 .issue-row-button { display: inline-flex; min-height: 38px; align-items: center; justify-content: center; padding: 0 12px; border: 1px solid var(--cc-line); border-radius: 9px; color: var(--cc-text); font-weight: 800; text-decoration: none; white-space: nowrap; }

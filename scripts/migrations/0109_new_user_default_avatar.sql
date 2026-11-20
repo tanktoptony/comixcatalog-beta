@@ -11,6 +11,12 @@
 -- The function body is otherwise unchanged from production. The 30 existing
 -- mask-only profiles were reset to null separately (rollback list kept
 -- outside the repo).
+--
+-- Rollback:
+--   rerun this function with the insert's avatar_key value set back to
+--   coalesce(new.raw_user_meta_data->>'avatar_key', 'hero_01'). To restore
+--   the reset profiles, set avatar_key = 'hero_01' for the ids in
+--   relink/2026-11-20-mask-avatar-rollback.json.
 
 create or replace function public.handle_new_user()
 returns trigger

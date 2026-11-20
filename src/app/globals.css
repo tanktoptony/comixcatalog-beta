@@ -12952,6 +12952,11 @@ html[data-signed-in="1"] .founding-banner-guest { display: none; }
   line-height: 0.82;
   letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
+  /* The gradient only paints inside this box, and at line-height 0.82 the
+     digits rise past its top (2px in Chrome, more in Opera), so their tops
+     came out blank. The padding gives them room; the margin cancels it. */
+  padding-top: 0.16em;
+  margin-top: -0.16em;
   background: linear-gradient(175deg, #fff6c9 0%, #f4d03f 35%, #b8860b 70%, #f8dc5c 100%);
   -webkit-background-clip: text;
   background-clip: text;

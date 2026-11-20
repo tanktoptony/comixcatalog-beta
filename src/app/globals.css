@@ -12914,41 +12914,59 @@ html[data-signed-in="1"] .founding-banner-guest { display: none; }
 .fc-pass-no span { font-size: 0.9rem; letter-spacing: 0.1em; vertical-align: middle; }
 .fc-pass-no em { font-style: normal; font-size: 1rem; opacity: 0.7; }
 
-/* The first hundred: one slot per pass. */
-.fc-slots-section { display: grid; gap: 1rem; }
-.fc-slots-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem; }
-.fc-slots-head h2, .fc-perks h2, .fc-roll h2 { margin: 0; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 900; color: #fff; }
-.fc-slots-head p { margin: 0; color: rgba(255, 255, 255, 0.7); }
-.fc-slots-head b { color: #F4D03F; }
-.fc-slots { display: grid; grid-template-columns: repeat(20, minmax(0, 1fr)); gap: 6px; }
-.fc-slot { aspect-ratio: 1; border-radius: 4px; border: 1px solid rgba(244, 208, 63, 0.28); background: rgba(255, 255, 255, 0.02); }
-.fc-slot.is-claimed { background: linear-gradient(145deg, #f8dc5c, #c99a1c); border-color: transparent; box-shadow: 0 0 10px rgba(244, 208, 63, 0.25); }
-/* The one open pass at the end of the wall. Spans four slots so the
-   words fit; stretches to the row height the square slots set. */
-.fc-slot-open { grid-column: span 4; min-height: 30px; display: flex; align-items: center; justify-content: center; gap: 0.6em; padding: 0 0.5em; border: 1px dashed #F4D03F; border-radius: 4px; background: rgba(244, 208, 63, 0.06); color: #F4D03F; font: inherit; font-size: clamp(0.72rem, 1.4vw, 0.9rem); white-space: nowrap; overflow: hidden; text-decoration: none; cursor: pointer; animation: fc-pulse 1.8s ease-in-out infinite; }
-.fc-slot-open b { font-weight: 900; text-transform: uppercase; letter-spacing: 0.06em; }
-.fc-slot-open span { color: rgba(255, 255, 255, 0.75); font-weight: 700; font-variant-numeric: tabular-nums; }
-span.fc-slot-open { cursor: default; }
-a.fc-slot-open:hover, button.fc-slot-open:hover:not(:disabled) { background: rgba(244, 208, 63, 0.14); }
-/* Claimed blocks: pass number stamped into the gold, plus the founder's
-   struck initial (stock-mask founders) or their photo/icon. */
-.fc-slot.is-stamped { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; overflow: hidden; container-type: inline-size; }
-.fc-slot-no, .fc-slot-mono { color: #7a5a0a; text-shadow: 0 1px 0 rgba(255, 245, 200, 0.85), 0 -1px 0 rgba(90, 60, 0, 0.45); font-variant-numeric: tabular-nums; line-height: 1; }
-.fc-slot-mono { font-family: Georgia, "Times New Roman", serif; font-weight: 900; font-size: 46cqi; margin-top: -8%; }
-.fc-slot-no { font-weight: 900; font-size: 19cqi; letter-spacing: 0.02em; position: absolute; bottom: 6%; }
-.fc-slot.is-stamped:not(:has(.fc-slot-mono)):not(:has(img)) .fc-slot-no { position: static; font-size: 26cqi; }
-.fc-slot.is-stamped img { width: 62%; height: 62%; border-radius: 50%; object-fit: cover; background: #0B1E6B; margin-top: -10%; box-shadow: 0 1px 0 rgba(255, 245, 200, 0.7), 0 -1px 0 rgba(90, 60, 0, 0.35); }
-a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
-@media (max-width: 640px) {
-  .fc-slot.is-stamped:has(.fc-slot-mono) .fc-slot-no, .fc-slot.is-stamped:has(img) .fc-slot-no { display: none; }
-  .fc-slot-mono, .fc-slot.is-stamped img { margin-top: 0; }
-  .fc-slot.is-stamped img { width: 78%; height: 78%; }
-}
+/* The wall: one tile per founder, in pass order. A tile shows a book from
+   that founder's collection when it's public and has a catalog cover,
+   otherwise their avatar on a halftone panel. */
+.fc-wall { display: grid; gap: 1.2rem; }
+.fc-wall-head { display: grid; gap: 0.4rem; }
+.fc-wall-head h2, .fc-perks h2 { margin: 0; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 900; color: #fff; }
+.fc-wall-sub { margin: 0; color: rgba(255, 255, 255, 0.65); font-size: 0.95rem; }
+.fc-wall-hint { margin: 0.2rem 0 0; color: #F4D03F; font-size: 0.92rem; }
+.fc-wall-hint a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.fc-tiles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 12px; }
+.fc-tile { position: relative; aspect-ratio: 2 / 3; border-radius: 8px; overflow: hidden; min-width: 0;
+  border: 1px solid rgba(244, 208, 63, 0.28);
+  background:
+    radial-gradient(circle at 1px 1px, rgba(244, 208, 63, 0.16) 1px, transparent 1.4px) 0 0 / 7px 7px,
+    linear-gradient(160deg, #13286f 0%, #071033 70%, #04081c 100%);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease; }
+.fc-tile > a, .fc-tile > button, .fc-tile > span { position: absolute; inset: 0; display: block; color: inherit; text-decoration: none; }
+.fc-tile:hover { transform: translateY(-3px); border-color: rgba(244, 208, 63, 0.75); box-shadow: 0 10px 26px rgba(0, 0, 0, 0.55), 0 0 18px rgba(244, 208, 63, 0.25); }
+.fc-tile-art { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+.fc-tile-cover { width: 100%; height: 100%; object-fit: cover; }
+.fc-tile.has-book .fc-tile-art::after { content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, transparent 28%, transparent 55%, rgba(2, 6, 20, 0.92) 100%); }
+.fc-tile-face { width: 58%; aspect-ratio: 1; border-radius: 50%; object-fit: cover; margin-top: -14%;
+  box-shadow: 0 0 0 3px rgba(244, 208, 63, 0.85), 0 8px 18px rgba(0, 0, 0, 0.5); }
+.fc-tile-badge { opacity: 0.35; filter: grayscale(1); margin-top: -14%; }
+.fc-tile-no { position: absolute; top: 7px; left: 7px; z-index: 1; display: inline-flex; align-items: baseline; gap: 2px;
+  padding: 2px 7px 1px; border-radius: 4px; color: #1a1203; font-weight: 900; font-size: 0.82rem; font-variant-numeric: tabular-nums; letter-spacing: 0.02em;
+  background: linear-gradient(145deg, #fbe27a, #c99a1c); box-shadow: 0 1px 0 rgba(255, 245, 200, 0.7) inset, 0 2px 6px rgba(0, 0, 0, 0.45); }
+.fc-tile-no small { font-size: 0.62em; letter-spacing: 0.08em; text-transform: uppercase; }
+.fc-tile-name { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; display: flex; align-items: center; gap: 6px;
+  padding: 0 8px 8px; color: #fff; font-weight: 700; font-size: 0.78rem; min-width: 0; }
+.fc-tile-name img { flex: none; width: 22px; height: 22px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 1.5px rgba(244, 208, 63, 0.9); }
+.fc-tile-name span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fc-tile.no-book .fc-tile-name, .fc-tile.is-private .fc-tile-name { justify-content: center; }
+.fc-tile.is-private .fc-tile-name { color: rgba(255, 255, 255, 0.5); font-weight: 600; }
+.fc-tile.is-private:hover { transform: none; border-color: rgba(244, 208, 63, 0.28); box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45); }
+/* The next open pass, for anyone who can still take one. */
+.fc-tile.is-open { border: 1.5px dashed #F4D03F; background: rgba(244, 208, 63, 0.06); box-shadow: none; animation: fc-pulse 1.8s ease-in-out infinite; }
+.fc-tile.is-open > * { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.3rem; width: 100%; padding: 0; border: 0; background: none; font: inherit; cursor: pointer; text-align: center; }
+.fc-tile.is-open > span { cursor: default; }
+.fc-tile.is-open b { color: #F4D03F; font-weight: 900; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.95rem; }
+.fc-tile.is-open em { font-style: normal; color: rgba(255, 255, 255, 0.7); font-size: 0.78rem; }
+.fc-tile.is-open:hover { background: rgba(244, 208, 63, 0.14); }
 @keyframes fc-pulse { 50% { box-shadow: 0 0 0 4px rgba(244, 208, 63, 0.25); } }
+@media (max-width: 1000px) { .fc-tiles { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
 @media (max-width: 640px) {
-  .fc-slots { grid-template-columns: repeat(10, minmax(0, 1fr)); }
-  .fc-slot-open { grid-column: span 5; }
+  .fc-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+  .fc-tile-no { top: 5px; left: 5px; font-size: 0.7rem; padding: 1px 5px 0; }
+  .fc-tile-name { font-size: 0.66rem; padding: 0 5px 6px; gap: 4px; }
+  .fc-tile-name img { width: 16px; height: 16px; }
 }
+@media (max-width: 380px) { .fc-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 
 .fc-perks { display: grid; gap: 1rem; }
 .fc-perk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.9rem; }
@@ -12963,29 +12981,6 @@ a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
 .fc-perk b { color: #fff; }
 .fc-perk span { color: rgba(255, 255, 255, 0.7); font-size: 0.92rem; line-height: 1.5; }
 
-.fc-roll { display: grid; gap: 1.1rem; }
-.fc-roll-head { display: grid; gap: 0.4rem; }
-.fc-roll-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 0.5rem 1rem;
-}
-.fc-roll-list li {
-  display: flex;
-  align-items: baseline;
-  gap: 0.6rem;
-  padding: 0.55rem 0.2rem;
-  border-bottom: 1px solid rgba(244, 208, 63, 0.15);
-  min-width: 0;
-}
-.fc-roll-avatar { width: 28px; height: 28px; flex: none; align-self: center; border-radius: 50%; object-fit: cover; background: #0B1E6B; }
-.fc-roll-mono { display: inline-flex; align-items: center; justify-content: center; background: linear-gradient(145deg, #f8dc5c, #c99a1c); color: #7a5a0a; font: 900 0.9rem Georgia, "Times New Roman", serif; text-shadow: 0 1px 0 rgba(255, 245, 200, 0.85); }
-.fc-roll-no { color: #F4D03F; font-weight: 900; font-variant-numeric: tabular-nums; font-size: 0.85rem; letter-spacing: 0.04em; }
-.fc-roll-list a { color: #fff; font-weight: 600; text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.fc-roll-list a:hover { color: #F4D03F; }
 
 .fc-note {
   border-left: 3px solid #F4D03F;
@@ -13001,7 +12996,8 @@ a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
   .fc-pass { transform: none; width: min(100%, 300px); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .fc-pass-shine, .fc-slot-open { animation: none; }
+  .fc-pass-shine, .fc-tile.is-open { animation: none; }
+  .fc-tile, .fc-tile:hover { transition: none; transform: none; }
 }
 
 /* ── Page skeleton (loading.js for profile, series, search) ─────────────── */

@@ -122,7 +122,9 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
   const nextNumber = claimed == null ? null : Math.min(CAP, claimed + 1);
   const soldOut = remaining === 0;
   const byNumber = new Map(roster.map((f) => [f.number, f]));
-  const publicRoster = roster.filter((f) => f.username);
+  // A founder whose own tile shows only their avatar gets a nudge to add a book.
+  const ownTile = isFounder && passNumber ? byNumber.get(passNumber) : null;
+  const ownTileBare = Boolean(ownTile?.username && !ownTile.cover);
 
   return (
     <main className="founding-page fc">
@@ -211,60 +213,88 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
         </div>
       </section>
 
-      <section className="fc-slots-section" aria-label="The first hundred founding passes">
-        <div className="fc-slots-head">
-          <h2>The first hundred</h2>
+      <section className="fc-wall" aria-label="The founding collectors so far">
+        <div className="fc-wall-head">
+          <p className="fc-kicker">Roll of Honor · The first {CAP}</p>
+          <h2>The ones who were here first.</h2>
+          <p className="fc-wall-sub">Each tile shows a book from that collector&rsquo;s collection.</p>
+          {ownTileBare && (
+            <p className="fc-wall-hint">
+              Your tile has no book yet. <Link href="/search">Add one to your collection</Link> and its cover goes up here.
+            </p>
+          )}
         </div>
-        <div className="fc-slots">
+        <ol className="fc-tiles">
           {Array.from({ length: CAP }, (_, i) => {
             const founder = byNumber.get(i + 1);
             const isClaimed = Boolean(founder) || (claimed != null && i < claimed);
             if (!isClaimed) return null;
-            const className = "fc-slot is-claimed";
-            // Every claimed block has its pass number stamped in the gold.
-            // Founders still on the stock mask get their initial struck in;
-            // an uploaded photo or a picked icon shows as is. Private
-            // founders are a numbered block with no name.
-            const no = <span className="fc-slot-no">{pad(i + 1)}</span>;
+            const no = <span className="fc-tile-no"><small>No.</small>{pad(i + 1)}</span>;
+            // Private founders keep their number and stay anonymous.
             if (!founder?.username) {
-              return <span key={i} className={`${className} is-stamped`}>{no}</span>;
+              return (
+                <li key={i} className="fc-tile is-private">
+                  <span className="fc-tile-art">
+                    <Image src="/img/logos/cc_badge.png" alt="" width={48} height={48} className="fc-tile-badge" />
+                  </span>
+                  {no}
+                  <span className="fc-tile-name">Private collector</span>
+                </li>
+              );
             }
+            const hasBook = Boolean(founder.cover);
             return (
-              <Link
-                key={i}
-                prefetch={false}
-                href={`/u/${encodeURIComponent(founder.username)}`}
-                className={`${className} is-stamped`}
-                title={`No. ${pad(founder.number)} · @${founder.username}`}
-                aria-label={`No. ${pad(founder.number)}, @${founder.username}`}
-              >
-                {founder.defaultAvatar && founder.initial ? (
-                  <span className="fc-slot-mono" aria-hidden="true">{founder.initial}</span>
-                ) : (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={founder.avatar} alt="" loading="lazy" />
-                )}
-                {no}
-              </Link>
+              <li key={i} className={`fc-tile ${hasBook ? "has-book" : "no-book"}`}>
+                <Link
+                  prefetch={false}
+                  href={`/u/${encodeURIComponent(founder.username)}`}
+                  title={hasBook && founder.bookTitle ? `@${founder.username} · ${founder.bookTitle}` : `@${founder.username}`}
+                  aria-label={`No. ${pad(founder.number)}, @${founder.username}`}
+                >
+                  <span className="fc-tile-art">
+                    {hasBook ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={founder.cover} alt="" loading="lazy" className="fc-tile-cover" />
+                    ) : (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={founder.avatar} alt="" loading="lazy" className="fc-tile-face" />
+                    )}
+                  </span>
+                  {no}
+                  <span className="fc-tile-name">
+                    {hasBook && (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={founder.avatar} alt="" loading="lazy" width={22} height={22} />
+                    )}
+                    <span>@{founder.username}</span>
+                  </span>
+                </Link>
+              </li>
             );
           })}
           {/* The next open pass, for anyone who can still take one. Waits for
               claim state so a founder never sees it flash. */}
           {claimStateKnown && !isFounder && !justClaimedSignedOut && !soldOut && nextNumber != null && (() => {
-            const label = <><b>Your spot</b><span>No. {pad(nextNumber)}</span></>;
+            const label = (
+              <>
+                <span className="fc-tile-no"><small>No.</small>{pad(nextNumber)}</span>
+                <b>Your spot</b>
+                <em>Claim it free</em>
+              </>
+            );
             if (!user) {
-              return <Link href="/signup" className="fc-slot-open" aria-label={`Claim pass No. ${pad(nextNumber)}`}>{label}</Link>;
+              return <li className="fc-tile is-open"><Link href="/signup" aria-label={`Claim pass No. ${pad(nextNumber)}`}>{label}</Link></li>;
             }
             if (status.canClaim && !pendingClaim) {
               return (
-                <button type="button" className="fc-slot-open" onClick={claim} disabled={busy} aria-label={`Claim pass No. ${pad(nextNumber)}`}>
-                  {label}
-                </button>
+                <li className="fc-tile is-open">
+                  <button type="button" onClick={claim} disabled={busy} aria-label={`Claim pass No. ${pad(nextNumber)}`}>{label}</button>
+                </li>
               );
             }
-            return <span className="fc-slot-open">{label}</span>;
+            return <li className="fc-tile is-open"><span>{label}</span></li>;
           })()}
-        </div>
+        </ol>
       </section>
 
       <section className="fc-perks">
@@ -275,29 +305,6 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
           <div className="fc-perk"><b>The badge</b><span>A permanent Founding Collector badge on your profile.</span></div>
         </div>
       </section>
-
-      {publicRoster.length > 0 && (
-        <section className="fc-roll">
-          <div className="fc-roll-head">
-            <p className="fc-kicker">Roll of Honor</p>
-            <h2>The ones who were here first.</h2>
-          </div>
-          <ol className="fc-roll-list">
-            {publicRoster.map((f) => (
-              <li key={f.number}>
-                <span className="fc-roll-no">{pad(f.number)}</span>
-                {f.defaultAvatar && f.initial ? (
-                  <span className="fc-roll-avatar fc-roll-mono" aria-hidden="true">{f.initial}</span>
-                ) : (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img className="fc-roll-avatar" src={f.avatar} alt="" loading="lazy" width={28} height={28} />
-                )}
-                <Link prefetch={false} href={`/u/${encodeURIComponent(f.username)}`}>@{f.username}</Link>
-              </li>
-            ))}
-          </ol>
-        </section>
-      )}
 
       <section className="fc-note">
         <p>

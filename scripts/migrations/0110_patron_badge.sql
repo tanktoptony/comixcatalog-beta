@@ -1,4 +1,4 @@
--- 0109_patron_badge.sql
+-- 0110_patron_badge.sql (applied to prod 2026-11-20 as 0109; renumbered after main took 0109)
 -- Patron badge for Patreon supporters. Set by hand from /admin (no Patreon
 -- API link), shown on public profiles. Like membership_tier, it is readable
 -- by everyone and writable only by server roles, so members can't grant it
@@ -6,6 +6,12 @@
 --
 -- Apply this BEFORE deploying the code that reads it: /api/public-profile
 -- selects the column, and a missing column would break profile pages.
+
+-- Rollback:
+--   revoke select (is_patron) on public.profiles from anon, authenticated;
+--   recreate protect_profile_billing_columns() without the two is_patron
+--   checks (copy the live definition first), then
+--   alter table public.profiles drop column is_patron;
 
 begin;
 

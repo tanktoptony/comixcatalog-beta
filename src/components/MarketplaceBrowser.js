@@ -400,7 +400,7 @@ function MarketplaceView({ listings, params }) {
             <span className="mk-dot"> · </span>
             {listings.length.toLocaleString("en-US")} comic{listings.length === 1 ? "" : "s"} listed in all
             <span className="mk-dot"> · </span>
-            No fees during the beta. {" "}
+            No buyer fees. {" "}
             <Link prefetch={false} href="/marketplace?view=all">
               Browse everything
             </Link>

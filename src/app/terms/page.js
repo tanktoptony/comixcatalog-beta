@@ -14,7 +14,7 @@ export default function TermsOfServicePage() {
       <article className="legal-prose">
         <p className="legal-kicker">Legal</p>
         <h1>Terms of Service</h1>
-        <p className="legal-meta">Last updated: October 2026</p>
+        <p className="legal-meta">Last updated: November 2026</p>
 
         <p>
           Welcome to ComixCatalog. These Terms of Service (&ldquo;Terms&rdquo;) govern
@@ -102,10 +102,13 @@ export default function TermsOfServicePage() {
           order completes; we review it and may refund the buyer and recover the
           amount from the seller&rsquo;s payout. Returns for any other reason are up
           to the seller. Sellers who use Buy now must also accept Stripe&rsquo;s
-          Connected Account Agreement. ComixCatalog charges no marketplace fee
-          during the beta; Stripe&rsquo;s card processing fee is deducted from the
-          seller&rsquo;s payout. If we add a fee, we&rsquo;ll update these Terms and tell
-          sellers before it applies.
+          Connected Account Agreement. During the beta, ComixCatalog charges a
+          marketplace fee of 5% of each Buy now order (item price plus shipping).
+          It and Stripe&rsquo;s card processing fee are deducted from the
+          seller&rsquo;s payout, and the fee in effect when an order is placed is the
+          one that applies to it. Deals arranged by message carry no ComixCatalog
+          fee. If we change the fee, we&rsquo;ll update these Terms and tell sellers
+          before it applies.
         </p>
         <p>
           <strong>Deals by message.</strong> For sales arranged by message,

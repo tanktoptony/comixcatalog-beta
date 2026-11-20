@@ -111,9 +111,10 @@ export default function HelpPage() {
                 Yes, in beta. Anyone can list books from their collection for
                 sale and browse the{" "}
                 <Link href="/marketplace" className="md-a">Marketplace</Link>,
-                and buyers can message a seller to make an offer. ComixCatalog
-                charges no fees. Buy now checkout is in testing with a small
-                group for now. <Link href="/trust" className="md-a">Trust &amp; Safety</Link>{" "}
+                and buyers can check out with Buy now or message a seller to
+                make an offer. Buyers pay no fees. On Buy now sales ComixCatalog
+                keeps 5% during the beta; deals by message are free.{" "}
+                <Link href="/trust" className="md-a">Trust &amp; Safety</Link>{" "}
                 covers how orders are protected and how to trade safely by
                 message.
               </>

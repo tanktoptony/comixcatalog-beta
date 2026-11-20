@@ -49,7 +49,7 @@ export default async function ListingPage({ params }) {
       <Link href={offerHref(l)} className="lp-cta">
         {contactLabel(l)}
       </Link>
-      <p className="lp-fine">No fees during the beta. You and the seller work out payment and shipping by message.</p>
+      <p className="lp-fine">No ComixCatalog fees on deals by message. You and the seller work out payment and shipping directly.</p>
     </>
   );
 

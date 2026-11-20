@@ -7333,7 +7333,8 @@ button.nav-link {
 }
 
 .profile-badge.founding,
-.profile-badge.pro {
+.profile-badge.pro,
+.profile-badge.patron {
   background: linear-gradient(135deg, #2a2110, #161008);
   color: #f4d03f;
   border: 1px solid rgba(216,176,75,0.4);

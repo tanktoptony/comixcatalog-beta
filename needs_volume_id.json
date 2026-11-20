@@ -75026,9 +75026,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T15:51:57.673935+00:00",
-    "retry_after": "2026-11-20T15:51:57.673950+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T19:11:32.289250+00:00",
+    "retry_after": "2026-12-20T19:11:32.289265+00:00",
     "search_hydrated": true
   },
   {
@@ -75062,9 +75062,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T15:51:59.280258+00:00",
-    "retry_after": "2026-11-20T15:51:59.280262+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T19:11:33.502226+00:00",
+    "retry_after": "2026-12-20T19:11:33.502231+00:00",
     "search_hydrated": true
   },
   {
@@ -75073,9 +75073,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T15:51:57.673996+00:00",
-    "retry_after": "2026-11-20T15:51:57.674000+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T19:11:32.289302+00:00",
+    "retry_after": "2026-12-20T19:11:32.289307+00:00",
     "search_hydrated": true
   },
   {
@@ -75084,9 +75084,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T15:51:57.674015+00:00",
-    "retry_after": "2026-11-20T15:51:57.674018+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T19:11:32.289321+00:00",
+    "retry_after": "2026-12-20T19:11:32.289324+00:00",
     "search_hydrated": true
   },
   {
@@ -75095,9 +75095,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T15:51:57.674048+00:00",
-    "retry_after": "2026-11-20T15:51:57.674051+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T19:11:32.289353+00:00",
+    "retry_after": "2026-12-20T19:11:32.289356+00:00",
     "search_hydrated": true
   },
   {
@@ -75106,9 +75106,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T15:51:57.674064+00:00",
-    "retry_after": "2026-11-20T15:51:57.674066+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T19:11:32.289368+00:00",
+    "retry_after": "2026-12-20T19:11:32.289371+00:00",
     "search_hydrated": true
   },
   {
@@ -75117,9 +75117,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T15:51:57.674078+00:00",
-    "retry_after": "2026-11-20T15:51:57.674080+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T19:11:32.289382+00:00",
+    "retry_after": "2026-12-20T19:11:32.289384+00:00",
     "search_hydrated": true
   },
   {
@@ -75135,9 +75135,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T15:51:59.433472+00:00",
-    "retry_after": "2026-11-20T15:51:59.433486+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T19:11:33.570828+00:00",
+    "retry_after": "2026-12-20T19:11:33.570842+00:00",
     "search_hydrated": true
   },
   {
@@ -75146,9 +75146,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T15:51:57.674092+00:00",
-    "retry_after": "2026-11-20T15:51:57.674095+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T19:11:32.289396+00:00",
+    "retry_after": "2026-12-20T19:11:32.289398+00:00",
     "search_hydrated": true
   },
   {
@@ -98244,6 +98244,251 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-20T18:10:50.378380+00:00",
     "retry_after": "2026-11-21T18:10:50.378400+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vampi Digital Preview",
+    "publisher": "ParaGraphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48954,
+        "name": "Vampi Digital Preview",
+        "publisher": "Anarchy Studios",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T19:02:12.589729+00:00",
+    "retry_after": "2026-11-21T19:02:12.589745+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Creed/Teenage Mutant Ninja Turtles",
+    "publisher": "Lightning Comics [1990s]",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 33473,
+        "name": "CreeD/Teenage Mutant Ninja Turtles",
+        "publisher": "Lightning Comics",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T19:02:12.589785+00:00",
+    "retry_after": "2026-11-21T19:02:12.589790+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Terror on the Planet of the Apes",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62074,
+        "name": "Terror on the Planet of the Apes",
+        "publisher": "Adventure",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T19:02:12.589815+00:00",
+    "retry_after": "2026-11-21T19:02:12.589819+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Psychoanalysis",
+    "publisher": "Gemstone",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1734,
+        "name": "Psychoanalysis",
+        "publisher": "EC",
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T19:02:12.589859+00:00",
+    "retry_after": "2026-11-21T19:02:12.589862+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tribe",
+    "publisher": "Good Comics [1990s]",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18349,
+        "name": "Tribe",
+        "publisher": "Image",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T19:02:12.589883+00:00",
+    "retry_after": "2026-11-21T19:02:12.589886+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cable TV",
+    "publisher": "Entity-Parody",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22957,
+        "name": "Cable TV",
+        "publisher": "Express Publications",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T19:02:12.589906+00:00",
+    "retry_after": "2026-11-21T19:02:12.589908+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Highway 13",
+    "publisher": "Slave Labor",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54638,
+        "name": "Highway 13",
+        "publisher": "SLG Publishing",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T19:02:12.589927+00:00",
+    "retry_after": "2026-11-21T19:02:12.589930+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Shortstop Squad",
+    "publisher": "Ultimate Sports Force",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T19:02:12.589945+00:00",
+    "retry_after": "2026-11-21T19:02:12.589947+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman: The Death of Clark Kent",
+    "publisher": "Titan Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 31905,
+        "name": "Superman: The Death of Clark Kent",
+        "publisher": "DC Comics",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T19:11:41.594992+00:00",
+    "retry_after": "2026-11-21T19:11:41.595007+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Team-Up Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52549,
+        "name": "Marvel Team-Up Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T19:11:41.595049+00:00",
+    "retry_after": "2026-11-21T19:11:41.595053+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Les Aventures d'une étudiante lesbienne",
+    "publisher": "Dynamite Entertainment",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 130157,
+        "name": "Les Aventures d'une Étudiante Lesbienne",
+        "publisher": "Dynamite (France)",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T19:11:41.595080+00:00",
+    "retry_after": "2026-11-21T19:11:41.595083+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mystic: The Tenth Apprentice",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88473,
+        "name": "Mystic: The Tenth Apprentice",
+        "publisher": "Crossgen",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T19:11:41.595122+00:00",
+    "retry_after": "2026-11-21T19:11:41.595126+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Conan Exiles",
+    "publisher": "Dark Horse Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141912,
+        "name": "Conan: Exiles",
+        "publisher": "Marvel",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T19:11:41.595150+00:00",
+    "retry_after": "2026-11-21T19:11:41.595153+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I Vendicatori",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 151292,
+        "name": "I Vendicatori",
+        "publisher": "Panini Comics",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T19:11:48.551674+00:00",
+    "retry_after": "2026-11-21T19:11:48.551689+00:00",
     "search_hydrated": true
   }
 ]

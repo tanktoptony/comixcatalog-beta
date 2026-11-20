@@ -225,7 +225,7 @@ export default function AccountSettingsPage() {
             id="email-tips"
             checked={emailTips}
             onChange={handleTipsToggle}
-            label="Tips to get started"
+            label="Tips and collection updates"
             message={tipsMsg}
           >
             A couple of short emails to help you add your first comic.

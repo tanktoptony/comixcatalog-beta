@@ -616,6 +616,13 @@
     "series_gcd_id": 44560
   },
   {
+    "name": "Lovecraft: Unknown Kadath",
+    "publisher": "Ablaze Publishing",
+    "year": 2022,
+    "volume_id": 154749,
+    "series_gcd_id": 189397
+  },
+  {
     "name": "The Life and Death of Toyo Harada",
     "publisher": "Valiant Entertainment",
     "year": 2019,
@@ -805,13 +812,6 @@
     "series_gcd_id": 132796
   },
   {
-    "name": "Spider-Man 2099: Exodus",
-    "publisher": "Marvel",
-    "year": 2022,
-    "volume_id": 148948,
-    "series_gcd_id": 185566
-  },
-  {
     "name": "Green Hornet Comics",
     "publisher": "Harvey",
     "year": 1942,
@@ -901,6 +901,13 @@
     "year": 2018,
     "volume_id": 111996,
     "series_gcd_id": 126442
+  },
+  {
+    "name": "White Widow",
+    "publisher": "Red Giant Entertainment",
+    "year": 2019,
+    "volume_id": 116520,
+    "series_gcd_id": 175557
   },
   {
     "name": "Superman / Wonder Woman",
@@ -1218,6 +1225,27 @@
     "series_gcd_id": 72994
   },
   {
+    "name": "What If...? Venom",
+    "publisher": "Marvel",
+    "year": 2024,
+    "volume_id": 157037,
+    "series_gcd_id": 209409
+  },
+  {
+    "name": "Liquid Kill",
+    "publisher": "Massive",
+    "year": 2023,
+    "volume_id": 160422,
+    "series_gcd_id": 207762
+  },
+  {
+    "name": "Die!namite",
+    "publisher": "Dynamite Entertainment",
+    "year": 2020,
+    "volume_id": 131186,
+    "series_gcd_id": 165069
+  },
+  {
     "name": "These Savage Shores",
     "publisher": "Vault",
     "year": 2018,
@@ -1384,5 +1412,40 @@
     "year": 1994,
     "volume_id": 19681,
     "series_gcd_id": 15877
+  },
+  {
+    "name": "Save Now",
+    "publisher": "Bad Idea",
+    "year": 2025,
+    "volume_id": 167696,
+    "series_gcd_id": 229153
+  },
+  {
+    "name": "Death Dealer",
+    "publisher": "Verotik",
+    "year": 1995,
+    "volume_id": 5723,
+    "series_gcd_id": 5482
+  },
+  {
+    "name": "Vampirella Year One",
+    "publisher": "Dynamite Entertainment",
+    "year": 2022,
+    "volume_id": 144242,
+    "series_gcd_id": 187591
+  },
+  {
+    "name": "Shaolin Cowboy: Cruel to Be Kin",
+    "publisher": "Dark Horse",
+    "year": 2022,
+    "volume_id": 143010,
+    "series_gcd_id": 185271
+  },
+  {
+    "name": "Defcon 4",
+    "publisher": "Image",
+    "year": 1996,
+    "volume_id": 22851,
+    "series_gcd_id": 16237
   }
 ]

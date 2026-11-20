@@ -74664,9 +74664,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T13:13:03.040044+00:00",
-    "retry_after": "2026-11-20T13:13:03.040060+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T16:12:50.845202+00:00",
+    "retry_after": "2026-12-20T16:12:50.845219+00:00",
     "search_hydrated": true
   },
   {
@@ -74675,9 +74675,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T13:13:03.040165+00:00",
-    "retry_after": "2026-11-20T13:13:03.040168+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T16:12:50.845324+00:00",
+    "retry_after": "2026-12-20T16:12:50.845328+00:00",
     "search_hydrated": true
   },
   {
@@ -74693,9 +74693,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T13:13:05.098207+00:00",
-    "retry_after": "2026-11-20T13:13:05.098224+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T16:12:52.460457+00:00",
+    "retry_after": "2026-12-20T16:12:52.460471+00:00",
     "search_hydrated": true
   },
   {
@@ -74704,9 +74704,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T13:13:03.040180+00:00",
-    "retry_after": "2026-11-20T13:13:03.040182+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T16:12:50.845340+00:00",
+    "retry_after": "2026-12-20T16:12:50.845342+00:00",
     "search_hydrated": true
   },
   {
@@ -74728,9 +74728,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T13:13:03.040216+00:00",
-    "retry_after": "2026-11-20T13:13:03.040218+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T16:12:50.845376+00:00",
+    "retry_after": "2026-12-20T16:12:50.845378+00:00",
     "search_hydrated": true
   },
   {
@@ -74752,9 +74752,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T13:13:03.040247+00:00",
-    "retry_after": "2026-11-20T13:13:03.040249+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T16:12:50.845406+00:00",
+    "retry_after": "2026-12-20T16:12:50.845408+00:00",
     "search_hydrated": true
   },
   {
@@ -74763,9 +74763,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T13:13:03.040259+00:00",
-    "retry_after": "2026-11-20T13:13:03.040261+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T16:12:50.845418+00:00",
+    "retry_after": "2026-12-20T16:12:50.845420+00:00",
     "search_hydrated": true
   },
   {
@@ -74774,9 +74774,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T13:13:03.040269+00:00",
-    "retry_after": "2026-11-20T13:13:03.040271+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T16:12:50.845428+00:00",
+    "retry_after": "2026-12-20T16:12:50.845430+00:00",
     "search_hydrated": true
   },
   {
@@ -74785,9 +74785,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T13:13:03.040280+00:00",
-    "retry_after": "2026-11-20T13:13:03.040281+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T16:12:50.845438+00:00",
+    "retry_after": "2026-12-20T16:12:50.845439+00:00",
     "search_hydrated": true
   },
   {
@@ -98814,6 +98814,148 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-20T15:19:14.613258+00:00",
     "retry_after": "2026-11-21T15:19:14.613261+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Two-in-One",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2696,
+        "name": "Marvel Two-in-One",
+        "publisher": "Marvel",
+        "start_year": 1974
+      },
+      {
+        "id": 107157,
+        "name": "Marvel Two-In-One",
+        "publisher": "Marvel",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T16:02:14.822238+00:00",
+    "retry_after": "2026-11-21T16:02:14.822254+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tribe",
+    "publisher": "Good Comics [1990s]",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18349,
+        "name": "Tribe",
+        "publisher": "Image",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T16:02:14.822290+00:00",
+    "retry_after": "2026-11-21T16:02:14.822293+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cable TV",
+    "publisher": "Entity-Parody",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22957,
+        "name": "Cable TV",
+        "publisher": "Express Publications",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T16:02:14.822318+00:00",
+    "retry_after": "2026-11-21T16:02:14.822320+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Highway 13",
+    "publisher": "Slave Labor",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54638,
+        "name": "Highway 13",
+        "publisher": "SLG Publishing",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T16:02:14.822364+00:00",
+    "retry_after": "2026-11-21T16:02:14.822366+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Faust [Rebel Edition]",
+    "publisher": "Rebel Studios",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T16:03:46.576850+00:00",
+    "retry_after": "2026-11-21T16:03:46.576865+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ezra",
+    "publisher": "Arcana",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20781,
+        "name": "Ezra",
+        "publisher": "Arcana Studio",
+        "start_year": 2004
+      },
+      {
+        "id": 135417,
+        "name": "Ezra",
+        "publisher": "Kingstone Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T16:03:46.576899+00:00",
+    "retry_after": "2026-11-21T16:03:46.576902+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Land of Nod Treasury",
+    "publisher": "Oni Press",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 73630,
+        "name": "Land of Nod Treasury",
+        "publisher": "Black Eye",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T16:13:02.920266+00:00",
+    "retry_after": "2026-11-21T16:13:02.920282+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Complete James Bond - Dr No: The Classic Comic Strip Collection: 1958-1960",
+    "publisher": "Titan Comics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T16:13:02.920302+00:00",
+    "retry_after": "2026-11-21T16:13:02.920305+00:00",
     "search_hydrated": true
   }
 ]

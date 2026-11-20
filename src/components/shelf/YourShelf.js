@@ -18,10 +18,10 @@ const dollars = new Intl.NumberFormat("en-US", { style: "currency", currency: "U
 const cents = { format: (v) => Number.isInteger(Number(v)) ? money.format(v) : dollars.format(v) };
 const count = (n) => Number(n ?? 0).toLocaleString("en-US");
 
-// Set to the Patreon page to show the support card to every member,
-// founders included. Until then it shows only to members who can still join
-// Collector+ (founders already have a membership).
-const PATREON_URL = null;
+// The support card links here and shows to every member, founders included.
+// Set to null to fall back to Collector+, which only members without a
+// membership can join.
+const PATREON_URL = "https://www.patreon.com/comixcatalog";
 
 function Skeleton({ tall = false }) { return <div className={`${styles.skeleton}${tall ? ` ${styles.tall}` : ""}`} aria-label="Loading" />; }
 function ErrorCard({ retry }) { return <div className={styles.state} role="alert">This section could not load.<button type="button" onClick={retry}>Try again</button></div>; }

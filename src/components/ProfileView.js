@@ -139,6 +139,9 @@ export default function ProfileView({ data, isOwner = false }) {
                 {profile?.membership_tier === "collector_plus" && (
                   <span className="profile-badge pro">Collector+</span>
                 )}
+                {profile?.is_patron && (
+                  <span className="profile-badge patron" title="Supports ComixCatalog on Patreon">Patron</span>
+                )}
               </div>
             </div>
             {profile.display_name && (

@@ -166,6 +166,7 @@ PK `id` (uuid, FK → `auth.users.id`).
 Columns: `username`, `is_public`, `created_at`, `avatar_key`, `avatar_url`, `is_founding_collector`, `is_pro`, `membership_tier`, `stripe_customer_id`.
 - `is_pro` is the Stripe-driven flag. Admin is treated as Pro via `ADMIN_ID` short-circuit, NOT this column.
 - `stripe_customer_id` is mode-sensitive — a live-mode `cus_…` will fail under a test-mode key (we hit this).
+- `is_patron` (migration 0110, Nov 2026) shows a Patron badge on public profiles for Patreon supporters. There is no Patreon API link: Tony grants and revokes it from /admin (same tool as comped Pro). Server-only, like the columns below.
 - **`is_pro`, `is_founding_collector`, `membership_tier` and `stripe_customer_id` are server-only (migrations 0032a/0032b/0049).** A trigger rejects client changes because owners could otherwise grant themselves a membership. Browsers can read `membership_tier` but not `stripe_customer_id`, so client code must select explicit columns from `profiles`, never `select("*")`.
 
 #### `seller_accounts` (migration 0068)

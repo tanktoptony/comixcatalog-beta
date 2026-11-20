@@ -101,8 +101,10 @@ export function rankCollectionHighlights(copies) {
       const tier = Number(copy.keyIssue?.tier);
       const result = copy.valueResult;
       const value = Number(result?.value);
-      const compBacked =
-        result?.source === "market-comp" && Number(result?.sample_size) >= 3 && Number.isFinite(value);
+      // A PriceCharting guide value is built from sold listings, so it counts
+      // as backed on its own.
+      const compBacked = Number.isFinite(value) &&
+        (result?.source === "pricecharting" || (result?.source === "market-comp" && Number(result?.sample_size) >= 3));
       const valuable = compBacked && value >= 25;
       const slabbed = copy.slab_company != null && String(copy.slab_company).trim() !== "";
       const remarkable = tier === 1 || tier === 2 || valuable || slabbed;

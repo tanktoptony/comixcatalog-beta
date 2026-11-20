@@ -113,6 +113,7 @@ export default function CollectionStatsStrip({
         <StatCard
           label="Collection Value"
           value={stats.value > 0 ? formatCurrency(stats.value) : "—"}
+          footnote={stats.value > 0 ? <PriceChartingCredit /> : null}
         />
       )}
       <StatCard label="Unique Series" value={stats.uniqueSeries} />
@@ -120,7 +121,22 @@ export default function CollectionStatsStrip({
   );
 }
 
-function StatCard({ label, value }) {
+// Book values lead with PriceCharting's guide (src/lib/pcValue.js), and
+// their terms ask for a credit wherever those values show.
+export function PriceChartingCredit() {
+  return (
+    <a
+      href="https://www.pricecharting.com/"
+      target="_blank"
+      rel="noopener"
+      style={{ display: "block", fontSize: "0.65rem", opacity: 0.55, marginTop: 4, color: "inherit" }}
+    >
+      Values by PriceCharting
+    </a>
+  );
+}
+
+function StatCard({ label, value, footnote = null }) {
   return (
     <div
       style={{
@@ -137,6 +153,7 @@ function StatCard({ label, value }) {
       <div style={{ fontSize: "0.72rem", opacity: 0.7, marginTop: 4, letterSpacing: "0.04em", textTransform: "uppercase" }}>
         {label}
       </div>
+      {footnote}
     </div>
   );
 }

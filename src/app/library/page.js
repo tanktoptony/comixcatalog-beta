@@ -2155,10 +2155,40 @@ function LibraryPageContent() {
                           </>
                         )}
                         {/* Auto-value - only when no user override exists.
-                            Two sources, distinguished by source field:
+                            Sources, distinguished by source field:
+                              pricecharting → PriceCharting guide at this copy's grade
                               market-comp → median of recent eBay sold-comps
                               cover-price → era-based floor estimate (no comps yet) */}
                         {liveGrade.market_value == null &&
+                          marketValues[item.id]?.source === "pricecharting" &&
+                          marketValues[item.id]?.value != null && (() => {
+                            const mv = marketValues[item.id];
+                            // PriceCharting's terms: every price shown cites
+                            // them with a link to that book's page.
+                            const graded = mv.grade_used && mv.grade_used !== "ungraded";
+                            const label = `${mv.regular_cover ? "regular cover, " : ""}${graded ? mv.grade_used : "raw"}, PriceCharting`;
+                            const tooltip = graded
+                              ? `PriceCharting guide value for a ${mv.grade_used} copy${mv.regular_cover ? ". No guide price for this variant, so this is the regular cover's" : ""}.`
+                              : `PriceCharting guide value for a raw copy${mv.condition_unknown ? ". Set a grade to match your copy's condition" : ""}${mv.regular_cover ? ". No guide price for this variant, so this is the regular cover's" : ""}.`;
+                            return (
+                              <>
+                                <span>•</span>
+                                <span style={{ color: "var(--cc-gold)" }} title={tooltip}>
+                                  Worth ~${Number(mv.value).toFixed(2)}{" "}
+                                  <a
+                                    href={mv.url}
+                                    target="_blank"
+                                    rel="noopener"
+                                    style={{ opacity: 0.7, fontSize: "0.85em", color: "inherit" }}
+                                  >
+                                    ({label})
+                                  </a>
+                                </span>
+                              </>
+                            );
+                          })()}
+                        {liveGrade.market_value == null &&
+                          marketValues[item.id]?.source !== "pricecharting" &&
                           marketValues[item.id]?.value != null && (() => {
                             const mv = marketValues[item.id];
                             const isComp = mv.source === "market-comp";

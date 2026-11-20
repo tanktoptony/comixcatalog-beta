@@ -126,3 +126,11 @@ test("duplicate issues use the strongest copy signals", () => {
   ]);
   assert.deepEqual(ranked.map((copy) => copy.id), ["slab"]);
 });
+
+test("a PriceCharting guide value makes a book remarkable", () => {
+  const [copy] = rankCollectionHighlights([
+    highlight({ id: "guide", gcd_issue_id: 3, valueResult: { value: 108.4, sample_size: 0, source: "pricecharting" } }),
+  ]);
+  assert.equal(copy.id, "guide");
+  assert.equal(copy.highlightScore, 108.4);
+});

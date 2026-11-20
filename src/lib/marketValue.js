@@ -4,8 +4,13 @@
 // rules. The library page, public profiles and the PDF export all call
 // through here; scripts/snapshotCollectionValue.js calls valueFromComps
 // directly, so the two cannot drift.
+//
+// PriceCharting's guide (src/lib/pcValue.js) comes first: it is built from
+// sold listings, our comps are eBay asking prices. A copy the guide can't
+// price falls through to the comp chain exactly as before.
 
 import { valueFromComps, emptyValue, issueYearFrom, MIN_SAMPLES } from "@/lib/compValue";
+import { loadPriceChartingRows, pcValueForIssue, pcValueForRegularCover } from "@/lib/pcValue";
 
 const DEFAULT_WINDOW_DAYS = 90;
 
@@ -94,8 +99,8 @@ export async function getMarketValuesBulk({
 
   const compsByIssue = new Map();
   const issueById = new Map();
-  // Comps and issue metadata are independent reads; run them together.
-  const [compReads, issueReads] = await Promise.all([
+  // Comps, issue metadata and guide rows are independent reads; run them together.
+  const [compReads, issueReads, guide] = await Promise.all([
     mapLimit(chunked(issueIds, COMP_ISSUE_CHUNK), COMP_CONCURRENCY, (chunk) => readAll(() =>
       supabase
         .from("market_comps")
@@ -111,7 +116,11 @@ export async function getMarketValuesBulk({
         .in("gcd_id", chunk)
         .order("gcd_id", { ascending: true })
     )),
+    loadPriceChartingRows(supabase, issueIds),
   ]);
+  // A guide read failure must not cost the page its comp values.
+  if (guide.error) console.error("getMarketValuesBulk price guide fetch failed:", guide.error);
+  const guideRows = guide.rowsByIssue;
   for (const comps of compReads) {
     if (comps.error) {
       console.error("getMarketValuesBulk comp fetch failed:", comps.error);
@@ -160,18 +169,44 @@ export async function getMarketValuesBulk({
       seriesStartYear: seriesRow?.year_start_cached ?? null,
     };
   };
+  // Variants with no guide row of their own borrow the regular cover's; load
+  // those base rows too (usually a handful).
+  const missingBases = [...new Set(list
+    .map((item) => issueById.get(Number(item?.gcd_issue_id))?.variant_of_gcd_id)
+    .filter((id) => id != null && !guideRows.has(Number(id)))
+    .map(Number))];
+  if (!guide.error && missingBases.length) {
+    const more = await loadPriceChartingRows(supabase, missingBases);
+    if (more.error) console.error("getMarketValuesBulk regular-cover guide fetch failed:", more.error);
+    for (const [key, rows] of more.rowsByIssue) guideRows.set(key, rows);
+  }
+
   const needsRegularCover = [];
   for (const item of list) {
     if (!item?.collection_id) continue;
     const issueRow = issueById.get(Number(item.gcd_issue_id));
+    // Order: this edition's guide price, this edition's comps, the regular
+    // cover's guide price, the regular cover's comps, the cover-price floor.
+    const guideValue = pcValueForIssue(guideRows, item);
+    if (guideValue) {
+      out.set(item.collection_id, guideValue);
+      continue;
+    }
     const value = valueFromComps({
       comps: compsByIssue.get(Number(item.gcd_issue_id)) ?? [],
       item,
       issue: issueContext(item, issueRow),
       minSamples,
     });
+    if (value.source !== "market-comp" && issueRow?.variant_of_gcd_id != null) {
+      const baseGuide = pcValueForRegularCover(guideRows, item, issueRow.variant_of_gcd_id);
+      if (baseGuide) {
+        out.set(item.collection_id, baseGuide);
+        continue;
+      }
+      needsRegularCover.push({ item, issueRow });
+    }
     out.set(item.collection_id, value);
-    if (value.source !== "market-comp" && issueRow?.variant_of_gcd_id != null) needsRegularCover.push({ item, issueRow });
   }
 
   // A copy moved to a variant version has few comps of its own (455 of

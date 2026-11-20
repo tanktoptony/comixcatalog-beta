@@ -22,6 +22,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { createClient } from "@supabase/supabase-js";
 import { valueFromComps, issueYearFrom } from "../src/lib/compValue.js";
+import { loadPriceChartingRows, pcValueForIssue, pcValueForRegularCover } from "../src/lib/pcValue.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
@@ -96,7 +97,7 @@ async function run() {
   const gcdIssueIds = [...new Set(owned.map((r) => r.gcd_issue_id).filter((v) => v != null))];
   const sinceIso = new Date(Date.now() - WINDOW_DAYS * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
 
-  const issues = await fetchByIds("gcd_issues", "gcd_id, series_gcd_id, key_date, publication_date", "gcd_id", gcdIssueIds);
+  const issues = await fetchByIds("gcd_issues", "gcd_id, series_gcd_id, key_date, publication_date, variant_of_gcd_id", "gcd_id", gcdIssueIds);
   const issueById = new Map(issues.map((r) => [Number(r.gcd_id), r]));
   const seriesIds = [...new Set(issues.map((r) => r.series_gcd_id).filter((v) => v != null))];
   const series = await fetchByIds("series", "id, gcd_id, title, year_start_cached", "gcd_id", seriesIds);
@@ -118,6 +119,16 @@ async function run() {
   }
   console.log(`Loaded ${comps.length} comps in the ${WINDOW_DAYS}-day window.`);
 
+  // PriceCharting guide rows (src/lib/pcValue.js), for each edition and the
+  // regular cover of each variant. Same order as src/lib/marketValue.js.
+  const guideIds = [...new Set([...gcdIssueIds, ...issues.map((r) => r.variant_of_gcd_id).filter((v) => v != null)].map(Number))];
+  // runWithRetry wants { data, error } and returns data.
+  const guide = await runWithRetry("price guide", async () => {
+    const result = await loadPriceChartingRows(supabase, guideIds);
+    return { data: result.rowsByIssue, error: result.error };
+  });
+  console.log(`Loaded price guide rows for ${guide.size} issues.`);
+
   const valueById = new Map();
   for (const item of owned) {
     const userValue = Number(item.market_value);
@@ -126,6 +137,11 @@ async function run() {
       continue;
     }
     const issueRow = issueById.get(Number(item.gcd_issue_id));
+    const guideValue = pcValueForIssue(guide, item);
+    if (guideValue) {
+      valueById.set(item.id, guideValue.value);
+      continue;
+    }
     const seriesRow = issueRow ? seriesById.get(Number(issueRow.series_gcd_id)) : null;
     const result = valueFromComps({
       comps: compsByIssue.get(Number(item.gcd_issue_id)) ?? [],
@@ -136,7 +152,8 @@ async function run() {
         seriesStartYear: seriesRow?.year_start_cached ?? null,
       },
     });
-    valueById.set(item.id, result.value ?? 0);
+    const regular = result.source !== "market-comp" ? pcValueForRegularCover(guide, item, issueRow?.variant_of_gcd_id) : null;
+    valueById.set(item.id, regular?.value ?? result.value ?? 0);
   }
 
   const byUser = new Map(); // user_id -> { totalValue, ownedCount, pricedCount }

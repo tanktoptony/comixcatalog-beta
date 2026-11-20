@@ -50,6 +50,13 @@ const WATCHED = [
   { file: "youtube-weekly.yml", maxAgeHours: 24 * 8 },
   // Nightly list of the issue pages in the sitemap.
   { file: "issue-sitemap.yml", maxAgeHours: 48 },
+  // Every 6 hours plus after each PriceCharting refresh. The homepage value
+  // reads its latest row; on 2026-11-20 the schedule went 12 hours without
+  // firing and the homepage trailed the library by about $140.
+  { file: "snapshot-collection-value.yml", maxAgeHours: 13 },
+  // Daily at 08:20 UTC. Its first scheduled run (2026-11-20) never fired.
+  // A run takes about an hour, so 30 hours is one missed day plus slack.
+  { file: "pricecharting-refresh.yml", maxAgeHours: 30 },
 ];
 
 const DRY_RUN = process.argv.includes("--dry-run");

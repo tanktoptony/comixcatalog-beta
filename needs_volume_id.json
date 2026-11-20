@@ -1740,28 +1740,6 @@
     "retry_after": "2026-09-21T14:00:38.554273+00:00"
   },
   {
-    "name": "Amazing Spider-Man",
-    "publisher": "Marvel Comics",
-    "year": 2018,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 152139,
-        "name": "Amazing Spider-Man",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 2021
-      },
-      {
-        "id": 110451,
-        "name": "Amazing Spider-Man",
-        "publisher": "Panini Comics",
-        "start_year": 2018
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554277+00:00"
-  },
-  {
     "name": "The Twilight Zone",
     "publisher": "Gold Key",
     "year": 1962,
@@ -67084,9 +67062,10 @@
     "year": 1983,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T13:45:11.748016+00:00",
-    "retry_after": "2026-10-23T13:45:11.748030+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-20T23:03:50.210158+00:00",
+    "retry_after": "2026-11-23T23:03:50.210171+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Age of Bronze",
@@ -75360,9 +75339,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T18:11:21.798734+00:00",
-    "retry_after": "2026-11-20T18:11:21.798737+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T23:12:45.844350+00:00",
+    "retry_after": "2026-12-20T23:12:45.844364+00:00",
     "search_hydrated": true
   },
   {
@@ -75371,9 +75350,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T18:11:21.798751+00:00",
-    "retry_after": "2026-11-20T18:11:21.798754+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T23:12:45.844388+00:00",
+    "retry_after": "2026-12-20T23:12:45.844392+00:00",
     "search_hydrated": true
   },
   {
@@ -75382,9 +75361,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T18:11:21.798768+00:00",
-    "retry_after": "2026-11-20T18:11:21.798771+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T23:12:45.844407+00:00",
+    "retry_after": "2026-12-20T23:12:45.844410+00:00",
     "search_hydrated": true
   },
   {
@@ -75404,9 +75383,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T18:11:21.798799+00:00",
-    "retry_after": "2026-11-20T18:11:21.798802+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T23:12:45.844441+00:00",
+    "retry_after": "2026-12-20T23:12:45.844443+00:00",
     "search_hydrated": true
   },
   {
@@ -75422,9 +75401,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T18:11:23.134721+00:00",
-    "retry_after": "2026-11-20T18:11:23.134736+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T23:12:49.409405+00:00",
+    "retry_after": "2026-12-20T23:12:49.409412+00:00",
     "search_hydrated": true
   },
   {
@@ -75433,9 +75412,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T19:13:46.619604+00:00",
-    "retry_after": "2026-11-20T19:13:46.619620+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T23:12:45.844456+00:00",
+    "retry_after": "2026-12-20T23:12:45.844459+00:00",
     "search_hydrated": true
   },
   {
@@ -75457,9 +75436,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T19:13:46.619669+00:00",
-    "retry_after": "2026-11-20T19:13:46.619673+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T23:12:45.844506+00:00",
+    "retry_after": "2026-12-20T23:12:45.844509+00:00",
     "search_hydrated": true
   },
   {
@@ -75468,9 +75447,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T19:13:46.619689+00:00",
-    "retry_after": "2026-11-20T19:13:46.619691+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T23:12:45.844525+00:00",
+    "retry_after": "2026-12-20T23:12:45.844528+00:00",
     "search_hydrated": true
   },
   {
@@ -75479,9 +75458,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T19:13:46.619704+00:00",
-    "retry_after": "2026-11-20T19:13:46.619706+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-20T23:12:45.844541+00:00",
+    "retry_after": "2026-12-20T23:12:45.844543+00:00",
     "search_hydrated": true
   },
   {
@@ -96701,9 +96680,9 @@
         "start_year": 1993
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-19T23:01:56.570698+00:00",
-    "retry_after": "2026-11-20T23:01:56.570701+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-20T23:02:24.424583+00:00",
+    "retry_after": "2026-11-23T23:02:24.424596+00:00",
     "search_hydrated": true
   },
   {
@@ -96712,9 +96691,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-19T23:01:56.570712+00:00",
-    "retry_after": "2026-11-20T23:01:56.570714+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-20T23:02:24.424639+00:00",
+    "retry_after": "2026-11-23T23:02:24.424644+00:00",
     "search_hydrated": true
   },
   {
@@ -96723,9 +96702,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-19T23:01:56.570722+00:00",
-    "retry_after": "2026-11-20T23:01:56.570723+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-20T23:02:24.424660+00:00",
+    "retry_after": "2026-11-23T23:02:24.424664+00:00",
     "search_hydrated": true
   },
   {
@@ -98833,6 +98812,120 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-20T22:19:59.661617+00:00",
     "retry_after": "2026-11-21T22:19:59.661629+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Scarlet",
+    "publisher": "DC Comics",
+    "year": 2010,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 113090,
+        "name": "Scarlet",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      },
+      {
+        "id": 118528,
+        "name": "Scarlet",
+        "publisher": "DC Comics",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T23:02:24.424785+00:00",
+    "retry_after": "2026-11-21T23:02:24.424789+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Blonde: Double Cross",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45991,
+        "name": "The Blonde: Double Cross",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T23:03:50.210213+00:00",
+    "retry_after": "2026-11-21T23:03:50.210217+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tits ! Tits ! Tits !",
+    "publisher": "Dynamite Entertainment",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167384,
+        "name": "Tits! Tits! Tits!",
+        "publisher": "Dynamite (France)",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T23:13:01.617436+00:00",
+    "retry_after": "2026-11-21T23:13:01.617451+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Death",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40889,
+        "name": "Death",
+        "publisher": "Panini Verlag",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T23:13:01.617486+00:00",
+    "retry_after": "2026-11-21T23:13:01.617490+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Meltdown",
+    "publisher": "Titan Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161288,
+        "name": "Simpsons Comics Meltdown",
+        "publisher": "HarperCollins",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T23:13:01.617514+00:00",
+    "retry_after": "2026-11-21T23:13:01.617517+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vuzz",
+    "publisher": "Titan Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85799,
+        "name": "Vuzz",
+        "publisher": "Dargaud",
+        "start_year": 1974
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-20T23:13:01.617537+00:00",
+    "retry_after": "2026-11-21T23:13:01.617539+00:00",
     "search_hydrated": true
   }
 ]

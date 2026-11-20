@@ -57,6 +57,26 @@ export function findZeroRuns(samples, sampleRate, { ignoreStart = 0.5, ignoreEnd
   return runs;
 }
 
+// A flicker is a flash: an edge that jumps one way for one or two frames and
+// comes back. A fade moves one way and stays, so it scores 0 here. Ep 007's two
+// fade-through-background transitions (1:16.4, 11:58.3) failed the plain
+// frame-to-frame delta below although nothing on screen blinked.
+export function maximumFlashDelta(frames) {
+  let max = 0;
+  for (let i = 1; i < frames.length - 1; i++) {
+    for (let edge = 0; edge < frames[i].length; edge++) {
+      const v = frames[i][edge], before = frames[i - 1][edge];
+      for (const after of [frames[i + 1][edge], frames[i + 2]?.[edge]]) {
+        if (after === undefined) continue;
+        const up = Math.min(v - before, v - after);
+        const down = Math.min(before - v, after - v);
+        max = Math.max(max, up, down);
+      }
+    }
+  }
+  return max;
+}
+
 export function maximumFrameDelta(frames) {
   let max = 0;
   for (let i = 1; i < frames.length; i++) max = Math.max(max, ...frames[i].map((v, edge) => Math.abs(v - frames[i - 1][edge])));

@@ -1,6 +1,17 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { textOnlySegments, findRetakeSuspects, findZeroRuns, maximumFrameDelta } from "./qc.js";
+import { textOnlySegments, findRetakeSuspects, findZeroRuns, maximumFrameDelta, maximumFlashDelta } from "./qc.js";
+
+test("flash delta ignores fades and catches one- and two-frame flashes", () => {
+  const fadeOut = [[80], [60], [40], [20], [10], [10], [10]];
+  const fadeThroughBackground = [[80], [40], [10], [10], [10], [40], [80]];
+  assert.equal(maximumFlashDelta(fadeOut), 0);
+  assert.equal(maximumFlashDelta(fadeThroughBackground), 0);
+  assert.equal(maximumFlashDelta([[20], [20], [90], [20], [20]]), 70);
+  assert.equal(maximumFlashDelta([[20], [20], [90], [90], [20]]), 70);
+  assert.equal(maximumFlashDelta([[50], [50], [10], [50], [50]]), 40);
+  assert.equal(maximumFlashDelta([[20], [22], [21], [23]]), 1);
+});
 
 test("counts only image-free text cards", () => {
   const got = textOnlySegments([{ type: "chapter", at: 1 }, { type: "quote", asset: "a.jpg" }, { type: "end", at: 4 }, { type: "cover", asset: "b.jpg" }]);

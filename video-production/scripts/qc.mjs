@@ -5,7 +5,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import { spawnSync } from "node:child_process";
 import sharp from "sharp";
 import { normalizeTimeline, segmentAssets, assetPath, formatTime } from "../shared/timeline.js";
-import { TEXT_ONLY_TYPES, ANIMATED_CARD_TYPES, FLICKER_EDGE_DELTA, textOnlySegments, findRetakeSuspects, findZeroRuns, maximumFrameDelta, kenBurnsWindow, formatSuspect } from "../shared/qc.js";
+import { TEXT_ONLY_TYPES, ANIMATED_CARD_TYPES, FLICKER_EDGE_DELTA, textOnlySegments, findRetakeSuspects, findZeroRuns, maximumFlashDelta, kenBurnsWindow, formatSuspect } from "../shared/qc.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const argv = process.argv.slice(2);
@@ -141,10 +141,10 @@ if (render) {
       for (let x = 0; x < 3; x++) for (let y = 0; y < h; y++) { left += raw[o + y * w + x]; right += raw[o + y * w + w - 1 - x]; }
       means.push([top / (w * 3), bottom / (w * 3), left / (h * 3), right / (h * 3)]);
     }
-    const delta = maximumFrameDelta(means);
+    const delta = maximumFlashDelta(means);
     if (delta > FLICKER_EDGE_DELTA) flickers.push(`${formatTime(seg.start)} ${seg.type} (${delta.toFixed(1)})`);
   }
-  add(flickers.length ? "FAIL" : "PASS", "Edge flicker", flickers.length ? flickers.join("; ") : `all card edge deltas <= ${FLICKER_EDGE_DELTA}`);
+  add(flickers.length ? "FAIL" : "PASS", "Edge flicker", flickers.length ? flickers.join("; ") : `no edge flashes over ${FLICKER_EDGE_DELTA}`);
 } else {
   add("PASS", "Media checks", "skipped, no --render supplied");
 }

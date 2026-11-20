@@ -145,6 +145,28 @@ export default function YourShelf() {
         </article>)}</div>}
     </section>
 
+    <div className={`${styles.section} ${styles.band}${showSupport ? "" : ` ${styles.bandSingle}`}`}>
+      {profile?.username && <section className={`${styles.card} ${styles.bandCard}`}>
+        <p className={styles.eyebrow}>Bring a collector</p>
+        <h2>Comics are better with friends</h2>
+        <p>Send a collector your invite link. You&rsquo;ll see each other&rsquo;s shelves, and trade matches show the books you could swap.</p>
+        <div className={styles.bandActions}>
+          <InviteButton username={profile.username} ownerId={user?.id} className={styles.bandButton} />
+          <Link href="/matches">See your trade matches</Link>
+        </div>
+      </section>}
+      {showSupport && <section className={`${styles.card} ${styles.bandCard}`}>
+        <p className={styles.eyebrow}>Keep it independent</p>
+        <h2>Support ComixCatalog</h2>
+        <p>Built by one collector in Chicago, without third-party ads or selling your data. Supporters keep it that way.</p>
+        <div className={styles.bandActions}>
+          {PATREON_URL
+            ? <a href={PATREON_URL} target="_blank" rel="noopener" className={styles.bandButton}>Support on Patreon</a>
+            : <Link href="/upgrade" className={styles.bandButton}>Join Collector+</Link>}
+        </div>
+      </section>}
+    </div>
+
     <section className={styles.section}>
       <div className={styles.heading}>
         <div><p className={styles.eyebrow}>Go hunting</p><h2>In the marketplace</h2>
@@ -192,27 +214,5 @@ export default function YourShelf() {
         <span>{row.profiles.username ? <Link href={`/u/${encodeURIComponent(row.profiles.username)}`}>@{row.profiles.username}</Link> : "A collector"} {row.status === "wishlist" ? "wanted" : row.status === "for_sale" ? "listed" : "added"} {row.comics?.id?.startsWith("gcd-") ? <Link href={`/issue/${row.gcd_issue_id}`}>{bookLabel(row.comics)}</Link> : <strong>{bookLabel(row.comics)}</strong>}</span>
       </div>)}</div>
     </section>}
-
-    <div className={`${styles.section} ${styles.band}${showSupport ? "" : ` ${styles.bandSingle}`}`}>
-      {profile?.username && <section className={`${styles.card} ${styles.bandCard}`}>
-        <p className={styles.eyebrow}>Bring a collector</p>
-        <h2>Comics are better with friends</h2>
-        <p>Send a collector your invite link. You&rsquo;ll see each other&rsquo;s shelves, and trade matches show the books you could swap.</p>
-        <div className={styles.bandActions}>
-          <InviteButton username={profile.username} ownerId={user?.id} className={styles.bandButton} />
-          <Link href="/matches">See your trade matches</Link>
-        </div>
-      </section>}
-      {showSupport && <section className={`${styles.card} ${styles.bandCard}`}>
-        <p className={styles.eyebrow}>Keep it independent</p>
-        <h2>Support ComixCatalog</h2>
-        <p>Built by one collector in Chicago, without third-party ads or selling your data. Supporters keep it that way.</p>
-        <div className={styles.bandActions}>
-          {PATREON_URL
-            ? <a href={PATREON_URL} target="_blank" rel="noopener" className={styles.bandButton}>Support on Patreon</a>
-            : <Link href="/upgrade" className={styles.bandButton}>Join Collector+</Link>}
-        </div>
-      </section>}
-    </div>
   </section>;
 }

@@ -6,6 +6,7 @@ import { buildFoundingClaimEmail, createFoundingToken, hashFoundingToken, isFoun
 import { resendBatch } from "@/lib/newsletter";
 import { SITE_URL } from "@/lib/siteUrl";
 import { foundingInboxIsClaimed } from "@/lib/foundingInbox";
+import { getFounderPassCovers } from "@/lib/foundingShowcase";
 
 const CAP = 100;
 
@@ -31,6 +32,7 @@ export async function GET(req) {
     let isFounding = false;
     let number = null;
     let pendingEmail = null;
+    let passCovers = [];
 
     if (user) {
       const { data: profile, error: profileError } = await supabase
@@ -51,6 +53,13 @@ export async function GET(req) {
           .lt("created_at", profile.created_at);
         if (countError) throw countError;
         number = (Number(count) || 0) + 1;
+        // The covers behind the number on their own pass. Decoration: a
+        // failure here leaves the pass on the wall's covers, not an error.
+        try {
+          passCovers = (await getFounderPassCovers(user.id)).map((c) => c.thumb);
+        } catch (coverError) {
+          console.error("founding pass covers failed:", coverError?.message ?? coverError);
+        }
       }
       // A confirm link is out and still good. The page says so on every visit,
       // in any browser, instead of offering to claim all over again. Only the
@@ -75,6 +84,7 @@ export async function GET(req) {
       canClaim: Boolean(user) && !isFounding && availability.remaining > 0,
       pending: Boolean(pendingEmail),
       pendingEmail,
+      passCovers,
     });
   } catch (error) {
     console.error("founding status failed:", error);

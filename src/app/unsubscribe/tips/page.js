@@ -16,7 +16,7 @@ export default async function UnsubscribeTipsPage({ searchParams }) {
   return (
     <main style={{ maxWidth: 620, margin: "80px auto", padding: "24px", textAlign: "center" }}>
       <h1>{success ? "You're unsubscribed" : "That link isn't valid"}</h1>
-      <p>{success ? "You won't receive any more tips to get started." : "The unsubscribe link is invalid. You can change this preference in your account."}</p>
+      <p>{success ? "You won't receive any more tips or collection updates." : "The unsubscribe link is invalid. You can change this preference in your account."}</p>
       <Link href={success ? "/" : "/account#notifications"}>{success ? "Back to ComixCatalog" : "Account settings"}</Link>
     </main>
   );

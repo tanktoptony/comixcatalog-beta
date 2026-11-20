@@ -79,6 +79,9 @@ jobs:
       - name: Issue SEO tests
         run: npm run test:issue-seo
 
+      - name: Value email tests
+        run: npm run test:value-email
+
       - name: Variant cover tests
         run: npm run test:variant-covers
 

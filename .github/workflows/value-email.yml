@@ -1,0 +1,61 @@
+name: Collection value email
+
+# Manual only. Emails each member what their collection is worth, with their
+# most valuable books (scripts/sendValueEmail.js). Runs here because the
+# unsubscribe links must be signed with the production EMAIL_UNSUBSCRIBE_SECRET.
+# Dry run unless "apply" is ticked. email_campaign_sends (migration 0111)
+# keeps a member from getting the same campaign twice.
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "Actually send (unticked = dry run, prints who would get it)"
+        type: boolean
+        default: false
+      only:
+        description: "Only these usernames, comma separated (blank = everyone eligible)"
+        type: string
+        default: ""
+      min_value:
+        description: "Skip members whose collection total is below this many dollars"
+        type: string
+        default: "0"
+      campaign:
+        description: "Campaign id (one send per member per campaign)"
+        type: string
+        default: "value-2026-11"
+
+concurrency:
+  group: value-email
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+      EMAIL_UNSUBSCRIBE_SECRET: ${{ secrets.EMAIL_UNSUBSCRIBE_SECRET }}
+      APPLY: ${{ inputs.apply }}
+      ONLY: ${{ inputs.only }}
+      MIN_VALUE: ${{ inputs.min_value }}
+      CAMPAIGN: ${{ inputs.campaign }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - run: npm ci
+      - name: Send (or preview) value emails
+        run: |
+          args=("--min-value=$MIN_VALUE" "--campaign=$CAMPAIGN")
+          if [ -n "$ONLY" ]; then args+=("--only=$ONLY"); fi
+          if [ "$APPLY" = "true" ]; then args+=("--apply"); fi
+          node scripts/sendValueEmail.js "${args[@]}"

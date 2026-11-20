@@ -13420,6 +13420,13 @@ a.fc-slot.is-stamped:hover { box-shadow: 0 0 14px rgba(244, 208, 63, 0.6); }
 
 /* Creator catalog pages */
 .creator-page .hero-title { margin-bottom: 10px; }
+.creator-header { display: flex; align-items: flex-start; gap: 20px; margin-top: 12px; }
+.creator-photo-block { flex: 0 0 112px; }
+.creator-photo { width: 112px; height: 112px; border: 1px solid var(--cc-gold); border-radius: 12px; background: var(--cc-surface); object-fit: cover; object-position: top; }
+.creator-monogram { display: flex; align-items: center; justify-content: center; color: var(--cc-gold); font-family: var(--font-display); font-size: 2.6rem; font-weight: 800; letter-spacing: .03em; }
+.creator-heading-copy { min-width: 0; }
+.creator-photo-credit { margin: -12px 0 22px; color: var(--cc-text-muted); font-size: .78rem; line-height: 1.45; }
+.creator-photo-credit a { color: var(--cc-gold-soft); }
 .creator-intro { max-width: 780px; line-height: 1.6; }
 .creator-section { margin-top: 32px; }
 .creator-role-list { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -13779,6 +13786,7 @@ select.input {
 }
 @media (max-width: 380px) {
   .comic-panel { padding-top: 24px; }
+  .creator-header { flex-direction: column; gap: 14px; }
   .creator-stats { gap: 8px; }
   .creator-stats > div { padding: 12px; }
 }

@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { buildIssueDescription, buildIssueJsonLd } from "./issueSeo.js";
+import { buildIssueDescription, buildIssueJsonLd, issueTitle } from "./issueSeo.js";
 import { safeJsonLd } from "./jsonLd.js";
 
 const baseIssue = {
@@ -115,4 +115,33 @@ test("JSON-LD uses detailed publication fields when available", () => {
   assert.equal(jsonLd.datePublished, "1999-08-18");
   assert.equal(jsonLd.isbn, "978-1-234");
   assert.equal(jsonLd.numberOfPages, 48);
+});
+
+const guide = (grades) => ({ grades: grades.map((grade) => ({ grade, value: 10 })) });
+
+test("title says Value & Price Guide only when the page shows a guide", () => {
+  assert.equal(issueTitle(baseIssue), "Wolverine / Punisher: Revelation #1 (1999)");
+  assert.equal(issueTitle({ ...baseIssue, price_guide: null }), "Wolverine / Punisher: Revelation #1 (1999)");
+  assert.equal(issueTitle({ ...baseIssue, price_guide: { grades: [] } }), "Wolverine / Punisher: Revelation #1 (1999)");
+  assert.equal(
+    issueTitle({ ...baseIssue, price_guide: guide(["ungraded", "9.8"]) }),
+    "Wolverine / Punisher: Revelation #1 (1999) Value & Price Guide"
+  );
+});
+
+test("description names PriceCharting values right after the publication line, with no dollar figures", () => {
+  const description = buildIssueDescription({
+    ...baseIssue,
+    credits: [{ role: "writer", name: "Christopher Golden" }, { role: "penciller", name: "Tim Bradstreet" }],
+    price_guide: guide(["ungraded", "9.4", "9.8"]),
+  });
+  assert.match(description, /in 1999\. Raw and graded values from PriceCharting\. By /);
+  assert.doesNotMatch(description, /\$/);
+  assert.ok(description.length <= 160);
+});
+
+test("description wording follows which guide grades exist", () => {
+  assert.match(buildIssueDescription({ ...baseIssue, price_guide: guide(["ungraded"]) }), /Raw copy value from PriceCharting\./);
+  assert.match(buildIssueDescription({ ...baseIssue, price_guide: guide(["9.8"]) }), /Graded values from PriceCharting\./);
+  assert.doesNotMatch(buildIssueDescription(baseIssue), /PriceCharting/);
 });

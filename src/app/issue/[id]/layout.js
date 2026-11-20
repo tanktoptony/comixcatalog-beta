@@ -1,6 +1,6 @@
 import { SITE_URL } from "@/lib/siteUrl";
 import { getIssueData, getIssuePageData, resolveIssueEdition } from "@/lib/pageData";
-import { buildIssueDescription, issueName } from "@/lib/issueSeo";
+import { buildIssueDescription, issueTitle } from "@/lib/issueSeo";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }) {
       : await getIssueData(gcdNumber ? `gcd-${gcdNumber}` : id);
     if (!issue) throw new Error("no issue");
 
-    const title = issueName(issue);
+    const title = issueTitle(issue);
     const description = buildIssueDescription(issue);
 
     return {

@@ -76,6 +76,12 @@ jobs:
       - name: Cover-scan tests
         run: npm run test:cover-scan
 
+      - name: Issue SEO tests
+        run: npm run test:issue-seo
+
+      - name: Variant cover tests
+        run: npm run test:variant-covers
+
       - name: Review queue tests
         run: npm run test:review
 

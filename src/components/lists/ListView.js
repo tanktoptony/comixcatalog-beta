@@ -29,11 +29,14 @@ function mergeServerItems(current, serverItems) {
 }
 
 function HeaderMosaic({ items }) {
-  const covers = items.slice(0, 4).map((item) => item.cover);
+  // Real covers only; the blank tiles are for a list with no covers yet, so
+  // a 3-book list doesn't look like it is missing a book.
+  const covers = items.map((item) => item.cover).filter(Boolean).slice(0, 4);
+  const slots = covers.length ? covers.map((_, index) => index) : [0, 1, 2, 3];
 
   return (
     <div className={styles.mosaic} aria-hidden="true">
-      {[0, 1, 2, 3].map((index) =>
+      {slots.map((index) =>
         covers[index] ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img

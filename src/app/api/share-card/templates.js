@@ -347,7 +347,24 @@ function FoundingCard({ number, username, covers }) {
   );
 }
 
+// The cover area is 952 x 780 at 1080 x 1350. Covers grow to fill it, so a
+// 3-book list gets three big covers instead of one small row.
+const LIST_AREA = { width: 952, height: 780 };
+const LIST_GAP = 14;
+const COVER_RATIO = 0.66;
+
+export function listCoverSize(count) {
+  const n = Math.max(1, Math.min(9, count));
+  const cols = n <= 3 ? n : n === 4 ? 2 : 3;
+  const rows = Math.ceil(n / cols);
+  const cellWidth = (LIST_AREA.width - LIST_GAP * (cols - 1)) / cols;
+  const cellHeight = (LIST_AREA.height - LIST_GAP * (rows - 1)) / rows;
+  const width = Math.floor(Math.min(cellWidth, cellHeight * COVER_RATIO));
+  return { width, height: Math.floor(width / COVER_RATIO) };
+}
+
 function ListCard({ title, username, count, covers }) {
+  const size = listCoverSize(covers.length);
   return (
     <div
       style={{
@@ -395,8 +412,10 @@ function ListCard({ title, username, count, covers }) {
         style={{
           display: "flex",
           flexWrap: "wrap",
-          gap: 10,
-          height: 780,
+          justifyContent: "center",
+          alignContent: "center",
+          gap: LIST_GAP,
+          height: LIST_AREA.height,
           marginTop: 38,
           overflow: "hidden",
         }}
@@ -407,13 +426,14 @@ function ListCard({ title, username, count, covers }) {
             key={index}
             src={src}
             alt=""
-            width={300}
-            height={380}
+            width={size.width}
+            height={size.height}
             style={{
-              width: 300,
-              height: 380,
+              width: size.width,
+              height: size.height,
               objectFit: "cover",
               borderRadius: 8,
+              boxShadow: "0 18px 40px rgba(0,0,0,.45)",
             }}
           />
         ))}

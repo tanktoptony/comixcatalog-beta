@@ -2,15 +2,15 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { changeWindowStart, marketPicks, marketStats, sellerSummary, valueChange, wantlistCards } from "./shelfHunt.js";
 
-test("valueChange ignores snapshots from before the PriceCharting switch", () => {
-  assert.equal(valueChange({ total: 1667.56, snapshot_date: "2026-11-27" }, { total_value: 1527.66, snapshot_date: "2026-11-19" }), null);
-  assert.deepEqual(valueChange({ total: 1700, snapshot_date: "2026-11-27" }, { total_value: 1667.56, snapshot_date: "2026-11-20" }), { amount: 32.44, since: "2026-11-20" });
-  assert.equal(valueChange({ total: 1700, snapshot_date: "2026-11-20" }, { total_value: 1667.56, snapshot_date: "2026-11-20" }), null);
+test("valueChange ignores snapshots from before the last method change", () => {
+  assert.equal(valueChange({ total: 1667.56, snapshot_date: "2026-11-27" }, { total_value: 1338.07, snapshot_date: "2026-11-20" }), null);
+  assert.deepEqual(valueChange({ total: 1700, snapshot_date: "2026-11-27" }, { total_value: 1667.56, snapshot_date: "2026-11-21" }), { amount: 32.44, since: "2026-11-21" });
+  assert.equal(valueChange({ total: 1700, snapshot_date: "2026-11-21" }, { total_value: 1667.56, snapshot_date: "2026-11-21" }), null);
   assert.equal(valueChange({ total: 1700, snapshot_date: "2026-11-20" }, null), null);
 });
 
 test("changeWindowStart never reaches before the switch", () => {
-  assert.equal(changeWindowStart(new Date("2026-11-22T12:00:00Z")), "2026-11-20");
+  assert.equal(changeWindowStart(new Date("2026-11-22T12:00:00Z")), "2026-11-21");
   assert.equal(changeWindowStart(new Date("2026-12-10T12:00:00Z")), "2026-12-03");
 });
 

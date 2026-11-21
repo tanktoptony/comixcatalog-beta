@@ -4,10 +4,12 @@
 
 import { isUnderGuide } from "./marketplaceDeals.js";
 
-// Collection values switched to PriceCharting on this date (#483). Changes
-// measured across it compare two different methods, so the homepage only
-// reports a change between snapshots taken on or after it.
-export const VALUE_METHOD_SINCE = "2026-11-20";
+// The last date the valuation method changed. Changes measured across it
+// compare two different methods, so the homepage only reports a change
+// between snapshots taken on or after it. 2026-11-20: PriceCharting leads
+// (#483). 2026-11-21: later printings stop borrowing first-printing values
+// (#496). Move it forward whenever a method change moves totals.
+export const VALUE_METHOD_SINCE = "2026-11-21";
 
 // latest: { total, snapshot_date }. earlier: { total_value, snapshot_date } or
 // null. Returns { amount, since } or null when there is nothing honest to say.

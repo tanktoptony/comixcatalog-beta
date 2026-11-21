@@ -909,6 +909,14 @@ const UserMenu = forwardRef(function UserMenu(
           >
             Find collectors
           </Link>
+          <Link
+            href="/lists"
+            className="user-menu-item"
+            role="menuitem"
+            onClick={handleItem()}
+          >
+            Lists
+          </Link>
           <Link href="/matches" className="user-menu-item" role="menuitem" onClick={handleItem()}>
             Trade matches
           </Link>

@@ -420,6 +420,10 @@ Your shelf shows a Collector feed under the wantlist, with Following and Everyon
 
 The catalog is `src/lib/badges/catalog.js`; `POST /api/badges/sync` evaluates it from `buildBadgeStats()` and inserts newly earned rows into `user_badges` (earned badges are never taken away). Each badge on `/u/<name>/badges` shows the share of collectors who hold it, Steam style: `loadBadgeRarity()` in `src/lib/badges/server.js` (the `badge_rarity` view minus test accounts' badges, over profiles with a username minus test accounts, cached ten minutes; labels and the under-10% "Rare" tag in `src/lib/badges/rarity.js`). Badges with `secret: true` (group "Secret", diamond patch) show as "Secret badge" with a "?" until earned: `badgeForDisplay()` swaps in the placeholder, the sync route reports no progress for them and the toast never names the next one. Never name a secret badge in public copy. Members only get badges added to the catalog when they next sync; `node scripts/backfillBadges.js --apply` awards everyone at once (insert only). Tests: `npm run test:badges` (CI).
 
+
+### Ratings and reviews (November 2026)
+
+`issue_reviews` stores one 1 to 5 star rating and optional review per member and base GCD issue. Variants and newsstand editions share the base issue's reviews. Private members' ratings count in the aggregate, but their review rows and text never render publicly. Issue pages server-render reviews above Collectors and cache them under `issue:<base_gcd_issue_id>`; writes and deletes expire that tag. The Collector feed emits one `reviewed` or rating-only `rated` event per review.
 ### Collection value email (November 2026)
 
 `value-email.yml` (manual only) runs `scripts/sendValueEmail.js`: each member with books and `email_tips` on gets their collection total and up to five most valuable books, every price linked to its PriceCharting page. Dry run unless `apply` is ticked; `only`, `min_value` and `campaign` inputs. Per-copy values come from `loadCopyValues()` in `scripts/lib/collectionValues.js`, the same code the nightly snapshot uses, so the email matches the shelf. `email_campaign_sends` (migration 0111) is claimed before each send, so one member gets one email per campaign. It runs in Actions because unsubscribe links must be signed with the production `EMAIL_UNSUBSCRIBE_SECRET`, which is not in `.env.local`. The `email_tips` toggle is labelled "Tips and collection updates".
@@ -456,6 +460,10 @@ The catalog is `src/lib/badges/catalog.js`; `POST /api/badges/sync` evaluates it
 ---
 
 ## Engineering Reminders
+
+### Lists (November 2026)
+
+Curated lists use `collector_lists` and `collector_list_items`. Public URLs are `/u/<username>/lists/<slug>`; slugs stay stable after creation. Items always store the base issue in `base_gcd_issue_id`. Owners can see private lists, while everyone else can only see public lists owned by public profiles. Limits are 100 lists per member, 500 books per list, 100 characters per title, 1,000 per description, and 500 per item note.
 
 - **Activity and comic-add security:** `/api/activity` reads with the service role, so `src/lib/activityFeed.js` is the only privacy gate for the homepage feed (the shelf’s Collector feed reuses it through `src/lib/feed/feedEvents.js`); `POST /api/comics` derives `created_by` from the bearer token, never the form.
 - **API routes must be API routes.** Don't let Next.js page/component patterns bleed into `/api/` handlers — this has burned us before.

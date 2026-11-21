@@ -28,7 +28,8 @@ async function loadTarget(supabase, report, reporterId) {
     if (error) throw error;
     if (!data) return null;
     if (data.user_id === reporterId) return { own: true };
-    const { data: owner } = await supabase.from("profiles").select("username").eq("id", data.user_id).maybeSingle();
+    const { data: owner, error: ownerError } = await supabase.from("profiles").select("username").eq("id", data.user_id).maybeSingle();
+    if (ownerError) throw ownerError;
     return { text: `List: ${data.title}${data.description ? `\n${data.description}` : ""}`, url: owner?.username ? `${SITE_URL}/u/${owner.username}/lists/${data.slug}` : `${SITE_URL}/lists` };
   }
   if (report.target_type === "feedback") {

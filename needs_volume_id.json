@@ -6862,8 +6862,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-21T20:02:27.363749+00:00",
-    "retry_after": "2026-12-21T20:02:27.363753+00:00",
+    "last_attempt_at": "2026-11-21T20:10:27.638266+00:00",
+    "retry_after": "2026-12-21T20:10:27.638268+00:00",
     "search_hydrated": true
   },
   {
@@ -8118,8 +8118,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-21T20:02:27.363770+00:00",
-    "retry_after": "2026-12-21T20:02:27.363773+00:00",
+    "last_attempt_at": "2026-11-21T20:10:27.638280+00:00",
+    "retry_after": "2026-12-21T20:10:27.638282+00:00",
     "search_hydrated": true
   },
   {
@@ -8263,8 +8263,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-21T20:02:27.363786+00:00",
-    "retry_after": "2026-12-21T20:02:27.363789+00:00",
+    "last_attempt_at": "2026-11-21T20:10:27.638291+00:00",
+    "retry_after": "2026-12-21T20:10:27.638293+00:00",
     "search_hydrated": true
   },
   {
@@ -31499,8 +31499,8 @@
       }
     ],
     "attempts": 5,
-    "last_attempt_at": "2026-11-21T19:58:19.166127+00:00",
-    "retry_after": "2026-12-21T19:58:19.166137+00:00",
+    "last_attempt_at": "2026-11-21T20:06:21.533847+00:00",
+    "retry_after": "2026-12-21T20:06:21.533851+00:00",
     "search_hydrated": true
   },
   {
@@ -43465,8 +43465,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-21T19:58:19.166072+00:00",
-    "retry_after": "2026-11-22T19:58:19.166086+00:00",
+    "last_attempt_at": "2026-11-21T20:06:21.533795+00:00",
+    "retry_after": "2026-11-22T20:06:21.533813+00:00",
     "search_hydrated": true
   },
   {
@@ -77702,8 +77702,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-21T20:02:27.363603+00:00",
-    "retry_after": "2026-12-21T20:02:27.363623+00:00",
+    "last_attempt_at": "2026-11-21T20:10:27.638149+00:00",
+    "retry_after": "2026-12-21T20:10:27.638167+00:00",
     "search_hydrated": true
   },
   {
@@ -77713,8 +77713,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-21T20:02:27.363648+00:00",
-    "retry_after": "2026-12-21T20:02:27.363652+00:00",
+    "last_attempt_at": "2026-11-21T20:10:27.638189+00:00",
+    "retry_after": "2026-12-21T20:10:27.638192+00:00",
     "search_hydrated": true
   },
   {
@@ -77746,8 +77746,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-21T20:02:27.363667+00:00",
-    "retry_after": "2026-12-21T20:02:27.363670+00:00",
+    "last_attempt_at": "2026-11-21T20:10:27.638204+00:00",
+    "retry_after": "2026-12-21T20:10:27.638206+00:00",
     "search_hydrated": true
   },
   {
@@ -77764,8 +77764,8 @@
       }
     ],
     "attempts": 5,
-    "last_attempt_at": "2026-11-21T20:02:29.335009+00:00",
-    "retry_after": "2026-12-21T20:02:29.335014+00:00",
+    "last_attempt_at": "2026-11-21T20:10:33.464622+00:00",
+    "retry_after": "2026-12-21T20:10:33.464626+00:00",
     "search_hydrated": true
   },
   {
@@ -97179,21 +97179,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 38144,
-        "name": "Zen Intergalactic Ninja Color",
-        "publisher": "Express Publications",
-        "start_year": 1995
-      },
-      {
         "id": 30880,
         "name": "Zen Intergalactic Ninja Color",
         "publisher": "Express Publications",
         "start_year": 1994
+      },
+      {
+        "id": 38144,
+        "name": "Zen Intergalactic Ninja Color",
+        "publisher": "Express Publications",
+        "start_year": 1995
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T20:03:22.602215+00:00",
-    "retry_after": "2026-11-21T20:03:22.602230+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T20:05:44.064340+00:00",
+    "retry_after": "2026-11-24T20:05:44.064344+00:00",
     "search_hydrated": true
   },
   {
@@ -98466,8 +98466,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-21T20:02:38.906600+00:00",
-    "retry_after": "2026-11-22T20:02:38.906619+00:00",
+    "last_attempt_at": "2026-11-21T20:10:43.223031+00:00",
+    "retry_after": "2026-11-22T20:10:43.223048+00:00",
     "search_hydrated": true
   },
   {
@@ -98484,8 +98484,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-21T20:02:38.906656+00:00",
-    "retry_after": "2026-11-22T20:02:38.906661+00:00",
+    "last_attempt_at": "2026-11-21T20:10:43.223076+00:00",
+    "retry_after": "2026-11-22T20:10:43.223080+00:00",
     "search_hydrated": true
   },
   {
@@ -98502,8 +98502,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-21T20:02:38.906690+00:00",
-    "retry_after": "2026-11-22T20:02:38.906694+00:00",
+    "last_attempt_at": "2026-11-21T20:10:43.223101+00:00",
+    "retry_after": "2026-11-22T20:10:43.223103+00:00",
     "search_hydrated": true
   },
   {
@@ -98520,8 +98520,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-21T20:02:38.906718+00:00",
-    "retry_after": "2026-11-22T20:02:38.906721+00:00",
+    "last_attempt_at": "2026-11-21T20:10:43.223118+00:00",
+    "retry_after": "2026-11-22T20:10:43.223120+00:00",
     "search_hydrated": true
   },
   {
@@ -98538,8 +98538,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-21T20:02:47.189312+00:00",
-    "retry_after": "2026-11-22T20:02:47.189330+00:00",
+    "last_attempt_at": "2026-11-21T20:10:53.744104+00:00",
+    "retry_after": "2026-11-22T20:10:53.744121+00:00",
     "search_hydrated": true
   }
 ]

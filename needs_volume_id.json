@@ -3035,15 +3035,6 @@
     "retry_after": "2026-09-21T14:00:38.554497+00:00"
   },
   {
-    "name": "Spider-Man / Deadpool",
-    "publisher": "Marvel Comics",
-    "year": 2016,
-    "reason": "publisher_mismatch",
-    "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554500+00:00"
-  },
-  {
     "name": "Star Wars Knights of the Old Republic",
     "publisher": "Dark Horse Comics",
     "year": 2006,
@@ -11906,7 +11897,9 @@
       }
     ],
     "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556521+00:00"
+    "last_attempt_at": "2026-11-21T04:02:11.423980+00:00",
+    "retry_after": "2026-11-22T04:02:11.423995+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Prophet",
@@ -37459,9 +37452,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T21:28:24.688735+00:00",
-    "retry_after": "2026-11-20T21:28:24.688738+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T04:14:04.211256+00:00",
+    "retry_after": "2026-12-21T04:14:04.211258+00:00",
     "search_hydrated": true
   },
   {
@@ -75549,9 +75542,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T22:11:43.144250+00:00",
-    "retry_after": "2026-11-20T22:11:43.144266+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T04:14:04.211299+00:00",
+    "retry_after": "2026-12-21T04:14:04.211304+00:00",
     "search_hydrated": true
   },
   {
@@ -76155,9 +76148,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T03:11:15.484794+00:00",
-    "retry_after": "2026-11-21T03:11:15.484809+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T04:14:04.211138+00:00",
+    "retry_after": "2026-12-21T04:14:04.211154+00:00",
     "search_hydrated": true
   },
   {
@@ -76173,9 +76166,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T03:11:21.177407+00:00",
-    "retry_after": "2026-11-21T03:11:21.177421+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T04:14:05.981309+00:00",
+    "retry_after": "2026-12-21T04:14:05.981323+00:00",
     "search_hydrated": true
   },
   {
@@ -76191,9 +76184,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T03:11:21.253971+00:00",
-    "retry_after": "2026-11-21T03:11:21.253984+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T04:14:06.103443+00:00",
+    "retry_after": "2026-12-21T04:14:06.103457+00:00",
     "search_hydrated": true
   },
   {
@@ -76202,9 +76195,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T03:11:15.484838+00:00",
-    "retry_after": "2026-11-21T03:11:15.484841+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T04:14:04.211189+00:00",
+    "retry_after": "2026-12-21T04:14:04.211193+00:00",
     "search_hydrated": true
   },
   {
@@ -76213,9 +76206,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T03:11:15.484852+00:00",
-    "retry_after": "2026-11-21T03:11:15.484854+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T04:14:04.211208+00:00",
+    "retry_after": "2026-12-21T04:14:04.211210+00:00",
     "search_hydrated": true
   },
   {
@@ -76224,9 +76217,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T03:11:15.484863+00:00",
-    "retry_after": "2026-11-21T03:11:15.484865+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T04:14:04.211222+00:00",
+    "retry_after": "2026-12-21T04:14:04.211225+00:00",
     "search_hydrated": true
   },
   {
@@ -76235,9 +76228,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T03:11:15.484873+00:00",
-    "retry_after": "2026-11-21T03:11:15.484875+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T04:14:04.211236+00:00",
+    "retry_after": "2026-12-21T04:14:04.211238+00:00",
     "search_hydrated": true
   },
   {
@@ -96502,9 +96495,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T04:11:59.097350+00:00",
-    "retry_after": "2026-11-21T04:11:59.097368+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T04:14:17.190482+00:00",
+    "retry_after": "2026-11-24T04:14:17.190497+00:00",
     "search_hydrated": true
   },
   {
@@ -96513,9 +96506,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T04:11:59.097397+00:00",
-    "retry_after": "2026-11-21T04:11:59.097400+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T04:14:17.190519+00:00",
+    "retry_after": "2026-11-24T04:14:17.190522+00:00",
     "search_hydrated": true
   },
   {
@@ -98816,6 +98809,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-21T03:56:52.360849+00:00",
     "retry_after": "2026-11-22T03:56:52.360853+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mad About the '90s",
+    "publisher": "EC Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T04:14:17.190539+00:00",
+    "retry_after": "2026-11-22T04:14:17.190541+00:00",
     "search_hydrated": true
   }
 ]

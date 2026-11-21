@@ -18648,9 +18648,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T22:11:43.144386+00:00",
-    "retry_after": "2026-11-20T22:11:43.144388+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T08:05:13.482617+00:00",
+    "retry_after": "2026-12-21T08:05:13.482619+00:00",
     "search_hydrated": true
   },
   {
@@ -25433,9 +25433,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T01:13:56.339855+00:00",
-    "retry_after": "2026-11-21T01:13:56.339857+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T08:05:13.482645+00:00",
+    "retry_after": "2026-12-21T08:05:13.482647+00:00",
     "search_hydrated": true
   },
   {
@@ -42106,9 +42106,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T22:11:43.144370+00:00",
-    "retry_after": "2026-11-20T22:11:43.144373+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T08:05:13.482571+00:00",
+    "retry_after": "2026-12-21T08:05:13.482574+00:00",
     "search_hydrated": true
   },
   {
@@ -43447,7 +43447,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43464,9 +43464,9 @@
         "start_year": 1977
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-20T20:02:22.463100+00:00",
-    "retry_after": "2026-11-23T20:02:22.463103+00:00",
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T08:02:59.497069+00:00",
+    "retry_after": "2026-11-22T08:02:59.497088+00:00",
     "search_hydrated": true
   },
   {
@@ -50394,9 +50394,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T22:11:43.144401+00:00",
-    "retry_after": "2026-11-20T22:11:43.144403+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T08:05:13.482631+00:00",
+    "retry_after": "2026-12-21T08:05:13.482634+00:00",
     "search_hydrated": true
   },
   {
@@ -76009,9 +76009,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T01:13:56.339843+00:00",
-    "retry_after": "2026-11-21T01:13:56.339845+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T08:05:13.482552+00:00",
+    "retry_after": "2026-12-21T08:05:13.482556+00:00",
     "search_hydrated": true
   },
   {
@@ -76502,9 +76502,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T07:10:41.101549+00:00",
-    "retry_after": "2026-11-21T07:10:41.101571+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T08:05:13.482469+00:00",
+    "retry_after": "2026-12-21T08:05:13.482489+00:00",
     "search_hydrated": true
   },
   {
@@ -96561,9 +96561,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T07:02:16.758807+00:00",
-    "retry_after": "2026-11-21T07:02:16.758827+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T08:02:25.947247+00:00",
+    "retry_after": "2026-11-24T08:02:25.947266+00:00",
     "search_hydrated": true
   },
   {
@@ -96573,21 +96573,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 156382,
-        "name": "Quested",
-        "publisher": "Massive Publishing",
-        "start_year": 2024
-      },
-      {
         "id": 176907,
         "name": "Quested",
         "publisher": "Massive Publishing",
         "start_year": 2026
+      },
+      {
+        "id": 156382,
+        "name": "Quested",
+        "publisher": "Massive Publishing",
+        "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T07:04:51.634082+00:00",
-    "retry_after": "2026-11-21T07:04:51.634100+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T08:02:48.048881+00:00",
+    "retry_after": "2026-11-24T08:02:48.048886+00:00",
     "search_hydrated": true
   },
   {
@@ -96596,9 +96596,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T07:04:51.634147+00:00",
-    "retry_after": "2026-11-21T07:04:51.634151+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T08:02:48.048805+00:00",
+    "retry_after": "2026-11-24T08:02:48.048811+00:00",
     "search_hydrated": true
   },
   {
@@ -96607,9 +96607,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T07:04:51.634282+00:00",
-    "retry_after": "2026-11-21T07:04:51.634285+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T08:02:48.048755+00:00",
+    "retry_after": "2026-11-24T08:02:48.048778+00:00",
     "search_hydrated": true
   },
   {
@@ -96631,9 +96631,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T08:02:07.790934+00:00",
-    "retry_after": "2026-11-21T08:02:07.790951+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T08:02:25.947316+00:00",
+    "retry_after": "2026-11-24T08:02:25.947320+00:00",
     "search_hydrated": true
   },
   {

@@ -12005,13 +12005,6 @@
     "series_gcd_id": 113424
   },
   {
-    "name": "True Believers: Giant-Size X-Men",
-    "publisher": "Marvel Comics",
-    "year": 2017,
-    "volume_id": null,
-    "series_gcd_id": 113200
-  },
-  {
     "name": "True Believers: Kirby 100th - Ant-Man and the Wasp",
     "publisher": "Marvel Comics",
     "year": 2017,
@@ -12500,6 +12493,13 @@
     "year": 2016,
     "volume_id": 92296,
     "series_gcd_id": 103888
+  },
+  {
+    "name": "Adventures in the Rifle Brigade",
+    "publisher": "Image Comics",
+    "year": 2016,
+    "volume_id": null,
+    "series_gcd_id": 241549
   },
   {
     "name": "Agents of S.H.I.E.L.D.",
@@ -13370,13 +13370,6 @@
     "series_gcd_id": 95596
   },
   {
-    "name": "Deadpool: Too Soon",
-    "publisher": "Marvel Comics",
-    "year": 2016,
-    "volume_id": null,
-    "series_gcd_id": 108367
-  },
-  {
     "name": "Deadpool: World's Greatest",
     "publisher": "Marvel Comics",
     "year": 2016,
@@ -13613,13 +13606,6 @@
     "year": 2016,
     "volume_id": null,
     "series_gcd_id": 108523
-  },
-  {
-    "name": "Future Quest",
-    "publisher": "DC Comics",
-    "year": 2016,
-    "volume_id": null,
-    "series_gcd_id": 101931
   },
   {
     "name": "Gamora: Guardian of the Galaxy",
@@ -13958,13 +13944,6 @@
     "series_gcd_id": 93785
   },
   {
-    "name": "Image+",
-    "publisher": "Image Comics",
-    "year": 2016,
-    "volume_id": null,
-    "series_gcd_id": 103474
-  },
-  {
     "name": "Inhuman",
     "publisher": "Marvel Comics",
     "year": 2016,
@@ -14068,13 +14047,6 @@
     "year": 2016,
     "volume_id": 90416,
     "series_gcd_id": 101150
-  },
-  {
-    "name": "Kingpin",
-    "publisher": "Marvel Comics",
-    "year": 2016,
-    "volume_id": null,
-    "series_gcd_id": 111982
   },
   {
     "name": "Lake of Fire",
@@ -14369,13 +14341,6 @@
     "year": 2016,
     "volume_id": null,
     "series_gcd_id": 100617
-  },
-  {
-    "name": "Nighthawk",
-    "publisher": "Marvel Comics",
-    "year": 2016,
-    "volume_id": null,
-    "series_gcd_id": 101940
   },
   {
     "name": "Nighthawk: Hate Makes Hate",
@@ -15820,13 +15785,6 @@
     "series_gcd_id": 94611
   },
   {
-    "name": "Age of Apocalypse",
-    "publisher": "Marvel Comics",
-    "year": 2015,
-    "volume_id": null,
-    "series_gcd_id": 90726
-  },
-  {
     "name": "All-New Captain America",
     "publisher": "Marvel Comics",
     "year": 2015,
@@ -16940,13 +16898,6 @@
     "series_gcd_id": 94822
   },
   {
-    "name": "Infinity Gauntlet",
-    "publisher": "Marvel Comics",
-    "year": 2015,
-    "volume_id": null,
-    "series_gcd_id": 89539
-  },
-  {
     "name": "Infinity War Aftermath",
     "publisher": "Marvel Comics",
     "year": 2015,
@@ -17743,13 +17694,6 @@
     "year": 2015,
     "volume_id": null,
     "series_gcd_id": 117681
-  },
-  {
-    "name": "Spider-Island",
-    "publisher": "Marvel Comics",
-    "year": 2015,
-    "volume_id": null,
-    "series_gcd_id": 90561
   },
   {
     "name": "Spider-Verse: Warzones!",
@@ -18625,13 +18569,6 @@
     "year": 2015,
     "volume_id": null,
     "series_gcd_id": 89869
-  },
-  {
-    "name": "Years of Future Past",
-    "publisher": "Marvel Comics",
-    "year": 2015,
-    "volume_id": null,
-    "series_gcd_id": 89868
   },
   {
     "name": "Young Gotham Sampler",
@@ -20998,5 +20935,68 @@
     "year": 2014,
     "volume_id": null,
     "series_gcd_id": 81004
+  },
+  {
+    "name": "Toe Tags Featuring George A. Romero",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 110602
+  },
+  {
+    "name": "Tom Strong and the Planet of Peril",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": 75138,
+    "series_gcd_id": 81425
+  },
+  {
+    "name": "Trillium",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 83229
+  },
+  {
+    "name": "Trinity of Sin: Pandora",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 79725
+  },
+  {
+    "name": "Ultimate FF",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 80199
+  },
+  {
+    "name": "Ultimate FF: Strangest Ever",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": 77538,
+    "series_gcd_id": 89664
+  },
+  {
+    "name": "Umbral",
+    "publisher": "Image Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 81614
+  },
+  {
+    "name": "Uncanny Avengers",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 78168
+  },
+  {
+    "name": "Uncanny X-Force by Rick Remender: The Complete Collection",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "volume_id": null,
+    "series_gcd_id": 82416
   }
 ]

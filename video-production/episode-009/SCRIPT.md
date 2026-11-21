@@ -1,7 +1,7 @@
 # ComixCatalog Originals · The Amory Wars
 ## Episode 009: In Keeping Secrets of Silent Earth: 3
 
-Tony's script, received 2026-11-21. v2 (11-21, Tony: "i love that", "theres something about" sound cheesy and AI written): 43 lines tightened in two passes, no facts added or removed; SCRIPT.v1.md is the original. Earlier edit: section 04 said "the first thing we hear is" the Hello Apollo line; in Tony's own track sample the line comes after about 29 seconds of music, so it now says "the first words we hear are".
+v3, 2026-11-21. Tony: "way too much about the record/music and not enough about the comic book story. we should be comparing lyrics to comic book events." Rebuilt around lyric-to-comic pairs, one short lyric line per song. Tony's personal beats kept in his own words (Purdue, buying the issues, the hidden track, missing Neverender, Backend of Forever), shortened. Story facts: Coheed and Cambria Wiki IKSSE:3 summaries (Claudio Kilgannon, Ambellina, Al the Killer, Chase, Sizer, Apollo, Newo Ikkin pages). Lyrics: the album, via the wiki's song pages; the "My dearest Apollo" line is the wiki's note on the booklet. v1 = SCRIPT.v1.md (Tony's original), v2 = SCRIPT.v2.md.
 
 ### 01-cold-open
 **5–10 seconds**
@@ -10,266 +10,134 @@ What happens when your favorite rock album comes with twelve issues of homework?
 
 **SHOW:** IKSSE:3 album cover transitioning into a montage of the twelve BOOM! Studios comic covers.
 
-**STING:** 2.5-second channel sting.
-
 ---
 
 ### 02-back-in-west-lafayette
 
-In October of two thousand three, I was a sophomore at Purdue University. Coheed and Cambria had just released their second album, *In Keeping Secrets of Silent Earth: 3*. I'm pretty sure I downloaded it first. I was buying CDs back then, too, so I'm sure I bought a copy. What I remember most clearly, though, is listening to it on my way to class.
+In October of two thousand three, I was a sophomore at Purdue. Coheed and Cambria had just put out their second album, *In Keeping Secrets of Silent Earth: 3*. I'd walk to class as the sun came up, listening to the opening of the title track. This album takes me right back there.
 
-**SHOW:** IKSSE:3 album cover, followed by a licensed band photo from the photos folder.
-
-I was living in an off-campus apartment in West Lafayette, Indiana. I'd walk to class as the sun came up, listening to those opening notes of the title track. I can still picture it. The morning light, the walk, that enormous guitar sound. This album takes me right back there.
-
-**SHOW:** IKSSE:3 album cover, slow pan across artwork.
-
-**CLIP:** "In Keeping Secrets of Silent Earth: 3" · Opening guitar passage, maximum 5 seconds.
-
-We covered *The Second Stage Turbine Blade* in Part 2. That album was how I found the band. But I might like this one more. This is the record that made me a Coheed fan for life. I've seen them a couple dozen times since.
-
-**SHOW:** SSTB album cover transitioning into IKSSE:3 album cover. Licensed band photograph.
-
-And since we spent an entire episode introducing Coheed, Cambria, their children, and the mess they ended up in, we should probably discuss what happened next. Because I deliberately left you hanging last time.
-
-**SHOW:** Official character art of Coheed and Cambria, then Claudio.
+The Second Stage Turbine Blade was how I found the band. This is the record that made me a fan for life. But today isn't about how it sounds. Every song on this album is a piece of a story, and years later that story became a twelve-issue comic. So we're going to put the lyrics next to the comic and see what lines up.
 
 ---
 
 ### 03-the-family-and-the-ghost
 
-The story picks up ten years after *The Second Stage Turbine Blade*. Claudio Kilgannon emerges from Shylos Ten, a prison planet used by the Red Army for interrogations and imprisonment. His family is gone. And the opening of this chapter finally confronts the tragedy I left unresolved in Part 2. In the comic, we learn that Coheed killed Josephine and the twins. Rough way to start a story.
+Last time, I left you hanging. Here's the answer. The story picks up ten years after The Second Stage Turbine Blade, and the comic tells us Coheed killed Josephine and the twins. Rough way to start a story.
 
-**SHOW:** Official Coheed, Cambria, and Claudio character art. IKSSE:3 issue #1 cover.
-
-**[VERIFY: Confirm Coheed and Cambria's own final fates before recording a more explicit resolution to Part 2's cliffhanger.]**
-
-And Claudio isn't exactly getting a clean start. He's haunted by the ghost of his father, whom only he can see and hear. They argue. Not great when you've already got a murdered family and an army after you. Claudio has powers he hasn't used in ten years, and Wilhelm Ryan and General Mayo Deftinwolf know he's alive.
-
-**SHOW:** Claudio, Coheed, Wilhelm Ryan, and Mayo character art.
-
-In the first issue, Claudio uses those powers again. A little girl calls him an angel. His response is that there aren't any angels anymore. That tells you where his head is at. He survived. He's not doing well.
-
-**SHOW:** Issue #1 cover and Claudio character art.
-
-**[SCAN: Angel exchange from Tony's issue #1, if available.]**
+Claudio, the son who got away, has spent those ten years hiding on Shylos Ten, in a city called Godder Damm. He's bearded, broke, and living underground. And he's haunted by the ghost of his father. Only Claudio can see him. They argue a lot. Claudio blames him for wrecking the family, which is fair.
 
 ---
 
 ### 04-hello-apollo
 
-Here's my favorite link between the album and the comic. The album begins with a short track called "The Ring in Return." And the first words we hear are, "Hello Apollo, where should I begin?" That isn't just a weird intro. The comic opens the same way, with Claudio telling the story to Apollo outside Newo Ikkin's house.
+The album opens with a short track called "The Ring in Return." The first words on it are, "Hello Apollo, where should I begin?"
 
-**SHOW:** IKSSE:3 album cover beside issue #1 cover, followed by Apollo and Newo character art.
+Issue one opens the same way. Claudio is outside Newo Ikkin's house. Newo was his girlfriend before everything fell apart. He keeps calling her and hanging up. He can't face her. Then her old dog, Apollo, wanders over, and Claudio tells the dog the whole story instead. The comic is Claudio talking to a dog. That's the frame for the entire album.
 
-**CLIP:** "The Ring in Return" · Opening spoken line, maximum 5 seconds.
-
-Read the comic and you recognize the moment from the album. Go back to the album and now you know why those words are there. If you pay way too much attention to album details, like me, that's a nice payoff.
-
-**SHOW:** Apollo character art and issue #1 cover.
-
-The title track follows, and it's over eight minutes long. It was a big part of my college soundtrack. Now I hear it next to the start of Claudio's story. The album sets the mood. The comic tells you who everyone is and where they are.
-
-**SHOW:** Album cover, Claudio art, Heaven's Fence map.
-
-**CLIP:** "In Keeping Secrets of Silent Earth: 3" · Maximum 5 seconds.
+Then the title track kicks in, and it's already naming names. There's a line about "the one they call the Vision that bears the gift." In the comic, that's Chase. And there's a line asking, "Will, do the children really understand the things you did to them?" Will is Wilhelm Ryan, the Supreme Tri-Mage. The guy running the whole galaxy.
 
 ---
 
 ### 05-the-war-outside
 
-The story is bigger than Claudio's family. Wilhelm Ryan is still the Supreme Tri-Mage, Mayo Deftinwolf is still involved, and the Red Army is still a problem. Meanwhile, Jesse, also known as Inferno, is fighting his own war from a ship called the Grail Arbor. If you remember the K-B-I from Part 2, Jesse should already be familiar. And if you've forgotten, well, it's been a month. I can forgive you.
+While Claudio hides, there's a real war going on. Jesse, Claudio's uncle, better known as Inferno, is fighting Ryan's Red Army from his ship, the Grail Arbor. And in his lab, he's building I-Robots. One of them is Chase. Inferno held back her growth on purpose, so she has the mind of a grown woman in the body of a little girl. All she wants is for Inferno to admit he's her father.
 
-**SHOW:** Ryan, Mayo, and Inferno character art. Heaven's Fence map.
-
-That's where "Cuts Marked in the March of Men" and "Three Evils (Embodied in Love and Shadow)" come in. This stretch of the album is war and revenge. The comic shows you the war. The lyrics don't always spell it out.
-
-**SHOW:** Issues #2 and #3 covers, Ryan and Mayo character art.
-
-**CLIP:** "Cuts Marked in the March of Men" · Maximum 5 seconds.
-
-**CLIP:** "Three Evils (Embodied in Love and Shadow)" · Maximum 5 seconds.
-
-I'm not going to pretend I know what every lyric means. I'll stick to the connections we can actually back up.
-
-**SHOW:** Issues #2–4 covers, Keywork diagram.
-
-**[VERIFY: Specific lyric-to-comic connections for both songs.]**
+Now listen to "Cuts Marked in the March of Men." The chorus says it outright: "Chase, it's you I want." Somebody's singing to her by name, about handing himself over so he doesn't have to see her go alone. On the album, that's a mystery. In the comic, she's right there on the battlefield.
 
 ---
 
 ### 06-the-crowing
 
-"The Crowing" might have been my favorite song when I first got the album. It's still the song I tie most to this era of the band. It's long, it keeps building, and by the end it feels like you went somewhere.
+"The Crowing" might have been my favorite song when I first got the album. The Crowing is also Claudio's role in the story. The prophecy says he's the one who'll destroy the Keywork, the thing holding the whole galaxy together. He wants nothing to do with it.
 
-**SHOW:** Album cover and Claudio character art.
+So the Prise, a group of angel-like beings, send one of their own to push him into it. Her name is Ambellina. Her sisters burned her wings and cast her out, and her job is to watch over him. Here's the line from the song: "Dear Ambellina, the Prise wishes you, to watch over me." That's the plot of the comic, in one line.
 
-**CLIP:** "The Crowing" · Maximum 5 seconds.
-
-The important story connection is right there in the title. The Crowing is Claudio's role in this story. He's discovering powers he hasn't used for a decade. Ryan and Mayo want him stopped. So while he's still figuring out his own life, a much bigger fight is forming around him.
-
-**SHOW:** Claudio, Ryan, and Mayo character art. Issue #4 cover.
-
-That's what makes Claudio worth following. He's lost almost everything and has no reason to trust anybody. Now he has to figure out these powers. That's a lot for anybody, never mind a guy whose dead dad is following him around.
-
-**SHOW:** Claudio's two character illustrations, issue #1 cover.
-
-**[VERIFY: Exact lyric-to-panel connections for "The Crowing."]**
+The same song has Claudio saying he "severed my ties to shroud this body under the streets of this city." That's exactly where we find him in issue one, living under Godder Damm. It even names her: "the Newo that I loved."
 
 ---
 
-### 07-blood-red-summer
+### 07-pieces-and-family
 
-Then we get "Blood Red Summer." This and "A Favor House Atlantic" were the songs a lot of people heard first. "A Favor House Atlantic" was released as a single in June two thousand four, and "Blood Red Summer" followed in November. I didn't care much about the singles. I was listening to the whole record.
+"Three Evils" has one of the clearest matches on the album. The lyric goes, "Picture a young boy in pieces," and later, "We'll fix him, restore him."
 
-**SHOW:** Album cover, licensed early band photograph, Claudio art.
+In the comic, Mayo Deftinwolf's soldiers tear an I-Robot named Sizer apart. Sizer is huge, but he's basically a kid. Claudio makes a living picking through dead Red Army prisoners, and he finds Sizer in pieces. So he rebuilds him. A young boy in pieces, fixed and restored. When Claudio tells Sizer he's proud of him, Sizer hugs him so hard Claudio has to phase out of it so he doesn't get crushed.
 
-**CLIP:** "Blood Red Summer" · Maximum 5 seconds.
-
-Reading the comics changes how I hear these songs. I knew them by the melody and whatever lyrics I could make out. Now there's an actual story next to them. Sometimes I find out what I thought a song was about for twenty years was way off. Which is kind of funny.
-
-**SHOW:** Issues #3 and #4 covers, album cover.
-
-**[VERIFY: Specific lyrical references in "Blood Red Summer."]**
+Then "Blood Red Summer." That was one of the singles. In the middle of it there's this line: "Even number your nephew." Claudio is Inferno's nephew. When they finally meet on the battlefield near the end of the comic, Jesse recognizes him. Family reunions in The Amory Wars don't involve a lot of hugging.
 
 ---
 
-### 08-ambellina-and-sizer
+### 08-faint-of-hearts
 
-Back to the comic. Claudio isn't alone. We're introduced to Ambellina, a Prise who's been cast out by her own kind and forced to guide him. There's also Sizer, a disassembled I-Robot. Together, they're looking for Inferno, hoping to get some answers. Reasonable plan. This is *The Amory Wars*, so don't get attached.
+Now my favorite stretch of the album. Three songs in a row called "The Camper Velourium." The Camper Velourium is a ship. It belongs to a freighter pilot named Al the Killer.
 
-**SHOW:** Ambellina, Sizer, Claudio, and Inferno character art.
+Part one is "Faint of Hearts." In the comic, The Faint of Hearts is a bar. Claudio is in there cheating at cards to buy a ride off the planet, and he still loses to Al. Al wins the hand, goes home, finds a Red Army bounty on Claudio, and decides he's going to cash in.
 
-Inferno has his own operation underway. His laboratory is building two I-Robots named Chase and Sizer. Chase has the mind of a grown woman in the body of a little girl. That's a lot. And you don't get any of it from the album. The comics fill in everything I missed walking to class.
-
-**SHOW:** Chase, Sizer, and Inferno character art.
+The lyrics on this one are from Al's side, and they are creepy. The last line is, "Tonight sleep tight my gun." Once you know who Al is, that line lands differently.
 
 ---
 
-### 09-the-camper-velourium
+### 09-backend-of-forever
 
-Now we reach three consecutive songs that share a title: *The Camper Velourium*. "Faint of Hearts," "Backend of Forever," and "Al the Killer." In the story, the Camper Velourium is a ship. Al the Killer is a freighter pilot. Claudio and his crew run into trouble on that ship. So the song titles come straight out of the comic.
+Part two is "Backend of Forever." It's almost my favorite Coheed song, period. And it turns out it's a breakup song from the killer's point of view.
 
-**SHOW:** Issues #1–4 covers, Heaven's Fence map.
+In issue one, there's a scene with Al and a woman named Luci. He jumps out of her closet. She tells him to get help, throws him out, and says she's leaving on a six-month tour aboard a starship called the Connecticut. Now here's the lyric: "Over and out, Connecticut."
 
-**CLIP:** "The Camper Velourium I: Faint of Hearts" · Maximum 5 seconds.
-
-"Backend of Forever" is almost my favorite Coheed song, period. After more than twenty years with this band, that's saying something. I never get tired of it. And these three songs sit together on the record. You can tell they belong together before you know anything about the story.
-
-**SHOW:** Album cover, Claudio and Ambellina character art.
-
-**CLIP:** "The Camper Velourium II: Backend of Forever" · Maximum 5 seconds.
-
-Then comes "Al the Killer." Knowing Al is an actual character changes how I hear the song. A pilot, a ship, a whole storyline, all hiding in three song titles. I had no idea when I was first listening to these records.
-
-**SHOW:** Issues #3 and #4 covers, Claudio art.
-
-**CLIP:** "The Camper Velourium III: Al the Killer" · Maximum 5 seconds.
-
-**[VERIFY: Match the three songs' lyrics to events on the Camper Velourium, remaining within the approved spoiler boundary.]**
+The chorus says, "This isn't love." Which is the most self-aware thing Al ever says.
 
 ---
 
-### 10-a-favor-house-atlantic
+### 10-al-the-killer
 
-After that, "A Favor House Atlantic" arrives. I probably loved this one right away. I missed a lot of music videos around this time. Yahoo was somewhere you could go watch them. Finding music was a lot different back then.
+Part three is "Al the Killer," and this is where it gets dark. After Luci left, Al started killing women who look like her. He paralyzes them first. The song has a line about the dead "beneath the surface, sealed by the floors boarded up."
 
-**SHOW:** Licensed early band photograph, album cover.
-
-**CLIP:** "A Favor House Atlantic" · Maximum 5 seconds.
-
-It's short next to everything around it. After three Camper Velourium songs, you get one under four minutes. Makes sense it was a single.
-
-**SHOW:** Album cover, Claudio art.
-
-**[VERIFY: Specific story and lyric connections for "A Favor House Atlantic."]**
+In the comic, Claudio, Ambellina and Sizer finally get off the planet on Al's ship. On the way, Ambellina finds a sealed room full of bodies. All of them look like Luci. Al knocks her out, and Claudio catches him. They fight across the ship until it crashes. Al gets one more shot in and stabs Claudio. Claudio uses his powers to drive him rabid, and Al runs straight into the Red Army. That's the end of Al.
 
 ---
 
-### 11-the-light-and-the-glass
+### 11-house-atlantic
 
-"The Light & the Glass" comes next, and it's nine minutes and forty seconds long. Early Coheed records take their time. A four-minute single sits right next to a song that runs almost ten. That mix is why I listen to the whole album, start to finish.
+Next up, "A Favor House Atlantic." House Atlantic is Wilhelm Ryan's stronghold. It's where Inferno's war ends up.
 
-**SHOW:** Album cover, Claudio and Coheed character art.
+By this point, Inferno and the Prise have actually captured Ryan. Jesse executes him. Then Mayo brings him back to life. So it's war again, on Ryan's home turf. Claudio shows up, gets backed by Chase, and fights Vielar Crom in his giant metal body. Claudio puts out a blast so big it cripples House Atlantic, and they escape on the Grail Arbor.
 
-**CLIP:** "The Light & the Glass" · Maximum 5 seconds.
-
-By now we've met Claudio again, found out about his family, seen the fight between Ryan and Inferno, and met a bunch of new characters. The comics let you go back through all of it. And they remind me how much story was under music I loved without understanding half of it.
-
-**SHOW:** Issues #1, #4, and #12 covers, Keywork diagram.
-
-**[VERIFY: The lyrical relationship between "The Light & the Glass" and the Kilgannon family.]**
+And the song? "Run quick, they're behind us. Didn't think we'd ever make it this close to safety in one piece." That's the getaway.
 
 ---
 
-### 12-the-hidden-song
+### 12-the-light-and-the-glass
 
-But the album still has one more trick. If you owned the CD, you might remember finishing "The Light & the Glass" and discovering a bunch of tracks that seemed to contain absolutely nothing. Eleven silent tracks, in fact. They're called "A Lot of Nothing I" through "A Lot of Nothing XI." And then, on track twenty-three, there's another song waiting for you: "21:13."
+"The Light & the Glass" closes the album. It has a line that hits harder after the comic: "Your father's dead, he passed in his sleep." Claudio's father is already dead in this story. He's the ghost who's been arguing with him the whole time.
 
-**SHOW:** Album cover.
+And it brings us back to the dog. When Claudio finishes telling Apollo everything, he gets up to leave. Apollo tries to follow him. Claudio tells him that where he's going, the dog can't follow. His last line in the comic is, "Good Apollo, I'm Burning Star IV."
 
-**[SCAN: Tony's CD, disc, packaging, and track listing.]**
-
-I loved that stuff. I still do. It felt like being let in on a secret. You had to be paying attention, or at least curious enough to keep going. "21:13" also brings back musical ideas from "Time Consumer" and "I-Robot" on the first album. So even this little hidden discovery connects us to where the series began.
-
-**SHOW:** SSTB cover dissolving into IKSSE:3 cover. Keywork diagram.
-
-**CLIP:** "21:13" · Maximum 5 seconds.
-
-Some digital versions and reissues remove the silent tracks and "21:13" altogether. That's a shame, because finding it that way was part of the fun. The vinyl has it, and I've got the album on both.
-
-**SHOW:** Album cover.
-
-**[SCAN: CD and vinyl side by side.]**
+Now flip open the album booklet. After the lyrics for this song, there's one extra line that isn't sung: "My dearest Apollo, I'll be Burning Star IV." The album and the comic end on the same idea. And it's the title of the next record.
 
 ---
 
-### 13-from-album-to-comic
+### 13-the-hidden-song
 
-The album came out in October two thousand three. The twelve-issue comic series arrived years later, beginning in May two thousand ten and finishing in June two thousand eleven. It was published by BOOM! Studios with Evil Ink, written by Claudio Sanchez and Peter David. Chris Burnham handled early artwork, with other artists including Kyle Strahm and Aaron Kuder contributing over the run.
+The album has one more trick. If you owned the CD, after "The Light & the Glass" you got eleven tracks of nothing. Then, on track twenty-three, a hidden song called "21:13." I loved finding stuff like that. The vinyl has it, and I've got the album on both.
 
-**SHOW:** Issues #1, #6, #8, and #12 covers.
-
-I was buying the individual issues as they came out. I've still got the whole run. And I remember thinking the books felt a little low-rent compared with some of the major comics I was following at the time. Not a glowing review, but that's what I remember. I was already invested in the band and the story, so naturally I wanted these books on my shelf.
-
-**SHOW:** Issues #1–12 cover montage.
-
-**[SCAN: Tony's complete original issue run spread across a table.]**
-
-Now the collector stuff. Issue one had a convention-exclusive cover limited to five hundred copies. Issue five had a New York Comic Con cover. And issue nine had a C2E2 exclusive limited to three hundred copies. C2E2 is Chicago's con, so that one gets me. I don't own either of the numbered exclusives, unfortunately. I wish I did.
-
-**SHOW:** Actual #1 convention-exclusive, #5 NYCC, and #9 C2E2 variant covers.
-
-The series was also collected into three trade paperbacks, four issues each, and eventually hardcover editions and a Complete Collection. Or there's the Ultimate Edition. Not bad for an album I listened to walking to class.
-
-**SHOW:** 2012 Ultimate Edition cover, issues #1 and #12, editions-tab screenshot.
+It ends by bringing back a line from the first record, word for word: "IRO-bot will never die." That's the end of The Second Stage Turbine Blade, coming back around.
 
 ---
 
-### 14-neverender-and-the-legacy
+### 14-from-album-to-comic
 
-Coheed likes to play these albums live, start to finish. In two thousand eight, the original Neverender concerts featured four albums performed in full, one each night. Chicago's shows were at the Riviera Theatre, with *In Keeping Secrets* on night two. In two thousand fourteen, they toured this entire album again.
+The comic came out from BOOM! Studios with Evil Ink, twelve issues from May two thousand ten to June two thousand eleven. Claudio Sanchez wrote it with Peter David. Chris Burnham drew the early issues, and Kyle Strahm and Aaron Kuder came in later.
 
-**SHOW:** Licensed live photographs, album cover.
+I bought every issue as it came out, and I still have the whole run. I thought they felt a little low-rent next to the bigger books I was reading. Not a glowing review, but that's what I remember.
 
-I didn't make it to either of those particular runs. My little brother and I did attend the tenth-anniversary show for *The Second Stage Turbine Blade*, though, and I've caught Coheed plenty of other times. These records are tied to different stages of my life. I've been following this band since I was a college kid.
+Now the collector stuff. Issue one had a convention-exclusive cover limited to five hundred copies. Issue five had a New York Comic Con cover. And issue nine had a C2E2 exclusive limited to three hundred. C2E2 is Chicago's con, so that one gets me. I don't own either of the numbered ones. I wish I did.
 
-**SHOW:** SSTB and IKSSE:3 album covers side by side, licensed live photograph.
-
-There was even a twentieth-anniversary S.S. Neverender cruise with the *Raiders of Silent Earth: 3* theme. The album went Gold and peaked at number fifty-two on the Billboard two hundred. All from something I first heard on a burned CD.
-
-**SHOW:** Album cover, band photograph, Raiders of Silent Earth: 3 one-shot listing if available.
-
-**[VERIFY: Cruise anniversary year and the one-shot's relationship to the event.]**
+It's also collected in three trade paperbacks, a hardcover, and a Complete Collection. Or there's the Ultimate Edition.
 
 ---
 
 ### 15-outro
 
-That's *In Keeping Secrets of Silent Earth: 3*. I've got a lot of history with this record, and the comics gave me a reason to go back to it. If you're collecting the series yourself, I've got all twelve issues and their covers organized on ComixCatalog, along with a printable checklist, an "Add issues I own" option, a pull list, and an editions tab for the singles, trades, and hardcover.
+Coheed played this whole album live in two thousand eight on the Neverender tour, night two at the Riviera here in Chicago, and toured it again in two thousand fourteen. I didn't make it to either.
 
-**SHOW:** Live IKSSE:3 series page, issue #1 page, editions-tab screenshot.
+If you're collecting the series, all twelve issues and their covers are on ComixCatalog, with a printable checklist, an "Add issues I own" option, a pull list, and an editions tab for the singles, trades, and hardcover.
 
-Next time, we'll continue with *Good Apollo*. If you're enjoying this series, subscribe so you don't miss it. And let me know which song from *In Keeping Secrets* has stuck with you all these years. Mine might just be "Backend of Forever." Thanks for watching, and I'll see you in the next one.
-
-**SHOW:** IKSSE:3 album cover, followed by Good Apollo album cover and end-screen layout.
+Next time, we pick up right where Claudio left off, with *Good Apollo*. Subscribe so you don't miss it. And tell me which song from *In Keeping Secrets* has stuck with you all these years. Mine might just be "Backend of Forever." Thanks for watching.

@@ -30,6 +30,10 @@ SAY = [
     ("ComixCatalog", "Comix Catalog"),
     # Tony 11-21: plain American reads of names, never an accented one. "new-o ikkin".
     ("Newo Ikkin", "New-oh Ick-in"),
+    ("Newo", "New-oh"),
+    ("Prise", "Prize"),
+    ("Luci", "Lucy"),
+    ("IRO-bot", "I-Robot"),
     # Roman numerals: the voice would read "I" as the word I.
     ('"A Lot of Nothing I" through "A Lot of Nothing XI."', '"A Lot of Nothing One" through "A Lot of Nothing Eleven."'),
     ("21:13", "twenty-one thirteen"),
@@ -41,6 +45,8 @@ DISPLAY = [
     (["comix", "catalog"], "ComixCatalog"),
     (["new-oh", "ick-in's"], "Newo Ikkin's"),
     (["new-oh", "ick-in"], "Newo Ikkin"),
+    (["new-oh"], "Newo"),
+    (["prize"], "Prise"),
     (["twenty-one", "thirteen"], "21:13"),
     (["c-two-e-two"], "C2E2"),
     (["s", "s", "neverender"], "S.S. Neverender"),

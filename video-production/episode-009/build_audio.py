@@ -71,18 +71,20 @@ FIXED = {"ring", "title_open", "title_mid"}  # play this window as is; others pi
 
 # (section, last words of the paragraph the clip follows, song keys in order)
 CLIPS = [
+    # v3 (lyric-to-comic): each clip plays right after its song or lyric is named.
     ("02", "takes me right back there", ["title_open"]),
-    ("04", "outside newo ikkin's house", ["ring"]),
-    ("04", "who everyone is and where they are", ["title_mid"]),
-    ("05", "the lyrics don't always spell it out", ["cuts", "evils"]),
-    ("06", "it feels like you went somewhere", ["crowing"]),
-    ("07", "listening to the whole record", ["brs"]),
-    ("09", "come straight out of the comic", ["camper1"]),
-    ("09", "anything about the story", ["camper2"]),
-    ("09", "first listening to these records", ["camper3"]),
-    ("10", "a lot different back then", ["afha"]),
-    ("11", "the whole album start to finish", ["light"]),
-    ("12", "connects us to where the series began", ["2113"]),
+    ("04", "where should i begin", ["ring"]),
+    ("04", "already naming names", ["title_mid"]),
+    ("05", "it's you i want", ["cuts"]),
+    ("06", "when i first got the album", ["crowing"]),
+    ("07", "fix him restore him", ["evils"]),
+    ("07", "even number your nephew", ["brs"]),
+    ("08", "part one is faint of hearts", ["camper1"]),
+    ("09", "over and out connecticut", ["camper2"]),
+    ("10", "the floors boarded up", ["camper3"]),
+    ("11", "that's the getaway", ["afha"]),
+    ("12", "he passed in his sleep", ["light"]),
+    ("13", "will never die", ["2113"]),
 ]
 SONG_TITLES = {
     "ring": "The Ring in Return", "title": "In Keeping Secrets of Silent Earth: 3", "title_open": "In Keeping Secrets of Silent Earth: 3", "title_mid": "In Keeping Secrets of Silent Earth: 3", "cuts": "Cuts Marked in the March of Men",

@@ -85,6 +85,9 @@ jobs:
       - name: Variant cover tests
         run: npm run test:variant-covers
 
+      - name: Copy version tests
+        run: npm run test:copy-version
+
       - name: Review queue tests
         run: npm run test:review
 

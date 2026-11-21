@@ -99,6 +99,15 @@ function anyCacheEntry(key) {
   return hydrationCache.get(key)?.data ?? null;
 }
 
+// After a copy switches version, its value is for the new issue at its
+// grade. Values only load for books missing or stale in this cache, so a
+// switch back to an issue loaded earlier kept the old version's value.
+// Marking it stale (not deleting it) keeps the row painted while it reloads.
+function markIssueStale(gcdIssueId) {
+  const entry = hydrationCache.get(`gcd-${Number(gcdIssueId)}`);
+  if (entry) entry.cachedAt = 0;
+}
+
 function loadSavedHydration(userId) {
   hydrationCache.clear();
   if (!userId) return {};
@@ -155,6 +164,9 @@ function gradeFromItem(item) {
     user_cover_url: USER_COVER_UPLOAD_ENABLED ? (item.user_cover_url ?? null) : null,
     status: item.status,
     open_to_trade: Boolean(item.open_to_trade),
+    // Without these the editor opened blank and Save wiped them.
+    variant_label: item.variant_label ?? null,
+    copy_number: item.copy_number ?? null,
   };
 }
 
@@ -2245,6 +2257,8 @@ function LibraryPageContent() {
                           initialData={liveGrade}
                           canonicalCover={comic.cover || null}
                           releaseYear={comic.year || null}
+                          gcdIssueId={item.gcd_issue_id ?? null}
+                          onVersionChange={(changed) => { markIssueStale(changed?.gcd_issue_id); refreshLibrary({ background: true }); }}
                           onSave={(updated) =>
                             setGradeData((prev) => ({
                               ...prev,
@@ -2469,6 +2483,8 @@ function LibraryPageContent() {
                                         initialData={liveGrade}
                                         canonicalCover={comic.cover || null}
                                         releaseYear={comic.year || null}
+                                        gcdIssueId={item.gcd_issue_id ?? null}
+                                        onVersionChange={(changed) => { markIssueStale(changed?.gcd_issue_id); refreshLibrary({ background: true }); }}
                                         onSave={(updated) =>
                                           setGradeData((prev) => ({
                                             ...prev,
@@ -2574,6 +2590,8 @@ function LibraryPageContent() {
                           initialData={liveGrade}
                           canonicalCover={comic.cover || null}
                           releaseYear={comic.year || null}
+                          gcdIssueId={item.gcd_issue_id ?? null}
+                          onVersionChange={(changed) => { markIssueStale(changed?.gcd_issue_id); refreshLibrary({ background: true }); }}
                           onSave={(updated) =>
                             setGradeData((prev) => ({
                               ...prev,

@@ -16,6 +16,20 @@ const milestone = (id, name, threshold) => ({
   test: (stats) => count(stats, "ownedCount", threshold),
 });
 
+function secret(id, name, description, mark, test) {
+  return { id, group: "Secret", secret: true, name, description, shape: "diamond", mark, test };
+}
+
+// What a locked secret badge shows instead of its name, mark and rule.
+export const SECRET_PLACEHOLDER = Object.freeze({ name: "Secret badge", description: "Keep collecting to find it", shape: "diamond", mark: "?" });
+
+// Display data for a client component: test() can't cross the server/client
+// boundary, and a locked secret badge keeps its name, mark and rule hidden.
+export function badgeForDisplay(badge, { earned = true } = {}) {
+  const { test: _test, ...display } = badge;
+  return badge.secret && !earned ? { ...display, ...SECRET_PLACEHOLDER } : display;
+}
+
 export const BADGE_CATALOG = [
   milestone("first-issue", "First Issue", 1),
   milestone("ten-spot", "Ten Spot", 10),
@@ -48,9 +62,20 @@ export const BADGE_CATALOG = [
   { id: "wantlist-started", group: "Community", name: "Wantlist Started", description: "Add 5 books to your wantlist", shape: "circle", mark: "heart", threshold: 5, test: (s) => count(s, "wantlistCount", 5) },
   { id: "scanner", group: "Community", name: "Scanner", description: "Match 25 cover scans", shape: "circle", mark: "scan", threshold: 25, test: (s) => count(s, "matchedScanCount", 25) },
   { id: "founding-collector", group: "Founding", name: "Founding Collector", description: "One of the first 100 collectors", shape: "shield", mark: "founding", test: (s) => ({ earned: Boolean(s.isFoundingCollector), progress: s.isFoundingCollector ? 1 : 0, target: 1 }) },
+  // Secret badges: shown as a locked "?" patch with no name or hint until
+  // earned. Never name one in public copy.
+  secret("zero-hour", "Zero Hour", "Own an issue #0", "#0", (s) => result(s.zeroIssueCount ?? 0, 1)),
+  secret("half-measures", "Half Measures", "Own a #1/2 issue", "1/2", (s) => result(s.halfIssueCount ?? 0, 1)),
+  secret("centennial", "Centennial", "Own an issue #100", "#100", (s) => result(s.centennialCount ?? 0, 1)),
+  secret("one-million", "One Million", "Own a #1,000,000 issue", "#1M", (s) => result(s.oneMillionCount ?? 0, 1)),
+  secret("one-of-a-kind", "One of a Kind", "Own a book no other collector here has", "1 OF 1", (s) => result(s.uniqueBookCount ?? 0, 1)),
+  secret("double-take", "Double Take", "Own two copies of the same issue", "X2", (s) => result(s.duplicateIssueCount ?? 0, 1)),
+  secret("marathon", "Marathon", "Add 50 books in one day", "50/DAY", (s) => result(s.busiestDayAdds ?? 0, 50)),
+  secret("generations", "Generations", "Own issues of one series published 40 years apart", "40 YRS", (s) => result(s.seriesSpanYears ?? 0, 40)),
 ];
 
 export const BADGES_BY_ID = new Map(BADGE_CATALOG.map((badge) => [badge.id, badge]));
+export const SECRET_BADGE_COUNT = BADGE_CATALOG.filter((badge) => badge.secret).length;
 
 export function evaluateBadges(stats) {
   return Object.fromEntries(BADGE_CATALOG.map((badge) => [badge.id, badge.test(stats)]));

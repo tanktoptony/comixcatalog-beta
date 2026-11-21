@@ -8,7 +8,7 @@ import { ICON_MARKS, markSvg } from "./marks.js";
 test("every badge mark is a drawn icon, the founding number, or a short label", () => {
   for (const badge of BADGE_CATALOG) {
     if (ICON_MARKS.includes(badge.mark) || badge.mark === "founding") continue;
-    assert.match(String(badge.mark), /^[A-Z0-9.+]{1,6}$/, `${badge.id} mark "${badge.mark}" is neither an icon nor a short label`);
+    assert.match(String(badge.mark), /^[A-Z0-9.+#/ ]{1,6}$/, `${badge.id} mark "${badge.mark}" is neither an icon nor a short label`);
   }
 });
 

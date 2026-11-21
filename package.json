@@ -21,6 +21,7 @@
     "test:creator-photos": "node --test scripts/lib/creatorPhotos.test.js",
     "test:sitemap": "node --test src/lib/sitemapCore.test.js",
     "test:years": "node --test src/lib/years.test.js",
+    "test:badges": "node --test src/lib/badges/catalog.test.js src/lib/badges/stats.test.js src/lib/badges/marks.test.js src/lib/badges/rarity.test.js",
     "test:activity-feed": "node --test src/lib/activityFeed.test.js src/lib/feed/feedEvents.test.js",
     "test:social": "node --test src/lib/messageContext.test.js src/lib/issueCollectors.test.js",
     "test:variant-covers": "node --test src/lib/variantCovers.test.js",

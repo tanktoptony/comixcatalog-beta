@@ -271,6 +271,9 @@ jobs:
       - name: YouTube stats tests
         run: npm run test:youtube-stats
 
+      - name: Badge tests
+        run: npm run test:badges
+
       - name: Weekly scoreboard tests
         run: npm run test:weekly-scoreboard
 

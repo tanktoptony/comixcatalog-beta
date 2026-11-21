@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getAuthedUser } from "@/lib/authServer";
 import { getServiceClient } from "@/lib/supabase/service";
-import { BADGE_CATALOG, evaluateBadges } from "@/lib/badges/catalog";
+import { BADGE_CATALOG, BADGES_BY_ID, evaluateBadges } from "@/lib/badges/catalog";
 import { buildBadgeStats } from "@/lib/badges/stats";
 
 export async function POST(req) {
@@ -23,7 +23,11 @@ export async function POST(req) {
       );
       if (insertError) throw insertError;
     }
-    return NextResponse.json({ earned, new: newlyEarned, progress });
+    // A locked secret badge reports no progress: a count would hint at the rule.
+    const shownProgress = Object.fromEntries(Object.entries(progress).map(([id, value]) => (
+      BADGES_BY_ID.get(id)?.secret && !value.earned ? [id, { earned: false, progress: 0, target: 1 }] : [id, value]
+    )));
+    return NextResponse.json({ earned, new: newlyEarned, progress: shownProgress });
   } catch (error) {
     console.error("badge sync failed:", error);
     return NextResponse.json({ error: "Could not update badges" }, { status: 500 });

@@ -24708,9 +24708,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T20:16:35.272730+00:00",
-    "retry_after": "2026-11-21T20:16:35.272732+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T21:06:57.176113+00:00",
+    "retry_after": "2026-12-21T21:06:57.176116+00:00",
     "search_hydrated": true
   },
   {
@@ -31632,9 +31632,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T19:13:53.697879+00:00",
-    "retry_after": "2026-11-21T19:13:53.697880+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T21:06:57.176013+00:00",
+    "retry_after": "2026-12-21T21:06:57.176030+00:00",
     "search_hydrated": true
   },
   {
@@ -39686,9 +39686,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T20:16:35.272645+00:00",
-    "retry_after": "2026-11-21T20:16:35.272681+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T21:06:57.176054+00:00",
+    "retry_after": "2026-12-21T21:06:57.176058+00:00",
     "search_hydrated": true
   },
   {
@@ -40013,9 +40013,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T20:16:35.272702+00:00",
-    "retry_after": "2026-11-21T20:16:35.272705+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T21:06:57.176075+00:00",
+    "retry_after": "2026-12-21T21:06:57.176078+00:00",
     "search_hydrated": true
   },
   {
@@ -43465,8 +43465,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-21T20:06:21.533795+00:00",
-    "retry_after": "2026-11-22T20:06:21.533813+00:00",
+    "last_attempt_at": "2026-11-21T21:02:57.018611+00:00",
+    "retry_after": "2026-11-22T21:02:57.018627+00:00",
     "search_hydrated": true
   },
   {
@@ -51321,13 +51321,13 @@
   },
   {
     "name": "Scud: The Disposable Assassin",
-    "publisher": "Fireman Press",
+    "publisher": "Fireman Press, Ltd",
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-20T20:04:27.636441+00:00",
-    "retry_after": "2026-11-23T20:04:27.636458+00:00",
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T21:02:57.018653+00:00",
+    "retry_after": "2026-11-22T21:02:57.018658+00:00",
     "search_hydrated": true
   },
   {
@@ -95370,9 +95370,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-18T20:04:07.471125+00:00",
-    "retry_after": "2026-11-21T20:04:07.471131+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-21T21:07:01.263871+00:00",
+    "retry_after": "2026-11-28T21:07:01.263888+00:00",
     "search_hydrated": true
   },
   {
@@ -97203,21 +97203,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 148041,
-        "name": "Cherry",
-        "publisher": "Milky Way Ediciones",
-        "start_year": 2017
-      },
-      {
         "id": 108320,
         "name": "Cherry!",
         "publisher": "Beaglee Inc.",
         "start_year": 2017
+      },
+      {
+        "id": 148041,
+        "name": "Cherry",
+        "publisher": "Milky Way Ediciones",
+        "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T21:02:18.910215+00:00",
-    "retry_after": "2026-11-21T21:02:18.910220+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T21:02:40.548209+00:00",
+    "retry_after": "2026-11-24T21:02:40.548225+00:00",
     "search_hydrated": true
   },
   {
@@ -98540,6 +98540,96 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-21T20:10:53.744104+00:00",
     "retry_after": "2026-11-22T20:10:53.744121+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Files of Ms. Tree",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 76620,
+        "name": "The Files of Ms. Tree",
+        "publisher": "Aardvark",
+        "start_year": 1984
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T21:07:10.473426+00:00",
+    "retry_after": "2026-11-22T21:07:10.473443+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "???????: ???? ????????????",
+    "publisher": "BOOM! Studios",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 172641,
+        "name": "!",
+        "publisher": "Alpha Polis",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T21:07:10.473478+00:00",
+    "retry_after": "2026-11-22T21:07:10.473483+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Boo and the Midnight Monsters",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 122409,
+        "name": "Johnny Boo and the Midnight Monsters",
+        "publisher": "Top Shelf",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T21:07:10.473508+00:00",
+    "retry_after": "2026-11-22T21:07:10.473511+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Boo and the Silly Blizzard",
+    "publisher": "IDW Publishing",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 133882,
+        "name": "Johnny Boo and the Silly Blizzard",
+        "publisher": "Top Shelf",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T21:07:10.473532+00:00",
+    "retry_after": "2026-11-22T21:07:10.473535+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Phil Corrigan Secret Agent X9",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161990,
+        "name": "Phil Corrigan Secret Agent X9 ",
+        "publisher": "Atlas Publications Pty. Ltd.",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T21:07:17.748367+00:00",
+    "retry_after": "2026-11-22T21:07:17.748387+00:00",
     "search_hydrated": true
   }
 ]

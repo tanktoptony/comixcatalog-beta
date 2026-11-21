@@ -183,6 +183,7 @@ Columns: `status`, `condition`, `grade_numeric` (numeric), `slab_company`, `slab
 - A row is either-or: `comic_id` set (local comic) OR `gcd_issue_id` set (GCD issue). Never both.
 - `status` values seen: `owned`, `wishlist`, `for_sale`.
 - `user_cover_url` — user-uploaded photo of their specific copy. Set via GradeEditor. Stored at `library/<collection_id>.<ext>` in `comic-covers` bucket.
+- **Which version a copy is** (regular, newsstand, later printing, cover variant) is `gcd_issue_id` pointing at that GCD edition row, with `variant_label` set to the edition name (null for the regular edition). The library editor's Version picker (`src/components/CopyVersionPicker.js`, Nov 2026) lists the editions as cover tiles and reads barcodes by camera (`useBarcodeReader`) or typed digits; `POST /api/collection/version` makes the switch, clears a picked catalog cover (never the collector's photo) and refreshes a listed copy's listing. A barcode only names an issue when exactly one issue on file has it: the short 2-digit add-on repeats (07148602457605 is ASM #300 newsstand and ASM #51 from 2003). Rules and tests: `src/lib/copyVersion.js`, `npm run test:copy-version`.
 - `auto_market_value` — median sold price from `market_comps` for this issue's grade bucket. Phase 2 wired via migration 0006. User-entered `market_value` overrides this in the UI.
 - `auto_market_value_n` — sample size that fed the median. Surfaced in the library row tooltip ("auto, 5 sales") so users can judge confidence.
 

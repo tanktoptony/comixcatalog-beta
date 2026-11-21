@@ -5,6 +5,7 @@ import { getSupabaseClient } from "@/lib/supabase/client";
 import { estimateCoverPrice } from "@/lib/coverPrice";
 import { trackEvent } from "@/lib/analytics";
 import { authedFetch } from "@/lib/apiClient";
+import CopyVersionPicker, { hasRecentSwitch } from "@/components/CopyVersionPicker";
 
 const USER_COVER_UPLOAD_ENABLED = true;
 
@@ -109,8 +110,11 @@ function GradeBadge({ grade, company, condition }) {
 
 export { GradeBadge };
 
-export default function GradeEditor({ collectionId, initialData = {}, canonicalCover = null, releaseYear = null, onSave }) {
-  const [open, setOpen] = useState(false);
+// gcdIssueId turns on the Version picker (library only; the issue page has
+// its own "Switch my copy" prompt). onVersionChange runs after a switch so
+// the caller can reload the copy's cover, title and value.
+export default function GradeEditor({ collectionId, initialData = {}, canonicalCover = null, releaseYear = null, gcdIssueId = null, onSave, onVersionChange }) {
+  const [open, setOpen] = useState(() => hasRecentSwitch(collectionId));
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState(null);
 
@@ -150,6 +154,14 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
   const [tradeSaving, setTradeSaving] = useState(false);
 
   const isSlabbed = !!slabCompany;
+
+  function handleVersionSwitched(item, meta) {
+    if (!item) return;
+    setVariantLabel(item.variant_label || "");
+    setUserCoverUrl(item.user_cover_url || null);
+    onSave?.({ variant_label: item.variant_label ?? null, user_cover_url: item.user_cover_url ?? null });
+    onVersionChange?.(item, meta);
+  }
 
   async function toggleTrade(next) {
     const previous = openToTrade;
@@ -318,15 +330,19 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
         <button
           type="button"
           className="grade-editor-btn"
-          aria-label={open ? "Close grade editor" : "Edit grade"}
+          aria-label={open ? "Close editor" : "Edit this copy: grade, version, photo, notes"}
         >
-          {open ? "Cancel" : hasGradeData ? "Edit Grade" : "+ Add Grade"}
+          {open ? "Cancel" : hasGradeData ? "Edit" : "+ Grade / Edit"}
         </button>
       </div>
 
       {/* Inline editor panel */}
       {open && (
         <div className="grade-editor-panel">
+
+          {gcdIssueId && collectionId && (
+            <CopyVersionPicker collectionId={collectionId} gcdIssueId={gcdIssueId} onSwitched={handleVersionSwitched} />
+          )}
 
           {(initialData.status === "owned" || initialData.status === "for_sale") && (
             <label className="grade-trade-toggle">

@@ -71,17 +71,17 @@ FIXED = {"ring", "title_open", "title_mid"}  # play this window as is; others pi
 
 # (section, last words of the paragraph the clip follows, song keys in order)
 CLIPS = [
-    ("02", "this is one of those", ["title_open"]),
+    ("02", "takes me right back there", ["title_open"]),
     ("04", "outside newo ikkin's house", ["ring"]),
-    ("04", "what we're dealing with", ["title_mid"]),
-    ("05", "from the music alone", ["cuts", "evils"]),
-    ("06", "by the time it's finished", ["crowing"]),
+    ("04", "who everyone is and where they are", ["title_mid"]),
+    ("05", "the lyrics don't always spell it out", ["cuts", "evils"]),
+    ("06", "it feels like you went somewhere", ["crowing"]),
     ("07", "listening to the whole record", ["brs"]),
-    ("09", "between the album and the comics", ["camper1"]),
-    ("09", "clearly belong together", ["camper2"]),
+    ("09", "come straight out of the comic", ["camper1"]),
+    ("09", "anything about the story", ["camper2"]),
     ("09", "first listening to these records", ["camper3"]),
-    ("10", "the way it works now", ["afha"]),
-    ("11", "the entire album worthwhile", ["light"]),
+    ("10", "a lot different back then", ["afha"]),
+    ("11", "the whole album start to finish", ["light"]),
     ("12", "connects us to where the series began", ["2113"]),
 ]
 SONG_TITLES = {

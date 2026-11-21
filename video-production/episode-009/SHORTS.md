@@ -16,7 +16,7 @@ It even reprises parts of "Time Consumer" and "I-Robot" from their first album. 
 
 > SHOW: Both album covers side by side.
 
-I loved finding stuff like this. It felt like discovering a secret somebody left there just for you. And the title? It comes from the lyric, "And the clock reads 21:13."
+I loved finding stuff like this. It felt like a secret. And the title? It comes from the lyric, "And the clock reads 21:13."
 
 > SHOW: IKSSE:3 album cover, slow push inward. CLIP: "21:13", maximum 5 seconds before the final line.
 
@@ -24,19 +24,15 @@ I loved finding stuff like this. It felt like discovering a secret somebody left
 
 "Hello Apollo, where should I begin?"
 
-That's the first spoken line on Coheed and Cambria's second album, In Keeping Secrets of Silent Earth: 3. And if you're wondering what that has to do with comics, the answer is pretty cool.
+That's the first spoken line on Coheed and Cambria's second album, In Keeping Secrets of Silent Earth: 3. It's also how the comic starts.
 
 > SHOW: Album cover beside issue #1 cover. CLIP: "The Ring in Return", opening line, maximum 5 seconds.
 
-The album starts with Claudio addressing Apollo. And when you open the comic adaptation, that's how the story begins, too. Claudio is talking to Apollo outside Newo Ikkin's house.
+Open the comic and it's the same scene. Claudio is talking to Apollo outside Newo Ikkin's house.
 
 > SHOW: Issue #1 cover, Apollo and Newo character art. [SCAN: Opening page of issue #1.]
 
-Same opening. Two different ways of experiencing the story.
-
-> SHOW: Album and comic covers side by side.
-
-I first heard this album in college in two thousand three. Years later, it's still fun discovering how much of the story was sitting there in the music.
+I first heard this album in college in two thousand three. More than twenty years later, I'm still finding story in it.
 
 > SHOW: Album cover transitioning into issue #1.
 
@@ -50,7 +46,7 @@ When BOOM! Studios published The Amory Wars: In Keeping Secrets of Silent Earth:
 
 > SHOW: Actual #1 convention-exclusive cover.
 
-Then issue nine got a C2E2 exclusive limited to just three hundred copies. C2E2 is Chicago's comic convention, which makes that one particularly interesting to me.
+Then issue nine got a C2E2 exclusive limited to just three hundred copies. C2E2 is Chicago's comic con, so that one gets me.
 
 > SHOW: Actual #9 C2E2 exclusive cover.
 

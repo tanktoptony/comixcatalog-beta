@@ -48,7 +48,7 @@ def main():
         name = f"iksse-{n}.jpg" if v == "a" else (f"iksse-01-{v}.jpg" if n == "01" else f"iksse-{n}-v.jpg")
         put(f, f"covers/{name}")
     put(SRC / "covers" / "iksse-ultimate" / "iksse-ultimate-01-a.jpg", "covers/iksse-ultimate.jpg")
-    for folder in ("albums", "characters", "photos", "screens"):
+    for folder in ("albums", "characters", "photos", "screens", "lore"):
         for f in sorted((SRC / folder).iterdir()):
             if f.suffix.lower() in (".jpg", ".jpeg", ".png"):
                 put(f, f"{folder}/{f.name}")

@@ -1,11 +1,11 @@
 {
- "duration": 972.871,
+ "duration": 790.909,
  "start": 0.6,
  "sting": {
   "at": 10.544,
   "dur": 5.6
  },
- "endCard": 964.871,
+ "endCard": 782.909,
  "sections": [
   {
    "section": "01",
@@ -15,79 +15,79 @@
   {
    "section": "02",
    "at": 16.594,
-   "dur": 90.171
+   "dur": 72.38
   },
   {
    "section": "03",
-   "at": 107.215,
-   "dur": 74.595
+   "at": 89.424,
+   "dur": 62.109
   },
   {
    "section": "04",
-   "at": 182.26,
-   "dur": 76.082
+   "at": 151.983,
+   "dur": 58.998
   },
   {
    "section": "05",
-   "at": 258.792,
-   "dur": 76.585
+   "at": 211.431,
+   "dur": 59.057
   },
   {
    "section": "06",
-   "at": 335.827,
-   "dur": 69.769
+   "at": 270.938,
+   "dur": 50.698
   },
   {
    "section": "07",
-   "at": 406.047,
-   "dur": 50.62
+   "at": 322.086,
+   "dur": 39.961
   },
   {
    "section": "08",
-   "at": 457.117,
-   "dur": 51.947
+   "at": 362.497,
+   "dur": 39.772
   },
   {
    "section": "09",
-   "at": 509.514,
-   "dur": 87.465
+   "at": 402.719,
+   "dur": 71.372
   },
   {
    "section": "10",
-   "at": 597.428,
-   "dur": 44.506
+   "at": 474.541,
+   "dur": 27.944
   },
   {
    "section": "11",
-   "at": 642.384,
-   "dur": 50.385
+   "at": 502.935,
+   "dur": 37.871
   },
   {
    "section": "12",
-   "at": 693.219,
-   "dur": 73.32
+   "at": 541.256,
+   "dur": 64.047
   },
   {
    "section": "13",
-   "at": 766.99,
-   "dur": 90.585
+   "at": 605.753,
+   "dur": 82.564
   },
   {
    "section": "14",
-   "at": 858.025,
-   "dur": 63.677
+   "at": 688.767,
+   "dur": 52.992
   },
   {
    "section": "15",
-   "at": 922.152,
-   "dur": 42.36
+   "at": 742.209,
+   "dur": 40.243
   }
  ],
  "clips": [
   {
    "song": "title_open",
    "title": "In Keeping Secrets of Silent Earth: 3",
-   "at": 64.611,
+   "at": 56.654,
    "dur": 4.8,
    "section": "02",
    "source": [
@@ -98,7 +98,7 @@
   {
    "song": "ring",
    "title": "The Ring in Return",
-   "at": 207.12,
+   "at": 172.773,
    "dur": 4.5,
    "section": "04",
    "source": [
@@ -109,7 +109,7 @@
   {
    "song": "title_mid",
    "title": "In Keeping Secrets of Silent Earth: 3",
-   "at": 252.654,
+   "at": 205.272,
    "dur": 4.8,
    "section": "04",
    "source": [
@@ -120,7 +120,7 @@
   {
    "song": "cuts",
    "title": "Cuts Marked in the March of Men",
-   "at": 308.088,
+   "at": 253.011,
    "dur": 4.8,
    "section": "05",
    "source": [
@@ -131,7 +131,7 @@
   {
    "song": "evils",
    "title": "Three Evils (Embodied in Love and Shadow)",
-   "at": 313.338,
+   "at": 258.261,
    "dur": 4.8,
    "section": "05",
    "source": [
@@ -142,7 +142,7 @@
   {
    "song": "crowing",
    "title": "The Crowing",
-   "at": 356.447,
+   "at": 284.188,
    "dur": 4.8,
    "section": "06",
    "source": [
@@ -153,7 +153,7 @@
   {
    "song": "brs",
    "title": "Blood Red Summer",
-   "at": 429.067,
+   "at": 340.596,
    "dur": 4.8,
    "section": "07",
    "source": [
@@ -164,7 +164,7 @@
   {
    "song": "camper1",
    "title": "The Camper Velourium I: Faint of Hearts",
-   "at": 533.414,
+   "at": 424.269,
    "dur": 4.8,
    "section": "09",
    "source": [
@@ -175,7 +175,7 @@
   {
    "song": "camper2",
    "title": "The Camper Velourium II: Backend of Forever",
-   "at": 564.73,
+   "at": 447.039,
    "dur": 4.8,
    "section": "09",
    "source": [
@@ -186,7 +186,7 @@
   {
    "song": "camper3",
    "title": "The Camper Velourium III: Al the Killer",
-   "at": 591.208,
+   "at": 468.318,
    "dur": 4.8,
    "section": "09",
    "source": [
@@ -197,7 +197,7 @@
   {
    "song": "afha",
    "title": "A Favor House Atlantic",
-   "at": 617.718,
+   "at": 488.611,
    "dur": 4.8,
    "section": "10",
    "source": [
@@ -208,7 +208,7 @@
   {
    "song": "light",
    "title": "The Light & the Glass",
-   "at": 665.884,
+   "at": 519.075,
    "dur": 4.8,
    "section": "11",
    "source": [
@@ -219,7 +219,7 @@
   {
    "song": "2113",
    "title": "21:13",
-   "at": 741.543,
+   "at": 586.436,
    "dur": 4.8,
    "section": "12",
    "source": [

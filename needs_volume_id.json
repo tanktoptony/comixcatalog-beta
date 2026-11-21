@@ -41888,12 +41888,6 @@
         "start_year": 2014
       },
       {
-        "id": 57741,
-        "name": "X-Men",
-        "publisher": "Abril",
-        "start_year": 1989
-      },
-      {
         "id": 104729,
         "name": "X-Men",
         "publisher": "Panini France",
@@ -41904,6 +41898,12 @@
         "name": "X-Men",
         "publisher": "Panini Verlag",
         "start_year": 2016
+      },
+      {
+        "id": 57741,
+        "name": "X-Men",
+        "publisher": "Abril",
+        "start_year": 1989
       },
       {
         "id": 43640,
@@ -41942,21 +41942,21 @@
         "start_year": 2013
       },
       {
-        "id": 122077,
-        "name": "X-Men",
-        "publisher": "Marvel",
-        "start_year": 2019
-      },
-      {
         "id": 43575,
         "name": "X-Men",
         "publisher": "Panini España",
         "start_year": 2011
+      },
+      {
+        "id": 122077,
+        "name": "X-Men",
+        "publisher": "Marvel",
+        "start_year": 2019
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-05T17:05:09.183601+00:00",
-    "retry_after": "2026-11-19T17:05:09.183605+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T10:02:26.843993+00:00",
+    "retry_after": "2026-12-21T10:02:26.843995+00:00",
     "search_hydrated": true
   },
   {
@@ -43465,8 +43465,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-21T09:02:45.584541+00:00",
-    "retry_after": "2026-11-22T09:02:45.584555+00:00",
+    "last_attempt_at": "2026-11-21T10:02:26.843930+00:00",
+    "retry_after": "2026-11-22T10:02:26.843932+00:00",
     "search_hydrated": true
   },
   {
@@ -76513,9 +76513,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T09:11:04.086724+00:00",
-    "retry_after": "2026-11-21T09:11:04.086738+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T10:06:00.074254+00:00",
+    "retry_after": "2026-12-21T10:06:00.074273+00:00",
     "search_hydrated": true
   },
   {
@@ -76531,9 +76531,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T09:11:05.349964+00:00",
-    "retry_after": "2026-11-21T09:11:05.349976+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T10:06:01.351036+00:00",
+    "retry_after": "2026-12-21T10:06:01.351049+00:00",
     "search_hydrated": true
   },
   {
@@ -76610,9 +76610,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T09:11:04.086777+00:00",
-    "retry_after": "2026-11-21T09:11:04.086781+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T10:06:00.074298+00:00",
+    "retry_after": "2026-12-21T10:06:00.074300+00:00",
     "search_hydrated": true
   },
   {
@@ -76628,9 +76628,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T09:11:05.429169+00:00",
-    "retry_after": "2026-11-21T09:11:05.429180+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T10:06:01.450924+00:00",
+    "retry_after": "2026-12-21T10:06:01.450942+00:00",
     "search_hydrated": true
   },
   {
@@ -76639,9 +76639,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T09:11:04.086808+00:00",
-    "retry_after": "2026-11-21T09:11:04.086811+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T10:06:00.074315+00:00",
+    "retry_after": "2026-12-21T10:06:00.074316+00:00",
     "search_hydrated": true
   },
   {
@@ -76650,9 +76650,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T09:11:04.086826+00:00",
-    "retry_after": "2026-11-21T09:11:04.086828+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T10:06:00.074323+00:00",
+    "retry_after": "2026-12-21T10:06:00.074325+00:00",
     "search_hydrated": true
   },
   {
@@ -76661,9 +76661,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T09:11:04.086844+00:00",
-    "retry_after": "2026-11-21T09:11:04.086847+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T10:06:00.074334+00:00",
+    "retry_after": "2026-12-21T10:06:00.074336+00:00",
     "search_hydrated": true
   },
   {
@@ -76672,9 +76672,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T09:11:04.086860+00:00",
-    "retry_after": "2026-11-21T09:11:04.086863+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T10:06:00.074342+00:00",
+    "retry_after": "2026-12-21T10:06:00.074343+00:00",
     "search_hydrated": true
   },
   {
@@ -76736,9 +76736,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T09:11:05.521163+00:00",
-    "retry_after": "2026-11-21T09:11:05.521173+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T10:06:01.559502+00:00",
+    "retry_after": "2026-12-21T10:06:01.559520+00:00",
     "search_hydrated": true
   },
   {
@@ -96738,9 +96738,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T08:10:53.317887+00:00",
-    "retry_after": "2026-11-21T08:10:53.317904+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T10:06:11.694775+00:00",
+    "retry_after": "2026-11-24T10:06:11.694794+00:00",
     "search_hydrated": true
   },
   {
@@ -96749,9 +96749,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T09:04:35.464591+00:00",
-    "retry_after": "2026-11-21T09:04:35.464609+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T10:01:56.295729+00:00",
+    "retry_after": "2026-11-24T10:01:56.295730+00:00",
     "search_hydrated": true
   },
   {
@@ -96760,9 +96760,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T09:04:35.464669+00:00",
-    "retry_after": "2026-11-21T09:04:35.464673+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T10:01:56.295718+00:00",
+    "retry_after": "2026-11-24T10:01:56.295720+00:00",
     "search_hydrated": true
   },
   {
@@ -96771,9 +96771,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T09:04:35.464711+00:00",
-    "retry_after": "2026-11-21T09:04:35.464714+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T10:01:56.295682+00:00",
+    "retry_after": "2026-11-24T10:01:56.295700+00:00",
     "search_hydrated": true
   },
   {
@@ -96801,9 +96801,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T10:02:04.367187+00:00",
-    "retry_after": "2026-11-21T10:02:04.367205+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T10:02:26.843872+00:00",
+    "retry_after": "2026-11-24T10:02:26.843874+00:00",
     "search_hydrated": true
   },
   {
@@ -96825,9 +96825,9 @@
         "start_year": 1995
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T10:02:04.367271+00:00",
-    "retry_after": "2026-11-21T10:02:04.367274+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T10:02:26.843828+00:00",
+    "retry_after": "2026-11-24T10:02:26.843841+00:00",
     "search_hydrated": true
   },
   {
@@ -98860,6 +98860,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-21T07:03:52.568079+00:00",
     "retry_after": "2026-11-22T07:03:52.568083+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Goldfish: The Tenth Anniversary",
+    "publisher": "Image Comics",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T10:06:11.694811+00:00",
+    "retry_after": "2026-11-22T10:06:11.694813+00:00",
     "search_hydrated": true
   }
 ]

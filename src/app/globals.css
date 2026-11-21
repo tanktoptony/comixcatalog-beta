@@ -14806,7 +14806,7 @@ a.pull-issue-title:hover { color: var(--cc-gold); }
 .issue-reviews-bar { height: 5px; overflow: hidden; border-radius: 9px; background: rgba(255,255,255,.1); }
 .issue-reviews-bar i { display: block; height: 100%; border-radius: inherit; background: #f5c518; }
 .issue-reviews-form { display: grid; gap: 8px; margin-top: 18px; padding: 18px; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,.025); }
-.issue-reviews-form label { font-weight: 700; }
+.issue-reviews-form label { color: var(--muted); font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .issue-reviews-form textarea { box-sizing: border-box; width: 100%; resize: vertical; padding: 12px; color: inherit; border: 1px solid var(--border); border-radius: 8px; background: rgba(0,0,0,.25); font: inherit; }
 .issue-reviews-picker { display: flex; width: fit-content; }
 .issue-reviews-picker button { border: 0; padding: 2px; color: #f5c518; background: transparent; cursor: pointer; }

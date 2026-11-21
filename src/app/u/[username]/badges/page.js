@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import BadgeGallery from "@/components/BadgeGallery";
-import { BADGE_CATALOG } from "@/lib/badges/catalog";
+import { BADGE_CATALOG, badgeForDisplay } from "@/lib/badges/catalog";
 import { getPublicProfile } from "@/lib/pageData";
-import { getProfileBadges } from "@/lib/badges/server";
+import { getProfileBadges, loadBadgeRarity } from "@/lib/badges/server";
 
 export async function generateMetadata({ params }) {
   const { username } = await params;
@@ -14,16 +14,16 @@ export default async function BadgesPage({ params }) {
   const { username } = await params;
   const data = await getPublicProfile(username);
   if (data?.notFound || !data?.profile) notFound();
-  const earned = await getProfileBadges(data.profile);
+  const [earned, rarity] = await Promise.all([
+    getProfileBadges(data.profile),
+    loadBadgeRarity().catch(() => null),
+  ]);
   const earnedIds = new Set(earned.map((badge) => badge.id));
   const visible = BADGE_CATALOG.filter((badge) => earnedIds.has(badge.id));
   const groupedMap = new Map();
   for (const badge of visible) {
     if (!groupedMap.has(badge.group)) groupedMap.set(badge.group, []);
-    // Plain data only: BadgeGallery is a client component, and the catalog's
-    // test() functions can't cross the server/client boundary.
-    const { test: _test, ...display } = badge;
-    groupedMap.get(badge.group).push({ badge: display, earned: true });
+    groupedMap.get(badge.group).push({ badge: badgeForDisplay(badge), earned: true });
   }
   const grouped = [...groupedMap.entries()];
   return (
@@ -31,7 +31,7 @@ export default async function BadgesPage({ params }) {
       <Link href={`/u/${encodeURIComponent(username)}`} className="badges-back">Back to @{username}</Link>
       <h1>Collector <span>badges</span></h1>
       <p>Embroidered patches earned across the collection.</p>
-      <BadgeGallery groups={grouped} profileId={data.profile.id} showcase={data.profile.showcase_badges ?? []} />
+      <BadgeGallery groups={grouped} profileId={data.profile.id} showcase={data.profile.showcase_badges ?? []} rarity={rarity} foundingNumber={earned.find((badge) => badge.id === "founding-collector")?.foundingNumber ?? null} />
     </main>
   );
 }

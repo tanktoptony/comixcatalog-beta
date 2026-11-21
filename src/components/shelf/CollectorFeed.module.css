@@ -60,5 +60,7 @@
   .strip { gap: 8px; overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain; }
   .strip::-webkit-scrollbar { display: none; }
   .strip li { flex: 0 0 60px; }
+  /* 60px tiles: smaller title text so a word like "Everything" fits on one line. */
+  .noCover { padding: 5px 3px; font-size: .56rem; letter-spacing: -.01em; }
   .line time { display: block; margin: 2px 0 0; }
 }

@@ -43465,8 +43465,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-21T21:02:57.018611+00:00",
-    "retry_after": "2026-11-22T21:02:57.018627+00:00",
+    "last_attempt_at": "2026-11-21T22:02:35.661550+00:00",
+    "retry_after": "2026-11-22T22:02:35.661563+00:00",
     "search_hydrated": true
   },
   {
@@ -51326,8 +51326,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-21T21:02:57.018653+00:00",
-    "retry_after": "2026-11-22T21:02:57.018658+00:00",
+    "last_attempt_at": "2026-11-21T22:02:35.661589+00:00",
+    "retry_after": "2026-11-22T22:02:35.661593+00:00",
     "search_hydrated": true
   },
   {
@@ -77774,9 +77774,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T21:10:43.680250+00:00",
-    "retry_after": "2026-11-21T21:10:43.680269+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T22:06:37.231394+00:00",
+    "retry_after": "2026-12-21T22:06:37.231409+00:00",
     "search_hydrated": true
   },
   {
@@ -77785,9 +77785,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T21:10:43.680285+00:00",
-    "retry_after": "2026-11-21T21:10:43.680287+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T22:06:37.231432+00:00",
+    "retry_after": "2026-12-21T22:06:37.231436+00:00",
     "search_hydrated": true
   },
   {
@@ -77803,9 +77803,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T21:10:44.974094+00:00",
-    "retry_after": "2026-11-21T21:10:44.974112+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T22:06:41.552460+00:00",
+    "retry_after": "2026-12-21T22:06:41.552473+00:00",
     "search_hydrated": true
   },
   {
@@ -77821,9 +77821,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T21:10:44.974151+00:00",
-    "retry_after": "2026-11-21T21:10:44.974153+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T22:06:41.552510+00:00",
+    "retry_after": "2026-12-21T22:06:41.552514+00:00",
     "search_hydrated": true
   },
   {
@@ -77850,21 +77850,21 @@
         "start_year": 1999
       },
       {
-        "id": 18003,
-        "name": "WildCats",
-        "publisher": "DC Comics",
-        "start_year": 2006
-      },
-      {
         "id": 22470,
         "name": "WildCats",
         "publisher": "DC Comics",
         "start_year": 2008
+      },
+      {
+        "id": 18003,
+        "name": "WildCats",
+        "publisher": "DC Comics",
+        "start_year": 2006
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T21:10:43.680329+00:00",
-    "retry_after": "2026-11-21T21:10:43.680330+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T22:06:37.231479+00:00",
+    "retry_after": "2026-12-21T22:06:37.231483+00:00",
     "search_hydrated": true
   },
   {
@@ -77873,9 +77873,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T21:10:43.680340+00:00",
-    "retry_after": "2026-11-21T21:10:43.680341+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T22:06:37.231499+00:00",
+    "retry_after": "2026-12-21T22:06:37.231502+00:00",
     "search_hydrated": true
   },
   {
@@ -77884,9 +77884,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T21:10:43.680351+00:00",
-    "retry_after": "2026-11-21T21:10:43.680352+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T22:06:37.231517+00:00",
+    "retry_after": "2026-12-21T22:06:37.231520+00:00",
     "search_hydrated": true
   },
   {
@@ -78004,9 +78004,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T21:10:43.680360+00:00",
-    "retry_after": "2026-11-21T21:10:43.680362+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T22:06:37.231533+00:00",
+    "retry_after": "2026-12-21T22:06:37.231536+00:00",
     "search_hydrated": true
   },
   {
@@ -97245,9 +97245,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T21:04:41.853913+00:00",
-    "retry_after": "2026-11-21T21:04:41.853929+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T22:02:12.041233+00:00",
+    "retry_after": "2026-11-24T22:02:12.041236+00:00",
     "search_hydrated": true
   },
   {
@@ -97275,9 +97275,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T21:04:41.854009+00:00",
-    "retry_after": "2026-11-21T21:04:41.854014+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T22:02:12.041192+00:00",
+    "retry_after": "2026-11-24T22:02:12.041198+00:00",
     "search_hydrated": true
   },
   {
@@ -98630,6 +98630,96 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-21T21:07:17.748367+00:00",
     "retry_after": "2026-11-22T21:07:17.748387+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tits ! Tits ! Tits !",
+    "publisher": "Dynamite Entertainment",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167384,
+        "name": "Tits! Tits! Tits!",
+        "publisher": "Dynamite (France)",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T22:06:52.050042+00:00",
+    "retry_after": "2026-11-22T22:06:52.050082+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Death",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40889,
+        "name": "Death",
+        "publisher": "Panini Verlag",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T22:06:52.050121+00:00",
+    "retry_after": "2026-11-22T22:06:52.050126+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Meltdown",
+    "publisher": "Titan Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161288,
+        "name": "Simpsons Comics Meltdown",
+        "publisher": "HarperCollins",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T22:06:52.050149+00:00",
+    "retry_after": "2026-11-22T22:06:52.050152+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vuzz",
+    "publisher": "Titan Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85799,
+        "name": "Vuzz",
+        "publisher": "Dargaud",
+        "start_year": 1974
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T22:06:52.050172+00:00",
+    "retry_after": "2026-11-22T22:06:52.050174+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Mix",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57055,
+        "name": "Marvel Mix",
+        "publisher": "Panini Comics",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T22:06:59.006710+00:00",
+    "retry_after": "2026-11-22T22:06:59.006724+00:00",
     "search_hydrated": true
   }
 ]

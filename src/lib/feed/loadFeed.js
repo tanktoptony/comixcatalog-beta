@@ -107,7 +107,7 @@ async function hydrate(supabase, events) {
       const series = issue ? seriesByGcd.get(Number(issue.series_gcd_id)) : null;
       if (!issue || !series) return null;
       return { gcd_issue_id: book.gcd_issue_id, title: series.title, issue_number: issue.issue_number ?? "",
-        cover_url: canonicalCoverUrl(covers.get(book.gcd_issue_id)?.storage_path), href: `/issue/gcd-${book.gcd_issue_id}` };
+        cover_url: canonicalCoverUrl(covers.get(book.gcd_issue_id)?.storage_path), href: `/issue/gcd-${book.gcd_issue_id}${event.verb === "reviewed" || event.verb === "rated" ? "#reviews" : ""}` };
     }).filter(Boolean);
     if (event.verb !== "finished") return { ...event, books };
     const runs = event.runs.map((run) => {
@@ -121,15 +121,17 @@ async function hydrate(supabase, events) {
 async function computeMemberEvents(profile, since) {
   const supabase = getServiceClient();
   const profilesById = new Map([[String(profile.id), profile]]);
-  const [rows, listings] = await Promise.all([
+  const [rows, listings, reviews] = await Promise.all([
     supabase.from("user_collections").select("user_id, status, gcd_issue_id, created_at")
       .eq("user_id", profile.id).in("status", ["owned", "for_sale", "wishlist"]).not("gcd_issue_id", "is", null)
       .gte("created_at", since).order("created_at", { ascending: false }).limit(ROWS_PER_MEMBER),
     supabase.from("marketplace_listings").select(LISTING_COLUMNS)
       .eq("seller_id", profile.id).gte("created_at", since).order("created_at", { ascending: false }).limit(ROWS_PER_MEMBER),
+    fetchAllPages(() => supabase.from("issue_reviews").select("id,user_id,base_gcd_issue_id,rating,body,created_at,updated_at")
+      .eq("user_id", profile.id).gte("updated_at", since), "id"),
   ]);
   const collectionRows = must(rows, "feed collection rows");
-  const items = feedItems({ rows: collectionRows, listings: must(listings, "feed listings"), profilesById });
+  const items = feedItems({ rows: collectionRows, listings: must(listings, "feed listings"), reviews, profilesById });
   if (!items.length) return [];
   const runs = await loadRunEvents(supabase, profile, items, since);
   const events = mergeEvents(groupFeed(items, { limit: EVENTS_PER_MEMBER, perEvent: BOOKS_PER_EVENT }), runs, EVENTS_PER_MEMBER);
@@ -151,7 +153,7 @@ function sinceHour() {
 
 const cachedMemberEvents = unstable_cache(
   async (profile, since) => computeMemberEvents(profile, since),
-  ["feed-member-v2"],
+  ["feed-member-v3"],
   { revalidate: 300 }
 );
 
@@ -202,6 +204,8 @@ const activeMemberIds = unstable_cache(async (since) => {
   const supabase = getServiceClient();
   const found = new Set(must(await supabase.from("marketplace_listings").select("seller_id")
     .gte("created_at", since).limit(1000), "feed active sellers").map((r) => String(r.seller_id)));
+  const reviewRows = await fetchAllPages(() => supabase.from("issue_reviews").select("id,user_id").gte("updated_at", since), "id");
+  for (const row of reviewRows) found.add(String(row.user_id));
   for (let round = 0; round < MAX_DISCOVERY_ROUNDS; round += 1) {
     let query = supabase.from("user_collections").select("user_id").not("gcd_issue_id", "is", null).gte("created_at", since);
     if (found.size) query = query.not("user_id", "in", `(${[...found].join(",")})`);
@@ -210,7 +214,7 @@ const activeMemberIds = unstable_cache(async (since) => {
     for (const row of rows) found.add(String(row.user_id));
   }
   return [...found];
-}, ["feed-active-members-v2"], { revalidate: 300 });
+}, ["feed-active-members-v3"], { revalidate: 300 });
 
 export async function loadEveryoneFeed(viewerId) {
   const supabase = getServiceClient();

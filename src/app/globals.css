@@ -14794,3 +14794,44 @@ a.pull-issue-title:hover { color: var(--cc-gold); }
 }
 .mk-row-buy .mk-price.is-offers b { font-family: inherit; font-size: .9rem; font-weight: 700; line-height: 1.2; color: #e9ebf0; white-space: nowrap; }
 .mk-row-buy .mk-price.is-offers + .mk-guide, .mk-row-buy .mk-price.is-offers ~ .mk-guide { font-size: .84rem; }
+/* Issue reviews */
+.issue-reviews-summary { display: grid; grid-template-columns: minmax(150px, .8fr) minmax(180px, 1.4fr); gap: 28px; align-items: center; padding: 20px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface, #171717); }
+.issue-reviews-average { display: grid; justify-items: center; gap: 4px; }
+.issue-reviews-average strong { color: #f5c518; font-family: var(--font-big-shoulders), "Big Shoulders Display", sans-serif; font-size: clamp(3rem, 8vw, 5rem); line-height: .9; }
+.issue-reviews-stars { display: inline-flex; gap: 2px; color: #f5c518; white-space: nowrap; }
+.issue-reviews-stars svg { width: 18px; height: 18px; }
+.issue-reviews-average .issue-reviews-stars svg { width: 24px; height: 24px; }
+.issue-reviews-histogram { display: grid; gap: 4px; }
+.issue-reviews-histogram > div { display: grid; grid-template-columns: 12px 1fr 24px; gap: 8px; align-items: center; font-size: .75rem; }
+.issue-reviews-bar { height: 5px; overflow: hidden; border-radius: 9px; background: rgba(255,255,255,.1); }
+.issue-reviews-bar i { display: block; height: 100%; border-radius: inherit; background: #f5c518; }
+.issue-reviews-form { display: grid; gap: 8px; margin-top: 18px; padding: 18px; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,.025); }
+.issue-reviews-form label { font-weight: 700; }
+.issue-reviews-form textarea { box-sizing: border-box; width: 100%; resize: vertical; padding: 12px; color: inherit; border: 1px solid var(--border); border-radius: 8px; background: rgba(0,0,0,.25); font: inherit; }
+.issue-reviews-picker { display: flex; width: fit-content; }
+.issue-reviews-picker button { border: 0; padding: 2px; color: #f5c518; background: transparent; cursor: pointer; }
+.issue-reviews-picker button:focus-visible { outline: 2px solid #f5c518; outline-offset: 2px; }
+.issue-reviews-picker svg { width: 32px; height: 32px; }
+.issue-reviews-counter { justify-self: end; color: var(--muted); font-size: .8rem; }
+.issue-reviews-actions { display: flex; align-items: center; gap: 14px; }
+.issue-reviews-save { border: 0; border-radius: 7px; padding: 9px 20px; color: #15110a; background: #f5c518; font-weight: 800; cursor: pointer; }
+.issue-reviews-save:disabled { opacity: .5; cursor: default; }
+.issue-reviews-delete, .issue-reviews-more, .issue-reviews-show-all { border: 0; padding: 0; color: inherit; background: transparent; text-decoration: underline; cursor: pointer; }
+.issue-reviews-error { margin: 0; color: #fca5a5; }
+.issue-reviews-saved { margin: 0; color: #86efac; }
+.issue-reviews-signin { margin: 14px 0 0; }
+.issue-reviews-list { display: grid; margin-top: 22px; border-top: 1px solid var(--border); }
+.issue-reviews-item { display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 12px; padding: 18px 0; border-bottom: 1px solid var(--border); }
+.issue-reviews-avatar img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; }
+.issue-reviews-content { min-width: 0; }
+.issue-reviews-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 7px 10px; font-size: .82rem; }
+.issue-reviews-meta > a { color: inherit; font-weight: 800; }
+.issue-reviews-meta time { color: var(--muted); }
+.issue-reviews-following { border: 1px solid rgba(245,197,24,.4); border-radius: 999px; padding: 2px 7px; color: #f5c518; font-size: .68rem; }
+.issue-reviews-content > p { margin: 10px 0 2px; white-space: pre-line; overflow-wrap: anywhere; line-height: 1.55; }
+.issue-reviews-clamp { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 8; }
+.issue-reviews-more { margin-top: 6px; font-size: .8rem; }
+.issue-reviews-report { margin-top: 7px; color: var(--muted); font-size: .8rem; }
+.issue-reviews-item--compact { padding: 12px 0; }
+.issue-reviews-show-all { margin-top: 16px; color: #f5c518; font-weight: 700; }
+@media (max-width: 520px) { .issue-reviews-summary { grid-template-columns: 1fr; gap: 16px; } .issue-reviews-form { padding: 14px; } .issue-reviews-meta .issue-reviews-stars { order: 3; width: 100%; } }

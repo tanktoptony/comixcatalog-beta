@@ -8,6 +8,13 @@ const SITE_URL = "https://www.comixcatalog.com";
 const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
 
 async function loadTarget(supabase, report, reporterId) {
+  if (report.target_type === "review") {
+    const { data, error } = await supabase.from("issue_reviews").select("id,user_id,base_gcd_issue_id,rating,body").eq("id", report.target_id).maybeSingle();
+    if (error) throw error;
+    if (!data) return null;
+    if (data.user_id === reporterId) return { own: true };
+    return { text: `${data.rating}-star review: ${data.body || "No written review."}`, url: `${SITE_URL}/issue/gcd-${data.base_gcd_issue_id}#reviews` };
+  }
   if (report.target_type === "feedback") {
     const { data, error } = await supabase
       .from("order_feedback")
@@ -73,7 +80,7 @@ export async function POST(req) {
   try {
     const target = await loadTarget(supabase, report, user.id);
     if (!target) return NextResponse.json({ error: "That item could not be found." }, { status: 404 });
-    if (target.own) return NextResponse.json({ error: report.target_type === "listing" ? "You can't report your own listing." : "You can't report yourself." }, { status: 400 });
+    if (target.own) return NextResponse.json({ error: report.target_type === "listing" ? "You can't report your own listing." : report.target_type === "review" ? "You can't report your own review." : "You can't report yourself." }, { status: 400 });
     const since = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
     const [duplicateResult, countResult] = await Promise.all([
       supabase.from("reports").select("id, reporter_id, target_type, target_id, reason, details, status, created_at").eq("reporter_id", user.id).eq("target_type", report.target_type).eq("target_id", report.target_id).eq("status", "open").order("created_at", { ascending: false }).limit(1).maybeSingle(),

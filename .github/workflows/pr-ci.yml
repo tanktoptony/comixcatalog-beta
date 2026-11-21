@@ -115,6 +115,9 @@ jobs:
       - name: Activity feed privacy tests
         run: npm run test:activity-feed
 
+      - name: Issue review tests
+        run: npm run test:reviews
+
       - name: Social book-context tests
         run: npm run test:social
 

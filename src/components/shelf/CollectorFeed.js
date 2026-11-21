@@ -38,6 +38,7 @@ function Phrase({ event }) {
     if (event.runs.length === 2) return <>finished 2 runs: {run(first)} and {run(second)}</>;
     return <>finished {count(event.runs.length)} runs: {run(first)}, {run(second)} and {count(event.runs.length - 2)} more</>;
   }
+  if (event.verb === "reviewed" || event.verb === "rated") return <>{event.verb} {book}</>;
   if (event.verb === "listed") return one ? <>listed {book} for sale</> : <>listed {n} books for sale</>;
   if (event.verb === "wants") return one ? <>is hunting for {book}</> : <>is hunting for {n} books</>;
   return one ? <>added {book}</> : <>added {n} books</>;
@@ -48,6 +49,7 @@ function Event({ event }) {
   const shown = event.books.length;
   const more = event.count - shown;
   const finished = event.verb === "finished";
+  const review = event.verb === "reviewed" || event.verb === "rated";
   return <article className={`${styles.event}${finished ? ` ${styles.finished}` : ""}`}>
     <Link href={profileHref} className={styles.avatar} aria-hidden="true" tabIndex={-1}>
       <Avatar profile={event.user} width={40} height={40} />
@@ -58,8 +60,9 @@ function Event({ event }) {
         <Phrase event={event} />
         <time dateTime={event.at}>{ago(event.at)}</time>
       </p>
+      {review && <div className={styles.reviewDetail}><span aria-label={`${event.rating} out of 5 stars`}>{"★".repeat(event.rating)}{"☆".repeat(5 - event.rating)}</span>{event.excerpt && <blockquote>{event.excerpt}</blockquote>}</div>}
       {finished && <p className={styles.badge}><Trophy aria-hidden="true" />Run complete</p>}
-      {(!finished || shown > 0) && <ul className={styles.strip}>
+      {(!finished || shown > 0) && <ul className={`${styles.strip}${review ? ` ${styles.reviewStrip}` : ""}`}>
         {event.books.map((book, index) => <li key={`${book.gcd_issue_id}:${index}`}>
           <Link href={book.href} title={bookLabel(book)}>
             {book.cover_url

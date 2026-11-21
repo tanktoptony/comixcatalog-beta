@@ -10,6 +10,7 @@ import { coverThumb } from "@/lib/coverThumb";
 import HomeDispatch from "@/components/HomeDispatch";
 import { trackEvent } from "@/lib/analytics";
 import YourShelf from "@/components/shelf/YourShelf";
+import { BADGE_CATALOG, SECRET_BADGE_COUNT } from "@/lib/badges/catalog";
 
 // "217,000+" / "2.5M+": rounded down so the strip never overstates.
 function proofNumber(n, fallback) {
@@ -178,25 +179,54 @@ export default function HomeClient({
           <div className="lp-feature-icon">◈</div>
           <h3>Catalog</h3>
           <p>
-            Every series, issue, printing, and variant - indexed from the
-            Grand Comics Database with ComicVine cover art on top.
+            Every series, issue, printing and variant from the Grand Comics
+            Database, with cover art, and a raw and graded price guide from
+            PriceCharting on the books it lists.
           </p>
         </div>
         <div className="lp-feature">
           <div className="lp-feature-icon">◈</div>
-          <h3>Collect</h3>
+          <h3>Scan and import</h3>
           <p>
-            Track grades, slab cert numbers, purchase prices, and current values.
-            Generate an insurance-ready PDF with one click - cover art, grades,
-            and market-value totals included.
+            Snap a cover or its barcode and we find the issue, one book or a
+            whole stack. Coming from CLZ, League of Comic Geeks or a
+            spreadsheet? <Link href="/switch">Bring your collection over →</Link>
+          </p>
+        </div>
+        <div className="lp-feature">
+          <div className="lp-feature-icon">◈</div>
+          <h3>Know what it&apos;s worth</h3>
+          <p>
+            Track grades, slabs, cert numbers and what you paid. Each copy is
+            valued at its grade from PriceCharting&apos;s guide, and an
+            insurance PDF of the whole collection is one click away.
+          </p>
+        </div>
+        <div className="lp-feature">
+          <div className="lp-feature-icon">◈</div>
+          <h3>Connect</h3>
+          <p>
+            Follow collectors and see what they add, rate and review issues,
+            make lists, and find trade matches: people who have what you want
+            and want what you have.
+          </p>
+        </div>
+        <div className="lp-feature">
+          <div className="lp-feature-icon">◈</div>
+          <h3>Badges</h3>
+          <p>
+            Collecting earns badges, each showing how many collectors have
+            it. There are {BADGE_CATALOG.length} in all, and{" "}
+            {SECRET_BADGE_COUNT} stay secret until you find them.
           </p>
         </div>
         <div className="lp-feature">
           <div className="lp-feature-icon">◈</div>
           <h3>Marketplace <span className="lp-feature-pill">Beta</span></h3>
           <p>
-            Books from real collections, linked to the exact issue, with grade
-            and condition up front. Message the collector to make an offer.{" "}
+            Books from real collections, linked to the exact issue, with the
+            guide price beside the asking price. Buy now by card where the
+            seller offers it, or message them with an offer.{" "}
             <Link href="/marketplace">Browse listings →</Link>
           </p>
         </div>

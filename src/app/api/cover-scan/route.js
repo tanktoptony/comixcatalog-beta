@@ -5,7 +5,7 @@ import { getServiceClient } from "@/lib/supabase/service";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
 import { normalizeSeriesSearchWords } from "@/lib/seriesSearchMatch";
 import { baseIssueNumber } from "@/lib/coverMatch";
-import { capStatus, scanUsage, scanWasFree, collapseCoverPrintings, coverScanConfigStatus, coverScanModelFailure, coverScanOutcome, COVER_SCAN_MODEL, rankCoverCandidates, titleTokens } from "@/lib/coverScan";
+import { capStatus, scanUsage, scanWasFree, collapseCoverPrintings, coverScanConfigStatus, coverScanModelFailure, coverScanOutcome, COVER_SCAN_MODEL, rankCoverCandidates, scanResultHasIssue, titleTokens, versionName } from "@/lib/coverScan";
 import { extractCover } from "@/lib/coverScanClaude";
 import { resolveCovers } from "@/lib/catalog/covers";
 import { isOwnedStatus } from "@/lib/collectionStatus";
@@ -16,6 +16,10 @@ const IMAGE_TYPES = new Set(["image/jpeg", "image/png", "image/webp"]);
 const configuredGlobalCap = Number.parseInt(process.env.COVER_SCAN_GLOBAL_DAILY_CAP || "1500", 10);
 const GLOBAL_DAILY_CAP = Number.isFinite(configuredGlobalCap) && configuredGlobalCap > 0 ? configuredGlobalCap : 1500;
 const publicCover = (path) => path ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${path}` : null;
+const exactCover = (covers, gcdIssueId) => {
+  const cover = covers.get(Number(gcdIssueId));
+  return cover?.source === "gcd_issue_id" ? publicCover(cover.storage_path) : null;
+};
 
 async function quota(supabase, userId) {
   const start = new Date(); start.setUTCHours(0, 0, 0, 0);
@@ -90,7 +94,7 @@ async function findCandidates(supabase, extracted) {
   const base = baseIssueNumber(extracted.issue_number);
   if (!base) return [];
   const { data: issues, error: issueError } = await supabase.from("gcd_issues")
-    .select("gcd_id, series_gcd_id, issue_number, publication_date, key_date")
+    .select("gcd_id, series_gcd_id, issue_number, publication_date, key_date, variant_name, base_gcd_issue_id")
     .in("series_gcd_id", ids).ilike("issue_number", `${base}%`).order("gcd_id", { ascending: true }).limit(1000);
   if (issueError) throw issueError;
   const ranked = rankCoverCandidates(extracted, series, issues ?? []);
@@ -101,11 +105,17 @@ async function findCandidates(supabase, extracted) {
     series_year_start: s.year_start_cached ?? null, series_year_end: s.year_end_cached ?? null,
   }));
   const covers = await resolveCovers(supabase, coverInputs);
-  const distinct = collapseCoverPrintings(ranked, covers).slice(0, 3);
-  return distinct.map(({ issue, series: s }) => ({
+  const distinct = collapseCoverPrintings(ranked, covers, extracted).slice(0, 3);
+  return distinct.map(({ issue, series: s, versions, versionPicked }) => ({
     id: `gcd-${issue.gcd_id}`, gcd_issue_id: Number(issue.gcd_id), series_title: s.title,
     issue_number: issue.issue_number, year: Number(String(issue.key_date ?? issue.publication_date ?? "").match(/\b(\d{4})\b/)?.[1]) || null,
-    publisher: s.resolved_publisher_cached ?? null, cover_path: publicCover(covers.get(Number(issue.gcd_id))?.storage_path), __source: "gcd",
+    publisher: s.resolved_publisher_cached ?? null,
+    cover_path: versionName(issue) === "Regular edition" ? publicCover(covers.get(Number(issue.gcd_id))?.storage_path) : exactCover(covers, issue.gcd_id),
+    __source: "gcd",
+    version_name: versionName(issue), version_picked: Boolean(versionPicked),
+    // A version shows only a cover filed under its own issue id: a variant
+    // must never borrow the regular cover's art as if it were its own.
+    versions: (versions ?? []).slice(0, 40).map((version) => ({ ...version, cover_path: exactCover(covers, version.gcd_issue_id) })),
   }));
 }
 
@@ -187,7 +197,7 @@ export async function PATCH(req) {
   const { data: scan, error: scanError } = await supabase.from("cover_scans").select("id, candidates, storage_path").eq("id", body.scan_id).eq("user_id", user.id).maybeSingle();
   if (scanError) { console.error("PATCH /api/cover-scan lookup failed", scanError); return NextResponse.json({ error: "Could not record selection" }, { status: 500 }); }
   if (!scan) return NextResponse.json({ error: "Scan not found" }, { status: 404 });
-  if (!(scan.candidates ?? []).some((row) => Number(row.gcd_issue_id) === Number(body.gcd_issue_id))) return NextResponse.json({ error: "That issue was not a scan result" }, { status: 400 });
+  if (!scanResultHasIssue(scan.candidates, body.gcd_issue_id)) return NextResponse.json({ error: "That issue was not a scan result" }, { status: 400 });
   if (attaching) {
     if (!scan.storage_path) return NextResponse.json({ error: "This scan has no photo" }, { status: 422 });
     const { data: collection, error: collectionError } = await supabase.from("user_collections")

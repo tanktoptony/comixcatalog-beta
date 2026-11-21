@@ -1,5 +1,6 @@
-import { valueFromComps, issueYearFrom } from "../../src/lib/compValue.js";
-import { loadPriceChartingRows, pcValueForIssue, pcValueForRegularCover } from "../../src/lib/pcValue.js";
+import { issueYearFrom } from "../../src/lib/compValue.js";
+import { loadPriceChartingRows } from "../../src/lib/pcValue.js";
+import { valueCopy } from "../../src/lib/copyValue.js";
 
 const PAGE = 1000;
 const CHUNK = 200;
@@ -71,14 +72,18 @@ export async function loadCopyValues(supabase, { userIds = null, log = console.l
 
   const gcdIssueIds = [...new Set(owned.map((row) => row.gcd_issue_id).filter((value) => value != null))];
   const sinceIso = new Date(Date.now() - WINDOW_DAYS * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
-  const issues = await fetchByIds(supabase, "gcd_issues", "gcd_id, series_gcd_id, key_date, publication_date, variant_of_gcd_id", "gcd_id", gcdIssueIds);
+  const issues = await fetchByIds(supabase, "gcd_issues", "gcd_id, series_gcd_id, key_date, publication_date, variant_of_gcd_id, variant_name", "gcd_id", gcdIssueIds);
   const issueById = new Map(issues.map((row) => [Number(row.gcd_id), row]));
   const seriesIds = [...new Set(issues.map((row) => row.series_gcd_id).filter((value) => value != null))];
   const series = await fetchByIds(supabase, "series", "id, gcd_id, title, year_start_cached", "gcd_id", seriesIds);
   const seriesById = new Map(series.map((row) => [Number(row.gcd_id), row]));
   log(`Resolved ${issueById.size} distinct issues across ${seriesById.size} series.`);
 
-  const comps = await fetchByIds(supabase, "market_comps", "id, gcd_issue_id, grade_bucket, grade_numeric, sold_price, sold_date, source, listing_title", "gcd_issue_id", gcdIssueIds, (query) => query.gte("sold_date", sinceIso));
+  // Regular covers of variants too: a variant with no guide row or comps of
+  // its own falls back to them (src/lib/copyValue.js).
+  const baseIds = [...new Set(issues.map((row) => row.variant_of_gcd_id).filter((value) => value != null).map(Number))];
+  const compIds = [...new Set([...gcdIssueIds.map(Number), ...baseIds])];
+  const comps = await fetchByIds(supabase, "market_comps", "id, gcd_issue_id, grade_bucket, grade_numeric, sold_price, sold_date, source, listing_title", "gcd_issue_id", compIds, (query) => query.gte("sold_date", sinceIso));
   const compsByIssue = new Map();
   for (const row of comps) {
     const key = Number(row.gcd_issue_id);
@@ -100,17 +105,18 @@ export async function loadCopyValues(supabase, { userIds = null, log = console.l
     if (Number.isFinite(userValue) && userValue > 0) return { ...base, value: userValue, source: "user", guide: null };
 
     const issueRow = issueById.get(Number(item.gcd_issue_id));
-    const guideValue = pcValueForIssue(guide, item);
-    if (guideValue) return { ...base, value: guideValue.value, source: "pricecharting", guide: priceChartingGuide(guideValue) };
-
     const seriesRow = issueRow ? seriesById.get(Number(issueRow.series_gcd_id)) : null;
-    const result = valueFromComps({
-      comps: compsByIssue.get(Number(item.gcd_issue_id)) ?? [],
+    const { value } = valueCopy({
       item,
+      issueRow,
       issue: { seriesTitle: seriesRow?.title ?? null, issueYear: issueYearFrom(issueRow), seriesStartYear: seriesRow?.year_start_cached ?? null },
+      guideRows: guide,
+      comps: compsByIssue.get(Number(item.gcd_issue_id)) ?? [],
+      regularComps: issueRow?.variant_of_gcd_id != null ? (compsByIssue.get(Number(issueRow.variant_of_gcd_id)) ?? []) : [],
     });
-    const regular = result.source !== "market-comp" ? pcValueForRegularCover(guide, item, issueRow?.variant_of_gcd_id) : null;
-    if (regular) return { ...base, value: regular.value, source: "pricecharting-regular", guide: priceChartingGuide(regular) };
-    return { ...base, value: result.value ?? 0, source: result.source === "market-comp" ? "comps" : "none", guide: null };
+    if (value.source === "pricecharting") {
+      return { ...base, value: value.value, source: value.regular_cover ? "pricecharting-regular" : "pricecharting", guide: priceChartingGuide(value) };
+    }
+    return { ...base, value: value.value ?? 0, source: value.source === "market-comp" ? "comps" : "none", guide: null };
   });
 }

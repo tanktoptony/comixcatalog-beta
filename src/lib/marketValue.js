@@ -1,16 +1,17 @@
-// Server-side market-value lookup. Loads market_comps plus the issue and
-// series metadata the comp filter needs, then hands each copy to
-// valueFromComps() in src/lib/compValue.js, which owns the actual valuation
-// rules. The library page, public profiles and the PDF export all call
-// through here; scripts/snapshotCollectionValue.js calls valueFromComps
-// directly, so the two cannot drift.
+// Server-side market-value lookup. Loads market_comps, guide rows and the
+// issue and series metadata, then hands each copy to valueCopy() in
+// src/lib/copyValue.js, which owns the order (guide, comps, regular cover,
+// floor). The library page, public profiles and the PDF export all call
+// through here; scripts/lib/collectionValues.js (the stored value on the home
+// page, the value email) calls valueCopy too, so the two cannot drift.
 //
 // PriceCharting's guide (src/lib/pcValue.js) comes first: it is built from
 // sold listings, our comps are eBay asking prices. A copy the guide can't
 // price falls through to the comp chain exactly as before.
 
-import { valueFromComps, emptyValue, issueYearFrom, MIN_SAMPLES } from "@/lib/compValue";
-import { loadPriceChartingRows, pcValueForIssue, pcValueForRegularCover } from "@/lib/pcValue";
+import { emptyValue, issueYearFrom, MIN_SAMPLES } from "@/lib/compValue";
+import { loadPriceChartingRows } from "@/lib/pcValue";
+import { valueCopy } from "@/lib/copyValue";
 
 const DEFAULT_WINDOW_DAYS = 90;
 
@@ -112,7 +113,7 @@ export async function getMarketValuesBulk({
     mapLimit(chunked(issueIds, ISSUE_CHUNK), 1, (chunk) => readAll(() =>
       supabase
         .from("gcd_issues")
-        .select("gcd_id, series_gcd_id, key_date, publication_date, variant_of_gcd_id")
+        .select("gcd_id, series_gcd_id, key_date, publication_date, variant_of_gcd_id, variant_name")
         .in("gcd_id", chunk)
         .order("gcd_id", { ascending: true })
     )),
@@ -181,32 +182,22 @@ export async function getMarketValuesBulk({
     for (const [key, rows] of more.rowsByIssue) guideRows.set(key, rows);
   }
 
+  // The chain itself lives in src/lib/copyValue.js, shared with the
+  // snapshot script, so the library and the stored value agree.
   const needsRegularCover = [];
   for (const item of list) {
     if (!item?.collection_id) continue;
     const issueRow = issueById.get(Number(item.gcd_issue_id));
-    // Order: this edition's guide price, this edition's comps, the regular
-    // cover's guide price, the regular cover's comps, the cover-price floor.
-    const guideValue = pcValueForIssue(guideRows, item);
-    if (guideValue) {
-      out.set(item.collection_id, guideValue);
-      continue;
-    }
-    const value = valueFromComps({
-      comps: compsByIssue.get(Number(item.gcd_issue_id)) ?? [],
+    const { value, needsRegularComps } = valueCopy({
       item,
+      issueRow,
       issue: issueContext(item, issueRow),
+      guideRows,
+      comps: compsByIssue.get(Number(item.gcd_issue_id)) ?? [],
       minSamples,
     });
-    if (value.source !== "market-comp" && issueRow?.variant_of_gcd_id != null) {
-      const baseGuide = pcValueForRegularCover(guideRows, item, issueRow.variant_of_gcd_id);
-      if (baseGuide) {
-        out.set(item.collection_id, baseGuide);
-        continue;
-      }
-      needsRegularCover.push({ item, issueRow });
-    }
     out.set(item.collection_id, value);
+    if (needsRegularComps) needsRegularCover.push({ item, issueRow });
   }
 
   // A copy moved to a variant version has few comps of its own (455 of
@@ -237,13 +228,16 @@ export async function getMarketValuesBulk({
       }
     }
     for (const { item, issueRow } of needsRegularCover) {
-      const value = valueFromComps({
-        comps: baseComps.get(Number(issueRow.variant_of_gcd_id)) ?? [],
+      const { value } = valueCopy({
         item,
+        issueRow,
         issue: issueContext(item, issueRow),
+        guideRows,
+        comps: compsByIssue.get(Number(item.gcd_issue_id)) ?? [],
+        regularComps: baseComps.get(Number(issueRow.variant_of_gcd_id)) ?? [],
         minSamples,
       });
-      if (value.source === "market-comp") out.set(item.collection_id, { ...value, regular_cover: true });
+      out.set(item.collection_id, value);
     }
   }
   return out;

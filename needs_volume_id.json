@@ -4432,22 +4432,6 @@
     "retry_after": "2026-09-21T14:00:38.554768+00:00"
   },
   {
-    "name": "Batman / Superman",
-    "publisher": "DC Comics",
-    "year": 2013,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 155405,
-        "name": "Batman / Superman",
-        "publisher": "ECC Ediciones",
-        "start_year": 2020
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554774+00:00"
-  },
-  {
     "name": "Mutt & Jeff",
     "publisher": "Harvey Comics",
     "year": 1960,
@@ -4468,15 +4452,6 @@
     ],
     "attempts": 1,
     "retry_after": "2026-09-21T14:00:38.554779+00:00"
-  },
-  {
-    "name": "DC Comics: Bombshells",
-    "publisher": "DC Comics",
-    "year": 2015,
-    "reason": "publisher_mismatch",
-    "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554782+00:00"
   },
   {
     "name": "Walt Disney Winnie-the-Pooh",
@@ -7542,9 +7517,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T01:13:56.339749+00:00",
-    "retry_after": "2026-11-21T01:13:56.339765+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T05:10:13.362937+00:00",
+    "retry_after": "2026-12-21T05:10:13.362940+00:00",
     "search_hydrated": true
   },
   {
@@ -7709,9 +7684,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T22:11:43.144288+00:00",
-    "retry_after": "2026-11-20T22:11:43.144292+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T05:10:13.362887+00:00",
+    "retry_after": "2026-12-21T05:10:13.362903+00:00",
     "search_hydrated": true
   },
   {
@@ -7720,9 +7695,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T01:13:56.339783+00:00",
-    "retry_after": "2026-11-21T01:13:56.339786+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T05:10:13.362949+00:00",
+    "retry_after": "2026-12-21T05:10:13.362951+00:00",
     "search_hydrated": true
   },
   {
@@ -7825,9 +7800,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T01:13:56.339798+00:00",
-    "retry_after": "2026-11-21T01:13:56.339801+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T05:10:13.362960+00:00",
+    "retry_after": "2026-12-21T05:10:13.362961+00:00",
     "search_hydrated": true
   },
   {
@@ -7965,9 +7940,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T02:12:51.457235+00:00",
-    "retry_after": "2026-11-21T02:12:51.457237+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T05:10:13.362970+00:00",
+    "retry_after": "2026-12-21T05:10:13.362972+00:00",
     "search_hydrated": true
   },
   {
@@ -20260,9 +20235,10 @@
         "start_year": 2013
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-24T06:01:01.157853+00:00",
-    "retry_after": "2026-09-27T06:01:01.157869+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T05:03:25.588026+00:00",
+    "retry_after": "2026-11-22T05:03:25.588041+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Walt Disney's Gyro Gearloose and the Disney Ducks [Dynabrite Comics]",
@@ -39296,9 +39272,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T00:10:55.660698+00:00",
-    "retry_after": "2026-11-21T00:10:55.660714+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T05:10:13.362923+00:00",
+    "retry_after": "2026-12-21T05:10:13.362926+00:00",
     "search_hydrated": true
   },
   {
@@ -74946,9 +74922,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T21:28:24.688763+00:00",
-    "retry_after": "2026-11-20T21:28:24.688764+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T05:10:13.362991+00:00",
+    "retry_after": "2026-12-21T05:10:13.362993+00:00",
     "search_hydrated": true
   },
   {
@@ -75215,9 +75191,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T21:28:24.688751+00:00",
-    "retry_after": "2026-11-20T21:28:24.688753+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T05:10:13.362981+00:00",
+    "retry_after": "2026-12-21T05:10:13.362983+00:00",
     "search_hydrated": true
   },
   {
@@ -75366,9 +75342,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T21:28:24.688773+00:00",
-    "retry_after": "2026-11-20T21:28:24.688776+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T05:10:13.363001+00:00",
+    "retry_after": "2026-12-21T05:10:13.363002+00:00",
     "search_hydrated": true
   },
   {
@@ -95182,9 +95158,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-18T05:05:50.157486+00:00",
-    "retry_after": "2026-11-21T05:05:50.157502+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-21T05:10:23.212334+00:00",
+    "retry_after": "2026-11-28T05:10:23.212352+00:00",
     "search_hydrated": true
   },
   {
@@ -95193,9 +95169,9 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-18T05:05:50.157539+00:00",
-    "retry_after": "2026-11-21T05:05:50.157542+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-21T05:10:23.212372+00:00",
+    "retry_after": "2026-11-28T05:10:23.212375+00:00",
     "search_hydrated": true
   },
   {
@@ -96473,9 +96449,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T04:07:38.263221+00:00",
-    "retry_after": "2026-11-21T04:07:38.263240+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T05:04:58.537955+00:00",
+    "retry_after": "2026-11-24T05:04:58.537971+00:00",
     "search_hydrated": true
   },
   {
@@ -96484,9 +96460,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T04:07:38.263304+00:00",
-    "retry_after": "2026-11-21T04:07:38.263308+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T05:04:58.537993+00:00",
+    "retry_after": "2026-11-24T05:04:58.537997+00:00",
     "search_hydrated": true
   },
   {
@@ -98820,6 +98796,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-21T04:14:17.190539+00:00",
     "retry_after": "2026-11-22T04:14:17.190541+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Eternal Soulfire",
+    "publisher": "Aspen Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T05:06:33.855303+00:00",
+    "retry_after": "2026-11-22T05:06:33.855319+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gold Digger #1 Antarctic Press 35 Anniversary Special",
+    "publisher": "Antarctic Press",
+    "year": 2020,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T05:10:23.212398+00:00",
+    "retry_after": "2026-11-22T05:10:23.212400+00:00",
     "search_hydrated": true
   }
 ]

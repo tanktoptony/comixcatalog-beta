@@ -181,3 +181,10 @@ test("a printed Canadian price is not the Canadian price variant", () => {
   assert.equal(versionClueMatch("Canadian", { edition_clues: ["Canadian price variant (95¢ CAN only)"] }), 1);
   assert.equal(versionClueMatch("Newsstand", { edition_clues: ["Barcode in UPC box, suggesting newsstand edition"] }), 0);
 });
+test("an artist the model only guesses at never picks that artist's variant", () => {
+  // Live scan 2026-11-21 of the main cover (add-on 00111, cover A) read
+  // "Signature on cover appears to be Mark Brooks" and landed on his variant.
+  const clues = ["Barcode add-on 00111 suggests issue 1, cover A (first printing)", "Signature on cover appears to be Mark Brooks (signed artwork on right side)", "Standard trade dress cover with title, logo and credits — not a virgin, foil, or sketch variant", "Rated T+"];
+  assert.equal(hulkPick(hulkScan(clues)).issue.gcd_id, 2791431);
+  assert.equal(hulkPick(hulkScan(["Artist signature chop for Mark Brooks visible at lower left", "Virgin variant cover"])).issue.gcd_id, 2793022);
+});

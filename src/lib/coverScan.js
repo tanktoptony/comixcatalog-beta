@@ -161,7 +161,7 @@ const PRICE_VARIANT_CLAIM = /\b(canadian|canada|uk|pence|price)\b.*\b(variant|ed
 // parenthetical are judged apart, so "Virgin variant cover (no trade dress)"
 // still says virgin. A part that hedges or denies says nothing, and when the
 // clues assert both direct and newsstand, neither counts.
-const HEDGE = /\b(not|no|unclear|unknown|undetermin\w*|indetermin\w*|cannot|can't|unable|possibly|maybe|likely|suggest\w*|consistent|style|or)\b/i;
+const HEDGE = /\b(not|no|unclear|unknown|undetermin\w*|indetermin\w*|cannot|can't|unable|possibly|probably|perhaps|maybe|likely|might|may|could|appears?|seems?|looks like|resembles?|suggest\w*|consistent|style|or)\b/i;
 function assertedClueParts(extracted) {
   return [...(extracted?.edition_clues ?? []), extracted?.other_text ?? ""]
     .flatMap((clue) => {

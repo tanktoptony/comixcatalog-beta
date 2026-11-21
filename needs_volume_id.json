@@ -43452,21 +43452,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 2930,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1977
-      },
-      {
         "id": 116293,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-21T18:03:18.092015+00:00",
-    "retry_after": "2026-11-22T18:03:18.092019+00:00",
+    "last_attempt_at": "2026-11-21T19:02:25.903761+00:00",
+    "retry_after": "2026-11-22T19:02:25.903765+00:00",
     "search_hydrated": true
   },
   {
@@ -77551,9 +77551,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T18:11:53.015534+00:00",
-    "retry_after": "2026-11-21T18:11:53.015549+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T19:03:42.996438+00:00",
+    "retry_after": "2026-12-21T19:03:42.996449+00:00",
     "search_hydrated": true
   },
   {
@@ -77562,9 +77562,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T18:11:53.015577+00:00",
-    "retry_after": "2026-11-21T18:11:53.015581+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T19:03:42.996477+00:00",
+    "retry_after": "2026-12-21T19:03:42.996481+00:00",
     "search_hydrated": true
   },
   {
@@ -77573,9 +77573,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T18:11:53.015598+00:00",
-    "retry_after": "2026-11-21T18:11:53.015601+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T19:03:42.996523+00:00",
+    "retry_after": "2026-12-21T19:03:42.996526+00:00",
     "search_hydrated": true
   },
   {
@@ -77591,9 +77591,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T18:11:53.015633+00:00",
-    "retry_after": "2026-11-21T18:11:53.015637+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T19:03:42.996559+00:00",
+    "retry_after": "2026-12-21T19:03:42.996562+00:00",
     "search_hydrated": true
   },
   {
@@ -77602,9 +77602,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T18:11:53.015653+00:00",
-    "retry_after": "2026-11-21T18:11:53.015656+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T19:03:42.996580+00:00",
+    "retry_after": "2026-12-21T19:03:42.996587+00:00",
     "search_hydrated": true
   },
   {
@@ -77657,9 +77657,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T18:11:53.015670+00:00",
-    "retry_after": "2026-11-21T18:11:53.015673+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T19:03:42.996602+00:00",
+    "retry_after": "2026-12-21T19:03:42.996604+00:00",
     "search_hydrated": true
   },
   {
@@ -77668,9 +77668,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T18:11:53.015685+00:00",
-    "retry_after": "2026-11-21T18:11:53.015687+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T19:03:42.996616+00:00",
+    "retry_after": "2026-12-21T19:03:42.996618+00:00",
     "search_hydrated": true
   },
   {
@@ -77679,9 +77679,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T18:11:53.015699+00:00",
-    "retry_after": "2026-11-21T18:11:53.015701+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T19:03:42.996630+00:00",
+    "retry_after": "2026-12-21T19:03:42.996633+00:00",
     "search_hydrated": true
   },
   {
@@ -77690,9 +77690,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T18:11:53.015713+00:00",
-    "retry_after": "2026-11-21T18:11:53.015715+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T19:03:42.996645+00:00",
+    "retry_after": "2026-12-21T19:03:42.996648+00:00",
     "search_hydrated": true
   },
   {
@@ -97167,9 +97167,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T19:02:12.589945+00:00",
-    "retry_after": "2026-11-21T19:02:12.589947+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T19:02:25.903690+00:00",
+    "retry_after": "2026-11-24T19:02:25.903702+00:00",
     "search_hydrated": true
   },
   {
@@ -98360,6 +98360,96 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-21T18:07:23.927572+00:00",
     "retry_after": "2026-11-22T18:07:23.927589+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Unchained",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65051,
+        "name": "Simpsons Comics Unchained",
+        "publisher": "HarperCollins",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T19:03:51.751348+00:00",
+    "retry_after": "2026-11-22T19:03:51.751360+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Links",
+    "publisher": "VIZ Media",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148145,
+        "name": "Links",
+        "publisher": "Milky Way Ediciones",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T19:03:51.751400+00:00",
+    "retry_after": "2026-11-22T19:03:51.751405+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Extravaganza",
+    "publisher": "Titan Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64945,
+        "name": "Simpsons Comics Extravaganza",
+        "publisher": "HarperCollins",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T19:03:51.751430+00:00",
+    "retry_after": "2026-11-22T19:03:51.751433+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mouse Guard: Baldwin the Brave & Other Tales",
+    "publisher": "BOOM! Studios",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78073,
+        "name": "Mouse Guard: Baldwin the Brave & Other Tales",
+        "publisher": "Archaia",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T19:03:51.751454+00:00",
+    "retry_after": "2026-11-22T19:03:51.751456+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I Vendicatori",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 151292,
+        "name": "I Vendicatori",
+        "publisher": "Panini Comics",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T19:03:59.401783+00:00",
+    "retry_after": "2026-11-22T19:03:59.401794+00:00",
     "search_hydrated": true
   }
 ]

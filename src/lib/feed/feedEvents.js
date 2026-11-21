@@ -31,12 +31,20 @@ export function isVisibleListing(profile) {
   return Boolean(profile?.username) && profile.is_public === true && profile.show_for_sale !== false;
 }
 
+export function reviewExcerpt(body, limit = 160) {
+  const text = String(body ?? "").trim().replace(/\s+/g, " ");
+  if (text.length <= limit) return text || null;
+  const slice = text.slice(0, limit + 1);
+  const boundary = slice.lastIndexOf(" ");
+  return `${slice.slice(0, boundary > 0 ? boundary : limit).trim()}...`;
+}
+
 // rows: user_collections { user_id, status, gcd_issue_id, created_at }
 // listings: marketplace_listings rows (seller_id, created_at, ...)
 // profilesById: Map of profile rows keyed by id (string)
 // Returns flat items { user_id, verb, at, gcd_issue_id, listing? }, privacy
 // checked. Local comics (no gcd_issue_id) are left out: they have no page.
-export function feedItems({ rows = [], listings = [], profilesById }) {
+export function feedItems({ rows = [], listings = [], reviews = [], profilesById }) {
   const profileOf = (id) => profilesById.get(String(id));
   const items = [];
   for (const row of rows) {
@@ -50,6 +58,12 @@ export function feedItems({ rows = [], listings = [], profilesById }) {
     items.push({ user_id: String(listing.seller_id), verb: "listed", at: listing.created_at,
       gcd_issue_id: Number(listing.gcd_issue_id), listing });
   }
+  for (const review of reviews) {
+    const profile = profileOf(review.user_id);
+    if (review.base_gcd_issue_id == null || !profile?.username || profile.is_public !== true) continue;
+    items.push({ id: review.id, user_id: String(review.user_id), verb: review.body ? "reviewed" : "rated", at: review.updated_at || review.created_at,
+      gcd_issue_id: Number(review.base_gcd_issue_id), rating: Number(review.rating), excerpt: reviewExcerpt(review.body) });
+  }
   return items;
 }
 
@@ -62,10 +76,11 @@ export function groupFeed(items, { limit = FEED_EVENT_LIMIT, perEvent = BOOKS_PE
   const groups = new Map();
   const sorted = [...items].sort((a, b) => String(b.at).localeCompare(String(a.at)));
   for (const item of sorted) {
-    const id = `${item.user_id}|${item.verb}|${dayOf(item.at)}`;
+    const isReview = item.verb === "reviewed" || item.verb === "rated";
+    const id = isReview ? `${item.user_id}|${item.verb}|${item.id}` : `${item.user_id}|${item.verb}|${dayOf(item.at)}`;
     let group = groups.get(id);
     if (!group) {
-      group = { id, user_id: item.user_id, verb: item.verb, at: item.at, count: 0, books: [], seen: new Set() };
+      group = { id, user_id: item.user_id, verb: item.verb, at: item.at, count: 0, books: [], seen: new Set(), ...(isReview ? { rating: item.rating, excerpt: item.excerpt } : {}) };
       groups.set(id, group);
     }
     const key = item.listing ? `l:${item.listing.id}` : `i:${item.gcd_issue_id}`;

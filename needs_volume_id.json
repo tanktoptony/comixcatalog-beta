@@ -12715,9 +12715,10 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-21T14:02:50.119481+00:00",
-    "retry_after": "2026-09-24T14:02:50.119497+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-21T01:04:19.026406+00:00",
+    "retry_after": "2026-11-28T01:04:19.026410+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Marvel's Greatest Creators: Power Pack",
@@ -27664,9 +27665,10 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-27T16:07:32.872016+00:00",
-    "retry_after": "2026-09-30T16:07:32.872032+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-21T01:07:35.545705+00:00",
+    "retry_after": "2026-11-28T01:07:35.545721+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Luke Cage Epic Collection",
@@ -63534,107 +63536,6 @@
     "retry_after": "2026-10-23T04:16:01.855086+00:00"
   },
   {
-    "name": "Catwoman",
-    "publisher": "DC Comics",
-    "year": 2011,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 4955,
-        "name": "Catwoman",
-        "publisher": null,
-        "start_year": 1993
-      },
-      {
-        "id": 112028,
-        "name": "Catwoman",
-        "publisher": null,
-        "start_year": 2018
-      },
-      {
-        "id": 7328,
-        "name": "Catwoman",
-        "publisher": null,
-        "start_year": 2002
-      },
-      {
-        "id": 42722,
-        "name": "Catwoman",
-        "publisher": null,
-        "start_year": 2011
-      },
-      {
-        "id": 94785,
-        "name": "Catwoman",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 118239,
-        "name": "Catwoman",
-        "publisher": null,
-        "start_year": 2019
-      },
-      {
-        "id": 41994,
-        "name": "Catwoman",
-        "publisher": null,
-        "start_year": 2006
-      },
-      {
-        "id": 60384,
-        "name": "Catwoman",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 120064,
-        "name": "Catwoman",
-        "publisher": null,
-        "start_year": 2019
-      },
-      {
-        "id": 45671,
-        "name": "Catwoman",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 4176,
-        "name": "Catwoman",
-        "publisher": null,
-        "start_year": 1989
-      },
-      {
-        "id": 149934,
-        "name": "Catwoman",
-        "publisher": null,
-        "start_year": 2022
-      },
-      {
-        "id": 166392,
-        "name": "Catwoman",
-        "publisher": null,
-        "start_year": 2025
-      },
-      {
-        "id": 127248,
-        "name": "Catwoman",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 137835,
-        "name": "Catwoman",
-        "publisher": null,
-        "start_year": 2012
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T04:16:02.241192+00:00",
-    "retry_after": "2026-10-23T04:16:02.241211+00:00"
-  },
-  {
     "name": "Donald Duck",
     "publisher": "BOOM! Studios",
     "year": 2020,
@@ -75505,9 +75406,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T20:11:25.381842+00:00",
-    "retry_after": "2026-11-20T20:11:25.381844+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T01:11:45.626423+00:00",
+    "retry_after": "2026-12-21T01:11:45.626439+00:00",
     "search_hydrated": true
   },
   {
@@ -75547,9 +75448,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T20:11:25.381871+00:00",
-    "retry_after": "2026-11-20T20:11:25.381873+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T01:11:45.626482+00:00",
+    "retry_after": "2026-12-21T01:11:45.626485+00:00",
     "search_hydrated": true
   },
   {
@@ -75593,9 +75494,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T20:11:25.381884+00:00",
-    "retry_after": "2026-11-20T20:11:25.381886+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T01:11:45.626498+00:00",
+    "retry_after": "2026-12-21T01:11:45.626500+00:00",
     "search_hydrated": true
   },
   {
@@ -75604,9 +75505,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T21:10:54.622537+00:00",
-    "retry_after": "2026-11-20T21:10:54.622554+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T01:11:45.626515+00:00",
+    "retry_after": "2026-12-21T01:11:45.626516+00:00",
     "search_hydrated": true
   },
   {
@@ -75615,9 +75516,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T21:10:54.622573+00:00",
-    "retry_after": "2026-11-20T21:10:54.622576+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T01:11:45.626525+00:00",
+    "retry_after": "2026-12-21T01:11:45.626527+00:00",
     "search_hydrated": true
   },
   {
@@ -75651,9 +75552,9 @@
         "start_year": 2000
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T21:10:56.862076+00:00",
-    "retry_after": "2026-11-20T21:10:56.862079+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T01:11:46.905124+00:00",
+    "retry_after": "2026-12-21T01:11:46.905127+00:00",
     "search_hydrated": true
   },
   {
@@ -75669,9 +75570,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T21:10:56.862108+00:00",
-    "retry_after": "2026-11-20T21:10:56.862110+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T01:11:46.905153+00:00",
+    "retry_after": "2026-12-21T01:11:46.905155+00:00",
     "search_hydrated": true
   },
   {
@@ -75687,9 +75588,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T21:10:56.998385+00:00",
-    "retry_after": "2026-11-20T21:10:56.998400+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T01:11:47.059398+00:00",
+    "retry_after": "2026-12-21T01:11:47.059412+00:00",
     "search_hydrated": true
   },
   {
@@ -75698,9 +75599,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T21:10:54.622630+00:00",
-    "retry_after": "2026-11-20T21:10:54.622633+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T01:11:45.626564+00:00",
+    "retry_after": "2026-12-21T01:11:45.626566+00:00",
     "search_hydrated": true
   },
   {
@@ -96707,9 +96608,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T00:06:24.463703+00:00",
-    "retry_after": "2026-11-21T00:06:24.463725+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T01:04:19.026185+00:00",
+    "retry_after": "2026-11-24T01:04:19.026202+00:00",
     "search_hydrated": true
   },
   {
@@ -98950,6 +98851,78 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-21T00:07:53.820450+00:00",
     "retry_after": "2026-11-22T00:07:53.820451+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Don't Let the Penguin Drive the Batmobile",
+    "publisher": "EC Comics",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 114242,
+        "name": "Don't Let the Penguin Drive the Batmobile!",
+        "publisher": "DC Comics",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T01:11:56.674803+00:00",
+    "retry_after": "2026-11-22T01:11:56.674820+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Run Wild",
+    "publisher": "BOOM! Studios",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 112198,
+        "name": "Run Wild",
+        "publisher": "Archaia",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T01:11:56.674844+00:00",
+    "retry_after": "2026-11-22T01:11:56.674847+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cynthia Petal's Really Fantastic Alien Sex Frenzy!",
+    "publisher": "Fantagraphics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 51946,
+        "name": "Cynthia Petal's Really Fantastic Alien Sex Frenzy!",
+        "publisher": "Eros Comix",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T01:11:56.674866+00:00",
+    "retry_after": "2026-11-22T01:11:56.674868+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Crime Mysteries",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 10802,
+        "name": "Crime Mysteries",
+        "publisher": "Trojan Magazines",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T01:11:56.674883+00:00",
+    "retry_after": "2026-11-22T01:11:56.674885+00:00",
     "search_hydrated": true
   }
 ]

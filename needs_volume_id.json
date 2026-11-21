@@ -3044,15 +3044,6 @@
     "retry_after": "2026-09-21T14:00:38.554500+00:00"
   },
   {
-    "name": "Hal Jordan and the Green Lantern Corps",
-    "publisher": "DC Comics",
-    "year": 2016,
-    "reason": "publisher_mismatch",
-    "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554506+00:00"
-  },
-  {
     "name": "Star Wars Knights of the Old Republic",
     "publisher": "Dark Horse Comics",
     "year": 2006,
@@ -12494,9 +12485,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T21:28:24.688696+00:00",
-    "retry_after": "2026-11-20T21:28:24.688712+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T03:56:42.162628+00:00",
+    "retry_after": "2026-12-21T03:56:42.162631+00:00",
     "search_hydrated": true
   },
   {
@@ -60722,89 +60713,6 @@
     "retry_after": "2026-10-22T21:16:00.596644+00:00"
   },
   {
-    "name": "Harley Quinn",
-    "publisher": "DC Comics",
-    "year": 2016,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 134718,
-        "name": "Harley Quinn",
-        "publisher": null,
-        "start_year": 2021
-      },
-      {
-        "id": 69322,
-        "name": "Harley Quinn",
-        "publisher": null,
-        "start_year": 2013
-      },
-      {
-        "id": 109850,
-        "name": "Harley Quinn",
-        "publisher": null,
-        "start_year": 2017
-      },
-      {
-        "id": 86934,
-        "name": "Harley Quinn",
-        "publisher": null,
-        "start_year": 2014
-      },
-      {
-        "id": 9494,
-        "name": "Harley Quinn",
-        "publisher": null,
-        "start_year": 2000
-      },
-      {
-        "id": 96070,
-        "name": "Harley Quinn",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 160586,
-        "name": "Harley Quinn",
-        "publisher": null,
-        "start_year": 2024
-      },
-      {
-        "id": 92750,
-        "name": "Harley Quinn",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 151187,
-        "name": "Harley Quinn",
-        "publisher": null,
-        "start_year": 2014
-      },
-      {
-        "id": 147797,
-        "name": "Harley Quinn",
-        "publisher": null,
-        "start_year": 2021
-      },
-      {
-        "id": 89443,
-        "name": "Harley Quinn",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 166504,
-        "name": "Harley Quinn",
-        "publisher": null,
-        "start_year": 2025
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T21:16:00.952490+00:00",
-    "retry_after": "2026-10-22T21:16:00.952507+00:00"
-  },
-  {
     "name": "War Stories",
     "publisher": "Marvel Comics",
     "year": 1960,
@@ -63679,107 +63587,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T04:16:02.902829+00:00",
     "retry_after": "2026-10-23T04:16:02.902845+00:00"
-  },
-  {
-    "name": "Batgirl",
-    "publisher": "DC Comics",
-    "year": 2016,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 160861,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2025
-      },
-      {
-        "id": 82483,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 150121,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 7205,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2000
-      },
-      {
-        "id": 92542,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 127240,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 41790,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2010
-      },
-      {
-        "id": 154015,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2010
-      },
-      {
-        "id": 42604,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2011
-      },
-      {
-        "id": 27457,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2009
-      },
-      {
-        "id": 100119,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2017
-      },
-      {
-        "id": 22245,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2008
-      },
-      {
-        "id": 60406,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 50413,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 167372,
-        "name": "Batgirl",
-        "publisher": null,
-        "start_year": 2025
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T04:16:03.451513+00:00",
-    "retry_after": "2026-10-23T04:16:03.451529+00:00"
   },
   {
     "name": "ALF",
@@ -76113,9 +75920,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T00:10:52.245809+00:00",
-    "retry_after": "2026-11-21T00:10:52.245811+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T03:56:42.162573+00:00",
+    "retry_after": "2026-12-21T03:56:42.162588+00:00",
     "search_hydrated": true
   },
   {
@@ -76124,9 +75931,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T00:10:52.245820+00:00",
-    "retry_after": "2026-11-21T00:10:52.245822+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T03:56:42.162608+00:00",
+    "retry_after": "2026-12-21T03:56:42.162612+00:00",
     "search_hydrated": true
   },
   {
@@ -76178,9 +75985,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T00:10:54.454555+00:00",
-    "retry_after": "2026-11-21T00:10:54.454571+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T03:56:43.414341+00:00",
+    "retry_after": "2026-12-21T03:56:43.414350+00:00",
     "search_hydrated": true
   },
   {
@@ -76253,9 +76060,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T02:12:51.457125+00:00",
-    "retry_after": "2026-11-21T02:12:51.457140+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T03:56:42.162646+00:00",
+    "retry_after": "2026-12-21T03:56:42.162648+00:00",
     "search_hydrated": true
   },
   {
@@ -76264,9 +76071,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T02:12:51.457166+00:00",
-    "retry_after": "2026-11-21T02:12:51.457170+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T03:56:42.162661+00:00",
+    "retry_after": "2026-12-21T03:56:42.162663+00:00",
     "search_hydrated": true
   },
   {
@@ -76275,9 +76082,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T02:12:51.457185+00:00",
-    "retry_after": "2026-11-21T02:12:51.457188+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T03:56:42.162674+00:00",
+    "retry_after": "2026-12-21T03:56:42.162677+00:00",
     "search_hydrated": true
   },
   {
@@ -76293,9 +76100,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T02:12:56.063225+00:00",
-    "retry_after": "2026-11-21T02:12:56.063230+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T03:56:43.414450+00:00",
+    "retry_after": "2026-12-21T03:56:43.414454+00:00",
     "search_hydrated": true
   },
   {
@@ -76337,9 +76144,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T02:12:51.457218+00:00",
-    "retry_after": "2026-11-21T02:12:51.457221+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T03:56:42.162698+00:00",
+    "retry_after": "2026-12-21T03:56:42.162700+00:00",
     "search_hydrated": true
   },
   {
@@ -96651,9 +96458,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T03:03:33.422526+00:00",
-    "retry_after": "2026-11-21T03:03:33.422547+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T03:47:19.763601+00:00",
+    "retry_after": "2026-11-24T03:47:19.763617+00:00",
     "search_hydrated": true
   },
   {
@@ -96662,9 +96469,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T03:12:45.531972+00:00",
-    "retry_after": "2026-11-21T03:12:45.531990+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T03:56:52.360812+00:00",
+    "retry_after": "2026-11-24T03:56:52.360826+00:00",
     "search_hydrated": true
   },
   {
@@ -98957,6 +98764,58 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-21T02:12:31.578289+00:00",
     "retry_after": "2026-11-22T02:12:31.578291+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "EC Classics",
+    "publisher": "Russ Cochran",
+    "year": 1985,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T03:48:20.664907+00:00",
+    "retry_after": "2026-11-22T03:48:20.664922+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vampi",
+    "publisher": "ParaGraphics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 127409,
+        "name": "Vampi",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2014
+      },
+      {
+        "id": 159404,
+        "name": "Vampi",
+        "publisher": "Anarchy Studios",
+        "start_year": 2001
+      },
+      {
+        "id": 48988,
+        "name": "Vampi",
+        "publisher": "mg/publishing",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T03:51:04.616509+00:00",
+    "retry_after": "2026-11-22T03:51:04.616523+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Man and the Incredible Hulk [Kansas City Star]",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T03:56:52.360849+00:00",
+    "retry_after": "2026-11-22T03:56:52.360853+00:00",
     "search_hydrated": true
   }
 ]

@@ -28,10 +28,6 @@
 .progress { height: 7px; margin: 18px 0; overflow: hidden; border-radius: 99px; background: var(--cc-line); }
 .progress i { display: block; height: 100%; background: var(--cc-gold); }
 .saleButton { display: inline-flex; min-height: 44px; align-items: center; margin-top: 8px; padding: 0 14px; border: 1px solid var(--cc-gold); border-radius: 10px; color: var(--cc-gold); font-weight: 800; text-decoration: none; }
-.activity { padding: 0 24px; }
-.activity > div { min-height: 58px; display: flex; align-items: center; border-bottom: 1px solid var(--cc-line); }
-.activity > div:last-child { border: 0; }
-.activity a { color: var(--cc-gold); }
 .state { display: grid; place-content: center; min-height: 140px; gap: 12px; color: var(--cc-text-muted); text-align: center; }
 .state button, .state a { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; color: var(--cc-gold); }
 .skeleton { min-height: 150px; border-radius: 12px; background: linear-gradient(90deg, var(--cc-surface-2), rgba(255,255,255,.08), var(--cc-surface-2)); background-size: 200% 100%; animation: pulse 1.4s infinite; }

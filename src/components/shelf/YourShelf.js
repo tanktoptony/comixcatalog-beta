@@ -8,6 +8,7 @@ import { coverThumb } from "@/lib/coverThumb";
 import { useAuth } from "@/context/AuthContext";
 import PullListIssueCard from "@/components/pull-list/PullListIssueCard";
 import InviteButton from "@/components/InviteButton";
+import CollectorFeed from "./CollectorFeed";
 import styles from "./YourShelf.module.css";
 
 const SHORT_DATE = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
@@ -42,7 +43,6 @@ export default function YourShelf() {
   const [shelf, setShelf] = useState({ data: null, error: false, loading: true });
   const [hunt, setHunt] = useState({ data: null, error: false, loading: true });
   const [pulls, setPulls] = useState({ data: null, error: false, loading: true });
-  const [activity, setActivity] = useState({ data: null, error: false, loading: true });
   const [reload, setReload] = useState(0);
 
   useLayoutEffect(() => {
@@ -60,7 +60,6 @@ export default function YourShelf() {
     load("/api/shelf", setShelf);
     load("/api/shelf/hunt", setHunt);
     load("/api/pull-list", setPulls);
-    load("/api/activity", setActivity, (body) => (body.activity ?? []).filter((row) => row.comics));
     return () => { active = false; };
   }, [reload]);
 
@@ -68,8 +67,6 @@ export default function YourShelf() {
     setPulls((current) => ({ ...current, data: { ...current.data, weeks: current.data.weeks.map((week) => ({ ...week, items: week.items.map((item) => item.key === key ? { ...item, owned: status === "owned" || item.owned, wanted: status === "wishlist" || item.wanted } : item) })) } }));
   }
   const retry = () => setReload((value) => value + 1);
-  // One-shots and graphic novels come through with no issue number.
-  const bookLabel = (comic) => comic.issue_number ? `${comic.series_title} #${comic.issue_number}` : comic.series_title;
   const issueLabel = (title, number) => number ? `${title} #${number}` : title;
   const latestWeek = pulls.data?.weeks?.[0];
   const value = shelf.data?.value;
@@ -145,6 +142,8 @@ export default function YourShelf() {
         </article>)}</div>}
     </section>
 
+    <CollectorFeed />
+
     <div className={`${styles.section} ${styles.band}${showSupport ? "" : ` ${styles.bandSingle}`}`}>
       {profile?.username && <section className={`${styles.card} ${styles.bandCard}`}>
         <p className={styles.eyebrow}>Bring a collector</p>
@@ -206,13 +205,6 @@ export default function YourShelf() {
         <p>{run.missing === 1 ? `Missing #${run.missing_preview[0]}` : `Missing ${run.missing_preview.map((number) => `#${number}`).join(", ")}${extra > 0 ? ` and ${extra} more` : ""}`}</p>
         {run.for_sale > 0 && <Link className={styles.saleButton} href={run.href}>{run.for_sale} gap {run.for_sale === 1 ? "issue" : "issues"} for sale</Link>}
       </article>; })}</div>
-    </section>}
-
-    {!activity.loading && !activity.error && activity.data.length > 0 && <section className={styles.section}>
-      <div className={styles.heading}><div><p className={styles.eyebrow}>From the community</p><h2>Collector activity</h2></div><Link href="/people">Find collectors <ArrowRight aria-hidden="true" /></Link></div>
-      <div className={`${styles.card} ${styles.activity}`}>{activity.data.slice(0, 6).map((row, index) => <div key={`${row.created_at}:${index}`}>
-        <span>{row.profiles.username ? <Link href={`/u/${encodeURIComponent(row.profiles.username)}`}>@{row.profiles.username}</Link> : "A collector"} {row.status === "wishlist" ? "wanted" : row.status === "for_sale" ? "listed" : "added"} {row.comics?.id?.startsWith("gcd-") ? <Link href={`/issue/${row.gcd_issue_id}`}>{bookLabel(row.comics)}</Link> : <strong>{bookLabel(row.comics)}</strong>}</span>
-      </div>)}</div>
     </section>}
   </section>;
 }

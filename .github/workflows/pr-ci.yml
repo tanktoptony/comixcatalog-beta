@@ -91,6 +91,9 @@ jobs:
       - name: Review queue tests
         run: npm run test:review
 
+      - name: Collector list tests
+        run: npm run test:lists
+
       - name: Admin two-factor tests
         run: npm run test:admin-aal
 

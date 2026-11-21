@@ -162,6 +162,11 @@ export function notificationSentence({ kind, actor, label }) {
   const who = actor ? `@${actor}` : "Someone";
   if (kind === "reply") return `${who} replied to your comment on ${label}`;
   if (kind === "mention") return `${who} mentioned you on ${label}`;
-  if (kind === "comment") return `${who} commented on ${label}`;
+  // A "comment" notification only goes to the list or review owner, so the
+  // stored neutral label reads as theirs.
+  if (kind === "comment") {
+    const owned = String(label).replace(/^the list /, "your list ").replace(/^@[A-Za-z0-9_]+'s review /, "your review ");
+    return `${who} commented on ${owned}`;
+  }
   return `${who} on ${label}`;
 }

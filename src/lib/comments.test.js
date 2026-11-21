@@ -103,5 +103,7 @@ test("commentExcerpt and notificationSentence", () => {
   const long = commentExcerpt("word ".repeat(60));
   assert.ok(long.endsWith("...") && long.length <= 144);
   assert.equal(notificationSentence({ kind: "reply", actor: "ana", label: "Saga #1 (2012)" }), "@ana replied to your comment on Saga #1 (2012)");
-  assert.equal(notificationSentence({ kind: "comment", actor: "ana", label: "your list Bronze Age horror" }), "@ana commented on your list Bronze Age horror");
+  assert.equal(notificationSentence({ kind: "comment", actor: "ana", label: 'the list "Bronze Age horror"' }), '@ana commented on your list "Bronze Age horror"');
+  assert.equal(notificationSentence({ kind: "comment", actor: "ana", label: "@bo_b's review of Saga #1 (2012)" }), "@ana commented on your review of Saga #1 (2012)");
+  assert.equal(notificationSentence({ kind: "mention", actor: "ana", label: 'the list "Bronze Age horror"' }), '@ana mentioned you on the list "Bronze Age horror"');
 });

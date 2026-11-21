@@ -19,6 +19,7 @@ import FollowButton from "@/components/FollowButton";
 import { authedFetch } from "@/lib/apiClient";
 import { UNREAD_CHANGED_EVENT } from "@/hooks/useUnreadMessageCount";
 import { summarizeThreads } from "@/lib/messageThreads";
+import { notificationSentence } from "@/lib/comments";
 
 function NewMessagePicker({ onClose }) {
   const [query, setQuery] = useState("");
@@ -61,6 +62,36 @@ function NewMessagePicker({ onClose }) {
         </div>
       </section>
     </div>
+  );
+}
+
+// Replies, mentions and comments on your lists and reviews. Unread ones
+// carry a gold dot; opening the inbox marks them read for next time.
+function ActivityStrip({ items }) {
+  if (!items?.length) return null;
+  return (
+    <section className="inbox-followers inbox-activity" aria-labelledby="inbox-activity-heading">
+      <div className="inbox-followers-heading">
+        <h2 id="inbox-activity-heading">Activity</h2>
+      </div>
+      <ul className="inbox-activity-list">
+        {items.map((item) => (
+          <li key={item.id} className={`inbox-activity-item${item.read_at ? "" : " is-unread"}`}>
+            <Link href={item.url} className="inbox-activity-link">
+              <span className="inbox-activity-avatar">
+                <Avatar profile={item.actor || { id: item.actor_id, username: "?" }} />
+              </span>
+              <span className="inbox-activity-body">
+                <strong>{notificationSentence({ kind: item.kind, actor: item.actor?.username, label: item.label })}</strong>
+                {item.excerpt && <small>&ldquo;{item.excerpt}&rdquo;</small>}
+              </span>
+              <span className="inbox-thread-time">{formatTimeAgo(item.created_at)}</span>
+              {!item.read_at && <span className="inbox-thread-unread-dot" aria-label="New" />}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }
 
@@ -116,6 +147,7 @@ export default function InboxPage() {
   const [threads, setThreads] = useState(() => (user ? inboxCache(user.id).threads : null));
   const [newFollowers, setNewFollowers] = useState([]);
   const [pendingPurchases, setPendingPurchases] = useState([]);
+  const [activity, setActivity] = useState([]);
   const [error, setError] = useState(null);
   const [search, setSearch] = useState("");
   const [pickerOpen, setPickerOpen] = useState(false);
@@ -141,6 +173,7 @@ export default function InboxPage() {
           const notifications = await notificationResponse.json();
           if (!cancelled) setNewFollowers(notifications.recentFollowers ?? []);
           if (!cancelled) setPendingPurchases(notifications.pendingPurchases ?? []);
+          if (!cancelled) setActivity(notifications.recentNotifications ?? []);
           const seenResponse = await authedFetch("/api/inbox-notifications", { method: "POST" });
           if (seenResponse.ok && !cancelled) window.dispatchEvent(new Event(UNREAD_CHANGED_EVENT));
         }
@@ -259,6 +292,7 @@ export default function InboxPage() {
       <section className="comic-panel">
         <h1 className="hero-title">Inbox</h1>
         <div className="inbox-toolbar"><button type="button" className="primary-btn" onClick={() => setPickerOpen(true)}>New message</button></div>
+        <ActivityStrip items={activity} />
         <NewFollowersStrip followers={newFollowers} />
         <PendingPurchasesStrip purchases={pendingPurchases} />
         <EmptyState
@@ -277,6 +311,7 @@ export default function InboxPage() {
         <input type="search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search conversations" aria-label="Search conversations" />
         <button type="button" className="primary-btn" onClick={() => setPickerOpen(true)}>New message</button>
       </div>
+      <ActivityStrip items={activity} />
       <NewFollowersStrip followers={newFollowers} />
       <PendingPurchasesStrip purchases={pendingPurchases} />
       <ul className="inbox-thread-list">

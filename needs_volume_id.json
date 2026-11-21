@@ -64629,89 +64629,6 @@
     "retry_after": "2026-10-23T06:16:02.966886+00:00"
   },
   {
-    "name": "Batman and Robin",
-    "publisher": "DC Comics",
-    "year": 2011,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 61509,
-        "name": "Batman & Robin",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 26584,
-        "name": "Batman and Robin",
-        "publisher": null,
-        "start_year": 2009
-      },
-      {
-        "id": 86736,
-        "name": "Batman and Robin",
-        "publisher": null,
-        "start_year": 1976
-      },
-      {
-        "id": 156195,
-        "name": "Batman & Robin ",
-        "publisher": null,
-        "start_year": 2023
-      },
-      {
-        "id": 134497,
-        "name": "Batman & Robin",
-        "publisher": null,
-        "start_year": 2014
-      },
-      {
-        "id": 153462,
-        "name": "Batman and Robin",
-        "publisher": null,
-        "start_year": 2023
-      },
-      {
-        "id": 50161,
-        "name": "Batman and Robin",
-        "publisher": null,
-        "start_year": 2012
-      },
-      {
-        "id": 42692,
-        "name": "Batman and Robin",
-        "publisher": null,
-        "start_year": 2011
-      },
-      {
-        "id": 159620,
-        "name": "Batman and Robin",
-        "publisher": null,
-        "start_year": 2024
-      },
-      {
-        "id": 72202,
-        "name": "Batman & Robin",
-        "publisher": null,
-        "start_year": 1997
-      },
-      {
-        "id": 104436,
-        "name": "Batman & Robin",
-        "publisher": null,
-        "start_year": 1997
-      },
-      {
-        "id": 167102,
-        "name": "Batman and Robin",
-        "publisher": null,
-        "start_year": 2025
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T06:16:03.259070+00:00",
-    "retry_after": "2026-10-23T06:16:03.259085+00:00"
-  },
-  {
     "name": "Disneylândia",
     "publisher": "Avatar Press",
     "year": 1990,
@@ -75469,9 +75386,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T19:13:46.619717+00:00",
-    "retry_after": "2026-11-20T19:13:46.619719+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T00:07:42.073810+00:00",
+    "retry_after": "2026-12-21T00:07:42.073829+00:00",
     "search_hydrated": true
   },
   {
@@ -75480,9 +75397,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T19:13:46.619728+00:00",
-    "retry_after": "2026-11-20T19:13:46.619730+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T00:07:42.073848+00:00",
+    "retry_after": "2026-12-21T00:07:42.073850+00:00",
     "search_hydrated": true
   },
   {
@@ -75491,9 +75408,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T20:11:25.381727+00:00",
-    "retry_after": "2026-11-20T20:11:25.381745+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T00:07:42.073878+00:00",
+    "retry_after": "2026-12-21T00:07:42.073880+00:00",
     "search_hydrated": true
   },
   {
@@ -75526,9 +75443,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T19:13:46.619739+00:00",
-    "retry_after": "2026-11-20T19:13:46.619741+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T00:07:42.073859+00:00",
+    "retry_after": "2026-12-21T00:07:42.073861+00:00",
     "search_hydrated": true
   },
   {
@@ -75537,9 +75454,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T19:13:46.619751+00:00",
-    "retry_after": "2026-11-20T19:13:46.619752+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T00:07:42.073870+00:00",
+    "retry_after": "2026-12-21T00:07:42.073872+00:00",
     "search_hydrated": true
   },
   {
@@ -75548,9 +75465,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T20:11:25.381766+00:00",
-    "retry_after": "2026-11-20T20:11:25.381770+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T00:07:42.073887+00:00",
+    "retry_after": "2026-12-21T00:07:42.073888+00:00",
     "search_hydrated": true
   },
   {
@@ -75566,9 +75483,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T20:11:25.381801+00:00",
-    "retry_after": "2026-11-20T20:11:25.381804+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T00:07:42.073911+00:00",
+    "retry_after": "2026-12-21T00:07:42.073913+00:00",
     "search_hydrated": true
   },
   {
@@ -75577,9 +75494,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T20:11:25.381819+00:00",
-    "retry_after": "2026-11-20T20:11:25.381821+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T00:07:42.073921+00:00",
+    "retry_after": "2026-12-21T00:07:42.073922+00:00",
     "search_hydrated": true
   },
   {
@@ -75606,9 +75523,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T20:11:27.186044+00:00",
-    "retry_after": "2026-11-20T20:11:27.186047+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T00:07:44.373673+00:00",
+    "retry_after": "2026-12-21T00:07:44.373676+00:00",
     "search_hydrated": true
   },
   {
@@ -96713,9 +96630,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-19T23:04:27.212842+00:00",
-    "retry_after": "2026-11-20T23:04:27.212864+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T00:03:35.302854+00:00",
+    "retry_after": "2026-11-24T00:03:35.302872+00:00",
     "search_hydrated": true
   },
   {
@@ -96724,9 +96641,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-19T23:04:27.212893+00:00",
-    "retry_after": "2026-11-20T23:04:27.212896+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T00:03:35.302895+00:00",
+    "retry_after": "2026-11-24T00:03:35.302898+00:00",
     "search_hydrated": true
   },
   {
@@ -96735,9 +96652,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-19T23:04:27.212921+00:00",
-    "retry_after": "2026-11-20T23:04:27.212923+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T00:03:35.302908+00:00",
+    "retry_after": "2026-11-24T00:03:35.302909+00:00",
     "search_hydrated": true
   },
   {
@@ -96746,9 +96663,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-19T23:06:20.347339+00:00",
-    "retry_after": "2026-11-20T23:06:20.347359+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T00:03:35.302917+00:00",
+    "retry_after": "2026-11-24T00:03:35.302918+00:00",
     "search_hydrated": true
   },
   {
@@ -96757,9 +96674,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-19T23:26:00.218320+00:00",
-    "retry_after": "2026-11-20T23:26:00.218322+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T00:01:52.418637+00:00",
+    "retry_after": "2026-11-24T00:01:52.418654+00:00",
     "search_hydrated": true
   },
   {
@@ -96768,9 +96685,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-19T23:27:40.865216+00:00",
-    "retry_after": "2026-11-20T23:27:40.865218+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T00:03:35.302925+00:00",
+    "retry_after": "2026-11-24T00:03:35.302927+00:00",
     "search_hydrated": true
   },
   {
@@ -96779,9 +96696,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-19T23:29:52.364651+00:00",
-    "retry_after": "2026-11-20T23:29:52.364669+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T00:03:35.302934+00:00",
+    "retry_after": "2026-11-24T00:03:35.302935+00:00",
     "search_hydrated": true
   },
   {
@@ -98926,6 +98843,113 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-20T23:13:01.617537+00:00",
     "retry_after": "2026-11-21T23:13:01.617539+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Planet of the Apes",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2699,
+        "name": "Planet of the Apes",
+        "publisher": "Marvel",
+        "start_year": 1974
+      },
+      {
+        "id": 149308,
+        "name": "Planet of the Apes",
+        "publisher": "Marvel",
+        "start_year": 2023
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T00:01:52.418809+00:00",
+    "retry_after": "2026-11-22T00:01:52.418812+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Youngblood GT Interactive Ultra Game Players Special Edition",
+    "publisher": "Awesome",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T00:02:48.463617+00:00",
+    "retry_after": "2026-11-22T00:02:48.463635+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "They Called Us Enemy – Expanded Edition",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129898,
+        "name": "They Called Us Enemy: Expanded Edition",
+        "publisher": "Top Shelf",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T00:07:53.820363+00:00",
+    "retry_after": "2026-11-22T00:07:53.820380+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Simpsorama",
+    "publisher": "Titan Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65122,
+        "name": "Simpsons Comics: Simpsorama",
+        "publisher": "HarperCollins",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T00:07:53.820401+00:00",
+    "retry_after": "2026-11-22T00:07:53.820424+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kick-Ass 2 Prelude: Hit Girl",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58598,
+        "name": "Kick-Ass 2 Prelude: Hit-Girl",
+        "publisher": "Icon Books",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T00:07:53.820437+00:00",
+    "retry_after": "2026-11-22T00:07:53.820439+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gli Albi dei Super-Eroi",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34647,
+        "name": "Gli Albi dei Super-Eroi",
+        "publisher": "Editoriale Corno",
+        "start_year": 1973
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T00:07:53.820450+00:00",
+    "retry_after": "2026-11-22T00:07:53.820451+00:00",
     "search_hydrated": true
   }
 ]

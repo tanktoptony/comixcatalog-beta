@@ -4810,10 +4810,12 @@
     "name": "Marvel Universe Ultimate Spider-Man",
     "publisher": "Marvel Comics",
     "year": 2012,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554831+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T02:01:59.372359+00:00",
+    "retry_after": "2026-11-24T02:01:59.372374+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Doctor Solar, Man of the Atom",
@@ -45587,9 +45589,10 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-15T10:18:15.698310+00:00",
-    "retry_after": "2026-10-22T10:18:15.698324+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-11-21T02:07:58.094347+00:00",
+    "retry_after": "2026-12-05T02:07:58.094362+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Lois & Clark: As Aventuras do Superman",
@@ -75729,9 +75732,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T21:10:54.622680+00:00",
-    "retry_after": "2026-11-20T21:10:54.622683+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T02:12:22.304350+00:00",
+    "retry_after": "2026-12-21T02:12:22.304365+00:00",
     "search_hydrated": true
   },
   {
@@ -75740,9 +75743,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T21:10:54.622694+00:00",
-    "retry_after": "2026-11-20T21:10:54.622696+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T02:12:22.304384+00:00",
+    "retry_after": "2026-12-21T02:12:22.304388+00:00",
     "search_hydrated": true
   },
   {
@@ -75751,9 +75754,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T21:10:54.622706+00:00",
-    "retry_after": "2026-11-20T21:10:54.622707+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T02:12:22.304401+00:00",
+    "retry_after": "2026-12-21T02:12:22.304403+00:00",
     "search_hydrated": true
   },
   {
@@ -75821,9 +75824,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T23:12:22.145949+00:00",
-    "retry_after": "2026-11-20T23:12:22.145965+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T02:12:22.304413+00:00",
+    "retry_after": "2026-12-21T02:12:22.304414+00:00",
     "search_hydrated": true
   },
   {
@@ -75876,9 +75879,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T23:12:22.145987+00:00",
-    "retry_after": "2026-11-20T23:12:22.145991+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T02:12:22.304423+00:00",
+    "retry_after": "2026-12-21T02:12:22.304425+00:00",
     "search_hydrated": true
   },
   {
@@ -75887,9 +75890,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T23:12:22.146007+00:00",
-    "retry_after": "2026-11-20T23:12:22.146010+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T02:12:22.304435+00:00",
+    "retry_after": "2026-12-21T02:12:22.304436+00:00",
     "search_hydrated": true
   },
   {
@@ -75898,9 +75901,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T23:12:22.146023+00:00",
-    "retry_after": "2026-11-20T23:12:22.146025+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T02:12:22.304445+00:00",
+    "retry_after": "2026-12-21T02:12:22.304447+00:00",
     "search_hydrated": true
   },
   {
@@ -75909,9 +75912,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T23:12:22.146036+00:00",
-    "retry_after": "2026-11-20T23:12:22.146039+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T02:12:22.304454+00:00",
+    "retry_after": "2026-12-21T02:12:22.304456+00:00",
     "search_hydrated": true
   },
   {
@@ -75920,9 +75923,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-06T23:12:22.146051+00:00",
-    "retry_after": "2026-11-20T23:12:22.146053+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T02:12:22.304464+00:00",
+    "retry_after": "2026-12-21T02:12:22.304466+00:00",
     "search_hydrated": true
   },
   {
@@ -96662,9 +96665,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T01:06:06.531811+00:00",
-    "retry_after": "2026-11-21T01:06:06.531829+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T02:06:00.109286+00:00",
+    "retry_after": "2026-11-24T02:06:00.109301+00:00",
     "search_hydrated": true
   },
   {
@@ -96673,9 +96676,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T01:06:06.531854+00:00",
-    "retry_after": "2026-11-21T01:06:06.531857+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T02:06:00.109327+00:00",
+    "retry_after": "2026-11-24T02:06:00.109330+00:00",
     "search_hydrated": true
   },
   {
@@ -98923,6 +98926,84 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-21T01:11:56.674883+00:00",
     "retry_after": "2026-11-22T01:11:56.674885+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Dread Gods",
+    "publisher": "IDW Publishing",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 102791,
+        "name": "Dread Gods",
+        "publisher": "Ominous Press",
+        "start_year": 2017
+      },
+      {
+        "id": 116354,
+        "name": "Dread Gods",
+        "publisher": "Ominous Press",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T02:06:00.109480+00:00",
+    "retry_after": "2026-11-22T02:06:00.109482+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Jam-Packed Jamboree",
+    "publisher": "Titan Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46780,
+        "name": "Simpsons Comics: Jam-Packed Jamboree",
+        "publisher": "Bongo",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T02:12:31.578229+00:00",
+    "retry_after": "2026-11-22T02:12:31.578245+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Fathom Preview Special",
+    "publisher": "Image Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 144272,
+        "name": "Fathom Preview Special",
+        "publisher": "Aspen MLT",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T02:12:31.578269+00:00",
+    "retry_after": "2026-11-22T02:12:31.578272+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Land of Nod Treasury",
+    "publisher": "Oni Press",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 73630,
+        "name": "Land of Nod Treasury",
+        "publisher": "Black Eye",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T02:12:31.578289+00:00",
+    "retry_after": "2026-11-22T02:12:31.578291+00:00",
     "search_hydrated": true
   }
 ]

@@ -61,6 +61,22 @@ gitignored.
 | `npm run index` | Rebuild the asset index and each episode's `output/<id>-missing-assets.json` |
 | `npm test` | Timeline engine tests |
 
+## QC before every review cut and render
+
+Run QC before sending Tony a cut. Timeline checks run without a render, and
+media checks are added when the final MP4 is supplied. Any FAIL produces a
+non-zero exit code. WARN items need a human review, including the zoom crop
+sheet written to `<episode>/output/qc-zoom-sheet.png`.
+
+```sh
+npm run qc -- episode-007
+npm run qc -- episode-007 --render "C:/path/to/episode-007.mp4"
+npm run qc -- episode-007 --shorts
+```
+
+Use `--public <dir>` and `--index <file>` when assets or the generated asset
+index live outside this worktree.
+
 ## How an episode is built
 
 An episode is data: `episode-00X/timeline.js` exports `{ id, duration, nudges, segments }`.

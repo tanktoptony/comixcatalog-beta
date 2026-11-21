@@ -8357,9 +8357,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T12:12:55.802704+00:00",
-    "retry_after": "2026-11-21T12:12:55.802707+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T13:06:23.864384+00:00",
+    "retry_after": "2026-12-21T13:06:23.864401+00:00",
     "search_hydrated": true
   },
   {
@@ -15246,13 +15246,13 @@
   },
   {
     "name": "Savage Dragon vs. Savage Megaton Man",
-    "publisher": "Malibu Comics",
+    "publisher": "Image Comics",
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-21T12:16:34.909637+00:00",
-    "retry_after": "2026-11-22T12:16:34.909639+00:00",
+    "last_attempt_at": "2026-11-21T13:06:38.702465+00:00",
+    "retry_after": "2026-11-22T13:06:38.702480+00:00",
     "search_hydrated": true
   },
   {
@@ -43465,8 +43465,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-21T12:16:34.909600+00:00",
-    "retry_after": "2026-11-22T12:16:34.909616+00:00",
+    "last_attempt_at": "2026-11-21T13:02:24.469744+00:00",
+    "retry_after": "2026-11-22T13:02:24.469758+00:00",
     "search_hydrated": true
   },
   {
@@ -88833,9 +88833,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T05:10:16.711026+00:00",
-    "retry_after": "2026-11-20T05:10:16.711044+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-21T13:06:23.864419+00:00",
+    "retry_after": "2026-12-05T13:06:23.864422+00:00",
     "search_hydrated": true
   },
   {
@@ -88857,9 +88857,9 @@
         "start_year": 2004
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T06:10:42.585151+00:00",
-    "retry_after": "2026-11-20T06:10:42.585170+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-21T13:06:23.864455+00:00",
+    "retry_after": "2026-12-05T13:06:23.864457+00:00",
     "search_hydrated": true
   },
   {
@@ -88880,21 +88880,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 89578,
-        "name": "Batman: Europa",
-        "publisher": "DC Comics",
-        "start_year": 2016
-      },
-      {
         "id": 86094,
         "name": "Batman: Europa",
         "publisher": "DC Comics",
         "start_year": 2015
+      },
+      {
+        "id": 89578,
+        "name": "Batman: Europa",
+        "publisher": "DC Comics",
+        "start_year": 2016
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T06:10:42.585241+00:00",
-    "retry_after": "2026-11-20T06:10:42.585247+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-21T13:06:23.864483+00:00",
+    "retry_after": "2026-12-05T13:06:23.864485+00:00",
     "search_hydrated": true
   },
   {
@@ -88903,9 +88903,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T07:11:37.988066+00:00",
-    "retry_after": "2026-11-20T07:11:37.988083+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-21T13:06:23.864502+00:00",
+    "retry_after": "2026-12-05T13:06:23.864504+00:00",
     "search_hydrated": true
   },
   {
@@ -88914,9 +88914,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T07:11:37.988104+00:00",
-    "retry_after": "2026-11-20T07:11:37.988108+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-21T13:06:23.864515+00:00",
+    "retry_after": "2026-12-05T13:06:23.864517+00:00",
     "search_hydrated": true
   },
   {

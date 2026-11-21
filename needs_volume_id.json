@@ -7715,9 +7715,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T11:12:08.517156+00:00",
-    "retry_after": "2026-11-21T11:12:08.517158+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T12:06:36.109522+00:00",
+    "retry_after": "2026-12-21T12:06:36.109525+00:00",
     "search_hydrated": true
   },
   {
@@ -15251,8 +15251,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-21T06:10:31.732561+00:00",
-    "retry_after": "2026-11-22T06:10:31.732575+00:00",
+    "last_attempt_at": "2026-11-21T12:06:49.067289+00:00",
+    "retry_after": "2026-11-22T12:06:49.067292+00:00",
     "search_hydrated": true
   },
   {
@@ -33179,9 +33179,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T12:02:11.504152+00:00",
-    "retry_after": "2026-11-21T12:02:11.504170+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T12:02:25.887241+00:00",
+    "retry_after": "2026-11-24T12:02:25.887256+00:00",
     "search_hydrated": true
   },
   {
@@ -34011,9 +34011,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T11:12:08.517169+00:00",
-    "retry_after": "2026-11-21T11:12:08.517171+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T12:06:36.109540+00:00",
+    "retry_after": "2026-12-21T12:06:36.109543+00:00",
     "search_hydrated": true
   },
   {
@@ -43465,8 +43465,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-21T11:02:42.840299+00:00",
-    "retry_after": "2026-11-22T11:02:42.840313+00:00",
+    "last_attempt_at": "2026-11-21T12:02:58.322895+00:00",
+    "retry_after": "2026-11-22T12:02:58.322911+00:00",
     "search_hydrated": true
   },
   {
@@ -76805,9 +76805,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T11:12:08.517074+00:00",
-    "retry_after": "2026-11-21T11:12:08.517091+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T12:06:36.109402+00:00",
+    "retry_after": "2026-12-21T12:06:36.109417+00:00",
     "search_hydrated": true
   },
   {
@@ -76816,9 +76816,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T11:12:08.517109+00:00",
-    "retry_after": "2026-11-21T11:12:08.517112+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T12:06:36.109442+00:00",
+    "retry_after": "2026-12-21T12:06:36.109446+00:00",
     "search_hydrated": true
   },
   {
@@ -76827,9 +76827,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T11:12:08.517124+00:00",
-    "retry_after": "2026-11-21T11:12:08.517127+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T12:06:36.109463+00:00",
+    "retry_after": "2026-12-21T12:06:36.109466+00:00",
     "search_hydrated": true
   },
   {
@@ -88788,27 +88788,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 140532,
-        "name": "Avengers Forever",
-        "publisher": "Marvel",
-        "start_year": 2022
-      },
-      {
-        "id": 11015,
-        "name": "Avengers: Forever",
-        "publisher": "Marvel",
-        "start_year": 1998
-      },
-      {
         "id": 28054,
         "name": "Avengers Forever",
         "publisher": "Marvel",
         "start_year": 2009
+      },
+      {
+        "id": 140532,
+        "name": "Avengers Forever",
+        "publisher": "Marvel",
+        "start_year": 2022
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-12T21:55:28.697271+00:00",
-    "retry_after": "2026-11-19T21:55:28.697273+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-21T12:06:36.109581+00:00",
+    "retry_after": "2026-12-05T12:06:36.109584+00:00",
     "search_hydrated": true
   },
   {
@@ -88817,9 +88811,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-12T22:10:57.512468+00:00",
-    "retry_after": "2026-11-19T22:10:57.512486+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-21T12:06:36.109600+00:00",
+    "retry_after": "2026-12-05T12:06:36.109602+00:00",
     "search_hydrated": true
   },
   {
@@ -95292,9 +95286,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-18T12:06:24.285116+00:00",
-    "retry_after": "2026-11-21T12:06:24.285133+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-21T12:06:49.067215+00:00",
+    "retry_after": "2026-11-28T12:06:49.067230+00:00",
     "search_hydrated": true
   },
   {
@@ -96847,9 +96841,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T11:04:11.288526+00:00",
-    "retry_after": "2026-11-21T11:04:11.288528+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T12:02:47.382359+00:00",
+    "retry_after": "2026-11-24T12:02:47.382375+00:00",
     "search_hydrated": true
   },
   {
@@ -96858,9 +96852,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T11:04:11.288553+00:00",
-    "retry_after": "2026-11-21T11:04:11.288555+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T12:02:47.382404+00:00",
+    "retry_after": "2026-11-24T12:02:47.382409+00:00",
     "search_hydrated": true
   },
   {
@@ -96869,9 +96863,9 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T11:10:41.133593+00:00",
-    "retry_after": "2026-11-21T11:10:41.133609+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T12:06:49.067267+00:00",
+    "retry_after": "2026-11-24T12:06:49.067271+00:00",
     "search_hydrated": true
   },
   {

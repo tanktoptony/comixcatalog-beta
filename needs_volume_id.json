@@ -27809,9 +27809,10 @@
         "start_year": 2019
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-27T17:36:06.093255+00:00",
-    "retry_after": "2026-09-30T17:36:06.093271+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T23:04:24.196608+00:00",
+    "retry_after": "2026-11-22T23:04:24.196626+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Flash / Green Lantern: Faster Friends",
@@ -43452,21 +43453,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 2930,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1977
-      },
-      {
         "id": 116293,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-21T22:02:35.661550+00:00",
-    "retry_after": "2026-11-22T22:02:35.661563+00:00",
+    "last_attempt_at": "2026-11-21T23:06:28.030881+00:00",
+    "retry_after": "2026-11-22T23:06:28.030883+00:00",
     "search_hydrated": true
   },
   {
@@ -78015,9 +78016,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T22:10:45.542752+00:00",
-    "retry_after": "2026-11-21T22:10:45.542770+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T23:10:22.815818+00:00",
+    "retry_after": "2026-12-21T23:10:22.815834+00:00",
     "search_hydrated": true
   },
   {
@@ -78026,9 +78027,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T22:10:45.542787+00:00",
-    "retry_after": "2026-11-21T22:10:45.542789+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T23:10:22.815854+00:00",
+    "retry_after": "2026-12-21T23:10:22.815857+00:00",
     "search_hydrated": true
   },
   {
@@ -78070,9 +78071,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T22:10:45.542810+00:00",
-    "retry_after": "2026-11-21T22:10:45.542812+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T23:10:22.815879+00:00",
+    "retry_after": "2026-12-21T23:10:22.815881+00:00",
     "search_hydrated": true
   },
   {
@@ -78081,9 +78082,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T22:10:45.542819+00:00",
-    "retry_after": "2026-11-21T22:10:45.542820+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T23:10:22.815890+00:00",
+    "retry_after": "2026-12-21T23:10:22.815891+00:00",
     "search_hydrated": true
   },
   {
@@ -78092,9 +78093,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T22:10:45.542828+00:00",
-    "retry_after": "2026-11-21T22:10:45.542829+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T23:10:22.815899+00:00",
+    "retry_after": "2026-12-21T23:10:22.815901+00:00",
     "search_hydrated": true
   },
   {
@@ -78103,9 +78104,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T22:10:45.542836+00:00",
-    "retry_after": "2026-11-21T22:10:45.542837+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T23:10:22.815907+00:00",
+    "retry_after": "2026-12-21T23:10:22.815909+00:00",
     "search_hydrated": true
   },
   {
@@ -78114,9 +78115,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T22:10:45.542846+00:00",
-    "retry_after": "2026-11-21T22:10:45.542848+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T23:10:22.815919+00:00",
+    "retry_after": "2026-12-21T23:10:22.815921+00:00",
     "search_hydrated": true
   },
   {
@@ -78132,9 +78133,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T22:10:46.780399+00:00",
-    "retry_after": "2026-11-21T22:10:46.780416+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T23:10:25.056763+00:00",
+    "retry_after": "2026-12-21T23:10:25.056777+00:00",
     "search_hydrated": true
   },
   {
@@ -78150,9 +78151,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T22:10:46.930888+00:00",
-    "retry_after": "2026-11-21T22:10:46.930905+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-21T23:10:25.180030+00:00",
+    "retry_after": "2026-12-21T23:10:25.180044+00:00",
     "search_hydrated": true
   },
   {
@@ -97299,9 +97300,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-20T23:02:24.424785+00:00",
-    "retry_after": "2026-11-21T23:02:24.424789+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-21T23:06:28.030823+00:00",
+    "retry_after": "2026-11-24T23:06:28.030839+00:00",
     "search_hydrated": true
   },
   {
@@ -98720,6 +98721,138 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-21T22:06:59.006710+00:00",
     "retry_after": "2026-11-22T22:06:59.006724+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Grimm Fairy Tales",
+    "publisher": "Zenescope Entertainment",
+    "year": 2012,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 170576,
+        "name": "Grimm Fairy Tales",
+        "publisher": "Zenescope Entertainment",
+        "start_year": 2026
+      },
+      {
+        "id": 19824,
+        "name": "Grimm Fairy Tales",
+        "publisher": "Zenescope Entertainment",
+        "start_year": 2005
+      },
+      {
+        "id": 97419,
+        "name": "Grimm Fairy Tales",
+        "publisher": "Zenescope Entertainment",
+        "start_year": 2016
+      },
+      {
+        "id": 29244,
+        "name": "Grimm Fairy Tales",
+        "publisher": "Zenescope Entertainment",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T23:02:29.418618+00:00",
+    "retry_after": "2026-11-22T23:02:29.418636+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Savage Dragon",
+    "publisher": "Image Comics",
+    "year": 1996,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 5170,
+        "name": "Savage Dragon",
+        "publisher": "Image",
+        "start_year": 1993
+      },
+      {
+        "id": 18373,
+        "name": "Savage Dragon",
+        "publisher": "Image",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T23:04:24.196697+00:00",
+    "retry_after": "2026-11-22T23:04:24.196700+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gli Albi dei Super-Eroi",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34647,
+        "name": "Gli Albi dei Super-Eroi",
+        "publisher": "Editoriale Corno",
+        "start_year": 1973
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T23:10:33.720699+00:00",
+    "retry_after": "2026-11-22T23:10:33.720715+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "They Called Us Enemy – Expanded Edition",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129898,
+        "name": "They Called Us Enemy: Expanded Edition",
+        "publisher": "Top Shelf",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T23:10:33.720752+00:00",
+    "retry_after": "2026-11-22T23:10:33.720754+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kick-Ass 2 Prelude: Hit Girl",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58598,
+        "name": "Kick-Ass 2 Prelude: Hit-Girl",
+        "publisher": "Icon Books",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T23:10:33.720770+00:00",
+    "retry_after": "2026-11-22T23:10:33.720772+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Doctor Who Magazine",
+    "publisher": "Marvel Comics",
+    "year": 1985,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26877,
+        "name": "Doctor Who Magazine",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-21T23:10:42.153112+00:00",
+    "retry_after": "2026-11-22T23:10:42.153146+00:00",
     "search_hydrated": true
   }
 ]

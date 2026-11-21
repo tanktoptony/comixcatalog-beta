@@ -1,4 +1,6 @@
 import { notFound } from "next/navigation";
+import { loadThread } from "@/lib/commentsData";
+import { getServiceClient } from "@/lib/supabase/service";
 import ListView from "@/components/lists/ListView";
 import PrivateListGate from "@/components/lists/PrivateListGate";
 import {
@@ -42,7 +44,19 @@ export default async function ListPage({ params }) {
   const { username, slug } = await params;
   const data = await getListPage(username, slug);
 
-  if (data) return <ListView initialData={data} />;
+  if (data) {
+    // Signed-out view of the thread, so comment text is in the HTML; the
+    // client refetches for signed-in members.
+    const comments = await loadThread(
+      getServiceClient(),
+      { targetType: "list", targetId: data.list.id, ownerId: data.owner.id },
+      null
+    ).catch((error) => {
+      console.error("list comments lookup failed:", error?.message ?? error);
+      return null;
+    });
+    return <ListView initialData={data} comments={comments} />;
+  }
 
   const record = await getListPathRecord(username, slug);
   if (!record) notFound();

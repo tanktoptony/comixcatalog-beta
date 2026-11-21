@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useId, useMemo, useState } from "react";
 import Avatar from "@/components/Avatar";
 import ReportButton from "@/components/ReportButton";
+import CommentThread from "@/components/comments/CommentThread";
 import { useAuth } from "@/context/AuthContext";
 import { trackEvent } from "@/lib/analytics";
 import { authedFetch } from "@/lib/apiClient";
@@ -33,12 +34,22 @@ function RatingEditor({ value, onChange }) {
 
 function ReviewRow({ review, mine, followed }) {
   const [expanded, setExpanded] = useState(false);
+  const [repliesOpen, setRepliesOpen] = useState(false);
+  const replies = Number(review.reply_count) || 0;
   const edited = new Date(review.updated_at).getTime() - new Date(review.created_at).getTime() > 60000;
   return <article className={`issue-reviews-item${review.body ? "" : " issue-reviews-item--compact"}`}>
     <Link href={`/u/${encodeURIComponent(review.username)}`} className="issue-reviews-avatar"><Avatar profile={review} width={42} height={42} /></Link>
     <div className="issue-reviews-content"><div className="issue-reviews-meta"><Link href={`/u/${encodeURIComponent(review.username)}`}>@{review.username}</Link>{followed && <span className="issue-reviews-following">Following</span>}<Stars rating={review.rating}/><time dateTime={review.created_at}>{DATE.format(new Date(review.created_at))}{edited ? " · edited" : ""}</time></div>
       {review.body && <><p className={expanded ? "" : "issue-reviews-clamp"}>{review.body}</p>{review.body.length > 600 && <button type="button" className="issue-reviews-more" onClick={() => setExpanded((v) => !v)}>{expanded ? "Show less" : "Read more"}</button>}</>}
-      <div className="issue-reviews-report">{mine ? <span>You</span> : <ReportButton targetType="review" targetId={review.id} ownerId={review.user_id} />}</div>
+      <div className="issue-reviews-report">
+        {review.body && (
+          <button type="button" className="issue-reviews-replies" aria-expanded={repliesOpen} onClick={() => setRepliesOpen((open) => !open)}>
+            {repliesOpen ? "Hide replies" : replies ? `${replies} ${replies === 1 ? "reply" : "replies"}` : "Reply"}
+          </button>
+        )}
+        {mine ? <span>You</span> : <ReportButton targetType="review" targetId={review.id} ownerId={review.user_id} />}
+      </div>
+      {repliesOpen && <CommentThread targetType="review" targetId={review.id} title="Replies" compact id={`review-${review.id}-replies`} />}
     </div>
   </article>;
 }

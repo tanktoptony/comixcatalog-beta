@@ -16,7 +16,7 @@ export function useUnreadMessageCount() {
   const { user } = useAuth();
   // Tagged with the user it was fetched for, so a different account never
   // sees the previous one's number, with no state reset in the effect.
-  const [unread, setUnread] = useState({ userId: null, messages: 0, followers: 0, purchases: 0 });
+  const [unread, setUnread] = useState({ userId: null, messages: 0, followers: 0, purchases: 0, notifications: 0 });
 
   useEffect(() => {
     if (!user) return;
@@ -33,6 +33,7 @@ export function useUnreadMessageCount() {
           messages: body.messages ?? 0,
           followers: body.followers ?? 0,
           purchases: body.purchases ?? 0,
+          notifications: body.notifications ?? 0,
         });
       } catch {
         // Keep the last successful badge value through a transient failure.
@@ -65,6 +66,6 @@ export function useUnreadMessageCount() {
   }, [user]);
 
   return user && unread.userId === user.id
-    ? { messages: unread.messages, followers: unread.followers, purchases: unread.purchases }
-    : { messages: 0, followers: 0, purchases: 0 };
+    ? { messages: unread.messages, followers: unread.followers, purchases: unread.purchases, notifications: unread.notifications }
+    : { messages: 0, followers: 0, purchases: 0, notifications: 0 };
 }

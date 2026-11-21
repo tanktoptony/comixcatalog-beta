@@ -71,6 +71,29 @@ export async function GET(req) {
       const follower = profilesById.get(row.follower_id);
       return follower ? [{ ...follower, followed_at: row.created_at, following: followingIds.has(row.follower_id) }] : [];
     });
+    // Replies, mentions and comments on your lists and reviews (migration
+    // 0114). Optional: a failure leaves the rest of the inbox working.
+    let notificationCount = 0;
+    let recentNotifications = [];
+    try {
+      const [countResult, rowsResult] = await Promise.all([
+        supabase.from("notifications").select("id", { count: "exact", head: true }).eq("user_id", user.id).is("read_at", null),
+        supabase.from("notifications").select("id, actor_id, kind, url, label, excerpt, created_at, read_at")
+          .eq("user_id", user.id).order("created_at", { ascending: false }).limit(20),
+      ]);
+      if (countResult.error || rowsResult.error) throw countResult.error || rowsResult.error;
+      notificationCount = countResult.count ?? 0;
+      const actorIds = [...new Set((rowsResult.data ?? []).map((row) => row.actor_id).filter(Boolean))];
+      const { data: actors, error: actorsError } = actorIds.length
+        ? await supabase.from("profiles").select("id, username, avatar_url, avatar_key").in("id", actorIds)
+        : { data: [] };
+      if (actorsError) throw actorsError;
+      const actorById = new Map((actors ?? []).map((actor) => [actor.id, actor]));
+      recentNotifications = (rowsResult.data ?? []).map((row) => ({ ...row, actor: actorById.get(row.actor_id) ?? null }));
+    } catch (notificationError) {
+      console.error("inbox activity lookup failed:", notificationError?.message ?? notificationError);
+    }
+
     const sellerIds = [...new Set((purchaseRowsResult.data ?? []).map((row) => row.seller_id))];
     const { data: sellers, error: sellersError } = sellerIds.length ? await supabase.from("profiles").select("id, username").in("id", sellerIds) : { data: [] };
     if (sellersError) throw sellersError;
@@ -82,6 +105,8 @@ export async function GET(req) {
       recentFollowers,
       purchases: purchasesResult.count ?? 0,
       pendingPurchases: (purchaseRowsResult.data ?? []).map((row) => ({ ...row, seller_username: sellerNames.get(row.seller_id) || "unknown" })),
+      notifications: notificationCount,
+      recentNotifications,
     });
   } catch (error) {
     console.error("GET /api/inbox-notifications failed:", error);
@@ -99,7 +124,10 @@ export async function POST(req) {
       .update({ followers_seen_at: new Date().toISOString() })
       .eq("id", user.id);
     if (error) throw new Error(`followers seen update failed: ${error.message}`);
-    return NextResponse.json({ followers: 0 });
+    const readResult = await supabase.from("notifications").update({ read_at: new Date().toISOString() })
+      .eq("user_id", user.id).is("read_at", null);
+    if (readResult.error) console.error("notifications read update failed:", readResult.error.message);
+    return NextResponse.json({ followers: 0, notifications: 0 });
   } catch (error) {
     console.error("POST /api/inbox-notifications failed:", error);
     return jsonError("Could not update follower notifications.", 500);

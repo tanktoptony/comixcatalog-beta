@@ -1,5 +1,6 @@
 "use client";
 
+import CommentThread from "@/components/comments/CommentThread";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -569,7 +570,7 @@ function ItemOwnerTools({ item, index, total, onNote, onMove, onRemove }) {
   );
 }
 
-export default function ListView({ initialData }) {
+export default function ListView({ initialData, comments = null }) {
   const { user } = useAuth();
   const [list, setList] = useState({
     ...initialData.list,
@@ -784,6 +785,8 @@ export default function ListView({ initialData }) {
             : "No books have been added to this list yet."}
         </div>
       )}
+
+      <CommentThread targetType="list" targetId={initialData.list.id} initial={comments} />
     </main>
   );
 }

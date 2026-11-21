@@ -121,6 +121,9 @@ jobs:
       - name: Issue review tests
         run: npm run test:reviews
 
+      - name: Comment tests
+        run: npm run test:comments
+
       - name: Social book-context tests
         run: npm run test:social
 

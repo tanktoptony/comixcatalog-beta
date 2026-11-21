@@ -14,6 +14,7 @@
     "test:review": "node --test src/lib/review.test.js",
     "test:lists": "node --test src/lib/lists.test.js",
     "test:reviews": "node --test src/lib/reviews.test.js",
+    "test:comments": "node --test src/lib/comments.test.js",
     "test:covers": "node --test src/lib/catalog/covers.test.js src/lib/catalog/seriesCoverStages.test.js src/lib/catalog/seriesCardCovers.test.js src/lib/foundingShowcasePick.test.js",
     "test:fetch-all": "node --test src/lib/supabase/fetchAllPages.test.js",
     "test:exports": "node --test src/lib/exportData.test.js",

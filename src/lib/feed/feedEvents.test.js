@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { blockedIds, feedItems, feedSince, finishedRuns, groupFeed, groupFinished, mergeEvents, runCandidates } from "./feedEvents.js";
+import { blockedIds, feedItems, feedSince, finishedRuns, groupFeed, groupFinished, mergeEvents, reviewExcerpt, runCandidates } from "./feedEvents.js";
 
 const pub = (id, extra = {}) => [id, { id, username: `u${id}`, is_public: true, ...extra }];
 const profiles = new Map([pub("a"), pub("b"), pub("priv", { is_public: false }), pub("hidewant", { show_wantlist: false }),
@@ -48,6 +48,19 @@ test("groupFeed counts listings per copy, not per issue", () => {
   const [event] = groupFeed([listing("L1"), listing("L2")]);
   assert.equal(event.count, 2);
   assert.deepEqual(event.books.map((b) => b.listing.id), ["L1", "L2"]);
+});
+
+test("reviews become individual visible reviewed or rated events with excerpts", () => {
+  const items = feedItems({ profilesById: profiles, reviews: [
+    { id: "r1", user_id: "a", base_gcd_issue_id: 11, rating: 5, body: "A terrific issue", created_at: "2026-11-20T12:00:00Z" },
+    { id: "r2", user_id: "a", base_gcd_issue_id: 12, rating: 3, body: null, created_at: "2026-11-20T11:00:00Z" },
+    { id: "r3", user_id: "priv", base_gcd_issue_id: 13, rating: 1, body: "hidden", created_at: "2026-11-20T13:00:00Z" },
+  ] });
+  const events = groupFeed(items);
+  assert.deepEqual(events.map((event) => [event.verb, event.rating, event.books[0].gcd_issue_id]), [["reviewed", 5, 11], ["rated", 3, 12]]);
+  assert.equal(reviewExcerpt(`${"word ".repeat(40)}ending`).endsWith("..."), true);
+  assert.ok(reviewExcerpt(`${"word ".repeat(40)}ending`).length <= 163);
+  assert.deepEqual(mergeEvents(events, [{ id: "other", at: "2026-11-20T11:30:00Z" }]).map((event) => event.id), ["a|reviewed|r1", "other", "a|rated|r2"]);
 });
 
 const series = (seriesId, numbers, firstId) => numbers.map((n, i) => ({ gcd_id: firstId + i, series_gcd_id: seriesId, issue_number: n }));

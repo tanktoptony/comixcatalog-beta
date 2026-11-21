@@ -22,6 +22,7 @@ import Avatar from "@/components/Avatar";
 import { cleanVariantCaption, matchVariantCovers } from "@/lib/variantCovers";
 import { coverThumb } from "@/lib/coverThumb";
 import AddToListButton from "@/components/lists/AddToListButton";
+import IssueReviews from "@/components/issue/IssueReviews";
 
 function CollectorRow({ label, bucket, actionLabel, actionKind, issueId, viewerId }) {
   if (!bucket?.total) return null;
@@ -874,6 +875,8 @@ export default function IssueClient({ initialIssue = null }) {
             </tbody></table></div>}
           </section>
         )}
+
+        {issue.source === "gcd" && <IssueReviews issueId={issue.base_gcd_issue_id} initial={issue.reviews} />}
 
         {issue.source === "gcd" && <section className="issue-discogs-section">
           <div className="issue-section-heading"><h2>Collectors</h2></div>

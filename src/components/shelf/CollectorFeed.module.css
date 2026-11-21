@@ -62,3 +62,6 @@
   .strip li { flex: 0 0 60px; }
   .line time { display: block; margin: 2px 0 0; }
 }
+.reviewDetail { margin: 6px 0 9px; color: #f5c518; }
+.reviewDetail blockquote { margin: 5px 0 0; padding-left: 10px; border-left: 2px solid rgba(245,197,24,.45); color: var(--muted); font-size: .88rem; font-style: italic; }
+.reviewStrip li { width: 58px; }

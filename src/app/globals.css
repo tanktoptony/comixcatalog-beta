@@ -14860,3 +14860,7 @@ a.pull-issue-title:hover { color: var(--cc-gold); }
 .inbox-activity-body small { overflow: hidden; color: var(--cc-text-muted); font-size: .8rem; text-overflow: ellipsis; white-space: nowrap; }
 .inbox-activity-item:not(.is-unread) strong { font-weight: 600; }
 .inbox-activity-link .inbox-thread-unread-dot { position: absolute; right: 0; top: 50%; transform: translateY(-50%); }
+
+/* Uploaded avatars are served as stored (no server resize since 2026-11-21),
+   so a non-square photo is cropped to its circle here instead. */
+img[src*="/storage/v1/object/public/avatars/"] { object-fit: cover; }

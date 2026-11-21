@@ -41,20 +41,62 @@ function RequestBookLink({ row }) {
   );
 }
 
-function SingleNoMatch({ result }) {
-  if (result?.outcome !== "not_in_catalog") return null;
+// Virgin and full-art covers carry no title, so the scan reads no series
+// and finds nothing. Say why, and hand the collector a search.
+const NO_TITLE_TEXT = "We couldn't read a title on this cover. Virgin and full-art covers often have none, so search for the book instead.";
+const readNoTitle = (extracted) => Boolean(extracted?.is_comic_cover) && !String(extracted?.series_title ?? "").trim();
+
+function NoTitleNote({ extracted }) {
+  return readNoTitle(extracted) ? <p className="scan-no-title">{NO_TITLE_TEXT}</p> : null;
+}
+
+// A scan that found nothing must never end on a bare photo.
+function SingleNoMatch({ result, onPick }) {
+  const [searching, setSearching] = useState(false);
+  if (!result?.scan_id || result.candidates?.length) return null;
+  const notInCatalog = result.outcome === "not_in_catalog";
   return (
     <div className="scan-callout">
-      We don&apos;t have this one yet.
-      {result.free && " It did not count against your daily scans."}
-      <RequestBookLink
-        row={{
-          source: "photo",
-          scanId: result.scan_id,
-          extracted: result.extracted,
-        }}
-      />
+      {notInCatalog
+        ? <>We don&apos;t have this one yet.{result.free && " It did not count against your daily scans."}</>
+        : readNoTitle(result.extracted) ? NO_TITLE_TEXT : "We couldn't match this cover. Try another photo, or search for the book."}
+      <div className="scan-callout-actions">
+        <button type="button" className="scan-btn scan-btn-primary" onClick={() => setSearching(true)}>Search for it</button>
+        {notInCatalog && <RequestBookLink row={{ source: "photo", scanId: result.scan_id, extracted: result.extracted }} />}
+      </div>
+      {searching && <SearchPicker row={{ selected: null }} onClose={() => setSearching(false)} onPick={(match) => { setSearching(false); onPick(match); }} />}
     </div>
+  );
+}
+
+// The scan result an issue (or one of its versions) came from.
+function candidateFor(candidates, selected) {
+  if (!selected) return null;
+  const id = Number(selected.gcd_issue_id);
+  return (candidates ?? []).find((item) => Number(item.gcd_issue_id) === id || (item.versions ?? []).some((version) => Number(version.gcd_issue_id) === id)) ?? null;
+}
+
+// Every version of the matched issue (regular, newsstand, printings, cover
+// variants). The scan preselects one when the cover's clues name it.
+function VersionPicker({ selected, candidate, onPick }) {
+  const versions = candidate?.versions ?? [];
+  if (!selected || versions.length < 2) return null;
+  function choose(event) {
+    const version = versions.find((item) => item.gcd_issue_id === Number(event.target.value));
+    if (!version) return;
+    trackEvent("scan_version_pick", { from_clue: Boolean(candidate.version_picked) });
+    onPick(version.gcd_issue_id === Number(candidate.gcd_issue_id)
+      ? candidate
+      : { ...candidate, id: `gcd-${version.gcd_issue_id}`, gcd_issue_id: version.gcd_issue_id, version_name: version.name, version_picked: false, cover_path: version.cover_path ?? null });
+  }
+  return (
+    <label className="scan-match-picker">
+      Which version is yours?
+      <select value={Number(selected.gcd_issue_id)} onChange={choose}>
+        {versions.map((version) => <option key={version.gcd_issue_id} value={version.gcd_issue_id}>{version.name}</option>)}
+      </select>
+      {selected.version_picked && <small className="scan-version-note">Picked from clues on your cover. Change it if that&apos;s wrong.</small>}
+    </label>
   );
 }
 
@@ -81,11 +123,37 @@ async function identify(file) {
   throw last;
 }
 
+// /api/search/comics rows use series_title / issue_number / cover_path /
+// release_year. The picker read title / issueNumber / cover / year, so every
+// result showed as a bare "#" and a pick saved no title (fixed 2026-11-21).
+function searchMatch(item) {
+  return {
+    ...item,
+    gcd_issue_id: Number(String(item.id).replace("gcd-", "")),
+    series_title: item.series_title ?? item.title,
+    issue_number: item.issue_number ?? item.issueNumber,
+    cover_path: item.cover_path ?? item.cover ?? null,
+    year: item.release_year ?? item.year ?? null,
+  };
+}
+
 function SearchPicker({ row, onPick, onClose }) {
   const [query, setQuery] = useState([row.selected?.series_title, row.selected?.issue_number].filter(Boolean).join(" "));
   const [results, setResults] = useState([]), [busy, setBusy] = useState(false);
-  async function search(e) { e.preventDefault(); setBusy(true); try { const response = await fetch(`/api/search/comics?q=${encodeURIComponent(query)}&limit=12&offset=0`); const data = await response.json(); setResults(data.comics ?? []); } finally { setBusy(false); } }
-  return <div className="scan-search"><form onSubmit={search}><input value={query} onChange={(e) => setQuery(e.target.value)} aria-label="Search catalog" /><button className="scan-btn scan-btn-primary">{busy ? "Searching..." : "Search"}</button><button type="button" className="scan-btn scan-btn-secondary" onClick={onClose}>Close</button></form><div className="scan-search-results">{results.filter((item) => String(item.id).startsWith("gcd-")).map((item) => <button key={item.id} type="button" onClick={() => onPick({ ...item, gcd_issue_id: Number(String(item.id).replace("gcd-", "")), series_title: item.title, issue_number: item.issueNumber, cover_path: item.cover })}><img src={item.cover || "/fallback-cover.png"} alt="" /><span>{item.title} #{item.issueNumber}<small>{[item.publisher, item.year].filter(Boolean).join(" · ")}</small></span></button>)}</div></div>;
+  async function search(e) { e.preventDefault(); setBusy(true); try { const response = await fetch(`/api/search/comics?q=${encodeURIComponent(query)}&limit=12&offset=0`); const data = await response.json(); setResults((data.comics ?? []).map(searchMatch)); } finally { setBusy(false); } }
+  // A searched issue gets the same version list a scan match carries.
+  async function pick(match) {
+    setBusy(true);
+    try {
+      const response = await fetch(`/api/collection/version?gcd_issue_id=${match.gcd_issue_id}`);
+      const data = response.ok ? await response.json() : null;
+      const versions = (data?.versions ?? []).map((version) => ({ gcd_issue_id: Number(version.gcdId), name: version.name, cover_path: version.cover ?? null }));
+      onPick(versions.length > 1 ? { ...match, versions } : match);
+    } catch {
+      onPick(match);
+    } finally { setBusy(false); }
+  }
+  return <div className="scan-search"><form onSubmit={search}><input value={query} onChange={(e) => setQuery(e.target.value)} aria-label="Search catalog" /><button className="scan-btn scan-btn-primary">{busy ? "Searching..." : "Search"}</button><button type="button" className="scan-btn scan-btn-secondary" onClick={onClose}>Close</button></form><div className="scan-search-results">{results.filter((item) => String(item.id).startsWith("gcd-")).map((item) => <button key={item.id} type="button" disabled={busy} onClick={() => pick(item)}><img src={item.cover_path || "/fallback-cover.png"} alt="" /><span>{item.series_title} #{item.issue_number}<small>{[item.publisher, item.year].filter(Boolean).join(" · ")}</small></span></button>)}</div></div>;
 }
 
 function PrintingReport({ item, scanId }) {
@@ -108,11 +176,13 @@ function ReviewRow({ row, update, remove, compact = false }) {
   const [searching, setSearching] = useState(false); const selected = row.selected;
   return <article className={`scan-review-row${compact ? " is-compact" : ""}`}>
     <div className="scan-review-covers"><div>{row.photoUrl ? <img src={row.photoUrl} alt="Your scan" /> : row.source === "barcode" ? <div className="scan-photo-missing scan-barcode-card">{row.barcode}</div> : <div className="scan-photo-missing">Photo unavailable</div>}<small>{row.source === "barcode" ? "Barcode" : "Your scan"}</small></div>{selected && <div><img src={selected.cover_path || "/fallback-cover.png"} alt="Matched cover" /><small>Match</small></div>}</div>
-    <div className="scan-review-body"><div className="scan-review-heading"><div><span className={`scan-state is-${row.status}`}>{row.status === "identifying" ? "Identifying" : row.status === "matched" ? (row.candidates?.length > 1 ? "Needs a pick" : "Matched") : row.status === "no-match" ? "No match" : "Could not scan"}</span>{selected && <h3>{selected.series_title} #{selected.issue_number}</h3>}{selected && <p>{[selected.publisher, selected.year].filter(Boolean).join(" · ")}</p>}</div>{!compact && <button type="button" className="scan-remove" onClick={remove}>Remove</button>}</div>
-      {row.status === "matched" && <>{row.candidates?.length > 1 ? <label className="scan-match-picker">Swap match<select value={selected?.gcd_issue_id ?? ""} onChange={(e) => update({ selected: row.candidates.find((item) => Number(item.gcd_issue_id) === Number(e.target.value)) })}>{!selected && <option value="" disabled>Pick the issue</option>}{row.candidates.map((item) => <option key={item.gcd_issue_id} value={item.gcd_issue_id}>{item.series_title} #{item.issue_number} ({item.year || "year unknown"})</option>)}</select></label> : <button type="button" className="scan-text-button" onClick={() => setSearching(true)}>Search instead</button>}
-      {searching && <SearchPicker row={row} onClose={() => setSearching(false)} onPick={(match) => { update({ selected: match, candidates: [...(row.candidates ?? []), match] }); setSearching(false); }} />}
-      {!compact && row.owned && <fieldset className="scan-owned-choice"><legend>Already owned</legend><label><input type="radio" checked={row.ownedChoice === "another"} onChange={() => update({ ownedChoice: "another" })} /> Add another copy</label><label><input type="radio" checked={row.ownedChoice === "skip"} onChange={() => update({ ownedChoice: "skip" })} /> Skip</label></fieldset>}
-      {!compact && <><ScanDetails value={row.details} onChange={(details) => update({ details })} /><label className="scan-wantlist"><input type="checkbox" checked={row.wantlist} onChange={(e) => update({ wantlist: e.target.checked })} /> Add to wantlist instead</label></>}</>}
+    <div className="scan-review-body"><div className="scan-review-heading"><div><span className={`scan-state is-${row.status}`}>{row.status === "identifying" ? "Identifying" : row.status === "matched" ? (row.candidates?.length > 1 ? "Needs a pick" : "Matched") : row.status === "no-match" ? "No match" : "Could not scan"}</span>{selected && <h3>{selected.series_title} #{selected.issue_number}</h3>}{selected?.version_name && selected.version_name !== "Regular edition" && <p className="scan-version-name">{selected.version_name}</p>}{selected && <p>{[selected.publisher, selected.year].filter(Boolean).join(" · ")}</p>}</div>{!compact && <button type="button" className="scan-remove" onClick={remove}>Remove</button>}</div>
+      {row.status === "matched" && <>{row.candidates?.length > 1 ? <label className="scan-match-picker">Swap match<select value={candidateFor(row.candidates, selected)?.gcd_issue_id ?? ""} onChange={(e) => update({ selected: row.candidates.find((item) => Number(item.gcd_issue_id) === Number(e.target.value)) })}>{!selected && <option value="" disabled>Pick the issue</option>}{row.candidates.map((item) => <option key={item.gcd_issue_id} value={item.gcd_issue_id}>{item.series_title} #{item.issue_number} ({item.year || "year unknown"})</option>)}</select></label> : <button type="button" className="scan-text-button" onClick={() => setSearching(true)}>Search instead</button>}
+        <VersionPicker selected={selected} candidate={candidateFor(row.candidates, selected)} onPick={(next) => update({ selected: next })} /></>}
+      {row.status === "no-match" && <><NoTitleNote extracted={row.extracted} /><button type="button" className="scan-text-button" onClick={() => setSearching(true)}>Search instead</button></>}
+      {searching &&<SearchPicker row={row} onClose={() => setSearching(false)} onPick={(match) => { update({ status: "matched", selected: match, candidates: [...(row.candidates ?? []), match] }); setSearching(false); }} />}
+      {row.status === "matched" && !compact && row.owned && <fieldset className="scan-owned-choice"><legend>Already owned</legend><label><input type="radio" checked={row.ownedChoice === "another"} onChange={() => update({ ownedChoice: "another" })} /> Add another copy</label><label><input type="radio" checked={row.ownedChoice === "skip"} onChange={() => update({ ownedChoice: "skip" })} /> Skip</label></fieldset>}
+      {row.status === "matched" && !compact && <><ScanDetails value={row.details} onChange={(details) => update({ details })} /><label className="scan-wantlist"><input type="checkbox" checked={row.wantlist} onChange={(e) => update({ wantlist: e.target.checked })} /> Add to wantlist instead</label></>}
       {row.status === "no-match" && <RequestBookLink row={row} />}
       {row.error && <p className="cover-scan-error">{row.error}</p>}</div>
   </article>;
@@ -127,7 +197,7 @@ function SingleScan({ user, collections, refreshLibrary, next }) {
   const alreadyOwned = selected && ownedCopiesFor(collections, selected.gcd_issue_id).length > 0;
   async function add() { const row = { id: "single", status: "matched", scanId: result.scan_id, selected, details, wantlist, owned: alreadyOwned, ownedChoice }; const items = reviewRowsToAddPayload([row]); if (!items.length) return; const response = await authedFetch("/api/cover-scan/collection", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ items }) }); const data = await response.json(); if (!response.ok) { setError(data.error); return; } await refreshLibrary({ background: true }); setAdded(true); }
   const choose = (e) => { const file = e.target.files?.[0]; e.target.value = ""; scan(file); };
-  return <div className="cover-scanner"><div className={`scan-capture${photo ? " has-photo" : ""}`}>{photo ? <figure className="scan-photo"><img src={photo} alt="Your scan" />{busy && <span className="scan-sweep" />}</figure> : <div className="scan-capture-empty"><span className="scan-capture-icon"><CameraIcon /></span><p className="scan-capture-title">Snap the front cover</p></div>}<div className="scan-capture-actions">{user ? <><button className="scan-btn scan-btn-primary" disabled={busy} onClick={() => camera.current?.click()}><CameraIcon />Take a photo</button><button className="scan-btn scan-btn-secondary" disabled={busy} onClick={() => picker.current?.click()}>Choose a photo</button><input ref={camera} hidden type="file" accept="image/*" capture="environment" onChange={choose} /><input ref={picker} hidden type="file" accept="image/*" onChange={choose} /></> : <Link href={`/signup?next=${next}`} className="scan-btn scan-btn-primary">Sign up to scan</Link>}</div></div>{error && <div className="scan-callout scan-callout-error">{error}</div>}<SingleNoMatch result={result} />{selected && <section className="scan-single-match"><h2>Best match</h2><ReviewRow compact row={{ status: "matched", selected, candidates: result?.candidates, photoUrl: photo }} update={(patch) => patch.selected && setSelected(patch.selected)} />{alreadyOwned && !wantlist && <fieldset className="scan-owned-choice"><legend>Already owned</legend><label><input type="radio" checked={ownedChoice === "another"} onChange={() => setOwnedChoice("another")} /> Add another copy</label><label><input type="radio" checked={ownedChoice === "skip"} onChange={() => setOwnedChoice("skip")} /> Skip</label></fieldset>}<ScanDetails value={details} onChange={setDetails} collapsed={!detailsOpen} onOpen={() => setDetailsOpen(true)} /><label className="scan-wantlist"><input type="checkbox" checked={wantlist} onChange={(e) => setWantlist(e.target.checked)} /> Add to wantlist instead</label><button className="scan-btn scan-btn-primary scan-single-add" onClick={add} disabled={added || (alreadyOwned && !wantlist && ownedChoice === "skip")}>{added ? "Added" : wantlist ? "Add to wantlist" : "Add"}</button><PrintingReport item={selected} scanId={result?.scan_id} /></section>}{result?.quota && <p className="scan-quota">{result.quota.remaining} scans left today</p>}</div>;
+  return <div className="cover-scanner"><div className={`scan-capture${photo ? " has-photo" : ""}`}>{photo ? <figure className="scan-photo"><img src={photo} alt="Your scan" />{busy && <span className="scan-sweep" />}</figure> : <div className="scan-capture-empty"><span className="scan-capture-icon"><CameraIcon /></span><p className="scan-capture-title">Snap the front cover</p></div>}<div className="scan-capture-actions">{user ? <><button className="scan-btn scan-btn-primary" disabled={busy} onClick={() => camera.current?.click()}><CameraIcon />Take a photo</button><button className="scan-btn scan-btn-secondary" disabled={busy} onClick={() => picker.current?.click()}>Choose a photo</button><input ref={camera} hidden type="file" accept="image/*" capture="environment" onChange={choose} /><input ref={picker} hidden type="file" accept="image/*" onChange={choose} /></> : <Link href={`/signup?next=${next}`} className="scan-btn scan-btn-primary">Sign up to scan</Link>}</div></div>{error && <div className="scan-callout scan-callout-error">{error}</div>}{!selected && <SingleNoMatch key={result?.scan_id ?? "none"} result={result} onPick={(match) => { setResult((current) => ({ ...current, candidates: [match] })); setSelected(match); }} />}{selected && <section className="scan-single-match"><h2>Best match</h2><ReviewRow compact row={{ status: "matched", selected, candidates: result?.candidates, photoUrl: photo }} update={(patch) => patch.selected && setSelected(patch.selected)} />{alreadyOwned && !wantlist && <fieldset className="scan-owned-choice"><legend>Already owned</legend><label><input type="radio" checked={ownedChoice === "another"} onChange={() => setOwnedChoice("another")} /> Add another copy</label><label><input type="radio" checked={ownedChoice === "skip"} onChange={() => setOwnedChoice("skip")} /> Skip</label></fieldset>}<ScanDetails value={details} onChange={setDetails} collapsed={!detailsOpen} onOpen={() => setDetailsOpen(true)} /><label className="scan-wantlist"><input type="checkbox" checked={wantlist} onChange={(e) => setWantlist(e.target.checked)} /> Add to wantlist instead</label><button className="scan-btn scan-btn-primary scan-single-add" onClick={add} disabled={added || (alreadyOwned && !wantlist && ownedChoice === "skip")}>{added ? "Added" : wantlist ? "Add to wantlist" : "Add"}</button><PrintingReport item={selected} scanId={result?.scan_id} /></section>}{result?.quota && <p className="scan-quota">{result.quota.remaining} scans left today</p>}</div>;
 }
 
 function BulkScan({ collections, refreshLibrary }) {

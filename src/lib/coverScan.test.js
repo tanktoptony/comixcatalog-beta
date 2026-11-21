@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { COVER_SCAN_SCHEMA, COVER_TITLE_SIMILARITY_THRESHOLD, capStatus, FREE_NOT_IN_CATALOG, scanUsage, scanWasFree, collapseCoverPrintings, coverScanConfigStatus, coverScanModelFailure, coverScanOutcome, ownedCopiesFor, ownedCopyLabel, parseCoverExtraction, rankCoverCandidates, titleSimilarity } from "./coverScan.js";
+import { COVER_SCAN_SCHEMA, COVER_TITLE_SIMILARITY_THRESHOLD, capStatus, FREE_NOT_IN_CATALOG, scanUsage, scanWasFree, collapseCoverPrintings, coverScanConfigStatus, coverScanModelFailure, coverScanOutcome, ownedCopiesFor, ownedCopyLabel, parseCoverExtraction, rankCoverCandidates, assertedClueWords, scanResultHasIssue, titleSimilarity, versionClueMatch } from "./coverScan.js";
 import { extractCover } from "./coverScanClaude.js";
 import { baseIssueNumber } from "./coverMatch.js";
 
@@ -115,4 +115,69 @@ test("scans of books we don't have are free up to the daily ceiling", () => {
 test("free not-in-catalog scans never unlock past the cap", () => {
   assert.equal(capStatus(scanUsage(100, FREE_NOT_IN_CATALOG), false).allowed, false);
   assert.equal(capStatus(scanUsage(99, FREE_NOT_IN_CATALOG + 1), false).allowed, false);
+});
+
+// Live case 2026-11-20: a slabbed Mark Brooks virgin of Hulk: Smash Everything
+// #1 matched the regular edition, though GCD lists the virgin as its own version.
+const hulkSeries = [{ gcd_id: 230115, title: "Hulk: Smash Everything", year_start_cached: 2026, year_end_cached: 2026, resolved_publisher_cached: "Marvel" }];
+const hulkIssues = [
+  [2791431, null], [2792288, "Luciano Vecchio Cover"], [2792403, "Mark Brooks Cover"],
+  [2792404, "Paulo Siqueira Cover"], [2793021, "Adi Granov Foil Cover"], [2793022, "Mark Brooks Virgin Cover"],
+].map(([gcd_id, variant_name]) => ({ gcd_id, series_gcd_id: 230115, issue_number: "1", publication_date: "February 2026", variant_name, base_gcd_issue_id: 2791431 }));
+const hulkScan = (edition_clues, other_text = "") => ({ ...extracted, series_title: "Hulk Smash Everything", issue_number: "1", publisher: "Marvel", cover_year: null, edition_clues, other_text });
+const hulkPick = (scan, covers) => collapseCoverPrintings(rankCoverCandidates(scan, hulkSeries, hulkIssues), covers, scan)[0];
+
+test("cover clues pick the virgin variant they name", () => {
+  const pick = hulkPick(hulkScan(["Virgin variant cover (no trade dress, logo, or price visible)", "Artist signature chop for Mark Brooks visible at lower left", "Encased in a graded slab; label not visible"]));
+  assert.equal(pick.issue.gcd_id, 2793022);
+  assert.equal(pick.versionPicked, true);
+});
+test("an artist clue without 'virgin' picks the trade-dress cover", () => {
+  assert.equal(hulkPick(hulkScan(["Mark Brooks cover art"])).issue.gcd_id, 2792403);
+});
+test("no clue keeps the regular edition, even when a variant has a cover", () => {
+  const pick = hulkPick(hulkScan([]), new Map([[2792288, { storage_path: "x.jpg", source: "gcd_issue_id" }]]));
+  assert.equal(pick.issue.gcd_id, 2791431);
+  assert.equal(pick.versionPicked, false);
+});
+test("every version stays on the result, regular first", () => {
+  const pick = hulkPick(hulkScan([]));
+  assert.equal(pick.versions.length, 6);
+  assert.deepEqual(pick.versions[0], { gcd_issue_id: 2791431, name: "Regular edition" });
+  assert.ok(pick.versions.some((version) => version.name === "Mark Brooks Virgin Cover"));
+});
+test("two versions that fit equally well pick neither", () => {
+  const issues = [...hulkIssues, { ...hulkIssues[2], gcd_id: 2799999, variant_name: "Brooks Mark Cover" }];
+  const scan = hulkScan(["Mark Brooks cover"]);
+  assert.equal(collapseCoverPrintings(rankCoverCandidates(scan, hulkSeries, issues), new Map(), scan)[0].issue.gcd_id, 2791431);
+});
+test("version clues read ordinals both ways", () => {
+  assert.equal(versionClueMatch("Second Printing", { edition_clues: ["2nd printing"] }), 2);
+  assert.equal(versionClueMatch("2nd Printing Variant", { edition_clues: ["second printing"] }), 2);
+  assert.equal(versionClueMatch("Mark Brooks Virgin Cover", { edition_clues: ["Mark Brooks"] }), 0);
+});
+test("a scan result accepts its issue or any listed version, nothing else", () => {
+  const candidates = [{ gcd_issue_id: 2791431, versions: [{ gcd_issue_id: 2791431 }, { gcd_issue_id: 2793022 }] }];
+  assert.equal(scanResultHasIssue(candidates, 2793022), true);
+  assert.equal(scanResultHasIssue(candidates, "2791431"), true);
+  assert.equal(scanResultHasIssue(candidates, 44451), false);
+  assert.equal(scanResultHasIssue([{ gcd_issue_id: 5 }], 5), true);
+});
+test("hedged or two-sided edition clues never pick a version", () => {
+  // Real read-outs from past scans.
+  const words = (clues) => assertedClueWords({ edition_clues: clues, other_text: "" });
+  assert.equal(words(["$1.25 US / $1.50 CAN / UK 70p price box (direct/newsstand not determinable; no barcode visible)"]).has("newsstand"), false);
+  assert.equal(words(["Barcode in lower left corner suggests newsstand edition"]).has("newsstand"), false);
+  assert.equal(words(["Direct/newsstand: Spider-Man corner box"]).has("newsstand"), false);
+  assert.equal(words(["UPC barcode on front cover (newsstand edition)", "'Direct Edition' printed in corner box"]).has("newsstand"), false);
+  assert.equal(words(["Barcode in corner box (newsstand edition)"]).has("newsstand"), true);
+  assert.equal(words(["Virgin variant cover (no trade dress, logo, or price visible)"]).has("virgin"), true);
+  assert.equal(versionClueMatch("Newsstand", { edition_clues: ["Price box (direct/newsstand not distinguishable; no UPC visible)"] }), 0);
+});
+test("a printed Canadian price is not the Canadian price variant", () => {
+  // Real read-outs: 29e5b1a2 and ee02a428 landed on "Canadian" before this rule.
+  assert.equal(versionClueMatch("Canadian", { edition_clues: ["Canadian price $1.00 and U.K. 40p also printed in corner box"] }), 0);
+  assert.equal(versionClueMatch("UK Price Variant", { edition_clues: ["$1.25 US / UK 60p price box"] }), 0);
+  assert.equal(versionClueMatch("Canadian", { edition_clues: ["Canadian price variant (95¢ CAN only)"] }), 1);
+  assert.equal(versionClueMatch("Newsstand", { edition_clues: ["Barcode in UPC box, suggesting newsstand edition"] }), 0);
 });

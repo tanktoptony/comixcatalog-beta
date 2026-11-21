@@ -218,6 +218,8 @@ export function ScreenCapture({ asset, treatment = "push", focus, zoom = 1.12, c
 // tracks: [{ title, length }]; current: 1-based index of the lit track.
 export function TrackListCard({ asset, kicker, tracks = [], current }) {
   const e = useEntrance(0, 0, 2);
+  // Past 10 rows (Ep 009 lists 13) the type steps down so the list fits 1080.
+  const dense = tracks.length > 10;
   return (
     <AbsoluteFill>
       <Backdrop />
@@ -228,15 +230,17 @@ export function TrackListCard({ asset, kicker, tracks = [], current }) {
             <Panel asset={asset} width={560} height={560} fit="cover" />
           </div>
         )}
-        <div style={{ display: "flex", flexDirection: "column", gap: 6, minWidth: 760 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: dense ? 2 : 6, minWidth: 760 }}>
           {kicker && <div style={{ fontFamily: fonts.body, fontWeight: 700, fontSize: 26, letterSpacing: "0.2em", color: brand.gold, textTransform: "uppercase", marginBottom: 18 }}>{kicker}</div>}
           {tracks.map((t, i) => {
-            const lit = i + 1 === current;
+            // A row can carry its own number: "21:13" is track 23 after the silent tracks.
+            const n = t.n ?? i + 1;
+            const lit = n === current;
             const r = useEntrance(i + 1, 2, 2);
             return (
               <div key={i} style={{ display: "flex", alignItems: "baseline", gap: 24, opacity: (lit ? 1 : 0.38) * r, transform: `translateX(${(1 - r) * 24}px)` }}>
-                <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: 40, width: 56, textAlign: "right", color: lit ? brand.gold : brand.textMuted }}>{i + 1}</div>
-                <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: lit ? 62 : 44, lineHeight: 1.08, color: lit ? brand.gold : brand.text, textTransform: "uppercase", flex: 1 }}>{t.title}</div>
+                <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: dense ? 34 : 40, width: 56, textAlign: "right", color: lit ? brand.gold : brand.textMuted }}>{t.n === null ? "" : n}</div>
+                <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: lit ? (dense ? 52 : 62) : (dense ? 36 : 44), lineHeight: 1.08, color: lit ? brand.gold : brand.text, textTransform: "uppercase", flex: 1 }}>{t.title}</div>
                 <div style={{ fontFamily: fonts.body, fontWeight: 600, fontSize: 26, color: lit ? brand.gold : brand.textMuted, fontVariantNumeric: "tabular-nums" }}>{t.length}</div>
               </div>
             );

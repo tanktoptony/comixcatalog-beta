@@ -2,6 +2,7 @@
 import { NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase/service";
 import Papa from "papaparse";
+import { canonicalPublisher } from "@/lib/publisherNames";
 import { getAuthedUser } from "@/lib/authServer";
 import {
   normalizeKey,
@@ -177,7 +178,7 @@ export async function POST(req) {
 
         const series_title = String(row.series_title || "").trim();
         const issue_number = String(row.issue_number || "").trim();
-        const publisher_name = String(row.publisher || "").trim();
+        const publisher_name = canonicalPublisher(row.publisher);
         const release_year = row.release_year
           ? Number(row.release_year)
           : null;

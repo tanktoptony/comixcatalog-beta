@@ -12,6 +12,7 @@ import { toListing } from "@/lib/listingRow";
 import { publicCounts } from "@/lib/publicCounts";
 import { getIssueCollectors } from "@/lib/issueCollectors";
 import { getIssueReviews } from "@/lib/issueReviews";
+import { loadThread } from "@/lib/commentsData";
 import { buildPriceGuide } from "@/lib/priceGuide";
 
 // Server-side reads for pages that used to render empty and fetch their
@@ -159,7 +160,7 @@ async function computeIssuePageData(baseGcdId, editionGcdId, hasEditionColumns) 
   const editionIds = [...new Set(editionRows.map((row) => Number(row.gcd_id)).filter(Boolean))];
   if (!editionIds.includes(baseGcdId)) editionIds.unshift(baseGcdId);
 
-  const [detailsResult, listingsResult, compsResult, baseIssueResult, statsResult, collectors, reviews, guideResult, coversResult] = await Promise.all([
+  const [detailsResult, listingsResult, compsResult, baseIssueResult, statsResult, collectors, reviews, comments, guideResult, coversResult] = await Promise.all([
     supabase.from("gcd_issue_details").select("gcd_issue_id, on_sale_date, price, barcode, variant_name").in("gcd_issue_id", editionIds),
     supabase.from("marketplace_listings").select("id, collection_id, gcd_issue_id, series_title, issue_number, release_year, publisher, variant_label, cover_path, condition, grade_numeric, slab_company, price_cents, shipping_cents, accepts_offers, market_value, auto_market_value, seller_username, created_at").in("gcd_issue_id", editionIds).order("created_at", { ascending: false }).limit(200),
     supabase.from("market_comps").select("sold_price, sold_date, source").in("gcd_issue_id", editionIds).eq("source", "ebay-listed").order("sold_date", { ascending: false }).limit(200),
@@ -173,6 +174,12 @@ async function computeIssuePageData(baseGcdId, editionGcdId, hasEditionColumns) 
     }),
     getIssueReviews(supabase, baseGcdId).catch((error) => {
       console.error("issue reviews lookup failed:", error?.message ?? error);
+      return null;
+    }),
+    // Signed-out view of the comments (no viewer): the client refetches for
+    // signed-in members. Same rule as reviews: a failure never breaks the page.
+    loadThread(supabase, { targetType: "issue", targetId: String(baseGcdId), ownerId: null }, null).catch((error) => {
+      console.error("issue comments lookup failed:", error?.message ?? error);
       return null;
     }),
     // PriceCharting guide values (migration 0105). Service role only: the
@@ -224,6 +231,7 @@ async function computeIssuePageData(baseGcdId, editionGcdId, hasEditionColumns) 
     community: statsResult.error ? null : publicCounts(statsResult.data),
     collectors,
     reviews,
+    comments,
   };
 }
 

@@ -457,6 +457,10 @@ Your shelf shows a Collector feed under the wantlist, with Following and Everyon
 
 ## Engineering Reminders
 
+### Comments and notifications (November 2026)
+
+`comments` (migration 0114) hang off an issue (base gcd id as text), a list or a review, with one level of replies, soft delete (`deleted_at`; a deleted or blocked parent with replies shows as a placeholder) and a 15-minute edit window. Rules and tests: `src/lib/comments.js` (`npm run test:comments`); reads and target checks: `src/lib/commentsData.js`; routes `/api/comments` and `/api/comments/[id]` (100 per member per day, list or review owners can delete comments under their own). Issue and list pages server-render the signed-out thread so the text is in the HTML; issue comments are part of the cached issue data, so writes expire `issue:<base>`. Each new comment writes `notifications` rows (reply > mention > comment on your list or review, one per person, never across a block, never for a private list except to its owner); `/api/inbox-notifications` counts unread ones in the inbox badge and lists them as Activity on `/inbox`, and opening the inbox marks them read. The same table is meant for the notification bell (social plan step 8).
+
 ### Lists (November 2026)
 
 Curated lists use `collector_lists` and `collector_list_items`. Public URLs are `/u/<username>/lists/<slug>`; slugs stay stable after creation. Items always store the base issue in `base_gcd_issue_id`. Owners can see private lists, while everyone else can only see public lists owned by public profiles. Limits are 100 lists per member, 500 books per list, 100 characters per title, 1,000 per description, and 500 per item note.

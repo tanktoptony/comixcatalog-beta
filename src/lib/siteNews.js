@@ -8,6 +8,77 @@
 
 export const SITE_NEWS = [
   {
+    date: "2026-11-21",
+    title: "How rare is your badge?",
+    body: "Every badge on your badges page shows the share of collectors who have it, and anything under 10% gets a Rare tag. There are eight new secret badges too. We're not saying what they are.",
+  },
+  {
+    date: "2026-11-21",
+    title: "Comments",
+    body: "Talk about a book under its issue page, a list or a review. Replies and @mentions show up in your inbox.",
+  },
+  {
+    date: "2026-11-21",
+    title: "Lists",
+    body: "Make a list of books, a reading order, your favorite covers, anything, and share the link.",
+    href: "/lists",
+  },
+  {
+    date: "2026-11-21",
+    title: "Ratings and reviews",
+    body: "Rate any issue from one to five stars and say why. Variants and newsstand copies share their issue's reviews.",
+  },
+  {
+    date: "2026-11-20",
+    title: "A feed of what collectors are adding",
+    body: "Your shelf has a Collector feed: what the people you follow added, wanted, listed and finished. Switch to Everyone to see the whole site.",
+  },
+  {
+    date: "2026-11-20",
+    title: "Your wantlist, priced",
+    body: "Your shelf shows your wantlist with guide prices next to each book, and any copy another collector has listed for sale.",
+  },
+  {
+    date: "2026-11-20",
+    title: "Which version is that copy?",
+    body: "In your library, switch a copy to the newsstand, a later printing or a variant cover by tapping its cover or scanning its barcode. On issue pages, picking a variant switches the whole page to that edition.",
+    href: "/library",
+  },
+  {
+    date: "2026-11-20",
+    title: "Marketplace listings with the details",
+    body: "Each listing shows the guide value and how far under it the price is, key issue notes and the seller's record, with Buy now right in the browse rows.",
+    href: "/marketplace",
+  },
+  {
+    date: "2026-11-19",
+    title: "Values from a real price guide",
+    body: "Collection values now come from PriceCharting's guide, which is built from sold listings and matched to each copy's grade. Issue pages show the guide too.",
+  },
+  {
+    date: "2026-11-19",
+    title: "Trade matches",
+    body: "Mark copies Open to trade and the Matches page finds collectors who have what you want and want what you have.",
+    href: "/matches",
+  },
+  {
+    date: "2026-11-19",
+    title: "Who has it",
+    body: "Issue pages show which collectors have the book, want it or are selling it, and you can message them about that exact book.",
+  },
+  {
+    date: "2026-11-19",
+    title: "Messages, no limits",
+    body: "Messages have no send caps anymore, and you can see when yours was delivered and read.",
+    href: "/inbox",
+  },
+  {
+    date: "2026-11-19",
+    title: "Export everything",
+    body: "The PDF and CSV exports cover your whole collection now, and the PDF runs in series order.",
+    href: "/library",
+  },
+  {
     date: "2026-11-12",
     title: "Your photos, right way up",
     body: "Photos you took of your own copies were coming out sideways in the insurance PDF. They print upright now, and covers no longer sit on top of the titles.",

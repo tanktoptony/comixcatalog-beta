@@ -3,6 +3,10 @@ import ListCard from "@/components/lists/ListCard";
 import styles from "@/components/lists/Lists.module.css";
 import { getRecentPublicLists } from "@/lib/listsData";
 
+// Read per request: the list changes with every member edit, and the build
+// has no database key to prerender it with.
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Comic lists",
   description: "Collectors' picks, reading orders and must-owns.",

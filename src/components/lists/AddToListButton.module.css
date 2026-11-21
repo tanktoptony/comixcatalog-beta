@@ -1,0 +1,79 @@
+.wrap {
+  position: relative;
+  display: grid;
+}
+
+.button {
+  min-height: 42px;
+  padding: 0.65rem 0.8rem;
+  color: inherit;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.button:focus-visible,
+.row:focus-visible,
+.newInput:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.menu {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 6px);
+  right: 0;
+  left: 0;
+  display: grid;
+  gap: 0.35rem;
+  min-width: 250px;
+  padding: 0.55rem;
+  background: #0b1321;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6);
+}
+
+.row {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+  padding: 0.55rem;
+  color: #fff;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.row:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.newForm {
+  display: grid;
+  gap: 0.4rem;
+  padding-top: 0.45rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.newInput {
+  min-width: 0;
+  padding: 0.55rem;
+  color: #fff;
+  background: #050a13;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.error {
+  padding: 0.3rem;
+  color: #fca5a5;
+  font-size: 0.8rem;
+}

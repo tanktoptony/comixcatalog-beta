@@ -3,6 +3,7 @@ import { join } from "node:path";
 import { loadCollectionCard } from "@/lib/shareCards/loadCollection";
 import { possessive } from "@/lib/shareCards/collectionStats";
 import { loadFoundingCard } from "@/lib/shareCards/loadFounding";
+import { loadListCard } from "@/lib/shareCards/loadList";
 
 // Share card registry. Each entry is { load(supabase, userId), render(data) }
 // and owns its own layout. Adding "My Wantlist", "Run Completed", etc. later
@@ -13,6 +14,7 @@ import { loadFoundingCard } from "@/lib/shareCards/loadFounding";
 // bar) of a Story, so everything that matters sits between y≈260 and y≈1660.
 
 export const CARD_SIZE = { width: 1080, height: 1920 };
+export const LIST_SIZE = { width: 1080, height: 1350 };
 
 // Satori's built-in font has a single weight, so every "bold" renders thin
 // and the card reads flat. These are bundled instead: Big Shoulders is the
@@ -345,6 +347,115 @@ function FoundingCard({ number, username, covers }) {
   );
 }
 
+// The cover area is 952 x 780 at 1080 x 1350. Covers grow to fill it, so a
+// 3-book list gets three big covers instead of one small row.
+const LIST_AREA = { width: 952, height: 780 };
+const LIST_GAP = 14;
+const COVER_RATIO = 0.66;
+
+export function listCoverSize(count) {
+  const n = Math.max(1, Math.min(9, count));
+  const cols = n <= 3 ? n : n === 4 ? 2 : 3;
+  const rows = Math.ceil(n / cols);
+  const cellWidth = (LIST_AREA.width - LIST_GAP * (cols - 1)) / cols;
+  const cellHeight = (LIST_AREA.height - LIST_GAP * (rows - 1)) / rows;
+  const width = Math.floor(Math.min(cellWidth, cellHeight * COVER_RATIO));
+  return { width, height: Math.floor(width / COVER_RATIO) };
+}
+
+function ListCard({ title, username, count, covers }) {
+  const size = listCoverSize(covers.length);
+  return (
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        padding: 64,
+        color: INK,
+        fontFamily: "Inter",
+        background: `linear-gradient(145deg, ${NAVY_DEEP}, ${NAVY})`,
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          fontSize: 28,
+          fontWeight: 800,
+          letterSpacing: 6,
+          color: GOLD,
+        }}
+      >
+        COMIXCATALOG LIST
+      </div>
+      <div
+        style={{
+          display: "flex",
+          maxHeight: 220,
+          marginTop: 28,
+          overflow: "hidden",
+          fontFamily: "Display",
+          fontSize: titleSize(title),
+          fontWeight: 800,
+          lineHeight: 0.9,
+        }}
+      >
+        {title}
+      </div>
+      <div
+        style={{ display: "flex", marginTop: 18, color: MUTED, fontSize: 28 }}
+      >
+        A list by @{username} · {count} books
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          alignContent: "center",
+          gap: LIST_GAP,
+          height: LIST_AREA.height,
+          marginTop: 38,
+          overflow: "hidden",
+        }}
+      >
+        {covers.map((src, index) => (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            key={index}
+            src={src}
+            alt=""
+            width={size.width}
+            height={size.height}
+            style={{
+              width: size.width,
+              height: size.height,
+              objectFit: "cover",
+              borderRadius: 8,
+              boxShadow: "0 18px 40px rgba(0,0,0,.45)",
+            }}
+          />
+        ))}
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginTop: "auto",
+          paddingTop: 24,
+          fontSize: 28,
+          fontWeight: 800,
+          borderTop: "2px solid rgba(244,208,63,.35)",
+        }}
+      >
+        <span>@{username}</span>
+        <span style={{ color: GOLD }}>comixcatalog.com</span>
+      </div>
+    </div>
+  );
+}
+
 export const TEMPLATES = {
   collection: {
     load: loadCollectionCard,
@@ -360,5 +471,13 @@ export const TEMPLATES = {
     emptyMessage: "Only Founding Collectors have a pass to share.",
     size: FOUNDING_SIZE,
     filename: "comixcatalog-founding-collector.png",
+  },
+  list: {
+    load: loadListCard,
+    render: (data) => <ListCard {...data} />,
+    isEmpty: (data) => !data.found,
+    emptyMessage: "List not found.",
+    size: LIST_SIZE,
+    filename: "comixcatalog-list.png",
   },
 };

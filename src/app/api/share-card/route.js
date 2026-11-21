@@ -25,7 +25,8 @@ export async function GET(req) {
     return NextResponse.json({ error: "Sign in to make a share card." }, { status: 401 });
   }
 
-  const type = new URL(req.url).searchParams.get("type") || "collection";
+  const searchParams = new URL(req.url).searchParams;
+  const type = searchParams.get("type") || "collection";
   const template = Object.hasOwn(TEMPLATES, type) ? TEMPLATES[type] : null;
   if (!template) {
     return NextResponse.json({ error: "Unknown card type." }, { status: 400 });
@@ -35,7 +36,7 @@ export async function GET(req) {
 
   let data;
   try {
-    data = await template.load(supabase, user.id);
+    data = await template.load(supabase, user.id, searchParams);
   } catch (err) {
     console.error("share-card load failed", { type, message: err?.message });
     return NextResponse.json({ error: "Couldn't load your collection. Try again." }, { status: 500 });

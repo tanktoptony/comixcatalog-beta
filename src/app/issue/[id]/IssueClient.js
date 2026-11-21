@@ -21,6 +21,7 @@ import { conditionLabel, contactLabel, formatValue, offerHref } from "@/lib/mark
 import Avatar from "@/components/Avatar";
 import { cleanVariantCaption, matchVariantCovers } from "@/lib/variantCovers";
 import { coverThumb } from "@/lib/coverThumb";
+import AddToListButton from "@/components/lists/AddToListButton";
 import IssueReviews from "@/components/issue/IssueReviews";
 
 function CollectorRow({ label, bucket, actionLabel, actionKind, issueId, viewerId }) {
@@ -692,6 +693,7 @@ export default function IssueClient({ initialIssue = null }) {
               {user && inWishlist && <><span className="pill pill-wishlist">On wantlist</span><button className="add-comic-btn" onClick={() => runMutation(() => removeFromCollection(libraryId, { scope: "wishlist" }))}>Remove from wantlist</button></>}
               {issue.listings?.length > 0 && <a href="#forsale" className="add-comic-btn">Buy a copy</a>}
               {issue.source === "gcd" && <Link href="/library?tab=collection" className="add-comic-btn">Sell a copy</Link>}
+              {issue.source === "gcd" && <AddToListButton issueId={issue.base_gcd_issue_id} returnPath={`/issue/${id}`} />}
               {mutationError && <div className="issue-action-error">{mutationError}</div>}
               <button className="issue-copy-link" onClick={() => navigator.clipboard?.writeText(window.location.href)}>Copy Link</button>
               </div>

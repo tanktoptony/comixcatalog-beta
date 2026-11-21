@@ -457,6 +457,10 @@ Your shelf shows a Collector feed under the wantlist, with Following and Everyon
 
 ## Engineering Reminders
 
+### Lists (November 2026)
+
+Curated lists use `collector_lists` and `collector_list_items`. Public URLs are `/u/<username>/lists/<slug>`; slugs stay stable after creation. Items always store the base issue in `base_gcd_issue_id`. Owners can see private lists, while everyone else can only see public lists owned by public profiles. Limits are 100 lists per member, 500 books per list, 100 characters per title, 1,000 per description, and 500 per item note.
+
 - **Activity and comic-add security:** `/api/activity` reads with the service role, so `src/lib/activityFeed.js` is the only privacy gate for the homepage feed (the shelf’s Collector feed reuses it through `src/lib/feed/feedEvents.js`); `POST /api/comics` derives `created_by` from the bearer token, never the form.
 - **API routes must be API routes.** Don't let Next.js page/component patterns bleed into `/api/` handlers — this has burned us before.
 - **Never fetch more records than needed.** The 500-record-to-find-one bug is fixed — don't reintroduce patterns like it.

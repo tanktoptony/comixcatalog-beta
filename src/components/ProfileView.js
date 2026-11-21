@@ -16,6 +16,8 @@ import ReportButton from "@/components/ReportButton";
 import ProfileFollow from "@/components/ProfileFollow";
 import InviteButton from "@/components/InviteButton";
 import ProfileBadgeRow from "@/components/ProfileBadgeRow";
+import ListCard from "@/components/lists/ListCard";
+import listStyles from "@/components/lists/Lists.module.css";
 
 function formatJoinDate(iso) {
   if (!iso) return null;
@@ -356,6 +358,24 @@ export default function ProfileView({ data, isOwner = false }) {
           server-side `currentUser` is always null and the banner would
           render for signed-in viewers too. */}
       <ProfileAnonCta />
+
+      {data.publicLists?.length > 0 && (
+        <section>
+          <div className="profile-section-head">
+            <h2>Lists</h2>
+            <Link href={`/u/${username}/lists`}>See all</Link>
+          </div>
+          <div className={listStyles.grid}>
+            {data.publicLists.map((list) => (
+              <ListCard
+                key={list.id}
+                list={list}
+                username={username}
+              />
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* BODY: tabs + sidebar */}
       <div className="profile-body">

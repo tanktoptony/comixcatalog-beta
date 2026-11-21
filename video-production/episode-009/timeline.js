@@ -256,7 +256,7 @@ const CUES = [
   ["He's the ghost who's been arguing with him the whole time", duo("claudio", "Claudio", "v-coheed", "Coheed")],
   ["And it brings us back to the dog", art("apollo-panel", undefined, undefined, { treatment: "slowPull" })],
   ["When Claudio finishes telling Apollo everything", pull(K(1))],
-  ["Apollo tries to follow him", art("newo", "Newo's house")],
+  ["Apollo tries to follow him", art("newo", "Newo")],
   ["His last line in the comic is", lyric("“Good Apollo, I'm Burning Star IV”", "Claudio, the comic's last line", K(12))],
   ["Now flip open the album booklet", lore("iksse-booklet")],
   ["there's one extra line that isn't sung", lyric("“My dearest Apollo, I'll be Burning Star IV”", "The album booklet", ALB.iks)],

@@ -273,7 +273,7 @@ const CUES = [
   ["The twelve-issue comic series arrived years later", grid(ALL, { columns: 6, title: "The Amory Wars: In Keeping Secrets of Silent Earth: 3", sub: "May 2010 to June 2011" })],
   ["It was published by", cap(K(1), "BOOM! Studios with Evil Ink", "Written by Claudio Sanchez and Peter David")],
   ["Chris Burnham handled early artwork", cap(K(2), "Chris Burnham", "Art on the early issues")],
-  ["with other artists including", pair(K(6), "#6 · Kyle Strahm", K(8), "#8 · Aaron Kuder")],
+  ["with other artists including", grid([K(1), K(6), K(8), K(12)], { title: "Kyle Strahm on #6 · Aaron Kuder from #8" })],
   ["I was buying the individual issues as they came out", grid(ALL, { columns: 6 })],
   ["I've still got the whole run", fan(FAN)],
   ["And I remember thinking the books felt", cover(K(2))],

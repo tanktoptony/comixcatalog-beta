@@ -262,7 +262,10 @@ def main():
     gain *= np.clip(tt / fade_in, 0, 1) * np.clip((duration - tt) / fade_out, 0, 1)
     duck = np.ones(n, np.float32)
     ramp = 0.3
-    for a, b in [(sting_at, sting_at + STING)] + [(c["at"] - CLIP_PAD + 0.1, c["at"] + c["dur"]) for c in plan_clips]:
+    # The bed reaches zero exactly as a clip starts (the clip fades in over it)
+    # and comes back up while the sting's tail is still sounding, so neither
+    # edge leaves digital silence (qc flagged 350 ms holes before each clip).
+    for a, b in [(sting_at, sting_at + STING - 0.5)] + [(c["at"] + 0.06, c["at"] + c["dur"] - 0.2) for c in plan_clips]:
         down = np.clip((a - tt) / ramp, 0, 1)
         up = np.clip((tt - b) / ramp, 0, 1)
         duck = np.minimum(duck, np.maximum(down, up))

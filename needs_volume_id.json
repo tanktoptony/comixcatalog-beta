@@ -577,15 +577,6 @@
     "retry_after": "2026-09-21T14:00:38.554046+00:00"
   },
   {
-    "name": "Gen 13 / Generation X",
-    "publisher": "Image Comics",
-    "year": 1997,
-    "reason": "publisher_mismatch",
-    "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554049+00:00"
-  },
-  {
     "name": "Gobbledygook",
     "publisher": "Mirage Studios",
     "year": 1986,
@@ -11837,21 +11828,21 @@
     "reason": "multiple_same_start_year_tied",
     "candidates": [
       {
-        "id": 69786,
+        "id": 61317,
         "name": "Avengers: The Enemy Within",
         "publisher": "Marvel",
         "start_year": 2013
       },
       {
-        "id": 61317,
+        "id": 69786,
         "name": "Avengers: The Enemy Within",
         "publisher": "Marvel",
         "start_year": 2013
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-21T04:02:11.423980+00:00",
-    "retry_after": "2026-11-22T04:02:11.423995+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-22T04:02:38.411448+00:00",
+    "retry_after": "2026-11-25T04:02:38.411464+00:00",
     "search_hydrated": true
   },
   {
@@ -43446,8 +43437,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-22T03:03:16.298624+00:00",
-    "retry_after": "2026-11-23T03:03:16.298628+00:00",
+    "last_attempt_at": "2026-11-22T04:03:57.880569+00:00",
+    "retry_after": "2026-11-23T04:03:57.880574+00:00",
     "search_hydrated": true
   },
   {
@@ -78755,9 +78746,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T03:11:52.199377+00:00",
-    "retry_after": "2026-11-22T03:11:52.199393+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T04:09:35.916843+00:00",
+    "retry_after": "2026-12-22T04:09:35.916858+00:00",
     "search_hydrated": true
   },
   {
@@ -78791,9 +78782,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T03:11:53.455239+00:00",
-    "retry_after": "2026-11-22T03:11:53.455256+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T04:09:36.888678+00:00",
+    "retry_after": "2026-12-22T04:09:36.888693+00:00",
     "search_hydrated": true
   },
   {
@@ -78809,9 +78800,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T03:11:53.567000+00:00",
-    "retry_after": "2026-11-22T03:11:53.567014+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T04:09:36.954751+00:00",
+    "retry_after": "2026-12-22T04:09:36.954765+00:00",
     "search_hydrated": true
   },
   {
@@ -78820,9 +78811,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T03:11:52.199435+00:00",
-    "retry_after": "2026-11-22T03:11:52.199440+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T04:09:35.916900+00:00",
+    "retry_after": "2026-12-22T04:09:35.916905+00:00",
     "search_hydrated": true
   },
   {
@@ -78831,9 +78822,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T03:11:52.199456+00:00",
-    "retry_after": "2026-11-22T03:11:52.199459+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T04:09:35.916921+00:00",
+    "retry_after": "2026-12-22T04:09:35.916923+00:00",
     "search_hydrated": true
   },
   {
@@ -78849,9 +78840,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T03:11:53.659284+00:00",
-    "retry_after": "2026-11-22T03:11:53.659300+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T04:09:37.021388+00:00",
+    "retry_after": "2026-12-22T04:09:37.021408+00:00",
     "search_hydrated": true
   },
   {
@@ -78860,9 +78851,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T03:11:52.199474+00:00",
-    "retry_after": "2026-11-22T03:11:52.199476+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T04:09:35.916939+00:00",
+    "retry_after": "2026-12-22T04:09:35.916941+00:00",
     "search_hydrated": true
   },
   {
@@ -78884,9 +78875,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T03:11:52.199511+00:00",
-    "retry_after": "2026-11-22T03:11:52.199514+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T04:09:35.916977+00:00",
+    "retry_after": "2026-12-22T04:09:35.916980+00:00",
     "search_hydrated": true
   },
   {
@@ -78906,9 +78897,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T03:11:52.199532+00:00",
-    "retry_after": "2026-11-22T03:11:52.199535+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T04:09:35.916997+00:00",
+    "retry_after": "2026-12-22T04:09:35.916999+00:00",
     "search_hydrated": true
   },
   {
@@ -97216,8 +97207,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-22T03:03:16.298379+00:00",
-    "retry_after": "2026-11-23T03:03:16.298396+00:00",
+    "last_attempt_at": "2026-11-22T04:03:57.880310+00:00",
+    "retry_after": "2026-11-23T04:03:57.880326+00:00",
     "search_hydrated": true
   },
   {
@@ -97339,9 +97330,9 @@
     "year": 1985,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-21T03:48:20.664907+00:00",
-    "retry_after": "2026-11-22T03:48:20.664922+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-22T04:02:14.275628+00:00",
+    "retry_after": "2026-11-25T04:02:14.275633+00:00",
     "search_hydrated": true
   },
   {
@@ -97369,9 +97360,9 @@
         "start_year": 2001
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-21T03:51:04.616509+00:00",
-    "retry_after": "2026-11-22T03:51:04.616523+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-22T04:02:38.411512+00:00",
+    "retry_after": "2026-11-25T04:02:38.411516+00:00",
     "search_hydrated": true
   },
   {
@@ -98964,6 +98955,76 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-22T03:07:12.672952+00:00",
     "retry_after": "2026-11-23T03:07:12.672968+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Fathom",
+    "publisher": "Image Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18057,
+        "name": "Fathom",
+        "publisher": "Aspen MLT",
+        "start_year": 1998
+      },
+      {
+        "id": 119140,
+        "name": "Fathom",
+        "publisher": "Aspen MLT",
+        "start_year": 2019
+      },
+      {
+        "id": 127354,
+        "name": "Fathom",
+        "publisher": "JuniorPress BV",
+        "start_year": 1999
+      },
+      {
+        "id": 111667,
+        "name": "Fathom",
+        "publisher": "Aspen MLT",
+        "start_year": 2018
+      },
+      {
+        "id": 3904,
+        "name": "Fathom",
+        "publisher": "Comico",
+        "start_year": 1987
+      },
+      {
+        "id": 4852,
+        "name": "Fathom",
+        "publisher": "Comico",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T04:02:59.595832+00:00",
+    "retry_after": "2026-11-23T04:02:59.595836+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Amazing Spider-Man Annual #5 [JC Penney Marvel Vintage Pack]",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T04:09:47.787720+00:00",
+    "retry_after": "2026-11-23T04:09:47.787739+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Kat Who Walked in Beauty: The Panoramic Dailies of 1920",
+    "publisher": "Fantagraphics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T04:09:47.787763+00:00",
+    "retry_after": "2026-11-23T04:09:47.787767+00:00",
     "search_hydrated": true
   }
 ]

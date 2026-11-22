@@ -76,6 +76,7 @@
 .username { min-width: 0; overflow: hidden; color: var(--cc-gold-soft, #ecd48c); font-size: 0.76rem; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
 
 .setting { display: flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 52px; }
+.setting + .setting { margin-top: 8px; }
 .settingCopy { min-width: 0; }
 .settingLabel { font-size: 0.9rem; font-weight: 750; line-height: 1.3; cursor: pointer; }
 .settingHelp { margin: 4px 0 0; font-size: 0.76rem; }

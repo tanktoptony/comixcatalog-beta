@@ -3134,9 +3134,9 @@
     "year": 1989,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-19T21:05:16.695652+00:00",
-    "retry_after": "2026-11-22T21:05:16.695668+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-22T21:06:15.095628+00:00",
+    "retry_after": "2026-11-29T21:06:15.095647+00:00",
     "search_hydrated": true
   },
   {
@@ -80606,9 +80606,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T20:10:32.692009+00:00",
-    "retry_after": "2026-11-22T20:10:32.692027+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T21:12:41.667346+00:00",
+    "retry_after": "2026-12-22T21:12:41.667362+00:00",
     "search_hydrated": true
   },
   {
@@ -80624,9 +80624,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T19:11:12.038608+00:00",
-    "retry_after": "2026-11-22T19:11:12.038620+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T21:12:43.353954+00:00",
+    "retry_after": "2026-12-22T21:12:43.353970+00:00",
     "search_hydrated": true
   },
   {
@@ -80642,9 +80642,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T19:11:12.264067+00:00",
-    "retry_after": "2026-11-22T19:11:12.264082+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T21:12:43.597019+00:00",
+    "retry_after": "2026-12-22T21:12:43.597036+00:00",
     "search_hydrated": true
   },
   {
@@ -80660,9 +80660,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T20:10:34.469124+00:00",
-    "retry_after": "2026-11-22T20:10:34.469140+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T21:12:43.783595+00:00",
+    "retry_after": "2026-12-22T21:12:43.783611+00:00",
     "search_hydrated": true
   },
   {
@@ -80678,9 +80678,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T20:10:34.620775+00:00",
-    "retry_after": "2026-11-22T20:10:34.620791+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T21:12:43.888761+00:00",
+    "retry_after": "2026-12-22T21:12:43.888777+00:00",
     "search_hydrated": true
   },
   {
@@ -80696,9 +80696,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T20:10:34.620825+00:00",
-    "retry_after": "2026-11-22T20:10:34.620827+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T21:12:43.888818+00:00",
+    "retry_after": "2026-12-22T21:12:43.888821+00:00",
     "search_hydrated": true
   },
   {
@@ -80707,9 +80707,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T20:10:32.692071+00:00",
-    "retry_after": "2026-11-22T20:10:32.692073+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T21:12:41.667454+00:00",
+    "retry_after": "2026-12-22T21:12:41.667466+00:00",
     "search_hydrated": true
   },
   {
@@ -80749,9 +80749,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T20:10:34.620846+00:00",
-    "retry_after": "2026-11-22T20:10:34.620848+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T21:12:45.750915+00:00",
+    "retry_after": "2026-12-22T21:12:45.750930+00:00",
     "search_hydrated": true
   },
   {
@@ -98706,6 +98706,71 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-22T20:13:22.471971+00:00",
     "retry_after": "2026-11-23T20:13:22.471986+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Darkham Vale",
+    "publisher": "Bamboo Édition",
+    "year": 2007,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37336,
+        "name": "Darkham Vale",
+        "publisher": "APComics",
+        "start_year": 2004
+      },
+      {
+        "id": 37335,
+        "name": "Darkham Vale",
+        "publisher": "APComics",
+        "start_year": 2003
+      },
+      {
+        "id": 74405,
+        "name": "Darkham Vale",
+        "publisher": "Arcana Studio",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T21:06:41.435850+00:00",
+    "retry_after": "2026-11-23T21:06:41.435867+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Action: Spider-Man",
+    "publisher": "IDW Publishing",
+    "year": 2018,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 124930,
+        "name": "Marvel Action: Spider-Man",
+        "publisher": "IDW Publishing",
+        "start_year": 2020
+      },
+      {
+        "id": 134991,
+        "name": "Marvel Action: Spider-Man",
+        "publisher": "IDW Publishing",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T21:06:41.435949+00:00",
+    "retry_after": "2026-11-23T21:06:41.435954+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Strawberry Shortcake Funko Universe",
+    "publisher": "IDW Publishing",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T21:12:55.196447+00:00",
+    "retry_after": "2026-11-23T21:12:55.196463+00:00",
     "search_hydrated": true
   }
 ]

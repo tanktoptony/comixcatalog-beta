@@ -43392,7 +43392,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43410,8 +43410,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-22T16:10:16.428913+00:00",
-    "retry_after": "2026-11-23T16:10:16.428918+00:00",
+    "last_attempt_at": "2026-11-22T19:04:37.333970+00:00",
+    "retry_after": "2026-11-23T19:04:37.333973+00:00",
     "search_hydrated": true
   },
   {
@@ -80338,9 +80338,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T18:11:13.541142+00:00",
-    "retry_after": "2026-11-22T18:11:13.541146+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T19:11:40.737756+00:00",
+    "retry_after": "2026-12-22T19:11:40.737762+00:00",
     "search_hydrated": true
   },
   {
@@ -80410,9 +80410,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T18:11:15.127574+00:00",
-    "retry_after": "2026-11-22T18:11:15.127589+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T19:11:42.589740+00:00",
+    "retry_after": "2026-12-22T19:11:42.589751+00:00",
     "search_hydrated": true
   },
   {
@@ -80422,21 +80422,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 131983,
+        "id": 129774,
         "name": "Batman: Three Jokers",
         "publisher": "DC Comics",
         "start_year": 2020
       },
       {
-        "id": 129774,
+        "id": 131983,
         "name": "Batman: Three Jokers",
         "publisher": "DC Comics",
         "start_year": 2020
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T18:11:13.541182+00:00",
-    "retry_after": "2026-11-22T18:11:13.541186+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T19:11:40.737803+00:00",
+    "retry_after": "2026-12-22T19:11:40.737807+00:00",
     "search_hydrated": true
   },
   {
@@ -80445,9 +80445,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T18:11:13.541202+00:00",
-    "retry_after": "2026-11-22T18:11:13.541205+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T19:11:40.737826+00:00",
+    "retry_after": "2026-12-22T19:11:40.737829+00:00",
     "search_hydrated": true
   },
   {
@@ -80469,9 +80469,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T18:11:13.541250+00:00",
-    "retry_after": "2026-11-22T18:11:13.541253+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T19:11:40.737883+00:00",
+    "retry_after": "2026-12-22T19:11:40.737887+00:00",
     "search_hydrated": true
   },
   {
@@ -80491,9 +80491,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T18:11:13.541268+00:00",
-    "retry_after": "2026-11-22T18:11:13.541271+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T19:11:40.737905+00:00",
+    "retry_after": "2026-12-22T19:11:40.737908+00:00",
     "search_hydrated": true
   },
   {
@@ -95541,9 +95541,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-19T19:05:05.681828+00:00",
-    "retry_after": "2026-11-22T19:05:05.681830+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-22T19:11:40.737529+00:00",
+    "retry_after": "2026-11-29T19:11:40.737545+00:00",
     "search_hydrated": true
   },
   {
@@ -98504,6 +98504,195 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-22T18:14:01.023127+00:00",
     "retry_after": "2026-11-23T18:14:01.023131+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Revolver",
+    "publisher": "Renegade Press",
+    "year": 1985,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 38796,
+        "name": "Revolver",
+        "publisher": "Fleetway",
+        "start_year": 1990
+      },
+      {
+        "id": 34402,
+        "name": "Revolver",
+        "publisher": "DC Comics",
+        "start_year": 2010
+      },
+      {
+        "id": 152286,
+        "name": "Revolver",
+        "publisher": "Norma Editorial",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T19:02:21.876965+00:00",
+    "retry_after": "2026-11-23T19:02:21.876981+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Shazam: The New Beginning",
+    "publisher": "DC Comics",
+    "year": 1987,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T19:02:21.877045+00:00",
+    "retry_after": "2026-11-23T19:02:21.877050+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Shock Therapy",
+    "publisher": "Brave New Words",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36630,
+        "name": "Shock Therapy",
+        "publisher": "Harrier",
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T19:04:37.333845+00:00",
+    "retry_after": "2026-11-23T19:04:37.333859+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Statics",
+    "publisher": "Jeffrey Lewis",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 142337,
+        "name": "Statics",
+        "publisher": "Fantagraphics",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T19:04:37.333890+00:00",
+    "retry_after": "2026-11-23T19:04:37.333894+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Official Doom Patrol Index",
+    "publisher": "Independent Comics Group",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23428,
+        "name": "The Official Doom Patrol Index",
+        "publisher": "ICG",
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T19:04:37.333918+00:00",
+    "retry_after": "2026-11-23T19:04:37.333921+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cable TV",
+    "publisher": "Entity-Parody",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22957,
+        "name": "Cable TV",
+        "publisher": "Express Publications",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T19:04:37.333943+00:00",
+    "retry_after": "2026-11-23T19:04:37.333946+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Creed/Teenage Mutant Ninja Turtles",
+    "publisher": "Lightning Comics [1990s]",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 33473,
+        "name": "CreeD/Teenage Mutant Ninja Turtles",
+        "publisher": "Lightning Comics",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T19:04:44.236752+00:00",
+    "retry_after": "2026-11-23T19:04:44.236769+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vampi Digital Preview",
+    "publisher": "ParaGraphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48954,
+        "name": "Vampi Digital Preview",
+        "publisher": "Anarchy Studios",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T19:04:44.236885+00:00",
+    "retry_after": "2026-11-23T19:04:44.236889+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vampirella: Hell on Earth Battlebook: Streets of Fire",
+    "publisher": "BattleBooks Inc.",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22057,
+        "name": "Vampirella: Hell on Earth Battlebook: Streets of Fire",
+        "publisher": "Battlebooks Incorporated",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T19:04:44.236917+00:00",
+    "retry_after": "2026-11-23T19:04:44.236920+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gridiron",
+    "publisher": "Le Duc Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T19:05:02.283061+00:00",
+    "retry_after": "2026-11-23T19:05:02.283076+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Meanwhile... A Biography of Milton Caniff",
+    "publisher": "Fantagraphics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T19:11:53.269282+00:00",
+    "retry_after": "2026-11-23T19:11:53.269298+00:00",
     "search_hydrated": true
   }
 ]

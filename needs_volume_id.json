@@ -43428,26 +43428,26 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "publisher": "Aardvark-Vanaheim Inc.",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
-      {
-        "id": 2930,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 1977
-      },
       {
         "id": 116293,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 2019
+      },
+      {
+        "id": 2930,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 1977
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-22T02:02:12.056672+00:00",
-    "retry_after": "2026-11-23T02:02:12.056684+00:00",
+    "last_attempt_at": "2026-11-22T03:03:16.298624+00:00",
+    "retry_after": "2026-11-23T03:03:16.298628+00:00",
     "search_hydrated": true
   },
   {
@@ -78634,9 +78634,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T02:11:36.871413+00:00",
-    "retry_after": "2026-11-22T02:11:36.871431+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T03:07:02.643662+00:00",
+    "retry_after": "2026-12-22T03:07:02.643679+00:00",
     "search_hydrated": true
   },
   {
@@ -78645,9 +78645,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T02:11:36.871456+00:00",
-    "retry_after": "2026-11-22T02:11:36.871461+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T03:07:02.643705+00:00",
+    "retry_after": "2026-12-22T03:07:02.643709+00:00",
     "search_hydrated": true
   },
   {
@@ -78656,9 +78656,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T02:11:36.871478+00:00",
-    "retry_after": "2026-11-22T02:11:36.871481+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T03:07:02.643726+00:00",
+    "retry_after": "2026-12-22T03:07:02.643729+00:00",
     "search_hydrated": true
   },
   {
@@ -78667,9 +78667,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T02:11:36.871495+00:00",
-    "retry_after": "2026-11-22T02:11:36.871497+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T03:07:02.643744+00:00",
+    "retry_after": "2026-12-22T03:07:02.643747+00:00",
     "search_hydrated": true
   },
   {
@@ -78678,9 +78678,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T02:11:36.871510+00:00",
-    "retry_after": "2026-11-22T02:11:36.871512+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T03:07:02.643760+00:00",
+    "retry_after": "2026-12-22T03:07:02.643763+00:00",
     "search_hydrated": true
   },
   {
@@ -78689,9 +78689,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T02:11:36.871525+00:00",
-    "retry_after": "2026-11-22T02:11:36.871528+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T03:07:02.643777+00:00",
+    "retry_after": "2026-12-22T03:07:02.643779+00:00",
     "search_hydrated": true
   },
   {
@@ -78733,9 +78733,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T02:11:36.871555+00:00",
-    "retry_after": "2026-11-22T02:11:36.871557+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T03:07:02.643825+00:00",
+    "retry_after": "2026-12-22T03:07:02.643829+00:00",
     "search_hydrated": true
   },
   {
@@ -78744,9 +78744,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T02:11:36.871569+00:00",
-    "retry_after": "2026-11-22T02:11:36.871571+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T03:07:02.643842+00:00",
+    "retry_after": "2026-12-22T03:07:02.643845+00:00",
     "search_hydrated": true
   },
   {
@@ -78773,9 +78773,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T02:11:37.784038+00:00",
-    "retry_after": "2026-11-22T02:11:37.784051+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T03:07:04.060332+00:00",
+    "retry_after": "2026-12-22T03:07:04.060348+00:00",
     "search_hydrated": true
   },
   {
@@ -97216,8 +97216,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-22T02:06:39.707380+00:00",
-    "retry_after": "2026-11-23T02:06:39.707418+00:00",
+    "last_attempt_at": "2026-11-22T03:03:16.298379+00:00",
+    "retry_after": "2026-11-23T03:03:16.298396+00:00",
     "search_hydrated": true
   },
   {
@@ -98953,6 +98953,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-22T02:10:41.259636+00:00",
     "retry_after": "2026-11-23T02:10:41.259640+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Sláine: Lord of Misrule",
+    "publisher": "Rebellion",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T03:07:12.672952+00:00",
+    "retry_after": "2026-11-23T03:07:12.672968+00:00",
     "search_hydrated": true
   }
 ]

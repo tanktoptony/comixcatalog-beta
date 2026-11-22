@@ -124,6 +124,9 @@ jobs:
       - name: Comment tests
         run: npm run test:comments
 
+      - name: Email preference tests
+        run: npm run test:email-prefs
+
       - name: Social book-context tests
         run: npm run test:social
 

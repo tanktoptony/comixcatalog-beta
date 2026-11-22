@@ -129,7 +129,8 @@
     "test:marketplace-disputes": "node --test src/lib/orderRefunds.test.js",
     "test:marketplace-fraud": "node --test src/lib/buyerLimits.test.js src/lib/messageContent.test.js src/lib/marketplaceWebhook.test.js",
     "test:marketplace-sellers": "node --test src/lib/marketplaceFlags.test.js src/lib/sellerStanding.test.js",
-    "test:marketplace-checkout": "node --test src/lib/checkoutSession.test.js src/lib/marketplaceWebhook.test.js scripts/lib/marketplaceSweep.test.js"
+    "test:marketplace-checkout": "node --test src/lib/checkoutSession.test.js src/lib/marketplaceWebhook.test.js scripts/lib/marketplaceSweep.test.js",
+    "test:email-prefs": "node --test src/lib/emailPrefs.test.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.131.0",

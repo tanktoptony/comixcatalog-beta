@@ -1,10 +1,11 @@
 import { revalidateTag } from "next/cache";
-import { NextResponse } from "next/server";
+import { after, NextResponse } from "next/server";
 import { getAuthedUser } from "@/lib/authServer";
 import { DAILY_COMMENT_LIMIT, validateCommentInput, validTargetId } from "@/lib/comments";
 import { COMMENT_COLUMNS, loadThread, notifyForComment, resolveTarget } from "@/lib/commentsData";
 import { loadBlocked } from "@/lib/feed/loadFeed";
 import { getServiceClient } from "@/lib/supabase/service";
+import { emailInstantActivityForComment } from "@/lib/activityEmailSend";
 
 function json(body, status = 200) {
   return NextResponse.json(body, { status, headers: { "Cache-Control": "private, no-store" } });
@@ -88,6 +89,9 @@ export async function POST(req) {
     if (insert.error) throw insert.error;
 
     await notifyForComment(db, { comment: insert.data, target, parentAuthorId });
+    // "Right away" activity emails, after the response (off until
+    // ACTIVITY_EMAILS_LIVE is set, so nothing goes out before a test).
+    if (process.env.ACTIVITY_EMAILS_LIVE === "true") after(() => emailInstantActivityForComment(getServiceClient(), insert.data.id));
     expireTarget(target);
     return json({ comment: insert.data }, 201);
   } catch (error) {

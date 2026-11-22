@@ -320,6 +320,16 @@ export function legacySeriesAlias(title, issueNumber) {
   return null;
 }
 
+// Other spellings of a title worth looking up. GCD writes crossover titles
+// both ways ("Fantastic Four vs. X-Men" 1987, "Fantastic Four versus the
+// X-Men" 1990), and collectors write them either way too.
+export function titleSpellings(title) {
+  const text = String(title ?? "").trim();
+  const versus = /\b(?:versus|vs\.?)\s+(?:the\s+)?/i;
+  if (!versus.test(text)) return [text];
+  return [...new Set([text, ...["versus the ", "versus ", "vs. the ", "vs. "].map((word) => text.replace(versus, word))])];
+}
+
 // What a volume is, from GCD's series format fields, so a pick list can tell
 // "Saga (2012) · Image Comics" the comic from the trade paperback of the same
 // name and year. Null when GCD doesn't say.

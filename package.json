@@ -52,7 +52,7 @@
     "test:valuation": "node --test src/lib/valuation.test.js",
     "test:post-auth-redirect": "node --test src/lib/auth/postAuthRedirect.test.js",
     "test:csv-match": "node --test src/lib/csvImport/matchRow.test.js",
-    "test:import": "node --test src/lib/import/import.test.js",
+    "test:import": "node --test src/lib/import/import.test.js src/lib/import/aiSuggest.test.js",
     "test:contribute-match": "node --test src/lib/csvImport/contributeMatch.test.js",
     "test:printings": "node --test src/lib/printings.test.js",
     "test:search-query": "node --test src/lib/searchQuery.test.js",

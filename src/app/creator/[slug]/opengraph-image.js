@@ -7,6 +7,15 @@ export const alt = "Comic creator on ComixCatalog";
 export const size = OG_SIZE;
 export const contentType = "image/png";
 export const revalidate = 604800;
+// Cached between refreshes (Next 16 renders route handlers on every request
+// unless they are static): without these two lines every crawler hit
+// re-rendered the card and re-fetched its covers (72,300 billed image
+// transforms in Nov 2026). Unknown params render on first request, then
+// come from the cache until `revalidate` runs out.
+export const dynamic = "force-static";
+export function generateStaticParams() {
+  return [];
+}
 
 const roleLabel = (role) => (role === "cover" ? "Cover artist" : role ? `${role[0].toUpperCase()}${role.slice(1)}` : "Creator");
 

@@ -9,6 +9,15 @@ export const alt = "An invitation to ComixCatalog";
 export const size = OG_SIZE;
 export const contentType = "image/png";
 export const revalidate = 86400;
+// Cached between refreshes (Next 16 renders route handlers on every request
+// unless they are static): without these two lines every crawler hit
+// re-rendered the card and re-fetched its covers (72,300 billed image
+// transforms in Nov 2026). Unknown params render on first request, then
+// come from the cache until `revalidate` runs out.
+export const dynamic = "force-static";
+export function generateStaticParams() {
+  return [];
+}
 
 // A public inviter's own shelf; a private one gets the classic keys wall,
 // so an invite never shows books its owner keeps private.

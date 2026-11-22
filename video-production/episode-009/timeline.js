@@ -74,6 +74,7 @@ const panel = (asset, extra = {}) => ({ type: "panel", asset, size: size(asset),
 const album = (k, extra = {}) => panel(ALB[k], extra);
 const capAlbum = (title, sub, kicker, k = "iks", extra = {}) => album(k, { title, ...(sub ? { sub } : {}), ...(kicker ? { kicker } : {}), ...extra });
 const photo = (k, extra = {}) => panel(`photos/${PH[k][0]}.jpg`, { title: PH[k][1], sub: PH[k][2], ...extra });
+// al.png: Al the Killer (forehead brain window) cropped from the #8 cover. Issue 7 is Mayo (half metal face), not Al (Tony 11-22).
 const art = (k, title, sub, extra = {}) => {
   const ext = ["ambellina", "chase", "sizer", "claudio-good-apollo"].includes(k) ? "jpg" : "png";
   return panel(`characters/${k}.${ext}`, { ...(title ? { title } : {}), ...(sub ? { sub } : {}), ...extra });
@@ -163,13 +164,13 @@ const CUES = [
   ["Jesse, Claudio's uncle, better known as Inferno", art("v-inferno", "Jesse", "Inferno, Claudio's uncle")],
   ["is fighting Ryan's Red Army from his ship", zoom(K(3), 0.62, 0.72, 1.7)],
   ["And in his lab, he's building I-Robots", duo("chase", "Chase", "sizer", "Sizer")],
-  ["Inferno held back her growth on purpose", zoom(K(5), 0.42, 0.74, 2.0)],
+  ["Inferno held back her growth on purpose", zoom(K(5), 0.47, 0.66, 2.0)],
   ["All she wants is for Inferno to admit he's her father", duo("chase", "Chase", "inferno", "Inferno")],
   ["Now listen to", tracklist(3)],
   ["The chorus says it outright", lyric("“Chase, it's you I want”", "“Cuts Marked in the March of Men”", K(5))],
   ["Somebody's singing to her by name", cover(K(5))],
   ["On the album, that's a mystery", album("iks", { treatment: "slowPull" })],
-  ["In the comic, she's right there on the battlefield", zoom(K(9), 0.5, 0.55, 1.3)],
+  ["In the comic, she's right there on the battlefield", zoom(K(5), 0.5, 0.6, 1.3)],
 
   // ── 06 The Crowing ────────────────────────────────────────────────────────
   ["might have been my favorite song when I first got the album", wb("wb-coheed-site-oct-2003", 0.48, 0.79, 2.9)],
@@ -191,7 +192,6 @@ const CUES = [
   ["and later", lyric("“We'll fix him, restore him”", "“Three Evils (Embodied in Love and Shadow)”", K(9))],
   ["In the comic, Mayo Deftinwolf's soldiers tear an I-Robot", art("mayo", "General Mayo Deftinwolf")],
   ["named Sizer apart", art("sizer", "Sizer", "An I-Robot")],
-  ["Sizer is huge, but he's basically a kid", zoom(K(5), 0.5, 0.35, 1.4)],
   ["Claudio makes a living picking through dead Red Army prisoners", zoom(K(10), 0.5, 0.72, 1.5)],
   ["So he rebuilds him", duo("claudio", "Claudio", "sizer", "Sizer")],
   ["When Claudio tells Sizer he's proud of him", zoom(K(9), 0.42, 0.6, 1.5)],
@@ -204,24 +204,24 @@ const CUES = [
   // ── 08 Faint of Hearts ────────────────────────────────────────────────────
   ["Now my favorite stretch of the album", tracklist(7)],
   ["The Camper Velourium is a ship", art("space", "The Camper Velourium", "A ship in the comic")],
-  ["It belongs to a freighter pilot named Al the Killer", cover(K(7))],
+  ["It belongs to a freighter pilot named Al the Killer", art("al", "Al the Killer", "Freighter pilot")],
   ["In the comic, The Faint of Hearts is a bar", cover(K(4))],
-  ["Claudio is in there cheating at cards", zoom(K(4), 0.24, 0.6, 1.9)],
-  ["Al wins the hand, goes home", zoom(K(4), 0.5, 0.3, 2.0)],
+  ["Claudio is in there cheating at cards", zoom(K(4), 0.5, 0.45, 1.4)],
+  ["Al wins the hand, goes home", zoom(K(4), 0.45, 0.8, 1.8)],
   ["The lyrics on this one are from Al's side", tracklist(7)],
-  ["The last line is", lyric("“Tonight sleep tight my gun”", "“The Camper Velourium I: Faint of Hearts”", K(7))],
-  ["Once you know who Al is", pull(K(7))],
+  ["The last line is", lyric("“Tonight sleep tight my gun”", "“The Camper Velourium I: Faint of Hearts”", K(4))],
+  ["Once you know who Al is", zoom(K(8), 0.225, 0.6, 3.0)],
 
   // ── 09 Backend of Forever ─────────────────────────────────────────────────
   ["Part two is", tracklist(8)],
   ["It's almost my favorite Coheed song, period", photo("park2010")],
   ["And it turns out it's a breakup song", album("iks")],
   ["In issue one, there's a scene with Al and a woman named Luci", cover(K(1))],
-  ["He jumps out of her closet", zoom(K(7), 0.35, 0.3, 1.6)],
+  ["He jumps out of her closet", zoom(K(8), 0.2, 0.62, 2.5)],
   ["a starship called the Connecticut", zoom(K(3), 0.5, 0.4, 1.5)],
   ["Now here's the lyric", lyric("“Over and out, Connecticut”", "“The Camper Velourium II: Backend of Forever”", K(3))],
-  ["The chorus says", lyric("“This isn't love”", "“The Camper Velourium II: Backend of Forever”", K(7))],
-  ["Which is the most self-aware thing Al ever says", pull(K(7))],
+  ["The chorus says", lyric("“This isn't love”", "“The Camper Velourium II: Backend of Forever”", K(1))],
+  ["Which is the most self-aware thing Al ever says", art("al", undefined, undefined, { treatment: "slowPull" })],
 
   // ── 10 Al the Killer ──────────────────────────────────────────────────────
   ["Part three is", tracklist(9)],
@@ -229,11 +229,11 @@ const CUES = [
   ["The song has a line about the dead", lyric("“Beneath the surface sealed by the floors boarded up”", "“The Camper Velourium III: Al the Killer”", K(8))],
   ["In the comic, Claudio, Ambellina and Sizer finally get off the planet", grid([K(7), K(8), K(9)])],
   ["Ambellina finds a sealed room full of bodies", art("ambellina", undefined, undefined, { treatment: "slowPush" })],
-  ["Al knocks her out, and Claudio catches him", zoom(K(9), 0.4, 0.62, 1.6)],
+  ["Al knocks her out, and Claudio catches him", zoom(K(8), 0.225, 0.6, 2.0)],
   ["They fight across the ship until it crashes", zoom(K(3), 0.65, 0.72, 1.7)],
   ["Al gets one more shot in and stabs Claudio", cover(K(10))],
   ["Claudio uses his powers to drive him rabid", zoom(V1(3), 0.62, 0.55, 1.6)],
-  ["That's the end of Al", pull(K(7))],
+  ["That's the end of Al", cover(K(9), { treatment: "slowPull" })],
 
   // ── 11 House Atlantic ─────────────────────────────────────────────────────
   ["Next up", tracklist(10)],
@@ -241,7 +241,7 @@ const CUES = [
   ["It's where Inferno's war ends up", zoom(K(11), 0.5, 0.45, 1.3)],
   ["Inferno and the Prise have actually captured Ryan", zoom(K(6), 0.5, 0.32, 1.6)],
   ["Jesse executes him", art("inferno")],
-  ["Then Mayo brings him back to life", art("mayo", undefined, undefined, { treatment: "slowPull" })],
+  ["Then Mayo brings him back to life", cover(K(7), { treatment: "slowPull" })],
   ["So it's war again, on Ryan's home turf", grid([K(9), K(10), K(11), K(12)])],
   ["Claudio shows up, gets backed by Chase", duo("claudio-good-apollo", "Claudio", "chase", "Chase")],
   ["and fights Vielar Crom in his giant metal body", art("crom-panel", "Vielar Crom")],

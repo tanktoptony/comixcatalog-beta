@@ -10,6 +10,7 @@ export default {
   "albums/2018-vaxis-act-1.jpg": [600, 600],
   "albums/2022-vaxis-act-2.jpg": [600, 600],
   "albums/2025-vaxis-act-3.jpg": [1085, 1200],
+  "characters/al.png": [410, 450],
   "characters/ambellina.jpg": [375, 600],
   "characters/apollo-panel.png": [255, 246],
   "characters/cambria.png": [320, 720],

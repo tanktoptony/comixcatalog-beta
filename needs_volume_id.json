@@ -6166,8 +6166,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-22T00:01:58.739248+00:00",
-    "retry_after": "2026-12-22T00:01:58.739251+00:00",
+    "last_attempt_at": "2026-11-22T00:13:42.607288+00:00",
+    "retry_after": "2026-12-22T00:13:42.607305+00:00",
     "search_hydrated": true
   },
   {
@@ -24172,9 +24172,10 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 5,
-    "last_attempt_at": "2026-10-20T21:01:35.297322+00:00",
-    "retry_after": "2026-11-19T21:01:35.297338+00:00"
+    "attempts": 6,
+    "last_attempt_at": "2026-11-22T00:14:51.006081+00:00",
+    "retry_after": "2026-12-22T00:14:51.006083+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Collector's Guide to the Ultraverse",
@@ -43431,21 +43432,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 116293,
-        "name": "Cerebus",
-        "publisher": "Aardvark",
-        "start_year": 2019
-      },
-      {
         "id": 2930,
         "name": "Cerebus",
         "publisher": "Aardvark",
         "start_year": 1977
+      },
+      {
+        "id": 116293,
+        "name": "Cerebus",
+        "publisher": "Aardvark",
+        "start_year": 2019
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-22T00:04:33.215041+00:00",
-    "retry_after": "2026-11-23T00:04:33.215044+00:00",
+    "last_attempt_at": "2026-11-22T00:14:51.006041+00:00",
+    "retry_after": "2026-11-23T00:14:51.006060+00:00",
     "search_hydrated": true
   },
   {
@@ -78141,8 +78142,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-22T00:08:33.494431+00:00",
-    "retry_after": "2026-12-22T00:08:33.494452+00:00",
+    "last_attempt_at": "2026-11-22T00:18:49.315222+00:00",
+    "retry_after": "2026-12-22T00:18:49.315241+00:00",
     "search_hydrated": true
   },
   {
@@ -78152,8 +78153,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-22T00:08:33.494471+00:00",
-    "retry_after": "2026-12-22T00:08:33.494473+00:00",
+    "last_attempt_at": "2026-11-22T00:18:49.315259+00:00",
+    "retry_after": "2026-12-22T00:18:49.315262+00:00",
     "search_hydrated": true
   },
   {
@@ -78163,8 +78164,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-22T00:08:33.494484+00:00",
-    "retry_after": "2026-12-22T00:08:33.494485+00:00",
+    "last_attempt_at": "2026-11-22T00:18:49.315272+00:00",
+    "retry_after": "2026-12-22T00:18:49.315274+00:00",
     "search_hydrated": true
   },
   {
@@ -78174,8 +78175,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-22T00:08:33.494495+00:00",
-    "retry_after": "2026-12-22T00:08:33.494496+00:00",
+    "last_attempt_at": "2026-11-22T00:18:49.315282+00:00",
+    "retry_after": "2026-12-22T00:18:49.315284+00:00",
     "search_hydrated": true
   },
   {
@@ -78185,8 +78186,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-22T00:08:33.494504+00:00",
-    "retry_after": "2026-12-22T00:08:33.494505+00:00",
+    "last_attempt_at": "2026-11-22T00:18:49.315290+00:00",
+    "retry_after": "2026-12-22T00:18:49.315292+00:00",
     "search_hydrated": true
   },
   {
@@ -78196,8 +78197,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-22T00:08:33.494513+00:00",
-    "retry_after": "2026-12-22T00:08:33.494514+00:00",
+    "last_attempt_at": "2026-11-22T00:18:49.315300+00:00",
+    "retry_after": "2026-12-22T00:18:49.315301+00:00",
     "search_hydrated": true
   },
   {
@@ -78207,8 +78208,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-22T00:08:33.494525+00:00",
-    "retry_after": "2026-12-22T00:08:33.494526+00:00",
+    "last_attempt_at": "2026-11-22T00:18:49.315312+00:00",
+    "retry_after": "2026-12-22T00:18:49.315313+00:00",
     "search_hydrated": true
   },
   {
@@ -78240,8 +78241,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-22T00:08:33.494545+00:00",
-    "retry_after": "2026-12-22T00:08:33.494546+00:00",
+    "last_attempt_at": "2026-11-22T00:18:49.315332+00:00",
+    "retry_after": "2026-12-22T00:18:49.315333+00:00",
     "search_hydrated": true
   },
   {
@@ -78258,8 +78259,8 @@
       }
     ],
     "attempts": 5,
-    "last_attempt_at": "2026-11-22T00:08:35.007084+00:00",
-    "retry_after": "2026-12-22T00:08:35.007094+00:00",
+    "last_attempt_at": "2026-11-22T00:18:51.242157+00:00",
+    "retry_after": "2026-12-22T00:18:51.242174+00:00",
     "search_hydrated": true
   },
   {
@@ -97292,8 +97293,8 @@
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-11-22T00:02:11.153115+00:00",
-    "retry_after": "2026-11-25T00:02:11.153128+00:00",
+    "last_attempt_at": "2026-11-22T00:13:31.246298+00:00",
+    "retry_after": "2026-11-25T00:13:31.246301+00:00",
     "search_hydrated": true
   },
   {
@@ -97303,8 +97304,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 2,
-    "last_attempt_at": "2026-11-22T00:04:33.214959+00:00",
-    "retry_after": "2026-11-25T00:04:33.214975+00:00",
+    "last_attempt_at": "2026-11-22T00:13:31.246329+00:00",
+    "retry_after": "2026-11-25T00:13:31.246331+00:00",
     "search_hydrated": true
   },
   {
@@ -98836,8 +98837,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-22T00:08:43.578793+00:00",
-    "retry_after": "2026-11-23T00:08:43.578810+00:00",
+    "last_attempt_at": "2026-11-22T00:18:58.972148+00:00",
+    "retry_after": "2026-11-23T00:18:58.972167+00:00",
     "search_hydrated": true
   }
 ]

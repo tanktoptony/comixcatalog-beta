@@ -18698,9 +18698,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T21:54:00.483680+00:00",
-    "retry_after": "2026-11-22T21:54:00.483684+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T23:11:53.544327+00:00",
+    "retry_after": "2026-12-22T23:11:53.544344+00:00",
     "search_hydrated": true
   },
   {
@@ -27753,9 +27753,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-21T23:04:24.196608+00:00",
-    "retry_after": "2026-11-22T23:04:24.196626+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-22T23:04:53.522325+00:00",
+    "retry_after": "2026-11-25T23:04:53.522342+00:00",
     "search_hydrated": true
   },
   {
@@ -69890,29 +69890,6 @@
     "retry_after": "2026-10-28T07:17:28.640374+00:00"
   },
   {
-    "name": "Calexit",
-    "publisher": "Black Mask Studios",
-    "year": 2017,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 112570,
-        "name": "Calexit",
-        "publisher": null,
-        "start_year": 2018
-      },
-      {
-        "id": 102742,
-        "name": "Calexit",
-        "publisher": null,
-        "start_year": 2017
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-25T07:17:29.113208+00:00",
-    "retry_after": "2026-10-28T07:17:29.113231+00:00"
-  },
-  {
     "name": "Time Before Time",
     "publisher": "Image Comics",
     "year": 2024,
@@ -80808,9 +80785,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T23:10:25.209563+00:00",
-    "retry_after": "2026-11-22T23:10:25.209565+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T23:11:50.813358+00:00",
+    "retry_after": "2026-12-22T23:11:50.813359+00:00",
     "search_hydrated": true
   },
   {
@@ -80826,9 +80803,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T23:10:25.321880+00:00",
-    "retry_after": "2026-11-22T23:10:25.321897+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T23:11:50.938462+00:00",
+    "retry_after": "2026-12-22T23:11:50.938479+00:00",
     "search_hydrated": true
   },
   {
@@ -80837,9 +80814,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T23:10:18.661965+00:00",
-    "retry_after": "2026-11-22T23:10:18.661982+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T23:11:48.649554+00:00",
+    "retry_after": "2026-12-22T23:11:48.649572+00:00",
     "search_hydrated": true
   },
   {
@@ -80861,9 +80838,9 @@
         "start_year": 2002
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T23:10:18.662013+00:00",
-    "retry_after": "2026-11-22T23:10:18.662015+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T23:11:48.649602+00:00",
+    "retry_after": "2026-12-22T23:11:48.649604+00:00",
     "search_hydrated": true
   },
   {
@@ -80872,9 +80849,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T23:10:30.369776+00:00",
-    "retry_after": "2026-11-22T23:10:30.369794+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T23:11:48.649623+00:00",
+    "retry_after": "2026-12-22T23:11:48.649625+00:00",
     "search_hydrated": true
   },
   {
@@ -80890,9 +80867,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T23:10:25.441209+00:00",
-    "retry_after": "2026-11-22T23:10:25.441226+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T23:11:51.065000+00:00",
+    "retry_after": "2026-12-22T23:11:51.065009+00:00",
     "search_hydrated": true
   },
   {
@@ -80908,9 +80885,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T23:10:30.665684+00:00",
-    "retry_after": "2026-11-22T23:10:30.665703+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T23:11:51.308954+00:00",
+    "retry_after": "2026-12-22T23:11:51.308968+00:00",
     "search_hydrated": true
   },
   {
@@ -97444,9 +97421,9 @@
         "start_year": 2006
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-21T23:02:29.418618+00:00",
-    "retry_after": "2026-11-22T23:02:29.418636+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-22T23:04:38.565022+00:00",
+    "retry_after": "2026-11-25T23:04:38.565039+00:00",
     "search_hydrated": true
   },
   {
@@ -97468,9 +97445,9 @@
         "start_year": 1992
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-21T23:04:24.196697+00:00",
-    "retry_after": "2026-11-22T23:04:24.196700+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-22T23:04:53.522370+00:00",
+    "retry_after": "2026-11-25T23:04:53.522372+00:00",
     "search_hydrated": true
   },
   {
@@ -98878,6 +98855,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-22T22:08:17.554070+00:00",
     "retry_after": "2026-11-23T22:08:17.554085+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The X-Files Origins II: Dog Days of Summer",
+    "publisher": "IDW Publishing",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T23:05:15.559130+00:00",
+    "retry_after": "2026-11-23T23:05:15.559148+00:00",
     "search_hydrated": true
   }
 ]

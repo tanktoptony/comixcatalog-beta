@@ -7123,9 +7123,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T16:12:13.989378+00:00",
-    "retry_after": "2026-11-22T16:12:13.989381+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T22:12:25.079852+00:00",
+    "retry_after": "2026-12-22T22:12:25.079869+00:00",
     "search_hydrated": true
   },
   {
@@ -15954,9 +15954,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T21:54:00.483639+00:00",
-    "retry_after": "2026-11-22T21:54:00.483656+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T22:12:25.982724+00:00",
+    "retry_after": "2026-12-22T22:12:25.982727+00:00",
     "search_hydrated": true
   },
   {
@@ -22049,9 +22049,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T16:12:13.989404+00:00",
-    "retry_after": "2026-11-22T16:12:13.989407+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T22:12:25.079890+00:00",
+    "retry_after": "2026-12-22T22:12:25.079894+00:00",
     "search_hydrated": true
   },
   {
@@ -25214,9 +25214,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T21:10:46.597132+00:00",
-    "retry_after": "2026-11-22T21:10:46.597136+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T22:12:25.982703+00:00",
+    "retry_after": "2026-12-22T22:12:25.982706+00:00",
     "search_hydrated": true
   },
   {
@@ -26893,9 +26893,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T16:12:13.989451+00:00",
-    "retry_after": "2026-11-22T16:12:13.989453+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T22:12:25.079910+00:00",
+    "retry_after": "2026-12-22T22:12:25.079913+00:00",
     "search_hydrated": true
   },
   {
@@ -36281,9 +36281,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-14T15:08:19.301970+00:00",
-    "retry_after": "2026-11-21T15:08:19.301988+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-22T22:05:01.813738+00:00",
+    "retry_after": "2026-12-06T22:05:01.813755+00:00",
     "search_hydrated": true
   },
   {
@@ -36878,9 +36878,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T21:10:46.597080+00:00",
-    "retry_after": "2026-11-22T21:10:46.597096+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T22:12:25.982655+00:00",
+    "retry_after": "2026-12-22T22:12:25.982670+00:00",
     "search_hydrated": true
   },
   {
@@ -89437,24 +89437,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Legion",
-    "publisher": "DC Comics",
-    "year": 2018,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 7226,
-        "name": "The Legion",
-        "publisher": "DC Comics",
-        "start_year": 2001
-      }
-    ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-14T04:10:58.691426+00:00",
-    "retry_after": "2026-11-21T04:10:58.691431+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Marvel Cinematic Universe Omnibus",
     "publisher": "Marvel Comics",
     "year": 2018,
@@ -98801,6 +98783,101 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-22T21:51:30.300655+00:00",
     "retry_after": "2026-11-23T21:51:30.300671+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Super Soldiers",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22935,
+        "name": "Super Soldiers",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T22:02:15.365335+00:00",
+    "retry_after": "2026-11-23T22:02:15.365351+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Captain Sternn: Running Out of Time",
+    "publisher": "Kitchen Sink Press",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 5077,
+        "name": "Captain Sternn: Running Out of Time",
+        "publisher": "Kitchen Sink",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T22:03:29.051810+00:00",
+    "retry_after": "2026-11-23T22:03:29.051826+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Die-Cut",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20631,
+        "name": "Die-Cut",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T22:03:29.051860+00:00",
+    "retry_after": "2026-11-23T22:03:29.051863+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Judge",
+    "publisher": "Cloudscape",
+    "year": 1881,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 177942,
+        "name": "Judge",
+        "publisher": "Judge",
+        "start_year": 1881
+      },
+      {
+        "id": 66804,
+        "name": "Judge",
+        "publisher": "Yen Press",
+        "start_year": 2013
+      },
+      {
+        "id": 105199,
+        "name": "Judge",
+        "publisher": "Carlsen Verlag",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T22:05:01.813808+00:00",
+    "retry_after": "2026-11-23T22:05:01.813813+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Slam! The Next Jam",
+    "publisher": "BOOM! Studios",
+    "year": 2017,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T22:08:17.554070+00:00",
+    "retry_after": "2026-11-23T22:08:17.554085+00:00",
     "search_hydrated": true
   }
 ]

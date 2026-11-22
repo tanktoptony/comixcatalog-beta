@@ -7167,9 +7167,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T11:10:32.662740+00:00",
-    "retry_after": "2026-11-22T11:10:32.662741+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T15:11:28.225151+00:00",
+    "retry_after": "2026-12-22T15:11:28.225153+00:00",
     "search_hydrated": true
   },
   {
@@ -43409,8 +43409,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-22T14:02:40.759346+00:00",
-    "retry_after": "2026-11-23T14:02:40.759349+00:00",
+    "last_attempt_at": "2026-11-22T15:03:04.218431+00:00",
+    "retry_after": "2026-11-23T15:03:04.218436+00:00",
     "search_hydrated": true
   },
   {
@@ -56398,9 +56398,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T11:10:32.662729+00:00",
-    "retry_after": "2026-11-22T11:10:32.662731+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T15:11:28.225135+00:00",
+    "retry_after": "2026-12-22T15:11:28.225138+00:00",
     "search_hydrated": true
   },
   {
@@ -79980,9 +79980,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T14:11:03.374611+00:00",
-    "retry_after": "2026-11-22T14:11:03.374626+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T15:11:31.193056+00:00",
+    "retry_after": "2026-12-22T15:11:31.193070+00:00",
     "search_hydrated": true
   },
   {
@@ -79998,9 +79998,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T14:11:03.473466+00:00",
-    "retry_after": "2026-11-22T14:11:03.473480+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T15:11:31.476106+00:00",
+    "retry_after": "2026-12-22T15:11:31.476120+00:00",
     "search_hydrated": true
   },
   {
@@ -80009,9 +80009,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T14:11:01.843952+00:00",
-    "retry_after": "2026-11-22T14:11:01.843967+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T15:11:28.225066+00:00",
+    "retry_after": "2026-12-22T15:11:28.225082+00:00",
     "search_hydrated": true
   },
   {
@@ -80020,9 +80020,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T14:11:01.843989+00:00",
-    "retry_after": "2026-11-22T14:11:01.843993+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T15:11:28.225104+00:00",
+    "retry_after": "2026-12-22T15:11:28.225108+00:00",
     "search_hydrated": true
   },
   {
@@ -97179,8 +97179,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-22T14:02:40.759172+00:00",
-    "retry_after": "2026-11-23T14:02:40.759192+00:00",
+    "last_attempt_at": "2026-11-22T15:03:04.218194+00:00",
+    "retry_after": "2026-11-23T15:03:04.218208+00:00",
     "search_hydrated": true
   },
   {
@@ -99125,6 +99125,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-22T14:11:33.801121+00:00",
     "retry_after": "2026-11-23T14:11:33.801124+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Doctor Who Annual 2010",
+    "publisher": "IDW Publishing",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T15:11:41.822014+00:00",
+    "retry_after": "2026-11-23T15:11:41.822029+00:00",
     "search_hydrated": true
   }
 ]

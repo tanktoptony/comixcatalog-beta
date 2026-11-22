@@ -1,7 +1,7 @@
 ---
-title: What your books are worth, who else has them, and badges I won't explain
-slug: worth-who-has-it-secret-badges
-excerpt: Collection values come from a real price guide now. You can see who has a book, find people to trade with, follow a feed, review issues, make lists and comment. And there are secret badges.
+title: What your books are worth, and who else has them
+slug: worth-and-who-has-it
+excerpt: Collection values come from a real price guide now. You can see who has a book, find people to trade with, follow a feed, review issues, make lists and comment.
 ---
 
 Collecting comics is a social hobby that mostly happens alone in a room with a long box. You buy a book, you bag it, you board it, and the only person who hears about it is whoever happens to be standing nearby. Usually that person did not ask.
@@ -47,15 +47,11 @@ And you can comment under an issue, a list or a review. Replies and @mentions sh
 
 One note on privacy: if your profile is private, your books stay out of all of this. You can still use every bit of it yourself.
 
-## Badges, and how rare yours are
-
-Badges have been around for about a month. Every badge on your badges page now shows the share of collectors who have it, and anything under 10% gets a Rare tag. It's very satisfying when it's yours and slightly rude when it isn't.
-
-There are also eight new secret badges. They show up as a question mark until you earn one. I'm not saying what they are. A couple of them only a handful of people have, and a couple of them nobody has yet. If you're the first, I'd love to hear about it.
-
 ## Picking the right version
 
 In your library, you can switch a copy to the newsstand edition, a later printing or a variant cover by tapping its cover or scanning its barcode. On an issue page, picking a variant cover switches the whole page to that edition: price, barcode, credits and guide value. Newsstand collectors, this one's for you. I know you've been patient.
+
+One small thing: your badges page now shows how many collectors have each badge.
 
 ## What's next
 

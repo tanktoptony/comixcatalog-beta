@@ -6210,9 +6210,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T14:11:01.844071+00:00",
-    "retry_after": "2026-11-22T14:11:01.844074+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T21:51:16.640411+00:00",
+    "retry_after": "2026-12-22T21:51:16.640413+00:00",
     "search_hydrated": true
   },
   {
@@ -6272,9 +6272,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T14:11:01.844057+00:00",
-    "retry_after": "2026-11-22T14:11:01.844059+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T21:51:16.640401+00:00",
+    "retry_after": "2026-12-22T21:51:16.640403+00:00",
     "search_hydrated": true
   },
   {
@@ -6751,9 +6751,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T14:11:01.844039+00:00",
-    "retry_after": "2026-11-22T14:11:01.844043+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T21:51:16.640390+00:00",
+    "retry_after": "2026-12-22T21:51:16.640392+00:00",
     "search_hydrated": true
   },
   {
@@ -41142,9 +41142,10 @@
     "year": 1992,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-09T22:01:29.655588+00:00",
-    "retry_after": "2026-10-16T22:01:29.655605+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-11-22T21:38:54.338722+00:00",
+    "retry_after": "2026-12-06T21:38:54.338739+00:00",
+    "search_hydrated": true
   },
   {
     "name": "B.C. It's a Funny World",
@@ -80731,9 +80732,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T20:10:32.692125+00:00",
-    "retry_after": "2026-11-22T20:10:32.692126+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T21:51:16.640295+00:00",
+    "retry_after": "2026-12-22T21:51:16.640329+00:00",
     "search_hydrated": true
   },
   {
@@ -80760,9 +80761,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T20:10:32.692134+00:00",
-    "retry_after": "2026-11-22T20:10:32.692136+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T21:51:16.640352+00:00",
+    "retry_after": "2026-12-22T21:51:16.640355+00:00",
     "search_hydrated": true
   },
   {
@@ -80771,9 +80772,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T20:10:36.060085+00:00",
-    "retry_after": "2026-11-22T20:10:36.060103+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T21:51:16.640370+00:00",
+    "retry_after": "2026-12-22T21:51:16.640372+00:00",
     "search_hydrated": true
   },
   {
@@ -80789,9 +80790,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T21:10:53.601712+00:00",
-    "retry_after": "2026-11-22T21:10:53.601716+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T21:51:18.343290+00:00",
+    "retry_after": "2026-12-22T21:51:18.343292+00:00",
     "search_hydrated": true
   },
   {
@@ -98771,6 +98772,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-22T21:12:55.196447+00:00",
     "retry_after": "2026-11-23T21:12:55.196463+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Digitek",
+    "publisher": "Marvel Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18451,
+        "name": "Digitek",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T21:40:50.309349+00:00",
+    "retry_after": "2026-11-23T21:40:50.309364+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Punisher Max: Untold Tales",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T21:51:30.300655+00:00",
+    "retry_after": "2026-11-23T21:51:30.300671+00:00",
     "search_hydrated": true
   }
 ]

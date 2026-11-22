@@ -16012,9 +16012,10 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 5,
-    "last_attempt_at": "2026-10-20T21:01:35.761681+00:00",
-    "retry_after": "2026-11-19T21:01:35.761691+00:00"
+    "attempts": 6,
+    "last_attempt_at": "2026-11-22T01:07:20.521374+00:00",
+    "retry_after": "2026-12-22T01:07:20.521377+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The Michael Moorcock Library - The Chronicles of Corum",
@@ -43445,8 +43446,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-22T00:14:51.006041+00:00",
-    "retry_after": "2026-11-23T00:14:51.006060+00:00",
+    "last_attempt_at": "2026-11-22T01:07:20.521337+00:00",
+    "retry_after": "2026-11-23T01:07:20.521353+00:00",
     "search_hydrated": true
   },
   {
@@ -78276,9 +78277,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T23:37:06.431086+00:00",
-    "retry_after": "2026-11-21T23:37:06.431097+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T01:11:06.607528+00:00",
+    "retry_after": "2026-12-22T01:11:06.607540+00:00",
     "search_hydrated": true
   },
   {
@@ -78287,9 +78288,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T00:11:45.021186+00:00",
-    "retry_after": "2026-11-22T00:11:45.021202+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T01:11:05.517226+00:00",
+    "retry_after": "2026-12-22T01:11:05.517242+00:00",
     "search_hydrated": true
   },
   {
@@ -78298,9 +78299,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T00:11:45.021240+00:00",
-    "retry_after": "2026-11-22T00:11:45.021243+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T01:11:05.517272+00:00",
+    "retry_after": "2026-12-22T01:11:05.517275+00:00",
     "search_hydrated": true
   },
   {
@@ -78309,9 +78310,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T00:11:45.021288+00:00",
-    "retry_after": "2026-11-22T00:11:45.021290+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T01:11:05.517322+00:00",
+    "retry_after": "2026-12-22T01:11:05.517324+00:00",
     "search_hydrated": true
   },
   {
@@ -78333,9 +78334,9 @@
         "start_year": 1989
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T00:11:45.021324+00:00",
-    "retry_after": "2026-11-22T00:11:45.021326+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T01:11:05.517354+00:00",
+    "retry_after": "2026-12-22T01:11:05.517356+00:00",
     "search_hydrated": true
   },
   {
@@ -78351,9 +78352,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T00:11:47.296539+00:00",
-    "retry_after": "2026-11-22T00:11:47.296555+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T01:11:06.772737+00:00",
+    "retry_after": "2026-12-22T01:11:06.772751+00:00",
     "search_hydrated": true
   },
   {
@@ -78369,9 +78370,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T00:11:47.624579+00:00",
-    "retry_after": "2026-11-22T00:11:47.624594+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T01:11:06.941928+00:00",
+    "retry_after": "2026-12-22T01:11:06.941943+00:00",
     "search_hydrated": true
   },
   {
@@ -78387,9 +78388,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T00:11:47.923098+00:00",
-    "retry_after": "2026-11-22T00:11:47.923114+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T01:11:07.104429+00:00",
+    "retry_after": "2026-12-22T01:11:07.104444+00:00",
     "search_hydrated": true
   },
   {
@@ -78399,21 +78400,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 93649,
-        "name": "Black Panther: A Nation Under Our Feet",
-        "publisher": "Marvel",
-        "start_year": 2016
-      },
-      {
         "id": 103222,
         "name": "Black Panther: A Nation Under Our Feet",
         "publisher": "Marvel",
         "start_year": 2017
+      },
+      {
+        "id": 93649,
+        "name": "Black Panther: A Nation Under Our Feet",
+        "publisher": "Marvel",
+        "start_year": 2016
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T00:11:45.021367+00:00",
-    "retry_after": "2026-11-22T00:11:45.021369+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T01:11:05.517383+00:00",
+    "retry_after": "2026-12-22T01:11:05.517385+00:00",
     "search_hydrated": true
   },
   {
@@ -98839,6 +98840,90 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-22T00:18:58.972148+00:00",
     "retry_after": "2026-11-23T00:18:58.972167+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "1 MONTH 2 LIVE",
+    "publisher": null,
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T01:01:57.866385+00:00",
+    "retry_after": "2026-11-23T01:01:57.866403+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "100 BULLETS VERTIGO CRIME SAMPLER SPECIAL EDITION",
+    "publisher": null,
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T01:01:57.866423+00:00",
+    "retry_after": "2026-11-23T01:01:57.866427+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "100 Girls",
+    "publisher": "Arcana",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22031,
+        "name": "100 Girls",
+        "publisher": "Arcana Studio",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T01:01:57.866646+00:00",
+    "retry_after": "2026-11-23T01:01:57.866649+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "100 PERCENT",
+    "publisher": null,
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T01:01:57.866659+00:00",
+    "retry_after": "2026-11-23T01:01:57.866661+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "2000AD (2011) FCBD",
+    "publisher": null,
+    "year": null,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T01:01:57.866696+00:00",
+    "retry_after": "2026-11-23T01:01:57.866698+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "2000AD MONTHLY/PRESENTS/SHOWCASE (1986 2ND SERIES)",
+    "publisher": null,
+    "year": null,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T01:01:57.866706+00:00",
+    "retry_after": "2026-11-23T01:01:57.866708+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Punisher Invades The 'Nam: Final Invasion",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T01:11:18.322105+00:00",
+    "retry_after": "2026-11-23T01:11:18.322120+00:00",
     "search_hydrated": true
   }
 ]

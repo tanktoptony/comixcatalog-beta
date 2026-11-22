@@ -43428,7 +43428,7 @@
   },
   {
     "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim Inc.",
+    "publisher": "Aardvark-Vanaheim",
     "year": 1993,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -43446,8 +43446,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-22T01:07:20.521337+00:00",
-    "retry_after": "2026-11-23T01:07:20.521353+00:00",
+    "last_attempt_at": "2026-11-22T02:02:12.056672+00:00",
+    "retry_after": "2026-11-23T02:02:12.056684+00:00",
     "search_hydrated": true
   },
   {
@@ -78430,9 +78430,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T01:11:31.430323+00:00",
-    "retry_after": "2026-11-22T01:11:31.430327+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T02:10:30.980634+00:00",
+    "retry_after": "2026-12-22T02:10:30.980638+00:00",
     "search_hydrated": true
   },
   {
@@ -78448,9 +78448,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T01:11:31.560967+00:00",
-    "retry_after": "2026-11-22T01:11:31.560985+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T02:10:31.038569+00:00",
+    "retry_after": "2026-12-22T02:10:31.038577+00:00",
     "search_hydrated": true
   },
   {
@@ -78466,9 +78466,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T01:11:31.699099+00:00",
-    "retry_after": "2026-11-22T01:11:31.699117+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T02:10:31.098144+00:00",
+    "retry_after": "2026-12-22T02:10:31.098153+00:00",
     "search_hydrated": true
   },
   {
@@ -78484,9 +78484,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T01:11:31.820984+00:00",
-    "retry_after": "2026-11-22T01:11:31.821001+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T02:10:31.168657+00:00",
+    "retry_after": "2026-12-22T02:10:31.168665+00:00",
     "search_hydrated": true
   },
   {
@@ -78496,16 +78496,16 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 2471,
-        "name": "Conan the Barbarian",
-        "publisher": "Marvel",
-        "start_year": 1970
-      },
-      {
         "id": 22947,
         "name": "Conan the Barbarian",
         "publisher": "Marvel",
         "start_year": 1997
+      },
+      {
+        "id": 2471,
+        "name": "Conan the Barbarian",
+        "publisher": "Marvel",
+        "start_year": 1970
       },
       {
         "id": 116245,
@@ -78514,9 +78514,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T01:11:28.730207+00:00",
-    "retry_after": "2026-11-22T01:11:28.730225+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T02:02:12.056950+00:00",
+    "retry_after": "2026-12-22T02:02:12.056955+00:00",
     "search_hydrated": true
   },
   {
@@ -78532,9 +78532,9 @@
         "start_year": 1972
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T01:11:31.821213+00:00",
-    "retry_after": "2026-11-22T01:11:31.821216+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T02:10:31.168706+00:00",
+    "retry_after": "2026-12-22T02:10:31.168709+00:00",
     "search_hydrated": true
   },
   {
@@ -78543,9 +78543,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T01:11:28.730247+00:00",
-    "retry_after": "2026-11-22T01:11:28.730250+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T02:10:29.478907+00:00",
+    "retry_after": "2026-12-22T02:10:29.478922+00:00",
     "search_hydrated": true
   },
   {
@@ -78576,9 +78576,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T01:11:28.730271+00:00",
-    "retry_after": "2026-11-22T01:11:28.730273+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T02:10:29.478952+00:00",
+    "retry_after": "2026-12-22T02:10:29.478957+00:00",
     "search_hydrated": true
   },
   {
@@ -78594,9 +78594,9 @@
         "start_year": 1987
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T01:11:31.821275+00:00",
-    "retry_after": "2026-11-22T01:11:31.821277+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T02:10:31.168756+00:00",
+    "retry_after": "2026-12-22T02:10:31.168758+00:00",
     "search_hydrated": true
   },
   {
@@ -78612,9 +78612,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T01:11:34.837719+00:00",
-    "retry_after": "2026-11-22T01:11:34.837737+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T02:10:31.300271+00:00",
+    "retry_after": "2026-12-22T02:10:31.300280+00:00",
     "search_hydrated": true
   },
   {
@@ -78623,9 +78623,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T01:11:34.586895+00:00",
-    "retry_after": "2026-11-22T01:11:34.586911+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T02:10:33.750853+00:00",
+    "retry_after": "2026-12-22T02:10:33.750868+00:00",
     "search_hydrated": true
   },
   {
@@ -97215,9 +97215,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T22:02:12.041233+00:00",
-    "retry_after": "2026-11-24T22:02:12.041236+00:00",
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T02:06:39.707380+00:00",
+    "retry_after": "2026-11-23T02:06:39.707418+00:00",
     "search_hydrated": true
   },
   {
@@ -97328,9 +97328,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-21T02:06:00.109480+00:00",
-    "retry_after": "2026-11-22T02:06:00.109482+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-22T02:06:39.707494+00:00",
+    "retry_after": "2026-11-25T02:06:39.707499+00:00",
     "search_hydrated": true
   },
   {
@@ -98924,6 +98924,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-22T01:11:18.322105+00:00",
     "retry_after": "2026-11-23T01:11:18.322120+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Book Tour",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 132108,
+        "name": "The Book Tour",
+        "publisher": "Top Shelf",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T02:10:41.259586+00:00",
+    "retry_after": "2026-11-23T02:10:41.259601+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "John Constantine, Hellblazer: Shoot",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T02:10:41.259636+00:00",
+    "retry_after": "2026-11-23T02:10:41.259640+00:00",
     "search_hydrated": true
   }
 ]

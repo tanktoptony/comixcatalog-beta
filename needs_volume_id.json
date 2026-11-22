@@ -5012,28 +5012,6 @@
     "retry_after": "2026-09-21T14:00:38.554859+00:00"
   },
   {
-    "name": "Batman '66",
-    "publisher": "DC Comics",
-    "year": 2013,
-    "reason": "multiple_same_start_year",
-    "candidates": [
-      {
-        "id": 64763,
-        "name": "Batman '66",
-        "publisher": "DC Comics",
-        "start_year": 2013
-      },
-      {
-        "id": 65344,
-        "name": "Batman '66",
-        "publisher": "DC Comics",
-        "start_year": 2013
-      }
-    ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554862+00:00"
-  },
-  {
     "name": "Little Audrey",
     "publisher": "Harvey Comics",
     "year": 1952,
@@ -6187,9 +6165,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T23:37:04.793902+00:00",
-    "retry_after": "2026-11-21T23:37:04.793905+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T00:01:58.739248+00:00",
+    "retry_after": "2026-12-22T00:01:58.739251+00:00",
     "search_hydrated": true
   },
   {
@@ -43466,8 +43444,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-21T23:06:28.030881+00:00",
-    "retry_after": "2026-11-22T23:06:28.030883+00:00",
+    "last_attempt_at": "2026-11-22T00:04:33.215041+00:00",
+    "retry_after": "2026-11-23T00:04:33.215044+00:00",
     "search_hydrated": true
   },
   {
@@ -78162,9 +78140,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T23:11:07.150286+00:00",
-    "retry_after": "2026-11-21T23:11:07.150302+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T00:08:33.494431+00:00",
+    "retry_after": "2026-12-22T00:08:33.494452+00:00",
     "search_hydrated": true
   },
   {
@@ -78173,9 +78151,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T23:11:07.150319+00:00",
-    "retry_after": "2026-11-21T23:11:07.150323+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T00:08:33.494471+00:00",
+    "retry_after": "2026-12-22T00:08:33.494473+00:00",
     "search_hydrated": true
   },
   {
@@ -78184,9 +78162,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T23:11:07.150334+00:00",
-    "retry_after": "2026-11-21T23:11:07.150336+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T00:08:33.494484+00:00",
+    "retry_after": "2026-12-22T00:08:33.494485+00:00",
     "search_hydrated": true
   },
   {
@@ -78195,9 +78173,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T23:11:07.150345+00:00",
-    "retry_after": "2026-11-21T23:11:07.150347+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T00:08:33.494495+00:00",
+    "retry_after": "2026-12-22T00:08:33.494496+00:00",
     "search_hydrated": true
   },
   {
@@ -78206,9 +78184,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T23:11:07.150356+00:00",
-    "retry_after": "2026-11-21T23:11:07.150358+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T00:08:33.494504+00:00",
+    "retry_after": "2026-12-22T00:08:33.494505+00:00",
     "search_hydrated": true
   },
   {
@@ -78217,9 +78195,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T23:11:07.150367+00:00",
-    "retry_after": "2026-11-21T23:11:07.150368+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T00:08:33.494513+00:00",
+    "retry_after": "2026-12-22T00:08:33.494514+00:00",
     "search_hydrated": true
   },
   {
@@ -78228,9 +78206,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T23:11:07.150381+00:00",
-    "retry_after": "2026-11-21T23:11:07.150382+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T00:08:33.494525+00:00",
+    "retry_after": "2026-12-22T00:08:33.494526+00:00",
     "search_hydrated": true
   },
   {
@@ -78261,9 +78239,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T23:11:07.150405+00:00",
-    "retry_after": "2026-11-21T23:11:07.150407+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T00:08:33.494545+00:00",
+    "retry_after": "2026-12-22T00:08:33.494546+00:00",
     "search_hydrated": true
   },
   {
@@ -78279,9 +78257,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-07T23:11:08.806336+00:00",
-    "retry_after": "2026-11-21T23:11:08.806352+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T00:08:35.007084+00:00",
+    "retry_after": "2026-12-22T00:08:35.007094+00:00",
     "search_hydrated": true
   },
   {
@@ -78300,17 +78278,6 @@
     "attempts": 4,
     "last_attempt_at": "2026-11-07T23:37:06.431086+00:00",
     "retry_after": "2026-11-21T23:37:06.431097+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Magnus Robot Fighter Yearbook",
-    "publisher": "Valiant Comics",
-    "year": 1994,
-    "reason": "no_title_match",
-    "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T00:02:01.440852+00:00",
-    "retry_after": "2026-11-22T00:02:01.440854+00:00",
     "search_hydrated": true
   },
   {
@@ -97324,9 +97291,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-21T00:01:52.418809+00:00",
-    "retry_after": "2026-11-22T00:01:52.418812+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-22T00:02:11.153115+00:00",
+    "retry_after": "2026-11-25T00:02:11.153128+00:00",
     "search_hydrated": true
   },
   {
@@ -97335,9 +97302,9 @@
     "year": 1998,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-21T00:02:48.463617+00:00",
-    "retry_after": "2026-11-22T00:02:48.463635+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-22T00:04:33.214959+00:00",
+    "retry_after": "2026-11-25T00:04:33.214975+00:00",
     "search_hydrated": true
   },
   {
@@ -98853,6 +98820,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-21T23:10:42.153112+00:00",
     "retry_after": "2026-11-22T23:10:42.153146+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Simpsorama",
+    "publisher": "Titan Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65122,
+        "name": "Simpsons Comics: Simpsorama",
+        "publisher": "HarperCollins",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T00:08:43.578793+00:00",
+    "retry_after": "2026-11-23T00:08:43.578810+00:00",
     "search_hydrated": true
   }
 ]

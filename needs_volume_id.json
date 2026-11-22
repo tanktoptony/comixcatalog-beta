@@ -8015,9 +8015,9 @@
         "start_year": 1975
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T04:11:49.386444+00:00",
-    "retry_after": "2026-11-22T04:11:49.386446+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T05:02:02.282799+00:00",
+    "retry_after": "2026-12-22T05:02:02.282803+00:00",
     "search_hydrated": true
   },
   {
@@ -43437,8 +43437,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-22T04:03:57.880569+00:00",
-    "retry_after": "2026-11-23T04:03:57.880574+00:00",
+    "last_attempt_at": "2026-11-22T05:03:13.141715+00:00",
+    "retry_after": "2026-11-23T05:03:13.141719+00:00",
     "search_hydrated": true
   },
   {
@@ -78908,9 +78908,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T04:11:49.386313+00:00",
-    "retry_after": "2026-11-22T04:11:49.386330+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T05:07:07.830145+00:00",
+    "retry_after": "2026-12-22T05:07:07.830162+00:00",
     "search_hydrated": true
   },
   {
@@ -78926,9 +78926,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T04:11:51.355483+00:00",
-    "retry_after": "2026-11-22T04:11:51.355487+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T05:07:12.397009+00:00",
+    "retry_after": "2026-12-22T05:07:12.397012+00:00",
     "search_hydrated": true
   },
   {
@@ -78937,9 +78937,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T04:11:49.386371+00:00",
-    "retry_after": "2026-11-22T04:11:49.386374+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T05:07:07.830201+00:00",
+    "retry_after": "2026-12-22T05:07:07.830204+00:00",
     "search_hydrated": true
   },
   {
@@ -78948,9 +78948,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T04:11:49.386386+00:00",
-    "retry_after": "2026-11-22T04:11:49.386389+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T05:07:07.830215+00:00",
+    "retry_after": "2026-12-22T05:07:07.830216+00:00",
     "search_hydrated": true
   },
   {
@@ -78959,9 +78959,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T04:11:49.386399+00:00",
-    "retry_after": "2026-11-22T04:11:49.386400+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T05:07:07.830225+00:00",
+    "retry_after": "2026-12-22T05:07:07.830227+00:00",
     "search_hydrated": true
   },
   {
@@ -78970,9 +78970,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T04:11:49.386409+00:00",
-    "retry_after": "2026-11-22T04:11:49.386411+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T05:07:07.830234+00:00",
+    "retry_after": "2026-12-22T05:07:07.830236+00:00",
     "search_hydrated": true
   },
   {
@@ -78981,9 +78981,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T04:11:49.386456+00:00",
-    "retry_after": "2026-11-22T04:11:49.386458+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T05:07:07.830244+00:00",
+    "retry_after": "2026-12-22T05:07:07.830246+00:00",
     "search_hydrated": true
   },
   {
@@ -97207,8 +97207,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-22T04:03:57.880310+00:00",
-    "retry_after": "2026-11-23T04:03:57.880326+00:00",
+    "last_attempt_at": "2026-11-22T05:03:13.141545+00:00",
+    "retry_after": "2026-11-23T05:03:13.141563+00:00",
     "search_hydrated": true
   },
   {
@@ -99025,6 +99025,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-22T04:09:47.787763+00:00",
     "retry_after": "2026-11-23T04:09:47.787767+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tales of the Mysterious Traveler",
+    "publisher": "Eclipse Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1763,
+        "name": "Tales of the Mysterious Traveler",
+        "publisher": "Charlton",
+        "start_year": 1956
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T05:07:22.467380+00:00",
+    "retry_after": "2026-11-23T05:07:22.467398+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "My Little Pony Fun Pack: Rarity [Micro Comic Fun Pack Series 2]",
+    "publisher": "IDW Publishing",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T05:07:22.467423+00:00",
+    "retry_after": "2026-11-23T05:07:22.467426+00:00",
     "search_hydrated": true
   }
 ]

@@ -189,6 +189,27 @@ export const SHORTS = [
     toBeat: "Short 3 end",
     hook: "The villain is the writer",
   },
+  {
+    id: "Short009HiddenTrack",
+    episode: "episode-009-shorts",
+    fromBeat: "Short 1 start",
+    toBeat: "Short 1 end",
+    hook: "Eleven tracks of nothing. Then this.",
+  },
+  {
+    id: "Short009HelloApollo",
+    episode: "episode-009-shorts",
+    fromBeat: "Short 2 start",
+    toBeat: "Short 2 end",
+    hook: "The album and the comic open the same way",
+  },
+  {
+    id: "Short009Exclusives",
+    episode: "episode-009-shorts",
+    fromBeat: "Short 3 start",
+    toBeat: "Short 3 end",
+    hook: "Limited to 300 copies",
+  },
 ];
 
 // Seconds of each clip. The clip stops just before the next beat.

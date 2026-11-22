@@ -124,7 +124,9 @@ def say(p):
 
 
 def bare(w):
-    return re.sub(r"[.,!?;:\"']+$", "", w).lower()
+    # Strip quotes and punctuation on both ends: a quoted "21:13." came out as
+    # the raw read ("twenty-one) because the leading quote blocked the match.
+    return re.sub(r"[.,!?;:\"'“”]+$", "", re.sub(r"^[\"'“”(]+", "", w)).lower()
 
 
 def to_display(words):
@@ -133,8 +135,9 @@ def to_display(words):
         for seq, disp in DISPLAY:
             n = len(seq)
             if [bare(w["w"]) for w in words[i:i + n]] == seq:
-                tail = re.search(r"[.,!?;:]+$", words[i + n - 1]["w"])
-                out.append({"w": disp + (tail.group(0) if tail else ""), "s": words[i]["s"], "e": words[i + n - 1]["e"]})
+                head = re.match(r"^[\"'“”(]+", words[i]["w"])
+                tail = re.search(r"[.,!?;:\"'“”)]+$", words[i + n - 1]["w"])
+                out.append({"w": (head.group(0) if head else "") + disp + (tail.group(0) if tail else ""), "s": words[i]["s"], "e": words[i + n - 1]["e"]})
                 i += n
                 break
         else:

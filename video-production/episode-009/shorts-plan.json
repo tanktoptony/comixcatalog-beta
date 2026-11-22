@@ -1,0 +1,45 @@
+{
+ "duration": 136.731,
+ "shorts": [
+  {
+   "short": 1,
+   "file": "short-1 - the album with eleven silent tracks.wav",
+   "at": 0.5,
+   "end": 49.38
+  },
+  {
+   "short": 2,
+   "file": "short-2 - hello apollo.wav",
+   "at": 53.812,
+   "end": 81.242
+  },
+  {
+   "short": 3,
+   "file": "short-3 - comic-con exclusives for a rock band's comic.wav",
+   "at": 85.592,
+   "end": 132.372
+  }
+ ],
+ "clips": [
+  {
+   "short": 1,
+   "song": "21:13",
+   "at": 39.07,
+   "dur": 4.8,
+   "sample": [
+    284.15,
+    288.95
+   ]
+  },
+  {
+   "short": 2,
+   "song": "The Ring in Return",
+   "at": 53.812,
+   "dur": 4.5,
+   "sample": [
+    59.6,
+    64.1
+   ]
+  }
+ ]
+}

@@ -12,6 +12,7 @@ import { THUMBNAILS_005 } from "./Thumbnails005.jsx";
 import { THUMBNAILS_006 } from "./Thumbnails006.jsx";
 import { THUMBNAILS_007 } from "./Thumbnails007.jsx";
 import { THUMBNAILS_008 } from "./Thumbnails008.jsx";
+import { THUMBNAILS_009 } from "./Thumbnails009.jsx";
 import { ShortClip } from "./Shorts.jsx";
 import { ChannelBanner, ChannelBannerComic } from "./Banner.jsx";
 import { ChannelIntro, ChannelSting } from "./ChannelIntro.jsx";
@@ -29,6 +30,7 @@ import { fixWords as fixWords005 } from "../episode-005/fixWords.js";
 import { shortsWords as shortsWords006 } from "../episode-006/shorts-timeline.js";
 import { shortsCaptionWords as shortsWords007 } from "../episode-007/shorts-timeline.js";
 import { shortsWords as shortsWords008 } from "../episode-008/shorts-timeline.js";
+import { shortsWords as shortsWords009 } from "../episode-009/shorts-timeline.js";
 import { Dossier001Reveal, Dossier001Cosmic, Dossier001Front, Dossier001Back, Dossier001FrontFrame, Dossier001FrontArt, Dossier001FrontLettering, Dossier001BackFrame, Dossier001BackMeters, Dossier001BackLettering } from "./Dossier006.jsx";
 import { PackOpen, RetroCard } from "../shared/components/packOpen.jsx";
 import { EpisodeContext, SegmentContext } from "../shared/components/primitives.jsx";
@@ -80,6 +82,10 @@ const shortDetails = {
     words: shortsWords008,
     endCardTitle: "The Nice House on the Lake",
   },
+  "episode-009-shorts": {
+    words: shortsWords009,
+    endCardTitle: "The Amory Wars Part 3",
+  },
 };
 
 // YouTube thumbnails (scripts/thumbs.mjs).
@@ -94,6 +100,7 @@ export const THUMBNAILS = [
   ...THUMBNAILS_006,
   ...THUMBNAILS_007,
   ...THUMBNAILS_008,
+  ...THUMBNAILS_009,
 ];
 
 export function Root() {

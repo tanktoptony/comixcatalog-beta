@@ -9136,9 +9136,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T17:40:57.712984+00:00",
-    "retry_after": "2026-11-22T17:40:57.712988+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T18:06:21.868930+00:00",
+    "retry_after": "2026-12-22T18:06:21.868933+00:00",
     "search_hydrated": true
   },
   {
@@ -18856,9 +18856,9 @@
         "start_year": 2004
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T17:40:57.712937+00:00",
-    "retry_after": "2026-11-22T17:40:57.712942+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T18:06:21.868883+00:00",
+    "retry_after": "2026-12-22T18:06:21.868888+00:00",
     "search_hydrated": true
   },
   {
@@ -26937,9 +26937,10 @@
         "start_year": 2020
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T03:59:29.377283+00:00",
-    "retry_after": "2026-10-01T03:59:29.377298+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T18:06:37.573063+00:00",
+    "retry_after": "2026-11-23T18:06:37.573078+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Deep Beyond",
@@ -44408,9 +44409,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T17:40:57.713059+00:00",
-    "retry_after": "2026-11-22T17:40:57.713065+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T18:06:21.868962+00:00",
+    "retry_after": "2026-12-22T18:06:21.868964+00:00",
     "search_hydrated": true
   },
   {
@@ -49552,9 +49553,10 @@
     "year": 1975,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-14T16:56:39.776993+00:00",
-    "retry_after": "2026-10-17T16:56:39.777009+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-22T18:02:19.030436+00:00",
+    "retry_after": "2026-11-29T18:02:19.030450+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Blue Beetle",
@@ -56713,9 +56715,9 @@
         "start_year": 2013
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T17:40:57.712832+00:00",
-    "retry_after": "2026-11-22T17:40:57.712848+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T18:06:21.868779+00:00",
+    "retry_after": "2026-12-22T18:06:21.868795+00:00",
     "search_hydrated": true
   },
   {
@@ -62386,35 +62388,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T02:15:51.978860+00:00",
     "retry_after": "2026-10-23T02:15:51.978875+00:00"
-  },
-  {
-    "name": "Rising Sun",
-    "publisher": "IDW Publishing",
-    "year": 2019,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 108156,
-        "name": "Rising Sun",
-        "publisher": null,
-        "start_year": 2002
-      },
-      {
-        "id": 124264,
-        "name": "Rising Sun",
-        "publisher": null,
-        "start_year": 2020
-      },
-      {
-        "id": 99184,
-        "name": "Rising Sun",
-        "publisher": null,
-        "start_year": 2012
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T02:15:52.448256+00:00",
-    "retry_after": "2026-10-23T02:15:52.448271+00:00"
   },
   {
     "name": "La Panthere Rose et l’Inspecteur",
@@ -80247,9 +80220,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T17:49:54.030926+00:00",
-    "retry_after": "2026-11-22T17:49:54.030941+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T18:13:40.222524+00:00",
+    "retry_after": "2026-12-22T18:13:40.222538+00:00",
     "search_hydrated": true
   },
   {
@@ -80265,9 +80238,9 @@
         "start_year": 2001
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T17:49:56.763234+00:00",
-    "retry_after": "2026-11-22T17:49:56.763241+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T18:13:43.239210+00:00",
+    "retry_after": "2026-12-22T18:13:43.239214+00:00",
     "search_hydrated": true
   },
   {
@@ -80283,9 +80256,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T17:49:56.913325+00:00",
-    "retry_after": "2026-11-22T17:49:56.913335+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T18:13:43.453051+00:00",
+    "retry_after": "2026-12-22T18:13:43.453063+00:00",
     "search_hydrated": true
   },
   {
@@ -80301,9 +80274,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T17:49:57.072175+00:00",
-    "retry_after": "2026-11-22T17:49:57.072188+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T18:13:43.662374+00:00",
+    "retry_after": "2026-12-22T18:13:43.662386+00:00",
     "search_hydrated": true
   },
   {
@@ -80319,9 +80292,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T17:49:57.293174+00:00",
-    "retry_after": "2026-11-22T17:49:57.293187+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T18:13:43.910665+00:00",
+    "retry_after": "2026-12-22T18:13:43.910677+00:00",
     "search_hydrated": true
   },
   {
@@ -80343,9 +80316,9 @@
         "start_year": 2004
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T17:50:05.875443+00:00",
-    "retry_after": "2026-11-22T17:50:05.875459+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T18:13:51.214318+00:00",
+    "retry_after": "2026-12-22T18:13:51.214332+00:00",
     "search_hydrated": true
   },
   {
@@ -80354,9 +80327,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T18:11:13.541078+00:00",
-    "retry_after": "2026-11-22T18:11:13.541094+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T18:13:51.214387+00:00",
+    "retry_after": "2026-12-22T18:13:51.214391+00:00",
     "search_hydrated": true
   },
   {
@@ -80383,9 +80356,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T17:49:57.478354+00:00",
-    "retry_after": "2026-11-22T17:49:57.478365+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T18:13:44.125733+00:00",
+    "retry_after": "2026-12-22T18:13:44.125747+00:00",
     "search_hydrated": true
   },
   {
@@ -80401,9 +80374,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T17:50:06.544967+00:00",
-    "retry_after": "2026-11-22T17:50:06.544979+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T18:13:51.811831+00:00",
+    "retry_after": "2026-12-22T18:13:51.811843+00:00",
     "search_hydrated": true
   },
   {
@@ -80419,9 +80392,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T17:50:06.697751+00:00",
-    "retry_after": "2026-11-22T17:50:06.697765+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T18:13:52.061080+00:00",
+    "retry_after": "2026-12-22T18:13:52.061094+00:00",
     "search_hydrated": true
   },
   {
@@ -97155,21 +97128,15 @@
   },
   {
     "name": "Pink Lemonade",
-    "publisher": "It's Alive Press",
+    "publisher": "Oni Press",
     "year": 2019,
-    "reason": "publisher_mismatch",
+    "reason": "multiple_candidates",
     "candidates": [
       {
         "id": 145289,
         "name": "Pink Lemonade",
         "publisher": "Oni Press",
         "start_year": 2022
-      },
-      {
-        "id": 122513,
-        "name": "Pink Lemonade",
-        "publisher": "It's Alive",
-        "start_year": 2019
       },
       {
         "id": 151940,
@@ -97179,8 +97146,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-22T16:10:16.428666+00:00",
-    "retry_after": "2026-11-23T16:10:16.428689+00:00",
+    "last_attempt_at": "2026-11-22T18:09:42.777795+00:00",
+    "retry_after": "2026-11-23T18:09:42.777811+00:00",
     "search_hydrated": true
   },
   {
@@ -97459,30 +97426,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-21T16:04:05.579456+00:00",
     "retry_after": "2026-11-22T16:04:05.579459+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "All-Star Comics",
-    "publisher": "DC Comics",
-    "year": 1976,
-    "reason": "multiple_candidates",
-    "candidates": [
-      {
-        "id": 2833,
-        "name": "All-Star Comics",
-        "publisher": "DC Comics",
-        "start_year": 1940
-      },
-      {
-        "id": 6596,
-        "name": "All Star Comics",
-        "publisher": "DC Comics",
-        "start_year": 1999
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-21T18:03:18.091962+00:00",
-    "retry_after": "2026-11-22T18:03:18.091980+00:00",
     "search_hydrated": true
   },
   {
@@ -98298,6 +98241,269 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-22T17:12:41.718002+00:00",
     "retry_after": "2026-11-23T17:12:41.718018+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Death Wreck",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20528,
+        "name": "Death Wreck",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T18:06:04.387456+00:00",
+    "retry_after": "2026-11-23T18:06:04.387471+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Freak Snow",
+    "publisher": "Behemoth Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 136775,
+        "name": "Freak Snow",
+        "publisher": "Happy Tank",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T18:06:04.387503+00:00",
+    "retry_after": "2026-11-23T18:06:04.387507+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Plasmer",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 5037,
+        "name": "Plasmer",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T18:06:04.387565+00:00",
+    "retry_after": "2026-11-23T18:06:04.387568+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Psychoanalysis",
+    "publisher": "Gemstone",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1734,
+        "name": "Psychoanalysis",
+        "publisher": "EC",
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T18:06:04.387587+00:00",
+    "retry_after": "2026-11-23T18:06:04.387590+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Shadow Riders",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27172,
+        "name": "Shadow Riders",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T18:06:04.387609+00:00",
+    "retry_after": "2026-11-23T18:06:04.387612+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Terror on the Planet of the Apes",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62074,
+        "name": "Terror on the Planet of the Apes",
+        "publisher": "Adventure",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T18:06:04.387630+00:00",
+    "retry_after": "2026-11-23T18:06:04.387633+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "French Ticklers",
+    "publisher": "Kitchen Sink Press",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41077,
+        "name": "French Ticklers",
+        "publisher": "Kitchen Sink",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T18:06:15.312177+00:00",
+    "retry_after": "2026-11-23T18:06:15.312189+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Neil Gaiman's Wheel of Worlds",
+    "publisher": "Big Entertainment",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20944,
+        "name": "Neil Gaiman's Wheel of Worlds",
+        "publisher": "Tekno Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T18:06:15.312221+00:00",
+    "retry_after": "2026-11-23T18:06:15.312225+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Saga of a Doomed Universe",
+    "publisher": "Comics Experience Publishing",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 76602,
+        "name": "Saga Of A Doomed Universe",
+        "publisher": "Webs Best Comics",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T18:06:15.312250+00:00",
+    "retry_after": "2026-11-23T18:06:15.312253+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Blonde: Double Cross",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45991,
+        "name": "The Blonde: Double Cross",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T18:06:15.312306+00:00",
+    "retry_after": "2026-11-23T18:06:15.312311+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Futurians by Dave Cockrum",
+    "publisher": "Lodestone",
+    "year": 1985,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78596,
+        "name": "The Futurians",
+        "publisher": "Eternity",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T18:06:15.996737+00:00",
+    "retry_after": "2026-11-23T18:06:15.996750+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Flash Giant",
+    "publisher": "DC Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T18:09:42.777850+00:00",
+    "retry_after": "2026-11-23T18:09:42.777853+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Simpsorama",
+    "publisher": "Titan Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65122,
+        "name": "Simpsons Comics: Simpsorama",
+        "publisher": "HarperCollins",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T18:14:01.023055+00:00",
+    "retry_after": "2026-11-23T18:14:01.023069+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Book Tour",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 132108,
+        "name": "The Book Tour",
+        "publisher": "Top Shelf",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T18:14:01.023100+00:00",
+    "retry_after": "2026-11-23T18:14:01.023105+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tales of the Mysterious Traveler",
+    "publisher": "Eclipse Comics",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1763,
+        "name": "Tales of the Mysterious Traveler",
+        "publisher": "Charlton",
+        "start_year": 1956
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T18:14:01.023127+00:00",
+    "retry_after": "2026-11-23T18:14:01.023131+00:00",
     "search_hydrated": true
   }
 ]

@@ -11,6 +11,7 @@
 // but never rename or remove a slug that has been posted.
 
 const AMORY_WARS_CHECKLIST = "/series/f5b04bab-2a49-4d6c-afaa-71a916795fb8/checklist";
+const IKSSE3_CHECKLIST = "/series/6328e330-0e49-4c9f-b68f-ebe67f8cdbee/checklist"; // BOOM! 2010, 12 issues
 const BAG_ON_LINE_CHECKLIST = "/series/aa36b552-18e8-4a30-86ef-9a5cee18756a/checklist";
 const GETTING_INTO_COMICS = "/blog/getting-back-into-comics";
 const HICKMAN = "/creator/jonathan-hickman";
@@ -26,6 +27,7 @@ export const YOUTUBE_LINKS = Object.freeze({
   longboxes: "/founding-collectors", // episode 003, the origin of the site
   amory1: AMORY_WARS_CHECKLIST, // episode 004
   amory2: AMORY_WARS_CHECKLIST, // episode 005
+  amory3: IKSSE3_CHECKLIST, // episode 009, In Keeping Secrets of Silent Earth: 3
 
   // Shorts.
   xman: "/issue/gcd-28072", // Giant-Size X-Men #1, Colossus's first appearance

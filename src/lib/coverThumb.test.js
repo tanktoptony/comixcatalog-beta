@@ -16,11 +16,10 @@ test("drops a query string rather than baking it into the path", () => {
   assert.equal(coverThumb(`${ORIG}?v=2`), THUMB);
 });
 
-test("maps a missing thumb to Supabase's 400px image transform", () => {
-  assert.equal(
-    coverTransform(THUMB),
-    `${BASE.replace("/object/public", "/render/image/public")}/canonical-covers/comicvine/x-men/vol-1/1-issue-1.jpg?width=400&resize=contain&quality=80`
-  );
+test("a missing thumb falls back to the original, never the paid image transform", () => {
+  // Transforms are off (2026-11-21) and answer 403, which left tiles blank.
+  assert.equal(coverTransform(THUMB), ORIG);
+  assert.doesNotMatch(coverTransform(THUMB), /render\/image/);
   assert.equal(coverTransform(ORIG), null);
 });
 

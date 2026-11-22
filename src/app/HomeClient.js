@@ -10,7 +10,6 @@ import { coverThumb } from "@/lib/coverThumb";
 import HomeDispatch from "@/components/HomeDispatch";
 import { trackEvent } from "@/lib/analytics";
 import YourShelf from "@/components/shelf/YourShelf";
-import { BADGE_CATALOG, SECRET_BADGE_COUNT } from "@/lib/badges/catalog";
 
 // "217,000+" / "2.5M+": rounded down so the strip never overstates.
 function proofNumber(n, fallback) {
@@ -213,11 +212,11 @@ export default function HomeClient({
         </div>
         <div className="lp-feature">
           <div className="lp-feature-icon">◈</div>
-          <h3>Badges</h3>
+          <h3>Wantlist and pull list</h3>
           <p>
-            Collecting earns badges, each showing how many collectors have
-            it. There are {BADGE_CATALOG.length} in all, and{" "}
-            {SECRET_BADGE_COUNT} stay secret until you find them.
+            Add every issue you&apos;re missing from a run in one click, with
+            guide prices beside them, and follow series to see their new
+            issues week by week.
           </p>
         </div>
         <div className="lp-feature">

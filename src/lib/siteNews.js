@@ -9,8 +9,8 @@
 export const SITE_NEWS = [
   {
     date: "2026-11-21",
-    title: "How rare is your badge?",
-    body: "Every badge on your badges page shows the share of collectors who have it, and anything under 10% gets a Rare tag. There are eight new secret badges too. We're not saying what they are.",
+    title: "Badge rarity",
+    body: "Your badges page shows how many collectors have each badge.",
   },
   {
     date: "2026-11-21",

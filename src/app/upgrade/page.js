@@ -26,7 +26,6 @@ const TIERS = [
       { label: "Values for each copy at its grade from PriceCharting's price guide, which is built from sold listings. Books the guide doesn't list fall back to eBay asking prices, labeled as asking" },
       { label: "Bring your collection over from CLZ, League of Comic Geeks or a spreadsheet" },
       { label: "Follow collectors, a feed of what they add, ratings and reviews, lists, comments and trade matches" },
-      { label: "Badges as you collect, with how many collectors have each one" },
       { label: "Run completion: see how much of a series you own and exactly which issues you're missing" },
       { label: "Pick which variant cover is the one on your shelf" },
       { label: "Key issue flags on the big first appearances and deaths, with a line on why they matter. The list is short and growing" },

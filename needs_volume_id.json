@@ -43409,8 +43409,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-22T15:03:04.218431+00:00",
-    "retry_after": "2026-11-23T15:03:04.218436+00:00",
+    "last_attempt_at": "2026-11-22T15:58:48.427962+00:00",
+    "retry_after": "2026-11-23T15:58:48.427965+00:00",
     "search_hydrated": true
   },
   {
@@ -80066,9 +80066,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T15:11:11.493997+00:00",
-    "retry_after": "2026-11-22T15:11:11.494012+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T16:04:54.936953+00:00",
+    "retry_after": "2026-12-22T16:04:54.936973+00:00",
     "search_hydrated": true
   },
   {
@@ -80077,9 +80077,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T15:11:11.494034+00:00",
-    "retry_after": "2026-11-22T15:11:11.494038+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T16:04:54.936992+00:00",
+    "retry_after": "2026-12-22T16:04:54.936994+00:00",
     "search_hydrated": true
   },
   {
@@ -80088,9 +80088,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T15:11:11.494053+00:00",
-    "retry_after": "2026-11-22T15:11:11.494056+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T16:04:54.937022+00:00",
+    "retry_after": "2026-12-22T16:04:54.937024+00:00",
     "search_hydrated": true
   },
   {
@@ -80099,9 +80099,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T15:11:11.494084+00:00",
-    "retry_after": "2026-11-22T15:11:11.494087+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T16:04:54.937041+00:00",
+    "retry_after": "2026-12-22T16:04:54.937042+00:00",
     "search_hydrated": true
   },
   {
@@ -80117,9 +80117,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T15:11:13.920470+00:00",
-    "retry_after": "2026-11-22T15:11:13.920474+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T16:04:56.842608+00:00",
+    "retry_after": "2026-12-22T16:04:56.842610+00:00",
     "search_hydrated": true
   },
   {
@@ -80128,9 +80128,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T15:11:11.494102+00:00",
-    "retry_after": "2026-11-22T15:11:11.494104+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T16:04:54.937051+00:00",
+    "retry_after": "2026-12-22T16:04:54.937052+00:00",
     "search_hydrated": true
   },
   {
@@ -80139,9 +80139,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T15:11:11.494118+00:00",
-    "retry_after": "2026-11-22T15:11:11.494120+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-22T16:04:54.937060+00:00",
+    "retry_after": "2026-12-22T16:04:54.937062+00:00",
     "search_hydrated": true
   },
   {
@@ -97179,8 +97179,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-22T15:03:04.218194+00:00",
-    "retry_after": "2026-11-23T15:03:04.218208+00:00",
+    "last_attempt_at": "2026-11-22T15:58:48.427782+00:00",
+    "retry_after": "2026-11-23T15:58:48.427798+00:00",
     "search_hydrated": true
   },
   {
@@ -99136,6 +99136,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-22T15:11:41.822014+00:00",
     "retry_after": "2026-11-23T15:11:41.822029+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Lost Art of Ah Pook Is Here: Images from the Graphic Novel",
+    "publisher": "Fantagraphics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T16:05:07.934391+00:00",
+    "retry_after": "2026-11-23T16:05:07.934408+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spanish Fever: Stories by the New Spanish Cartoonists",
+    "publisher": "Fantagraphics",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-22T16:05:07.934431+00:00",
+    "retry_after": "2026-11-23T16:05:07.934433+00:00",
     "search_hydrated": true
   }
 ]

@@ -76,7 +76,7 @@ export function loadLedger() {
   }
 }
 
-function appendLedger(key) {
+export function appendLedger(key) {
   const ledger = loadLedger();
   ledger.add(key);
   fs.writeFileSync(LEDGER_PATH, JSON.stringify([...ledger], null, 2) + "\n");
@@ -854,7 +854,8 @@ export async function publishContainer(igUserId, containerId, token, { retries =
   }
 }
 
-async function postToInstagram({ imageUrl, caption }) {
+// Exported for scripts/crossPostBlog.js, which posts a new blog post's card.
+export async function postToInstagram({ imageUrl, caption }) {
   const igUserId = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
   const token = process.env.INSTAGRAM_ACCESS_TOKEN;
   if (!igUserId || !token) {

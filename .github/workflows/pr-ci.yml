@@ -214,6 +214,9 @@ jobs:
       - name: Cover thumb URL tests
         run: npm run test:cover-thumb
 
+      - name: GCD issue refresh tests
+        run: npm run test:gcd-issue-refresh
+
       - name: Message emoji and reaction tests
         run: npm run test:emoji
 

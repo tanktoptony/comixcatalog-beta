@@ -56,3 +56,19 @@ test("variantFieldsFromSeriesJson reads bases and variants from one series respo
   assert.deepEqual(fields.get(2872350), { variant_of_gcd_id: 2872336, variant_name: "Derrick Chew Cover", base_gcd_issue_id: 2872336 });
   assert.equal(fields.has(9), false);
 });
+
+test("rows of series and issues GCD deleted are left out of the repair pass", async () => {
+  const { markGone, repairCandidates } = await import("./gcdIssueRefresh.js");
+  const rows = [
+    { gcd_id: 1, series_gcd_id: 174856 },
+    { gcd_id: 2, series_gcd_id: 174856 },
+    { gcd_id: 3, series_gcd_id: 500 },
+    { gcd_id: 2762039, series_gcd_id: 501 },
+  ];
+  let gone = markGone({}, "series", 174856);
+  gone = markGone(gone, "issues", "2762039");
+  gone = markGone(gone, "series", 174856);
+  assert.deepEqual(gone, { series: [174856], issues: [2762039] });
+  assert.deepEqual(repairCandidates(rows, gone).map((r) => r.gcd_id), [3]);
+  assert.equal(repairCandidates(rows, undefined).length, 4);
+});

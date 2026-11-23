@@ -1,4 +1,4 @@
--- 0118_gcd_series_name_trgm.sql
+-- 0119_gcd_series_name_trgm.sql
 -- Trigram index on gcd_series.name for the cover scan's series lookup.
 --
 -- POST /api/cover-scan adds GCD-only series to its candidates with one

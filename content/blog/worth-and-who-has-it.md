@@ -1,7 +1,7 @@
 ---
 title: What your books are worth, and who else has them
 slug: worth-and-who-has-it
-excerpt: Collection values come from a real price guide now. You can see who has a book, find people to trade with, follow a feed, review issues, make lists and comment.
+excerpt: Collection values come from a real price guide now. You can see who has a book, find people to trade with, follow a feed, review issues, make lists and comment. Imports read shorthand titles, and you choose which emails you get.
 ---
 
 Collecting comics is a social hobby that mostly happens alone in a room with a long box. You buy a book, you bag it, you board it, and the only person who hears about it is whoever happens to be standing nearby. Usually that person did not ask.
@@ -53,9 +53,17 @@ In your library, you can switch a copy to the newsstand edition, a later printin
 
 One small thing: your badges page now shows how many collectors have each badge.
 
-## What's next
+## Imports that read shorthand
 
-The scanner already reads covers for you. Next I want it to help with the parts that are still tedious, like importing a spreadsheet full of shorthand titles. More on that when it ships, not before.
+Bringing a spreadsheet over from another app used to stop at every title it couldn't place as written. "ASM 300" meant nothing to it.
+
+Now the [importer](https://www.comixcatalog.com/switch) takes a second look at those rows. It works out that "ASM 300" is The Amazing Spider-Man #300 from 1988, and that "X-Men Vol. 2 #30" is the 1991 series. Every guess has to be a real book in the catalog, and nothing gets added until you tick it. Only the title, issue, publisher and year are read for this, never your grades, prices or notes.
+
+## Email you control
+
+In [Account settings](https://www.comixcatalog.com/account), you choose how you hear about replies, @mentions and comments: right away, one summary a day, or not at all.
+
+There's also a weekly digest: what the collectors you follow added, wantlist books someone listed, your trade matches and your collection's value. It only goes out when there's something new, and every email has a one-click unsubscribe.
 
 If something's broken or you have an idea, message me on the site or email comixcatalog@gmail.com. I read every one.
 

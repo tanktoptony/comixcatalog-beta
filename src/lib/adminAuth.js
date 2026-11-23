@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { ADMIN_ID } from "@/lib/admin";
+import { ADMIN_ID, canSeePrivateMembers } from "@/lib/admin";
 import { getAuthedUser } from "@/lib/authServer";
 import { aalFromToken, bearerToken } from "@/lib/adminAal";
 
@@ -19,4 +19,17 @@ export async function requireAdmin(req) {
     return { response: NextResponse.json({ error: "Two-factor sign-in required.", mfa_required: true }, { status: 401 }) };
   }
   return { admin: user };
+}
+
+// Read-only gate for the private members page: the admin account (still with
+// two-factor) or Tony's test account, which has no authenticator.
+export async function requirePrivateMemberViewer(req) {
+  const user = await getAuthedUser(req);
+  if (!user || !canSeePrivateMembers(user.id)) {
+    return { response: NextResponse.json({ error: "Forbidden" }, { status: 403 }) };
+  }
+  if (user.id === ADMIN_ID && aalFromToken(bearerToken(req)) !== "aal2") {
+    return { response: NextResponse.json({ error: "Two-factor sign-in required.", mfa_required: true }, { status: 401 }) };
+  }
+  return { viewer: user };
 }

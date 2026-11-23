@@ -127,6 +127,9 @@ jobs:
       - name: Email preference tests
         run: npm run test:email-prefs
 
+      - name: Blog cross-post tests
+        run: npm run test:blog-crosspost
+
       - name: Social book-context tests
         run: npm run test:social
 

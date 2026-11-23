@@ -1,0 +1,150 @@
+/* Conversation list (inbox left column and chat dock). */
+
+.list {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 18px 12px;
+}
+.listDock .head { padding: 10px 12px 8px; justify-content: flex-end; }
+
+.title {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--cc-text);
+}
+.unreadCount {
+  display: inline-grid;
+  place-items: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: var(--cc-gold);
+  color: #090c11;
+  font-family: var(--font-body, inherit);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.newButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 13px;
+  border: 1px solid color-mix(in srgb, var(--cc-gold) 55%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--cc-gold) 10%, transparent);
+  color: var(--cc-gold);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.newButton:hover { background: var(--cc-gold); color: #090c11; }
+
+/* Doubled class: beats the global input[type="search"] { width: 100% }. */
+.list .search {
+  width: auto;
+  box-sizing: border-box;
+  margin: 0 14px 10px;
+  padding: 10px 13px;
+  border: 1px solid var(--cc-line);
+  border-radius: 10px;
+  background: var(--cc-surface-2, rgba(255, 255, 255, 0.04));
+  color: var(--cc-text);
+  font: inherit;
+  font-size: 0.9rem;
+  min-width: 0;
+}
+.list .search:focus { outline: none; border-color: var(--cc-gold); }
+.listDock .search { margin: 0 10px 8px; }
+
+.scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0 8px 12px;
+  scrollbar-width: thin;
+}
+
+.rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+
+.row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--cc-text);
+  text-align: left;
+  text-decoration: none;
+  font: inherit;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.row:hover { background: rgba(255, 255, 255, 0.05); }
+.rowActive, .rowActive:hover {
+  background: color-mix(in srgb, var(--cc-gold) 11%, transparent);
+  box-shadow: inset 3px 0 0 var(--cc-gold);
+}
+
+.avatar {
+  width: 46px;
+  height: 46px;
+  flex: none;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  display: inline-grid;
+  place-items: center;
+}
+.avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.listDock .avatar { width: 40px; height: 40px; }
+
+.body { flex: 1; min-width: 0; display: grid; gap: 3px; }
+.top { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.top strong { font-size: 0.95rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.time { flex: none; color: var(--cc-text-muted); font-size: 0.72rem; }
+.preview {
+  color: var(--cc-text-muted);
+  font-size: 0.85rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.rowUnread .top strong, .rowUnread .preview { color: var(--cc-text); font-weight: 700; }
+.dot {
+  width: 10px;
+  height: 10px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--cc-gold);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--cc-gold) 25%, transparent);
+}
+
+.rowSkeleton { cursor: default; }
+.rowSkeleton span:first-child { width: 46px; height: 46px; border-radius: 50%; background: rgba(255, 255, 255, 0.06); flex: none; }
+.rowSkeleton span:last-child { flex: 1; height: 30px; border-radius: 8px; background: rgba(255, 255, 255, 0.04); }
+
+.noMatch { margin: 14px; color: var(--cc-text-muted); font-size: 0.88rem; text-align: center; }

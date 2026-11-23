@@ -116,7 +116,10 @@
   gap: 4px;
   padding: 22px 20px;
   overflow-y: auto;
+  overscroll-behavior: contain;
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
 }
 
 .messageBlock {
@@ -354,4 +357,46 @@
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+/* Inside the two-pane inbox: fill the right pane, no card of its own.
+   Doubled class so it beats the phone .view rule above. */
+.view.viewPane,
+.view.viewDock {
+  flex: 1;
+  max-width: none;
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+@media (min-width: 900px) {
+  /* The list is right there on desktop. */
+  .viewPane .back { display: none; }
+  .viewPane .topbar { padding: 14px 22px; }
+}
+.viewDock .topbar { padding: 8px 10px; gap: 8px; }
+.viewDock .peerAvatar { width: 32px; height: 32px; }
+.viewDock .scroller { padding: 14px 12px; }
+.viewDock .composer { padding: 10px; }
+.viewDock .msg { max-width: 86%; }
+
+.skeleton { animation: pulse 1.2s ease-in-out infinite; }
+.loadingRows { display: grid; gap: 12px; padding: 8px 0; }
+.loadingRows span {
+  display: block;
+  height: 38px;
+  width: 55%;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+.loadingRows span:nth-child(2) { width: 40%; margin-left: auto; background: color-mix(in srgb, var(--cc-gold) 14%, transparent); }
+.loadingRows span:nth-child(3) { width: 62%; }
+@keyframes pulse { 50% { opacity: 0.45; } }
+@media (prefers-reduced-motion: reduce) {
+  .skeleton, .loadingRows span { animation: none; }
 }

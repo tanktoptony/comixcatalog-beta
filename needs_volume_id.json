@@ -3223,40 +3223,10 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 70328,
-        "name": "Blondie",
-        "publisher": "Beaumont",
-        "start_year": null
-      },
-      {
-        "id": 95349,
-        "name": "Blondie",
-        "publisher": "Yaffa / Page",
-        "start_year": null
-      },
-      {
-        "id": 154571,
-        "name": "Blondie ",
-        "publisher": "Semic/Nordisk Forlag AS",
-        "start_year": 1980
-      },
-      {
-        "id": 70771,
-        "name": "Blondie",
-        "publisher": "Associated Newspapers",
-        "start_year": 1953
-      },
-      {
         "id": 8238,
         "name": "Blondie",
         "publisher": "Hemmets Journal AB",
         "start_year": 1941
-      },
-      {
-        "id": 141403,
-        "name": "Blondie",
-        "publisher": "Romanforlaget",
-        "start_year": 1968
       },
       {
         "id": 33815,
@@ -3271,14 +3241,52 @@
         "start_year": 2010
       },
       {
+        "id": 70328,
+        "name": "Blondie",
+        "publisher": "Beaumont",
+        "start_year": null
+      },
+      {
+        "id": 70771,
+        "name": "Blondie",
+        "publisher": "Associated Newspapers",
+        "start_year": 1953
+      },
+      {
         "id": 80410,
         "name": "Blondie",
         "publisher": "Blackthorne",
         "start_year": 1986
+      },
+      {
+        "id": 95349,
+        "name": "Blondie",
+        "publisher": "Yaffa / Page",
+        "start_year": null
+      },
+      {
+        "id": 141403,
+        "name": "Blondie",
+        "publisher": "Romanforlaget",
+        "start_year": 1968
+      },
+      {
+        "id": 154571,
+        "name": "Blondie ",
+        "publisher": "Semic/Nordisk Forlag AS",
+        "start_year": 1980
+      },
+      {
+        "id": 177198,
+        "name": "Blondie",
+        "publisher": "Interpresse (DK)",
+        "start_year": 1985
       }
     ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554575+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-23T11:52:29.366889+00:00",
+    "retry_after": "2026-11-26T11:52:29.366895+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Star Wars",
@@ -8797,15 +8805,6 @@
     "candidates": [],
     "attempts": 1,
     "retry_after": "2026-09-21T14:00:38.555946+00:00"
-  },
-  {
-    "name": "Batman and Robin Eternal",
-    "publisher": "DC Comics",
-    "year": 2015,
-    "reason": "publisher_mismatch",
-    "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.555949+00:00"
   },
   {
     "name": "Buffy the Vampire Slayer Season 9",
@@ -29988,9 +29987,10 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T17:10:51.391412+00:00",
-    "retry_after": "2026-10-01T17:10:51.391430+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-23T11:52:29.366686+00:00",
+    "retry_after": "2026-11-30T11:52:29.366701+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Space Adventures Presents U.F.O.",
@@ -88870,9 +88870,9 @@
         "start_year": 1998
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T18:03:20.650402+00:00",
-    "retry_after": "2026-11-20T18:03:20.650404+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-23T12:00:35.795824+00:00",
+    "retry_after": "2026-12-07T12:00:35.795826+00:00",
     "search_hydrated": true
   },
   {
@@ -88888,9 +88888,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T18:03:20.650420+00:00",
-    "retry_after": "2026-11-20T18:03:20.650423+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-23T12:00:35.795844+00:00",
+    "retry_after": "2026-12-07T12:00:35.795847+00:00",
     "search_hydrated": true
   },
   {
@@ -88899,9 +88899,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T13:20:32.102957+00:00",
-    "retry_after": "2026-11-20T13:20:32.102974+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-23T12:00:36.933902+00:00",
+    "retry_after": "2026-12-07T12:00:36.933918+00:00",
     "search_hydrated": true
   },
   {
@@ -88917,9 +88917,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T18:03:20.715213+00:00",
-    "retry_after": "2026-11-20T18:03:20.715230+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-23T12:00:35.939840+00:00",
+    "retry_after": "2026-12-07T12:00:35.939857+00:00",
     "search_hydrated": true
   },
   {
@@ -92293,9 +92293,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-14T23:05:32.758230+00:00",
-    "retry_after": "2026-11-21T23:05:32.758246+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-23T12:00:35.795718+00:00",
+    "retry_after": "2026-12-07T12:00:35.795733+00:00",
     "search_hydrated": true
   },
   {
@@ -92531,9 +92531,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-15T23:06:04.104892+00:00",
-    "retry_after": "2026-11-22T23:06:04.104894+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-23T12:00:35.721637+00:00",
+    "retry_after": "2026-12-07T12:00:35.721642+00:00",
     "search_hydrated": true
   },
   {
@@ -95436,9 +95436,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-18T20:04:08.136402+00:00",
-    "retry_after": "2026-11-19T20:04:08.136408+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-23T12:00:35.872493+00:00",
+    "retry_after": "2026-11-26T12:00:35.872509+00:00",
     "search_hydrated": true
   },
   {
@@ -97300,9 +97300,9 @@
         "start_year": 1983
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-21T16:04:05.579456+00:00",
-    "retry_after": "2026-11-22T16:04:05.579459+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-23T12:00:35.795789+00:00",
+    "retry_after": "2026-11-26T12:00:35.795792+00:00",
     "search_hydrated": true
   },
   {
@@ -99149,6 +99149,47 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-23T10:09:52.208601+00:00",
     "retry_after": "2026-11-24T10:09:52.208603+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Darkwing Duck",
+    "publisher": "Dynamite Entertainment",
+    "year": 2010,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 147659,
+        "name": "Darkwing Duck",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2023
+      },
+      {
+        "id": 162635,
+        "name": "Darkwing Duck",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2025
+      },
+      {
+        "id": 159742,
+        "name": "Darkwing Duck",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T12:00:48.559982+00:00",
+    "retry_after": "2026-11-24T12:00:48.560000+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Crisis on Infinite Earths The Absolute Edition",
+    "publisher": "DC Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T12:00:48.560027+00:00",
+    "retry_after": "2026-11-24T12:00:48.560032+00:00",
     "search_hydrated": true
   }
 ]

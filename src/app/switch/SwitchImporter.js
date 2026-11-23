@@ -5,7 +5,7 @@ import Papa from "papaparse";
 import { useMemo, useRef, useState } from "react";
 import { authedFetch } from "@/lib/apiClient";
 import { useAuth } from "@/context/AuthContext";
-import { autoMapColumns, IMPORT_FIELDS, mapRow, pickSheet, shownNumber, splitBatches, splitBatchesBy, statusFromValue, tableFromGrid, wishlistFromFilename } from "@/lib/import/import";
+import { autoMapColumns, IMPORT_FIELDS, mapRow, pickSheet, readImportReply, shownNumber, splitBatches, splitBatchesBy, statusFromValue, tableFromGrid, wishlistFromFilename } from "@/lib/import/import";
 import styles from "./switch.module.css";
 
 const SOURCES = {
@@ -101,7 +101,7 @@ export default function SwitchImporter() {
     try {
       for (let index = startBatch; index < batches.length; index += 1) {
         const response = await authedFetch("/api/import/resolve", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ rows: batches[index].map(({ i, series, issue, publisher, series_year, issue_year }) => ({ i, series, issue, publisher, series_year, issue_year })) }) });
-        const json = await response.json();
+        const json = await readImportReply(response);
         if (!response.ok) throw new Error(json.error || "Could not match this batch.");
         merged.push(...json.rows);
         setResults([...merged].sort((a, b) => a.i - b.i));
@@ -135,7 +135,7 @@ export default function SwitchImporter() {
       const chunk = sendable.slice(start, start + 100);
       try {
         const response = await authedFetch("/api/import/suggest", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ rows: chunk.map(({ i, series, issue, publisher, series_year, issue_year, variant }) => ({ i, series, issue, publisher, series_year, issue_year, variant })) }) });
-        const json = await response.json();
+        const json = await readImportReply(response);
         if (!response.ok) break;
         for (const item of json.rows ?? []) {
           for (const index of groups.get(missKey(rows[item.i])) ?? [item.i]) updated.set(index, { ...item, i: index });
@@ -157,7 +157,7 @@ export default function SwitchImporter() {
     try {
       for (const batch of splitBatchesBy(payload, (row) => row.gcd_issue_id)) {
         const response = await authedFetch("/api/import/commit", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ status: defaultStatus, rows: batch }) });
-        const json = await response.json();
+        const json = await readImportReply(response);
         if (!response.ok) throw new Error(json.error || "Could not save this batch.");
         for (const item of json.rows) nextOutcomes[item.i] = picked && item.outcome === "imported" ? "picked" : item.outcome;
         setOutcomes({ ...nextOutcomes });
@@ -175,7 +175,7 @@ export default function SwitchImporter() {
       const resolved = [];
       for (const batch of splitBatches(pickRows)) {
         const response = await authedFetch("/api/import/resolve", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ rows: batch }) });
-        const json = await response.json();
+        const json = await readImportReply(response);
         if (!response.ok) throw new Error(json.error);
         resolved.push(...json.rows);
       }
@@ -194,7 +194,7 @@ export default function SwitchImporter() {
     try {
       for (const row of distinct) {
         const response = await authedFetch("/api/catalog-requests", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ title: row.series, issue_number: row.issue, publisher: row.publisher, year: row.year, source: "direct", notes: "Requested from Switch importer" }) });
-        if (!response.ok) throw new Error((await response.json()).error || "Could not send a request.");
+        if (!response.ok) throw new Error((await readImportReply(response)).error || "Could not send a request.");
         sent += 1; setRequested(sent);
       }
     } catch (caught) { setError(`${caught.message} ${sent} request${sent === 1 ? " was" : "s were"} sent.`); }

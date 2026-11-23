@@ -388,3 +388,26 @@ export function inferSlab(...texts) {
   if (cgc) return { company: "CGC", cert: cgc };
   return null;
 }
+
+// What to tell the collector when an importer request comes back as something
+// other than JSON. A timeout or crash makes Vercel answer with a plain-text
+// page, and the importer used to call response.json() on it, so the member saw
+// a bare "JSON.parse: unexpected character" (League of Comic Geeks import,
+// reported 2026-11-23).
+export function nonJsonReplyMessage(status, text = "") {
+  const body = String(text ?? "");
+  if (status === 504 || /TIMEOUT/i.test(body)) return "This batch took too long to process.";
+  if (status === 413 || /PAYLOAD_TOO_LARGE|entity too large/i.test(body)) return "This batch was too large to send.";
+  if (status === 429) return "Too many requests in a row. Wait a minute, then retry.";
+  return `The server had a problem (error ${status || "unknown"}).`;
+}
+
+// Read a reply as JSON, or throw an Error carrying nonJsonReplyMessage().
+export async function readImportReply(response) {
+  const text = await response.text();
+  try {
+    return JSON.parse(text);
+  } catch {
+    throw new Error(nonJsonReplyMessage(response.status, text));
+  }
+}

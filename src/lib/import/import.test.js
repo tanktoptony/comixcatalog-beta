@@ -313,3 +313,17 @@ test("a slab named only in the cert or notes column is still a slab", () => {
   assert.equal(inferSlab("", "signed"), null);
   assert.equal(inferSlab("", "paid $40 at a show"), null);
 });
+
+test("a reply that isn't JSON becomes a plain message, never a JSON.parse error", async () => {
+  const { nonJsonReplyMessage, readImportReply } = await import("./import.js");
+  const reply = (status, body) => ({ status, text: async () => body });
+  await assert.rejects(
+    readImportReply(reply(504, "An error occurred with your deployment\n\nFUNCTION_INVOCATION_TIMEOUT")),
+    { message: "This batch took too long to process." },
+  );
+  await assert.rejects(readImportReply(reply(413, "Request Entity Too Large")), { message: "This batch was too large to send." });
+  await assert.rejects(readImportReply(reply(500, "<html>Internal error</html>")), { message: "The server had a problem (error 500)." });
+  assert.deepEqual(await readImportReply(reply(200, '{"rows":[]}')), { rows: [] });
+  assert.equal(nonJsonReplyMessage(502, "FUNCTION_INVOCATION_TIMEOUT"), "This batch took too long to process.");
+  assert.equal(nonJsonReplyMessage(undefined, ""), "The server had a problem (error unknown).");
+});

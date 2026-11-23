@@ -14864,3 +14864,28 @@ a.pull-issue-title:hover { color: var(--cc-gold); }
 /* Uploaded avatars are served as stored (no server resize since 2026-11-21),
    so a non-square photo is cropped to its circle here instead. */
 img[src*="/storage/v1/object/public/avatars/"] { object-fit: cover; }
+
+/* Issue page Versions box (src/components/issue/IssueVersions.js): a
+   fixed-height scroll box with a pinned header, compact rows and a filter,
+   so 40+ versions no longer run several screens down the page. */
+.issue-versions-tools { display: flex; align-items: center; gap: 12px; margin: 0 0 10px; flex-wrap: wrap; }
+.issue-versions-filter { flex: 1 1 260px; max-width: 380px; min-width: 0; padding: 9px 12px; border: 1px solid var(--cc-line); border-radius: 10px; background: var(--cc-surface); color: var(--cc-text); font: inherit; font-size: .9rem; }
+.issue-versions-filter::placeholder { color: var(--cc-text-muted); }
+.issue-versions-filter:focus { outline: none; border-color: var(--cc-gold); box-shadow: 0 0 0 3px color-mix(in srgb, var(--cc-gold) 22%, transparent); }
+.issue-versions-count { color: var(--cc-text-muted); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.issue-versions-box { max-height: min(420px, 60vh); overflow: auto; overscroll-behavior: contain; scrollbar-color: color-mix(in srgb, var(--cc-gold) 45%, transparent) transparent; scrollbar-width: thin; }
+.issue-versions-box .issue-versions-table { min-width: 640px; font-size: .9rem; }
+.issue-versions-box .issue-versions-table thead th { position: sticky; top: 0; z-index: 1; background: var(--cc-surface); box-shadow: inset 0 -1px 0 var(--cc-line); }
+.issue-versions-box .issue-versions-table th, .issue-versions-box .issue-versions-table td { padding: 7px 14px; }
+.issue-versions-box .issue-versions-table tr.is-selected td:first-child { box-shadow: inset 3px 0 0 var(--cc-gold); }
+.issue-versions-box .issue-version-link { min-height: 26px; gap: 8px; font-weight: 600; }
+.issue-versions-box .issue-version-thumb { width: 18px; height: 26px; flex-basis: 18px; }
+.issue-versions-box .issue-versions-table tbody tr:hover { background: color-mix(in srgb, var(--cc-gold) 5%, transparent); }
+.issue-versions-empty { margin: 0; padding: 18px; color: var(--cc-text-muted); text-align: center; }
+@media (max-width: 640px) {
+  .issue-versions-box { max-height: 55vh; }
+  .issue-versions-box .issue-versions-table { min-width: 0; font-size: .84rem; }
+  .issue-versions-box .issue-versions-barcode { display: none; }
+  .issue-versions-box .issue-versions-table th, .issue-versions-box .issue-versions-table td { padding: 7px 10px; }
+  .issue-versions-filter { max-width: none; }
+}

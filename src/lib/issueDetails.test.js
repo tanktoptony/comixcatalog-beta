@@ -54,3 +54,19 @@ test("character appearance notes are separated from the chip label", () => {
   assert.deepEqual(stripGcdCharacterNoise("Spider-Man (cameo)"), { name: "Spider-Man", note: "cameo" });
   assert.deepEqual(stripGcdCharacterNoise("Wolverine (Logan)"), { name: "Wolverine (Logan)", note: "" });
 });
+
+test("filterVersions matches every typed word in any order", async () => {
+  const { filterVersions } = await import("./issueDetails.js");
+  const versions = [
+    { gcdId: 1, name: "Nick Dragotta Cover", barcode: "76194138584600111", price: "4.99 USD", onSaleDate: "2024-10-09" },
+    { gcdId: 2, name: "Second Printing Nick Dragotta Foil Cardstock Variant Cover", barcode: "76194138584600152", price: "7.99 USD", onSaleDate: "2024-10-30" },
+    { gcdId: 3, name: "Skottie Young Exclusive Variant Cover", barcode: null, price: null, onSaleDate: null },
+  ];
+  assert.deepEqual(filterVersions(versions, "foil dragotta").map((v) => v.gcdId), [2]);
+  assert.deepEqual(filterVersions(versions, "DRAGOTTA").map((v) => v.gcdId), [1, 2]);
+  assert.deepEqual(filterVersions(versions, "600152").map((v) => v.gcdId), [2]);
+  assert.deepEqual(filterVersions(versions, "october 30").map((v) => v.gcdId), [2]);
+  assert.equal(filterVersions(versions, "  ").length, 3);
+  assert.equal(filterVersions(versions, "sketch").length, 0);
+  assert.deepEqual(filterVersions(null, "x"), []);
+});

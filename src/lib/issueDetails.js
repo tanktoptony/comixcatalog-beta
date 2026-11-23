@@ -111,3 +111,19 @@ export function buildStoryCreditSummary(story) {
   return fields.filter(([, value]) => present(value)).map(([label, value]) => `${label} ${String(value).trim()}`).join(" · ");
 }
 
+
+// Versions box filter on issue pages (Absolute Batman #1 has 44 versions).
+// Every word typed has to appear in the version's name, barcode, price or
+// on-sale date, in any order: "dragotta foil" finds "Second Printing Nick
+// Dragotta Foil Cardstock Variant Cover".
+export function filterVersions(versions, query) {
+  const words = String(query ?? "").toLowerCase().match(/[a-z0-9$.]+/g) ?? [];
+  if (!words.length) return versions ?? [];
+  return (versions ?? []).filter((version) => {
+    const text = [version.name, version.barcode, formatGcdPrice(version.price), formatGcdDate(version.onSaleDate)]
+      .filter(Boolean)
+      .join(" ")
+      .toLowerCase();
+    return words.every((word) => text.includes(word));
+  });
+}

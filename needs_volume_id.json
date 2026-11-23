@@ -31021,9 +31021,9 @@
     "year": 2002,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-20T09:02:19.359975+00:00",
-    "retry_after": "2026-11-23T09:02:19.359979+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-23T09:04:31.329327+00:00",
+    "retry_after": "2026-11-30T09:04:31.329344+00:00",
     "search_hydrated": true
   },
   {
@@ -79441,9 +79441,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-29T08:10:03.350593+00:00",
-    "retry_after": "2026-11-01T08:10:03.350610+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-23T09:04:52.613509+00:00",
+    "retry_after": "2026-11-30T09:04:52.613527+00:00",
     "search_hydrated": true
   },
   {
@@ -81298,9 +81298,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T08:10:57.952636+00:00",
-    "retry_after": "2026-11-23T08:10:57.952653+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T09:10:16.290033+00:00",
+    "retry_after": "2026-12-23T09:10:16.290051+00:00",
     "search_hydrated": true
   },
   {
@@ -81334,9 +81334,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T08:10:59.873009+00:00",
-    "retry_after": "2026-11-23T08:10:59.873025+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T09:10:17.808053+00:00",
+    "retry_after": "2026-12-23T09:10:17.808071+00:00",
     "search_hydrated": true
   },
   {
@@ -81356,9 +81356,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T08:10:57.952686+00:00",
-    "retry_after": "2026-11-23T08:10:57.952689+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T09:10:16.290087+00:00",
+    "retry_after": "2026-12-23T09:10:16.290090+00:00",
     "search_hydrated": true
   },
   {
@@ -81367,9 +81367,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T08:10:57.952701+00:00",
-    "retry_after": "2026-11-23T08:10:57.952703+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T09:10:16.290104+00:00",
+    "retry_after": "2026-12-23T09:10:16.290107+00:00",
     "search_hydrated": true
   },
   {
@@ -81378,9 +81378,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T08:10:57.952712+00:00",
-    "retry_after": "2026-11-23T08:10:57.952714+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T09:10:16.290117+00:00",
+    "retry_after": "2026-12-23T09:10:16.290119+00:00",
     "search_hydrated": true
   },
   {
@@ -98966,6 +98966,77 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-23T08:11:22.057200+00:00",
     "retry_after": "2026-11-24T08:11:22.057220+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Sam Slade, Robo-Hunter",
+    "publisher": "Quality Periodicals",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23007,
+        "name": "Sam Slade Robo-Hunter",
+        "publisher": "Rebellion",
+        "start_year": 2004
+      },
+      {
+        "id": 3747,
+        "name": "Sam Slade Robo-Hunter",
+        "publisher": "Quality Communications",
+        "start_year": 1986
+      },
+      {
+        "id": 50498,
+        "name": "Sam Slade Robo-Hunter",
+        "publisher": "Titan Comics",
+        "start_year": 1982
+      },
+      {
+        "id": 50497,
+        "name": "Sam Slade Robo-Hunter",
+        "publisher": "Eagle Comics",
+        "start_year": 1984
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T09:03:25.953109+00:00",
+    "retry_after": "2026-11-24T09:03:25.953127+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Witchfinder General",
+    "publisher": "First Comics",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 86797,
+        "name": "The Witchfinder General",
+        "publisher": "1First Comics",
+        "start_year": 2015
+      },
+      {
+        "id": 92398,
+        "name": "The Witchfinder General",
+        "publisher": "1First Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T09:05:58.829796+00:00",
+    "retry_after": "2026-11-24T09:05:58.829816+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Hysteria in Remission: The Comix & Drawings of Robt. Williams",
+    "publisher": "Fantagraphics",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T09:10:25.928843+00:00",
+    "retry_after": "2026-11-24T09:10:25.928862+00:00",
     "search_hydrated": true
   }
 ]

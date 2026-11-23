@@ -60543,29 +60543,6 @@
     "retry_after": "2026-10-22T20:16:04.483329+00:00"
   },
   {
-    "name": "Bug Ego",
-    "publisher": "VIZ Media",
-    "year": 2026,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 162475,
-        "name": "Bug Ego",
-        "publisher": null,
-        "start_year": 2025
-      },
-      {
-        "id": 173130,
-        "name": "Bug Ego",
-        "publisher": null,
-        "start_year": 2026
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T21:15:58.393279+00:00",
-    "retry_after": "2026-10-22T21:15:58.393295+00:00"
-  },
-  {
     "name": "Two Moons",
     "publisher": "Image Comics",
     "year": 2021,
@@ -63169,29 +63146,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T04:15:59.436206+00:00",
     "retry_after": "2026-10-23T04:15:59.436222+00:00"
-  },
-  {
-    "name": "Amazing Spider-Man: Blood Hunt",
-    "publisher": "Marvel Comics",
-    "year": 2024,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 158148,
-        "name": "Amazing Spider-Man: Blood Hunt",
-        "publisher": null,
-        "start_year": 2024
-      },
-      {
-        "id": 160911,
-        "name": "The Amazing Spider-Man: Blood Hunt",
-        "publisher": null,
-        "start_year": 2024
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T04:15:59.792003+00:00",
-    "retry_after": "2026-10-23T04:15:59.792020+00:00"
   },
   {
     "name": "Iron Fist",
@@ -82042,9 +81996,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T19:10:55.308503+00:00",
-    "retry_after": "2026-11-23T19:10:55.308518+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T21:09:25.404159+00:00",
+    "retry_after": "2026-12-23T21:09:25.404177+00:00",
     "search_hydrated": true
   },
   {
@@ -82093,9 +82047,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T20:11:28.116229+00:00",
-    "retry_after": "2026-11-23T20:11:28.116247+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T21:09:25.404217+00:00",
+    "retry_after": "2026-12-23T21:09:25.404221+00:00",
     "search_hydrated": true
   },
   {
@@ -82122,9 +82076,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T20:11:28.116308+00:00",
-    "retry_after": "2026-11-23T20:11:28.116310+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T21:09:25.404292+00:00",
+    "retry_after": "2026-12-23T21:09:25.404294+00:00",
     "search_hydrated": true
   },
   {
@@ -82133,9 +82087,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T20:11:28.116317+00:00",
-    "retry_after": "2026-11-23T20:11:28.116318+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T21:09:25.404306+00:00",
+    "retry_after": "2026-12-23T21:09:25.404309+00:00",
     "search_hydrated": true
   },
   {
@@ -82447,9 +82401,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T20:11:28.116293+00:00",
-    "retry_after": "2026-11-23T20:11:28.116296+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T21:09:25.404272+00:00",
+    "retry_after": "2026-12-23T21:09:25.404275+00:00",
     "search_hydrated": true
   },
   {
@@ -95830,9 +95784,9 @@
         "start_year": 2005
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-20T21:02:18.910101+00:00",
-    "retry_after": "2026-11-23T21:02:18.910116+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-23T21:04:01.689630+00:00",
+    "retry_after": "2026-11-30T21:04:01.689634+00:00",
     "search_hydrated": true
   },
   {
@@ -95900,9 +95854,9 @@
         "start_year": 1999
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-20T21:02:33.464440+00:00",
-    "retry_after": "2026-11-23T21:02:33.464452+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-23T21:04:01.689671+00:00",
+    "retry_after": "2026-11-30T21:04:01.689674+00:00",
     "search_hydrated": true
   },
   {
@@ -95911,9 +95865,9 @@
     "year": 1987,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-20T21:02:33.464478+00:00",
-    "retry_after": "2026-11-23T21:02:33.464481+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-23T21:04:01.689693+00:00",
+    "retry_after": "2026-11-30T21:04:01.689695+00:00",
     "search_hydrated": true
   },
   {
@@ -95922,9 +95876,9 @@
     "year": 1987,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-20T21:02:33.464497+00:00",
-    "retry_after": "2026-11-23T21:02:33.464499+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-23T21:04:01.689709+00:00",
+    "retry_after": "2026-11-30T21:04:01.689712+00:00",
     "search_hydrated": true
   },
   {
@@ -98510,6 +98464,471 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-23T20:12:17.508095+00:00",
     "retry_after": "2026-11-24T20:12:17.508098+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "100 Girls",
+    "publisher": "Arcana",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22031,
+        "name": "100 Girls",
+        "publisher": "Arcana Studio",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:02:01.319893+00:00",
+    "retry_after": "2026-11-24T21:02:01.319909+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "2000 AD Presents",
+    "publisher": "Quality Periodicals",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 3759,
+        "name": "2000 AD Presents",
+        "publisher": "Quality Communications",
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:04:01.689572+00:00",
+    "retry_after": "2026-11-24T21:04:01.689588+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Battletide",
+    "publisher": "Marvel Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 19062,
+        "name": "BattleTide",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:04:01.689769+00:00",
+    "retry_after": "2026-11-24T21:04:01.689772+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Digitek",
+    "publisher": "Marvel Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18451,
+        "name": "Digitek",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:04:01.689792+00:00",
+    "retry_after": "2026-11-24T21:04:01.689795+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Super Soldiers",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22935,
+        "name": "Super Soldiers",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:04:01.689814+00:00",
+    "retry_after": "2026-11-24T21:04:01.689816+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Captain Sternn: Running Out of Time",
+    "publisher": "Kitchen Sink Press",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 5077,
+        "name": "Captain Sternn: Running Out of Time",
+        "publisher": "Kitchen Sink",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:04:05.257400+00:00",
+    "retry_after": "2026-11-24T21:04:05.257417+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Die-Cut",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20631,
+        "name": "Die-Cut",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:04:05.257451+00:00",
+    "retry_after": "2026-11-24T21:04:05.257454+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tribe",
+    "publisher": "Axis Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18349,
+        "name": "Tribe",
+        "publisher": "Image",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:04:19.956328+00:00",
+    "retry_after": "2026-11-24T21:04:19.956344+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tribe",
+    "publisher": "Good Comics [1990s]",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18349,
+        "name": "Tribe",
+        "publisher": "Image",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:04:19.956384+00:00",
+    "retry_after": "2026-11-24T21:04:19.956389+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Case Morgan, Gumshoe Private Eye",
+    "publisher": "Apple Press",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 59501,
+        "name": "Case Morgan, Gumshoe Private Eye",
+        "publisher": "Apple",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:04:19.956468+00:00",
+    "retry_after": "2026-11-24T21:04:19.956471+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Highway 13",
+    "publisher": "Slave Labor",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54638,
+        "name": "Highway 13",
+        "publisher": "SLG Publishing",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:04:19.956494+00:00",
+    "retry_after": "2026-11-24T21:04:19.956497+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Santos Sisters",
+    "publisher": "American Nature Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 165902,
+        "name": "Santos Sisters",
+        "publisher": "Floating World Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:04:19.956517+00:00",
+    "retry_after": "2026-11-24T21:04:19.956520+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Pitt",
+    "publisher": "Image Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 5917,
+        "name": "Pitt",
+        "publisher": "Full Bleed Studios",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:04:19.956541+00:00",
+    "retry_after": "2026-11-24T21:04:19.956544+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cyberspace 3000",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21158,
+        "name": "Cyberspace 3000",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:04:19.956562+00:00",
+    "retry_after": "2026-11-24T21:04:19.956564+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Demi's Strange Bedfellows",
+    "publisher": "Carnal Comics; Opus Graphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35242,
+        "name": "Demi's Strange Bedfellows",
+        "publisher": "Carnal Comics",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:04:19.956583+00:00",
+    "retry_after": "2026-11-24T21:04:19.956586+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gun Runner",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 5014,
+        "name": "Gun Runner",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:04:27.489216+00:00",
+    "retry_after": "2026-11-24T21:04:27.489231+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Codename: Genetix",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18337,
+        "name": "Codename: Genetix",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:04:27.489263+00:00",
+    "retry_after": "2026-11-24T21:04:27.489266+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Death Metal",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 5292,
+        "name": "Death Metal",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:04:27.489289+00:00",
+    "retry_after": "2026-11-24T21:04:27.489292+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Death Wreck",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20528,
+        "name": "Death Wreck",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:04:27.489313+00:00",
+    "retry_after": "2026-11-24T21:04:27.489315+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Freak Snow",
+    "publisher": "Behemoth Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 136775,
+        "name": "Freak Snow",
+        "publisher": "Happy Tank",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:04:27.489335+00:00",
+    "retry_after": "2026-11-24T21:04:27.489337+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Avatar: The Last Airbender - The Kyoshi Warriors",
+    "publisher": "Dark Horse Comics",
+    "year": 2026,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:04:45.413068+00:00",
+    "retry_after": "2026-11-24T21:04:45.413083+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Brides",
+    "publisher": "Resolute Bliss Publishing",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:04:45.413198+00:00",
+    "retry_after": "2026-11-24T21:04:45.413202+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Witchblade / The Darkness / Angelus: Blood on the Sands",
+    "publisher": "Image Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:04:45.413243+00:00",
+    "retry_after": "2026-11-24T21:04:45.413247+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gli Albi dei Super-Eroi",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34647,
+        "name": "Gli Albi dei Super-Eroi",
+        "publisher": "Editoriale Corno",
+        "start_year": 1973
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:09:53.808130+00:00",
+    "retry_after": "2026-11-24T21:09:53.808145+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "They Called Us Enemy – Expanded Edition",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129898,
+        "name": "They Called Us Enemy: Expanded Edition",
+        "publisher": "Top Shelf",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:09:53.808195+00:00",
+    "retry_after": "2026-11-24T21:09:53.808200+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kick-Ass 2 Prelude: Hit Girl",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58598,
+        "name": "Kick-Ass 2 Prelude: Hit-Girl",
+        "publisher": "Icon Books",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:09:53.808225+00:00",
+    "retry_after": "2026-11-24T21:09:53.808229+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Doctor Who Magazine",
+    "publisher": "Marvel Comics",
+    "year": 1985,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 26877,
+        "name": "Doctor Who Magazine",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1979
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T21:10:02.896888+00:00",
+    "retry_after": "2026-11-24T21:10:02.896903+00:00",
     "search_hydrated": true
   }
 ]

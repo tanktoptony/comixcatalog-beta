@@ -31034,9 +31034,10 @@
     "year": 2002,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-28T08:06:04.636244+00:00",
-    "retry_after": "2026-09-29T08:06:04.636258+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-23T16:02:08.821944+00:00",
+    "retry_after": "2026-11-26T16:02:08.821947+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Love & Rockets",
@@ -50756,9 +50757,10 @@
     "year": 2015,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-15T22:28:49.021784+00:00",
-    "retry_after": "2026-10-18T22:28:49.021799+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-23T16:05:07.643696+00:00",
+    "retry_after": "2026-11-30T16:05:07.643714+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Cyblade / Shi: The Battle for Independents",
@@ -58045,9 +58047,10 @@
     "year": 2003,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-21T12:15:54.342156+00:00",
-    "retry_after": "2026-10-24T12:15:54.342171+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-23T16:02:08.821907+00:00",
+    "retry_after": "2026-11-30T16:02:08.821925+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Colonia",
@@ -65397,29 +65400,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T10:16:00.935744+00:00",
     "retry_after": "2026-10-23T10:16:00.935759+00:00"
-  },
-  {
-    "name": "WildC.A.T.s Trilogy",
-    "publisher": "Image Comics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 128416,
-        "name": "WildC.A.T.S Trilogy",
-        "publisher": null,
-        "start_year": 1999
-      },
-      {
-        "id": 18504,
-        "name": "WildC.A.T.S Trilogy",
-        "publisher": null,
-        "start_year": 1993
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T11:15:56.692785+00:00",
-    "retry_after": "2026-10-23T11:15:56.692799+00:00"
   },
   {
     "name": "Dungeons & Dragons",
@@ -81834,9 +81814,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T15:10:12.890372+00:00",
-    "retry_after": "2026-11-23T15:10:12.890390+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T16:10:44.710474+00:00",
+    "retry_after": "2026-12-23T16:10:44.710491+00:00",
     "search_hydrated": true
   },
   {
@@ -81858,9 +81838,9 @@
         "start_year": 1997
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T15:10:12.890426+00:00",
-    "retry_after": "2026-11-23T15:10:12.890429+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T16:10:44.710534+00:00",
+    "retry_after": "2026-12-23T16:10:44.710538+00:00",
     "search_hydrated": true
   },
   {
@@ -81869,9 +81849,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T15:10:12.890440+00:00",
-    "retry_after": "2026-11-23T15:10:12.890441+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T16:10:44.710554+00:00",
+    "retry_after": "2026-12-23T16:10:44.710556+00:00",
     "search_hydrated": true
   },
   {
@@ -81893,9 +81873,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T15:10:12.890468+00:00",
-    "retry_after": "2026-11-23T15:10:12.890469+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T16:10:44.710583+00:00",
+    "retry_after": "2026-12-23T16:10:44.710585+00:00",
     "search_hydrated": true
   },
   {
@@ -81904,9 +81884,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T15:10:12.890477+00:00",
-    "retry_after": "2026-11-23T15:10:12.890478+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T16:10:44.710596+00:00",
+    "retry_after": "2026-12-23T16:10:44.710598+00:00",
     "search_hydrated": true
   },
   {
@@ -81933,9 +81913,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T15:10:12.890485+00:00",
-    "retry_after": "2026-11-23T15:10:12.890487+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T16:10:44.710608+00:00",
+    "retry_after": "2026-12-23T16:10:44.710610+00:00",
     "search_hydrated": true
   },
   {
@@ -81944,9 +81924,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T15:10:12.890492+00:00",
-    "retry_after": "2026-11-23T15:10:12.890493+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T16:10:44.710620+00:00",
+    "retry_after": "2026-12-23T16:10:44.710621+00:00",
     "search_hydrated": true
   },
   {
@@ -97641,9 +97621,9 @@
     "year": 2010,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-22T15:11:41.822014+00:00",
-    "retry_after": "2026-11-23T15:11:41.822029+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-23T16:10:56.264342+00:00",
+    "retry_after": "2026-11-26T16:10:56.264359+00:00",
     "search_hydrated": true
   },
   {
@@ -99291,6 +99271,46 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-23T15:03:45.227758+00:00",
     "retry_after": "2026-11-24T15:03:45.227760+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "???? [Little Lulu]",
+    "publisher": "المطبوعات المصورة [Al-Matbouat Al-Mousawwara / Illustrated Publications]",
+    "year": 1966,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 11571,
+        "name": "Little Lulu",
+        "publisher": "Western Publishing",
+        "start_year": 1972
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T16:09:00.627295+00:00",
+    "retry_after": "2026-11-24T16:09:00.627312+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cartoon Network 2-in-1: Foster's Home for Imaginary Friends / The Powerpuff Girls",
+    "publisher": "DC Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T16:10:56.264380+00:00",
+    "retry_after": "2026-11-24T16:10:56.264383+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Phantom Stranger [ashcan]",
+    "publisher": "DC Comics",
+    "year": 1952,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T16:10:56.264395+00:00",
+    "retry_after": "2026-11-24T16:10:56.264397+00:00",
     "search_hydrated": true
   }
 ]

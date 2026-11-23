@@ -3,6 +3,8 @@
 // (src/Shorts.jsx) cuts each out by beat and frames every shot full-bleed and
 // vertical. Visuals follow Tony's SHORTS.md notes. No text cards.
 //
+// Horizontal framing: focus.x lands at that same fraction of the frame width
+// (object-position), not the centre, so a point near an edge is framed with x near that edge.
 // Zooms (Tony 11-22: be mindful of what a zoom lands on): every `at` below was
 // placed on the named thing and checked on a still. The #1 convention cover is
 // Al the Killer (forehead window); the #9 C2E2 cover is Claudio and Apollo
@@ -22,9 +24,11 @@ const ALL = Array.from({ length: 12 }, (_, i) => K(i + 1));
 const IKS = "albums/2003-in-keeping-secrets-of-silent-earth-3.jpg";
 const SSTB = "albums/2002-the-second-stage-turbine-blade.jpg";
 const CD = "lore/iksse-cd.jpg";
-const BACK = "lore/iksse-back.jpg"; // track list, 1-11; "The Light & the Glass" is the last line
 const BOOKLET = "lore/iksse-booklet.jpg";
 const NEWO = "characters/v-newo.png";
+const TRACKS = "lore/iksse-tracklist-vertical.png"; // the back cover list, full width, under the captions
+const POSTER = "lore/poster-neverender-iksse-2014.jpg"; // the earth-in-clouds IKSSE:3 art, vertical
+const ULT = "covers/iksse-ultimate.jpg";
 const BELL = "photos/purdue-bell-tower.jpg";
 
 const cover = (asset, extra = {}) => ({ type: "cover", asset, treatment: "slowPush", transitionIn: "cut", ...extra });
@@ -35,16 +39,16 @@ const cycle = (assets, extra = {}) => ({ type: "grid", assets, columns: assets.l
 const CUES = [
   // Short 1 · The album with eleven silent tracks
   ["Imagine buying a CD", cover(CD)],
-  ["getting to the end of the album", at(BACK, 0.62, 0.38, 1.6, 0.45)],
+  ["getting to the end of the album", cover(TRACKS)],
   ["and finding eleven tracks of absolutely nothing", pull(BOOKLET)],
-  ["That's what Coheed and Cambria did", cover(IKS)],
-  ["After \"The Light & the Glass", at(BACK, 0.6, 0.54, 2.6, 0.45)],
+  ["That's what Coheed and Cambria did", cover(POSTER, { position: "50% 40%" })],
+  ["After \"The Light & the Glass", at(TRACKS, 0.04, 0.916, 1.3, 0.8)],
   ["tracks twelve through twenty-two are silent", pull(CD)],
   ["But if you keep going", cover(BOOKLET)],
   ["A hidden, nearly ten-minute song", cover(IKS, { position: "50% 50%" })],
   ["It even reprises parts of", cover(SSTB)],
   ["Some digital versions removed", cycle([IKS, SSTB])],
-  ["I loved finding stuff like this", pull(BACK)],
+  ["I loved finding stuff like this", pull(TRACKS)],
   ["It felt like a secret", cover(IKS)],
 
   // Short 2 · Hello Apollo (opens on the record's own line)
@@ -52,10 +56,10 @@ const CUES = [
   ["That's the first spoken line", cover(IKS)],
   ["It's also how the comic starts", cover(K(1), { position: "50% 30%" })],
   ["Open the comic and it's the same scene", cover(C2E2_9, { position: "50% 55%" })],
-  ["Claudio is talking to Apollo", at(C2E2_9, 0.4, 0.74, 1.9, 0.5)],
+  ["Claudio is talking to Apollo", at(C2E2_9, 0.4, 0.7, 1.4, 0.5)],
   ["outside Newo Ikkin's house", cover(NEWO)],
   ["I first heard this album in college", cover(BELL, { credit: "Purdue Bell Tower · Photo: A Hazy, CC BY-SA 4.0" })],
-  ["More than twenty years later", cover(IKS)],
+  ["More than twenty years later", cover(ULT, { position: "50% 40%" })],
   ["I'm still finding story in it", pull(K(1), { position: "50% 30%" })],
 
   // Short 3 · Convention exclusives
@@ -63,10 +67,10 @@ const CUES = [
   ["Discovering that their comic books", cover(CON1, { position: "50% 40%" })],
   ["When BOOM! Studios published", cover(K(4), { position: "50% 40%" })],
   ["there were twelve issues", cycle(ALL)],
-  ["Issue one had a convention-exclusive cover", at(CON1, 0.5, 0.32, 1.5, 0.45)],
-  ["limited to five hundred copies", at(CON1, 0.55, 0.955, 2.2, 0.55)],
+  ["Issue one had a convention-exclusive cover", at(CON1, 0.55, 0.42, 1.4, 0.4)],
+  ["limited to five hundred copies", at(CON1, 0.9, 0.955, 1.0, 0.82)],
   ["Then issue nine got a C2E2 exclusive", cover(C2E2_9, { position: "50% 45%" })],
-  ["limited to just three hundred copies", at(C2E2_9, 0.22, 0.955, 2.6, 0.55)],
+  ["limited to just three hundred copies", at(C2E2_9, 0.15, 0.96, 2.0, 0.82)],
   ["C2E2 is Chicago's comic con", at(C2E2_9, 0.55, 0.6, 1.4, 0.45)],
   ["I bought all twelve original issues", cycle(ALL)],
   ["but I don't have either of those exclusives", cycle([CON1, C2E2_9])],

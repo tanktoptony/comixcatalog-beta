@@ -81935,9 +81935,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T16:10:46.805530+00:00",
-    "retry_after": "2026-11-23T16:10:46.805547+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T17:12:10.961149+00:00",
+    "retry_after": "2026-12-23T17:12:10.961164+00:00",
     "search_hydrated": true
   },
   {
@@ -81946,9 +81946,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T16:10:46.805579+00:00",
-    "retry_after": "2026-11-23T16:10:46.805583+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T17:12:10.961180+00:00",
+    "retry_after": "2026-12-23T17:12:10.961184+00:00",
     "search_hydrated": true
   },
   {
@@ -81957,9 +81957,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T16:10:46.805597+00:00",
-    "retry_after": "2026-11-23T16:10:46.805600+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T17:12:10.961195+00:00",
+    "retry_after": "2026-12-23T17:12:10.961197+00:00",
     "search_hydrated": true
   },
   {
@@ -81986,9 +81986,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T16:10:46.805612+00:00",
-    "retry_after": "2026-11-23T16:10:46.805614+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T17:12:10.961206+00:00",
+    "retry_after": "2026-12-23T17:12:10.961208+00:00",
     "search_hydrated": true
   },
   {
@@ -81997,9 +81997,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T16:10:46.805625+00:00",
-    "retry_after": "2026-11-23T16:10:46.805627+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T17:12:10.961216+00:00",
+    "retry_after": "2026-12-23T17:12:10.961218+00:00",
     "search_hydrated": true
   },
   {
@@ -82008,9 +82008,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T17:06:30.746282+00:00",
-    "retry_after": "2026-11-23T17:06:30.746288+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T17:12:10.961232+00:00",
+    "retry_after": "2026-12-23T17:12:10.961234+00:00",
     "search_hydrated": true
   },
   {
@@ -97632,9 +97632,9 @@
     "year": 2012,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-22T16:16:17.635379+00:00",
-    "retry_after": "2026-11-23T16:16:17.635393+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-23T17:12:24.008602+00:00",
+    "retry_after": "2026-11-26T17:12:24.008618+00:00",
     "search_hydrated": true
   },
   {
@@ -97643,9 +97643,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-22T16:16:17.635427+00:00",
-    "retry_after": "2026-11-23T16:16:17.635431+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-23T17:12:24.008636+00:00",
+    "retry_after": "2026-11-26T17:12:24.008638+00:00",
     "search_hydrated": true
   },
   {
@@ -97661,9 +97661,9 @@
         "start_year": 2004
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-22T17:01:47.042364+00:00",
-    "retry_after": "2026-11-23T17:01:47.042381+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-23T17:01:49.515837+00:00",
+    "retry_after": "2026-11-26T17:01:49.515852+00:00",
     "search_hydrated": true
   },
   {
@@ -99311,6 +99311,64 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-23T16:10:56.264395+00:00",
     "retry_after": "2026-11-24T16:10:56.264397+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Official Teen Titans Index",
+    "publisher": "Independent Comics Group",
+    "year": 1985,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23436,
+        "name": "The Official Teen Titans Index",
+        "publisher": "ICG",
+        "start_year": 1985
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T17:02:05.835367+00:00",
+    "retry_after": "2026-11-24T17:02:05.835383+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Devil's Keeper",
+    "publisher": "Alias",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28676,
+        "name": "Devil's Keeper",
+        "publisher": "Alias Enterprises",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T17:04:11.686191+00:00",
+    "retry_after": "2026-11-24T17:04:11.686206+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Twisted Tales 3-D",
+    "publisher": "Blackthorne",
+    "year": 1986,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T17:07:46.557541+00:00",
+    "retry_after": "2026-11-24T17:07:46.557558+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Crazy Is the New Normal - Convention Exclusive",
+    "publisher": "IDW Publishing",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T17:12:24.008652+00:00",
+    "retry_after": "2026-11-24T17:12:24.008654+00:00",
     "search_hydrated": true
   }
 ]

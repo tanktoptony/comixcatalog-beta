@@ -67583,9 +67583,9 @@
         "start_year": 1997
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T14:10:37.717823+00:00",
-    "retry_after": "2026-11-23T14:10:37.717825+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T14:13:36.115450+00:00",
+    "retry_after": "2026-12-23T14:13:36.115453+00:00",
     "search_hydrated": true
   },
   {
@@ -81628,9 +81628,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T14:10:37.270981+00:00",
-    "retry_after": "2026-11-23T14:10:37.270997+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T14:13:35.544018+00:00",
+    "retry_after": "2026-12-23T14:13:35.544036+00:00",
     "search_hydrated": true
   },
   {
@@ -81646,9 +81646,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T14:10:37.472232+00:00",
-    "retry_after": "2026-11-23T14:10:37.472248+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T14:13:35.831876+00:00",
+    "retry_after": "2026-12-23T14:13:35.831891+00:00",
     "search_hydrated": true
   },
   {
@@ -81763,9 +81763,9 @@
         "start_year": 2008
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T14:10:37.472311+00:00",
-    "retry_after": "2026-11-23T14:10:37.472313+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T14:13:35.831956+00:00",
+    "retry_after": "2026-12-23T14:13:35.831958+00:00",
     "search_hydrated": true
   },
   {
@@ -81781,9 +81781,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T14:10:37.717763+00:00",
-    "retry_after": "2026-11-23T14:10:37.717778+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T14:13:36.115381+00:00",
+    "retry_after": "2026-12-23T14:13:36.115398+00:00",
     "search_hydrated": true
   },
   {
@@ -81792,9 +81792,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T14:10:33.811809+00:00",
-    "retry_after": "2026-11-23T14:10:33.811825+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T14:13:31.640412+00:00",
+    "retry_after": "2026-12-23T14:13:31.640431+00:00",
     "search_hydrated": true
   },
   {
@@ -81803,9 +81803,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T14:10:33.811851+00:00",
-    "retry_after": "2026-11-23T14:10:33.811871+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T14:13:31.640462+00:00",
+    "retry_after": "2026-12-23T14:13:31.640465+00:00",
     "search_hydrated": true
   },
   {
@@ -97617,9 +97617,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-22T14:11:33.801083+00:00",
-    "retry_after": "2026-11-23T14:11:33.801103+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-23T14:13:45.022498+00:00",
+    "retry_after": "2026-11-26T14:13:45.022516+00:00",
     "search_hydrated": true
   },
   {
@@ -97628,9 +97628,9 @@
     "year": 1992,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-22T14:11:33.801121+00:00",
-    "retry_after": "2026-11-23T14:11:33.801124+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-23T14:13:45.022539+00:00",
+    "retry_after": "2026-11-26T14:13:45.022542+00:00",
     "search_hydrated": true
   },
   {
@@ -99249,6 +99249,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-23T13:13:36.182985+00:00",
     "retry_after": "2026-11-24T13:13:36.183001+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Boris' Adventure Magazine",
+    "publisher": "Nicotat Comics",
+    "year": 1988,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T14:02:19.672746+00:00",
+    "retry_after": "2026-11-24T14:02:19.672764+00:00",
     "search_hydrated": true
   }
 ]

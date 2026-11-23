@@ -8489,9 +8489,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T01:10:49.789450+00:00",
-    "retry_after": "2026-11-23T01:10:49.789455+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T01:11:23.378286+00:00",
+    "retry_after": "2026-12-23T01:11:23.378289+00:00",
     "search_hydrated": true
   },
   {
@@ -9790,9 +9790,9 @@
         "start_year": 1987
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T01:10:49.789529+00:00",
-    "retry_after": "2026-11-23T01:10:49.789533+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T01:11:23.378338+00:00",
+    "retry_after": "2026-12-23T01:11:23.378340+00:00",
     "search_hydrated": true
   },
   {
@@ -28457,9 +28457,10 @@
     "year": 1998,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-09-28T01:03:52.874240+00:00",
-    "retry_after": "2026-10-01T01:03:52.874249+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-23T01:03:26.752481+00:00",
+    "retry_after": "2026-11-30T01:03:26.752496+00:00",
+    "search_hydrated": true
   },
   {
     "name": "DC Comics Presents: Flash",
@@ -36786,9 +36787,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T00:10:26.659677+00:00",
-    "retry_after": "2026-11-23T00:10:26.659678+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T01:04:25.728597+00:00",
+    "retry_after": "2026-12-23T01:04:25.728615+00:00",
     "search_hydrated": true
   },
   {
@@ -38144,9 +38145,10 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T21:55:28.453662+00:00",
-    "retry_after": "2026-10-04T21:55:28.453677+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-23T01:01:55.721656+00:00",
+    "retry_after": "2026-11-26T01:01:55.721672+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Borderlands",
@@ -64926,53 +64928,6 @@
     "retry_after": "2026-10-23T08:07:33.562159+00:00"
   },
   {
-    "name": "Essential X-Men",
-    "publisher": "Marvel Comics",
-    "year": 2016,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 36821,
-        "name": "Essential X-Men",
-        "publisher": null,
-        "start_year": 2010
-      },
-      {
-        "id": 79512,
-        "name": "Essential X-Men",
-        "publisher": null,
-        "start_year": 2014
-      },
-      {
-        "id": 37974,
-        "name": "Essential X-Men",
-        "publisher": null,
-        "start_year": 1995
-      },
-      {
-        "id": 110868,
-        "name": "Essential X-Men",
-        "publisher": null,
-        "start_year": 2018
-      },
-      {
-        "id": 21196,
-        "name": "Essential X-Men",
-        "publisher": null,
-        "start_year": 1997
-      },
-      {
-        "id": 94886,
-        "name": "Essential X-Men",
-        "publisher": null,
-        "start_year": 2016
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T08:07:33.998566+00:00",
-    "retry_after": "2026-10-23T08:07:33.998581+00:00"
-  },
-  {
     "name": "Nancy Complete Dailies",
     "publisher": "Fantagraphics",
     "year": 2012,
@@ -66427,29 +66382,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T13:45:08.133858+00:00",
     "retry_after": "2026-10-23T13:45:08.133873+00:00"
-  },
-  {
-    "name": "Daily Bugle",
-    "publisher": "Marvel Comics",
-    "year": 1996,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 21604,
-        "name": "Daily Bugle",
-        "publisher": null,
-        "start_year": 2006
-      },
-      {
-        "id": 5778,
-        "name": "Daily Bugle",
-        "publisher": null,
-        "start_year": 1996
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T13:45:08.884832+00:00",
-    "retry_after": "2026-10-23T13:45:08.884847+00:00"
   },
   {
     "name": "The Phantom: Ghost Who Walks",
@@ -80880,9 +80812,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T01:10:49.789379+00:00",
-    "retry_after": "2026-11-23T01:10:49.789399+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T01:11:23.378232+00:00",
+    "retry_after": "2026-12-23T01:11:23.378248+00:00",
     "search_hydrated": true
   },
   {
@@ -80898,9 +80830,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T01:10:56.583552+00:00",
-    "retry_after": "2026-11-23T01:10:56.583574+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T01:11:25.094537+00:00",
+    "retry_after": "2026-12-23T01:11:25.094549+00:00",
     "search_hydrated": true
   },
   {
@@ -80909,9 +80841,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T01:10:49.789552+00:00",
-    "retry_after": "2026-11-23T01:10:49.789555+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T01:11:23.378353+00:00",
+    "retry_after": "2026-12-23T01:11:23.378355+00:00",
     "search_hydrated": true
   },
   {
@@ -80927,9 +80859,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T01:10:56.739620+00:00",
-    "retry_after": "2026-11-23T01:10:56.739642+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T01:11:25.208255+00:00",
+    "retry_after": "2026-12-23T01:11:25.208267+00:00",
     "search_hydrated": true
   },
   {
@@ -80938,9 +80870,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T01:10:49.789578+00:00",
-    "retry_after": "2026-11-23T01:10:49.789581+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T01:11:23.378370+00:00",
+    "retry_after": "2026-12-23T01:11:23.378372+00:00",
     "search_hydrated": true
   },
   {
@@ -97495,9 +97427,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-22T01:11:18.322105+00:00",
-    "retry_after": "2026-11-23T01:11:18.322120+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-23T01:11:34.502068+00:00",
+    "retry_after": "2026-11-26T01:11:34.502085+00:00",
     "search_hydrated": true
   },
   {

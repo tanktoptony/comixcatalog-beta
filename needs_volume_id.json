@@ -12628,9 +12628,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T00:10:26.659658+00:00",
-    "retry_after": "2026-11-23T00:10:26.659659+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T00:13:50.972922+00:00",
+    "retry_after": "2026-12-23T00:13:50.972924+00:00",
     "search_hydrated": true
   },
   {
@@ -12791,9 +12791,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T00:10:26.659608+00:00",
-    "retry_after": "2026-11-23T00:10:26.659628+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T00:13:50.972882+00:00",
+    "retry_after": "2026-12-23T00:13:50.972886+00:00",
     "search_hydrated": true
   },
   {
@@ -15187,13 +15187,13 @@
   },
   {
     "name": "Savage Dragon vs. Savage Megaton Man",
-    "publisher": "Malibu Comics",
+    "publisher": "Image Comics",
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-21T18:03:18.092037+00:00",
-    "retry_after": "2026-11-22T18:03:18.092039+00:00",
+    "last_attempt_at": "2026-11-23T00:14:05.684538+00:00",
+    "retry_after": "2026-11-24T00:14:05.684542+00:00",
     "search_hydrated": true
   },
   {
@@ -21545,9 +21545,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-08T23:10:30.369823+00:00",
-    "retry_after": "2026-11-22T23:10:30.369824+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T00:13:50.972835+00:00",
+    "retry_after": "2026-12-23T00:13:50.972853+00:00",
     "search_hydrated": true
   },
   {
@@ -30917,9 +30917,10 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-28T04:04:49.509825+00:00",
-    "retry_after": "2026-09-29T04:04:49.509837+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-23T00:04:40.631643+00:00",
+    "retry_after": "2026-11-26T00:04:40.631658+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Marvels Comics: Thor",
@@ -42909,9 +42910,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T00:10:26.659645+00:00",
-    "retry_after": "2026-11-23T00:10:26.659647+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T00:13:50.972904+00:00",
+    "retry_after": "2026-12-23T00:13:50.972907+00:00",
     "search_hydrated": true
   },
   {
@@ -43000,9 +43001,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T00:10:26.659668+00:00",
-    "retry_after": "2026-11-23T00:10:26.659669+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T00:13:50.972938+00:00",
+    "retry_after": "2026-12-23T00:13:50.972941+00:00",
     "search_hydrated": true
   },
   {
@@ -57105,9 +57106,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-15T09:05:30.254448+00:00",
-    "retry_after": "2026-11-22T09:05:30.254456+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-23T00:09:32.750966+00:00",
+    "retry_after": "2026-12-07T00:09:32.750982+00:00",
     "search_hydrated": true
   },
   {
@@ -59570,23 +59571,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-21T18:47:00.225121+00:00",
     "retry_after": "2026-10-22T18:47:00.225137+00:00"
-  },
-  {
-    "name": "Black Cloud",
-    "publisher": "Image Comics",
-    "year": 2017,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 100562,
-        "name": "Black Cloud",
-        "publisher": null,
-        "start_year": 2017
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T18:47:00.692945+00:00",
-    "retry_after": "2026-10-22T18:47:00.692962+00:00"
   },
   {
     "name": "Undead",
@@ -95620,9 +95604,9 @@
         "start_year": 1968
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-19T23:25:42.710446+00:00",
-    "retry_after": "2026-11-22T23:25:42.710462+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-23T00:01:59.069325+00:00",
+    "retry_after": "2026-11-30T00:01:59.069340+00:00",
     "search_hydrated": true
   },
   {
@@ -95631,9 +95615,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-19T23:25:42.710482+00:00",
-    "retry_after": "2026-11-22T23:25:42.710484+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-23T00:01:59.069368+00:00",
+    "retry_after": "2026-11-30T00:01:59.069372+00:00",
     "search_hydrated": true
   },
   {
@@ -95685,9 +95669,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-19T23:25:42.710539+00:00",
-    "retry_after": "2026-11-22T23:25:42.710541+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-23T00:01:59.069467+00:00",
+    "retry_after": "2026-11-30T00:01:59.069470+00:00",
     "search_hydrated": true
   },
   {
@@ -98866,6 +98850,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-22T23:05:15.559130+00:00",
     "retry_after": "2026-11-23T23:05:15.559148+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Supergirl [American Honda Presents]",
+    "publisher": "DC Comics",
+    "year": 1984,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T00:14:05.684502+00:00",
+    "retry_after": "2026-11-24T00:14:05.684517+00:00",
     "search_hydrated": true
   }
 ]

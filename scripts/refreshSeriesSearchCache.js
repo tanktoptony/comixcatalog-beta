@@ -1266,27 +1266,34 @@ async function reportCoverage() {
   // what sent me looking for a regression that did not exist. Pagination
   // without a stable sort is the same family as §2a — it silently returns
   // the wrong set, with no error.
+  //
+  // Keyset, not offset: an offset page makes Postgres read and discard every
+  // row before it, so the last pages of a 200k-row walk cost far more than
+  // the first. Filtering on id > last keeps every page at first-page cost.
   const distinctCoverTitles = new Set();
-  let from = 0;
   const PAGE = 1000;
+  let lastCoverId = null;
   while (true) {
-    const { data } = await supabase
+    let query = supabase
       .from("canonical_covers")
-      .select("series_title")
+      .select("id, series_title")
       .not("storage_path", "is", null)
       .order("id", { ascending: true })
-      .range(from, from + PAGE - 1);
+      .limit(PAGE);
+    if (lastCoverId !== null) query = query.gt("id", lastCoverId);
+    const { data, error } = await query;
+    if (error) throw error;
     if (!data?.length) break;
     for (const r of data) distinctCoverTitles.add(r.series_title);
     if (data.length < PAGE) break;
-    from += PAGE;
+    lastCoverId = data.at(-1).id;
   }
 
   // Coverage among series users actually collect. We pull distinct
   // gcd_issue_id from user_collections, map back to series, and check
   // featured_cover_path_cached. This is the % that matters.
   const userGcdIds = new Set();
-  from = 0;
+  let from = 0;
   while (true) {
     const { data } = await supabase
       .from("user_collections")
@@ -1407,7 +1414,13 @@ async function run() {
   // can leave a stale duplicate behind on a row it never visited.
   if (!SKIP_RECONCILE) await reconcileDuplicateFeaturedCovers();
 
-  await reportCoverage();
+  // The coverage report is catalog-wide, so a targeted run skips it. The
+  // hourly cover ingest runs this script for a handful of series via
+  // refreshRecentSeries.js, and the report's walk over every canonical_covers
+  // row was the single biggest query cost in the database (Supabase health
+  // check, 2026-11-23: 51,858 calls at 89 ms in 10 days). Full runs still
+  // print it.
+  if (!ONLY_IDS) await reportCoverage();
 }
 
 run().catch((err) => {

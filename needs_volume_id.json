@@ -12812,9 +12812,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T06:10:41.311066+00:00",
-    "retry_after": "2026-11-23T06:10:41.311068+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T08:11:08.390637+00:00",
+    "retry_after": "2026-12-23T08:11:08.390639+00:00",
     "search_hydrated": true
   },
   {
@@ -18877,9 +18877,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T06:10:41.311043+00:00",
-    "retry_after": "2026-11-23T06:10:41.311045+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T08:11:08.390624+00:00",
+    "retry_after": "2026-12-23T08:11:08.390627+00:00",
     "search_hydrated": true
   },
   {
@@ -25565,9 +25565,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T06:10:44.964215+00:00",
-    "retry_after": "2026-11-23T06:10:44.964237+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T08:11:09.488474+00:00",
+    "retry_after": "2026-12-23T08:11:09.488493+00:00",
     "search_hydrated": true
   },
   {
@@ -81287,9 +81287,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T07:10:51.479142+00:00",
-    "retry_after": "2026-11-23T07:10:51.479155+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T08:11:08.390577+00:00",
+    "retry_after": "2026-12-23T08:11:08.390597+00:00",
     "search_hydrated": true
   },
   {
@@ -98931,6 +98931,41 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-23T07:06:09.846932+00:00",
     "retry_after": "2026-11-24T07:06:09.846934+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Futurama Comics",
+    "publisher": "Dino Verlag",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71868,
+        "name": "Futurama Comics",
+        "publisher": "Dino Comics",
+        "start_year": 2001
+      },
+      {
+        "id": 18364,
+        "name": "Futurama Comics",
+        "publisher": "Bongo",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T08:04:25.419364+00:00",
+    "retry_after": "2026-11-24T08:04:25.419384+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Punisher Presents: Barracuda MAX",
+    "publisher": "Marvel Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T08:11:22.057200+00:00",
+    "retry_after": "2026-11-24T08:11:22.057220+00:00",
     "search_hydrated": true
   }
 ]

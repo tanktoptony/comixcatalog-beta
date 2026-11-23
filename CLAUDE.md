@@ -161,7 +161,7 @@ At current ComicVine free-tier ingest pace (hourly cron, rate-limited), closing 
 
 ### Social
 
-Messages may attach a catalog issue through `messages.gcd_issue_id` and optionally a specific copy through `messages.collection_id`. Issue pages show privacy-filtered public collectors in Have it, Want it, and Selling groups so conversations begin with a book.
+Messages may attach a catalog issue through `messages.gcd_issue_id` and optionally a specific copy through `messages.collection_id`. The inbox is two-pane (Nov 2026): `src/app/inbox/layout.js` keeps the conversation list (`src/components/inbox/ThreadList.js`, data from `useInboxThreads()`) mounted while `/inbox/<username>` renders `src/components/inbox/ThreadView.js` on the right; phones show one pane at a time. ThreadView and ThreadList take a `variant` ("pane" | "dock") so the chat dock reuses them. Issue pages show privacy-filtered public collectors in Have it, Want it, and Selling groups so conversations begin with a book.
 
 #### `profiles`
 PK `id` (uuid, FK → `auth.users.id`).

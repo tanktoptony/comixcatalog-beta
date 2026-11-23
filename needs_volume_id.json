@@ -10202,20 +10202,22 @@
     "reason": "multiple_same_start_year_tied",
     "candidates": [
       {
-        "id": 153615,
-        "name": "Sins of Sinister ",
+        "id": 147646,
+        "name": "Sins of Sinister",
         "publisher": "Marvel",
         "start_year": 2023
       },
       {
-        "id": 147646,
-        "name": "Sins of Sinister",
+        "id": 153615,
+        "name": "Sins of Sinister ",
         "publisher": "Marvel",
         "start_year": 2023
       }
     ],
     "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556190+00:00"
+    "last_attempt_at": "2026-11-23T22:07:58.414637+00:00",
+    "retry_after": "2026-11-24T22:07:58.414658+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Fortune and Glory",
@@ -61607,29 +61609,6 @@
     "retry_after": "2026-10-23T00:15:59.975170+00:00"
   },
   {
-    "name": "Absolute Carnage: Lethal Protectors",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 120945,
-        "name": "Absolute Carnage: Lethal Protectors",
-        "publisher": null,
-        "start_year": 2019
-      },
-      {
-        "id": 124283,
-        "name": "Absolute Carnage: Lethal Protectors",
-        "publisher": null,
-        "start_year": 2020
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T00:16:00.419995+00:00",
-    "retry_after": "2026-10-23T00:16:00.420015+00:00"
-  },
-  {
     "name": "Movietown's Animal Antics",
     "publisher": "DC Comics",
     "year": 1950,
@@ -82014,9 +81993,9 @@
         "start_year": 2001
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T19:10:55.792281+00:00",
-    "retry_after": "2026-11-23T19:10:55.792298+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T22:15:07.520707+00:00",
+    "retry_after": "2026-12-23T22:15:07.520709+00:00",
     "search_hydrated": true
   },
   {
@@ -82065,9 +82044,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T19:10:55.792383+00:00",
-    "retry_after": "2026-11-23T19:10:55.792387+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T22:15:07.520757+00:00",
+    "retry_after": "2026-12-23T22:15:07.520759+00:00",
     "search_hydrated": true
   },
   {
@@ -82098,9 +82077,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T20:11:28.116325+00:00",
-    "retry_after": "2026-11-23T20:11:28.116327+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T22:15:05.389780+00:00",
+    "retry_after": "2026-12-23T22:15:05.389783+00:00",
     "search_hydrated": true
   },
   {
@@ -82120,9 +82099,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T20:11:28.116341+00:00",
-    "retry_after": "2026-11-23T20:11:28.116342+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T22:15:11.643086+00:00",
+    "retry_after": "2026-12-23T22:15:11.643104+00:00",
     "search_hydrated": true
   },
   {
@@ -82138,9 +82117,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T22:05:34.215162+00:00",
-    "retry_after": "2026-11-23T22:05:34.215171+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T22:15:07.760589+00:00",
+    "retry_after": "2026-12-23T22:15:07.760608+00:00",
     "search_hydrated": true
   },
   {
@@ -82412,9 +82391,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T20:11:28.116350+00:00",
-    "retry_after": "2026-11-23T20:11:28.116351+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T22:15:11.643155+00:00",
+    "retry_after": "2026-12-23T22:15:11.643158+00:00",
     "search_hydrated": true
   },
   {
@@ -95795,9 +95774,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-20T21:11:58.877354+00:00",
-    "retry_after": "2026-11-23T21:11:58.877370+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-23T22:15:05.389599+00:00",
+    "retry_after": "2026-11-30T22:15:05.389619+00:00",
     "search_hydrated": true
   },
   {
@@ -95806,9 +95785,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-20T21:11:58.877418+00:00",
-    "retry_after": "2026-11-23T21:11:58.877422+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-23T22:15:05.389640+00:00",
+    "retry_after": "2026-11-30T22:15:05.389644+00:00",
     "search_hydrated": true
   },
   {
@@ -95824,9 +95803,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-20T21:12:00.303022+00:00",
-    "retry_after": "2026-11-23T21:12:00.303034+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-23T22:15:06.812148+00:00",
+    "retry_after": "2026-11-30T22:15:06.812170+00:00",
     "search_hydrated": true
   },
   {
@@ -98929,6 +98908,143 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-23T21:10:02.896888+00:00",
     "retry_after": "2026-11-24T21:10:02.896903+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Neil Gaiman's Wheel of Worlds",
+    "publisher": "Big Entertainment",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20944,
+        "name": "Neil Gaiman's Wheel of Worlds",
+        "publisher": "Tekno Comix",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T22:02:40.082326+00:00",
+    "retry_after": "2026-11-24T22:02:40.082346+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Six Million Dollar Man",
+    "publisher": "Charlton Comics",
+    "year": 1976,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 117469,
+        "name": "The Six Million Dollar Man",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T22:02:40.082426+00:00",
+    "retry_after": "2026-11-24T22:02:40.082430+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Black Axe",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20503,
+        "name": "Black Axe",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T22:02:40.082449+00:00",
+    "retry_after": "2026-11-24T22:02:40.082451+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Children of the Voyager",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32523,
+        "name": "Children of the Voyager",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T22:02:40.082467+00:00",
+    "retry_after": "2026-11-24T22:02:40.082469+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Plasmer",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 5037,
+        "name": "Plasmer",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T22:03:15.494270+00:00",
+    "retry_after": "2026-11-24T22:03:15.494289+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Shadow Riders",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27172,
+        "name": "Shadow Riders",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T22:03:15.494319+00:00",
+    "retry_after": "2026-11-24T22:03:15.494321+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vacances de rêve",
+    "publisher": "Dynamite Entertainment",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T22:15:20.250298+00:00",
+    "retry_after": "2026-11-24T22:15:20.250319+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "La Grande Dinastia dei Paperi",
+    "publisher": "Dell Comics",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 157394,
+        "name": "La Grande Dinastia dei Paperi",
+        "publisher": "Corriere Della Sera",
+        "start_year": 2008
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T22:15:51.532663+00:00",
+    "retry_after": "2026-11-24T22:15:51.532682+00:00",
     "search_hydrated": true
   }
 ]

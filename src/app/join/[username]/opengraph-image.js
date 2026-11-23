@@ -4,6 +4,7 @@ import { renderShelfCard, OG_SIZE } from "@/lib/og/card";
 import { homeImage } from "@/app/opengraph-image";
 import { profileCovers } from "@/app/u/[username]/opengraph-image";
 import { normalizeInviteRef } from "@/lib/invites";
+import { cachedCard } from "@/lib/og/cache";
 
 export const alt = "An invitation to ComixCatalog";
 export const size = OG_SIZE;
@@ -21,7 +22,7 @@ export function generateStaticParams() {
 
 // A public inviter's own shelf; a private one gets the classic keys wall,
 // so an invite never shows books its owner keeps private.
-export default async function Image({ params }) {
+async function Image({ params }) {
   try {
     const { username } = await params;
     const clean = normalizeInviteRef(username);
@@ -42,3 +43,6 @@ export default async function Image({ params }) {
     return homeImage();
   }
 }
+
+// Cached for `revalidate`, whatever the data caches say (src/lib/og/cache.js).
+export default cachedCard(revalidate, Image);

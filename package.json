@@ -67,6 +67,7 @@
     "test:featured-targets": "node --test scripts/lib/featuredTargets.test.js",
     "test:production-assets": "node --test src/lib/productionAssets.test.js",
     "test:cover-thumb": "node --test src/lib/coverThumb.test.js",
+    "test:og-cache": "node --test src/lib/og/cache.test.js",
     "test:local-cache": "node --test src/lib/localCache.test.js",
     "test:listing-row": "node --test src/lib/listingRow.test.js",
     "test:listing-edit": "node --test src/lib/listingEdit.test.js",

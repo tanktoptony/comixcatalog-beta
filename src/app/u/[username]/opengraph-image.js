@@ -4,6 +4,7 @@ import { homeImage } from "@/app/opengraph-image";
 import { isOwnedStatus } from "@/lib/collectionStatus";
 import { getProfileBadges, selectShowcaseBadges } from "@/lib/badges/server";
 import { badgeSvgDataUrl } from "@/lib/badges/svg";
+import { cachedCard } from "@/lib/og/cache";
 
 export const alt = "Collector profile on ComixCatalog";
 export const size = OG_SIZE;
@@ -43,7 +44,7 @@ export function profileStats(data) {
   ];
 }
 
-export default async function Image({ params }) {
+async function Image({ params }) {
   try {
     const { username } = await params;
     const d = await getPublicProfile(username);
@@ -64,3 +65,6 @@ export default async function Image({ params }) {
     return homeImage();
   }
 }
+
+// Cached for `revalidate`, whatever the data caches say (src/lib/og/cache.js).
+export default cachedCard(revalidate, Image);

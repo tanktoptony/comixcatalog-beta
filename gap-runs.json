@@ -343,13 +343,6 @@
     "series_gcd_id": 118631
   },
   {
-    "name": "The Jaguar",
-    "publisher": "DC",
-    "year": 1991,
-    "volume_id": 156995,
-    "series_gcd_id": 4199
-  },
-  {
     "name": "Stephen McCranie's Space Boy",
     "publisher": "Dark Horse",
     "year": 2018,
@@ -1253,6 +1246,13 @@
     "series_gcd_id": 207762
   },
   {
+    "name": "The New Invaders",
+    "publisher": "Marvel",
+    "year": 2004,
+    "volume_id": 11309,
+    "series_gcd_id": 12255
+  },
+  {
     "name": "These Savage Shores",
     "publisher": "Vault",
     "year": 2018,
@@ -1454,5 +1454,26 @@
     "year": 1996,
     "volume_id": 22851,
     "series_gcd_id": 16237
+  },
+  {
+    "name": "Amazing X-Men",
+    "publisher": "Marvel",
+    "year": 1995,
+    "volume_id": 5535,
+    "series_gcd_id": 5273
+  },
+  {
+    "name": "The Spire",
+    "publisher": "Boom! Studios",
+    "year": 2015,
+    "volume_id": 82987,
+    "series_gcd_id": 90489
+  },
+  {
+    "name": "Armor Wars",
+    "publisher": "Marvel",
+    "year": 2015,
+    "volume_id": 82340,
+    "series_gcd_id": 89858
   }
 ]

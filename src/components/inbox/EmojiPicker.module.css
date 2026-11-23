@@ -1,0 +1,80 @@
+.picker {
+  position: absolute;
+  z-index: 30;
+  left: 12px;
+  bottom: calc(100% + 8px);
+  width: min(340px, calc(100% - 24px));
+  display: flex;
+  flex-direction: column;
+  max-height: 340px;
+  border: 1px solid color-mix(in srgb, var(--cc-gold) 30%, var(--cc-line));
+  border-radius: 14px;
+  background: var(--cc-surface, #11161d);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55), 4px 4px 0 rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+.head { display: grid; gap: 6px; padding: 10px 10px 6px; }
+.head strong {
+  color: var(--cc-gold);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.picker .search {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 11px;
+  border: 1px solid var(--cc-line);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--cc-text);
+  font: inherit;
+  font-size: 0.86rem;
+}
+.picker .search:focus { outline: none; border-color: var(--cc-gold); }
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  padding: 0 8px 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tab, .tabActive {
+  flex: none;
+  padding: 5px 9px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--cc-text-muted);
+  font: inherit;
+  font-size: 0.74rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.tab:hover { color: var(--cc-text); background: rgba(255, 255, 255, 0.05); }
+.tabActive { background: color-mix(in srgb, var(--cc-gold) 16%, transparent); color: var(--cc-gold); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(38px, 1fr));
+  gap: 2px;
+  padding: 4px 8px 10px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+.cell {
+  height: 38px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.1s, transform 0.1s;
+}
+.cell:hover, .cell:focus-visible { background: rgba(255, 255, 255, 0.08); transform: scale(1.12); outline: none; }
+.none { grid-column: 1 / -1; margin: 12px 0; color: var(--cc-text-muted); font-size: 0.84rem; text-align: center; }

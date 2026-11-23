@@ -400,3 +400,124 @@
 @media (prefers-reduced-motion: reduce) {
   .skeleton, .loadingRows span { animation: none; }
 }
+
+/* Emoji: reaction bar (hover, or tap the bubble on touch screens),
+   reaction chips, the composer's emoji button and :shortcode suggestions. */
+.bubbleRow { position: relative; max-width: 100%; }
+.bubble { cursor: default; }
+
+.reactBar {
+  position: absolute;
+  z-index: 5;
+  bottom: calc(100% - 4px);
+  display: flex;
+  gap: 1px;
+  padding: 3px;
+  border: 1px solid var(--cc-line);
+  border-radius: 999px;
+  background: var(--cc-surface, #11161d);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transform: translateY(4px);
+  pointer-events: none;
+  transition: opacity 0.12s, transform 0.12s;
+}
+.msgTheirs .reactBar { left: 6px; }
+.msgMine .reactBar { right: 6px; }
+.msg:hover .reactBar,
+.msg:focus-within .reactBar,
+.msg[data-bar="open"] .reactBar { opacity: 1; transform: none; pointer-events: auto; }
+.reactBar button {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  font-size: 1.05rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.1s;
+}
+.reactBar button:hover, .reactBar button:focus-visible { background: rgba(255, 255, 255, 0.08); transform: scale(1.2); outline: none; }
+.reactBar .reactMore { color: var(--cc-text-muted); display: inline-grid; place-items: center; }
+.reactBar .reactMore:hover { color: var(--cc-gold); transform: none; }
+@media (hover: none) {
+  .bubble { cursor: pointer; }
+  .msg:hover .reactBar { opacity: 0; pointer-events: none; }
+  .msg[data-bar="open"] .reactBar { opacity: 1; pointer-events: auto; }
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.msgMine .chips { justify-content: flex-end; }
+.chip, .chipMine {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border: 1px solid var(--cc-line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--cc-text);
+  font: inherit;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.chip small, .chipMine small { font-size: 0.72rem; font-weight: 800; }
+.chipMine {
+  border-color: color-mix(in srgb, var(--cc-gold) 60%, transparent);
+  background: color-mix(in srgb, var(--cc-gold) 14%, transparent);
+}
+.chipMine small { color: var(--cc-gold); }
+.chip:hover { border-color: rgba(255, 255, 255, 0.25); }
+.chip:disabled, .chipMine:disabled { cursor: default; opacity: 0.7; }
+
+.composer { position: relative; }
+.emojiButton {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.55);
+  display: inline-grid;
+  place-items: center;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+}
+.emojiButton:hover:not(:disabled), .emojiButton[aria-expanded="true"] { color: var(--cc-gold); background: rgba(255, 255, 255, 0.06); }
+.emojiButton:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.suggest {
+  position: absolute;
+  z-index: 25;
+  left: 12px;
+  bottom: calc(100% + 6px);
+  width: min(260px, calc(100% - 24px));
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  border: 1px solid var(--cc-line);
+  border-radius: 12px;
+  background: var(--cc-surface, #11161d);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
+}
+.suggest button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 6px 9px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--cc-text-muted);
+  font: inherit;
+  font-size: 0.86rem;
+  text-align: left;
+  cursor: pointer;
+}
+.suggest button span { font-size: 1.2rem; }
+.suggest button:hover, .suggest .suggestActive { background: color-mix(in srgb, var(--cc-gold) 14%, transparent); color: var(--cc-text); }
+.viewDock .emojiButton { width: 38px; height: 38px; }

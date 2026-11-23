@@ -19,6 +19,13 @@ import { getSupabaseClient } from "@/lib/supabase/client";
 import styles from "./ThreadView.module.css";
 import ReportButton from "@/components/ReportButton";
 import { messageDateLabel, shouldStartMessageGroup } from "@/lib/messageThreads";
+import { QUICK_REACTIONS, groupReactions, replaceShortcodes, searchEmoji, shortcodeFor, shortcodeQueryAt, toggleReactionRows } from "@/lib/emoji";
+import EmojiPicker from "@/components/inbox/EmojiPicker";
+
+const REACTION_COLUMNS = "message_id, user_id, emoji, created_at";
+// Reactions are fetched for the newest messages only; older ones keep theirs
+// in the database but rarely matter in a long conversation.
+const REACTION_WINDOW = 200;
 
 const MAX_BODY = 4000;
 // Shown to everyone, including people who can't use checkout yet, so it can't point at checkout.
@@ -75,6 +82,15 @@ export default function ThreadView({ username, variant = "pane", onBack }) {
   const [body, setBody] = useState(() =>
     about && !askKind ? `Hi! I'm interested in your ${about.slice(0, 200)}. Would you take an offer?` : ""
   );
+  // Reaction rows for the newest messages. reactionsOn turns off the
+  // reaction controls if the table can't be read (before migration 0117).
+  const [reactions, setReactions] = useState([]);
+  const [reactionsOn, setReactionsOn] = useState(true);
+  // The open emoji picker: "composer" (insert into the message) or a
+  // message id (react to it). barFor: the message whose quick-reaction bar
+  // is open on touch screens, where there's no hover.
+  const [pickerFor, setPickerFor] = useState(null);
+  const [barFor, setBarFor] = useState(null);
   // Opening a different conversation can reuse this component, so swap to
   // that thread's cached state during render instead of briefly showing the
   // previous person's messages.
@@ -84,6 +100,9 @@ export default function ThreadView({ username, variant = "pane", onBack }) {
     const p = user ? inboxCache(user.id).profiles.get(username) ?? null : null;
     setOtherProfile(p);
     setMessages(p ? inboxCache(user.id).messages.get(p.id) ?? null : null);
+    setReactions([]);
+    setPickerFor(null);
+    setBarFor(null);
   }
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(null);
@@ -91,6 +110,21 @@ export default function ThreadView({ username, variant = "pane", onBack }) {
   const [confirmingBlock, setConfirmingBlock] = useState(false);
   const [blockBusy, setBlockBusy] = useState(false);
   const scrollerRef = useRef(null);
+  const textareaRef = useRef(null);
+  // :shortcode autocomplete in the composer.
+  const [caret, setCaret] = useState(0);
+  const [suggestIndex, setSuggestIndex] = useState(0);
+  const [suggestDismissedAt, setSuggestDismissedAt] = useState(null);
+  const shortcode = shortcodeQueryAt(body, caret);
+  const suggestions = shortcode && suggestDismissedAt !== shortcode.start ? searchEmoji(shortcode.query, 6) : [];
+  const reactionsByMessage = useMemo(() => {
+    const byId = new Map();
+    for (const row of reactions) {
+      if (!byId.has(row.message_id)) byId.set(row.message_id, []);
+      byId.get(row.message_id).push(row);
+    }
+    return byId;
+  }, [reactions]);
   // Only your latest message carries Sending / Delivered / Read, the way
   // phone messaging does. The 10s poll refreshes read_at, so Read appears
   // within seconds of the other collector opening the thread.
@@ -239,8 +273,35 @@ export default function ThreadView({ username, variant = "pane", onBack }) {
       }
       setMessages(data ?? []);
       inboxCache(user.id).messages.set(otherProfile.id, data ?? []);
+      latestRows = data ?? [];
+      loadReactions(latestRows);
 
       await markRead(data ?? []);
+    }
+
+    // Reactions for the newest messages, 100 ids per request (URL length).
+    let latestRows = [];
+    async function loadReactions(rows) {
+      const ids = rows.filter((m) => !m.is_system && !m.__optimistic).map((m) => m.id).slice(-REACTION_WINDOW);
+      if (ids.length === 0) {
+        if (!cancelled) setReactions([]);
+        return;
+      }
+      const found = [];
+      for (let i = 0; i < ids.length; i += 100) {
+        const { data, error: reactionError } = await supabase
+          .from("message_reactions")
+          .select(REACTION_COLUMNS)
+          .in("message_id", ids.slice(i, i + 100));
+        if (cancelled) return;
+        if (reactionError) {
+          setReactionsOn(false);
+          return;
+        }
+        found.push(...(data ?? []));
+      }
+      setReactionsOn(true);
+      setReactions(found);
     }
 
     // Mark inbound messages read only while the thread is on screen, then
@@ -282,6 +343,7 @@ export default function ThreadView({ username, variant = "pane", onBack }) {
             (m.sender_id === user.id && m.recipient_id === otherProfile.id) ||
             (m.sender_id === otherProfile.id && m.recipient_id === user.id);
           if (!involvesPair) return;
+          if (!latestRows.some((x) => x.id === m.id)) latestRows = [...latestRows, m];
           setMessages((prev) => {
             if (!prev) return [m];
             if (prev.some((x) => x.id === m.id)) return prev;
@@ -292,6 +354,18 @@ export default function ThreadView({ username, variant = "pane", onBack }) {
       )
       .subscribe();
 
+    // Reactions get their own channel so a problem subscribing to them can't
+    // take message delivery down with it. Any change re-reads this thread's
+    // reactions (the payload of a delete carries only the key).
+    let reactionTimer = null;
+    const reactionChannel = supabase
+      .channel(`thread-reactions-${user.id}-${otherProfile.id}`)
+      .on("postgres_changes", { event: "*", schema: "public", table: "message_reactions" }, () => {
+        clearTimeout(reactionTimer);
+        reactionTimer = setTimeout(() => loadReactions(latestRows), 300);
+      })
+      .subscribe();
+
     // Polling fallback covers a stalled postgres_changes connection.
     pollInterval = setInterval(() => {
       if (document.visibilityState === "visible") load();
@@ -299,6 +373,8 @@ export default function ThreadView({ username, variant = "pane", onBack }) {
 
     return () => {
       cancelled = true;
+      clearTimeout(reactionTimer);
+      supabase.removeChannel(reactionChannel);
       if (channel) supabase.removeChannel(channel);
       if (pollInterval) clearInterval(pollInterval);
       document.removeEventListener("visibilitychange", onVisible);
@@ -344,7 +420,8 @@ export default function ThreadView({ username, variant = "pane", onBack }) {
   async function handleSend(e) {
     e.preventDefault();
     if (sending || isBlocked) return;
-    const trimmed = body.trim();
+    const trimmed = replaceShortcodes(body.trim());
+    setPickerFor(null);
     if (!trimmed || !user || !otherProfile) return;
     if (trimmed.length > MAX_BODY) {
       setError(`Message too long (${trimmed.length}/${MAX_BODY}).`);
@@ -398,6 +475,68 @@ export default function ThreadView({ username, variant = "pane", onBack }) {
       );
     }
     setSending(false);
+  }
+
+  // Add or remove your reaction; the server's list replaces the guess.
+  async function toggleReaction(messageId, emoji) {
+    if (!user || isBlocked) return;
+    setPickerFor(null);
+    setBarFor(null);
+    const flip = (rows) => toggleReactionRows(rows, { messageId, userId: user.id, emoji });
+    setReactions(flip);
+    try {
+      const response = await authedFetch("/api/messages/reactions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message_id: messageId, emoji }),
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result.error || "Could not save that reaction.");
+      setReactions((rows) => [...rows.filter((r) => r.message_id !== messageId), ...(result.reactions ?? [])]);
+    } catch (reactionError) {
+      setReactions(flip);
+      setError(reactionError.message);
+    }
+  }
+
+  // Put text at the caret (or replace a range) and keep typing from there.
+  function insertAtCaret(text, from, to) {
+    const el = textareaRef.current;
+    const start = from ?? el?.selectionStart ?? body.length;
+    const end = to ?? el?.selectionEnd ?? body.length;
+    const next = body.slice(0, start) + text + body.slice(end);
+    const pos = start + text.length;
+    setBody(next);
+    setCaret(pos);
+    requestAnimationFrame(() => {
+      if (!textareaRef.current) return;
+      textareaRef.current.focus();
+      textareaRef.current.setSelectionRange(pos, pos);
+    });
+  }
+
+  function pickSuggestion(entry) {
+    if (!shortcode || !entry) return;
+    insertAtCaret(`${entry.emoji} `, shortcode.start, shortcode.end);
+    setSuggestIndex(0);
+  }
+
+  // Typing a whole :code: turns it into the emoji right away, like Slack.
+  function handleBodyChange(event) {
+    const raw = event.target.value;
+    const rawCaret = event.target.selectionStart ?? raw.length;
+    const converted = replaceShortcodes(raw);
+    if (converted === raw) {
+      setBody(raw);
+      setCaret(rawCaret);
+    } else {
+      const before = replaceShortcodes(raw.slice(0, rawCaret));
+      setBody(converted);
+      setCaret(before.length);
+      requestAnimationFrame(() => textareaRef.current?.setSelectionRange(before.length, before.length));
+    }
+    setSuggestIndex(0);
+    setSuggestDismissedAt(null);
   }
 
   async function handleBlock() {
@@ -478,6 +617,7 @@ export default function ThreadView({ username, variant = "pane", onBack }) {
   }
 
   const otherName = otherProfile?.display_name || otherProfile?.username || username;
+  const canReact = (m) => reactionsOn && !isBlocked && !m.__optimistic && !m.is_system;
 
   return (
     <section className={viewClass}>
@@ -552,8 +692,53 @@ export default function ThreadView({ username, variant = "pane", onBack }) {
                   <div className={styles.meta}>{formatTimestamp(m.created_at)}</div>
                 </div>
               ) : (
-              <div className={classNames}>
-                <div className={styles.bubble}>{m.body}</div>
+              <div className={classNames} data-bar={barFor === m.id ? "open" : undefined}>
+                <div className={styles.bubbleRow}>
+                  <div
+                    className={styles.bubble}
+                    onClick={() => { if (canReact(m)) setBarFor((current) => (current === m.id ? null : m.id)); }}
+                  >
+                    {m.body}
+                  </div>
+                  {canReact(m) && (
+                    <div className={styles.reactBar} role="toolbar" aria-label="React to this message">
+                      {QUICK_REACTIONS.map((emoji) => (
+                        <button key={emoji} type="button" onClick={() => toggleReaction(m.id, emoji)} aria-label={`React ${shortcodeFor(emoji)}`} title={`:${shortcodeFor(emoji)}:`}>
+                          {emoji}
+                        </button>
+                      ))}
+                      <button type="button" className={styles.reactMore} onClick={() => setPickerFor(m.id)} aria-label="More reactions" title="More reactions">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <circle cx="12" cy="12" r="9" /><path d="M8.5 14.5s1.3 1.8 3.5 1.8 3.5-1.8 3.5-1.8" /><path d="M9 9.5h.01M15 9.5h.01" />
+                        </svg>
+                      </button>
+                    </div>
+                  )}
+                </div>
+                {(() => {
+                  const chips = groupReactions(reactionsByMessage.get(m.id), user.id);
+                  if (!chips.length) return null;
+                  return (
+                    <div className={styles.chips}>
+                      {chips.map((chip) => {
+                        const who = chip.userIds.map((id) => (id === user.id ? "You" : otherName)).join(" and ");
+                        return (
+                          <button
+                            key={chip.emoji}
+                            type="button"
+                            className={chip.mine ? styles.chipMine : styles.chip}
+                            onClick={() => toggleReaction(m.id, chip.emoji)}
+                            disabled={!reactionsOn || isBlocked}
+                            title={`${who} reacted with :${shortcodeFor(chip.emoji)}:`}
+                            aria-pressed={chip.mine}
+                          >
+                            <span>{chip.emoji}</span>{chip.count > 1 && <small>{chip.count}</small>}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  );
+                })()}
                 {m.gcd_issue_id && bookCache[m.gcd_issue_id] && <BookCard book={bookCache[m.gcd_issue_id]} styles={styles} />}
                 {findOffPlatformPaymentTerms(m.body).length > 0 && (
                   <div className={styles.paymentWarning}>{PAYMENT_WARNING}</div>
@@ -586,15 +771,73 @@ export default function ThreadView({ username, variant = "pane", onBack }) {
 
       <form onSubmit={handleSend} className={styles.composer}>
         {contextBook && <div className={styles.aboutBook}><BookCard book={contextBook} styles={styles} label="About this book" /><button type="button" onClick={() => { setAttachedBook(null); setContextRemoved(true); }} aria-label="Remove book">×</button></div>}
+        {pickerFor && (
+          <EmojiPicker
+            title={pickerFor === "composer" ? null : "React to message"}
+            onPick={(emoji) => {
+              if (pickerFor === "composer") { insertAtCaret(emoji); setPickerFor(null); }
+              else toggleReaction(pickerFor, emoji);
+            }}
+            onClose={() => setPickerFor(null)}
+          />
+        )}
+        {suggestions.length > 0 && (
+          <ul className={styles.suggest} role="listbox" aria-label="Emoji suggestions">
+            {suggestions.map((entry, i) => (
+              <li key={entry.emoji} role="option" aria-selected={i === suggestIndex}>
+                <button
+                  type="button"
+                  className={i === suggestIndex ? styles.suggestActive : undefined}
+                  onMouseDown={(event) => { event.preventDefault(); pickSuggestion(entry); }}
+                >
+                  <span>{entry.emoji}</span>:{entry.name}:
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+        <button
+          type="button"
+          className={styles.emojiButton}
+          onClick={() => setPickerFor((current) => (current === "composer" ? null : "composer"))}
+          disabled={isBlocked}
+          aria-label="Add emoji"
+          aria-expanded={pickerFor === "composer"}
+          title="Emoji (or type :name)"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" /><path d="M8.5 14.5s1.3 1.8 3.5 1.8 3.5-1.8 3.5-1.8" /><path d="M9 9.5h.01M15 9.5h.01" />
+          </svg>
+        </button>
         <textarea
+          ref={textareaRef}
           className={styles.composerInput}
           placeholder={`Message ${otherName}…`}
           value={body}
-          onChange={(e) => setBody(e.target.value)}
+          onChange={handleBodyChange}
+          onSelect={(e) => setCaret(e.currentTarget.selectionStart ?? 0)}
           rows={1}
           maxLength={MAX_BODY}
           disabled={isBlocked}
           onKeyDown={(e) => {
+            if (suggestions.length > 0) {
+              if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+                e.preventDefault();
+                const step = e.key === "ArrowDown" ? 1 : -1;
+                setSuggestIndex((i) => (i + step + suggestions.length) % suggestions.length);
+                return;
+              }
+              if (e.key === "Enter" || e.key === "Tab") {
+                e.preventDefault();
+                pickSuggestion(suggestions[suggestIndex] ?? suggestions[0]);
+                return;
+              }
+              if (e.key === "Escape") {
+                e.preventDefault();
+                setSuggestDismissedAt(shortcode.start);
+                return;
+              }
+            }
             if (e.key === "Enter" && !e.shiftKey) {
               e.preventDefault();
               handleSend(e);

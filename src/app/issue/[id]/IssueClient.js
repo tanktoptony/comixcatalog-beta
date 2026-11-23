@@ -16,13 +16,13 @@ import GradeEditor from "@/components/GradeEditor";
 import { countCopies } from "@/lib/libraryMutations";
 import { publisherHref } from "@/lib/publisherPages";
 import { issueNumberSuffix } from "@/lib/issueNumberLabel";
-import { buildIssueDetailsRows, formatGcdDate, formatGcdPrice, humanizeStoryType, parseGcdCreditList, stripGcdCharacterNoise } from "@/lib/issueDetails";
+import { buildIssueDetailsRows, humanizeStoryType, parseGcdCreditList, stripGcdCharacterNoise } from "@/lib/issueDetails";
 import { conditionLabel, contactLabel, formatValue, offerHref } from "@/lib/marketplaceFormat";
 import Avatar from "@/components/Avatar";
 import { cleanVariantCaption, matchVariantCovers } from "@/lib/variantCovers";
-import { coverThumb } from "@/lib/coverThumb";
 import AddToListButton from "@/components/lists/AddToListButton";
 import IssueReviews from "@/components/issue/IssueReviews";
+import IssueVersions from "@/components/issue/IssueVersions";
 import CommentThread from "@/components/comments/CommentThread";
 
 function CollectorRow({ label, bucket, actionLabel, actionKind, issueId, viewerId }) {
@@ -777,16 +777,7 @@ export default function IssueClient({ initialIssue = null }) {
         )}
 
         {issue.versions?.length > 1 && (
-          <section className="issue-discogs-section issue-versions-section">
-            <div className="issue-section-heading"><h2>Versions</h2><span>Own a different version? Open it to switch your copy.</span></div>
-            <div className="issue-table-box"><table className="issue-discogs-table"><thead><tr><th>Version</th><th>On sale</th><th>Price</th><th>Barcode / ID</th></tr></thead><tbody>
-              {issue.versions.map((version) => <tr key={version.gcdId} className={version.gcdId === issue.edition_gcd_issue_id ? "is-selected" : ""}>
-                <td><Link className="issue-version-link" href={`/issue/gcd-${issue.base_gcd_issue_id}?edition=${version.gcdId}`}><span className="issue-version-thumb">{versionCoverById.get(version.gcdId) && <img src={coverThumb(versionCoverById.get(version.gcdId))} alt="" width={22} height={32} loading="lazy" />}{/* eslint-disable-line @next/next/no-img-element */}</span><span>{version.name}</span></Link></td>
-                <td>{formatGcdDate(version.onSaleDate) || "Not indexed"}</td><td>{formatGcdPrice(version.price) || "Not indexed"}</td>
-                <td className="issue-mono">{version.barcode || `GCD ${version.gcdId}`}</td>
-              </tr>)}
-            </tbody></table></div>
-          </section>
+          <IssueVersions versions={issue.versions} baseGcdId={issue.base_gcd_issue_id} selectedGcdId={issue.edition_gcd_issue_id} coverById={versionCoverById} />
         )}
 
         <div className="issue-below-grid">

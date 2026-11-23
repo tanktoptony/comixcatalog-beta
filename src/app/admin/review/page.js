@@ -1,16 +1,27 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { ADMIN_ID } from "@/lib/admin";
 import { authedFetch } from "@/lib/apiClient";
 import { useAuth } from "@/context/AuthContext";
 
+// useSearchParams needs a Suspense boundary or the build bails on prerender.
 export default function ReviewPage() {
+  return (
+    <Suspense fallback={null}>
+      <ReviewQueue />
+    </Suspense>
+  );
+}
+
+function ReviewQueue() {
   const { user, loading } = useAuth();
   const router = useRouter();
-  const [kind, setKind] = useState("printings");
+  // ?tab= comes from the review-queue notification, so it opens where the new item is.
+  const tab = useSearchParams().get("tab");
+  const [kind, setKind] = useState(["printings", "books", "requests"].includes(tab) ? tab : "printings");
   const [items, setItems] = useState([]);
   const [counts, setCounts] = useState({ printings: 0, books: 0, requests: 0 });
   const [notes, setNotes] = useState({});

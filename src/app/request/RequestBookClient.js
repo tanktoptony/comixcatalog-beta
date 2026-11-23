@@ -164,7 +164,7 @@ export default function RequestBookClient() {
                     <strong>{request.title}{request.issue_number ? ` #${request.issue_number}` : ""}</strong>
                     <small>{[request.publisher, request.year].filter(Boolean).join(" · ")}</small>
                   </div>
-                  {request.status === "added" && request.resolved_gcd_issue_id ? (
+                  {(request.status === "added" || request.status === "already_there") && request.resolved_gcd_issue_id ? (
                     <Link className={`request-status is-${request.status}`} href={`/issue/gcd-${request.resolved_gcd_issue_id}`}>
                       {STATUS_LABELS[request.status]}
                     </Link>

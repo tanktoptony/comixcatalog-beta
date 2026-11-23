@@ -25,6 +25,7 @@ const displayFont = Big_Shoulders({
 
 import { SITE_URL } from "@/lib/siteUrl";
 import { getFoundingRemaining } from "@/lib/foundingStatus";
+import ChatDock from "@/components/inbox/ChatDock";
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 // Production only — keeps localhost/dev traffic out of real GA data.
 const GA_ENABLED = Boolean(GA_MEASUREMENT_ID) && process.env.NODE_ENV === "production";
@@ -169,6 +170,7 @@ export default async function RootLayout({ children }) {
               <BadgeToast />
               <main id="main-content" tabIndex={-1} className="page-wrapper">{children}</main>
               <Footer />
+              <ChatDock />
             </SearchQueryProvider>
           </LibraryProvider>
         </AuthProvider>

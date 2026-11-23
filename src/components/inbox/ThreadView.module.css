@@ -521,3 +521,7 @@
 .suggest button span { font-size: 1.2rem; }
 .suggest button:hover, .suggest .suggestActive { background: color-mix(in srgb, var(--cc-gold) 14%, transparent); color: var(--cc-text); }
 .viewDock .emojiButton { width: 38px; height: 38px; }
+
+/* The dock is too narrow for Block/Report; they're one tap away in the full
+   inbox (the dock's expand button). */
+.viewDock .blockActions { display: none; }

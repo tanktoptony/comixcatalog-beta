@@ -11,6 +11,7 @@ import { useAuth } from "@/context/AuthContext";
 import { SIGNUP_HREF as START_SIGNUP_HREF } from "@/app/start/StartClient";
 import { useSearchQuery } from "@/context/SearchQueryContext";
 import { useUnreadMessageCount } from "@/hooks/useUnreadMessageCount";
+import { isPlainClick, openChatDock } from "@/lib/chatDock";
 import { useSellerOrders } from "@/hooks/useSellerOrders";
 import { inboxAriaLabel, inboxBadgeTotal } from "@/lib/inboxNotifications";
 import { coverThumb } from "@/lib/coverThumb";
@@ -764,6 +765,13 @@ function InboxNavButton({ current }) {
   return (
     <Link
       href="/inbox"
+      onClick={(event) => {
+        // Open the chat dock in place; on /inbox, or with ctrl/cmd/middle
+        // click, follow the link as usual.
+        if (current || !isPlainClick(event)) return;
+        event.preventDefault();
+        openChatDock();
+      }}
       className="nav-icon-btn nav-icon-btn-inbox"
       aria-label={inboxAriaLabel(unread)}
       data-label="Inbox"

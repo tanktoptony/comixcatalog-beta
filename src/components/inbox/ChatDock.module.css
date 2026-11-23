@@ -1,0 +1,78 @@
+/* Chat dock: bottom-right panel on desktop, full-screen sheet on phones. */
+
+.dock {
+  position: fixed;
+  z-index: 1100;
+  right: 20px;
+  bottom: 0;
+  width: 380px;
+  height: min(600px, calc(100dvh - 96px));
+  display: flex;
+  flex-direction: column;
+  border: 1px solid color-mix(in srgb, var(--cc-gold) 35%, var(--cc-line));
+  border-bottom: 0;
+  border-radius: 16px 16px 0 0;
+  background:
+    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--cc-gold) 8%, transparent), transparent 45%),
+    var(--cc-surface, #11161d);
+  box-shadow: 0 -10px 60px rgba(0, 0, 0, 0.55), 5px 5px 0 rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  outline: none;
+  animation: rise 0.18s ease-out;
+}
+@keyframes rise { from { transform: translateY(16px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .dock { animation: none; } }
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 10px 10px 16px;
+  border-bottom: 1px solid var(--cc-line);
+  background: rgba(0, 0, 0, 0.22);
+  flex-shrink: 0;
+}
+.title {
+  flex: 1;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  letter-spacing: 0.01em;
+  color: var(--cc-text);
+}
+.activity {
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--cc-gold) 16%, transparent);
+  color: var(--cc-gold);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.iconButton {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--cc-text-muted);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.12s, color 0.12s;
+}
+.iconButton:hover { background: rgba(255, 255, 255, 0.08); color: var(--cc-gold); }
+
+.body { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+
+@media (max-width: 640px) {
+  .dock {
+    inset: 0;
+    width: auto;
+    height: 100dvh;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}

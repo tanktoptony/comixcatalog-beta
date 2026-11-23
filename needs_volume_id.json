@@ -33568,9 +33568,10 @@
         "start_year": 2018
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-04T03:00:49.051445+00:00",
-    "retry_after": "2026-10-11T03:00:49.051461+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T23:06:34.587873+00:00",
+    "retry_after": "2026-11-24T23:06:34.587876+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Very Funny, Charlie Brown",
@@ -34632,9 +34633,10 @@
         "start_year": 2019
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-01T20:00:53.306964+00:00",
-    "retry_after": "2026-10-04T20:00:53.306981+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T23:06:34.587823+00:00",
+    "retry_after": "2026-11-24T23:06:34.587842+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The Incredible Adventures of Janus Stark",
@@ -64925,77 +64927,6 @@
     "retry_after": "2026-10-23T09:16:02.450423+00:00"
   },
   {
-    "name": "Moon Knight",
-    "publisher": "Marvel Comics",
-    "year": 2014,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 137698,
-        "name": "Moon Knight",
-        "publisher": null,
-        "start_year": 2021
-      },
-      {
-        "id": 89613,
-        "name": "Moon Knight",
-        "publisher": null,
-        "start_year": 2016
-      },
-      {
-        "id": 174240,
-        "name": "Moon Knight",
-        "publisher": null,
-        "start_year": 2025
-      },
-      {
-        "id": 18105,
-        "name": "Moon Knight",
-        "publisher": null,
-        "start_year": 2006
-      },
-      {
-        "id": 39957,
-        "name": "Moon Knight",
-        "publisher": null,
-        "start_year": 2011
-      },
-      {
-        "id": 87355,
-        "name": "Moon Knight",
-        "publisher": null,
-        "start_year": 2015
-      },
-      {
-        "id": 3052,
-        "name": "Moon Knight",
-        "publisher": null,
-        "start_year": 1980
-      },
-      {
-        "id": 72112,
-        "name": "Moon Knight",
-        "publisher": null,
-        "start_year": 2014
-      },
-      {
-        "id": 28617,
-        "name": "Moon Knight",
-        "publisher": null,
-        "start_year": 1998
-      },
-      {
-        "id": 146282,
-        "name": "Moon Knight",
-        "publisher": null,
-        "start_year": 2022
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T09:16:03.427380+00:00",
-    "retry_after": "2026-10-23T09:16:03.427395+00:00"
-  },
-  {
     "name": "Turok Son of Stone",
     "publisher": "Marvel Comics",
     "year": 1957,
@@ -82617,9 +82548,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T20:35:54.311064+00:00",
-    "retry_after": "2026-11-23T20:35:54.311076+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T23:13:46.718571+00:00",
+    "retry_after": "2026-12-23T23:13:46.718590+00:00",
     "search_hydrated": true
   },
   {
@@ -82719,9 +82650,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T20:35:54.311095+00:00",
-    "retry_after": "2026-11-23T20:35:54.311097+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T23:13:46.718620+00:00",
+    "retry_after": "2026-12-23T23:13:46.718622+00:00",
     "search_hydrated": true
   },
   {
@@ -82730,9 +82661,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T20:35:54.311107+00:00",
-    "retry_after": "2026-11-23T20:35:54.311108+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T23:13:46.718632+00:00",
+    "retry_after": "2026-12-23T23:13:46.718634+00:00",
     "search_hydrated": true
   },
   {
@@ -99045,6 +98976,143 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-23T22:15:51.532663+00:00",
     "retry_after": "2026-11-24T22:15:51.532682+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Team Anarchy",
+    "publisher": "Dagger Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 10936,
+        "name": "Team Anarchy",
+        "publisher": "Dagger Enterprises",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T23:02:02.117931+00:00",
+    "retry_after": "2026-11-24T23:02:02.117973+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Judge Dredd: Legends of the Law",
+    "publisher": "DC Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 147187,
+        "name": "Judge Dredd: Legends of the Law",
+        "publisher": "Rebellion",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T23:03:33.279765+00:00",
+    "retry_after": "2026-11-24T23:03:33.279782+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Official Teen Titans Index",
+    "publisher": "Independent Comics Group",
+    "year": 1985,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23436,
+        "name": "The Official Teen Titans Index",
+        "publisher": "ICG",
+        "start_year": 1985
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T23:03:33.279803+00:00",
+    "retry_after": "2026-11-24T23:03:33.279805+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Devil's Keeper",
+    "publisher": "Alias",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28676,
+        "name": "Devil's Keeper",
+        "publisher": "Alias Enterprises",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T23:03:33.279817+00:00",
+    "retry_after": "2026-11-24T23:03:33.279819+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Stratonaut",
+    "publisher": "Night Wynd",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71307,
+        "name": "Stratonaut",
+        "publisher": "Night Wynd Enterprises",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T23:03:33.279829+00:00",
+    "retry_after": "2026-11-24T23:03:33.279831+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Peter Parker the Spectacular Spider-Man",
+    "publisher": "Yaffa / Page",
+    "year": 1979,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 139754,
+        "name": "Peter Parker, the Spectacular Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T23:03:51.087801+00:00",
+    "retry_after": "2026-11-24T23:03:51.087821+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Madness",
+    "publisher": "Titan Comics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64987,
+        "name": "Simpsons Comics Madness",
+        "publisher": "HarperCollins",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T23:14:01.958793+00:00",
+    "retry_after": "2026-11-24T23:14:01.958810+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Incredible Hercules: Secret Invasion",
+    "publisher": "Marvel Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T23:14:01.958863+00:00",
+    "retry_after": "2026-11-24T23:14:01.958866+00:00",
     "search_hydrated": true
   }
 ]

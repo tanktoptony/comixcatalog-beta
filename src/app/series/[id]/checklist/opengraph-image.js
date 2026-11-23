@@ -1,6 +1,7 @@
 import { getSeriesData } from "@/lib/pageData";
 import { renderCoverCard, OG_SIZE } from "@/lib/og/card";
 import { homeImage } from "@/app/opengraph-image";
+import { cachedCard } from "@/lib/og/cache";
 
 export const alt = "Comic run checklist on ComixCatalog";
 export const size = OG_SIZE;
@@ -16,7 +17,7 @@ export function generateStaticParams() {
   return [];
 }
 
-export default async function Image({ params }) {
+async function Image({ params }) {
   try {
     const { id } = await params;
     const series = await getSeriesData(id);
@@ -35,3 +36,6 @@ export default async function Image({ params }) {
     return homeImage();
   }
 }
+
+// Cached for `revalidate`, whatever the data caches say (src/lib/og/cache.js).
+export default cachedCard(revalidate, Image);

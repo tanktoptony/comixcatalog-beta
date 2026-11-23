@@ -1,6 +1,7 @@
 import { homeImage } from "@/app/opengraph-image";
 import { getListPage } from "@/lib/listsData";
 import { OG_SIZE, renderShelfCard } from "@/lib/og/card";
+import { cachedCard } from "@/lib/og/cache";
 
 export const alt = "A comic list on ComixCatalog";
 export const size = OG_SIZE;
@@ -16,7 +17,7 @@ export function generateStaticParams() {
   return [];
 }
 
-export default async function Image({ params }) {
+async function Image({ params }) {
   try {
     const { username, slug } = await params;
     const data = await getListPage(username, slug);
@@ -36,3 +37,6 @@ export default async function Image({ params }) {
     return homeImage();
   }
 }
+
+// Cached for `revalidate`, whatever the data caches say (src/lib/og/cache.js).
+export default cachedCard(revalidate, Image);

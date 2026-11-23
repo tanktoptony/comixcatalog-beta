@@ -211,6 +211,9 @@ jobs:
       - name: Cover thumb URL tests
         run: npm run test:cover-thumb
 
+      - name: Link-preview card cache tests
+        run: npm run test:og-cache
+
       - name: Browser cache helper tests
         run: npm run test:local-cache
 

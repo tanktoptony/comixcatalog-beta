@@ -834,8 +834,10 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554127+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-23T23:28:20.507875+00:00",
+    "retry_after": "2026-11-26T23:28:20.507878+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Archie Comics Digest",
@@ -1153,7 +1155,7 @@
   },
   {
     "name": "Astonishing Spider-Man",
-    "publisher": "Marvel Comics",
+    "publisher": "Panini UK",
     "year": 1995,
     "reason": "publisher_mismatch",
     "candidates": [
@@ -1201,7 +1203,9 @@
       }
     ],
     "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.554188+00:00"
+    "last_attempt_at": "2026-11-23T23:28:20.507992+00:00",
+    "retry_after": "2026-11-24T23:28:20.507997+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Archie (Jumbo Comics) Double Digest",
@@ -27282,9 +27286,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-16T23:19:02.298000+00:00",
-    "retry_after": "2026-11-23T23:19:02.298004+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-23T23:28:20.507735+00:00",
+    "retry_after": "2026-12-07T23:28:20.507750+00:00",
     "search_hydrated": true
   },
   {
@@ -54896,9 +54900,10 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-19T02:23:43.968280+00:00",
-    "retry_after": "2026-10-22T02:23:43.968297+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-23T23:32:48.657608+00:00",
+    "retry_after": "2026-11-30T23:32:48.657623+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Mr. Lizard Annual",
@@ -82448,9 +82453,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T22:05:34.552221+00:00",
-    "retry_after": "2026-11-23T22:05:34.552229+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T23:36:18.767162+00:00",
+    "retry_after": "2026-12-23T23:36:18.767172+00:00",
     "search_hydrated": true
   },
   {
@@ -82466,9 +82471,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T22:05:34.929298+00:00",
-    "retry_after": "2026-11-23T22:05:34.929313+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T23:36:18.885280+00:00",
+    "retry_after": "2026-12-23T23:36:18.885294+00:00",
     "search_hydrated": true
   },
   {
@@ -82621,9 +82626,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T22:05:35.184401+00:00",
-    "retry_after": "2026-11-23T22:05:35.184415+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T23:36:19.010807+00:00",
+    "retry_after": "2026-12-23T23:36:19.010819+00:00",
     "search_hydrated": true
   },
   {
@@ -82639,9 +82644,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T22:05:35.184459+00:00",
-    "retry_after": "2026-11-23T22:05:35.184461+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T23:36:19.010866+00:00",
+    "retry_after": "2026-12-23T23:36:19.010869+00:00",
     "search_hydrated": true
   },
   {
@@ -82672,9 +82677,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T20:35:54.311116+00:00",
-    "retry_after": "2026-11-23T20:35:54.311117+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T23:36:15.127290+00:00",
+    "retry_after": "2026-12-23T23:36:15.127304+00:00",
     "search_hydrated": true
   },
   {
@@ -82752,21 +82757,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 23649,
-        "name": "Night Mary",
-        "publisher": "IDW Publishing",
-        "start_year": 2005
-      },
-      {
         "id": 44110,
         "name": "Night Mary",
         "publisher": "IDW Publishing",
         "start_year": 2006
+      },
+      {
+        "id": 23649,
+        "name": "Night Mary",
+        "publisher": "IDW Publishing",
+        "start_year": 2005
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T22:05:31.540575+00:00",
-    "retry_after": "2026-11-23T22:05:31.540592+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T23:36:15.127347+00:00",
+    "retry_after": "2026-12-23T23:36:15.127352+00:00",
     "search_hydrated": true
   },
   {
@@ -82794,9 +82799,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T22:05:31.540617+00:00",
-    "retry_after": "2026-11-23T22:05:31.540619+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T23:36:19.753002+00:00",
+    "retry_after": "2026-12-23T23:36:19.753017+00:00",
     "search_hydrated": true
   },
   {
@@ -95832,9 +95837,9 @@
         "start_year": 1993
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-20T23:02:24.424583+00:00",
-    "retry_after": "2026-11-23T23:02:24.424596+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-23T23:27:23.769754+00:00",
+    "retry_after": "2026-11-30T23:27:23.769758+00:00",
     "search_hydrated": true
   },
   {
@@ -95843,9 +95848,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-20T23:02:24.424639+00:00",
-    "retry_after": "2026-11-23T23:02:24.424644+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-23T23:27:23.769678+00:00",
+    "retry_after": "2026-11-30T23:27:23.769693+00:00",
     "search_hydrated": true
   },
   {
@@ -95854,9 +95859,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-20T23:02:24.424660+00:00",
-    "retry_after": "2026-11-23T23:02:24.424664+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-23T23:27:23.769776+00:00",
+    "retry_after": "2026-11-30T23:27:23.769779+00:00",
     "search_hydrated": true
   },
   {
@@ -97787,9 +97792,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-22T22:05:01.813808+00:00",
-    "retry_after": "2026-11-23T22:05:01.813813+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-23T23:28:20.507814+00:00",
+    "retry_after": "2026-11-26T23:28:20.507819+00:00",
     "search_hydrated": true
   },
   {
@@ -99113,6 +99118,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-23T23:14:01.958863+00:00",
     "retry_after": "2026-11-24T23:14:01.958866+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Witchblade / Tomb Raider",
+    "publisher": "Image; Wizard",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 74149,
+        "name": "Witchblade / Tomb Raider",
+        "publisher": "Image",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T23:32:23.441477+00:00",
+    "retry_after": "2026-11-24T23:32:23.441491+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Hit the Road!",
+    "publisher": "Titan Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T23:36:29.016663+00:00",
+    "retry_after": "2026-11-24T23:36:29.016679+00:00",
     "search_hydrated": true
   }
 ]

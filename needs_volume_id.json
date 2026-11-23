@@ -81712,9 +81712,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T13:10:49.490019+00:00",
-    "retry_after": "2026-11-23T13:10:49.490036+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T13:13:21.310127+00:00",
+    "retry_after": "2026-12-23T13:13:21.310144+00:00",
     "search_hydrated": true
   },
   {
@@ -81723,9 +81723,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T13:10:49.490055+00:00",
-    "retry_after": "2026-11-23T13:10:49.490058+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T13:13:21.310164+00:00",
+    "retry_after": "2026-12-23T13:13:21.310167+00:00",
     "search_hydrated": true
   },
   {
@@ -81734,9 +81734,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T13:10:49.490070+00:00",
-    "retry_after": "2026-11-23T13:10:49.490072+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T13:13:21.310179+00:00",
+    "retry_after": "2026-12-23T13:13:21.310181+00:00",
     "search_hydrated": true
   },
   {
@@ -81745,9 +81745,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T13:10:49.490096+00:00",
-    "retry_after": "2026-11-23T13:10:49.490098+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T13:13:21.310191+00:00",
+    "retry_after": "2026-12-23T13:13:21.310193+00:00",
     "search_hydrated": true
   },
   {
@@ -88928,9 +88928,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T13:20:32.103030+00:00",
-    "retry_after": "2026-11-20T13:20:32.103034+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-23T13:13:21.310202+00:00",
+    "retry_after": "2026-12-07T13:13:21.310203+00:00",
     "search_hydrated": true
   },
   {
@@ -88939,9 +88939,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T16:10:13.623962+00:00",
-    "retry_after": "2026-11-20T16:10:13.623980+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-23T13:13:21.310213+00:00",
+    "retry_after": "2026-12-07T13:13:21.310215+00:00",
     "search_hydrated": true
   },
   {
@@ -88950,6 +88950,12 @@
     "year": 2018,
     "reason": "multiple_candidates",
     "candidates": [
+      {
+        "id": 108243,
+        "name": "Detective Comics Annual",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
       {
         "id": 3993,
         "name": "Detective Comics Annual",
@@ -88961,17 +88967,11 @@
         "name": "Detective Comics Annual",
         "publisher": "DC Comics",
         "start_year": 2012
-      },
-      {
-        "id": 108243,
-        "name": "Detective Comics Annual",
-        "publisher": "DC Comics",
-        "start_year": 2016
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T16:10:13.624019+00:00",
-    "retry_after": "2026-11-20T16:10:13.624022+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-23T13:13:21.310250+00:00",
+    "retry_after": "2026-12-07T13:13:21.310251+00:00",
     "search_hydrated": true
   },
   {
@@ -99190,6 +99190,65 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-23T12:13:08.040728+00:00",
     "retry_after": "2026-11-24T12:13:08.040732+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Team Anarchy",
+    "publisher": "Dagger Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 10936,
+        "name": "Team Anarchy",
+        "publisher": "Dagger Enterprises",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T13:02:04.752196+00:00",
+    "retry_after": "2026-11-24T13:02:04.752213+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "G.I. Joe",
+    "publisher": "Image Comics",
+    "year": 2004,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 9112,
+        "name": "G.I. Joe",
+        "publisher": "Image",
+        "start_year": 2001
+      },
+      {
+        "id": 161047,
+        "name": "G.I. Joe",
+        "publisher": "Image",
+        "start_year": 2024
+      },
+      {
+        "id": 164855,
+        "name": "G.I. Joe",
+        "publisher": "Image",
+        "start_year": 2025
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T13:02:04.752304+00:00",
+    "retry_after": "2026-11-24T13:02:04.752307+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "SpyBoy / Young Justice: Young Spies Like Us",
+    "publisher": "Dark Horse Comics",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T13:13:36.182985+00:00",
+    "retry_after": "2026-11-24T13:13:36.183001+00:00",
     "search_hydrated": true
   }
 ]

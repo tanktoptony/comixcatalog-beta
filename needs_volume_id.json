@@ -5913,9 +5913,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T02:11:24.867802+00:00",
-    "retry_after": "2026-11-23T02:11:24.867805+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T03:07:57.941348+00:00",
+    "retry_after": "2026-12-23T03:07:57.941351+00:00",
     "search_hydrated": true
   },
   {
@@ -37774,9 +37774,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T02:11:24.867787+00:00",
-    "retry_after": "2026-11-23T02:11:24.867790+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T03:07:57.941331+00:00",
+    "retry_after": "2026-12-23T03:07:57.941334+00:00",
     "search_hydrated": true
   },
   {
@@ -59160,19 +59160,14 @@
       {
         "id": 49204,
         "name": "Batman / Aliens",
-        "publisher": null,
+        "publisher": "Norma Editorial",
         "start_year": 2001
-      },
-      {
-        "id": 6820,
-        "name": "Batman/Aliens",
-        "publisher": null,
-        "start_year": 1997
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-22T09:15:56.156829+00:00",
-    "retry_after": "2026-10-25T09:15:56.156844+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T03:02:26.145105+00:00",
+    "retry_after": "2026-11-24T03:02:26.145121+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The Two Mouseketeers Giant Edition",
@@ -80998,9 +80993,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T02:11:24.867701+00:00",
-    "retry_after": "2026-11-23T02:11:24.867716+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T03:07:57.941235+00:00",
+    "retry_after": "2026-12-23T03:07:57.941251+00:00",
     "search_hydrated": true
   },
   {
@@ -81033,9 +81028,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T02:11:24.867738+00:00",
-    "retry_after": "2026-11-23T02:11:24.867742+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T03:07:57.941274+00:00",
+    "retry_after": "2026-12-23T03:07:57.941278+00:00",
     "search_hydrated": true
   },
   {
@@ -81044,9 +81039,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T02:11:24.867757+00:00",
-    "retry_after": "2026-11-23T02:11:24.867760+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T03:07:57.941296+00:00",
+    "retry_after": "2026-12-23T03:07:57.941299+00:00",
     "search_hydrated": true
   },
   {
@@ -81062,9 +81057,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T02:11:26.447463+00:00",
-    "retry_after": "2026-11-23T02:11:26.447466+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T03:07:59.716312+00:00",
+    "retry_after": "2026-12-23T03:07:59.716316+00:00",
     "search_hydrated": true
   },
   {
@@ -97450,9 +97445,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-22T03:07:12.672952+00:00",
-    "retry_after": "2026-11-23T03:07:12.672968+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-23T03:08:12.529977+00:00",
+    "retry_after": "2026-11-26T03:08:12.529993+00:00",
     "search_hydrated": true
   },
   {
@@ -98836,6 +98831,30 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-23T02:13:05.900677+00:00",
     "retry_after": "2026-11-24T02:13:05.900682+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spook House",
+    "publisher": "Albatross",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 95239,
+        "name": "Spook House",
+        "publisher": "Exploding Albatross Funnybooks",
+        "start_year": 2016
+      },
+      {
+        "id": 105810,
+        "name": "Spook House",
+        "publisher": "Exploding Albatross Funnybooks",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T03:03:40.692424+00:00",
+    "retry_after": "2026-11-24T03:03:40.692440+00:00",
     "search_hydrated": true
   }
 ]

@@ -30931,9 +30931,10 @@
     "year": 2000,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-28T04:04:49.579993+00:00",
-    "retry_after": "2026-09-29T04:04:49.580005+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-23T15:02:11.762902+00:00",
+    "retry_after": "2026-11-26T15:02:11.762905+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Beetlejuice Holiday Special",
@@ -30961,9 +30962,10 @@
     "year": 2000,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-28T05:07:42.522675+00:00",
-    "retry_after": "2026-09-29T05:07:42.522691+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-23T15:03:45.227705+00:00",
+    "retry_after": "2026-11-26T15:03:45.227720+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Solar, Man of the Atom: Alpha and Omega",
@@ -81821,9 +81823,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T14:10:37.815928+00:00",
-    "retry_after": "2026-11-23T14:10:37.815947+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T15:10:26.705391+00:00",
+    "retry_after": "2026-12-23T15:10:26.705406+00:00",
     "search_hydrated": true
   },
   {
@@ -88980,9 +88982,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T17:07:55.958852+00:00",
-    "retry_after": "2026-11-20T17:07:55.958856+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-23T15:10:23.524753+00:00",
+    "retry_after": "2026-12-07T15:10:23.524769+00:00",
     "search_hydrated": true
   },
   {
@@ -89079,9 +89081,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T18:33:38.506907+00:00",
-    "retry_after": "2026-11-20T18:33:38.506921+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-23T15:10:23.524811+00:00",
+    "retry_after": "2026-12-07T15:10:23.524814+00:00",
     "search_hydrated": true
   },
   {
@@ -99260,6 +99262,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-23T14:02:19.672746+00:00",
     "retry_after": "2026-11-24T14:02:19.672764+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Judge Dredd: Legends of the Law",
+    "publisher": "DC Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 147187,
+        "name": "Judge Dredd: Legends of the Law",
+        "publisher": "Rebellion",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T15:02:11.762867+00:00",
+    "retry_after": "2026-11-24T15:02:11.762883+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "X-Men: The End - Heroes and Martyrs",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T15:03:45.227758+00:00",
+    "retry_after": "2026-11-24T15:03:45.227760+00:00",
     "search_hydrated": true
   }
 ]

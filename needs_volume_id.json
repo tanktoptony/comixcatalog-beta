@@ -16257,9 +16257,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T04:12:00.417635+00:00",
-    "retry_after": "2026-11-23T04:12:00.417638+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T05:13:28.715493+00:00",
+    "retry_after": "2026-12-23T05:13:28.715494+00:00",
     "search_hydrated": true
   },
   {
@@ -19252,9 +19252,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T04:12:00.417649+00:00",
-    "retry_after": "2026-11-23T04:12:00.417651+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T05:13:28.715503+00:00",
+    "retry_after": "2026-12-23T05:13:28.715504+00:00",
     "search_hydrated": true
   },
   {
@@ -54175,9 +54175,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T05:11:17.238546+00:00",
-    "retry_after": "2026-11-23T05:11:17.238548+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T05:13:28.715512+00:00",
+    "retry_after": "2026-12-23T05:13:28.715514+00:00",
     "search_hydrated": true
   },
   {
@@ -81143,9 +81143,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T05:11:17.238460+00:00",
-    "retry_after": "2026-11-23T05:11:17.238480+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T05:13:28.715425+00:00",
+    "retry_after": "2026-12-23T05:13:28.715443+00:00",
     "search_hydrated": true
   },
   {
@@ -81154,9 +81154,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T05:11:17.238499+00:00",
-    "retry_after": "2026-11-23T05:11:17.238502+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T05:13:28.715458+00:00",
+    "retry_after": "2026-12-23T05:13:28.715461+00:00",
     "search_hydrated": true
   },
   {
@@ -81201,9 +81201,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-09T05:11:17.238519+00:00",
-    "retry_after": "2026-11-23T05:11:17.238521+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-23T05:13:28.715473+00:00",
+    "retry_after": "2026-12-23T05:13:28.715474+00:00",
     "search_hydrated": true
   },
   {
@@ -97526,9 +97526,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-22T05:07:22.467423+00:00",
-    "retry_after": "2026-11-23T05:07:22.467426+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-23T05:13:38.956113+00:00",
+    "retry_after": "2026-11-26T05:13:38.956131+00:00",
     "search_hydrated": true
   },
   {
@@ -98896,6 +98896,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-23T04:12:58.793780+00:00",
     "retry_after": "2026-11-24T04:12:58.793783+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Zoe Dare vs. the Disasteroid",
+    "publisher": "Action Lab Entertainment",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T05:06:17.917143+00:00",
+    "retry_after": "2026-11-24T05:06:17.917162+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Graphic Novel: The Big Change",
+    "publisher": "Marvel Comics",
+    "year": 1987,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-23T05:13:38.956153+00:00",
+    "retry_after": "2026-11-24T05:13:38.956156+00:00",
     "search_hydrated": true
   }
 ]

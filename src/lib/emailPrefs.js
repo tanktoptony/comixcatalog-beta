@@ -44,6 +44,8 @@ const VERB = {
 };
 
 export function activityLine(item) {
+  if (item.kind === "review_queue") return item.label;
+  if (item.kind === "request_done") return `${item.label} is in the catalog now`;
   const actor = item.actor ? `@${item.actor}` : "Someone";
   const verb = VERB[item.kind] ?? "commented on";
   return item.kind === "follow" ? `${actor} ${verb}` : `${actor} ${verb} ${item.label}`;

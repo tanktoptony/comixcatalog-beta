@@ -23,7 +23,14 @@ export function ActivityStrip({ items }) {
           <li key={item.id} className={`inbox-activity-item${item.read_at ? "" : " is-unread"}`}>
             <Link href={item.url} className="inbox-activity-link">
               <span className="inbox-activity-avatar">
-                <Avatar profile={item.actor || { id: item.actor_id, username: "?" }} />
+                {item.actor
+                  ? <Avatar profile={item.actor} />
+                  : item.kind === "request_done" || item.kind === "review_queue"
+                    ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src="/favicon/favicon-96x96.png" alt="" width={36} height={36} />
+                    )
+                    : <Avatar profile={{ id: item.actor_id, username: "?" }} />}
               </span>
               <span className="inbox-activity-body">
                 <strong>{notificationSentence({ kind: item.kind, actor: item.actor?.username, label: item.label })}</strong>

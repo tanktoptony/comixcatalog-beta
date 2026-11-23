@@ -14,7 +14,8 @@
 // automatically. 27 users cannot out-vote a bad edit the way Discogs'
 // millions can, so review here is a person looking, not a quorum.
 
-import { NextResponse } from "next/server";
+import { after, NextResponse } from "next/server";
+import { notifyReviewQueue } from "@/lib/reviewQueueNotify";
 import { getServiceClient } from "@/lib/supabase/service";
 import { getAuthedUser } from "@/lib/authServer";
 import { normalizeUpc, isValidUpc, upcProblem } from "@/lib/printings";
@@ -132,6 +133,7 @@ export async function POST(req) {
       return NextResponse.json({ error: "Could not save that right now." }, { status: 500 });
     }
 
+    after(() => notifyReviewQueue(supabase, { actorId: user.id, excerpt: `Reported ${printingName || `barcode ${upc}`}`, tab: "printings" }));
     return NextResponse.json({ ok: true, printing: data }, { status: 201 });
   } catch (err) {
     console.error("POST /api/printings crashed:", err);

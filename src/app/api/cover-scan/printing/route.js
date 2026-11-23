@@ -1,5 +1,6 @@
-import { NextResponse } from "next/server";
+import { after, NextResponse } from "next/server";
 import { getAuthedUser } from "@/lib/authServer";
+import { notifyReviewQueue } from "@/lib/reviewQueueNotify";
 import { getServiceClient } from "@/lib/supabase/service";
 import { isPrintingKind, printingLabel, validateUpc } from "@/lib/review";
 
@@ -33,5 +34,6 @@ export async function POST(req) {
     console.error("cover scan printing insert failed", error);
     return NextResponse.json({ error: "Could not send that report." }, { status: 500 });
   }
+  after(() => notifyReviewQueue(supabase, { actorId: user.id, excerpt: `Reported ${printingName} from a scan`, tab: "printings" }));
   return NextResponse.json({ ok: true }, { status: 201 });
 }

@@ -1,7 +1,8 @@
-import { NextResponse } from "next/server";
+import { after, NextResponse } from "next/server";
 import { requireAdmin } from "@/lib/adminAuth";
 import { resolveCovers } from "@/lib/catalog/covers";
 import { reviewActionToUpdate } from "@/lib/review";
+import { notifyRequestDone, refreshReviewQueue } from "@/lib/reviewQueueNotify";
 import { getServiceClient } from "@/lib/supabase/service";
 
 const publicCanonicalCover = (path) => path ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${path}` : null;
@@ -113,12 +114,17 @@ export async function POST(req) {
       .update(update)
       .eq("id", body.id)
       .eq("status", "open")
-      .select("id");
+      .select("id, user_id");
     if (error) {
       console.error("admin catalog request review failed", error);
       return NextResponse.json({ error: "Could not save review." }, { status: 500 });
     }
     if (!saved?.length) return NextResponse.json({ error: "That request is no longer open." }, { status: 404 });
+    // The member who asked hears about it once the book is in the catalog.
+    after(async () => {
+      if (issueId && status !== "declined") await notifyRequestDone(supabase, saved[0], issueId);
+      await refreshReviewQueue(supabase);
+    });
     return NextResponse.json({ ok: true });
   }
   const update = reviewActionToUpdate(body?.kind, body?.action, body?.note, user.id);
@@ -144,5 +150,6 @@ export async function POST(req) {
   const { data: saved, error } = await supabase.from(table).update(update).eq("id", body.id).eq(pendingColumn, "pending").select("id");
   if (error) { console.error("admin review save failed", error); return NextResponse.json({ error: "Could not save review." }, { status: 500 }); }
   if (!saved?.length) return NextResponse.json({ error: "That submission is no longer pending." }, { status: 404 });
+  after(() => refreshReviewQueue(supabase));
   return NextResponse.json({ ok: true });
 }

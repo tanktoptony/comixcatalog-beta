@@ -159,6 +159,9 @@ export function commentExcerpt(body, limit = 140) {
 }
 
 export function notificationSentence({ kind, actor, label }) {
+  // Site notices (migration 0118) read as plain sentences, no actor verb.
+  if (kind === "review_queue") return String(label);
+  if (kind === "request_done") return `${label} is in the catalog now. Add it to your collection.`;
   const who = actor ? `@${actor}` : "Someone";
   if (kind === "reply") return `${who} replied to your comment on ${label}`;
   if (kind === "mention") return `${who} mentioned you on ${label}`;

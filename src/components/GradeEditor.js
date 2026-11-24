@@ -258,6 +258,11 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
       const parsedPrice = purchasePrice.trim() !== "" ? Number(purchasePrice) : null;
       const parsedMarket = marketValue.trim() !== "" ? Number(marketValue) : null;
       const parsedCopy = copyNumber.trim() !== "" ? Number(copyNumber) : 1;
+      if (!Number.isInteger(parsedCopy) || parsedCopy < 1) {
+        setError("Copy # must be a whole number, 1 or more.");
+        setSaving(false);
+        return;
+      }
       const payload = {
         condition: isSlabbed ? null : condition || null,
         grade_numeric: isSlabbed && gradeNumeric !== "" ? Number(gradeNumeric) : null,
@@ -291,8 +296,17 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
     }
   }
 
-  function handleCancel() {
-    // Reset to initial values on cancel
+  // The form always starts from the copy as saved. The fields used to be set
+  // once, when the card first rendered; the library paints from a browser
+  // copy and refreshes a moment later, so after a reload Edit opened blank
+  // while the badge showed the saved grade, and Save wiped the grade and
+  // notes (Adam, 2026-11-21). Loading on every open closes that gap.
+  function openEditor() {
+    loadSaved();
+    setOpen(true);
+  }
+
+  function loadSaved() {
     setSlabCompany(initialData.slab_company || "");
     setGradeNumeric(initialData.grade_numeric ?? "");
     setCondition(initialData.condition || "");
@@ -302,7 +316,12 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
     setMarketValue(initialData.market_value != null ? String(initialData.market_value) : "");
     setVariantLabel(initialData.variant_label || "");
     setCopyNumber(initialData.copy_number != null ? String(initialData.copy_number) : "1");
+    setOpenToTrade(Boolean(initialData.open_to_trade));
     setError(null);
+  }
+
+  function handleCancel() {
+    loadSaved();
     setOpen(false);
   }
 
@@ -314,7 +333,7 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
   return (
     <div className="grade-editor-wrap">
       {/* Trigger row */}
-      <div className="grade-editor-trigger" onClick={() => setOpen(!open)}>
+      <div className="grade-editor-trigger" onClick={() => (open ? handleCancel() : openEditor())}>
         <div className="grade-editor-badge-row">
           <GradeBadge
             grade={currentGrade}

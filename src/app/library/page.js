@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useLibrary } from "@/context/LibraryContext";
@@ -925,6 +925,76 @@ function LibraryPageContent() {
       if (retryTimer) clearTimeout(retryTimer);
     };
   }, [librarySignature, hydrateRetryTick]);
+
+  // Values are per copy, not per book. The hydration above only asks about
+  // books it hasn't seen, so a second copy of a book already on screen, or a
+  // copy whose grade changed, never got a value: no Worth line, and the
+  // total skipped it (Adam, 2026-11-21: "Copy 2 has no Worth line and the
+  // total stayed $188"). This asks the same route about exactly those
+  // copies. The route returns an entry for every copy it's sent, priced or
+  // not, so a copy is asked about once per grade, never on every visit.
+  const valueRows = useMemo(
+    () =>
+      collections
+        .filter((c) => c.gcd_issue_id != null)
+        .map((c) => ({
+          collection_id: c.id,
+          gcd_issue_id: Number(c.gcd_issue_id),
+          grade_numeric: c.grade_numeric ?? null,
+          slab_company: c.slab_company ?? null,
+          condition: c.condition ?? null,
+        })),
+    [collections]
+  );
+  // collection_id -> the grade it was last valued at (or asked about).
+  const valuedAs = useRef(new Map());
+  useEffect(() => {
+    const gradeKey = (g) => `${g.gcd_issue_id}|${g.grade_numeric ?? ""}|${g.slab_company ?? ""}|${g.condition ?? ""}`;
+    const pending = [];
+    for (const g of valueRows) {
+      const key = gradeKey(g);
+      const seen = valuedAs.current.get(g.collection_id);
+      if (seen === key) continue;
+      // A book not hydrated yet gets its values from the hydration request.
+      if (!comicIndex[`gcd-${g.gcd_issue_id}`]) continue;
+      // Already valued (this visit or the browser copy) and never regraded here.
+      if (seen === undefined && marketValues[g.collection_id] !== undefined) {
+        valuedAs.current.set(g.collection_id, key);
+        continue;
+      }
+      pending.push(g);
+    }
+    if (pending.length === 0) return;
+    for (const g of pending) valuedAs.current.set(g.collection_id, gradeKey(g));
+    // Not cancelled on re-run: the copies are already marked as asked, so a
+    // dropped answer would leave them without a value until the next visit.
+    (async () => {
+      for (const batch of chunk(pending, HYDRATE_CHUNK)) {
+        const res = await fetchWithRetry(() =>
+          fetch("/api/library-hydrate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              comic_ids: [],
+              gcd_issue_ids: [...new Set(batch.map((g) => g.gcd_issue_id))],
+              collection_grades: batch,
+            }),
+          })
+        );
+        const data = res ? await res.json().catch(() => null) : null;
+        if (!data?.market_values) {
+          console.error("copy values failed; they'll be asked for again on the next change");
+          for (const g of batch) valuedAs.current.delete(g.collection_id);
+          continue;
+        }
+        setMarketValues((prev) => {
+          const next = { ...prev, ...data.market_values };
+          if (user?.id) writeLocal(`hydrate:mv:${user.id}`, next);
+          return next;
+        });
+      }
+    })();
+  }, [valueRows, comicIndex, marketValues, user?.id]);
 
   // All-status hydrated view of the collection - used by the unified stats
   // strip and insight sidebar, which need owned/wantlist/for_sale counts
@@ -2260,12 +2330,12 @@ function LibraryPageContent() {
                           releaseYear={comic.year || null}
                           gcdIssueId={item.gcd_issue_id ?? null}
                           onVersionChange={(changed) => { markIssueStale(changed?.gcd_issue_id); refreshLibrary({ background: true }); }}
-                          onSave={(updated) =>
-                            setGradeData((prev) => ({
-                              ...prev,
-                              [item.id]: { ...liveGrade, ...updated },
-                            }))
-                          }
+                          onSave={(updated) => {
+                            setGradeData((prev) => ({ ...prev, [item.id]: { ...liveGrade, ...updated } }));
+                            // Refresh the library's own rows (and the browser copy) so a reload
+                            // or the value lookup never works from the pre-save copy.
+                            refreshLibrary({ background: true });
+                          }}
                         />
                       )}
                     </div>
@@ -2486,12 +2556,12 @@ function LibraryPageContent() {
                                         releaseYear={comic.year || null}
                                         gcdIssueId={item.gcd_issue_id ?? null}
                                         onVersionChange={(changed) => { markIssueStale(changed?.gcd_issue_id); refreshLibrary({ background: true }); }}
-                                        onSave={(updated) =>
-                                          setGradeData((prev) => ({
-                                            ...prev,
-                                            [item.id]: { ...liveGrade, ...updated },
-                                          }))
-                                        }
+                                        onSave={(updated) => {
+                                          setGradeData((prev) => ({ ...prev, [item.id]: { ...liveGrade, ...updated } }));
+                                          // Refresh the library's own rows (and the browser copy) so a reload
+                                          // or the value lookup never works from the pre-save copy.
+                                          refreshLibrary({ background: true });
+                                        }}
                                       />
                                     </div>
                                   )}
@@ -2593,12 +2663,12 @@ function LibraryPageContent() {
                           releaseYear={comic.year || null}
                           gcdIssueId={item.gcd_issue_id ?? null}
                           onVersionChange={(changed) => { markIssueStale(changed?.gcd_issue_id); refreshLibrary({ background: true }); }}
-                          onSave={(updated) =>
-                            setGradeData((prev) => ({
-                              ...prev,
-                              [item.id]: { ...liveGrade, ...updated },
-                            }))
-                          }
+                          onSave={(updated) => {
+                            setGradeData((prev) => ({ ...prev, [item.id]: { ...liveGrade, ...updated } }));
+                            // Refresh the library's own rows (and the browser copy) so a reload
+                            // or the value lookup never works from the pre-save copy.
+                            refreshLibrary({ background: true });
+                          }}
                           />
                         {item.status === "for_sale" && (
                           <MarkSoldButton collectionItemId={item.id} ownerId={user.id} onRecorded={saleRecorded} />

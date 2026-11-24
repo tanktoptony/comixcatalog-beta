@@ -60065,53 +60065,6 @@
     "retry_after": "2026-10-22T19:16:18.033535+00:00"
   },
   {
-    "name": "Essential X-Men",
-    "publisher": "Marvel Comics",
-    "year": 1995,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 36821,
-        "name": "Essential X-Men",
-        "publisher": null,
-        "start_year": 2010
-      },
-      {
-        "id": 79512,
-        "name": "Essential X-Men",
-        "publisher": null,
-        "start_year": 2014
-      },
-      {
-        "id": 37974,
-        "name": "Essential X-Men",
-        "publisher": null,
-        "start_year": 1995
-      },
-      {
-        "id": 110868,
-        "name": "Essential X-Men",
-        "publisher": null,
-        "start_year": 2018
-      },
-      {
-        "id": 21196,
-        "name": "Essential X-Men",
-        "publisher": null,
-        "start_year": 1997
-      },
-      {
-        "id": 94886,
-        "name": "Essential X-Men",
-        "publisher": null,
-        "start_year": 2016
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T19:16:19.285942+00:00",
-    "retry_after": "2026-10-22T19:16:19.285957+00:00"
-  },
-  {
     "name": "Comics Box",
     "publisher": "Dark Horse Comics",
     "year": 1969,
@@ -82956,9 +82909,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T00:12:16.427470+00:00",
-    "retry_after": "2026-11-24T00:12:16.427487+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T01:13:41.354718+00:00",
+    "retry_after": "2026-12-24T01:13:41.354736+00:00",
     "search_hydrated": true
   },
   {
@@ -82967,9 +82920,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T00:12:16.427513+00:00",
-    "retry_after": "2026-11-24T00:12:16.427517+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T01:13:41.354755+00:00",
+    "retry_after": "2026-12-24T01:13:41.354758+00:00",
     "search_hydrated": true
   },
   {
@@ -83068,9 +83021,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T01:10:40.393592+00:00",
-    "retry_after": "2026-11-24T01:10:40.393608+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T01:13:41.354769+00:00",
+    "retry_after": "2026-12-24T01:13:41.354770+00:00",
     "search_hydrated": true
   },
   {
@@ -83079,9 +83032,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T01:10:40.393626+00:00",
-    "retry_after": "2026-11-24T01:10:40.393629+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T01:13:41.354781+00:00",
+    "retry_after": "2026-12-24T01:13:41.354782+00:00",
     "search_hydrated": true
   },
   {
@@ -83090,9 +83043,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T01:10:40.393641+00:00",
-    "retry_after": "2026-11-24T01:10:40.393643+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T01:13:41.354790+00:00",
+    "retry_after": "2026-12-24T01:13:41.354792+00:00",
     "search_hydrated": true
   },
   {
@@ -99262,6 +99215,66 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-24T00:08:09.521192+00:00",
     "retry_after": "2026-11-25T00:08:09.521194+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Justice",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 1144,
+        "name": "Justice",
+        "publisher": "Marvel",
+        "start_year": 1949
+      },
+      {
+        "id": 3640,
+        "name": "Justice",
+        "publisher": "Marvel",
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T01:01:59.029073+00:00",
+    "retry_after": "2026-11-25T01:01:59.029091+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wizard in Training",
+    "publisher": "Upper Deck",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 86505,
+        "name": "Wizard in Training",
+        "publisher": "Unknown Publisher",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T01:01:59.029118+00:00",
+    "retry_after": "2026-11-25T01:01:59.029121+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wolverine and Gambit",
+    "publisher": "Panini UK",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37844,
+        "name": "Wolverine and Gambit",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T01:04:04.814360+00:00",
+    "retry_after": "2026-11-25T01:04:04.814378+00:00",
     "search_hydrated": true
   }
 ]

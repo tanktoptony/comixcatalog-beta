@@ -20,6 +20,7 @@ import styles from "./ThreadView.module.css";
 import ReportButton from "@/components/ReportButton";
 import { messageDateLabel, shouldStartMessageGroup } from "@/lib/messageThreads";
 import { QUICK_REACTIONS, groupReactions, replaceShortcodes, searchEmoji, shortcodeFor, shortcodeQueryAt, toggleReactionRows } from "@/lib/emoji";
+import { buildReply, quoteSnippet, splitQuote } from "@/lib/messageQuote";
 import EmojiPicker from "@/components/inbox/EmojiPicker";
 import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 
@@ -88,10 +89,16 @@ export default function ThreadView({ username, variant = "pane", onBack }) {
   const [reactions, setReactions] = useState([]);
   const [reactionsOn, setReactionsOn] = useState(true);
   // The open emoji picker: "composer" (insert into the message) or a
-  // message id (react to it). barFor: the message whose quick-reaction bar
-  // is open on touch screens, where there's no hover.
+  // message id (react to it). barFor: the message whose action bar
+  // (reactions, reply, copy) is open. It opens on a click or tap of the
+  // message, never on hover, and closes after any action, on a click
+  // elsewhere, or on Escape (Tony, 2026-11-24: the hover bar kept showing).
   const [pickerFor, setPickerFor] = useState(null);
   const [barFor, setBarFor] = useState(null);
+  // The message being answered: { id, snippet, mine }. Sent as a quote in
+  // front of the reply (src/lib/messageQuote.js).
+  const [replyTo, setReplyTo] = useState(null);
+  const [copiedId, setCopiedId] = useState(null);
   // Opening a different conversation can reuse this component, so swap to
   // that thread's cached state during render instead of briefly showing the
   // previous person's messages.
@@ -104,6 +111,7 @@ export default function ThreadView({ username, variant = "pane", onBack }) {
     setReactions([]);
     setPickerFor(null);
     setBarFor(null);
+    setReplyTo(null);
   }
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(null);
@@ -412,6 +420,24 @@ export default function ThreadView({ username, variant = "pane", onBack }) {
     if (user && otherProfile && messages) inboxCache(user.id).messages.set(otherProfile.id, messages);
   }, [user, otherProfile, messages]);
 
+  // An open action bar closes on a click or tap anywhere outside its own
+  // message, and on Escape.
+  useEffect(() => {
+    if (!barFor) return;
+    function onPointerDown(event) {
+      if (!event.target.closest?.('[data-bar="open"]')) setBarFor(null);
+    }
+    function onKeyDown(event) {
+      if (event.key === "Escape") setBarFor(null);
+    }
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [barFor]);
+
   // Auto-scroll to bottom on new messages.
   useEffect(() => {
     if (!scrollerRef.current) return;
@@ -421,9 +447,11 @@ export default function ThreadView({ username, variant = "pane", onBack }) {
   async function handleSend(e) {
     e.preventDefault();
     if (sending || isBlocked) return;
-    const trimmed = replaceShortcodes(body.trim());
+    const typed = replaceShortcodes(body.trim());
     setPickerFor(null);
-    if (!trimmed || !user || !otherProfile) return;
+    if (!typed || !user || !otherProfile) return;
+    const reply = replyTo;
+    const trimmed = reply ? buildReply(reply.snippet, typed) : typed;
     if (trimmed.length > MAX_BODY) {
       setError(`Message too long (${trimmed.length}/${MAX_BODY}).`);
       return;
@@ -445,6 +473,7 @@ export default function ThreadView({ username, variant = "pane", onBack }) {
     };
 
     setBody("");
+    setReplyTo(null);
     setMessages((prev) => (prev ? [...prev, optimistic] : [optimistic]));
 
     let data;
@@ -466,7 +495,8 @@ export default function ThreadView({ username, variant = "pane", onBack }) {
       setError(sendError);
       // Roll back the optimistic insert.
       setMessages((prev) => (prev ?? []).filter((m) => m.id !== optimistic.id));
-      setBody(trimmed);
+      setBody(typed);
+      setReplyTo(reply);
     } else {
       // The book rides on the first message only; later replies are plain.
       if (contextBook) { setAttachedBook(null); setContextRemoved(true); }
@@ -497,6 +527,30 @@ export default function ThreadView({ username, variant = "pane", onBack }) {
     } catch (reactionError) {
       setReactions(flip);
       setError(reactionError.message);
+    }
+  }
+
+  // Reply: quote the message above the composer and start typing.
+  function startReply(m) {
+    setBarFor(null);
+    setPickerFor(null);
+    setReplyTo({ id: m.id, snippet: quoteSnippet(m.body), mine: m.sender_id === user?.id });
+    requestAnimationFrame(() => textareaRef.current?.focus());
+  }
+
+  // Copy the message text (without any quote it carries).
+  async function copyMessage(m) {
+    const { text } = splitQuote(m.body);
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedId(m.id);
+      setTimeout(() => {
+        setCopiedId((current) => (current === m.id ? null : current));
+        setBarFor((current) => (current === m.id ? null : current));
+      }, 700);
+    } catch {
+      setBarFor(null);
+      setError("Couldn't copy. Select the text and copy it instead.");
     }
   }
 
@@ -618,7 +672,16 @@ export default function ThreadView({ username, variant = "pane", onBack }) {
   }
 
   const otherName = otherProfile?.display_name || otherProfile?.username || username;
-  const canReact = (m) => reactionsOn && !isBlocked && !m.__optimistic && !m.is_system;
+  // Any sent message can be replied to or copied; reactions also need the
+  // reactions table (canReact).
+  const canAct = (m) => !isBlocked && !m.__optimistic && !m.is_system;
+  const canReact = (m) => reactionsOn && canAct(m);
+  // A click that ends a text selection is copying, not opening the bar.
+  const toggleBar = (m) => {
+    if (!canAct(m)) return;
+    if (typeof window !== "undefined" && String(window.getSelection?.() ?? "").trim()) return;
+    setBarFor((current) => (current === m.id ? null : m.id));
+  };
 
   return (
     <section className={viewClass}>
@@ -695,23 +758,64 @@ export default function ThreadView({ username, variant = "pane", onBack }) {
               ) : (
               <div className={classNames} data-bar={barFor === m.id ? "open" : undefined}>
                 <div className={styles.bubbleRow}>
-                  <div
-                    className={styles.bubble}
-                    onClick={() => { if (canReact(m)) setBarFor((current) => (current === m.id ? null : m.id)); }}
-                  >
-                    {m.body}
-                  </div>
-                  {canReact(m) && (
-                    <div className={styles.reactBar} role="toolbar" aria-label="React to this message">
-                      {QUICK_REACTIONS.map((emoji) => (
-                        <button key={emoji} type="button" onClick={() => toggleReaction(m.id, emoji)} aria-label={`React ${shortcodeFor(emoji)}`} title={`:${shortcodeFor(emoji)}:`}>
-                          {emoji}
-                        </button>
-                      ))}
-                      <button type="button" className={styles.reactMore} onClick={() => setPickerFor(m.id)} aria-label="More reactions" title="More reactions">
+                  {(() => {
+                    const { quote, text } = splitQuote(m.body);
+                    const actionable = canAct(m);
+                    return (
+                      <div
+                        className={styles.bubble}
+                        {...(actionable
+                          ? {
+                              role: "button",
+                              tabIndex: 0,
+                              "aria-expanded": barFor === m.id,
+                              "aria-label": `Message options: ${text.slice(0, 80)}`,
+                              onClick: () => toggleBar(m),
+                              onKeyDown: (event) => {
+                                if (event.target !== event.currentTarget) return;
+                                if (event.key === "Enter" || event.key === " ") {
+                                  event.preventDefault();
+                                  toggleBar(m);
+                                }
+                              },
+                            }
+                          : {})}
+                      >
+                        {quote && <span className={styles.quote}>{quote}</span>}
+                        {text}
+                      </div>
+                    );
+                  })()}
+                  {canAct(m) && barFor === m.id && (
+                    <div className={styles.reactBar} role="toolbar" aria-label="Message actions">
+                      {canReact(m) && (
+                        <>
+                          {QUICK_REACTIONS.map((emoji) => (
+                            <button key={emoji} type="button" onClick={() => toggleReaction(m.id, emoji)} aria-label={`React ${shortcodeFor(emoji)}`} title={`:${shortcodeFor(emoji)}:`}>
+                              {emoji}
+                            </button>
+                          ))}
+                          <button type="button" className={styles.reactMore} onClick={() => { setBarFor(null); setPickerFor(m.id); }} aria-label="More reactions" title="More reactions">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                              <circle cx="12" cy="12" r="9" /><path d="M8.5 14.5s1.3 1.8 3.5 1.8 3.5-1.8 3.5-1.8" /><path d="M9 9.5h.01M15 9.5h.01" />
+                            </svg>
+                          </button>
+                          <span className={styles.barDivider} aria-hidden="true" />
+                        </>
+                      )}
+                      <button type="button" className={styles.reactMore} onClick={() => startReply(m)} aria-label="Reply" title="Reply">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                          <circle cx="12" cy="12" r="9" /><path d="M8.5 14.5s1.3 1.8 3.5 1.8 3.5-1.8 3.5-1.8" /><path d="M9 9.5h.01M15 9.5h.01" />
+                          <path d="M9 14 4 9l5-5" /><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11" />
                         </svg>
+                      </button>
+                      <button type="button" className={styles.reactMore} onClick={() => copyMessage(m)} aria-label={copiedId === m.id ? "Copied" : "Copy text"} title={copiedId === m.id ? "Copied" : "Copy text"}>
+                        {copiedId === m.id ? (
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>
+                        ) : (
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                            <rect x="9" y="9" width="12" height="12" rx="2" /><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" />
+                          </svg>
+                        )}
                       </button>
                     </div>
                   )}
@@ -771,6 +875,15 @@ export default function ThreadView({ username, variant = "pane", onBack }) {
       )}
 
       <form onSubmit={handleSend} className={styles.composer}>
+        {replyTo && (
+          <div className={styles.replying}>
+            <div className={styles.replyingText}>
+              <span>Replying to {replyTo.mine ? "yourself" : otherName}</span>
+              <q>{replyTo.snippet}</q>
+            </div>
+            <button type="button" onClick={() => setReplyTo(null)} aria-label="Cancel reply" title="Cancel reply">×</button>
+          </div>
+        )}
         {contextBook && <div className={styles.aboutBook}><BookCard book={contextBook} styles={styles} label="About this book" /><button type="button" onClick={() => { setAttachedBook(null); setContextRemoved(true); }} aria-label="Remove book">×</button></div>}
         {pickerFor && (
           <EmojiPicker
@@ -838,6 +951,11 @@ export default function ThreadView({ username, variant = "pane", onBack }) {
                 setSuggestDismissedAt(shortcode.start);
                 return;
               }
+            }
+            if (e.key === "Escape" && replyTo) {
+              e.preventDefault();
+              setReplyTo(null);
+              return;
             }
             if (e.key === "Enter" && !e.shiftKey) {
               e.preventDefault();

@@ -82938,9 +82938,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T02:10:54.917823+00:00",
-    "retry_after": "2026-11-24T02:10:54.917827+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T02:15:01.081847+00:00",
+    "retry_after": "2026-12-24T02:15:01.081849+00:00",
     "search_hydrated": true
   },
   {
@@ -82956,9 +82956,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T02:10:54.917869+00:00",
-    "retry_after": "2026-11-24T02:10:54.917872+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T02:15:01.081876+00:00",
+    "retry_after": "2026-12-24T02:15:01.081878+00:00",
     "search_hydrated": true
   },
   {
@@ -82974,9 +82974,9 @@
         "start_year": 2000
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T02:10:54.917899+00:00",
-    "retry_after": "2026-11-24T02:10:54.917901+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T02:15:01.081892+00:00",
+    "retry_after": "2026-12-24T02:15:01.081894+00:00",
     "search_hydrated": true
   },
   {
@@ -82992,9 +82992,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T02:10:55.058914+00:00",
-    "retry_after": "2026-11-24T02:10:55.058930+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T02:15:01.519997+00:00",
+    "retry_after": "2026-12-24T02:15:01.520016+00:00",
     "search_hydrated": true
   },
   {
@@ -83010,9 +83010,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T02:10:55.207734+00:00",
-    "retry_after": "2026-11-24T02:10:55.207774+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T02:15:01.759383+00:00",
+    "retry_after": "2026-12-24T02:15:01.759401+00:00",
     "search_hydrated": true
   },
   {
@@ -83054,9 +83054,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T02:10:51.630502+00:00",
-    "retry_after": "2026-11-24T02:10:51.630520+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T02:14:57.314698+00:00",
+    "retry_after": "2026-12-24T02:14:57.314718+00:00",
     "search_hydrated": true
   },
   {
@@ -83083,9 +83083,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T02:10:55.369516+00:00",
-    "retry_after": "2026-11-24T02:10:55.369533+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T02:15:02.009788+00:00",
+    "retry_after": "2026-12-24T02:15:02.009807+00:00",
     "search_hydrated": true
   },
   {
@@ -99275,6 +99275,110 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-24T01:04:04.814360+00:00",
     "retry_after": "2026-11-25T01:04:04.814378+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Steel Claw",
+    "publisher": "Quality Periodicals",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46662,
+        "name": "The Steel Claw",
+        "publisher": "Quality Communications",
+        "start_year": 1986
+      },
+      {
+        "id": 46661,
+        "name": "The Steel Claw",
+        "publisher": "Titan Comics",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T02:01:57.001244+00:00",
+    "retry_after": "2026-11-25T02:01:57.001258+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kamandi",
+    "publisher": "Editoriale Corno",
+    "year": 1977,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T02:04:47.332969+00:00",
+    "retry_after": "2026-11-25T02:04:47.332980+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Nodwick",
+    "publisher": "Henchman Publishing; Do Gooder Press",
+    "year": 2000,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53474,
+        "name": "Nodwick",
+        "publisher": "Dork Storm",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T02:04:47.333012+00:00",
+    "retry_after": "2026-11-25T02:04:47.333015+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Action Hour",
+    "publisher": "Panini UK",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53527,
+        "name": "Marvel Action Hour",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T02:10:38.815596+00:00",
+    "retry_after": "2026-11-25T02:10:38.815608+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Graphic Novel: Conan the Reiver [Reaver]",
+    "publisher": "Marvel Comics",
+    "year": 1987,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T02:15:12.666394+00:00",
+    "retry_after": "2026-11-25T02:15:12.666414+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Captain America: Return of Winter Soldier Omnibus",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T02:15:12.666439+00:00",
+    "retry_after": "2026-11-25T02:15:12.666441+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Man: Amazing Fantasy",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T02:15:12.666451+00:00",
+    "retry_after": "2026-11-25T02:15:12.666453+00:00",
     "search_hydrated": true
   }
 ]

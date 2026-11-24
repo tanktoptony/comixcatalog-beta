@@ -49,6 +49,20 @@ if (!info.is_valid) stop("Meta says the Page token isn't valid.");
 if (info.type !== "PAGE") stop(`Expected a Page token and got ${info.type}.`);
 if (Number(info.expires_at || 0) !== 0) stop("This Page token expires, which means the user token wasn't extended. Use Extend Access Token in the Access Token Debugger, copy that, and run this again.");
 if (!(info.scopes || []).includes("instagram_content_publish")) stop("The token doesn't have instagram_content_publish, so the bot couldn't post.");
+// Facebook Page posts (blog-crosspost.yml) need pages_manage_posts. The 11-23
+// swap went through without it and nothing said so. Say exactly what Meta
+// recorded for it on the user token, since "declined" and "never asked for"
+// have different fixes. --skip-facebook swaps anyway (Instagram only).
+if (!(info.scopes || []).includes("pages_manage_posts") && !process.argv.includes("--skip-facebook")) {
+  const perms = await get("/me/permissions", {}, userToken);
+  const row = (perms.body.data || []).find((p) => p.permission === "pages_manage_posts");
+  const why = !row
+    ? "The token was made without pages_manage_posts. In Graph API Explorer, add pages_manage_posts in the Permissions box before clicking Generate Access Token."
+    : row.status === "declined"
+      ? "Facebook recorded pages_manage_posts as declined. In the login popup, click Edit access (or Edit previous settings) and make sure that permission and the ComixCatalog Page are switched on."
+      : `pages_manage_posts is ${row.status} on your login but did not reach the Page token. Make sure the ComixCatalog Page is ticked in the popup's Page list.`;
+  stop(`Facebook Page posts would fail. ${why} (To swap for Instagram only, add --skip-facebook.)`);
+}
 
 const account = await get(`/${igId}`, { fields: "username,media_count" }, pageToken);
 if (!account.ok) stop(`The Page token can't read the Instagram account: ${account.body.error?.message}`);

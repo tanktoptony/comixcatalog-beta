@@ -88,6 +88,31 @@ jobs:
 
       - run: npm ci --no-audit --no-fund
 
+      # Runs first, capped at about 8 GCD requests (4 series requests plus at
+      # most 4 per-issue fallbacks), so the refresh below still gets most of
+      # the ~30-request hourly budget. As a later step gated on "the refresh
+      # was not rate-limited" it never ran: the refresh ends on a 429 nearly
+      # every run (live 2026-11-01/02). The refresh runs whatever this step
+      # does; a 429 there costs nothing.
+      #
+      # 2026-11-23: GCD deleted series 174856, the API answered 404, and this
+      # step failed every run from Nov 15; because the refresh below only ran
+      # after a green step, no new issues were imported for eight days
+      # (Midnight Spider-Man #2). 404s are now recorded in gcd-gone.json and
+      # skipped, and the refresh runs whatever this step does.
+      - name: Repair post-dump variant relationships
+        id: repair
+        run: |
+          set +e
+          node scripts/refreshGcdIssuesFromApi.js --repair-variants --max-series=4 --max-fallbacks=4
+          code=$?
+          set -e
+          if [ "$code" -eq 3 ]; then
+            echo "GCD rate-limited the variant repair pass (expected)."
+            exit 0
+          fi
+          exit "$code"
+
       # Exit 3 = GCD returned 429, which is the expected end of nearly every
       # run (the budget is ~29 requests and the featured list is 78 series),
       # so it is translated to success. Every other non-zero exit is a real
@@ -101,6 +126,7 @@ jobs:
       # and a fixed walk order put them permanently out of reach.
       - name: Refresh active-series issue lists from GCD
         id: refresh
+        if: ${{ !cancelled() }}
         run: |
           set +e
           node scripts/refreshGcdIssuesFromApi.js --source=${{ github.event.inputs.source || 'active' }}
@@ -113,32 +139,19 @@ jobs:
           fi
           exit "$code"
 
-      - name: Repair post-dump variant relationships
-        if: steps.refresh.outputs.ratelimited != 'true'
-        run: |
-          set +e
-          node scripts/refreshGcdIssuesFromApi.js --repair-variants --max-series=15
-          code=$?
-          set -e
-          if [ "$code" -eq 3 ]; then
-            echo "GCD rate-limited the variant repair pass (expected)."
-            exit 0
-          fi
-          exit "$code"
-
       # The cursor is what makes the next run start somewhere new instead of
       # re-walking the same front of the list, so it has to be committed even
       # when the run ended on a 429 - especially then.
       - name: Commit the rotation cursor
-        if: always() && steps.refresh.outcome != 'skipped'
+        if: ${{ !cancelled() }}
         run: |
-          if [[ -z "$(git status --porcelain gcd-refresh-cursor.json gcd-unmatched-checked.json)" ]]; then
+          if [[ -z "$(git status --porcelain gcd-refresh-cursor.json gcd-unmatched-checked.json gcd-gone.json)" ]]; then
             echo "Cursor unchanged — nothing to commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add gcd-refresh-cursor.json; [ -f gcd-unmatched-checked.json ] && git add gcd-unmatched-checked.json
+          git add gcd-refresh-cursor.json; [ -f gcd-unmatched-checked.json ] && git add gcd-unmatched-checked.json; [ -f gcd-gone.json ] && git add gcd-gone.json
           git commit -m "gcd-issue-refresh: advance rotation cursor"
           # Same push race gap-probe.yml documents: several scheduled jobs
           # push to main at the end of long runs, and whichever lands second

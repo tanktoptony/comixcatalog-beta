@@ -23,7 +23,21 @@ import { isOwnedStatus } from "@/lib/collectionStatus";
 // has to be client-side because sessions live in localStorage, so a server
 // component's own isOwner never sees a user. The API enforces ownership
 // regardless; this gate only decides whether the button shows.
-export default function ShareCardButton({ ownerId, username, type = "collection", className = "", label = "📸 Make a Story card" }) {
+// The founding pass passes requireBooks=false (a new founder may own nothing
+// yet) plus its own title, hint and invite landing page.
+export default function ShareCardButton({
+  ownerId,
+  username,
+  type = "collection",
+  className = "",
+  label = "📸 Make a Story card",
+  requireBooks = true,
+  title = "Your collection card",
+  alt = "Your ComixCatalog collection card",
+  invitePath = "/start",
+  inviteCampaign = "share_card",
+  hint = "On Instagram: post the image to your Story, then add a Link sticker and paste your invite link. If saving doesn't work in this browser, press and hold the image.",
+}) {
   const { user } = useAuth();
   const { collections } = useLibrary();
   const isOwner = Boolean(user?.id && ownerId && user.id === ownerId);
@@ -40,7 +54,7 @@ export default function ShareCardButton({ ownerId, username, type = "collection"
 
   const inviteLink =
     typeof window !== "undefined" && username
-      ? `${window.location.origin}/start?utm_source=instagram&utm_medium=story&utm_campaign=share_card&ref=${encodeURIComponent(username)}`
+      ? `${window.location.origin}${invitePath}?utm_source=instagram&utm_medium=story&utm_campaign=${inviteCampaign}&ref=${encodeURIComponent(username)}`
       : null;
 
   // Regenerated on every open, so a card made before adding books is never
@@ -95,7 +109,7 @@ export default function ShareCardButton({ ownerId, username, type = "collection"
     }
   }
 
-  if (!isOwner || !hasOwned) return null;
+  if (!isOwner || (requireBooks && !hasOwned)) return null;
 
   return (
     <>
@@ -114,7 +128,7 @@ export default function ShareCardButton({ ownerId, username, type = "collection"
       >
         <div className="share-card-inner">
           <div className="share-card-head">
-            <h2 id="share-card-title" className="share-card-title">Your collection card</h2>
+            <h2 id="share-card-title" className="share-card-title">{title}</h2>
             <button
               type="button"
               className="share-card-close"
@@ -130,7 +144,7 @@ export default function ShareCardButton({ ownerId, username, type = "collection"
             {state === "error" && <p className="share-card-status share-card-error">{error}</p>}
             {state === "ready" && (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={imageUrl} alt="Your ComixCatalog collection card" className="share-card-img" />
+              <img src={imageUrl} alt={alt} className="share-card-img" />
             )}
           </div>
 
@@ -156,10 +170,7 @@ export default function ShareCardButton({ ownerId, username, type = "collection"
                   </button>
                 )}
               </div>
-              <p className="share-card-hint">
-                On Instagram: post the image to your Story, then add a Link sticker and paste your
-                invite link. If saving doesn&rsquo;t work in this browser, press and hold the image.
-              </p>
+              <p className="share-card-hint">{hint}</p>
               {error && <p className="share-card-status share-card-error">{error}</p>}
             </>
           )}

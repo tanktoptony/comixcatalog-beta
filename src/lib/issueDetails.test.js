@@ -54,3 +54,31 @@ test("character appearance notes are separated from the chip label", () => {
   assert.deepEqual(stripGcdCharacterNoise("Spider-Man (cameo)"), { name: "Spider-Man", note: "cameo" });
   assert.deepEqual(stripGcdCharacterNoise("Wolverine (Logan)"), { name: "Wolverine (Logan)", note: "" });
 });
+
+test("filterVersions matches every typed word in any order", async () => {
+  const { filterVersions } = await import("./issueDetails.js");
+  const versions = [
+    { gcdId: 1, name: "Nick Dragotta Cover", barcode: "76194138584600111", price: "4.99 USD", onSaleDate: "2024-10-09" },
+    { gcdId: 2, name: "Second Printing Nick Dragotta Foil Cardstock Variant Cover", barcode: "76194138584600152", price: "7.99 USD", onSaleDate: "2024-10-30" },
+    { gcdId: 3, name: "Skottie Young Exclusive Variant Cover", barcode: null, price: null, onSaleDate: null },
+  ];
+  assert.deepEqual(filterVersions(versions, "foil dragotta").map((v) => v.gcdId), [2]);
+  assert.deepEqual(filterVersions(versions, "DRAGOTTA").map((v) => v.gcdId), [1, 2]);
+  assert.deepEqual(filterVersions(versions, "600152").map((v) => v.gcdId), [2]);
+  assert.deepEqual(filterVersions(versions, "october 30").map((v) => v.gcdId), [2]);
+  assert.equal(filterVersions(versions, "  ").length, 3);
+  assert.equal(filterVersions(versions, "sketch").length, 0);
+  assert.deepEqual(filterVersions(null, "x"), []);
+});
+
+test("date chip leads with the on-sale date and keeps the cover date on hover", async () => {
+  const { issueDateChip, onSaleYear } = await import("./issueDetails.js");
+  assert.deepEqual(issueDateChip({ display_date: "January 2027", details: { on_sale_date: "2026-11-18" } }), { label: "Out Nov 18, 2026", title: "Cover date January 2027" });
+  assert.deepEqual(issueDateChip({ display_date: "May 1963", details: { on_sale_date: "1963-03-00" } }), { label: "Out Mar 1963", title: "Cover date May 1963" });
+  assert.deepEqual(issueDateChip({ display_date: "1986", details: {} }), { label: "1986", title: null });
+  assert.equal(issueDateChip({ details: { on_sale_date: "2026-00-00" } }), null);
+  assert.equal(issueDateChip(null), null);
+  assert.equal(onSaleYear("2026-11-18"), 2026);
+  assert.equal(onSaleYear("1963-00-00"), 1963);
+  assert.equal(onSaleYear(null), null);
+});

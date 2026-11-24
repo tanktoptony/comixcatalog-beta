@@ -1,11 +1,17 @@
-// Server-side market-value lookup. Loads market_comps plus the issue and
-// series metadata the comp filter needs, then hands each copy to
-// valueFromComps() in src/lib/compValue.js, which owns the actual valuation
-// rules. The library page, public profiles and the PDF export all call
-// through here; scripts/snapshotCollectionValue.js calls valueFromComps
-// directly, so the two cannot drift.
+// Server-side market-value lookup. Loads market_comps, guide rows and the
+// issue and series metadata, then hands each copy to valueCopy() in
+// src/lib/copyValue.js, which owns the order (guide, comps, regular cover,
+// floor). The library page, public profiles and the PDF export all call
+// through here; scripts/lib/collectionValues.js (the stored value on the home
+// page, the value email) calls valueCopy too, so the two cannot drift.
+//
+// PriceCharting's guide (src/lib/pcValue.js) comes first: it is built from
+// sold listings, our comps are eBay asking prices. A copy the guide can't
+// price falls through to the comp chain exactly as before.
 
-import { valueFromComps, emptyValue, issueYearFrom, MIN_SAMPLES } from "@/lib/compValue";
+import { emptyValue, issueYearFrom, MIN_SAMPLES } from "@/lib/compValue";
+import { loadPriceChartingRows } from "@/lib/pcValue";
+import { valueCopy } from "@/lib/copyValue";
 
 const DEFAULT_WINDOW_DAYS = 90;
 
@@ -94,8 +100,8 @@ export async function getMarketValuesBulk({
 
   const compsByIssue = new Map();
   const issueById = new Map();
-  // Comps and issue metadata are independent reads; run them together.
-  const [compReads, issueReads] = await Promise.all([
+  // Comps, issue metadata and guide rows are independent reads; run them together.
+  const [compReads, issueReads, guide] = await Promise.all([
     mapLimit(chunked(issueIds, COMP_ISSUE_CHUNK), COMP_CONCURRENCY, (chunk) => readAll(() =>
       supabase
         .from("market_comps")
@@ -107,11 +113,15 @@ export async function getMarketValuesBulk({
     mapLimit(chunked(issueIds, ISSUE_CHUNK), 1, (chunk) => readAll(() =>
       supabase
         .from("gcd_issues")
-        .select("gcd_id, series_gcd_id, key_date, publication_date")
+        .select("gcd_id, series_gcd_id, key_date, publication_date, variant_of_gcd_id, variant_name")
         .in("gcd_id", chunk)
         .order("gcd_id", { ascending: true })
     )),
+    loadPriceChartingRows(supabase, issueIds),
   ]);
+  // A guide read failure must not cost the page its comp values.
+  if (guide.error) console.error("getMarketValuesBulk price guide fetch failed:", guide.error);
+  const guideRows = guide.rowsByIssue;
   for (const comps of compReads) {
     if (comps.error) {
       console.error("getMarketValuesBulk comp fetch failed:", comps.error);
@@ -152,23 +162,83 @@ export async function getMarketValuesBulk({
     for (const row of series.rows) seriesById.set(Number(row.gcd_id), row);
   }
 
+  const issueContext = (item, issueRow) => {
+    const seriesRow = issueRow ? seriesById.get(Number(issueRow.series_gcd_id)) : null;
+    return {
+      seriesTitle: seriesRow?.title ?? null,
+      issueYear: issueYearFrom(issueRow) ?? item.release_year ?? null,
+      seriesStartYear: seriesRow?.year_start_cached ?? null,
+    };
+  };
+  // Variants with no guide row of their own borrow the regular cover's; load
+  // those base rows too (usually a handful).
+  const missingBases = [...new Set(list
+    .map((item) => issueById.get(Number(item?.gcd_issue_id))?.variant_of_gcd_id)
+    .filter((id) => id != null && !guideRows.has(Number(id)))
+    .map(Number))];
+  if (!guide.error && missingBases.length) {
+    const more = await loadPriceChartingRows(supabase, missingBases);
+    if (more.error) console.error("getMarketValuesBulk regular-cover guide fetch failed:", more.error);
+    for (const [key, rows] of more.rowsByIssue) guideRows.set(key, rows);
+  }
+
+  // The chain itself lives in src/lib/copyValue.js, shared with the
+  // snapshot script, so the library and the stored value agree.
+  const needsRegularCover = [];
   for (const item of list) {
     if (!item?.collection_id) continue;
     const issueRow = issueById.get(Number(item.gcd_issue_id));
-    const seriesRow = issueRow ? seriesById.get(Number(issueRow.series_gcd_id)) : null;
-    out.set(
-      item.collection_id,
-      valueFromComps({
-        comps: compsByIssue.get(Number(item.gcd_issue_id)) ?? [],
+    const { value, needsRegularComps } = valueCopy({
+      item,
+      issueRow,
+      issue: issueContext(item, issueRow),
+      guideRows,
+      comps: compsByIssue.get(Number(item.gcd_issue_id)) ?? [],
+      minSamples,
+    });
+    out.set(item.collection_id, value);
+    if (needsRegularComps) needsRegularCover.push({ item, issueRow });
+  }
+
+  // A copy moved to a variant version has few comps of its own (455 of
+  // 38,023 on 2026-11-02 sat on variant issues). Rather than drop to the
+  // cover-price floor, it shows the regular cover's value, flagged so the
+  // library can say so.
+  if (needsRegularCover.length) {
+    const baseIds = [...new Set(needsRegularCover.map(({ issueRow }) => Number(issueRow.variant_of_gcd_id)))];
+    const baseComps = new Map();
+    const reads = await mapLimit(chunked(baseIds, COMP_ISSUE_CHUNK), COMP_CONCURRENCY, (chunk) => readAll(() =>
+      supabase
+        .from("market_comps")
+        .select("gcd_issue_id, grade_bucket, grade_numeric, sold_price, sold_date, source, listing_title")
+        .in("gcd_issue_id", chunk)
+        .gte("sold_date", sinceIso)
+        .order("id", { ascending: true })
+    ));
+    for (const comps of reads) {
+      if (comps.error) {
+        console.error("getMarketValuesBulk regular-cover comp fetch failed:", comps.error);
+        if (throwOnReadError) throw comps.error;
+        return out;
+      }
+      for (const row of comps.rows) {
+        const key = Number(row.gcd_issue_id);
+        if (!baseComps.has(key)) baseComps.set(key, []);
+        baseComps.get(key).push(row);
+      }
+    }
+    for (const { item, issueRow } of needsRegularCover) {
+      const { value } = valueCopy({
         item,
-        issue: {
-          seriesTitle: seriesRow?.title ?? null,
-          issueYear: issueYearFrom(issueRow) ?? item.release_year ?? null,
-          seriesStartYear: seriesRow?.year_start_cached ?? null,
-        },
+        issueRow,
+        issue: issueContext(item, issueRow),
+        guideRows,
+        comps: compsByIssue.get(Number(item.gcd_issue_id)) ?? [],
+        regularComps: baseComps.get(Number(issueRow.variant_of_gcd_id)) ?? [],
         minSamples,
-      })
-    );
+      });
+      out.set(item.collection_id, value);
+    }
   }
   return out;
 }

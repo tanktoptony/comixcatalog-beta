@@ -32,3 +32,38 @@ test("latest not-key ruling excludes a curated key", () => {
   assert.equal(stats.keyCount, 0);
   assert.equal(stats.silverKeyCount, 0);
 });
+
+test("secret badge counts: special numbers, copies, busiest day, series span, books nobody else has", () => {
+  const issues = [
+    { gcd_id: 1, series_gcd_id: 10, issue_number: "0", publication_date: "1965-01-01" },
+    { gcd_id: 2, series_gcd_id: 10, issue_number: "100 [Canadian]", publication_date: "2005-01-01" },
+    { gcd_id: 3, series_gcd_id: 20, issue_number: "1/2", publication_date: "1998-01-01" },
+    { gcd_id: 4, series_gcd_id: 20, issue_number: "1,000,000", publication_date: "1998-11-01" },
+    { gcd_id: 5, series_gcd_id: 20, issue_number: "01", publication_date: "1998-01-01" },
+    { gcd_id: 6, series_gcd_id: 20, issue_number: "100/101", publication_date: "1999-01-01" },
+    { gcd_id: 7, series_gcd_id: 20, issue_number: "21/2005", publication_date: "2005-01-01" },
+  ];
+  const collections = [
+    ...issues.map((issue) => ({ status: "owned", gcd_issue_id: issue.gcd_id, created_at: "2026-11-01T10:00:00Z" })),
+    { status: "for_sale", gcd_issue_id: 1, created_at: "2026-11-02T10:00:00Z" },
+    { status: "wishlist", gcd_issue_id: 2, created_at: "2026-11-02T10:00:00Z" },
+    // Two hand-added books: no catalog issue, so not copies of one issue.
+    { status: "owned", gcd_issue_id: null, comic_id: "a", created_at: "2026-11-03T10:00:00Z" },
+    { status: "owned", gcd_issue_id: null, comic_id: "b", created_at: "2026-11-03T10:00:00Z" },
+  ];
+  const stats = reduceBadgeStats({ collections, issues, sharedIssueIds: new Set([1, 2, 3, 4, 5, 6]) });
+  assert.equal(stats.zeroIssueCount, 2); // two copies of #0; "01" is a #1
+  assert.equal(stats.centennialCount, 1); // "100/101" doesn't count
+  assert.equal(stats.halfIssueCount, 1); // "21/2005" doesn't count
+  assert.equal(stats.oneMillionCount, 1);
+  assert.equal(stats.duplicateIssueCount, 1);
+  assert.equal(stats.busiestDayAdds, 7); // the wishlist add doesn't count
+  assert.equal(stats.seriesSpanYears, 40);
+  assert.equal(stats.uniqueBookCount, 1);
+});
+
+test("one of a kind stays at zero when nobody looked up other owners", () => {
+  const stats = reduceBadgeStats({ collections: [{ status: "owned", gcd_issue_id: 1 }], issues: [{ gcd_id: 1, series_gcd_id: 10, issue_number: "1" }] });
+  assert.equal(stats.uniqueBookCount, 0);
+  assert.equal(stats.busiestDayAdds, 0);
+});

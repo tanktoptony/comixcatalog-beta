@@ -1,10 +1,10 @@
 {
-  "updated": "2026-10-30",
+  "updated": "2026-11-03",
   "counts": {
     "supabase-query-ignores-error": 55,
     "invented-error-text": 7,
     "empty-catch": 6,
-    "blanket-continue-on-error": 15
+    "blanket-continue-on-error": 16
   },
   "hits": {
     "supabase-query-ignores-error": [
@@ -75,25 +75,26 @@
     ],
     "empty-catch": [
       "scripts/generateUserCollectedGap.js:263",
-      "src/app/library/page.js:375",
-      "src/app/library/page.js:379",
+      "src/app/library/page.js:373",
+      "src/app/library/page.js:377",
       "src/components/OnboardingModal.js:91",
       "src/components/ProfileTabs.js:116",
       "src/components/ProfileTabs.js:123"
     ],
     "blanket-continue-on-error": [
-      ".github/workflows/cover-ingest.yml:282",
-      ".github/workflows/cover-ingest.yml:300",
-      ".github/workflows/cover-ingest.yml:314",
-      ".github/workflows/cover-ingest.yml:328",
-      ".github/workflows/cover-ingest.yml:342",
-      ".github/workflows/cover-ingest.yml:364",
-      ".github/workflows/cover-ingest.yml:381",
-      ".github/workflows/cover-ingest.yml:398",
-      ".github/workflows/cover-ingest.yml:412",
-      ".github/workflows/cover-ingest.yml:426",
-      ".github/workflows/cover-ingest.yml:440",
-      ".github/workflows/cover-ingest.yml:466",
+      ".github/workflows/cover-ingest.yml:285",
+      ".github/workflows/cover-ingest.yml:303",
+      ".github/workflows/cover-ingest.yml:317",
+      ".github/workflows/cover-ingest.yml:331",
+      ".github/workflows/cover-ingest.yml:345",
+      ".github/workflows/cover-ingest.yml:367",
+      ".github/workflows/cover-ingest.yml:384",
+      ".github/workflows/cover-ingest.yml:405",
+      ".github/workflows/cover-ingest.yml:422",
+      ".github/workflows/cover-ingest.yml:436",
+      ".github/workflows/cover-ingest.yml:450",
+      ".github/workflows/cover-ingest.yml:464",
+      ".github/workflows/cover-ingest.yml:490",
       ".github/workflows/gap-probe.yml:92",
       ".github/workflows/gap-probe.yml:103",
       ".github/workflows/gap-probe.yml:107"

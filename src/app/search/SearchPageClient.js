@@ -17,6 +17,7 @@ import CoverScanner from "@/components/CoverScanner";
 import { compareIssueNumbers, normalizeTitle } from "@/lib/coverMatch";
 import { SEARCH_WORKS_SIZE } from "@/lib/searchCache";
 import { buildFacets, filterResults } from "@/lib/searchFacets";
+import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 
 const PAGE_SIZE = 36;
 const emptySelection = () => ({ formats: new Set(), decades: new Set(), publishers: new Set() });
@@ -654,7 +655,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
 
                   <div className="comic-card-title">
                     {item.title || "Untitled"}
-                    {item.issueNumber ? ` #${item.issueNumber}` : ""}
+                    {issueNumberSuffix(item.issueNumber)}
                   </div>
 
                   <div className="comic-card-meta">

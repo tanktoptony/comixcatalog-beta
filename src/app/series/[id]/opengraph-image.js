@@ -1,18 +1,29 @@
 import { getSeriesData } from "@/lib/pageData";
 import { renderCoverCard, OG_SIZE } from "@/lib/og/card";
 import { homeImage } from "@/app/opengraph-image";
+import { cachedCard } from "@/lib/og/cache";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 export const alt = "Comic series on ComixCatalog";
 export const size = OG_SIZE;
 export const contentType = "image/png";
 export const revalidate = 604800;
+// Cached between refreshes (Next 16 renders route handlers on every request
+// unless they are static): without these two lines every crawler hit
+// re-rendered the card and re-fetched its covers (72,300 billed image
+// transforms in Nov 2026). Unknown params render on first request, then
+// come from the cache until `revalidate` runs out.
+export const dynamic = "force-static";
+export function generateStaticParams() {
+  return [];
+}
 
 function yearSpan(start, end) {
   if (!start) return null;
   return end && end !== start ? `${start}–${end}` : String(start);
 }
 
-export default async function Image({ params }) {
+async function Image({ params }) {
   try {
     const { id } = await params;
     const s = await getSeriesData(id);
@@ -33,10 +44,13 @@ export default async function Image({ params }) {
         { value: s.issue_count, label: "issues" },
         { value: s.key_issues?.length, label: "key issues" },
       ],
-      strip: { label: "KEY ISSUES", items: keys.map((k) => ({ cover: k.cover, caption: `#${k.issue_number}` })) },
+      strip: { label: "KEY ISSUES", items: keys.map((k) => ({ cover: k.cover, caption: issueNumberText(k.issue_number) })) },
     });
   } catch (error) {
     console.warn("series OG card failed:", error);
     return homeImage();
   }
 }
+
+// Cached for `revalidate`, whatever the data caches say (src/lib/og/cache.js).
+export default cachedCard(revalidate, Image);

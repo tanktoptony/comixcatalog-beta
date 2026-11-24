@@ -4,7 +4,7 @@
 //
 // Usage: node scripts/previewInstagramQueue.js [count]   (default 10)
 
-import { loadLedger, PICKER_CYCLE, captionForPost } from "./instagramBot.js";
+import { loadLedger, PICKER_CYCLE, captionForPost, foundingPassesOpen } from "./instagramBot.js";
 
 const COUNT = Number(process.argv[2]) || 10;
 
@@ -31,6 +31,7 @@ async function run() {
   // Start from the REAL current ledger (read-only) so the preview correctly
   // excludes anything already posted, but never writes back to it.
   const seenKeys = loadLedger();
+  const foundingOpen = await foundingPassesOpen();
 
   for (let day = 0; day < COUNT; day++) {
     const post = await selectForDay(day, seenKeys);
@@ -39,7 +40,7 @@ async function run() {
 
     seenKeys.add(post.dedupeKey); // simulate this day's pick being "used"
 
-    const caption = captionForPost(post, epochDay + day);
+    const caption = captionForPost(post, epochDay + day, { foundingOpen });
 
     console.log(`Type: ${post.type}`);
     console.log(`Image: ${post.imageUrl}`);

@@ -32,7 +32,7 @@ export const TRANSITIONS = Object.freeze([
 ]);
 
 export const FEE_CONFIG = Object.freeze({
-  platform_fee_bps: 0,
+  platform_fee_bps: 500, // 5% beta fee (0108)
   processing_fee_bps: 290,
   processing_fee_fixed_cents: 30,
   reservation_minutes: 35,

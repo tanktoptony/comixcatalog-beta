@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import FeaturedCarousel from "@/components/FeaturedCarousel";
@@ -9,6 +9,7 @@ import ExcitedStrip from "@/components/ExcitedStrip";
 import { coverThumb } from "@/lib/coverThumb";
 import HomeDispatch from "@/components/HomeDispatch";
 import { trackEvent } from "@/lib/analytics";
+import YourShelf from "@/components/shelf/YourShelf";
 
 // "217,000+" / "2.5M+": rounded down so the strip never overstates.
 function proofNumber(n, fallback) {
@@ -24,7 +25,7 @@ export default function HomeClient({
   dispatch = null,
   excited = [],
 }) {
-  const { user } = useAuth();
+  const { user, loading: authLoading, isFounding } = useAuth();
   const router = useRouter();
   const [heroQuery, setHeroQuery] = useState("");
   // Pending until the results page has actually rendered, so the button
@@ -48,8 +49,16 @@ export default function HomeClient({
     startSearch(() => router.push(q ? `/search?q=${encodeURIComponent(q)}` : "/search"));
   }
 
+  useEffect(() => {
+    if (!authLoading && !user) {
+      delete document.documentElement.dataset.signedIn;
+      delete document.documentElement.dataset.shelfReady;
+    }
+  }, [authLoading, user]);
+
   return (
     <>
+      {user ? <YourShelf /> : <>
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section className="lp-hero">
         <div className="lp-hero-content">
@@ -108,14 +117,15 @@ export default function HomeClient({
             <div className="lp-wall">
               {[0, 1, 2, 3].map((col) => (
                 <div key={col} className={`lp-wall-col lp-wall-col-${col}`}>
-                  {wall.filter((_, i) => i % 4 === col).map((s, i) => (
+                  {wall.filter((_, i) => i % 4 === col).map((s) => (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
                       key={s.id}
                       src={coverThumb(s.cover)}
                       alt=""
                       className="lp-wall-cover"
-                      fetchPriority={i === 0 ? "high" : "auto"}
+                      loading="lazy"
+                      decoding="async"
                     />
                   ))}
                 </div>
@@ -146,6 +156,7 @@ export default function HomeClient({
           <span className="lp-proof-label">covers archived</span>
         </div>
       </section>
+      </>}
 
       <ExcitedStrip picks={excited} />
 
@@ -162,37 +173,66 @@ export default function HomeClient({
       />
 
       {/* ── FEATURE TRIPTYCH ─────────────────────────────────── */}
-      <section className="lp-features">
+      {!user && <section className="lp-features">
         <div className="lp-feature">
           <div className="lp-feature-icon">◈</div>
           <h3>Catalog</h3>
           <p>
-            Every series, issue, printing, and variant - indexed from the
-            Grand Comics Database with ComicVine cover art on top.
+            Every series, issue, printing and variant from the Grand Comics
+            Database, with cover art, and a raw and graded price guide from
+            PriceCharting on the books it lists.
           </p>
         </div>
         <div className="lp-feature">
           <div className="lp-feature-icon">◈</div>
-          <h3>Collect</h3>
+          <h3>Scan and import</h3>
           <p>
-            Track grades, slab cert numbers, purchase prices, and current values.
-            Generate an insurance-ready PDF with one click - cover art, grades,
-            and market-value totals included.
+            Snap a cover or its barcode and we find the issue, one book or a
+            whole stack. Coming from CLZ, League of Comic Geeks or a
+            spreadsheet? <Link href="/switch">Bring your collection over →</Link>
+          </p>
+        </div>
+        <div className="lp-feature">
+          <div className="lp-feature-icon">◈</div>
+          <h3>Know what it&apos;s worth</h3>
+          <p>
+            Track grades, slabs, cert numbers and what you paid. Each copy is
+            valued at its grade from PriceCharting&apos;s guide, and an
+            insurance PDF of the whole collection is one click away.
+          </p>
+        </div>
+        <div className="lp-feature">
+          <div className="lp-feature-icon">◈</div>
+          <h3>Connect</h3>
+          <p>
+            Follow collectors and see what they add, rate and review issues,
+            make lists, and find trade matches: people who have what you want
+            and want what you have.
+          </p>
+        </div>
+        <div className="lp-feature">
+          <div className="lp-feature-icon">◈</div>
+          <h3>Wantlist and pull list</h3>
+          <p>
+            Add every issue you&apos;re missing from a run in one click, with
+            guide prices beside them, and follow series to see their new
+            issues week by week.
           </p>
         </div>
         <div className="lp-feature">
           <div className="lp-feature-icon">◈</div>
           <h3>Marketplace <span className="lp-feature-pill">Beta</span></h3>
           <p>
-            Books from real collections, linked to the exact issue, with grade
-            and condition up front. Message the collector to make an offer.{" "}
+            Books from real collections, linked to the exact issue, with the
+            guide price beside the asking price. Buy now by card where the
+            seller offers it, or message them with an offer.{" "}
             <Link href="/marketplace">Browse listings →</Link>
           </p>
         </div>
-      </section>
+      </section>}
 
       {/* ── FOUNDING COLLECTOR ───────────────────────────────── */}
-      <section className="lp-founding">
+      {(!user || !isFounding) && <section className="lp-founding">
         <div className="lp-founding-inner">
           <p className="lp-founding-kicker">Limited · The first 100 only</p>
           <h2 className="lp-founding-h2">Founding Collector</h2>
@@ -208,7 +248,7 @@ export default function HomeClient({
             See the founding offer →
           </Link>
         </div>
-      </section>
+      </section>}
 
     </>
   );

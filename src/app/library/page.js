@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useLibrary } from "@/context/LibraryContext";
@@ -34,9 +34,15 @@ import { buildLibraryItems, groupLibraryRows } from "@/lib/libraryView";
 import PayoutsPrompt from "@/components/PayoutsPrompt";
 import SellerToShip from "@/components/SellerToShip";
 import CollectionReconcileReview from "@/components/CollectionReconcileReview";
+import { issueNumberSuffix, issueNumberText } from "@/lib/issueNumberLabel";
 
 // Books per /api/library-hydrate request. The route caps a request at 2,000.
 const HYDRATE_CHUNK = 1000;
+
+// What a copy's value depends on. Values saved for another grade are stale.
+function gradeKey(g) {
+  return `${g.gcd_issue_id}|${g.grade_numeric ?? ""}|${g.slab_company ?? ""}|${g.condition ?? ""}`;
+}
 
 // Module-scoped so it survives across component re-mounts within a tab
 // (see the user-change-clear logic below for why that's usually right).
@@ -99,6 +105,15 @@ function anyCacheEntry(key) {
   return hydrationCache.get(key)?.data ?? null;
 }
 
+// After a copy switches version, its value is for the new issue at its
+// grade. Values only load for books missing or stale in this cache, so a
+// switch back to an issue loaded earlier kept the old version's value.
+// Marking it stale (not deleting it) keeps the row painted while it reloads.
+function markIssueStale(gcdIssueId) {
+  const entry = hydrationCache.get(`gcd-${Number(gcdIssueId)}`);
+  if (entry) entry.cachedAt = 0;
+}
+
 function loadSavedHydration(userId) {
   hydrationCache.clear();
   if (!userId) return {};
@@ -153,6 +168,11 @@ function gradeFromItem(item) {
     purchase_price: item.purchase_price ?? null,
     market_value: item.market_value ?? null,
     user_cover_url: USER_COVER_UPLOAD_ENABLED ? (item.user_cover_url ?? null) : null,
+    status: item.status,
+    open_to_trade: Boolean(item.open_to_trade),
+    // Without these the editor opened blank and Save wiped them.
+    variant_label: item.variant_label ?? null,
+    copy_number: item.copy_number ?? null,
   };
 }
 
@@ -297,6 +317,8 @@ function LibraryPageContent() {
   // Shape: { [collection_id]: { value, sample_size, fallback, bucket_used,
   //   newest_comp_date, oldest_comp_date } }
   const [marketValues, setMarketValues] = useState({});
+  // collection_id -> the grade a value was requested for, this visit.
+  const asking = useRef(new Map());
   const [comicIndex, setComicIndex] = useState(() => {
     const initial = {};
     for (const key of hydrationCache.keys()) {
@@ -521,7 +543,7 @@ function LibraryPageContent() {
   // which is the trade-off for keeping this simple.
   async function handleUnlinkRow(item) {
     if (!item?.id) return;
-    const label = `${item.comic?.title ?? "this book"}${item.comic?.issueNumber ? ` #${item.comic.issueNumber}` : ""}`;
+    const label = `${item.comic?.title ?? "this book"}${item.comic?.issueNumber ? ` ${issueNumberText(item.comic.issueNumber)}` : ""}`;
     const ok = window.confirm(
       `Unlink ${label} from the catalog?\n\n` +
       `This removes the row from your collection entirely. If you uploaded a photo of your copy, it'll be lost. ` +
@@ -777,6 +799,21 @@ function LibraryPageContent() {
     }
   }
 
+  // collection_id -> the grade its value was worked out for. Saved beside the
+  // values (hydrate:mvk) so a copy regraded elsewhere, e.g. on its issue page,
+  // is asked about again instead of keeping the old grade's value.
+  const valuedAs = useRef({ userId: null, keys: new Map() });
+  function valuedKeys() {
+    const id = user?.id ?? null;
+    if (valuedAs.current.userId !== id) {
+      valuedAs.current = { userId: id, keys: new Map(Object.entries((id && readLocal(`hydrate:mvk:${id}`)) || {})) };
+    }
+    return valuedAs.current.keys;
+  }
+  function saveValuedKeys() {
+    if (user?.id) writeLocal(`hydrate:mvk:${user.id}`, Object.fromEntries(valuedKeys()));
+  }
+
   const librarySignature = useMemo(() => {
     const keys = [];
     for (const item of collections) {
@@ -891,6 +928,10 @@ function LibraryPageContent() {
           if (!cancelled) {
             setComicIndex((prev) => ({ ...prev, ...fresh }));
             if (data.market_values && typeof data.market_values === "object") {
+              for (const g of collectionGrades) {
+                if (data.market_values[g.collection_id] !== undefined) valuedKeys().set(g.collection_id, gradeKey(g));
+              }
+              saveValuedKeys();
               setMarketValues((prev) => {
                 const next = { ...prev, ...data.market_values };
                 if (user?.id) writeLocal(`hydrate:mv:${user.id}`, next);
@@ -910,6 +951,76 @@ function LibraryPageContent() {
       if (retryTimer) clearTimeout(retryTimer);
     };
   }, [librarySignature, hydrateRetryTick]);
+
+  // Values are per copy, not per book. The hydration above only asks about
+  // books it hasn't seen, so a second copy of a book already on screen, or a
+  // copy whose grade changed, never got a value: no Worth line, and the
+  // total skipped it (Adam, 2026-11-21: "Copy 2 has no Worth line and the
+  // total stayed $188"). This asks the same route about exactly those
+  // copies. The route returns an entry for every copy it's sent, priced or
+  // not, so a copy is asked about once per grade, never on every visit.
+  const valueRows = useMemo(
+    () =>
+      collections
+        .filter((c) => c.gcd_issue_id != null)
+        .map((c) => ({
+          collection_id: c.id,
+          gcd_issue_id: Number(c.gcd_issue_id),
+          grade_numeric: c.grade_numeric ?? null,
+          slab_company: c.slab_company ?? null,
+          condition: c.condition ?? null,
+        })),
+    [collections]
+  );
+  useEffect(() => {
+    const keys = valuedKeys();
+    const pending = [];
+    for (const g of valueRows) {
+      // Valued at this grade already, and the value is still here.
+      if (keys.get(g.collection_id) === gradeKey(g) && marketValues[g.collection_id] !== undefined) continue;
+      // A book not hydrated yet gets its values from the hydration request.
+      if (!comicIndex[`gcd-${g.gcd_issue_id}`]) continue;
+      // Asked already this visit; the answer is on its way.
+      if (asking.current.get(g.collection_id) === gradeKey(g)) continue;
+      pending.push(g);
+    }
+    if (pending.length === 0) return;
+    for (const g of pending) asking.current.set(g.collection_id, gradeKey(g));
+    // Not cancelled on re-run: the copies are already marked as asked, so a
+    // dropped answer would leave them without a value until the next visit.
+    (async () => {
+      for (const batch of chunk(pending, HYDRATE_CHUNK)) {
+        const res = await fetchWithRetry(() =>
+          fetch("/api/library-hydrate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              comic_ids: [],
+              gcd_issue_ids: [...new Set(batch.map((g) => g.gcd_issue_id))],
+              collection_grades: batch,
+            }),
+          })
+        );
+        const data = res ? await res.json().catch(() => null) : null;
+        if (!data?.market_values) {
+          console.error("copy values failed; they'll be asked for again on the next change");
+          for (const g of batch) asking.current.delete(g.collection_id);
+          continue;
+        }
+        for (const g of batch) {
+          // Regraded again while this was in flight: that newer ask wins.
+          if (asking.current.get(g.collection_id) !== gradeKey(g)) delete data.market_values[g.collection_id];
+          else valuedKeys().set(g.collection_id, gradeKey(g));
+        }
+        saveValuedKeys();
+        setMarketValues((prev) => {
+          const next = { ...prev, ...data.market_values };
+          if (user?.id) writeLocal(`hydrate:mv:${user.id}`, next);
+          return next;
+        });
+      }
+    })();
+  }, [valueRows, comicIndex, marketValues, user?.id]);
 
   // All-status hydrated view of the collection - used by the unified stats
   // strip and insight sidebar, which need owned/wantlist/for_sale counts
@@ -989,13 +1100,18 @@ function LibraryPageContent() {
       const issueA = String(a.comic.issueNumber || "");
       const issueB = String(b.comic.issueNumber || "");
 
+      // Ties fall back to title, then issue number in run order (#2 before
+      // #10), then copy. Without them a run listed as #11, #9, #2, #12.
+      const byTitle = titleA.localeCompare(titleB);
+      const byIssue = issueA.localeCompare(issueB, undefined, { numeric: true });
+      const byCopy = Number(a.copy_number ?? 1) - Number(b.copy_number ?? 1);
       switch (sortBy) {
-        case "title-asc":   return titleA.localeCompare(titleB);
-        case "title-desc":  return titleB.localeCompare(titleA);
-        case "year-desc":   return yearB - yearA;
-        case "year-asc":    return yearA - yearB;
-        case "issue-asc":   return issueA.localeCompare(issueB, undefined, { numeric: true });
-        case "issue-desc":  return issueB.localeCompare(issueA, undefined, { numeric: true });
+        case "title-asc":   return byTitle || byIssue || byCopy;
+        case "title-desc":  return -byTitle || byIssue || byCopy;
+        case "year-desc":   return yearB - yearA || byTitle || byIssue || byCopy;
+        case "year-asc":    return yearA - yearB || byTitle || byIssue || byCopy;
+        case "issue-asc":   return byIssue || byTitle || byCopy;
+        case "issue-desc":  return -byIssue || byTitle || byCopy;
         default:            return 0;
       }
     });
@@ -1375,7 +1491,7 @@ function LibraryPageContent() {
                 title="Export your collection as an insurance PDF"
               >
                 {pdfExporting
-                  ? "Generating…"
+                  ? stats.ownedCount > 1000 ? "Generating… big collections take a few minutes" : "Generating…"
                   : "Export PDF"}
               </button>
               <button
@@ -1993,7 +2109,7 @@ function LibraryPageContent() {
                 const listing = myListings[item.id];
                 return listing ? (
                   <article key={item.id} className="listing-price-run-card">
-                    <div><strong>{item.comic.title}{item.comic.issueNumber ? ` #${item.comic.issueNumber}` : ""}</strong><small>{item.comic.publisher || "Unknown Publisher"}</small></div>
+                    <div><strong>{item.comic.title}{issueNumberSuffix(item.comic.issueNumber)}</strong><small>{item.comic.publisher || "Unknown Publisher"}</small></div>
                     <ListingQuickPrice listing={listing} estimate={Number(item.market_value) > 0 ? Number(item.market_value) : marketValues?.[item.id]?.value ?? null} onSaved={(saved) => updateListing(item.id, saved)} />
                   </article>
                 ) : null;
@@ -2100,7 +2216,7 @@ function LibraryPageContent() {
                     <div className="library-list-main">
                       <Link prefetch={false} href={getLibraryHref(item, comic)} className="library-list-title">
                         {comic.title}
-                        {comic.issueNumber ? ` #${comic.issueNumber}` : ""}
+                        {issueNumberSuffix(comic.issueNumber)}
                         {item.variant_label ? (
                           <span style={{ opacity: 0.7, fontWeight: 500 }}> ({item.variant_label})</span>
                         ) : null}
@@ -2148,10 +2264,54 @@ function LibraryPageContent() {
                           </>
                         )}
                         {/* Auto-value - only when no user override exists.
-                            Two sources, distinguished by source field:
+                            Sources, distinguished by source field:
+                              pricecharting → PriceCharting guide at this copy's grade
                               market-comp → median of recent eBay sold-comps
                               cover-price → era-based floor estimate (no comps yet) */}
                         {liveGrade.market_value == null &&
+                          marketValues[item.id]?.source === "pricecharting" &&
+                          marketValues[item.id]?.value != null && (() => {
+                            const mv = marketValues[item.id];
+                            // PriceCharting's terms: every price shown cites
+                            // them with a link to that book's page.
+                            const graded = mv.grade_used && mv.grade_used !== "ungraded";
+                            const label = `${mv.regular_cover ? "regular cover, " : ""}${graded ? mv.grade_used : "raw"}, PriceCharting`;
+                            const tooltip = graded
+                              ? `PriceCharting guide value for a ${mv.grade_used} copy${mv.regular_cover ? ". No guide price for this variant, so this is the regular cover's" : ""}.`
+                              : `PriceCharting guide value for a raw copy${mv.condition_unknown ? ". Set a grade to match your copy's condition" : ""}${mv.regular_cover ? ". No guide price for this variant, so this is the regular cover's" : ""}.`;
+                            return (
+                              <>
+                                <span>•</span>
+                                <span style={{ color: "var(--cc-gold)" }} title={tooltip}>
+                                  Worth ~${Number(mv.value).toFixed(2)}{" "}
+                                  <a
+                                    href={mv.url}
+                                    target="_blank"
+                                    rel="noopener"
+                                    style={{ opacity: 0.7, fontSize: "0.85em", color: "inherit" }}
+                                  >
+                                    ({label})
+                                  </a>
+                                </span>
+                                {mv.graded_at && (
+                                  <>
+                                    <span>•</span>
+                                    <a
+                                      href={mv.url}
+                                      target="_blank"
+                                      rel="noopener"
+                                      style={{ opacity: 0.8, color: "inherit" }}
+                                      title={`PriceCharting price for a copy professionally graded ${mv.graded_at.grade}. Your copy is raw, so this isn't in your total.`}
+                                    >
+                                      Graded {mv.graded_at.grade}: ${Number(mv.graded_at.value).toFixed(2)}
+                                    </a>
+                                  </>
+                                )}
+                              </>
+                            );
+                          })()}
+                        {liveGrade.market_value == null &&
+                          marketValues[item.id]?.source !== "pricecharting" &&
                           marketValues[item.id]?.value != null && (() => {
                             const mv = marketValues[item.id];
                             const isComp = mv.source === "market-comp";
@@ -2182,6 +2342,10 @@ function LibraryPageContent() {
                               tooltip = "No recent sales data yet - showing era-based cover-price floor. Real comps will replace this once eBay data is fetched.";
                               label = "cover price";
                             }
+                            if (mv.regular_cover) {
+                              tooltip = `${tooltip}. No recent sales of this variant, so this is the regular cover's value.`;
+                              label = `regular cover, ${label}`;
+                            }
                             return (
                               <>
                                 <span>•</span>
@@ -2204,12 +2368,14 @@ function LibraryPageContent() {
                           initialData={liveGrade}
                           canonicalCover={comic.cover || null}
                           releaseYear={comic.year || null}
-                          onSave={(updated) =>
-                            setGradeData((prev) => ({
-                              ...prev,
-                              [item.id]: { ...liveGrade, ...updated },
-                            }))
-                          }
+                          gcdIssueId={item.gcd_issue_id ?? null}
+                          onVersionChange={(changed) => { markIssueStale(changed?.gcd_issue_id); refreshLibrary({ background: true }); }}
+                          onSave={(updated) => {
+                            setGradeData((prev) => ({ ...prev, [item.id]: { ...liveGrade, ...updated } }));
+                            // Refresh the library's own rows (and the browser copy) so a reload
+                            // or the value lookup never works from the pre-save copy.
+                            refreshLibrary({ background: true });
+                          }}
                         />
                       )}
                     </div>
@@ -2231,7 +2397,7 @@ function LibraryPageContent() {
                           onClick={() =>
                             setEditing({
                               listing: myListings[item.id],
-                              title: `${comic.title}${comic.issueNumber ? ` #${comic.issueNumber}` : ""}`,
+                              title: `${comic.title}${issueNumberSuffix(comic.issueNumber)}`,
                               estValue: Number(liveGrade?.market_value) > 0 ? Number(liveGrade.market_value) : marketValues?.[item.id]?.value ?? null,
                             })
                           }
@@ -2397,7 +2563,7 @@ function LibraryPageContent() {
                                 <div className="library-list-main">
                                   <Link prefetch={false} href={getLibraryHref(item, comic)} className="library-list-title">
                                     {comic.title}
-                                    {comic.issueNumber ? ` #${comic.issueNumber}` : ""}
+                                    {issueNumberSuffix(comic.issueNumber)}
                                     {item.variant_label ? (
                                       <span style={{ opacity: 0.7, fontWeight: 500 }}> ({item.variant_label})</span>
                                     ) : null}
@@ -2428,12 +2594,14 @@ function LibraryPageContent() {
                                         initialData={liveGrade}
                                         canonicalCover={comic.cover || null}
                                         releaseYear={comic.year || null}
-                                        onSave={(updated) =>
-                                          setGradeData((prev) => ({
-                                            ...prev,
-                                            [item.id]: { ...liveGrade, ...updated },
-                                          }))
-                                        }
+                                        gcdIssueId={item.gcd_issue_id ?? null}
+                                        onVersionChange={(changed) => { markIssueStale(changed?.gcd_issue_id); refreshLibrary({ background: true }); }}
+                                        onSave={(updated) => {
+                                          setGradeData((prev) => ({ ...prev, [item.id]: { ...liveGrade, ...updated } }));
+                                          // Refresh the library's own rows (and the browser copy) so a reload
+                                          // or the value lookup never works from the pre-save copy.
+                                          refreshLibrary({ background: true });
+                                        }}
                                       />
                                     </div>
                                   )}
@@ -2487,7 +2655,7 @@ function LibraryPageContent() {
                       </div>
                       <div className="comic-card-title">
                         {comic.title}
-                        {comic.issueNumber ? ` #${comic.issueNumber}` : ""}
+                        {issueNumberSuffix(comic.issueNumber)}
                         {item.variant_label ? (
                           <span style={{ opacity: 0.7, fontWeight: 500 }}> ({item.variant_label})</span>
                         ) : null}
@@ -2507,7 +2675,7 @@ function LibraryPageContent() {
                         onClick={() =>
                           setEditing({
                             listing: myListings[item.id],
-                            title: `${comic.title}${comic.issueNumber ? ` #${comic.issueNumber}` : ""}`,
+                            title: `${comic.title}${issueNumberSuffix(comic.issueNumber)}`,
                             estValue: Number(liveGrade?.market_value) > 0 ? Number(liveGrade.market_value) : marketValues?.[item.id]?.value ?? null,
                           })
                         }
@@ -2533,12 +2701,14 @@ function LibraryPageContent() {
                           initialData={liveGrade}
                           canonicalCover={comic.cover || null}
                           releaseYear={comic.year || null}
-                          onSave={(updated) =>
-                            setGradeData((prev) => ({
-                              ...prev,
-                              [item.id]: { ...liveGrade, ...updated },
-                            }))
-                          }
+                          gcdIssueId={item.gcd_issue_id ?? null}
+                          onVersionChange={(changed) => { markIssueStale(changed?.gcd_issue_id); refreshLibrary({ background: true }); }}
+                          onSave={(updated) => {
+                            setGradeData((prev) => ({ ...prev, [item.id]: { ...liveGrade, ...updated } }));
+                            // Refresh the library's own rows (and the browser copy) so a reload
+                            // or the value lookup never works from the pre-save copy.
+                            refreshLibrary({ background: true });
+                          }}
                           />
                         {item.status === "for_sale" && (
                           <MarkSoldButton collectionItemId={item.id} ownerId={user.id} onRecorded={saleRecorded} />

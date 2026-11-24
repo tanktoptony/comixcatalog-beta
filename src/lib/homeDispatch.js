@@ -1,6 +1,7 @@
 import { unstable_cache } from "next/cache";
 import { getServiceClient } from "./supabase/service.js";
 import { SITE_NEWS } from "@/lib/siteNews";
+import { issueNumberSuffix } from "./issueNumberLabel.js";
 
 // Data for the homepage: the live catalog numbers in the proof strip and the
 // "Dispatch" feed (new covers this week, blog posts, site updates). Read on
@@ -84,7 +85,7 @@ async function loadNewCovers(sb) {
       if (!key || seen.has(key) || !usSeries.has(row.series_gcd_id) || STRIP_TITLE_BLOCK.test(row.series_title)) continue;
       seen.add(key);
       strip.push({
-        title: `${row.series_title}${row.issue_number ? ` #${row.issue_number}` : ""}`,
+        title: `${row.series_title}${issueNumberSuffix(row.issue_number)}`,
         cover: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${row.storage_path}`,
         href: row.gcd_issue_id != null ? `/issue/gcd-${row.gcd_issue_id}` : null,
       });

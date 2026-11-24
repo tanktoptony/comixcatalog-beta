@@ -19,11 +19,12 @@ export default function BadgeToast() {
   const badge = BADGES_BY_ID.get(ids[0]);
   if (!badge) return null;
   const index = BADGE_CATALOG.findIndex((item) => item.id === badge.id);
-  const next = BADGE_CATALOG.slice(index + 1).find((item) => item.group === badge.group);
+  // A secret badge never names the next one.
+  const next = badge.secret ? null : BADGE_CATALOG.slice(index + 1).find((item) => item.group === badge.group);
   return (
     <aside className="badge-toast" role="status" aria-live="polite">
       <Badge badge={badge} size={64} showText={false} />
-      <div><em>Badge earned</em><strong>{badge.name}</strong><span>{badge.description}{next ? `. Next up: ${next.name}.` : ""}</span></div>
+      <div><em>{badge.secret ? "Secret badge found" : "Badge earned"}</em><strong>{badge.name}</strong><span>{badge.description}{next ? `. Next up: ${next.name}.` : ""}</span></div>
       <button type="button" aria-label="Dismiss badge notification" onClick={() => setIds((current) => current.slice(1))}>×</button>
     </aside>
   );

@@ -7,7 +7,13 @@ import { GET as issueGET } from "@/app/api/issues/[id]/route";
 import { GET as publicProfileGET } from "@/app/api/public-profile/route";
 import { getServiceClient } from "@/lib/supabase/service";
 import { buildVersionRows, resolveEditionRow } from "@/lib/issueEditions";
+import { mergeEditionContents } from "@/lib/variantCovers";
 import { toListing } from "@/lib/listingRow";
+import { publicCounts } from "@/lib/publicCounts";
+import { getIssueCollectors } from "@/lib/issueCollectors";
+import { getIssueReviews } from "@/lib/issueReviews";
+import { loadThread } from "@/lib/commentsData";
+import { buildPriceGuide } from "@/lib/priceGuide";
 
 // Server-side reads for pages that used to render empty and fetch their
 // data from the browser (/search, /series/[id]). The page renders with this
@@ -154,16 +160,50 @@ async function computeIssuePageData(baseGcdId, editionGcdId, hasEditionColumns) 
   const editionIds = [...new Set(editionRows.map((row) => Number(row.gcd_id)).filter(Boolean))];
   if (!editionIds.includes(baseGcdId)) editionIds.unshift(baseGcdId);
 
-  const [{ data: detailRows }, { data: listingRows }, { data: compRows }, baseIssueResult] = await Promise.all([
+  const [detailsResult, listingsResult, compsResult, baseIssueResult, statsResult, collectors, reviews, comments, guideResult, coversResult] = await Promise.all([
     supabase.from("gcd_issue_details").select("gcd_issue_id, on_sale_date, price, barcode, variant_name").in("gcd_issue_id", editionIds),
     supabase.from("marketplace_listings").select("id, collection_id, gcd_issue_id, series_title, issue_number, release_year, publisher, variant_label, cover_path, condition, grade_numeric, slab_company, price_cents, shipping_cents, accepts_offers, market_value, auto_market_value, seller_username, created_at").in("gcd_issue_id", editionIds).order("created_at", { ascending: false }).limit(200),
     supabase.from("market_comps").select("sold_price, sold_date, source").in("gcd_issue_id", editionIds).eq("source", "ebay-listed").order("sold_date", { ascending: false }).limit(200),
     baseGcdId === editionGcdId ? Promise.resolve(selected) : getIssueData(`gcd-${baseGcdId}`),
+    supabase.from("issue_base_stats").select("have, want, for_sale, updated_at")
+      .eq("base_gcd_issue_id", baseGcdId).maybeSingle(),
+    // A collectors failure must never take the issue page down with it.
+    getIssueCollectors(supabase, editionIds).catch((error) => {
+      console.error("issue collectors lookup failed:", error?.message ?? error);
+      return null;
+    }),
+    getIssueReviews(supabase, baseGcdId).catch((error) => {
+      console.error("issue reviews lookup failed:", error?.message ?? error);
+      return null;
+    }),
+    // Signed-out view of the comments (no viewer): the client refetches for
+    // signed-in members. Same rule as reviews: a failure never breaks the page.
+    loadThread(supabase, { targetType: "issue", targetId: String(baseGcdId), ownerId: null }, null).catch((error) => {
+      console.error("issue comments lookup failed:", error?.message ?? error);
+      return null;
+    }),
+    // PriceCharting guide values (migration 0105). Service role only: the
+    // table has no RLS policies, so the full guide is never public over REST.
+    supabase.from("pricecharting_prices").select("pc_id, gcd_issue_id, product_name, prices, sales_volume").in("gcd_issue_id", editionIds).limit(200),
+    supabase.from("canonical_covers").select("gcd_issue_id, storage_path").in("gcd_issue_id", editionIds),
   ]);
+  if (guideResult.error) console.error("issue price guide lookup failed:", guideResult.error);
+  if (detailsResult.error) console.error("issue details lookup failed:", detailsResult.error);
+  if (listingsResult.error) console.error("issue listings lookup failed:", listingsResult.error);
+  if (compsResult.error) console.error("issue asking-price lookup failed:", compsResult.error);
+  if (statsResult.error) console.error("issue community stats lookup failed:", statsResult.error);
+  const detailRows = detailsResult.data ?? [];
+  const listingRows = listingsResult.data ?? [];
+  const compRows = compsResult.data ?? [];
   const detailsById = new Map((detailRows ?? []).map((row) => [Number(row.gcd_issue_id), row]));
+  const coverById = new Map((coversResult.data ?? []).filter((row) => row.storage_path).map((row) => [
+    Number(row.gcd_issue_id),
+    `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${row.storage_path}`,
+  ]));
   const versions = buildVersionRows(editionRows.map((row) => ({
     ...row,
     details: detailsById.get(Number(row.gcd_id)),
+    cover: coverById.get(Number(row.gcd_id)) ?? null,
   })), baseGcdId);
   const asking = (compRows ?? []).map((row) => Number(row.sold_price)).filter((value) => Number.isFinite(value) && value > 0).sort((a, b) => a - b);
   const estimate = asking.length ? asking[Math.floor(asking.length / 2)] : null;
@@ -181,13 +221,17 @@ async function computeIssuePageData(baseGcdId, editionGcdId, hasEditionColumns) 
     edition_has_own_cover: selectedHasOwnCover,
     key_issue: baseIssue?.key_issue ?? null,
     key_ruling: baseIssue?.key_ruling ?? null,
-    credits: baseIssue?.credits ?? selected.credits,
-    stories: baseIssue?.stories ?? selected.stories,
-    ad_pages_count: baseIssue?.ad_pages_count ?? selected.ad_pages_count,
+    ...mergeEditionContents(baseIssue ?? selected, selected),
     reprints: baseIssue?.reprints ?? selected.reprints,
     versions,
+    variants: baseIssue?.variants?.length ? baseIssue.variants : selected.variants,
     listings,
     market: { estimate, sample_size: asking.length, listings_count: listings.length },
+    price_guide: guideResult.error ? null : buildPriceGuide(guideResult.data, editionGcdId),
+    community: statsResult.error ? null : publicCounts(statsResult.data),
+    collectors,
+    reviews,
+    comments,
   };
 }
 
@@ -196,7 +240,7 @@ export function getIssuePageData(baseGcdId, editionGcdId, hasEditionColumns = tr
   const edition = Number(editionGcdId || base);
   return unstable_cache(
     () => computeIssuePageData(base, edition, hasEditionColumns),
-    ["issue-discogs-v1", String(base), String(edition), hasEditionColumns ? "editions" : "legacy"],
+    ["issue-discogs-v3", String(base), String(edition), hasEditionColumns ? "editions" : "legacy"],
     { revalidate: 3600, tags: [`issue:${base}`] }
   )();
 }

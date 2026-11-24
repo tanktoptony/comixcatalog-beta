@@ -7,6 +7,8 @@ import { useAuth } from "@/context/AuthContext";
 import { useLibrary } from "@/context/LibraryContext";
 import { coverThumb } from "@/lib/coverThumb";
 import { conditionLabel, offerHref, formatValue, shippingLabel, contactLabel } from "@/lib/marketplaceFormat";
+import { CreditCard, ShieldCheck, Truck } from "lucide-react";
+import { TRUST_POINTS, communityLine, discountLabel, isUnderGuide, totalWithShipping } from "@/lib/marketplaceDeals";
 import {
   FILTER_KEYS,
   SORTS,
@@ -20,6 +22,7 @@ import {
   sortListings,
   wantlistMatches,
 } from "@/lib/marketplaceFacets";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 // /marketplace, Discogs style. With no search or filter it's a short landing
 // page of shelves (just listed, most wanted, highest priced, publishers, most
@@ -28,6 +31,7 @@ import {
 // All state lives in the URL so back/forward and shared links just work.
 
 const FACET_TITLES = {
+  show: "Show",
   publisher: "Publisher",
   series: "Series",
   format: "Format",
@@ -50,18 +54,32 @@ function hrefWith(params, changes) {
   return qs ? `/marketplace?${qs}` : "/marketplace";
 }
 
-function priceText(l) {
-  if (l.price != null) return { main: formatValue(l.price), note: null };
-  return { main: null, note: "Make an offer" };
+function GuideLine({ l }) {
+  if (!l.guide?.url) return null;
+  return <span className="mk-guide"><a href={l.guide.url} target="_blank" rel="noopener" title="PriceCharting guide value">Guide {formatValue(l.guide.value)}</a> <small>PriceCharting</small></span>;
 }
 
-function Price({ l }) {
-  const p = priceText(l);
+const TRUST_ICONS = { card: CreditCard, truck: Truck, shield: ShieldCheck };
+
+function TrustStrip() {
   return (
-    <span className="mk-price">
-      {p.main && <b>{p.main}</b>}
-      {p.note && <em>{p.note}</em>}
-    </span>
+    <div className="mk-trust">
+      {TRUST_POINTS.map(([icon, title, copy]) => {
+        const Icon = TRUST_ICONS[icon];
+        return (
+          <div className="mk-trust-item" key={title}>
+            <Icon aria-hidden="true" />
+            <span>
+              <b>{title}</b>
+              <small>{copy}</small>
+            </span>
+          </div>
+        );
+      })}
+      <Link href="/trust" className="mk-trust-link">
+        How buying works
+      </Link>
+    </div>
   );
 }
 
@@ -71,7 +89,9 @@ function Card({ l, issueLink = false }) {
     <li className="mk-card">
       <Link prefetch={false} href={href} className="mk-card-cover">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={coverThumb(l.cover || "/fallback-cover.png")} alt={`${l.title} #${l.issueNumber}`} loading="lazy" />
+        <img src={coverThumb(l.cover || "/fallback-cover.png")} alt={`${l.title} ${issueNumberText(l.issueNumber)}`} loading="lazy" />
+        {l.key && <span className="mk-card-key">KEY</span>}
+        {l.buyNow && <span className="mk-card-buy">Buy now</span>}
       </Link>
       <Link prefetch={false} href={href} className="mk-card-title">
         {l.title} #{l.issueNumber || "?"}
@@ -80,7 +100,7 @@ function Card({ l, issueLink = false }) {
         {conditionLabel(l)}
         {l.year ? ` · ${l.year}` : ""}
       </span>
-      {!issueLink && <Price l={l} />}
+      {!issueLink && <><span className="mk-price"><b>{l.price != null ? formatValue(l.price) : "Offers"}</b></span>{isUnderGuide(l) ? <span className="mk-discount">{discountLabel(l)}</span> : <GuideLine l={l}/>}</>}
     </li>
   );
 }
@@ -120,6 +140,9 @@ function Landing({ listings, params, wanted }) {
           more={wantedForFront.length > 6 ? hrefWith(params, { wants: "1" }) : null}
         />
       )}
+      <Shelf title="Buy now" items={s.buyNow} more={hrefWith(params, { show: "buynow" })} />
+      <Shelf title="Under guide" note="Priced below the PriceCharting guide" items={s.underGuide} more={hrefWith(params, { show: "underguide", sort: "deal" })} />
+      <Shelf title="Key issues for sale" items={s.keys} more={hrefWith(params, { show: "keys" })} />
       <Shelf title="Just listed" items={s.justListed} more={hrefWith(params, { view: "all", sort: "newest" })} />
 
       <section className="mk-shelf">
@@ -157,6 +180,7 @@ function Landing({ listings, params, wanted }) {
                   <span>@{name}</span>
                   <em>
                     {n.toLocaleString("en-US")} book{n === 1 ? "" : "s"}
+                    {listings.find((l) => l.seller === name)?.sellerRating ? ` · ${listings.find((l) => l.seller === name).sellerRating}` : ""}
                   </em>
                 </Link>
               </li>
@@ -204,13 +228,19 @@ function Facet({ name, entries, selected, params }) {
   );
 }
 
+// One copy for sale, laid out like a Discogs sell-list row: the book and
+// this copy's condition, the seller's record, then price, guide and action.
 function Row({ l }) {
+  const total = totalWithShipping(l);
+  const community = communityLine(l.community);
+  const sales = l.sellerSales ?? 0;
   return (
     <li className="mk-row">
       <Link prefetch={false} href={l.listingHref} className="mk-row-cover">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={coverThumb(l.cover || "/fallback-cover.png")} alt="" loading="lazy" />
       </Link>
+
       <div className="mk-row-main">
         <Link prefetch={false} href={l.listingHref} className="mk-row-title">
           {l.title} #{l.issueNumber || "?"}
@@ -219,19 +249,58 @@ function Row({ l }) {
           {[l.publisher ? filterLabel("publisher", l.publisher) : null, l.year, l.variant].filter(Boolean).join(" · ")}
         </span>
         <span className="mk-row-sub">
-          <span className="mk-cond">{conditionLabel(l)}</span>
-          {l.photoCount > 0 && <span className="mk-photos">{l.photoCount} photo{l.photoCount === 1 ? "" : "s"}</span>}
-          <Link prefetch={false} href={`/u/${encodeURIComponent(l.seller)}`} className="mk-row-seller">
-            @{l.seller}
-          </Link>
+          <span className={`mk-cond${l.slab ? " is-slab" : ""}`}>{conditionLabel(l)}</span>
+          {l.key && <span className="mk-chip-key">Key</span>}
+          {l.signed && <span className="mk-chip">Signed</span>}
+          {l.restored && <span className="mk-chip is-warn">Restored</span>}
+          {l.photoCount > 0 && (
+            <span className="mk-chip">
+              {l.photoCount} photo{l.photoCount === 1 ? "" : "s"}
+            </span>
+          )}
         </span>
+        {l.key && (l.key.reason || l.key.character) && <span className="mk-keyline">{l.key.reason || l.key.character}</span>}
+        {l.notes && <span className="mk-row-notes">&ldquo;{l.notes}&rdquo;</span>}
+        {community && <span className="mk-row-activity">{community}</span>}
       </div>
-      <div className="mk-row-buy">
-        <Price l={l} />
-        {shippingLabel(l) && <span className="mk-ship">{shippingLabel(l)}</span>}
-        <Link prefetch={false} href={offerHref(l)} className="mk-offer">
-          {contactLabel(l)}
+
+      <div className="mk-row-sellerbox">
+        <Link prefetch={false} href={`/u/${encodeURIComponent(l.seller)}`} className="mk-row-seller">
+          @{l.seller}
         </Link>
+        {l.sellerRating ? <span>{l.sellerRating}</span> : sales === 0 ? <span>New seller</span> : null}
+        {sales > 0 && (
+          <span>
+            {sales.toLocaleString("en-US")} {sales === 1 ? "sale" : "sales"}
+          </span>
+        )}
+        {l.sellerFounder && <small>Founding Collector</small>}
+      </div>
+
+      <div className="mk-row-buy">
+        <span className={`mk-price${l.price == null ? " is-offers" : ""}`}>
+          <b>{l.price != null ? formatValue(l.price) : "Open to offers"}</b>
+        </span>
+        {l.price != null && shippingLabel(l) && <span className="mk-ship">{shippingLabel(l)}</span>}
+        {total != null && l.shipping > 0 && <span className="mk-total">about {formatValue(total)} total</span>}
+        {isUnderGuide(l) && <span className="mk-discount">{discountLabel(l)}</span>}
+        <GuideLine l={l} />
+        {l.buyNow ? (
+          <>
+            <Link prefetch={false} href={l.listingHref} className="mk-buy-now">
+              Buy now
+            </Link>
+            {l.acceptsOffers && (
+              <Link prefetch={false} href={offerHref(l)} className="mk-offer-link">
+                Make an offer
+              </Link>
+            )}
+          </>
+        ) : (
+          <Link prefetch={false} href={offerHref(l)} className="mk-offer">
+            {contactLabel(l)}
+          </Link>
+        )}
       </div>
     </li>
   );
@@ -374,6 +443,8 @@ function MarketplaceView({ listings, params }) {
   const f = readFilters(params);
   const browsing = isBrowsing(f) || params.get("view") === "all";
   const priced = listings.filter((l) => l.price != null).length;
+  const sellers = new Set(listings.map((l) => l.sellerId || l.seller)).size;
+  const underGuide = listings.filter(isUnderGuide).length;
 
   return (
     <div className="mk">
@@ -393,20 +464,21 @@ function MarketplaceView({ listings, params }) {
             Sell from your collection
           </Link>
         </div>
+        {!browsing && <p className="mk-pitch">Comics from collectors&apos; own shelves. Pay by card through Stripe. No buyer fees.</p>}
         <SearchBox f={f} params={params} />
         {!browsing && listings.length > 0 && (
-          <p className="mk-stats">
-            {priced.toLocaleString("en-US")} comic{priced === 1 ? "" : "s"} for sale with a price
-            <span className="mk-dot"> · </span>
-            {listings.length.toLocaleString("en-US")} comic{listings.length === 1 ? "" : "s"} listed in all
-            <span className="mk-dot"> · </span>
-            No fees during the beta. {" "}
+          <p className="mk-stats mk-stat-chips">
+            <span>{priced.toLocaleString("en-US")} with a price</span>
+            <span>{listings.length.toLocaleString("en-US")} listed</span>
+            <span>{sellers.toLocaleString("en-US")} sellers</span>
+            {underGuide > 0 && <span>{underGuide.toLocaleString("en-US")} under guide</span>}
             <Link prefetch={false} href="/marketplace?view=all">
               Browse everything
             </Link>
           </p>
         )}
       </header>
+      {!browsing && listings.length > 0 && <TrustStrip />}
 
       {listings.length === 0 ? (
         <p className="mk-empty">

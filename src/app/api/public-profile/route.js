@@ -1,12 +1,15 @@
 import { NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase/service";
 import { getAuthedUser } from "@/lib/authServer";
+import { ADMIN_ID, canSeePrivateMembers } from "@/lib/admin";
+import { aalFromToken, bearerToken } from "@/lib/adminAal";
 import { getMarketValuesBulk } from "@/lib/marketValue";
 import { normTitle, titleVariants } from "@/lib/titleMatch";
 import { isOwnedStatus } from "@/lib/collectionStatus";
 import { fetchAllPages, fetchAllPagesParallel } from "@/lib/supabase/fetchAllPages";
 import { bestYearFor, parseYear } from "@/lib/years";
 import { createServerTiming } from "@/lib/serverTiming";
+import { resolveCovers } from "@/lib/catalog/covers";
 
 // publication_date is null on ~65% of gcd_issues rows; key_date (GCD's sortable
 // approximation) fills most of that gap. Without this fallback a collector's
@@ -56,7 +59,7 @@ export async function GET(req) {
     timing.measure("profile", () => supabase
       .from("profiles")
       .select(
-        "id, username, is_public, avatar_key, avatar_url, is_founding_collector, is_pro, membership_tier, created_at, display_name, location, bio, website_url, show_collection, show_wantlist, show_for_sale, show_value, showcase_badges"
+        "id, username, is_public, avatar_key, avatar_url, is_founding_collector, is_pro, membership_tier, is_patron, created_at, display_name, location, bio, website_url, show_collection, show_wantlist, show_for_sale, show_value, showcase_badges"
       )
       .eq("username", username)
       .single()),
@@ -69,14 +72,28 @@ export async function GET(req) {
     return json({ error: "Not found" }, { status: 404 });
   }
 
-  const isOwner = viewerId && viewerId === profile.id;
+  const ownerViewer = Boolean(viewerId && viewerId === profile.id);
 
-  // Non-owners are blocked from non-public profiles entirely.
+  // Tony's accounts (admin + @test_tony) see private members' profiles in
+  // full, on the profile page itself (Tony, 2026-11-24: "i should be able to
+  // see private profile pages ... im not going to another page"). Same gate
+  // as /admin/private-members: the admin account needs a two-factor session.
+  let privateMemberViewer = false;
+  if (!ownerViewer && !profile.is_public && canSeePrivateMembers(viewerId)) {
+    if (viewerId === ADMIN_ID && aalFromToken(bearerToken(req)) !== "aal2") {
+      return json({ error: "Two-factor sign-in required.", mfa_required: true }, { status: 401 });
+    }
+    privateMemberViewer = true;
+  }
+  const isOwner = ownerViewer || privateMemberViewer;
+
+  // Everyone else is blocked from non-public profiles entirely.
   if (!isOwner && !profile.is_public) {
     return json({ error: "Not found" }, { status: 404 });
   }
 
-  // Per-section privacy. Owners see everything regardless.
+  // Per-section privacy. Owners (and the private-member viewers above) see
+  // everything regardless.
   const visibility = {
     collection: isOwner || profile.show_collection !== false,
     wantlist: isOwner || profile.show_wantlist !== false,
@@ -101,6 +118,7 @@ export async function GET(req) {
       user_cover_url,
       variant_label,
       copy_number,
+      open_to_trade,
       comics!user_collections_comic_id_fkey (
         id,
         issue_number,
@@ -418,6 +436,31 @@ export async function GET(req) {
         href: `/issue/gcd-${row.gcd_id}`,
       };
     }
+    // Same fallback as /api/library-hydrate: blanks go to the shared
+    // resolver issue pages use, so a profile never shows a blank the issue
+    // page fills. Only blanks are filled.
+    const blank = intermediate.filter((row) => !gcdDisplayLookup[row.gcd_id]?.canonicalCoverUrl);
+    if (blank.length) {
+      const resolved = await resolveCovers(supabase, blank.map((row) => ({
+        gcd_issue_id: row.gcd_id,
+        series_gcd_id: issueById.get(row.gcd_id)?.series_gcd_id ?? null,
+        series_title: row.seriesTitle,
+        issue_number: row.issue_number,
+        year: row.year,
+        series_year_start: row.seriesYearStart,
+        series_year_end: row.seriesYearEnd,
+        publisher: row.publisher,
+      }))).catch((error) => {
+        console.error("public-profile: shared cover fallback failed", error?.message);
+        return new Map();
+      });
+      for (const row of blank) {
+        const storagePath = resolved.get(row.gcd_id)?.storage_path;
+        if (storagePath && gcdDisplayLookup[row.gcd_id]) {
+          gcdDisplayLookup[row.gcd_id].canonicalCoverUrl = `${supabaseUrl}/storage/v1/object/public/canonical-covers/${storagePath}`;
+        }
+      }
+    }
     finishCoverTiming();
   }
 
@@ -488,6 +531,7 @@ export async function GET(req) {
     gcd_issue_id: item.gcd_issue_id,
     variant_label: item.variant_label,
     copy_number: item.copy_number,
+    open_to_trade: item.open_to_trade,
     display,
     key_issue: keyIssue,
   });

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { authedFetch } from "@/lib/apiClient";
+import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 
 const dollars = (cents) => `$${(cents / 100).toFixed(2)}`;
 const toCents = (value) => Math.round((Number(value) || 0) * 100);
@@ -92,7 +93,7 @@ export default function BuyNowButton({
                     checked={selected.includes(item.id)}
                     onChange={(event) => toggle(item.id, event.target.checked)}
                   />
-                  <span>{item.title}{item.issueNumber ? ` #${item.issueNumber}` : ""}</span>
+                  <span>{item.title}{issueNumberSuffix(item.issueNumber)}</span>
                   <b>{dollars(toCents(item.price))}</b>
                 </label>
               ))}

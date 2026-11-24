@@ -14,7 +14,7 @@ export default function TermsOfServicePage() {
       <article className="legal-prose">
         <p className="legal-kicker">Legal</p>
         <h1>Terms of Service</h1>
-        <p className="legal-meta">Last updated: October 2026</p>
+        <p className="legal-meta">Last updated: November 2026</p>
 
         <p>
           Welcome to ComixCatalog. These Terms of Service (&ldquo;Terms&rdquo;) govern
@@ -90,10 +90,30 @@ export default function TermsOfServicePage() {
           Sellers are responsible for accurately describing items, complying
           with all applicable laws (including taxes), and shipping promptly.
           Buyers are responsible for paying for items they agree to buy. The
-          marketplace is in beta. ComixCatalog doesn&rsquo;t charge fees or process
-          payments for marketplace sales during the beta. Buyers and sellers
-          arrange payment and shipping directly. If we add fees or checkout,
-          we&rsquo;ll update these Terms and tell you before anything changes.
+          marketplace is in beta.
+        </p>
+        <p>
+          <strong>Buy now orders.</strong> When you buy with Buy now, ComixCatalog
+          collects your payment through Stripe and pays the seller after the order
+          completes (3 days after delivery, and for new sellers no sooner than 14
+          days after the sale). Sellers must ship within 3 business days, with
+          tracking on orders of $50 or more. If an item doesn&rsquo;t arrive or isn&rsquo;t
+          as described, the buyer can report it from the order page before the
+          order completes; we review it and may refund the buyer and recover the
+          amount from the seller&rsquo;s payout. Returns for any other reason are up
+          to the seller. Sellers who use Buy now must also accept Stripe&rsquo;s
+          Connected Account Agreement. During the beta, ComixCatalog charges a
+          marketplace fee of 5% of each Buy now order (item price plus shipping).
+          It and Stripe&rsquo;s card processing fee are deducted from the
+          seller&rsquo;s payout, and the fee in effect when an order is placed is the
+          one that applies to it. Deals arranged by message carry no ComixCatalog
+          fee. If we change the fee, we&rsquo;ll update these Terms and tell sellers
+          before it applies.
+        </p>
+        <p>
+          <strong>Deals by message.</strong> For sales arranged by message,
+          buyers and sellers agree on payment and shipping directly, and
+          ComixCatalog is not a party to the sale.
         </p>
 
         <h2>6. Database Contributions</h2>

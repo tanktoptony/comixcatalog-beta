@@ -9,13 +9,18 @@ import { getAuthedUser } from "@/lib/authServer";
 import { OWNED_STATUSES } from "@/lib/collectionStatus";
 import { resolveCovers } from "@/lib/catalog/covers";
 import { pdfGradeLabel } from "@/lib/pdfGrade";
+import { compareExportItems, fetchInChunks } from "@/lib/exportData";
+import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
-export const maxDuration = 60;
+export const maxDuration = 300;
 
 // Cover thumbnails in the report render at IMG_W=38pt (~50px at 96dpi).
-// Resizing to 200px wide gives 4x headroom for clarity at zoom without
-// blowing up the PDF. A 57MB PDF (51 books, full-res JPGs) drops to ~1MB.
-const COVER_RESIZE_WIDTH = 200;
+// Resizing to 96px wide leaves useful zoom headroom without making large
+// collection reports balloon from embedded full-resolution cover files.
+const COVER_RESIZE_WIDTH = 96;
+const COVER_CONCURRENCY = 16;
+const COVER_BUDGET_MS = 120_000;
 
 const NAVY   = rgb(0.043, 0.118, 0.420);
 const GOLD   = rgb(0.957, 0.816, 0.247);
@@ -55,10 +60,10 @@ function pdfSafe(text) {
   return s;
 }
 
-async function fetchImageBytes(url) {
+async function fetchImageBytes(url, timeoutMs = 5000) {
   if (!url) return null;
   try {
-    const res = await fetch(url, { signal: AbortSignal.timeout(5000) });
+    const res = await fetch(url, { signal: AbortSignal.timeout(Math.max(1, timeoutMs)) });
     if (!res.ok) return null;
     const raw = Buffer.from(await res.arrayBuffer());
 
@@ -67,9 +72,13 @@ async function fetchImageBytes(url) {
     // output is always JPEG, which pdf-lib embeds via embedJpg().
     // q=80 is a sweet spot for thumbnails: visually clean, ~5-10KB per cover.
     try {
+      // rotate() first: phone photos are stored sideways with an EXIF
+      // orientation flag that browsers honor and the re-encode would drop,
+      // so members' own photos came out on their side in the report.
       const resized = await sharp(raw)
+        .rotate()
         .resize({ width: COVER_RESIZE_WIDTH, withoutEnlargement: true })
-        .jpeg({ quality: 80, mozjpeg: true })
+        .jpeg({ quality: 70, mozjpeg: true })
         .toBuffer();
       return { bytes: new Uint8Array(resized), isPng: false };
     } catch (sharpErr) {
@@ -132,28 +141,19 @@ export async function POST(req) {
     const user_id = authedUser.id;
 
     const supabase = getServiceClient();
+    const requestStart = Date.now();
+    const phases = {};
+    let phaseStart = Date.now();
+    const mark = (name) => { phases[name] = Date.now() - phaseStart; phaseStart = Date.now(); };
 
-    const [{ data: profile }, { data: collRows, error: collErr }] = await Promise.all([
+    const [{ data: profile }, collRows] = await Promise.all([
       supabase.from("profiles").select("username").eq("id", user_id).single(),
-      supabase
+      fetchAllPages(() => supabase
         .from("user_collections")
-        .select("id, comic_id, gcd_issue_id, condition, grade_numeric, slab_company, slab_cert_number, notes, purchase_price, market_value, user_cover_url")
+        .select("id, comic_id, gcd_issue_id, condition, grade_numeric, slab_company, slab_cert_number, notes, purchase_price, market_value, user_cover_url, variant_label, copy_number")
         .eq("user_id", user_id)
-        .in("status", OWNED_STATUSES),
+        .in("status", OWNED_STATUSES), "id"),
     ]);
-
-    if (collErr) {
-      console.error("PDF export: user_collections query failed", {
-        message: collErr.message,
-        details: collErr.details,
-        hint: collErr.hint,
-        code: collErr.code,
-      });
-      return NextResponse.json(
-        { error: `Failed to fetch collection: ${collErr.message}` },
-        { status: 500 }
-      );
-    }
     if (!collRows?.length) {
       return NextResponse.json({ error: "No owned comics in collection" }, { status: 404 });
     }
@@ -164,15 +164,10 @@ export async function POST(req) {
     // ── Local comics ──
     const localIds = collRows.filter((r) => r.comic_id).map((r) => r.comic_id);
     if (localIds.length > 0) {
-      const { data: comics, error: comicsError } = await supabase
+      const comics = await fetchInChunks([...new Set(localIds)], (ids) => supabase
         .from("comics")
         .select("id, series_title, publisher, issue_number, release_year, comic_covers(image_path, is_primary)")
-        .in("id", localIds);
-
-      if (comicsError) {
-        console.error("PDF export local comics lookup failed:", comicsError.code, comicsError.message);
-        return NextResponse.json({ error: "Failed to load export rows" }, { status: 502 });
-      }
+        .in("id", ids), "id");
 
       for (const c of comics || []) {
         const path = c.comic_covers?.find((x) => x.is_primary)?.image_path ?? null;
@@ -181,6 +176,7 @@ export async function POST(req) {
           issueNumber: c.issue_number ?? "",
           publisher: c.publisher || "Unknown",
           year: c.release_year ?? null,
+          seriesYear: null,
           coverUrl: path
             ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/comic-covers/${path}`
             : null,
@@ -191,26 +187,16 @@ export async function POST(req) {
     // ── GCD issues ──
     const gcdIds = collRows.filter((r) => r.gcd_issue_id).map((r) => r.gcd_issue_id);
     if (gcdIds.length > 0) {
-      const { data: issues, error: issuesError } = await supabase
+      const issues = await fetchInChunks([...new Set(gcdIds)], (ids) => supabase
         .from("gcd_issues")
         .select("gcd_id, issue_number, publication_date, series_gcd_id, title")
-        .in("gcd_id", gcdIds);
-
-      if (issuesError) {
-        console.error("PDF export issues lookup failed:", issuesError.code, issuesError.message);
-        return NextResponse.json({ error: "Failed to load export rows" }, { status: 502 });
-      }
+        .in("gcd_id", ids), "gcd_id");
 
       const seriesGcdIds = [...new Set((issues || []).map((i) => i.series_gcd_id).filter(Boolean))];
-      const seriesRows = [];
-      for (let index = 0; index < seriesGcdIds.length; index += 180) {
-        const { data, error } = await supabase
+      const seriesRows = await fetchInChunks(seriesGcdIds, (ids) => supabase
           .from("series")
           .select("gcd_id, title, year_start_cached, year_end_cached, resolved_publisher_cached, publisher:publisher_id(id, name)")
-          .in("gcd_id", seriesGcdIds.slice(index, index + 180));
-        if (error) throw error;
-        seriesRows.push(...(data ?? []));
-      }
+          .in("gcd_id", ids), "gcd_id");
 
       const seriesMap = {};
       for (const s of seriesRows || []) seriesMap[s.gcd_id] = s;
@@ -250,6 +236,7 @@ export async function POST(req) {
           issueNumber: item.issueNumber,
           publisher: item.publisher ?? "Unknown",
           year: item.year,
+          seriesYear: item.seriesYearStart,
           coverUrl: storagePath ? `${canonicalCoverBase}${storagePath}` : null,
         };
       }
@@ -261,6 +248,7 @@ export async function POST(req) {
     //   2. market_comps median (sold-comp / asking-price from eBay)
     //   3. era-based cover-price floor - handled below
     // We pass each issue's grade signal so the median bucket is right.
+    mark("catalog");
     const marketValueMap = await getMarketValuesBulk({
       supabase,
       items: collRows
@@ -297,6 +285,7 @@ export async function POST(req) {
           : (autoValue != null ? autoValue : coverPriceForYear(meta.year));
         let value_source;
         if (userOverride != null) value_source = "user";
+        else if (mv?.source === "pricecharting") value_source = "pricecharting";
         else if (mv?.source === "market-comp") {
           value_source = mv.comp_source === "ebay-listed" ? "ebay-listed" : "ebay-sold";
         } else if (effective != null) value_source = "cover-price";
@@ -307,22 +296,36 @@ export async function POST(req) {
           issueNumber: meta.issueNumber ?? "",
           publisher: meta.publisher ?? "Unknown",
           year: meta.year ?? null,
+          seriesYear: meta.seriesYear ?? null,
           coverUrl: row.user_cover_url || meta.coverUrl || null,
           effective_market_value: effective,
           value_source,
         };
       })
-      .sort((a, b) => a.title.localeCompare(b.title));
+      .sort(compareExportItems);
 
-    // ── Pre-fetch cover images in parallel ──
+    // Bound parallel image work and stop starting covers at the report-wide
+    // deadline. Unfetched covers use the same gray placeholder as failures.
+    mark("values");
     const imgCache = {};
-    await Promise.all(
-      [...new Set(items.map((i) => i.coverUrl).filter(Boolean))].map(async (url) => {
-        const data = await fetchImageBytes(url);
+    const coverUrls = [...new Set(items.map((i) => i.coverUrl).filter(Boolean))];
+    // Covers get up to two minutes, but never past 200s into the request, so
+    // a very large collection still renders inside maxDuration (300s).
+    const coverDeadline = Math.min(Date.now() + COVER_BUDGET_MS, requestStart + 200_000);
+    let coverIndex = 0;
+    async function coverWorker() {
+      while (coverIndex < coverUrls.length && Date.now() < coverDeadline) {
+        const url = coverUrls[coverIndex++];
+        const remaining = coverDeadline - Date.now();
+        const data = await fetchImageBytes(url, Math.min(5000, remaining));
         if (data) imgCache[url] = data;
-      })
+      }
+    }
+    await Promise.all(
+      Array.from({ length: Math.min(COVER_CONCURRENCY, coverUrls.length) }, coverWorker)
     );
 
+    mark("covers");
     // ── Build PDF ──
     const doc = await PDFDocument.create();
     const bold   = await doc.embedFont(StandardFonts.HelveticaBold);
@@ -367,13 +370,16 @@ export async function POST(req) {
       const coverCount = items.filter((i) => i.value_source === "cover-price").length;
       const ebayAskingCount = items.filter((i) => i.value_source === "ebay-listed").length;
       const ebaySoldCount = items.filter((i) => i.value_source === "ebay-sold").length;
+      const guideCount = items.filter((i) => i.value_source === "pricecharting").length;
       const total = items.reduce((sum, i) => sum + (Number(i.effective_market_value) || 0), 0);
-      const anyValued = userCount + coverCount + ebayAskingCount + ebaySoldCount > 0;
+      const anyValued = userCount + coverCount + ebayAskingCount + ebaySoldCount + guideCount > 0;
       const value = anyValued ? money(total) : "Not recorded";
       return [
         "Estimated value",
         value,
-        "Estimated from recent comparable listings and cover prices. Not a professional appraisal.",
+        guideCount > 0
+          ? "Price data by PriceCharting (pricecharting.com) where listed. Not a professional appraisal."
+          : "Estimated from recent comparable listings and cover prices. Not a professional appraisal.",
       ];
     }
 
@@ -400,7 +406,7 @@ export async function POST(req) {
 
     cover.drawRectangle({ x: MARGIN + 18, y: fy - 8, width: W - (MARGIN + 18) * 2, height: 1, color: GOLD, opacity: 0.3 });
 
-    const disclaimer = "This report is generated for insurance and collection appraisal purposes only. Purchase-price totals reflect self-reported figures entered by the collector. Market-value totals combine self-reported values, eBay-derived comps, and an era-based cover-price floor estimate for issues without a user-entered value. eBay comps are current asking prices, not confirmed sold prices, unless individually noted otherwise - they typically skew high. Neither total constitutes a formal written appraisal.";
+    const disclaimer = "This report is generated for insurance and collection appraisal purposes only. Purchase-price totals reflect self-reported figures entered by the collector. Market-value totals combine self-reported values, PriceCharting guide values (pricecharting.com, built from sold listings, matched to each copy's recorded grade), eBay-derived comps, and an era-based cover-price floor estimate for issues without a user-entered value. eBay comps are current asking prices, not confirmed sold prices, unless individually noted otherwise - they typically skew high. Neither total constitutes a formal written appraisal.";
     const dLines = wrapText(disclaimer, reg, 8.5, W - (MARGIN + 18) * 2);
     let dy = fy - 28;
     for (const line of dLines) {
@@ -423,7 +429,9 @@ export async function POST(req) {
     // Total usable: 612 - 2*36 = 540
     const CX = {
       cover : MARGIN,
-      title : MARGIN + 38,
+      // The thumbnail is inset 3pt and up to IMG_W wide, so the title starts
+      // past MARGIN + 41 or the cover sits on its first letters.
+      title : MARGIN + 46,
       issue : MARGIN + 166,
       pub   : MARGIN + 192,
       year  : MARGIN + 264,
@@ -435,7 +443,7 @@ export async function POST(req) {
     };
     const CW = {
       cover : 38,
-      title : 128,
+      title : 120,
       issue : 26,
       pub   : 72,
       year  : 30,
@@ -541,13 +549,30 @@ export async function POST(req) {
       const ty = rowBottom + ROW_H / 2 - 3;
       const ts = 7.5;
 
-      // Title
-      page.drawText(truncate(item.title, bold, ts, CW.title - 4), {
-        x: CX.title + 2, y: ty + 4, size: ts, font: bold, color: DGRAY,
+      // Include the volume year so repeated series names are unambiguous.
+      // A variant uses the lower line; otherwise the title may wrap there.
+      const displayTitle = item.seriesYear ? `${item.title} (${item.seriesYear})` : item.title;
+      const titleLines = wrapText(displayTitle, bold, ts, CW.title - 4);
+      const hasVariant = Boolean(item.variant_label);
+      const shownTitleLines = titleLines.slice(0, hasVariant ? 1 : 2);
+      if (titleLines.length > shownTitleLines.length && shownTitleLines.length > 0) {
+        const last = shownTitleLines.length - 1;
+        shownTitleLines[last] = truncate(`${shownTitleLines[last]}...`, bold, ts, CW.title - 4);
+      }
+      const titleStartY = hasVariant || shownTitleLines.length > 1 ? ty + 9 : ty + 4;
+      shownTitleLines.forEach((line, index) => {
+        page.drawText(truncate(line, bold, ts, CW.title - 4), {
+          x: CX.title + 2, y: titleStartY - index * 10, size: ts, font: bold, color: DGRAY,
+        });
       });
+      if (hasVariant) {
+        page.drawText(truncate(item.variant_label, reg, 6.5, CW.title - 4), {
+          x: CX.title + 2, y: ty - 2, size: 6.5, font: reg, color: MGRAY,
+        });
+      }
       // Issue
       if (item.issueNumber) {
-        page.drawText(truncate(`#${item.issueNumber}`, reg, ts, CW.issue - 2), {
+        page.drawText(truncate(issueNumberText(item.issueNumber), reg, ts, CW.issue - 2), {
           x: CX.issue, y: ty + 4, size: ts, font: reg, color: DGRAY,
         });
       }
@@ -601,7 +626,8 @@ export async function POST(req) {
       // Market value - uses effective_market_value (user override → cover-
       // price floor). Cover-price and eBay-asking rows draw in italic to
       // visually distinguish unconfirmed estimates from solid values
-      // (collector-entered, or a real eBay sold comp); those stay bold.
+      // (collector-entered, a PriceCharting guide value, or a real eBay
+      // sold comp); those stay bold.
       const valueLabel = item.effective_market_value != null
         ? money(Number(item.effective_market_value))
         : "-";
@@ -654,13 +680,25 @@ export async function POST(req) {
 
     // ── Return PDF ──
     const bytes = await doc.save();
+    mark("render");
+    // One line per export, so a slow or oversized report shows up in the logs.
+    console.log("pdf export", JSON.stringify({ books: items.length, covers: Object.keys(imgCache).length, coverUrls: coverUrls.length, bytes: bytes.length, ms: phases }));
     const filename = `comixcatalog-collection-${new Date().toISOString().split("T")[0]}.pdf`;
 
-    return new Response(bytes, {
+    const chunkSize = 256 * 1024;
+    const stream = new ReadableStream({
+      start(controller) {
+        for (let offset = 0; offset < bytes.length; offset += chunkSize) {
+          controller.enqueue(bytes.slice(offset, offset + chunkSize));
+        }
+        controller.close();
+      },
+    });
+
+    return new Response(stream, {
       headers: {
         "Content-Type": "application/pdf",
         "Content-Disposition": `attachment; filename="${filename}"`,
-        "Content-Length": String(bytes.length),
       },
     });
   } catch (err) {

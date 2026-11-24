@@ -67,14 +67,32 @@ jobs:
             npx eslint $CHANGED
           fi
 
+      - name: Collection import tests
+        run: npm run test:import
+
       - name: Cover-match tests
         run: npm run test:cover-match
 
       - name: Cover-scan tests
         run: npm run test:cover-scan
 
+      - name: Issue SEO tests
+        run: npm run test:issue-seo
+
+      - name: Value email tests
+        run: npm run test:value-email
+
+      - name: Variant cover tests
+        run: npm run test:variant-covers
+
+      - name: Copy version tests
+        run: npm run test:copy-version
+
       - name: Review queue tests
         run: npm run test:review
+
+      - name: Collector list tests
+        run: npm run test:lists
 
       - name: Admin two-factor tests
         run: npm run test:admin-aal
@@ -88,6 +106,9 @@ jobs:
       - name: Creator page tests
         run: npm run test:creator-page
 
+      - name: Sitemap tests
+        run: npm run test:sitemap
+
       - name: Fetch retry tests
         run: npm run test:fetch-with-retry
 
@@ -97,11 +118,35 @@ jobs:
       - name: Activity feed privacy tests
         run: npm run test:activity-feed
 
+      - name: Issue review tests
+        run: npm run test:reviews
+
+      - name: Comment tests
+        run: npm run test:comments
+
+      - name: Email preference tests
+        run: npm run test:email-prefs
+
+      - name: Blog cross-post tests
+        run: npm run test:blog-crosspost
+
+      - name: Social book-context tests
+        run: npm run test:social
+
       - name: Library mutation tests
         run: npm run test:library-mutations
 
+      - name: Trade match tests
+        run: npm run test:trade-matches
+
       - name: Chunk helper tests
         run: npm run test:chunk
+
+      - name: Sitemap issue file tests
+        run: npm run test:sitemap-issues
+
+      - name: Issue sitemap tests
+        run: npm run test:issue-sitemap
 
       - name: GCD format-sync retry tests
         run: npm run test:format-sync
@@ -115,8 +160,17 @@ jobs:
       - name: Instagram series scheduler tests
         run: npm run test:ig-series
 
+      - name: Signup attribution tests
+        run: npm run test:attribution
+
       - name: Health-check failure-mode tests
         run: npm run test:health-check
+
+      - name: Signups by source tests
+        run: npm run test:signup-sources
+
+      - name: Instagram token check tests
+        run: npm run test:instagram-token
 
       - name: Catalog duplicate-check tests
         run: npm run test:contribute-match
@@ -145,6 +199,9 @@ jobs:
       - name: Error-handling ratchet
         run: npm run audit:errors
 
+      - name: Pin trust tests
+        run: npm run test:pin-trust
+
       - name: describeError tests
         run: npm run test:describe-error
 
@@ -159,6 +216,15 @@ jobs:
 
       - name: Cover thumb URL tests
         run: npm run test:cover-thumb
+
+      - name: GCD issue refresh tests
+        run: npm run test:gcd-issue-refresh
+
+      - name: Message emoji and reaction tests
+        run: npm run test:emoji
+
+      - name: Link-preview card cache tests
+        run: npm run test:og-cache
 
       - name: Browser cache helper tests
         run: npm run test:local-cache
@@ -214,11 +280,26 @@ jobs:
       - name: eBay comp matching tests
         run: npm run test:comp-match
 
+      - name: PriceCharting parser tests
+        run: npm run test:pricecharting
+
       - name: JSON-LD escaping tests
         run: npm run test:json-ld
 
       - name: Activation nudge tests
         run: npm run test:activation-nudges
+
+      - name: YouTube stats tests
+        run: npm run test:youtube-stats
+
+      - name: Badge tests
+        run: npm run test:badges
+
+      - name: Weekly scoreboard tests
+        run: npm run test:weekly-scoreboard
+
+      - name: YouTube tracked link tests
+        run: npm run test:youtube-links
 
       - name: Docs link check
         run: npm run docs:check

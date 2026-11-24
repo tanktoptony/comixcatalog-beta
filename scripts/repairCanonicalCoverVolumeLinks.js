@@ -21,6 +21,10 @@ const CONFIRMED_COUNT = arg("confirm") == null ? null : Number(arg("confirm"));
 // 1995 Abbeville "Wonder Woman" (2026-10-26), so moving covers alone would
 // not stick.
 const MOVE_PIN = process.argv.includes("--move-pin");
+// --cover-title="<ComicVine title>": a title checked by hand that this run also
+// carries. GCD's one "The Spectacular Spider-Man" run is two ComicVine volumes,
+// the second called "Peter Parker, the Spectacular Spider-Man" (2026-11-24).
+const COVER_TITLE = arg("cover-title") ?? null;
 
 if (!Number.isSafeInteger(VOLUME_ID) || !Number.isSafeInteger(SERIES_GCD_ID)) {
   throw new Error("Usage: node scripts/repairCanonicalCoverVolumeLinks.js --volume-id=<id> --series-gcd-id=<id> [--move-pin] [--apply --confirm=<rows>]");
@@ -56,7 +60,7 @@ async function run() {
   // "X-Men Red". An exact comparison refused most real relinks (2026-10-26).
   const targetKey = toTitleNormalizedKey(series.name);
   const titleMismatches = covers.filter(
-    (cover) => !titleVariants(cover.series_title).includes(targetKey)
+    (cover) => !titleVariants(cover.series_title).includes(targetKey) && cover.series_title !== COVER_TITLE
   );
   if (titleMismatches.length > 0) {
     throw new Error(`${titleMismatches.length} cover titles do not match target GCD series ${series.name}`);
@@ -110,7 +114,8 @@ async function run() {
   console.log(`ComicVine volume: ${VOLUME_ID}`);
   console.log(`Target GCD series: ${SERIES_GCD_ID} — ${series.name} (${series.year_began}-${series.year_ended})`);
   console.log(JSON.stringify(stats, null, 2));
-  for (const row of plan.slice(0, 20)) {
+  // --all-rows prints every change, for a rollback record.
+  for (const row of process.argv.includes("--all-rows") ? plan : plan.slice(0, 20)) {
     console.log(
       `  ${row.cover.issue_number}: series ${row.cover.series_gcd_id} -> ${row.after.series_gcd_id}; issue ${row.cover.gcd_issue_id} -> ${row.after.gcd_issue_id}; ${row.after.match_confidence}`
     );

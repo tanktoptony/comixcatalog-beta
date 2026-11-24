@@ -8,6 +8,24 @@ export function issueName(issue) {
   return `${series}${number}${year}`;
 }
 
+// People search "<comic> value" and "<comic> price guide". Only issues that
+// actually show a PriceCharting guide say so. No dollar figures: PriceCharting's
+// terms require a link beside every price shown, and a search result can't
+// carry one.
+export function issueTitle(issue) {
+  const name = issueName(issue);
+  return issue?.price_guide?.grades?.length ? `${name} Value & Price Guide` : name;
+}
+
+function priceGuideLine(issue) {
+  const grades = issue?.price_guide?.grades ?? [];
+  if (!grades.length) return null;
+  const raw = grades.some((g) => g.grade === "ungraded");
+  const graded = grades.some((g) => g.grade !== "ungraded");
+  if (raw && graded) return "Raw and graded values from PriceCharting.";
+  return graded ? "Graded values from PriceCharting." : "Raw copy value from PriceCharting.";
+}
+
 function fitDescription(parts, maxLength = 160) {
   let description = "";
   for (const part of parts.filter(Boolean)) {
@@ -47,18 +65,46 @@ export function buildIssueDescription(issue) {
         ? `${subject}, published in ${issue.release_year}.`
         : `${subject}.`;
 
-  const writers = creditsFor(issue, "writer").map((credit) => credit.name);
-  const pencillers = creditsFor(issue, "penciller").map((credit) => credit.name);
-  const creatorLine = writers.length || pencillers.length
-    ? `By ${[joinNames(writers), joinNames(pencillers)].filter(Boolean).join(" and ")}.`
-    : null;
+  // A writer who also pencilled is named once ("By Jack Kirby.", not "By Jack
+  // Kirby and Jack Kirby.").
+  const creators = [...new Set([
+    ...creditsFor(issue, "writer").map((credit) => credit.name),
+    ...creditsFor(issue, "penciller").map((credit) => credit.name),
+  ])];
+  const creatorLine = creators.length ? `By ${joinNames(creators)}.` : null;
   return fitDescription([
     publication,
+    // Ahead of the creators: it's what the title promises.
+    priceGuideLine(issue),
     creatorLine,
     issue?.title ? `Story: ${issue.title}.` : null,
     issue?.key_issue?.reason ? `Key issue: ${issue.key_issue.reason}.` : null,
-    "Cover, release date and story details, plus copies for sale from collectors.",
+    // Copies for sale outrank the contents list when 160 characters run out.
+    forSaleLine(issue),
+    pageContentsLine(issue),
   ]);
+}
+
+// Search results quote this line, so it names only what the page shows. It
+// used to promise "Cover ... plus copies for sale" on every issue, including
+// the many with no cover and no listings.
+function pageContentsLine(issue) {
+  const parts = [];
+  if (issue?.cover) parts.push("cover");
+  if (issue?.details?.on_sale_date || issue?.publication_date) parts.push("release date");
+  if (issue?.stories?.some((story) => String(story.synopsis ?? story.title ?? "").trim())) parts.push("story details");
+  if (creditsFor(issue, "writer").length || creditsFor(issue, "penciller").length) parts.push("credits");
+  if (!parts.length) return "Track it in your collection on ComixCatalog.";
+  const list = joinNames(parts);
+  return `${list[0].toUpperCase()}${list.slice(1)} on ComixCatalog.`;
+}
+
+// market.listings_count comes from getIssuePageData (active listings only);
+// the plain issue API always reports 0, so no count means no claim.
+function forSaleLine(issue) {
+  const count = Number(issue?.market?.listings_count ?? 0);
+  if (!(count > 0)) return null;
+  return `${count} ${count === 1 ? "copy" : "copies"} for sale from collectors.`;
 }
 
 export function buildIssueJsonLd(issue, id) {

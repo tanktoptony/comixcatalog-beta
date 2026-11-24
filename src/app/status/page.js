@@ -21,7 +21,7 @@ export default function StatusPage() {
           <StatusRow label="Web app" state="operational" />
           <StatusRow label="Database (Supabase)" state="operational" />
           <StatusRow label="Cover storage" state="operational" />
-          <StatusRow label="Marketplace" state="beta" detail="Listings and messages live, no checkout yet" />
+          <StatusRow label="Marketplace" state="beta" detail="Listings, offers and Buy now checkout live" />
         </ul>
 
         <p className="cc-hint status-note">

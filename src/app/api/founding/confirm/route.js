@@ -12,12 +12,23 @@ export async function GET(req) {
     const supabase = getServiceClient();
     const { data: row, error: lookupError } = await supabase
       .from("founding_claim_tokens")
-      .select("user_id, created_at")
+      .select("user_id, created_at, confirmed_at")
       .eq("token_hash", hashFoundingToken(token))
-      .is("confirmed_at", null)
       .maybeSingle();
     if (lookupError) throw lookupError;
     if (!row) return destination("claim=invalid");
+    // Second click on the same link, or a mail scanner got there first. If the
+    // pass went through, this person is a founder: say so rather than telling
+    // them the link is dead and to claim again.
+    if (row.confirmed_at) {
+      const { data: profile, error: profileError } = await supabase
+        .from("profiles")
+        .select("is_founding_collector")
+        .eq("id", row.user_id)
+        .maybeSingle();
+      if (profileError) throw profileError;
+      return destination(profile?.is_founding_collector ? "claimed=1" : "claim=invalid");
+    }
     if (isFoundingTokenExpired(row.created_at)) return destination("claim=expired");
 
     const { data, error: claimError } = await supabase.rpc("claim_founding_pass", { p_user_id: row.user_id });

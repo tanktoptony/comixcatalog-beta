@@ -1,0 +1,54 @@
+name: Weekly digest
+
+# The weekly digest (followed collectors, wantlist books listed, trade matches, unread activity, collection value), one per member per ISO week via email_campaign_sends.
+# Runs Sundays at 15:00 UTC (scripts/sendWeeklyDigest.js). Runs here because the unsubscribe links must
+# be signed with the production EMAIL_UNSUBSCRIBE_SECRET.
+# Scheduled runs only send when the repo variable EMAILS_LIVE is "true";
+# otherwise they are dry runs that print who would get what. A manual run
+# sends only with "apply" ticked.
+
+on:
+  schedule:
+    - cron: "0 15 * * 0"
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "Actually send (unticked = dry run)"
+        type: boolean
+        default: false
+      only:
+        description: "Only these usernames, comma separated (blank = everyone eligible)"
+        type: string
+        default: ""
+
+concurrency:
+  group: weekly-digest
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+      EMAIL_UNSUBSCRIBE_SECRET: ${{ secrets.EMAIL_UNSUBSCRIBE_SECRET }}
+      APPLY: ${{ github.event_name == 'schedule' && vars.EMAILS_LIVE == 'true' || inputs.apply == true }}
+      ONLY: ${{ inputs.only }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - run: npm ci
+      - name: Send (or preview)
+        run: |
+          args=()
+          if [ -n "$ONLY" ]; then args+=("--only=$ONLY"); fi
+          if [ "$APPLY" = "true" ]; then args+=("--apply"); fi
+          node scripts/sendWeeklyDigest.js "${args[@]}"

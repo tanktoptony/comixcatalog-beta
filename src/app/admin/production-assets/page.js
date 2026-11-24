@@ -15,6 +15,7 @@ import { useAuth } from "@/context/AuthContext";
 import { ADMIN_ID } from "@/lib/admin";
 import { authedFetch } from "@/lib/apiClient";
 import { sniffImage, uniqueFilename } from "@/lib/productionAssets";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 const EPISODE_001 = `Uncanny X-Men #1 (1963)
 Uncanny X-Men #129
@@ -362,7 +363,7 @@ export default function ProductionAssetsPage() {
                       </td>
                       <td>
                         {m?.cover
-                          ? <img className="pa-thumb" src={m.cover} alt={`${m.seriesTitle} #${m.issueNumber}`} loading="lazy" />
+                          ? <img className="pa-thumb" src={m.cover} alt={`${m.seriesTitle} ${issueNumberText(m.issueNumber)}`} loading="lazy" />
                           : <div className="pa-thumb pa-thumb-empty">none</div>}
                       </td>
                       <td className="pa-requested">{row.requested}</td>
@@ -402,7 +403,7 @@ export default function ProductionAssetsPage() {
                                     : <div className="pa-cand-thumb pa-thumb-empty">no cover</div>}
                                   <span className="pa-cand-title">{c.seriesTitle}</span>
                                   <span className="pa-sub">{span(c)} · {c.issueCount ?? "?"} issues</span>
-                                  <span className="pa-sub">{c.publisher ?? "publisher unknown"} · #{c.issueNumber}{c.year ? ` (${c.year})` : ""}</span>
+                                  <span className="pa-sub">{c.publisher ?? "publisher unknown"} · {issueNumberText(c.issueNumber)}{c.year ? ` (${c.year})` : ""}</span>
                                   {c.seriesFormat && <span className="pa-sub">{c.seriesFormat}</span>}
                                   <span className="pa-sub pa-mono">{c.issueId}{c.comicvineVolumeId ? ` · CV ${c.comicvineVolumeId}` : ""}</span>
                                 </button>

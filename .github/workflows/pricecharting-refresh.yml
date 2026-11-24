@@ -1,0 +1,66 @@
+name: PriceCharting refresh (daily)
+
+# Prices our comics from PriceCharting's API into pricecharting_prices
+# (migrations 0105, 0106) via scripts/fetchPriceCharting.js. There is no
+# comics CSV, so it searches once per base issue (collections and wantlists
+# first, then key issues) at PriceCharting's limit of one call per second.
+# Each issue is re-searched every 7 days; 3,000 calls is about 55 minutes.
+#
+# 08:20 UTC (2:20 AM Central): off-peak, clear of the top-of-hour cover
+# ingest. Writes are small.
+#
+# Needs the PRICECHARTING_TOKEN repo secret. To run by hand: Actions tab >
+# PriceCharting refresh > Run workflow; dry_run=true prints 20 links and
+# writes nothing.
+
+on:
+  schedule:
+    - cron: '20 8 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Report only, write nothing'
+        default: 'false'
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+
+    concurrency:
+      group: pricecharting-refresh
+      cancel-in-progress: false
+
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      PRICECHARTING_TOKEN: ${{ secrets.PRICECHARTING_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - run: npm ci --no-audit --no-fund
+
+      - name: Check token is present
+        run: |
+          if [ -z "$PRICECHARTING_TOKEN" ]; then
+            echo "::error::Missing repo secret PRICECHARTING_TOKEN"
+            exit 1
+          fi
+
+      # No continue-on-error: a run that loads nothing must go red.
+      - name: Price comics
+        run: |
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            node scripts/fetchPriceCharting.js
+          else
+            node scripts/fetchPriceCharting.js --apply --max-calls=3000 --max-age-days=7
+          fi

@@ -16,6 +16,11 @@ const THUMB_MARKER = "/storage/v1/object/public/cover-thumbs/w400/";
 
 export const THUMB_WIDTH = 400;
 
+// sharp WebP settings for thumbs. q72 (until 2026-11-24) left blotchy blocks
+// and smeared color edges that read as grain in small tiles; smartSubsample
+// keeps red/blue edges clean. The Python ingester uses Pillow q85, method 6.
+export const THUMB_WEBP = { quality: 80, smartSubsample: true, effort: 4 };
+
 // Storage path of the thumb for an original's storage path.
 export function thumbStoragePath(storagePath) {
   return `w${THUMB_WIDTH}/${storagePath}.webp`;
@@ -44,15 +49,11 @@ export function coverOriginal(url) {
   return `${url.slice(0, at)}${ORIGINAL_MARKER}${path.slice(0, -".webp".length)}`;
 }
 
-// Supabase's on-demand 400px transform is the lightweight fallback when a
-// prebuilt WebP thumb has not reached the cover-thumbs bucket yet.
-// resize=contain is required: with width alone Supabase defaults to "cover"
-// and keeps the original height, returning a 400px-wide strip of the full
-// cover (400x3048 for a 1977x3048 scan), which cards then show zoomed in.
+// What to show when a prebuilt thumb has not reached cover-thumbs yet: the
+// original. This used to be Supabase's on-demand 400px transform, which is
+// billed per image and was switched off on 2026-11-21; from then on it
+// answered 403 and the tile fell through to the placeholder. Only ~0.6% of
+// covers lack a thumb, so the larger original is a rare download.
 export function coverTransform(url) {
-  const original = coverOriginal(url);
-  if (!original) return null;
-  return original
-    .replace("/storage/v1/object/public/canonical-covers/", "/storage/v1/render/image/public/canonical-covers/")
-    .concat("?width=400&resize=contain&quality=80");
+  return coverOriginal(url);
 }

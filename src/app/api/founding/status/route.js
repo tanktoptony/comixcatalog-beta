@@ -2,10 +2,11 @@ import { NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase/service";
 import { getAuthedUser } from "@/lib/authServer";
 import { isDisposableEmail } from "@/lib/disposableEmail";
-import { buildFoundingClaimEmail, createFoundingToken, hashFoundingToken, mapFoundingClaim } from "@/lib/foundingClaim";
+import { buildFoundingClaimEmail, createFoundingToken, hashFoundingToken, isFoundingTokenExpired, mapFoundingClaim } from "@/lib/foundingClaim";
 import { resendBatch } from "@/lib/newsletter";
 import { SITE_URL } from "@/lib/siteUrl";
 import { foundingInboxIsClaimed } from "@/lib/foundingInbox";
+import { getFounderPassCovers } from "@/lib/foundingShowcase";
 
 const CAP = 100;
 
@@ -30,6 +31,8 @@ export async function GET(req) {
     const user = await getAuthedUser(req);
     let isFounding = false;
     let number = null;
+    let pendingEmail = null;
+    let passCovers = [];
 
     if (user) {
       const { data: profile, error: profileError } = await supabase
@@ -50,6 +53,27 @@ export async function GET(req) {
           .lt("created_at", profile.created_at);
         if (countError) throw countError;
         number = (Number(count) || 0) + 1;
+        // The covers behind the number on their own pass. Decoration: a
+        // failure here leaves the pass on the wall's covers, not an error.
+        try {
+          passCovers = (await getFounderPassCovers(user.id)).map((c) => c.thumb);
+        } catch (coverError) {
+          console.error("founding pass covers failed:", coverError?.message ?? coverError);
+        }
+      }
+      // A confirm link is out and still good. The page says so on every visit,
+      // in any browser, instead of offering to claim all over again. Only the
+      // signed-in owner ever gets their own address back from this.
+      if (!isFounding) {
+        const { data: token, error: tokenError } = await supabase
+          .from("founding_claim_tokens")
+          .select("email, created_at, confirmed_at")
+          .eq("user_id", user.id)
+          .maybeSingle();
+        if (tokenError) throw tokenError;
+        if (token && !token.confirmed_at && !isFoundingTokenExpired(token.created_at)) {
+          pendingEmail = token.email;
+        }
       }
     }
 
@@ -58,6 +82,9 @@ export async function GET(req) {
       isFounding,
       number,
       canClaim: Boolean(user) && !isFounding && availability.remaining > 0,
+      pending: Boolean(pendingEmail),
+      pendingEmail,
+      passCovers,
     });
   } catch (error) {
     console.error("founding status failed:", error);
@@ -104,7 +131,7 @@ export async function POST(req) {
       return NextResponse.json({ error: "We just sent it. Check your inbox (and spam)." }, { status: 429 });
     }
     if ((existing?.sent_count ?? 0) >= 5) {
-      return NextResponse.json({ error: "You have reached the confirmation email limit." }, { status: 429 });
+      return NextResponse.json({ error: "That's the most confirmation emails we can send. Write to comixcatalog@gmail.com and we'll sort it out." }, { status: 429 });
     }
 
     const token = createFoundingToken();

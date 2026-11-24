@@ -2,11 +2,23 @@ import { getIssueData } from "@/lib/pageData";
 import { getServiceClient } from "@/lib/supabase/service";
 import { renderCoverCard, OG_SIZE } from "@/lib/og/card";
 import { homeImage } from "@/app/opengraph-image";
+import { cachedCard } from "@/lib/og/cache";
+import { issueDateChip } from "@/lib/issueDetails";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 export const alt = "Comic issue on ComixCatalog";
 export const size = OG_SIZE;
 export const contentType = "image/png";
 export const revalidate = 604800;
+// Cached between refreshes (Next 16 renders route handlers on every request
+// unless they are static): without these two lines every crawler hit
+// re-rendered the card and re-fetched its covers (72,300 billed image
+// transforms in Nov 2026). Unknown params render on first request, then
+// come from the cache until `revalidate` runs out.
+export const dynamic = "force-static";
+export function generateStaticParams() {
+  return [];
+}
 
 // The page sends cv-<series>-<number> to the GCD issue when one exists;
 // the card follows the same rule so it shows the full record.
@@ -35,7 +47,7 @@ function creatorLine(credits = []) {
     .join(" · ");
 }
 
-export default async function Image({ params }) {
+async function Image({ params }) {
   try {
     const { id } = await params;
     const x = await getIssueData(await resolveId(id));
@@ -47,8 +59,8 @@ export default async function Image({ params }) {
     return renderCoverCard({
       cover: x.cover,
       title: x.series_title || "Comic issue",
-      issue: x.issue_number && x.issue_number !== "[nn]" ? `#${x.issue_number}` : null,
-      eyebrow: [x.publisher, x.display_date || x.release_year].filter(Boolean).join(" · "),
+      issue: (issueNumberText(x.issue_number) || null),
+      eyebrow: [x.publisher, issueDateChip(x)?.label || x.release_year].filter(Boolean).join(" · "),
       pill: key ? "KEY ISSUE" : null,
       lines: [
         key?.reason ? { children: key.reason, color: "#ecd48c", size: 22 } : story && { children: story, size: 22 },
@@ -65,3 +77,6 @@ export default async function Image({ params }) {
     return homeImage();
   }
 }
+
+// Cached for `revalidate`, whatever the data caches say (src/lib/og/cache.js).
+export default cachedCard(revalidate, Image);

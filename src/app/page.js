@@ -23,12 +23,15 @@ export default async function HomePage() {
   ]);
   const heroWall = await getHeroWall(featuredResult);
   return (
-    <HomeClient
-      featured={featuredResult.slice(0, 12)}
-      heroWall={heroWall}
-      stats={home.stats}
-      dispatch={home}
-      excited={excited}
-    />
+    <>
+      <div className="signed-in-shelf-skeleton" aria-hidden="true"><div /><div /></div>
+      <HomeClient
+        featured={featuredResult.slice(0, 12)}
+        heroWall={heroWall}
+        stats={home.stats}
+        dispatch={home}
+        excited={excited}
+      />
+    </>
   );
 }

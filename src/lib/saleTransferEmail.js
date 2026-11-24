@@ -1,4 +1,5 @@
 import { resendBatch, SITE_URL } from "./newsletter.js";
+import { issueNumberSuffix } from "./issueNumberLabel.js";
 
 const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 
@@ -10,7 +11,7 @@ export async function notifySaleBuyer({ supabase, saleId }) {
   if (sellerError) throw sellerError;
   const { data: auth, error: authError } = await supabase.auth.admin.getUserById(sale.buyer_id);
   if (authError || !auth?.user?.email) throw authError || new Error("Buyer has no email address.");
-  const title = `${sale.series_title}${sale.issue_number ? ` #${sale.issue_number}` : ""}`;
+  const title = `${sale.series_title}${issueNumberSuffix(sale.issue_number)}`;
   const price = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(Number(sale.sale_price));
   const url = `${SITE_URL}/purchases/${sale.id}`;
   const sentence = `@${seller.username} says you bought ${title} for ${price}.`;

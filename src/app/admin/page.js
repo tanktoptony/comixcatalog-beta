@@ -57,7 +57,8 @@ export default function AdminPage() {
     setTarget(json.user);
   }
 
-  async function togglePro(nextValue) {
+  // field is "is_pro" or "is_patron" (the Patreon badge).
+  async function toggleFlag(field, nextValue) {
     if (!target) return;
     setWorking(true);
     setMessage(null);
@@ -66,7 +67,7 @@ export default function AdminPage() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         target_username: target.username,
-        is_pro: nextValue,
+        [field]: nextValue,
       }),
     });
     const json = await res.json();
@@ -75,10 +76,11 @@ export default function AdminPage() {
       setMessage({ type: "err", text: json.error || "Update failed" });
       return;
     }
-    setTarget({ ...target, is_pro: json.user.is_pro });
+    setTarget({ ...target, [field]: json.user[field] });
+    const label = field === "is_pro" ? "Pro" : "Patron badge";
     setMessage({
       type: "ok",
-      text: `${target.username} → Pro is now ${json.user.is_pro ? "ON" : "OFF"} (was ${json.previous_is_pro ? "ON" : "OFF"})`,
+      text: `${target.username} → ${label} is now ${json.user[field] ? "ON" : "OFF"} (was ${json[`previous_${field}`] ? "ON" : "OFF"})`,
     });
   }
 
@@ -91,13 +93,14 @@ export default function AdminPage() {
       <header className="admin-header">
         <p className="admin-kicker">Admin Tools</p>
         <h1 className="admin-title">User management</h1>
-        <p className="admin-lede">Comp, grant, or revoke Pro memberships by username.</p>
+        <p className="admin-lede">Comp, grant, or revoke Pro memberships and Patron badges by username.</p>
       </header>
       <div className="admin-actions">
         <Link className="admin-btn" href="/admin/review">Open review queue</Link>
         <Link className="admin-btn" href="/admin/reports">Open reports</Link>
         <Link className="admin-btn" href="/admin/traction">Open traction</Link>
         <Link className="admin-btn" href="/admin/orders">Orders</Link>
+        <Link className="admin-btn" href="/admin/private-members">Private members</Link>
       </div>
 
       <section className="admin-card">
@@ -157,6 +160,12 @@ export default function AdminPage() {
                 <span className="admin-pill founding">★ Founding</span>
               </div>
             )}
+            <div className="admin-target-row">
+              <span className="admin-target-label">Patron badge</span>
+              <span className={`admin-pill ${target.is_patron ? "on" : "off"}`}>
+                {target.is_patron ? "PATRON" : "NONE"}
+              </span>
+            </div>
             {target.stripe_customer_id && (
               <div className="admin-target-row">
                 <span className="admin-target-label">Stripe customer</span>
@@ -168,7 +177,7 @@ export default function AdminPage() {
                 type="button"
                 className="admin-btn admin-btn-primary"
                 disabled={working || target.is_pro}
-                onClick={() => togglePro(true)}
+                onClick={() => toggleFlag("is_pro", true)}
               >
                 Grant Pro
               </button>
@@ -176,9 +185,27 @@ export default function AdminPage() {
                 type="button"
                 className="admin-btn admin-btn-danger"
                 disabled={working || !target.is_pro}
-                onClick={() => togglePro(false)}
+                onClick={() => toggleFlag("is_pro", false)}
               >
                 Revoke Pro
+              </button>
+            </div>
+            <div className="admin-actions">
+              <button
+                type="button"
+                className="admin-btn admin-btn-primary"
+                disabled={working || target.is_patron}
+                onClick={() => toggleFlag("is_patron", true)}
+              >
+                Grant Patron badge
+              </button>
+              <button
+                type="button"
+                className="admin-btn admin-btn-danger"
+                disabled={working || !target.is_patron}
+                onClick={() => toggleFlag("is_patron", false)}
+              >
+                Revoke Patron badge
               </button>
             </div>
           </div>

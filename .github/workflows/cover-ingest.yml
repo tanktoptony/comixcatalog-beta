@@ -34,6 +34,9 @@ name: Cover ingest
 #                            (see scripts/resolveNeedsVolumeIdBacklog.js) —
 #                            fetches the volume directly by id, no title
 #                            search, so this lane is close to a guaranteed hit
+#   5a. gap-keys.json     — first-appearance key books with no cover, by
+#                            ComicVine volume id (built 2026-11-02 from the
+#                            character crawl; static until rebuilt).
 #   5b. gap-backfill.json — series with no cover at all, mainstream and
 #                            newest first, trades and one-shots included
 #                            (scripts/generateCoverBackfillGap.js, daily in
@@ -220,6 +223,29 @@ jobs:
       # Member book requests (catalog_requests, /request). A failure here must
       # never block the ingest, but it must be visible: warn, write an empty
       # target file so the lane below skips cleanly, and carry on.
+      # Overnight window, 04:00-12:59 UTC (10 PM-7 AM CT): the new-member
+      # lane below takes the night's ComicVine budget (Tony, 2026-11-24:
+      # "an ingest run on all covers my new users bring in nightly ...
+      # prioritize these over all other ingests"). Bulk DB reads stay
+      # off-peak per the ops rules, so its generator only runs in this window.
+      - name: Check overnight window
+        id: night
+        run: |
+          h=$((10#$(date -u +%H)))
+          if [ "$h" -ge 4 ] && [ "$h" -le 12 ]; then echo "on=true" >> "$GITHUB_OUTPUT"; else echo "on=false" >> "$GITHUB_OUTPUT"; fi
+          echo "UTC hour $h, overnight=$([ "$h" -ge 4 ] && [ "$h" -le 12 ] && echo yes || echo no)"
+
+      # Books added to any collection or wantlist in the last 30 days whose
+      # issue still has no cover: new members' imports, newest first. Same
+      # failure posture as the generators below.
+      - name: Generate new-member targets
+        if: steps.night.outputs.on == 'true'
+        run: |
+          if ! node scripts/generateUserCollectedGap.js --since-days=30 --out=gap-new-members.json; then
+            echo "::warning::New-member generator failed; this run ingests without the new-member lane."
+            echo '[]' > gap-new-members.json
+          fi
+
       - name: Generate requested-book targets
         run: |
           if ! node scripts/generateRequestedGap.js --apply; then
@@ -276,6 +302,38 @@ jobs:
       # two; the done-ledger sweeps whatever is left on the next run.
       # Regenerated twice weekly by gap-probe.yml so this lane can't go
       # stale the way it did between Aug 25 and Sep 20.
+      # New-member lane: first, and overnight only. 60 searches and a 30-minute
+      # cap (the hourly lanes otherwise get 15). Variant images are skipped
+      # (--max-variant-images-per-issue 0) so this lane adds no extra storage
+      # beyond the covers themselves. When it works for 3 minutes or more
+      # (busy=true) only requested books and new releases run after it that
+      # hour, so the job stays inside its 55 minutes. When it has little to do
+      # every lane runs as usual: most recent members' gaps are already in the
+      # ledger or in retry-backoff (577 of 645 series on 2026-11-24), and an
+      # idle lane must not hold up the rest all night.
+      - name: Ingest new-member targets
+        id: lane_new_members
+        # No blanket continue-on-error: the 30-minute cap (124/137) is expected
+        # and translated to 0; any other non-zero exit is recorded as
+        # failed=true so the lanes after it still run, and "Report lane
+        # outcomes" turns the run red.
+        if: steps.night.outputs.on == 'true' && hashFiles('gap-new-members.json') != ''
+        run: |
+          started=$(date +%s)
+          set +e
+          timeout --kill-after=60s 30m python comicvine_api_to_supabase.py --targets gap-new-members.json --skip-existing --missing-only --max-search-calls 60 --vol-sleep 1.0 --max-minutes 28 --max-variant-images-per-issue 0
+          code=$?
+          set -e
+          if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
+            echo "Lane hit its 30-minute cap. The ledger picks it up next hour."
+          elif [ "$code" -ne 0 ]; then
+            echo "::error::New-member lane exited $code."
+            echo "failed=true" >> "$GITHUB_OUTPUT"
+          fi
+          took=$(( $(date +%s) - started ))
+          echo "New-member lane took ${took}s."
+          if [ "$took" -ge 180 ]; then echo "busy=true" >> "$GITHUB_OUTPUT"; fi
+
       - name: Ingest requested-book targets
         id: lane_requested
         if: hashFiles('gap-requested.json') != ''
@@ -310,7 +368,7 @@ jobs:
 
       - name: Ingest user-collected gap targets
         id: lane_user_collected
-        if: hashFiles('gap-user-collected.json') != ''
+        if: hashFiles('gap-user-collected.json') != '' && steps.lane_new_members.outputs.busy != 'true'
         continue-on-error: true
         run: |
           set +e
@@ -324,7 +382,7 @@ jobs:
 
       - name: Ingest launch-priority gap targets
         id: lane_priority
-        if: hashFiles('gap-priority.json') != ''
+        if: hashFiles('gap-priority.json') != '' && steps.lane_new_members.outputs.busy != 'true'
         continue-on-error: true
         run: |
           set +e
@@ -338,7 +396,7 @@ jobs:
 
       - name: Ingest featured-gap targets
         id: lane_featured
-        if: hashFiles('gap-featured.json') != ''
+        if: hashFiles('gap-featured.json') != '' && steps.lane_new_members.outputs.busy != 'true'
         continue-on-error: true
         run: |
           set +e
@@ -360,7 +418,7 @@ jobs:
       # lane to "Report lane outcomes" and emails a false alarm.
       - name: Ingest manual-gap targets
         id: lane_manual
-        if: hashFiles('gap-manual.json') != ''
+        if: hashFiles('gap-manual.json') != '' && steps.lane_new_members.outputs.busy != 'true'
         continue-on-error: true
         run: |
           set +e
@@ -377,7 +435,7 @@ jobs:
       # title/publisher search that failed for these in the first place.
       - name: Ingest pinned-volume targets
         id: lane_pinned
-        if: hashFiles('gap-pinned.json') != ''
+        if: hashFiles('gap-pinned.json') != '' && steps.lane_new_members.outputs.busy != 'true'
         continue-on-error: true
         run: |
           set +e
@@ -389,16 +447,40 @@ jobs:
           fi
           exit "$code"
 
-      # Every target carries its GCD series id; most need a title search
-      # (search + one volumes/ call to fill publishers), so 30 calls is ~15
-      # series an hour.
-      - name: Ingest backfill targets
-        id: lane_backfill
-        if: hashFiles('gap-backfill.json') != ''
+      # First-appearance books from the ComicVine character crawl that we have
+      # no cover for (2026-11-02: ~11k books across a few thousand volumes).
+      # Every target carries volume_id, so one call each and no title search;
+      # "missing" lists the key issue numbers so a long volume fetches only
+      # those. Each cover that lands links the CV issue to its GCD issue, and
+      # scripts/importKeyIssuesFromCrawl.js turns that link into a key_issues
+      # row on its next run. Took 15 of backfill's 30 calls.
+      # 10-minute cap (was 5, 2026-11-03): the first run filed only three
+      # volumes in 4 minutes because image uploads, not API calls, are the
+      # cost. Recent runs take 12-30 of the 55-minute job, so this fits.
+      - name: Ingest key-issue targets
+        id: lane_keys
+        if: hashFiles('gap-keys.json') != '' && steps.lane_new_members.outputs.busy != 'true'
         continue-on-error: true
         run: |
           set +e
-          timeout --kill-after=60s 6m python comicvine_api_to_supabase.py --targets gap-backfill.json --skip-existing --missing-only --max-search-calls 30 --vol-sleep 1.0 --max-minutes 5
+          timeout --kill-after=60s 10m python comicvine_api_to_supabase.py --targets gap-keys.json --skip-existing --missing-only --max-search-calls 15 --vol-sleep 1.0 --max-minutes 9
+          code=$?
+          if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
+            echo "Lane hit its 10-minute cap. The ledger picks it up next hour."
+            exit 0
+          fi
+          exit "$code"
+
+      # Every target carries its GCD series id; most need a title search
+      # (search + one volumes/ call to fill publishers), so 15 calls is ~7
+      # series an hour (was 30 until the key-issue lane took half, 2026-11-02).
+      - name: Ingest backfill targets
+        id: lane_backfill
+        if: hashFiles('gap-backfill.json') != '' && steps.lane_new_members.outputs.busy != 'true'
+        continue-on-error: true
+        run: |
+          set +e
+          timeout --kill-after=60s 6m python comicvine_api_to_supabase.py --targets gap-backfill.json --skip-existing --missing-only --max-search-calls 15 --vol-sleep 1.0 --max-minutes 5
           code=$?
           if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
             echo "Lane hit its 6-minute cap. The ledger picks it up next hour."
@@ -408,7 +490,7 @@ jobs:
 
       - name: Ingest run-completion targets
         id: lane_runs
-        if: hashFiles('gap-runs.json') != ''
+        if: hashFiles('gap-runs.json') != '' && steps.lane_new_members.outputs.busy != 'true'
         continue-on-error: true
         run: |
           set +e
@@ -422,7 +504,7 @@ jobs:
 
       - name: Ingest width-gap targets
         id: lane_width
-        if: hashFiles('gap-width.json') != ''
+        if: hashFiles('gap-width.json') != '' && steps.lane_new_members.outputs.busy != 'true'
         continue-on-error: true
         run: |
           set +e
@@ -436,7 +518,7 @@ jobs:
 
       - name: Ingest depth-gap targets
         id: lane_depth
-        if: hashFiles('gap-depth.json') != ''
+        if: hashFiles('gap-depth.json') != '' && steps.lane_new_members.outputs.busy != 'true'
         continue-on-error: true
         run: |
           set +e
@@ -447,6 +529,26 @@ jobs:
             exit 0
           fi
           exit "$code"
+
+      # Once a night (11:00 UTC, 5 AM CT), after the overnight ingests: file
+      # covers that are stored but belong to no series, for series where a
+      # member's book is blank on the site. Searching ComicVine can't fix
+      # those; the ingest sees the cover exists and skips it. 675 were filed by
+      # hand on 2026-11-24. Rules: scripts/lib/unfiledCovers.js. A failure is
+      # recorded and turns "Report lane outcomes" red without stopping the rest.
+      - name: File unfiled covers for members' blank books
+        id: file_unfiled
+        if: always()
+        run: |
+          if [ "$(date -u +%H)" != "11" ]; then echo "Runs on the 11:00 UTC run only."; exit 0; fi
+          set +e
+          timeout --kill-after=30s 5m node scripts/fileUnfiledCovers.js --apply --max-rows=500
+          code=$?
+          set -e
+          if [ "$code" -ne 0 ]; then
+            echo "::error::fileUnfiledCovers exited $code."
+            echo "failed=true" >> "$GITHUB_OUTPUT"
+          fi
 
       # Runs for real (not --dry-run) so any mis-tagged volumes from this
       # run's own ingestion get fixed automatically instead of waiting for
@@ -508,12 +610,18 @@ jobs:
               echo "  FAILED   $1"
               fail=1
             elif [ "$2" = "skipped" ]; then
-              echo "  skipped  $1 (no target file)"
+              echo "  skipped  $1 (no target file, or paused this hour for the new-member lane)"
             else
               echo "  ok       $1"
             fi
           }
           echo "Ingest lane outcomes:"
+          if [ "${{ steps.lane_new_members.outputs.failed }}" = "true" ]; then
+            echo "  FAILED   new-members"
+            fail=1
+          else
+            check "new-members" "${{ steps.lane_new_members.outcome }}"
+          fi
           check "requested-books" "${{ steps.lane_requested.outcome }}"
           check "new-releases"   "${{ steps.lane_new_releases.outcome }}"
           check "user-collected" "${{ steps.lane_user_collected.outcome }}"
@@ -521,10 +629,17 @@ jobs:
           check "featured"       "${{ steps.lane_featured.outcome }}"
           check "manual"         "${{ steps.lane_manual.outcome }}"
           check "pinned-volume"  "${{ steps.lane_pinned.outcome }}"
+          check "key-issues"     "${{ steps.lane_keys.outcome }}"
           check "backfill"       "${{ steps.lane_backfill.outcome }}"
           check "run-completion" "${{ steps.lane_runs.outcome }}"
           check "width"          "${{ steps.lane_width.outcome }}"
           check "depth"          "${{ steps.lane_depth.outcome }}"
+          if [ "${{ steps.file_unfiled.outputs.failed }}" = "true" ]; then
+            echo "  FAILED   file-unfiled"
+            fail=1
+          else
+            check "file-unfiled"   "${{ steps.file_unfiled.outcome }}"
+          fi
           check "auto-repair"    "${{ steps.auto_repair.outcome }}"
           if [ "$fail" -eq 1 ]; then
             echo ""

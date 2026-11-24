@@ -1,0 +1,65 @@
+name: Blog cross-post
+
+# Each newly published blog post goes to Instagram and the Facebook Page as
+# its "New on the blog" card, and Tony gets an email with the Patreon post
+# ready to paste (Patreon has no API for creating posts). See
+# scripts/crossPostBlog.js. Hourly, because GitHub's schedule trigger is
+# best effort; posts already sent are in the ledgers, so most runs do nothing.
+on:
+  schedule:
+    - cron: '20 * * * *'
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: 'Post for real (unticked prints what would go out)'
+        type: boolean
+        default: true
+
+# Same group as instagram-post.yml: both write scripts/.instagram-posted.json.
+concurrency:
+  group: instagram-post
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  crosspost:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      INSTAGRAM_BUSINESS_ACCOUNT_ID: ${{ secrets.INSTAGRAM_BUSINESS_ACCOUNT_ID }}
+      INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+      RESEND_FROM_EMAIL: ${{ secrets.RESEND_FROM_EMAIL }}
+      REPORTS_NOTIFY_EMAIL: ${{ secrets.REPORTS_NOTIFY_EMAIL }}
+      APPLY: ${{ github.event_name == 'schedule' || inputs.apply == true }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Cross-post new blog posts
+        run: node scripts/crossPostBlog.js ${{ env.APPLY == 'true' && '--apply' || '' }}
+
+      - name: Commit ledgers
+        if: always()
+        run: |
+          git config user.name "comixcatalog-bot"
+          git config user.email "actions@github.com"
+          git add scripts/.instagram-posted.json scripts/.blog-crossposted.json
+          if git diff --staged --quiet; then
+            echo "Nothing new to record."
+            exit 0
+          fi
+          git commit -m "blog-crosspost: record posted channels"
+          git pull --rebase
+          git push

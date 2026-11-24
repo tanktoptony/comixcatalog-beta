@@ -4,11 +4,21 @@ import { homeImage } from "@/app/opengraph-image";
 import { isOwnedStatus } from "@/lib/collectionStatus";
 import { getProfileBadges, selectShowcaseBadges } from "@/lib/badges/server";
 import { badgeSvgDataUrl } from "@/lib/badges/svg";
+import { cachedCard } from "@/lib/og/cache";
 
 export const alt = "Collector profile on ComixCatalog";
 export const size = OG_SIZE;
 export const contentType = "image/png";
 export const revalidate = 86400;
+// Cached between refreshes (Next 16 renders route handlers on every request
+// unless they are static): without these two lines every crawler hit
+// re-rendered the card and re-fetched its covers (72,300 billed image
+// transforms in Nov 2026). Unknown params render on first request, then
+// come from the cache until `revalidate` runs out.
+export const dynamic = "force-static";
+export function generateStaticParams() {
+  return [];
+}
 
 // Only what the public profile itself shows: getPublicProfile answers
 // { notFound: true } for private profiles, and leaves `collection` empty
@@ -34,7 +44,7 @@ export function profileStats(data) {
   ];
 }
 
-export default async function Image({ params }) {
+async function Image({ params }) {
   try {
     const { username } = await params;
     const d = await getPublicProfile(username);
@@ -55,3 +65,6 @@ export default async function Image({ params }) {
     return homeImage();
   }
 }
+
+// Cached for `revalidate`, whatever the data caches say (src/lib/og/cache.js).
+export default cachedCard(revalidate, Image);

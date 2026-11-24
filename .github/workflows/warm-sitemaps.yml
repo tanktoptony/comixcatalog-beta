@@ -10,6 +10,12 @@ name: Warm sitemaps
 # merges meant seven warm-ups while the database was already timing out
 # (search returned empty for everyone). Sitemaps still render on demand
 # between warm-ups, so a daily run is enough.
+#
+# 2026-11-04: all 16 series files returned 500 from 10-22, each retry took
+# 16 s, and the run hit its 15-minute limit before it reached the error line.
+# GitHub marked 12 runs "cancelled" and nobody heard about it. So: the retry
+# loop now has its own deadline well inside the job limit, a broken file ends
+# the run red, and a red run emails the reports address.
 
 on:
   schedule:
@@ -24,17 +30,25 @@ concurrency:
 jobs:
   warm:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     steps:
       - name: Request every sitemap until it answers 200
         run: |
           base="https://www.comixcatalog.com"
-          files="sitemap.xml sitemaps/static.xml"
-          for c in 0 1 2 3 4 5 6 7 8 9 a b c d e f; do files="$files sitemaps/series-$c.xml"; done
+          # Read the list from the index, so a new kind of file is warmed
+          # without touching this workflow. 44 files as of 2026-11-04.
+          files="sitemap.xml $(curl -s --max-time 120 "$base/sitemap.xml" | grep -o 'sitemaps/[^<]*[.]xml')"
+          count=$(echo "$files" | wc -w)
+          if [ "$count" -lt 45 ]; then
+            echo "::error::The sitemap index lists too few files: $count including the index itself"
+            exit 1
+          fi
           failed=""
+          deadline=$((SECONDS + 1080))
           for f in $files; do
             ok=""
-            for attempt in 1 2 3 4 5; do
+            for attempt in 1 2 3; do
+              if [ "$SECONDS" -ge "$deadline" ]; then echo "$f skipped: past the 18-minute deadline"; break; fi
               code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 120 "$base/$f")
               if [ "$code" = "200" ]; then ok=1; echo "$f 200 (attempt $attempt)"; break; fi
               echo "$f $code (attempt $attempt), retrying"
@@ -46,3 +60,15 @@ jobs:
             echo "::error::Sitemaps still failing after retries:$failed"
             exit 1
           fi
+      - name: Email the reports address
+        if: failure()
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          RESEND_FROM_EMAIL: ${{ secrets.RESEND_FROM_EMAIL }}
+          REPORTS_NOTIFY_EMAIL: ${{ secrets.REPORTS_NOTIFY_EMAIL }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          jq -n --arg from "$RESEND_FROM_EMAIL" --arg to "$REPORTS_NOTIFY_EMAIL" --arg url "$RUN_URL" \
+            '{from: $from, to: $to, subject: "ComixCatalog sitemap files are failing", text: ("Search engines get an error for at least one sitemap file until this is fixed. The run lists which ones: " + $url)}' \
+            | curl -sS --fail-with-body -X POST https://api.resend.com/emails \
+                -H "Authorization: Bearer $RESEND_API_KEY" -H "Content-Type: application/json" -d @-

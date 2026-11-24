@@ -8,6 +8,7 @@ import { formatCountDown } from "@/lib/og/helpers";
 import { StatTile } from "@/lib/og/components";
 import { theme } from "@/lib/og/theme";
 import { OG_SIZE } from "@/lib/og/card";
+import { cachedCard } from "@/lib/og/cache";
 export const alt = "ComixCatalog: Catalog. Collect. Connect.";
 export const size = OG_SIZE;
 export const contentType = "image/png";
@@ -162,4 +163,5 @@ export async function homeImage() {
     { ...OG_SIZE, fonts: await ogFonts() },
   );
 }
-export default homeImage;
+// Cached for `revalidate` (see src/lib/og/cache.js).
+export default cachedCard(revalidate, homeImage);

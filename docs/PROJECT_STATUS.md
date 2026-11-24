@@ -44,7 +44,7 @@ The March GCD import's garbled accented text was repaired from the GCD dump on O
 
 - Stack scanning has one review step and keeps issue details in the same flow.
 - Live barcode scanning accepts full UPCs and main-code-only phone reads. GCD barcode data is stored in `issue_printings`.
-- The barcode tab is hidden for members while barcode coverage and matching are still being completed.
+- The barcode tab is open to every member since Nov 2. `issue_printings` holds 417,119 barcodes, 350,508 of them with the add-on.
 - Series search uses `search_series_by_relevance_v2`. The slower v1 RPC was removed.
 - Each search term's ranked result is stored in `search_term_cache`.
 - Series card cover choices are stored on each series. Missing choices are claimed and resolved without recalculating every visible card.

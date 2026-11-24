@@ -1,11 +1,13 @@
-import { NextResponse } from "next/server";
+import { after, NextResponse } from "next/server";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { getAuthedUser } from "@/lib/authServer";
 import { getServiceClient } from "@/lib/supabase/service";
+import { notifyReviewQueue } from "@/lib/reviewQueueNotify";
 import { getFeaturedSeries } from "@/lib/featuredSeriesData";
 import { normalizeKey, chooseSeries, matchIssue } from "@/lib/csvImport/matchRow";
 import { CDN_CACHE_LONG } from "@/lib/cdnCache";
 import { canonicalPublisher } from "@/lib/publisherNames";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 // GET /api/comics — the no-query "browse" surface for /search + the homepage
 // Featured Series carousel.
@@ -291,5 +293,7 @@ async function insertComic(supabase, fields) {
     .select()
     .single();
   if (error) throw error;
+  const added = [fields.series_title, (issueNumberText(fields.issue_number) || null), fields.variant_name].filter(Boolean).join(" ");
+  after(() => notifyReviewQueue(supabase, { actorId: fields.created_by, excerpt: `Added ${added}`, tab: "books" }));
   return { comic };
 }

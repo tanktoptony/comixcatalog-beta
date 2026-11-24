@@ -1,4 +1,4 @@
-// Admin endpoint: flip a user's is_pro flag.
+// Admin endpoint: flip a user's is_pro or is_patron (Patreon badge) flag.
 // Gated by requireAdmin (admin account + two-factor). Used by the /admin tool to grant or revoke
 // comped Pro memberships (Founding Collectors carry-over,
 // test accounts, comps, etc.).
@@ -14,19 +14,22 @@ export async function POST(req) {
   if (response) return response;
 
   const body = await req.json().catch(() => ({}));
-  const { target_username, is_pro } = body;
+  const { target_username, is_pro, is_patron } = body;
 
   if (!target_username || typeof target_username !== "string") {
     return NextResponse.json({ error: "Missing target_username" }, { status: 400 });
   }
-  if (typeof is_pro !== "boolean") {
-    return NextResponse.json({ error: "is_pro must be boolean" }, { status: 400 });
+  // One flag per request: is_pro (comped Pro) or is_patron (Patreon badge).
+  const field = typeof is_pro === "boolean" ? "is_pro" : typeof is_patron === "boolean" ? "is_patron" : null;
+  if (!field) {
+    return NextResponse.json({ error: "is_pro or is_patron must be boolean" }, { status: 400 });
   }
+  const value = field === "is_pro" ? is_pro : is_patron;
 
   const supabase = getServiceClient();
   const { data: profile, error: fetchErr } = await supabase
     .from("profiles")
-    .select("id, username, is_pro")
+    .select("id, username, is_pro, is_patron")
     .eq("username", target_username)
     .maybeSingle();
 
@@ -39,7 +42,7 @@ export async function POST(req) {
 
   const { error: updateErr } = await supabase
     .from("profiles")
-    .update({ is_pro })
+    .update({ [field]: value })
     .eq("id", profile.id);
 
   if (updateErr) {
@@ -48,8 +51,9 @@ export async function POST(req) {
 
   return NextResponse.json({
     ok: true,
-    user: { id: profile.id, username: profile.username, is_pro },
+    user: { id: profile.id, username: profile.username, is_pro: profile.is_pro, is_patron: profile.is_patron, [field]: value },
     previous_is_pro: profile.is_pro,
+    previous_is_patron: profile.is_patron,
   });
 }
 
@@ -69,7 +73,7 @@ export async function GET(req) {
   const supabase = getServiceClient();
   const { data: profile, error } = await supabase
     .from("profiles")
-    .select("id, username, is_pro, is_founding_collector, stripe_customer_id, created_at")
+    .select("id, username, is_pro, is_patron, is_founding_collector, stripe_customer_id, created_at")
     .eq("username", target_username)
     .maybeSingle();
 

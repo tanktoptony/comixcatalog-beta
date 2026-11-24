@@ -4,6 +4,8 @@ import { useState } from "react";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import { estimateCoverPrice } from "@/lib/coverPrice";
 import { trackEvent } from "@/lib/analytics";
+import { authedFetch } from "@/lib/apiClient";
+import CopyVersionPicker, { hasRecentSwitch } from "@/components/CopyVersionPicker";
 
 const USER_COVER_UPLOAD_ENABLED = true;
 
@@ -108,8 +110,11 @@ function GradeBadge({ grade, company, condition }) {
 
 export { GradeBadge };
 
-export default function GradeEditor({ collectionId, initialData = {}, canonicalCover = null, releaseYear = null, onSave }) {
-  const [open, setOpen] = useState(false);
+// gcdIssueId turns on the Version picker (library only; the issue page has
+// its own "Switch my copy" prompt). onVersionChange runs after a switch so
+// the caller can reload the copy's cover, title and value.
+export default function GradeEditor({ collectionId, initialData = {}, canonicalCover = null, releaseYear = null, gcdIssueId = null, onSave, onVersionChange }) {
+  const [open, setOpen] = useState(() => hasRecentSwitch(collectionId));
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState(null);
 
@@ -145,8 +150,38 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
   const [copyNumber, setCopyNumber] = useState(
     initialData.copy_number != null ? String(initialData.copy_number) : "1"
   );
+  const [openToTrade, setOpenToTrade] = useState(Boolean(initialData.open_to_trade));
+  const [tradeSaving, setTradeSaving] = useState(false);
 
   const isSlabbed = !!slabCompany;
+
+  function handleVersionSwitched(item, meta) {
+    if (!item) return;
+    setVariantLabel(item.variant_label || "");
+    setUserCoverUrl(item.user_cover_url || null);
+    onSave?.({ variant_label: item.variant_label ?? null, user_cover_url: item.user_cover_url ?? null });
+    onVersionChange?.(item, meta);
+  }
+
+  async function toggleTrade(next) {
+    const previous = openToTrade;
+    setOpenToTrade(next);
+    setTradeSaving(true);
+    setError(null);
+    try {
+      const response = await authedFetch("/api/collection/bulk", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: collectionId, open_to_trade: next }),
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error);
+      onSave?.({ open_to_trade: next });
+    } catch (err) {
+      setOpenToTrade(previous);
+      setError(err.message || "Could not update trade setting.");
+    } finally { setTradeSaving(false); }
+  }
 
   async function handleCoverFile(file) {
     if (!file || !collectionId) return;
@@ -191,6 +226,20 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
     }
   }
 
+  // A catalog picture the collector says is their copy. Asks for the row back
+  // because an update that matches nothing is not an error in Supabase.
+  async function handlePickCover(url) {
+    const { data, error: dbErr } = await getSupabaseClient()
+      .from("user_collections")
+      .update({ user_cover_url: url })
+      .eq("id", collectionId)
+      .select("id");
+    if (dbErr) throw dbErr;
+    if (!data?.length) throw new Error("That copy was not updated.");
+    setUserCoverUrl(url);
+    onSave?.({ user_cover_url: url });
+  }
+
   async function handleRemoveCover() {
     if (!collectionId) return;
     setUploading(true);
@@ -223,6 +272,11 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
       const parsedPrice = purchasePrice.trim() !== "" ? Number(purchasePrice) : null;
       const parsedMarket = marketValue.trim() !== "" ? Number(marketValue) : null;
       const parsedCopy = copyNumber.trim() !== "" ? Number(copyNumber) : 1;
+      if (!Number.isInteger(parsedCopy) || parsedCopy < 1) {
+        setError("Copy # must be a whole number, 1 or more.");
+        setSaving(false);
+        return;
+      }
       const payload = {
         condition: isSlabbed ? null : condition || null,
         grade_numeric: isSlabbed && gradeNumeric !== "" ? Number(gradeNumeric) : null,
@@ -256,8 +310,17 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
     }
   }
 
-  function handleCancel() {
-    // Reset to initial values on cancel
+  // The form always starts from the copy as saved. The fields used to be set
+  // once, when the card first rendered; the library paints from a browser
+  // copy and refreshes a moment later, so after a reload Edit opened blank
+  // while the badge showed the saved grade, and Save wiped the grade and
+  // notes (Adam, 2026-11-21). Loading on every open closes that gap.
+  function openEditor() {
+    loadSaved();
+    setOpen(true);
+  }
+
+  function loadSaved() {
     setSlabCompany(initialData.slab_company || "");
     setGradeNumeric(initialData.grade_numeric ?? "");
     setCondition(initialData.condition || "");
@@ -267,7 +330,12 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
     setMarketValue(initialData.market_value != null ? String(initialData.market_value) : "");
     setVariantLabel(initialData.variant_label || "");
     setCopyNumber(initialData.copy_number != null ? String(initialData.copy_number) : "1");
+    setOpenToTrade(Boolean(initialData.open_to_trade));
     setError(null);
+  }
+
+  function handleCancel() {
+    loadSaved();
     setOpen(false);
   }
 
@@ -279,7 +347,7 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
   return (
     <div className="grade-editor-wrap">
       {/* Trigger row */}
-      <div className="grade-editor-trigger" onClick={() => setOpen(!open)}>
+      <div className="grade-editor-trigger" onClick={() => (open ? handleCancel() : openEditor())}>
         <div className="grade-editor-badge-row">
           <GradeBadge
             grade={currentGrade}
@@ -295,15 +363,26 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
         <button
           type="button"
           className="grade-editor-btn"
-          aria-label={open ? "Close grade editor" : "Edit grade"}
+          aria-label={open ? "Close editor" : "Edit this copy: grade, version, photo, notes"}
         >
-          {open ? "Cancel" : hasGradeData ? "Edit Grade" : "+ Add Grade"}
+          {open ? "Cancel" : hasGradeData ? "Edit" : "+ Grade / Edit"}
         </button>
       </div>
 
       {/* Inline editor panel */}
       {open && (
         <div className="grade-editor-panel">
+
+          {gcdIssueId && collectionId && (
+            <CopyVersionPicker collectionId={collectionId} gcdIssueId={gcdIssueId} variantLabel={initialData.variant_label || null} userCoverUrl={userCoverUrl} onSwitched={handleVersionSwitched} onPickCover={handlePickCover} />
+          )}
+
+          {(initialData.status === "owned" || initialData.status === "for_sale") && (
+            <label className="grade-trade-toggle">
+              <span><strong>Open to trade</strong><small>Let collectors with matching wantlists know this copy could move.</small></span>
+              <input type="checkbox" checked={openToTrade} disabled={tradeSaving} onChange={(event) => toggleTrade(event.target.checked)} />
+            </label>
+          )}
 
           {USER_COVER_UPLOAD_ENABLED && (
             <div className="grade-field grade-cover-field">

@@ -116,9 +116,9 @@ export const PERSONAL_POSTS = [
   {
     id: "founding-collectors",
     kicker: "Founding Collectors",
-    headline: "Free Pro for life. For now.",
-    subtext: "The first hundred collectors get Pro permanently. No card. No catch. Spots are going.",
-    captionBody: "If you sign up while Founding Collector spots are open, you get Collector Pro for life, free, no card. That is market values, grades and cert numbers, and an insurance-ready PDF of your whole collection. I would rather have a hundred people who were here early than a thousand who paid. Link in bio.",
+    headline: "Be one of the first hundred.",
+    subtext: "A numbered badge nobody after No. 100 can get. Your name on the founders wall. A lifetime membership.",
+    captionBody: "The first 100 members are Founding Collectors: a numbered badge nobody after No. 100 can get, your name on the founders wall, and a lifetime membership. I would rather have a hundred people who were here early than a thousand who paid. Link in bio.",
   },
   {
     id: "solo-built",
@@ -153,6 +153,11 @@ export const VALUE_INTROS = [
   "Real sales, real number:",
   "Not a guess. Recent sales, median:",
 ];
+
+// The founding pitch, word for word from the Nov 3, 2026 carousel Tony approved
+// (5 signups through the bio link that afternoon). No spots-left number, ever
+// (#420). The same line plus "66 spots left" on Oct 27 drew none.
+export const FOUNDING_LINE = "The first 100 members are Founding Collectors: a numbered badge nobody after No. 100 can get, your name on the founders wall, and a lifetime membership.";
 
 export const CTAS = [
   "Full run, printings, and values on ComixCatalog. Link in bio.",

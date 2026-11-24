@@ -11,6 +11,7 @@ import {
   sortKeyIssues,
   xForYear,
 } from "@/lib/keyTimeline";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 const YEAR_PADDING = 2;
 const TRACK_SIDE_PADDING = 54;
@@ -30,7 +31,7 @@ function KeyIssueList({ issues, className = "" }) {
       {issues.map((issue) => (
         <li key={issue.gcd_issue_id}>
           <Link href={`/issue/gcd-${issue.gcd_issue_id}`}>
-            <strong className={Number(issue.tier) === 1 ? "is-major" : ""}>#{issue.issue_number}</strong>
+            <strong className={Number(issue.tier) === 1 ? "is-major" : ""}>{issueNumberText(issue.issue_number)}</strong>
             <span>{issue.reason}</span>
             <time>{issue.year ?? "Year unknown"}</time>
           </Link>
@@ -83,7 +84,7 @@ function KeyDecades({ issues }) {
                       ) : (
                         <span className="key-decade-nocover" />
                       )}
-                      <strong className={Number(issue.tier) === 1 ? "is-major" : ""}>#{issue.issue_number}</strong>
+                      <strong className={Number(issue.tier) === 1 ? "is-major" : ""}>{issueNumberText(issue.issue_number)}</strong>
                       <span>{issue.reason}</span>
                       <time>{issue.year}</time>
                     </Link>
@@ -213,7 +214,7 @@ export default function KeyTimeline({ issues = [] }) {
                 <div className="key-timeline-axis" />
                 {layout.packed.map((issue) => {
                   const itemBottom = layout.rowBottoms[issue.row];
-                  const tooltip = `#${issue.issue_number} · ${issue.year} · ${issue.reason}`;
+                  const tooltip = `${issueNumberText(issue.issue_number)} · ${issue.year} · ${issue.reason}`;
                   return (
                     <div key={issue.gcd_issue_id} className="key-timeline-item-wrap" style={{ left: issue.x }}>
                       <span className="key-timeline-connector" style={{ height: itemBottom - AXIS_BOTTOM }} />
@@ -234,7 +235,7 @@ export default function KeyTimeline({ issues = [] }) {
                         ) : (
                           <span className="key-timeline-cover-missing">No cover</span>
                         )}
-                        {Number(issue.tier) === 1 && <strong>#{issue.issue_number}</strong>}
+                        {Number(issue.tier) === 1 && <strong>{issueNumberText(issue.issue_number)}</strong>}
                       </Link>
                       <span className="key-timeline-tick" />
                     </div>
@@ -268,7 +269,7 @@ export default function KeyTimeline({ issues = [] }) {
               ) : (
                 <span className="key-timeline-cover-missing">No cover yet</span>
               )}
-              <span className="key-timeline-preview-num">#{preview.issue.issue_number}<time>{preview.issue.year}</time></span>
+              <span className="key-timeline-preview-num">{issueNumberText(preview.issue.issue_number)}<time>{preview.issue.year}</time></span>
               <span className="key-timeline-preview-reason">{preview.issue.reason}</span>
             </div>
           )}

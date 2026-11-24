@@ -1,0 +1,101 @@
+/* Two-pane inbox shell (layout.js) and its empty right pane (page.js). */
+
+.shell {
+  --inbox-gap: 20px;
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr);
+  height: calc(100dvh - var(--inbox-top, 150px) - var(--inbox-gap));
+  min-height: 480px;
+  margin: 16px 0 calc(-4rem + var(--inbox-gap));
+  border: 1px solid var(--cc-line);
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 0% 0%, color-mix(in srgb, var(--cc-gold) 6%, transparent), transparent 40%),
+    var(--cc-surface);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+}
+
+.listPane {
+  min-height: 0;
+  border-right: 1px solid var(--cc-line);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.mainPane {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Landing pane: strips on top, "Pick a conversation" in the middle. */
+.landing {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 20px;
+}
+.strips { width: 100%; max-width: 620px; margin: 0 auto; }
+.pick {
+  margin: auto;
+  max-width: 340px;
+  padding: 24px 0;
+  text-align: center;
+  color: var(--cc-text-muted);
+}
+.pick h2 {
+  margin: 12px 0 6px;
+  color: var(--cc-text);
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  letter-spacing: 0.01em;
+}
+.pick p { margin: 0 0 18px; font-size: 0.92rem; line-height: 1.5; }
+.pickGlyph {
+  display: inline-grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  color: var(--cc-gold);
+  background: color-mix(in srgb, var(--cc-gold) 10%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--cc-gold) 35%, transparent), 4px 4px 0 rgba(0, 0, 0, 0.35);
+}
+.pickButton {
+  padding: 11px 20px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--cc-gold);
+  color: #090c11;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+.pickButton:hover { filter: brightness(1.06); }
+
+/* Phones: one pane at a time. */
+@media (max-width: 899px) {
+  .shell {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 0;
+    margin: 8px -1rem 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    overflow: visible;
+  }
+  .listPane { border-right: 0; background: transparent; }
+  .shell[data-view="list"] { min-height: calc(100dvh - var(--inbox-top, 120px)); }
+  .shell[data-view="list"] .mainPane { order: -1; }
+  .shell[data-view="list"] .pick { display: none; }
+  .landing { padding: 0 16px; overflow: visible; }
+  .shell[data-view="thread"] .listPane { display: none; }
+  .shell[data-view="thread"] { height: calc(100dvh - var(--inbox-top, 120px)); margin-bottom: -4rem; }
+  .shell[data-view="thread"] .mainPane { flex: 1; }
+}

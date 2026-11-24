@@ -9,6 +9,9 @@ import ReportButton from "@/components/ReportButton";
 import MarkSoldButton from "@/components/MarkSoldButton";
 import BuyNowButton from "@/components/BuyNowButton";
 import { Suspense } from "react";
+import { TRUST_POINTS as TRUST_COPY, communityLine, discountLabel, guideGradeLabel, isUnderGuide, totalWithShipping } from "@/lib/marketplaceDeals";
+import { CreditCard, ShieldCheck, Truck } from "lucide-react";
+import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 
 // One copy for sale, Discogs item-page style: the copy, its condition, the
 // seller, the price, and the way to buy (Buy now when checkout takes the
@@ -17,7 +20,10 @@ import { Suspense } from "react";
 
 export const revalidate = 120;
 
-const titleOf = (l) => `${l.title}${l.issueNumber ? ` #${l.issueNumber}` : ""}`;
+const TRUST_ICONS = { card: CreditCard, truck: Truck, shield: ShieldCheck };
+const TRUST_POINTS = TRUST_COPY.map(([icon, title, copy]) => [TRUST_ICONS[icon], title, copy]);
+
+const titleOf = (l) => `${l.title}${issueNumberSuffix(l.issueNumber)}`;
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
@@ -44,12 +50,15 @@ export default async function ListingPage({ params }) {
   const reserved = l.status === "reserved";
   const since = new Date(l.sellerInfo.since).toLocaleDateString("en-US", { month: "long", year: "numeric" });
   const sales = l.sellerInfo.sales;
+  const total = totalWithShipping(l);
+  const pricedOthers = others.filter((o) => o.price != null);
+  const otherLow = pricedOthers.length ? Math.min(...pricedOthers.map((o) => o.price)) : null;
   const offerBlock = (
     <>
       <Link href={offerHref(l)} className="lp-cta">
         {contactLabel(l)}
       </Link>
-      <p className="lp-fine">No fees during the beta. You and the seller work out payment and shipping by message.</p>
+      <p className="lp-fine">No ComixCatalog fees on deals by message. You and the seller work out payment and shipping directly.</p>
     </>
   );
 
@@ -117,6 +126,16 @@ export default async function ListingPage({ params }) {
                   )}
                 </div>
                 {shippingLabel(l) && <div className="lp-ship">{shippingLabel(l)}</div>}
+                {total != null && l.shipping > 0 && <div className="lp-total">{formatValue(total)} total with shipping</div>}
+                {l.guide?.url && (
+                  <div className="lp-guide">
+                    <a href={l.guide.url} target="_blank" rel="noopener">
+                      Guide {formatValue(l.guide.value)}
+                    </a>
+                    <small>PriceCharting, {guideGradeLabel(l.guide.grade)}</small>
+                    {isUnderGuide(l) && <span className="mk-discount">{discountLabel(l)}</span>}
+                  </div>
+                )}
                 {reserved ? (
                   <div className="lp-status">On hold</div>
                 ) : l.price != null ? (
@@ -158,6 +177,60 @@ export default async function ListingPage({ params }) {
             </dl>
             {l.notes ? <p className="lp-notes">{l.notes}</p> : <p className="lp-muted">The seller hasn&rsquo;t added condition notes. Ask them before you buy.</p>}
             {l.photos.length === 0 && <p className="lp-muted">No seller photos yet, so the image is the catalog cover. Ask for photos of this exact copy.</p>}
+          </section>
+
+          {l.priceGuide && (
+            <section className="lp-block">
+              <h2>Price guide</h2>
+              <div className="lp-guide-grid">
+                {l.priceGuide.grades.map((g) => (
+                  <div key={g.grade} className={g.grade === l.guide?.grade ? "is-current" : ""}>
+                    <span>{g.label}</span>
+                    <b>{formatValue(g.value)}</b>
+                    <small>{g.name}</small>
+                  </div>
+                ))}
+              </div>
+              <p className="lp-guide-source">
+                Sold-price guide by{" "}
+                <a href={l.priceGuide.url} target="_blank" rel="noopener">
+                  PriceCharting
+                </a>
+                {l.guide?.grade ? ". The highlighted grade is the one used for this copy." : "."}
+              </p>
+            </section>
+          )}
+
+          <section className="lp-block">
+            <h2>About this issue</h2>
+            {l.key && (l.key.reason || l.key.character) && <p className="lp-key">Key issue: {l.key.reason || l.key.character}</p>}
+            {communityLine(l.community) && <p className="lp-muted">{communityLine(l.community)}</p>}
+            {others.length > 0 && (
+              <p className="lp-muted">
+                {others.length.toLocaleString("en-US")} other {others.length === 1 ? "copy" : "copies"} for sale
+                {otherLow != null ? `, priced from ${formatValue(otherLow)}` : ""}
+              </p>
+            )}
+            <Link href={l.href} className="lp-link">
+              See this issue in the catalog
+            </Link>
+          </section>
+
+          <section className="lp-block lp-buying">
+            <h2>Buying on ComixCatalog</h2>
+            {TRUST_POINTS.map(([Icon, title, copy]) => (
+              <div key={title}>
+                <Icon aria-hidden="true" />
+                <p>
+                  <b>{title}</b>
+                  <span>{copy}</span>
+                </p>
+              </div>
+            ))}
+            <p className="lp-no-fees">No buyer fees.</p>
+            <Link href="/trust" className="lp-link">
+              How buying works
+            </Link>
           </section>
 
           <section className="lp-block lp-seller">

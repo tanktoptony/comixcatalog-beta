@@ -5,11 +5,14 @@ import { getCreatorPage } from "@/lib/creatorData";
 import { buildCreatorSummary, creatorJsonLd, topCreatorRole } from "@/lib/creatorPage";
 import { safeJsonLd } from "@/lib/jsonLd";
 import { SITE_URL } from "@/lib/siteUrl";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 const roleLabel = (role) => role === "cover" ? "Cover artist" : `${role[0].toUpperCase()}${role.slice(1)}`;
 const yearLabel = (run) => run.year_start && run.year_end && run.year_start !== run.year_end
   ? `${run.year_start}-${run.year_end}`
   : String(run.year_start || run.year_end || "Years unknown");
+
+const initials = (name) => String(name ?? "").trim().split(/\s+/).filter(Boolean).slice(0, 2).map((part) => part[0]).join("").toUpperCase() || "?";
 
 export default async function CreatorPage({ params }) {
   const { slug } = await params;
@@ -26,8 +29,22 @@ export default async function CreatorPage({ params }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }} />
       <section className="comic-panel">
         <div className="section-label badge-x">Creator</div>
-        <h1 className="hero-title">{creator.name}</h1>
-        <p className="creator-intro">{buildCreatorSummary(creator)}</p>
+        <div className="creator-header">
+          <div className="creator-photo-block">
+            {creator.photo_url
+              ? /* Commons URLs are already fixed-width thumbnails and must remain direct for attribution. */
+                // eslint-disable-next-line @next/next/no-img-element
+                <img className="creator-photo" src={creator.photo_url} alt={creator.name} width="112" height="112" loading="eager" />
+              : <div className="creator-photo creator-monogram" aria-hidden="true">{initials(creator.name)}</div>}
+          </div>
+          <div className="creator-heading-copy">
+            <h1 className="hero-title">{creator.name}</h1>
+            <p className="creator-intro">{buildCreatorSummary(creator)}</p>
+            {creator.photo_url && (
+              <p className="creator-photo-credit">Photo: {creator.photo_credit || "Unknown author"}, {creator.photo_license}, via <a href={creator.photo_page_url} rel="noopener">Wikimedia Commons</a></p>
+            )}
+          </div>
+        </div>
         <div className="creator-stats">
           <div><strong>{creator.credit_count.toLocaleString("en-US")}</strong><span>Credits</span></div>
           <div><strong>{creator.runs.length.toLocaleString("en-US")}</strong><span>Series</span></div>
@@ -53,7 +70,7 @@ export default async function CreatorPage({ params }) {
                   <Link href={`/issue/gcd-${issue.gcd_issue_id}`} className="creator-key-card">
                     <Image src={issue.cover || "/fallback-cover.png"} alt="" width={240} height={360} loading="lazy" unoptimized />
                     <div>
-                    <strong>{issue.series_title} #{issue.issue_number}</strong>
+                    <strong>{issue.series_title} {issueNumberText(issue.issue_number)}</strong>
                     {issue.title && <div>{issue.title}</div>}
                     <div className="muted">{issue.reason}</div>
                     </div>

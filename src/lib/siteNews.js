@@ -8,6 +8,123 @@
 
 export const SITE_NEWS = [
   {
+    date: "2026-11-21",
+    title: "Badge rarity",
+    body: "Your badges page shows how many collectors have each badge.",
+  },
+  {
+    date: "2026-11-21",
+    title: "Comments",
+    body: "Talk about a book under its issue page, a list or a review. Replies and @mentions show up in your inbox.",
+  },
+  {
+    date: "2026-11-21",
+    title: "Lists",
+    body: "Make a list of books, a reading order, your favorite covers, anything, and share the link.",
+    href: "/lists",
+  },
+  {
+    date: "2026-11-21",
+    title: "Ratings and reviews",
+    body: "Rate any issue from one to five stars and say why. Variants and newsstand copies share their issue's reviews.",
+  },
+  {
+    date: "2026-11-20",
+    title: "A feed of what collectors are adding",
+    body: "Your shelf has a Collector feed: what the people you follow added, wanted, listed and finished. Switch to Everyone to see the whole site.",
+  },
+  {
+    date: "2026-11-20",
+    title: "Your wantlist, priced",
+    body: "Your shelf shows your wantlist with guide prices next to each book, and any copy another collector has listed for sale.",
+  },
+  {
+    date: "2026-11-20",
+    title: "Which version is that copy?",
+    body: "In your library, switch a copy to the newsstand, a later printing or a variant cover by tapping its cover or scanning its barcode. On issue pages, picking a variant switches the whole page to that edition.",
+    href: "/library",
+  },
+  {
+    date: "2026-11-20",
+    title: "Marketplace listings with the details",
+    body: "Each listing shows the guide value and how far under it the price is, key issue notes and the seller's record, with Buy now right in the browse rows.",
+    href: "/marketplace",
+  },
+  {
+    date: "2026-11-19",
+    title: "Values from a real price guide",
+    body: "Collection values now come from PriceCharting's guide, which is built from sold listings and matched to each copy's grade. Issue pages show the guide too.",
+  },
+  {
+    date: "2026-11-19",
+    title: "Trade matches",
+    body: "Mark copies Open to trade and the Matches page finds collectors who have what you want and want what you have.",
+    href: "/matches",
+  },
+  {
+    date: "2026-11-19",
+    title: "Who has it",
+    body: "Issue pages show which collectors have the book, want it or are selling it, and you can message them about that exact book.",
+  },
+  {
+    date: "2026-11-19",
+    title: "Messages, no limits",
+    body: "Messages have no send caps anymore, and you can see when yours was delivered and read.",
+    href: "/inbox",
+  },
+  {
+    date: "2026-11-19",
+    title: "Export everything",
+    body: "The PDF and CSV exports cover your whole collection now, and the PDF runs in series order.",
+    href: "/library",
+  },
+  {
+    date: "2026-11-12",
+    title: "Your photos, right way up",
+    body: "Photos you took of your own copies were coming out sideways in the insurance PDF. They print upright now, and covers no longer sit on top of the titles.",
+    href: "/library",
+  },
+  {
+    date: "2026-11-09",
+    title: "Ranges reach the end of a run",
+    body: "Select a range on a series page now shows the whole run first, so you can tap the last issue of a long one without hitting Show all.",
+  },
+  {
+    date: "2026-11-03",
+    title: "Buy now on the marketplace",
+    body: "Set up payouts once and every book you list with a price and a condition gets a Buy now button. Buyers pay by card.",
+    href: "/sell",
+  },
+  {
+    date: "2026-11-02",
+    title: "Barcode scanning for every member",
+    body: "The Scan page has a Barcode tab. Line up the UPC and the small block next to it, or switch on Keep scanning for a stack. Barcode reads don't use your daily cover scans.",
+    href: "/scan",
+  },
+  {
+    date: "2026-11-02",
+    title: "Your shelf",
+    body: "Signed in, the home page shows your counts, what you added recently, what's new from your pull list and the runs you're closest to finishing.",
+  },
+  {
+    date: "2026-11-01",
+    title: "Search groups the editions",
+    body: "Each series shows up once in search, with its trades and hardcovers grouped under it, and you can filter by format, decade and publisher.",
+    href: "/search",
+  },
+  {
+    date: "2026-11-01",
+    title: "A pull list",
+    body: "Hit + Add to pull list on any series page and its new issues show up on your pull list week by week. Got it adds one to your collection, Want puts it on your wantlist.",
+    href: "/pull-list",
+  },
+  {
+    date: "2026-10-31",
+    title: "Bring your collection over",
+    body: "The Switch page takes an export from CLZ, League of Comic Geeks or any spreadsheet and matches it to the catalog, grades, slabs and cert numbers included.",
+    href: "/switch",
+  },
+  {
     date: "2026-10-24",
     title: "Nearly 7,000 more series",
     body: "The catalog picked up almost 7,000 US series it was missing this week, new books included: the Midnight line, Mind MGMT: New & Improved and The Forever Home are all in.",

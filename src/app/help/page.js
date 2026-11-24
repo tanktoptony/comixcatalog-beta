@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { VIDEO_GUIDES, youtubeThumbUrl, youtubeWatchUrl } from "@/lib/videoGuides";
+import TourButton from "./TourButton";
 
 export const metadata = {
   title: "Help Center",
@@ -14,6 +16,11 @@ export default function HelpPage() {
           to get a real answer is direct contact. Email and Discord are both read
           daily.
         </p>
+
+        <div className="help-tour">
+          <span>New here, or skipped the walkthrough?</span>
+          <TourButton />
+        </div>
 
         <ul className="help-channels">
           <HelpChannel
@@ -36,6 +43,36 @@ export default function HelpPage() {
             note="Live operational state. Check here first if something looks broken."
           />
         </ul>
+
+        {VIDEO_GUIDES.length > 0 && (
+          <>
+            <h2 className="md-h2" style={{ marginTop: 32 }}>Video guides</h2>
+            <p className="cc-form-sub">Short walkthroughs of the site, recorded on the real thing.</p>
+            <ul className="help-videos">
+              {VIDEO_GUIDES.map((v) => (
+                <li key={v.youtubeId}>
+                  <a
+                    href={youtubeWatchUrl(v.youtubeId)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="help-video"
+                  >
+                    <span className="help-video-thumb">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={youtubeThumbUrl(v.youtubeId)} alt="" loading="lazy" />
+                      <span className="help-video-play" aria-hidden="true" />
+                    </span>
+                    <span className="help-video-text">
+                      <span className="help-video-title">{v.title}</span>
+                      {v.blurb && <span className="help-video-blurb">{v.blurb}</span>}
+                      {v.minutes && <span className="help-video-meta">{v.minutes} min · YouTube</span>}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
 
         <h2 className="md-h2" style={{ marginTop: 32 }}>Common questions</h2>
 
@@ -74,12 +111,18 @@ export default function HelpPage() {
             }
           />
           <FaqItem
-            q="When does the marketplace open?"
+            q="Can I buy and sell comics here?"
             a={
               <>
-                The marketplace is still in development. We&rsquo;ll publish the
-                opening schedule and seller fees before listings go live.
-                Founding Collectors will be invited to early testing.
+                Yes, in beta. Anyone can list books from their collection for
+                sale and browse the{" "}
+                <Link href="/marketplace" className="md-a">Marketplace</Link>,
+                and buyers can check out with Buy now or message a seller to
+                make an offer. Buyers pay no fees. On Buy now sales ComixCatalog
+                keeps 5% during the beta; deals by message are free.{" "}
+                <Link href="/trust" className="md-a">Trust &amp; Safety</Link>{" "}
+                covers how orders are protected and how to trade safely by
+                message.
               </>
             }
           />

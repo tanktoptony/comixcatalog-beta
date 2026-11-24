@@ -44,20 +44,32 @@ function yearOf(issue) {
 
 async function loadCreatorPage(slug) {
   const supabase = getServiceClient();
-  const { data: creator, error: creatorError } = await supabase.from("creators")
-    .select("id, name, slug").eq("slug", slug).maybeSingle();
+  let { data: creator, error: creatorError } = await supabase.from("creators")
+    .select("id, name, slug, photo_url, photo_page_url, photo_credit, photo_license").eq("slug", slug).maybeSingle();
+  // Deploys can serve the new page before its additive migration is applied.
+  if (creatorError && (creatorError.code === "42703" || creatorError.code === "PGRST204" || /photo_(?:url|page_url|credit|license)/i.test(creatorError.message ?? ""))) {
+    ({ data: creator, error: creatorError } = await supabase.from("creators")
+      .select("id, name, slug").eq("slug", slug).maybeSingle());
+  }
   if (creatorError) throw creatorError;
   if (!creator) return null;
 
-  const [{ count, error: countError }, credits] = await Promise.all([
-    supabase.from("issue_creators").select("gcd_issue_id", { count: "exact", head: true }).eq("creator_id", creator.id),
-    fetchAllPages(
-      () => supabase.from("issue_creators").select("gcd_issue_id, role").eq("creator_id", creator.id).order("gcd_issue_id", { ascending: true }),
-      "role",
-      { maxRows: CREDIT_CAP }
-    ),
-  ]);
-  if (countError) throw countError;
+  const credits = await fetchAllPages(
+    () => supabase.from("issue_creators").select("gcd_issue_id, role").eq("creator_id", creator.id).order("gcd_issue_id", { ascending: true }),
+    "role",
+    { maxRows: CREDIT_CAP }
+  );
+  // Below the cap the credits read is already the full count. Only a creator
+  // with more than CREDIT_CAP credits needs the exact count query, which ran
+  // on every creator page and was one of the costliest queries in the
+  // database (Supabase health check, 2026-11-23).
+  let count = credits.length;
+  if (credits.length >= CREDIT_CAP) {
+    const { count: exact, error: countError } = await supabase.from("issue_creators")
+      .select("gcd_issue_id", { count: "exact", head: true }).eq("creator_id", creator.id);
+    if (countError) throw countError;
+    count = exact;
+  }
 
   const issueIds = [...new Set(credits.map((row) => row.gcd_issue_id).filter((id) => id != null))];
   const [issues, keyRows] = await Promise.all([

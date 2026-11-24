@@ -7,7 +7,7 @@ import EditProfileButton from "@/components/EditProfileButton";
 import MessageButton from "@/components/MessageButton";
 import ProfileTabs from "@/components/ProfileTabs";
 import ProfileAnonCta from "@/components/ProfileAnonCta";
-import CollectionStatsStrip from "@/components/CollectionStatsStrip";
+import CollectionStatsStrip, { PriceChartingCredit } from "@/components/CollectionStatsStrip";
 import CollectionInsightSidebar from "@/components/CollectionInsightSidebar";
 import RunCompletionWidget from "@/components/RunCompletionWidget";
 import { coverThumb } from "@/lib/coverThumb";
@@ -16,6 +16,9 @@ import ReportButton from "@/components/ReportButton";
 import ProfileFollow from "@/components/ProfileFollow";
 import InviteButton from "@/components/InviteButton";
 import ProfileBadgeRow from "@/components/ProfileBadgeRow";
+import ListCard from "@/components/lists/ListCard";
+import listStyles from "@/components/lists/Lists.module.css";
+import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 
 function formatJoinDate(iso) {
   if (!iso) return null;
@@ -139,6 +142,9 @@ export default function ProfileView({ data, isOwner = false }) {
                 {profile?.membership_tier === "collector_plus" && (
                   <span className="profile-badge pro">Collector+</span>
                 )}
+                {profile?.is_patron && (
+                  <span className="profile-badge patron" title="Supports ComixCatalog on Patreon">Patron</span>
+                )}
               </div>
             </div>
             {profile.display_name && (
@@ -207,6 +213,7 @@ export default function ProfileView({ data, isOwner = false }) {
               <div className="profile-value-plaque-meta">
                 {ownedItems.length} book{ownedItems.length === 1 ? "" : "s"}
               </div>
+              <PriceChartingCredit />
             </div>
           )}
         </div>
@@ -267,7 +274,7 @@ export default function ProfileView({ data, isOwner = false }) {
                   </div>
                   <div className="profile-top-shelf-title-line">
                     {d.title}
-                    {d.issueNumber ? ` #${d.issueNumber}` : ""}
+                    {issueNumberSuffix(d.issueNumber)}
                   </div>
                   {/* A key issue with no price yet (no comps, nothing
                       user-priced) still needs a caption — "$0" would read as
@@ -326,7 +333,7 @@ export default function ProfileView({ data, isOwner = false }) {
                   </div>
                   <div className="profile-top-shelf-title-line">
                     {d.title}
-                    {d.issueNumber ? ` #${d.issueNumber}` : ""}
+                    {issueNumberSuffix(d.issueNumber)}
                   </div>
                   {addedLine && (
                     <div className="profile-recent-added-caption">{addedLine}</div>
@@ -353,6 +360,24 @@ export default function ProfileView({ data, isOwner = false }) {
           render for signed-in viewers too. */}
       <ProfileAnonCta />
 
+      {data.publicLists?.length > 0 && (
+        <section>
+          <div className="profile-section-head">
+            <h2>Lists</h2>
+            <Link href={`/u/${username}/lists`}>See all</Link>
+          </div>
+          <div className={listStyles.grid}>
+            {data.publicLists.map((list) => (
+              <ListCard
+                key={list.id}
+                list={list}
+                username={username}
+              />
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* BODY: tabs + sidebar */}
       <div className="profile-body">
         <div className="profile-body-main">
@@ -360,6 +385,7 @@ export default function ProfileView({ data, isOwner = false }) {
             collection={collection}
             isOwner={isOwner}
             visibility={visibility}
+            profileUsername={profile.username}
           />
         </div>
 

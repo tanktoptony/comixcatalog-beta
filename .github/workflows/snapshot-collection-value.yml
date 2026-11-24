@@ -12,10 +12,23 @@ name: Snapshot collection value
 # hoping the one daily slot doesn't get dropped. Safe to run this often
 # because the script upserts on (user_id, snapshot_date): a day with 4 runs
 # just keeps "today"'s row current, it doesn't produce 4 data points.
+#
+# Also runs right after every PriceCharting refresh, so the homepage value
+# (which reads the latest snapshot) never trails the library (which values
+# live). On 2026-11-20 the schedule skipped a 12-hour stretch right after
+# values moved to PriceCharting, and the homepage showed the old method's
+# total. cron-watchdog.yml also re-fires this if it goes 13 hours quiet.
 on:
   schedule:
     - cron: '0 */6 * * *'
+  workflow_run:
+    workflows: ["PriceCharting refresh (daily)"]
+    types: [completed]
   workflow_dispatch: {}
+
+concurrency:
+  group: snapshot-collection-value
+  cancel-in-progress: false
 
 jobs:
   snapshot:

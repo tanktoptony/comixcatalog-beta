@@ -130,17 +130,98 @@ export function coverScanOutcome(extracted, candidates) {
   return extracted.confidence === "low" ? "not_a_comic" : "not_in_catalog";
 }
 
-export function collapseCoverPrintings(ranked, covers = new Map()) {
+// Words that appear in most variant names and say nothing about which one.
+const GENERIC_VERSION_WORDS = new Set(["cover", "covers", "variant", "variants", "edition", "the", "a", "an", "of", "and", "by", "art", "retailer", "incentive", "ratio"]);
+
+const ORDINALS = { "1st": "first", "2nd": "second", "3rd": "third", "4th": "fourth", "5th": "fifth", "6th": "sixth" };
+const clueTokens = (value) => titleTokens(value).map((word) => ORDINALS[word] ?? word);
+
+function versionWords(name) {
+  return clueTokens(name).filter((word) => word.length > 1 && !GENERIC_VERSION_WORDS.has(word) && !/^\d+$/.test(word));
+}
+
+// How many words of a version's name the scan read on the cover (artist
+// signature, "virgin", "foil"...). A version only counts when every one of
+// its words was read: "Mark Brooks Virgin Cover" needs "virgin" too, so a
+// trade-dress Brooks cover never lands on the virgin.
+export function versionClueMatch(versionName, extracted) {
+  const words = versionWords(versionName);
+  if (!words.length) return 0;
+  // Nearly every US cover prints its Canadian and UK prices, so a price
+  // variant counts only when a clue calls the copy that variant or edition.
+  if (PRICE_VERSION.test(versionName) && !assertedClueParts(extracted).some((part) => PRICE_VARIANT_CLAIM.test(part))) return 0;
+  const read = assertedClueWords(extracted);
+  return words.every((word) => read.has(word)) ? words.length : 0;
+}
+const PRICE_VERSION = /\b(canadian|canada|uk|pence|price)\b/i;
+const PRICE_VARIANT_CLAIM = /\b(canadian|canada|uk|pence|price)\b.*\b(variant|edition)\b/i;
+
+// The model hedges: "(direct/newsstand not determinable; no barcode
+// visible)", "barcode suggests newsstand". The main text of a clue and each
+// parenthetical are judged apart, so "Virgin variant cover (no trade dress)"
+// still says virgin. A part that hedges or denies says nothing, and when the
+// clues assert both direct and newsstand, neither counts.
+const HEDGE = /\b(not|no|unclear|unknown|undetermin\w*|indetermin\w*|cannot|can't|unable|possibly|probably|perhaps|maybe|likely|might|may|could|appears?|seems?|looks like|resembles?|suggest\w*|consistent|style|or)\b/i;
+function assertedClueParts(extracted) {
+  return [...(extracted?.edition_clues ?? []), extracted?.other_text ?? ""]
+    .flatMap((clue) => {
+      const text = String(clue ?? "");
+      const inner = [...text.matchAll(/\(([^)]*)\)/g)].map((match) => match[1]);
+      return [text.replace(/\([^)]*\)/g, " "), ...inner];
+    })
+    .filter((part) => part.trim() && !HEDGE.test(part));
+}
+export function assertedClueWords(extracted) {
+  const words = new Set(clueTokens(assertedClueParts(extracted).join(" ")));
+  if (words.has("direct") && words.has("newsstand")) { words.delete("direct"); words.delete("newsstand"); }
+  return words;
+}
+
+export function versionName(issue) {
+  const name = String(issue?.variant_name ?? "").trim();
+  const base = Number(issue?.base_gcd_issue_id ?? issue?.variant_of_gcd_id ?? issue?.gcd_id);
+  return name && base !== Number(issue?.gcd_id) ? name : "Regular edition";
+}
+
+// One result per issue. Inside an issue, the version the cover clues name
+// wins when exactly one version fits best; otherwise the first-ranked one,
+// moved to a version with a cover if it has none. Every version stays on
+// the result so the collector can say which one they have.
+export function collapseCoverPrintings(ranked, covers = new Map(), extracted = null) {
   const groups = new Map();
   for (const candidate of ranked ?? []) {
     const base = baseIssueNumber(candidate.issue.issue_number);
     const key = `${candidate.issue.series_gcd_id}:${base}`;
-    const current = groups.get(key);
-    const candidateHasCover = covers.has(Number(candidate.issue.gcd_id));
-    const currentHasCover = current && covers.has(Number(current.issue.gcd_id));
-    if (!current || (candidateHasCover && !currentHasCover)) {
-      groups.set(key, candidate);
-    }
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(candidate);
   }
-  return [...groups.values()].sort((a, b) => b.score - a.score || Number(a.issue.gcd_id) - Number(b.issue.gcd_id));
+  const picked = [...groups.values()].map((members) => {
+    const scored = members.map((member) => ({ member, clue: versionClueMatch(versionName(member.issue), extracted) }));
+    const best = Math.max(0, ...scored.map((row) => row.clue));
+    const leaders = scored.filter((row) => row.clue === best && best > 0);
+    let choice = members[0];
+    if (leaders.length === 1) choice = leaders[0].member;
+    else {
+      // With no clue, the regular edition is the default when it is the one
+      // unnamed version; the collector can still pick another.
+      const regulars = members.filter((member) => versionName(member.issue) === "Regular edition");
+      if (regulars.length === 1 && members.length > 1) choice = regulars[0];
+      else for (const member of members) {
+        const memberHasCover = covers.has(Number(member.issue.gcd_id));
+        const choiceHasCover = covers.has(Number(choice.issue.gcd_id));
+        if (memberHasCover && !choiceHasCover) choice = member;
+      }
+    }
+    const versions = [...members]
+      .sort((a, b) => (versionName(a.issue) === "Regular edition" ? -1 : 0) - (versionName(b.issue) === "Regular edition" ? -1 : 0) || Number(a.issue.gcd_id) - Number(b.issue.gcd_id))
+      .map((member) => ({ gcd_issue_id: Number(member.issue.gcd_id), name: versionName(member.issue) }));
+    return { ...choice, versionPicked: leaders.length === 1, versions };
+  });
+  return picked.sort((a, b) => b.score - a.score || Number(a.issue.gcd_id) - Number(b.issue.gcd_id));
+}
+
+// A scan result's issue or any version listed under it.
+export function scanResultHasIssue(candidates, gcdIssueId) {
+  const id = Number(gcdIssueId);
+  return (candidates ?? []).some((row) => Number(row.gcd_issue_id) === id || (row.versions ?? []).some((version) => Number(version.gcd_issue_id) === id));
 }

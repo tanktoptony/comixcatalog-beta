@@ -5,6 +5,7 @@ import { isOwnedStatus } from "@/lib/collectionStatus";
 import { getPublicProfile } from "@/lib/pageData";
 import { getServiceClient } from "@/lib/supabase/service";
 import { getProfileBadges, selectShowcaseBadges } from "@/lib/badges/server";
+import { getUserLists } from "@/lib/listsData";
 
 async function getProfileVisibility(username) {
   const { data, error } = await getServiceClient()
@@ -79,7 +80,17 @@ export default async function PublicProfilePage({ params }) {
     });
     const earnedBadges = await getProfileBadges(data.profile);
     const showcaseBadges = selectShowcaseBadges(data.profile, earnedBadges);
-    return <ProfileView data={{ ...data, sellerFeedback, showcaseBadges }} />;
+    const publicLists = await getUserLists(data.profile.id).catch(() => []);
+    return (
+      <ProfileView
+        data={{
+          ...data,
+          sellerFeedback,
+          showcaseBadges,
+          publicLists: publicLists.slice(0, 3),
+        }}
+      />
+    );
   }
 
   // The public API intentionally hides private profiles as 404s. This

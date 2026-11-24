@@ -1,5 +1,6 @@
 import { parseSearchQuery } from "./searchQuery.js";
 import { TEST_ACCOUNT_USERNAMES } from "./traction.js";
+import { guideDiscount, isUnderGuide } from "./marketplaceDeals.js";
 
 // Discogs-style browsing for /marketplace: filters with live counts, sort and
 // pagination over the listing objects from src/lib/marketplace.js. Pure, so
@@ -14,6 +15,7 @@ export const PAGE_SIZE = 25;
 export const SORTS = {
   relevance: "Best match",
   newest: "Newest",
+  deal: "Best deal vs guide",
   "value-desc": "Price: high to low",
   "value-asc": "Price: low to high",
   title: "Title A–Z",
@@ -65,6 +67,7 @@ function priceBand(l) {
 }
 
 const FIELDS = {
+  show: (l) => [l.buyNow ? "buynow" : null, isUnderGuide(l) ? "underguide" : null, l.key ? "keys" : null].filter(Boolean),
   publisher: publisherOf,
   series: (l) => l.title,
   format: (l) => (l.slab ? "slabbed" : "raw"),
@@ -160,7 +163,8 @@ function matches(l, f, skip) {
   if (!matchesQuery(l, f.q)) return false;
   for (const k of FILTER_KEYS) {
     if (k === skip || !f[k]) continue;
-    if (FIELDS[k](l) !== f[k]) return false;
+    const value = FIELDS[k](l);
+    if (Array.isArray(value) ? !value.includes(f[k]) : value !== f[k]) return false;
   }
   return true;
 }
@@ -177,12 +181,15 @@ export function facetCounts(listings, f) {
     const counts = new Map();
     for (const l of listings) {
       if (!matches(l, f, k)) continue;
-      const v = FIELDS[k](l);
-      if (v == null) continue;
-      counts.set(v, (counts.get(v) ?? 0) + 1);
+      const values = Array.isArray(FIELDS[k](l)) ? FIELDS[k](l) : [FIELDS[k](l)];
+      for (const v of values) {
+        if (v == null) continue;
+        counts.set(v, (counts.get(v) ?? 0) + 1);
+      }
     }
     let entries = [...counts.entries()];
-    if (k === "grade") entries = GRADES.map(([v]) => [v, counts.get(v) ?? 0]).filter(([, n]) => n);
+    if (k === "show") entries = ["buynow", "underguide", "keys"].map((v) => [v, counts.get(v) ?? 0]).filter(([, n]) => n);
+    else if (k === "grade") entries = GRADES.map(([v]) => [v, counts.get(v) ?? 0]).filter(([, n]) => n);
     else if (k === "price") entries = PRICES.map(([v]) => [v, counts.get(v) ?? 0]).filter(([, n]) => n);
     else if (k === "format") entries = Object.keys(FORMATS).map((v) => [v, counts.get(v) ?? 0]).filter(([, n]) => n);
     else if (k === "decade") entries.sort((a, b) => b[0].localeCompare(a[0]));
@@ -201,7 +208,12 @@ export function sortListings(list, sort, q = "") {
   if (sort === "relevance" && q) {
     const scored = new Map(a.map((l) => [l, queryScore(l, q)]));
     a.sort((x, y) => scored.get(y) - scored.get(x) || x.title.localeCompare(y.title) || issueOrder(x, y));
-  } else if (sort === "value-desc") a.sort((x, y) => (val(y) ?? -1) - (val(x) ?? -1));
+  } else if (sort === "deal") a.sort((x, y) => {
+    const xd = isUnderGuide(x) ? guideDiscount(x) : -1;
+    const yd = isUnderGuide(y) ? guideDiscount(y) : -1;
+    return yd - xd || String(y.listedAt ?? "").localeCompare(String(x.listedAt ?? ""));
+  });
+  else if (sort === "value-desc") a.sort((x, y) => (val(y) ?? -1) - (val(x) ?? -1));
   else if (sort === "value-asc") a.sort((x, y) => (val(x) ?? Infinity) - (val(y) ?? Infinity));
   else if (sort === "title") a.sort((x, y) => x.title.localeCompare(y.title) || issueOrder(x, y));
   else a.sort((x, y) => String(y.listedAt ?? "").localeCompare(String(x.listedAt ?? "")));
@@ -216,6 +228,7 @@ export function paginate(list, page, size = PAGE_SIZE) {
 
 // Label for an active filter chip.
 export function filterLabel(key, value) {
+  if (key === "show") return { buynow: "Buy now", underguide: "Under guide", keys: "Key issues" }[value] ?? value;
   if (key === "format") return FORMATS[value] ?? value;
   if (key === "grade") return GRADES.find(([v]) => v === value)?.[1] ?? value;
   if (key === "price") return PRICES.find(([v]) => v === value)?.[1] ?? value;
@@ -275,6 +288,13 @@ export function landingSections(listings, n = 6) {
   const headlineListings = listings.filter(isHeadlineListing);
   const justListed = hideShortRail(roundRobinBySeller(capPerSeries(sortListings(headlineListings, "newest")), n, 4));
   const mostValuable = hideShortRail(capPerSeries(sortListings(headlineListings, "value-desc")).slice(0, n));
+  const buyNow = hideShortRail(capPerSeries(sortListings(headlineListings.filter((l) => l.buyNow), "newest")).slice(0, n));
+  const underGuide = hideShortRail(capPerSeries(sortListings(headlineListings.filter(isUnderGuide), "deal")).slice(0, n));
+  const keys = hideShortRail(capPerSeries(listings
+    // Key issues show even when open to offers: the guide value tells a buyer
+    // what to offer.
+    .filter((l) => l.key && (l.photoCount > 0 || l.cover))
+    .sort((a, b) => (b.guide?.value ?? b.price ?? 0) - (a.guide?.value ?? a.price ?? 0))).slice(0, n));
   const mostWanted = hideShortRail(headlineListings
     .filter((l) => (l.wantCount ?? 0) > 0)
     .sort((a, b) => b.wantCount - a.wantCount || (shownValue(b) ?? 0) - (shownValue(a) ?? 0))
@@ -301,6 +321,9 @@ export function landingSections(listings, n = 6) {
   const rank = (m) => [...m.entries()].sort((a, b) => b[1] - a[1] || String(a[0]).localeCompare(String(b[0])));
   return {
     justListed,
+    buyNow,
+    underGuide,
+    keys,
     mostWanted,
     mostWantedNotForSale,
     mostValuable,

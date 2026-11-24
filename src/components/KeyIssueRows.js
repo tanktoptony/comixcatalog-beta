@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
 import { useLibrary } from "@/context/LibraryContext";
 import { coverThumb } from "@/lib/coverThumb";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 export default function KeyIssueRows({ groups, rulings }) {
   const { user } = useAuth();
@@ -27,7 +28,7 @@ export default function KeyIssueRows({ groups, rulings }) {
                 )}
                 <span className="key-era-copy">
                   <span className="key-era-heading">
-                    <strong>#{issue.issue_number}</strong>
+                    <strong>{issueNumberText(issue.issue_number)}</strong>
                     <time>{issue.year ?? "Year unknown"}</time>
                     {Number(issue.tier) === 1 && <em>Major</em>}
                     {user && collectionIds?.has(issueId) && <span className="library-tag owned">Owned</span>}

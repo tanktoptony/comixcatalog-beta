@@ -46,6 +46,8 @@ Production facts below were measured with read-only queries on 2026-10-14; rerun
 - Existing `user_collections.variant_of_gcd_id` hook stays unused; do not repurpose it.
 
 ### 3.2 Counts (have / want / for sale)
+**Status (2026-11-02):** Base-level counts shipped. Edition-level counts are deferred until at least one edition reaches the display threshold of 3.
+
 - Two tables, never summed together: `issue_base_stats(base_gcd_issue_id pk, have, want, for_sale, updated_at)` and `issue_edition_stats(edition_gcd_issue_id pk, base_gcd_issue_id, have, want, for_sale, updated_at)`.
 - **Have** = distinct users with an owned or for_sale row; **want** = distinct users with a wishlist row and no owned row for that base; multiple copies count once.
 - **Consent:** have counts only users with `profiles.is_public = true and show_collection is not false`; want additionally needs `show_wantlist is not false`; for_sale counts rows of the `marketplace_listings` view (already public-only). Show counts only when ≥ 3; otherwise show nothing (not "0").
@@ -78,6 +80,8 @@ Every page ships branded (dark surfaces, gold accent, display font, cover art pr
 - Discography from `series_creators` after the full import; role filter; keys = this creator's issues present in `key_issues`; owned/for-sale per run only for the signed-in viewer. Requires the creator duplicate cleanup and junk-name removal first.
 
 ### 4.4 Your shelf home (Release 3, signed-in only)
+**Status (2026-11-02):** Shipped. Finish a run shows incomplete runs at 60% or more and names how many gap issues are for sale rather than requiring a listed gap, because listings are still sparse.
+
 - Value (labeled estimate) + books/keys/runs complete; Finish a run (runs ≥ 60% complete with at least one listed gap); collector activity (existing feed); pull list only after §3.3's coverage gate.
 
 ### 4.5 Scan to shelf (Release 3)

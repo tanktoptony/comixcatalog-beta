@@ -1,0 +1,69 @@
+.section { margin-top: 48px; }
+.heading { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.heading h2 { margin: 0; font-family: var(--font-display); font-size: 2rem; }
+.eyebrow { margin: 0 0 12px; color: var(--cc-gold); font-size: .72rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.find { min-height: 44px; display: inline-flex; align-items: center; gap: 6px; color: var(--cc-gold); font-weight: 700; }
+.find svg { width: 17px; height: 17px; }
+
+.tabs { display: flex; gap: 6px; margin-bottom: 12px; }
+.tabs button { min-height: 40px; display: inline-flex; align-items: center; gap: 8px; padding: 0 16px; border: 1px solid var(--cc-line); border-radius: 999px; background: transparent; color: var(--cc-text-muted); font: inherit; font-weight: 800; font-size: .88rem; cursor: pointer; }
+.tabs button:hover { color: var(--cc-text); }
+.tabs button[aria-selected="true"] { border-color: var(--cc-gold); background: var(--cc-gold); color: #111; }
+.tabs button span { padding: 1px 7px; border-radius: 999px; background: rgba(0,0,0,.18); font-size: .72rem; }
+.tabs button[aria-selected="false"] span { background: var(--cc-surface-2); }
+.tabs button:focus-visible { outline: 2px solid var(--cc-gold); outline-offset: 2px; }
+
+.card { min-width: 0; padding: 0 24px; border: 1px solid var(--cc-line); border-radius: 16px; background: var(--cc-surface); }
+.list { display: grid; }
+.event { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--cc-line); }
+.event:last-child { border-bottom: 0; }
+.avatar img { display: block; width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background: var(--cc-surface-2); }
+.body { min-width: 0; }
+.line { margin: 0; color: var(--cc-text); line-height: 1.45; overflow-wrap: anywhere; }
+.line a { color: var(--cc-text); font-weight: 700; text-decoration: underline; text-decoration-color: var(--cc-line); text-underline-offset: 3px; }
+.line a:hover { text-decoration-color: var(--cc-gold); }
+.line a.who { color: var(--cc-gold); font-weight: 800; text-decoration: none; }
+.line time { margin-left: 10px; color: var(--cc-text-muted); font-size: .8rem; white-space: nowrap; }
+
+.strip { display: flex; gap: 10px; margin: 12px 0 0; padding: 0; list-style: none; }
+.strip li { flex: 0 0 72px; min-width: 0; }
+.strip a { position: relative; display: block; color: inherit; text-decoration: none; }
+/* fallback-cover.png is a transparent pixel, so the frame shows for a missing cover. */
+.strip img { display: block; width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border: 1px solid var(--cc-line); border-radius: 6px; background: var(--cc-surface-2); }
+.strip a:hover img, .strip a:hover .noCover { border-color: var(--cc-gold); }
+/* A book with no cover yet shows its title on a plain card. */
+.noCover { display: -webkit-box; aspect-ratio: 2 / 3; padding: 6px; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 6; border: 1px solid var(--cc-line); border-radius: 6px; background: var(--cc-surface-2); color: var(--cc-text-muted); font-size: .64rem; font-weight: 700; line-height: 1.25; overflow-wrap: break-word; hyphens: auto; }
+.price { position: absolute; left: 4px; right: 4px; bottom: 4px; padding: 2px 4px; border-radius: 4px; background: rgba(8,10,20,.86); color: var(--cc-gold); font-size: .7rem; font-weight: 900; text-align: center; }
+.more { display: grid !important; place-content: center; aspect-ratio: 2 / 3; border: 1px dashed var(--cc-line); border-radius: 6px; color: var(--cc-gold) !important; font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; text-align: center; line-height: 1; }
+.more span { color: var(--cc-text-muted); font-family: inherit; font-size: .66rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.more:hover { border-color: var(--cc-gold); }
+
+.finished { position: relative; }
+.finished::before { content: ""; position: absolute; inset: 8px -24px; z-index: 0; border-left: 3px solid var(--cc-gold); background: linear-gradient(90deg, rgba(216,176,75,.10), transparent 70%); pointer-events: none; }
+.finished > * { position: relative; z-index: 1; }
+.badge { display: inline-flex; align-items: center; gap: 6px; margin: 8px 0 0; padding: 3px 10px; border-radius: 999px; background: var(--cc-gold); color: #111; font-size: .7rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.badge svg { width: 14px; height: 14px; }
+
+.state { display: grid; place-items: center; min-height: 150px; gap: 12px; padding: 24px 0; color: var(--cc-text-muted); text-align: center; }
+.state p { margin: 0; max-width: 46ch; }
+.stateActions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 18px; }
+.state button { min-height: 44px; padding: 0 6px; border: 0; background: none; color: var(--cc-gold); font: inherit; font-weight: 700; cursor: pointer; }
+.button { min-height: 44px; display: inline-flex; align-items: center; padding: 0 18px; border-radius: 10px; background: var(--cc-gold); color: #111; font-weight: 800; text-decoration: none; }
+.skeleton { min-height: 220px; margin: 24px 0; border-radius: 12px; background: linear-gradient(90deg, var(--cc-surface-2), rgba(255,255,255,.08), var(--cc-surface-2)); background-size: 200% 100%; animation: pulse 1.4s infinite; }
+@keyframes pulse { to { background-position: -200% 0; } }
+@media (prefers-reduced-motion: reduce) { .skeleton { animation: none; } }
+
+@media (max-width: 560px) {
+  .card { padding: 0 16px; }
+  .finished::before { inset: 8px -16px; }
+  /* Six covers plus "+N" don't fit a phone row: the strip scrolls on its own. */
+  .strip { gap: 8px; overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain; }
+  .strip::-webkit-scrollbar { display: none; }
+  .strip li { flex: 0 0 60px; }
+  /* 60px tiles: smaller title text so a word like "Everything" fits on one line. */
+  .noCover { padding: 5px 3px; font-size: .56rem; letter-spacing: -.01em; }
+  .line time { display: block; margin: 2px 0 0; }
+}
+.reviewDetail { margin: 6px 0 9px; color: #f5c518; }
+.reviewDetail blockquote { margin: 5px 0 0; padding-left: 10px; border-left: 2px solid rgba(245,197,24,.45); color: var(--muted); font-size: .88rem; font-style: italic; }
+.reviewStrip li { width: 58px; }

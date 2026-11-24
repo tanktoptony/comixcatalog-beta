@@ -1,4 +1,5 @@
 import { after, NextResponse } from "next/server";
+import { baseEditions } from "@/lib/searchEditions";
 import { searchSeriesRpc } from "@/lib/searchRpc";
 import { getServiceClient } from "@/lib/supabase/service";
 import { US_PUBLISHER_ALLOWLIST } from "@/lib/publisher";
@@ -285,7 +286,7 @@ async function computeComicsResponse(req) {
       const baseFetchLimit = Math.min(120, offset + limit + 40);
       const { data: baseGcdIssues, error: gcdError } = await timing.measure("issues", () => supabase
         .from("gcd_issues")
-        .select("gcd_id, series_gcd_id, issue_number, title, publication_date")
+        .select("gcd_id, series_gcd_id, issue_number, title, publication_date, variant_of_gcd_id")
         .in("series_gcd_id", seriesGcdIds)
         .order("gcd_id", { ascending: true })
         .limit(baseFetchLimit));
@@ -300,7 +301,7 @@ async function computeComicsResponse(req) {
           const { data: matchingIssueRows, error: matchingIssueError } =
             await supabase
               .from("gcd_issues")
-              .select("gcd_id, series_gcd_id, issue_number, title, publication_date")
+              .select("gcd_id, series_gcd_id, issue_number, title, publication_date, variant_of_gcd_id")
               .in("series_gcd_id", seriesGcdIds)
               .eq("issue_number", queriedIssueNumber)
               .limit(100);
@@ -322,7 +323,7 @@ async function computeComicsResponse(req) {
           }
         }
 
-        gcdRows = gcdIssues
+        gcdRows = baseEditions(gcdIssues)
           .filter((issue) => !isPlaceholderIssueNumber(issue.issue_number))
           .map((issue) => {
             const seriesInfo = seriesLookup[String(issue.series_gcd_id)] ?? {};

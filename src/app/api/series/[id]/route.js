@@ -463,8 +463,10 @@ export async function GET(req, context) {
     const yearStart = years.length ? Math.min(...years) : null;
     const yearEnd = years.length ? Math.max(...years) : null;
 
+    // Own covers only (ID path): a same-titled cover from another volume
+    // carries that volume's publisher, e.g. IDW's Star Trek reading "DC".
     const canonicalPublisherName =
-      canonicalRows.find((row) => row.publisher)?.publisher ?? null;
+      canonicalRows.find((row) => row.series_gcd_id === series.gcd_id && row.publisher)?.publisher ?? null;
 
     // Prefer the precomputed cached value. It went through the audit
     // pipeline (scripts/repairSeriesPublishersWithCv.js) which applies the

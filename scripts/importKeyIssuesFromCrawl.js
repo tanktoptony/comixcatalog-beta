@@ -14,7 +14,11 @@
 //      reported so they can be fed to cover ingest later.
 //   3. The ComicVine issue number must equal our GCD issue number, so a
 //      mislinked cover can't put a "1st appearance" on the wrong book.
-//   4. Issues already in key_issues (the hand-curated seed) are left alone.
+//   4. Keys on a variant record move to the regular edition; keys whose
+//      cover link landed on a reprint edition are skipped (isWrongEdition).
+//      Also skipped: non-US series, promo books, parody magazines (Mad),
+//      hand-checked wrong credits, and characters already keyed elsewhere.
+//   5. Issues already in key_issues (the hand-curated seed) are left alone.
 //   Tier 1 = top character has 1000+ appearances; everything else tier 2.
 //
 // Reads are keyset/chunked and check every error (PostgREST caps responses
@@ -62,6 +66,7 @@ function readCrawl(file) {
 //              resolver uses). Ambiguous matches are dropped.
 async function cvToGcdMap(wanted) {
   const map = new Map();
+  const covers = new Map(); // cv id -> { year, seriesGcdId } of the linking cover row
   const viaSeries = new Map(); // cv id -> { series_gcd_id, issue_number, year }
   let lastId = 0;
   for (;;) {
@@ -78,6 +83,7 @@ async function cvToGcdMap(wanted) {
       if (!wanted.has(cv) || map.has(cv)) continue;
       if (row.gcd_issue_id != null) {
         map.set(cv, Number(row.gcd_issue_id));
+        covers.set(cv, { year: yearOf(row.cover_date), seriesGcdId: row.series_gcd_id == null ? null : Number(row.series_gcd_id) });
         viaSeries.delete(cv);
       } else if (row.series_gcd_id != null && !viaSeries.has(cv)) {
         viaSeries.set(cv, { series_gcd_id: Number(row.series_gcd_id), issue_number: normalizeIssueNumber(row.issue_number), year: yearOf(row.cover_date) });
@@ -120,7 +126,7 @@ async function cvToGcdMap(wanted) {
     }
   }
   console.log(`linked directly: ${direct}, linked by series + issue number + year: ${bySeries}`);
-  return map;
+  return { map, covers };
 }
 
 async function readIn(table, columns, column, ids) {
@@ -134,17 +140,21 @@ async function readIn(table, columns, column, ids) {
   return out;
 }
 
-async function existingKeyIds() {
+async function existingKeys() {
   const ids = new Set();
+  const characters = new Set();
   let from = 0;
   for (;;) {
-    const { data, error } = await supabase.from("key_issues").select("gcd_issue_id").order("id").range(from, from + PAGE - 1);
+    const { data, error } = await supabase.from("key_issues").select("gcd_issue_id, character").order("id").range(from, from + PAGE - 1);
     if (error) throw new Error(`key_issues read failed: ${error.message}`);
-    for (const row of data ?? []) if (row.gcd_issue_id != null) ids.add(Number(row.gcd_issue_id));
+    for (const row of data ?? []) {
+      if (row.gcd_issue_id != null) ids.add(Number(row.gcd_issue_id));
+      if (row.character) characters.add(String(row.character).trim().toLowerCase());
+    }
     if (!data || data.length < PAGE) break;
     from += PAGE;
   }
-  return ids;
+  return { ids, characters };
 }
 
 const yearOf = (v) => {
@@ -156,13 +166,18 @@ async function main() {
   const byCvIssue = firstAppearancesByCvIssue(readCrawl(crawlPath), { minAppearances: MIN });
   console.log(`candidate first-appearance issues (min ${MIN} appearances): ${byCvIssue.size}`);
 
-  const gcdIdByCvIssue = await cvToGcdMap(new Set(byCvIssue.keys()));
+  const { map: gcdIdByCvIssue, covers: coverByCvIssue } = await cvToGcdMap(new Set(byCvIssue.keys()));
   console.log(`linked to a GCD issue through canonical_covers: ${gcdIdByCvIssue.size}`);
 
   const gcdIds = [...new Set(gcdIdByCvIssue.values())];
-  const issues = await readIn("gcd_issues", "gcd_id, series_gcd_id, issue_number, publication_date, key_date", "gcd_id", gcdIds);
+  const ISSUE_COLUMNS = "gcd_id, series_gcd_id, issue_number, publication_date, key_date, variant_of_gcd_id";
+  const issues = await readIn("gcd_issues", ISSUE_COLUMNS, "gcd_id", gcdIds);
+  // Keys go on the regular edition, so read the base issue of any variant too.
+  const have = new Set(issues.map((i) => Number(i.gcd_id)));
+  const baseIds = [...new Set(issues.map((i) => i.variant_of_gcd_id).filter((v) => v != null && !have.has(Number(v))))];
+  issues.push(...await readIn("gcd_issues", ISSUE_COLUMNS, "gcd_id", baseIds));
   const seriesIds = [...new Set(issues.map((i) => i.series_gcd_id).filter((v) => v != null))];
-  const series = await readIn("series", "gcd_id, title, resolved_publisher_cached", "gcd_id", seriesIds);
+  const series = await readIn("series", "gcd_id, title, resolved_publisher_cached, us_market", "gcd_id", seriesIds);
   const seriesById = new Map(series.map((s) => [Number(s.gcd_id), s]));
   const issueByGcdId = new Map(issues.map((i) => {
     const s = seriesById.get(Number(i.series_gcd_id));
@@ -171,11 +186,14 @@ async function main() {
       title: s?.title ?? null,
       publisher: s?.resolved_publisher_cached && !/^unknown/i.test(s.resolved_publisher_cached) ? s.resolved_publisher_cached : null,
       year: yearOf(i.key_date) ?? yearOf(i.publication_date),
+      seriesGcdId: i.series_gcd_id == null ? null : Number(i.series_gcd_id),
+      usMarket: s?.us_market ?? null,
+      variantOf: i.variant_of_gcd_id == null ? null : Number(i.variant_of_gcd_id),
     }];
   }));
 
-  const existing = await existingKeyIds();
-  const { rows, skipped } = buildKeyRows({ byCvIssue, gcdIdByCvIssue, issueByGcdId, existingGcdIds: existing });
+  const { ids: existing, characters: existingCharacters } = await existingKeys();
+  const { rows, skipped } = buildKeyRows({ byCvIssue, gcdIdByCvIssue, issueByGcdId, coverByCvIssue, existingGcdIds: existing, existingCharacters });
   const tiers = rows.reduce((acc, r) => ((acc[r.tier] = (acc[r.tier] ?? 0) + 1), acc), {});
   console.log("skipped:", skipped);
   console.log(`rows to insert: ${rows.length}`, tiers, `(existing key_issues: ${existing.size})`);

@@ -1,6 +1,6 @@
 import { SITE_URL } from "@/lib/siteUrl";
-import { getIssueData, resolveIssueEdition } from "@/lib/pageData";
-import { buildIssueDescription, issueName } from "@/lib/issueSeo";
+import { getIssueData, getIssuePageData, resolveIssueEdition } from "@/lib/pageData";
+import { buildIssueDescription, issueTitle } from "@/lib/issueSeo";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
@@ -10,10 +10,14 @@ export async function generateMetadata({ params }) {
     const gcdNumber = String(id).match(/^(?:gcd-)?(\d+)$/)?.[1] ?? null;
     const resolution = gcdNumber ? await resolveIssueEdition(gcdNumber) : null;
     const canonicalId = resolution?.baseGcdId ? `gcd-${resolution.baseGcdId}` : gcdNumber ? `gcd-${gcdNumber}` : id;
-    const issue = await getIssueData(gcdNumber ? `gcd-${gcdNumber}` : id);
+    // Same arguments as the page's canonical render, so this reuses its cached
+    // result (with the active listing count) rather than querying again.
+    const issue = resolution?.baseGcdId
+      ? await getIssuePageData(resolution.baseGcdId, resolution.baseGcdId, resolution.hasEditionColumns)
+      : await getIssueData(gcdNumber ? `gcd-${gcdNumber}` : id);
     if (!issue) throw new Error("no issue");
 
-    const title = issueName(issue);
+    const title = issueTitle(issue);
     const description = buildIssueDescription(issue);
 
     return {

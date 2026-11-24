@@ -1,0 +1,570 @@
+/* Thread (single conversation) styles, scoped via CSS Modules so they
+   always load with the page bundle — independent of globals.css. */
+
+.view {
+  max-width: 760px;
+  margin: 24px auto;
+  background: #15171f;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 200px);
+  min-height: 520px;
+  overflow: hidden;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  flex-shrink: 0;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.7);
+  background: transparent;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.back:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.peer {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: inherit;
+  text-decoration: none;
+  flex: 1;
+  min-width: 0;
+}
+.peerAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.peerAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.peerMeta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+  min-width: 0;
+}
+.peerName {
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.peerHandle {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.blockActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.76rem;
+}
+.blockActions button {
+  border: 0;
+  padding: 5px 7px;
+  background: transparent;
+  color: #fca5a5;
+  cursor: pointer;
+  font: inherit;
+}
+.blockActions button:hover:not(:disabled) { text-decoration: underline; }
+.blockActions button:disabled { opacity: 0.5; cursor: default; }
+
+.scroller {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 22px 20px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
+.messageBlock {
+  display: contents;
+}
+
+.dateSeparator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 18px 0 8px;
+  color: var(--cc-text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.dateSeparator::before,
+.dateSeparator::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: var(--cc-line);
+}
+
+.empty {
+  margin: auto;
+  max-width: 320px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.emptyGlyph { font-size: 2.4rem; margin-bottom: 10px; }
+.empty strong { color: #fff; }
+
+.msg {
+  display: flex;
+  flex-direction: column;
+  max-width: 78%;
+  margin-top: 12px;
+}
+.msgGrouped { margin-top: 2px; }
+
+.msgMine { align-self: flex-end; align-items: flex-end; }
+.msgTheirs { align-self: flex-start; align-items: flex-start; }
+
+.bubble {
+  padding: 9px 14px;
+  border-radius: 18px;
+  font-size: 0.94rem;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.msgMine .bubble {
+  background: #f4d03f;
+  color: #181a22;
+  border-bottom-right-radius: 6px;
+}
+.msgTheirs .bubble {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-bottom-left-radius: 6px;
+}
+.msgGrouped.msgMine .bubble { border-top-right-radius: 6px; }
+.msgGrouped.msgTheirs .bubble { border-top-left-radius: 6px; }
+
+.meta {
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.35);
+  margin-top: 4px;
+  padding: 0 8px;
+}
+.msgGrouped .meta { display: none; }
+
+/* Delivery line under your latest message. Shown even when the bubble is
+   grouped, since it is the only place the state lives. */
+.status {
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 3px;
+  padding: 0 8px;
+  text-align: right;
+}
+.statusRead { color: var(--cc-gold, #f4d03f); }
+
+.linkWarning {
+  max-width: 330px;
+  margin-top: 5px;
+  padding: 0 8px;
+  color: #facc15;
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+.paymentWarning {
+  max-width: 420px;
+  margin-top: 6px;
+  padding: 8px 10px;
+  border: 1px solid rgba(244, 208, 63, 0.35);
+  border-radius: 8px;
+  background: rgba(94, 76, 34, 0.35);
+  color: #f4d77d;
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
+.errorBanner {
+  margin: 0 18px;
+  padding: 10px 14px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #fca5a5;
+  border-radius: 10px;
+  font-size: 0.86rem;
+}
+
+.blockNotice {
+  margin: 0 18px;
+  padding: 10px 14px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.84rem;
+  text-align: center;
+}
+
+.composer {
+  flex-wrap: wrap;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  padding: 14px 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  flex-shrink: 0;
+}
+.aboutBook { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 10px; border: 1px solid rgba(244,208,63,.3); border-radius: 10px; background: rgba(244,208,63,.06); }
+.aboutBook button { border: 0; background: transparent; color: rgba(255,255,255,.7); font-size: 1.25rem; cursor: pointer; }
+.bookCard { display: flex; align-items: center; gap: 9px; margin-top: 7px; padding: 7px; border: 1px solid rgba(255,255,255,.1); border-radius: 9px; color: inherit; text-decoration: none; background: rgba(11,18,48,.42); }
+.bookCard img { width: 36px; height: 54px; object-fit: cover; border-radius: 3px; }
+.bookCard span { display: grid; gap: 2px; }
+.bookCard small { color: #f4d03f; text-transform: uppercase; letter-spacing: .08em; font-size: .62rem; }
+.bookCard strong { font-size: .8rem; }
+.bookCard em { color: rgba(255,255,255,.5); font-size: .7rem; font-style: normal; }
+.composerInput {
+  flex: 1;
+  resize: none;
+  min-height: 44px;
+  max-height: 180px;
+  padding: 11px 16px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.94rem;
+  line-height: 1.45;
+  transition: border-color 0.15s, background 0.15s;
+}
+.composerInput:focus {
+  outline: none;
+  border-color: #f4d03f;
+  background: rgba(255, 255, 255, 0.07);
+}
+.composerInput::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.send {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 0;
+  background: #f4d03f;
+  color: #181a22;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: filter 0.15s, transform 0.15s;
+}
+.send:hover:not(:disabled) {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+.send:disabled {
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.4);
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-top-color: #181a22;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 600px) {
+  .view {
+    margin: 0;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    height: calc(100vh - 120px);
+  }
+  .msg { max-width: 88%; }
+  .blockActions span { display: none; }
+  .blockActions button { padding: 4px; }
+}
+
+/* Order notes (paid, shipped, delivered) come from the site, not from
+   either collector, so they sit centered instead of in a bubble. */
+.systemNote {
+  align-self: center;
+  max-width: 420px;
+  margin: 14px auto 4px;
+  padding: 10px 16px;
+  border: 1px solid rgba(244, 208, 63, 0.35);
+  border-radius: 12px;
+  background: rgba(244, 208, 63, 0.07);
+  text-align: center;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+.systemNote p { margin: 4px 0; color: #fff; }
+.systemNote a { color: #f4d03f; font-weight: 700; text-decoration: none; }
+.systemLabel {
+  color: #f4d03f;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Inside the two-pane inbox: fill the right pane, no card of its own.
+   Doubled class so it beats the phone .view rule above. */
+.view.viewPane,
+.view.viewDock {
+  flex: 1;
+  max-width: none;
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+@media (min-width: 900px) {
+  /* The list is right there on desktop. */
+  .viewPane .back { display: none; }
+  .viewPane .topbar { padding: 14px 22px; }
+}
+.viewDock .topbar { padding: 8px 10px; gap: 8px; }
+.viewDock .peerAvatar { width: 32px; height: 32px; }
+.viewDock .scroller { padding: 14px 12px; }
+.viewDock .composer { padding: 10px; }
+.viewDock .msg { max-width: 86%; }
+
+.skeleton { animation: pulse 1.2s ease-in-out infinite; }
+.loadingRows { display: grid; gap: 12px; padding: 8px 0; }
+.loadingRows span {
+  display: block;
+  height: 38px;
+  width: 55%;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+.loadingRows span:nth-child(2) { width: 40%; margin-left: auto; background: color-mix(in srgb, var(--cc-gold) 14%, transparent); }
+.loadingRows span:nth-child(3) { width: 62%; }
+@keyframes pulse { 50% { opacity: 0.45; } }
+@media (prefers-reduced-motion: reduce) {
+  .skeleton, .loadingRows span { animation: none; }
+}
+
+/* Message actions: a click or tap on a bubble opens the action bar
+   (reactions, reply, copy); nothing appears on hover. Also reaction chips,
+   the composer's emoji button and :shortcode suggestions. */
+.bubbleRow { position: relative; max-width: 100%; }
+.bubble { cursor: default; }
+.bubble[role="button"] { cursor: pointer; }
+.bubble[role="button"]:focus-visible { outline: 2px solid var(--cc-gold); outline-offset: 2px; }
+.msg[data-bar="open"] .bubble { box-shadow: 0 0 0 2px color-mix(in srgb, var(--cc-gold) 55%, transparent); }
+
+/* A reply's quote, inside the bubble. */
+.quote {
+  display: block;
+  margin: 0 0 6px;
+  padding: 2px 0 2px 8px;
+  border-left: 3px solid color-mix(in srgb, var(--cc-gold) 70%, transparent);
+  color: var(--cc-text-muted);
+  font-size: 0.86em;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.msgMine .quote { color: inherit; opacity: 0.75; border-left-color: rgba(0, 0, 0, 0.45); }
+
+/* "Replying to" strip above the composer. */
+.replying {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0 0 8px;
+  padding: 6px 8px 6px 10px;
+  border-left: 3px solid var(--cc-gold);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 0.85rem;
+  flex-basis: 100%;
+  min-width: 0;
+}
+.replyingText { display: grid; gap: 1px; min-width: 0; flex: 1; }
+.replyingText span { color: var(--cc-gold); font-weight: 700; font-size: 0.78rem; }
+.replyingText q { color: var(--cc-text-muted); quotes: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.replying button {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--cc-text-muted);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.replying button:hover, .replying button:focus-visible { background: rgba(255, 255, 255, 0.08); color: var(--cc-text); }
+
+.reactBar {
+  position: absolute;
+  z-index: 5;
+  bottom: calc(100% - 4px);
+  display: flex;
+  gap: 1px;
+  padding: 3px;
+  border: 1px solid var(--cc-line);
+  border-radius: 999px;
+  background: var(--cc-surface, #11161d);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  animation: react-bar-in 0.12s ease-out;
+}
+@keyframes react-bar-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .reactBar { animation: none; } }
+.msgTheirs .reactBar { left: 6px; }
+.msgMine .reactBar { right: 6px; }
+.barDivider { align-self: center; width: 1px; height: 18px; margin: 0 3px; background: var(--cc-line); }
+.reactBar button {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  font-size: 1.05rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.1s;
+}
+.reactBar button:hover, .reactBar button:focus-visible { background: rgba(255, 255, 255, 0.08); transform: scale(1.2); outline: none; }
+.reactBar .reactMore { color: var(--cc-text-muted); display: inline-grid; place-items: center; }
+.reactBar .reactMore:hover { color: var(--cc-gold); transform: none; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.msgMine .chips { justify-content: flex-end; }
+.chip, .chipMine {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border: 1px solid var(--cc-line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--cc-text);
+  font: inherit;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.chip small, .chipMine small { font-size: 0.72rem; font-weight: 800; }
+.chipMine {
+  border-color: color-mix(in srgb, var(--cc-gold) 60%, transparent);
+  background: color-mix(in srgb, var(--cc-gold) 14%, transparent);
+}
+.chipMine small { color: var(--cc-gold); }
+.chip:hover { border-color: rgba(255, 255, 255, 0.25); }
+.chip:disabled, .chipMine:disabled { cursor: default; opacity: 0.7; }
+
+.composer { position: relative; }
+.emojiButton {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.55);
+  display: inline-grid;
+  place-items: center;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+}
+.emojiButton:hover:not(:disabled), .emojiButton[aria-expanded="true"] { color: var(--cc-gold); background: rgba(255, 255, 255, 0.06); }
+.emojiButton:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.suggest {
+  position: absolute;
+  z-index: 25;
+  left: 12px;
+  bottom: calc(100% + 6px);
+  width: min(260px, calc(100% - 24px));
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  border: 1px solid var(--cc-line);
+  border-radius: 12px;
+  background: var(--cc-surface, #11161d);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
+}
+.suggest button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 6px 9px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--cc-text-muted);
+  font: inherit;
+  font-size: 0.86rem;
+  text-align: left;
+  cursor: pointer;
+}
+.suggest button span { font-size: 1.2rem; }
+.suggest button:hover, .suggest .suggestActive { background: color-mix(in srgb, var(--cc-gold) 14%, transparent); color: var(--cc-text); }
+.viewDock .emojiButton { width: 38px; height: 38px; }
+
+/* The dock is too narrow for Block/Report; they're one tap away in the full
+   inbox (the dock's expand button). */
+.viewDock .blockActions { display: none; }

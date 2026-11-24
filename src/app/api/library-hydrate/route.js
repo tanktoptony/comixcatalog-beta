@@ -4,6 +4,8 @@ import { getMarketValuesBulk } from "@/lib/marketValue";
 import { normTitle, titleVariants } from "@/lib/titleMatch";
 import { bestYearFor, parseYear } from "@/lib/years";
 import { fetchAllPagesParallel } from "@/lib/supabase/fetchAllPages";
+import { resolveCovers } from "@/lib/catalog/covers";
+import { onSaleYear } from "@/lib/issueDetails";
 
 // PostgREST silently caps any unpaginated response at 1000 rows. A single
 // series' cover query stays well under that, but a real collection's full
@@ -491,6 +493,62 @@ async function computeHydration(supabase, { comicIds, gcdIds, collectionGrades }
         communityCover: null, // GCD-linked rows don't have community covers
       };
     }
+
+    // Books this matcher can't place go to the shared resolver that issue,
+    // series and search pages use. It reads covers linked straight to the
+    // issue and numbers like "8 (809)" or "2 [Cover A]", which the lookup
+    // above misses. On 2026-11-19 it found 414 of the 1,537 collected issues
+    // the library showed blank. It only fills blanks; a cover found above
+    // is never replaced.
+    const blank = intermediate.filter((row) => !items[`gcd-${row.gcd_id}`]?.cover);
+    if (blank.length) {
+      const resolved = await resolveCovers(supabase, blank.map((row) => ({
+        gcd_issue_id: row.gcd_id,
+        series_gcd_id: row.seriesGcdId,
+        series_title: row.seriesTitle,
+        issue_number: row.issue_number,
+        year: bestYearFor(row),
+        series_year_start: row.seriesYearStart,
+        series_year_end: row.seriesYearEnd,
+        publisher: row.publisher,
+      }))).catch((error) => {
+        console.error("library-hydrate: shared cover fallback failed", error?.message);
+        return new Map();
+      });
+      for (const row of blank) {
+        const storagePath = resolved.get(row.gcd_id)?.storage_path;
+        const item = items[`gcd-${row.gcd_id}`];
+        if (!storagePath || !item) continue;
+        const url = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${storagePath}`;
+        item.cover = url;
+        item.canonicalCover = url;
+      }
+    }
+  }
+
+  // Show the year a book came out, not its cover year: Marvel's Nov 18, 2026
+  // releases say "January 2027" on the cover. Cover matching above keeps the
+  // cover year. Optional: a failed read leaves the cover year in place.
+  const gcdKeys = Object.keys(items).filter((key) => key.startsWith("gcd-"));
+  if (gcdKeys.length) {
+    try {
+      const ids = gcdKeys.map((key) => Number(key.slice(4)));
+      const pages = [];
+      for (let index = 0; index < ids.length; index += 300) pages.push(ids.slice(index, index + 300));
+      const results = await Promise.all(pages.map((page) =>
+        supabase.from("gcd_issue_details").select("gcd_issue_id, on_sale_date").in("gcd_issue_id", page)
+      ));
+      for (const { data, error } of results) {
+        if (error) throw error;
+        for (const row of data ?? []) {
+          const year = onSaleYear(row.on_sale_date);
+          const item = items[`gcd-${row.gcd_issue_id}`];
+          if (year != null && item) item.year = year;
+        }
+      }
+    } catch (error) {
+      console.error("library-hydrate: on-sale years failed", error?.message ?? error);
+    }
   }
 
   // ── Phase 2 auto-valuation ──
@@ -547,8 +605,12 @@ const ITEM_CACHE_TABLE = "library_item_cache";
 const ITEM_FRESH_MS = 10 * 60 * 1000;
 const CACHE_READ_CHUNK = 150;
 
+// mv3 (2026-11-20): later printings stop borrowing first-printing values
+// (src/lib/copyValue.js); old mv2: entries could show those. mv2
+// (2026-11-20): values now lead with PriceCharting's guide; old mv:
+// entries held comp-only values and must not be served again.
 function valueKey(grade) {
-  return `mv:${Number(grade.gcd_issue_id)}:${grade.grade_numeric ?? ""}:${grade.slab_company ?? ""}:${grade.condition ?? ""}`;
+  return `mv3:${Number(grade.gcd_issue_id)}:${grade.grade_numeric ?? ""}:${grade.slab_company ?? ""}:${grade.condition ?? ""}`;
 }
 
 function itemKeyForGcd(id) {

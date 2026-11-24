@@ -1,6 +1,7 @@
 // /sitemaps/static.xml       static routes, reading guides, published blog posts
 // /sitemaps/series-<hex>.xml allowlisted series whose id starts with <hex>
 // /sitemaps/creators-<part>.xml creators split by the first slug character
+// /sitemaps/issues-<n>.xml   issue pages worth listing, from the nightly table
 //
 // Rendered on first request and cached for a day (ISR), NOT at build time.
 // History: on 2026-09-21 a cold first request 500'd, so every file moved to
@@ -17,6 +18,7 @@ import {
   staticEntries,
   urlsetXml,
 } from "@/lib/sitemap";
+import { issueEntries } from "@/lib/sitemapIssues";
 
 export const dynamic = "force-static";
 export const dynamicParams = true;
@@ -40,6 +42,8 @@ export async function GET(_request, { params }) {
     entries = await seriesEntries(base.slice("series-".length));
   } else if (base.startsWith("creators-")) {
     entries = await creatorEntries(base.slice("creators-".length));
+  } else if (base.startsWith("issues-")) {
+    entries = await issueEntries(base);
   }
 
   if (!entries) return new Response("Not found", { status: 404 });

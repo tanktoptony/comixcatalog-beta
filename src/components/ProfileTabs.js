@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import EmptyState from "./EmptyState";
 import { coverThumb } from "@/lib/coverThumb";
+import { useAuth } from "@/context/AuthContext";
+import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 
 const VIEW_STORAGE_KEY = "cc:profile-view";
 const INITIAL_GRID_ITEMS = 60;
@@ -84,7 +86,8 @@ const SORT_OPTIONS = [
   { value: "added-asc",   label: "Oldest added" },
 ];
 
-export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
+export default function ProfileTabs({ collection, isOwner, visibility = {}, profileUsername }) {
+  const { user } = useAuth();
   // Filter out tabs whose section is hidden by privacy settings (unless owner).
   const visibleTabs = TAB_DEFS.filter((t) => {
     if (!t.visibilityKey) return true;
@@ -98,6 +101,7 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
   // Default: title A–Z. Collectors typically want to scan a shelf by series.
   const [sortMode, setSortMode] = useState("title-asc");
   const [visibleGridItems, setVisibleGridItems] = useState(INITIAL_GRID_ITEMS);
+  const [tradeOnly, setTradeOnly] = useState(false);
   // View mode: "grid" (cards) or "rows" (one row per series, expand to see issues).
   // Default to rows on narrow viewports; persists in localStorage.
   const [viewMode, setViewMode] = useState("grid");
@@ -144,7 +148,7 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
     activity: collection.length,
   };
 
-  const rawActiveItems =
+  const rawActiveItemsBase =
     activeTab === "owned"
       ? grouped.owned
       : activeTab === "wishlist"
@@ -152,6 +156,10 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
       : activeTab === "for_sale"
       ? grouped.forSale
       : [];
+  const tradeCount = grouped.owned.filter((item) => item.open_to_trade).length;
+  const rawActiveItems = activeTab === "owned" && tradeOnly && tradeCount > 0
+    ? rawActiveItemsBase.filter((item) => item.open_to_trade)
+    : rawActiveItemsBase;
 
   // Sort. We sort against display.* (resolved title/year/issue) so the order
   // matches what the user actually sees on the cards, not the raw row data.
@@ -227,6 +235,7 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
       <div className="profile-tab-panel">
         {activeTab !== "activity" && activeItems.length > 0 && (
           <div className="profile-toolbar">
+            {activeTab === "owned" && tradeCount > 0 && <button type="button" className={`profile-trade-chip${tradeOnly ? " is-active" : ""}`} aria-pressed={tradeOnly} onClick={() => setTradeOnly((value) => !value)}>Open to trade ({tradeCount})</button>}
             <div className="profile-view-toggle" role="group" aria-label="View">
               <button
                 type="button"
@@ -270,7 +279,7 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
         ) : activeItems.length === 0 ? (
           <EmptyTab tab={activeTab} isOwner={isOwner} />
         ) : viewMode === "rows" ? (
-          <SeriesRowsView items={activeItems} activeTab={activeTab} />
+          <SeriesRowsView items={activeItems} activeTab={activeTab} askAbout={!isOwner && user ? profileUsername : null} />
         ) : (
           <div className={`comic-grid${activeTab === "owned" ? " comic-grid--wall" : ""}`}>
             {activeItems.slice(0, visibleGridItems).map((item) => {
@@ -306,11 +315,11 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
                   : null;
               const cardHref = isForSale && item.listing_id ? `/listing/${item.listing_id}` : d.href;
 
-              const fullTitle = `${d.title}${d.issueNumber ? ` #${d.issueNumber}` : ""}`;
+              const fullTitle = `${d.title}${issueNumberSuffix(d.issueNumber)}`;
 
               return (
+                <div key={item.id} className="profile-book-contact-wrap">
                 <Link
-                  key={item.id}
                   href={cardHref}
                   className={`comic-card${isWall ? " comic-card--wall" : ""}`}
                   title={isWall ? fullTitle : undefined}
@@ -320,6 +329,7 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
                     {!isForSale && item.status === "for_sale" && (
                       <span className="profile-forsale-tag">For sale</span>
                     )}
+                    {item.open_to_trade && <span className="profile-trade-tag">Trade</span>}
                     {item.slab_company && item.grade_numeric ? (
                       <span className="profile-grade-badge">
                         {item.slab_company} {Number(item.grade_numeric).toFixed(1)}
@@ -353,7 +363,7 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
                     <>
                       <div className="comic-card-title">
                         {d.title}
-                        {d.issueNumber ? ` #${d.issueNumber}` : ""}
+                        {issueNumberSuffix(d.issueNumber)}
                         {item.variant_label ? (
                           <span style={{ opacity: 0.7, fontWeight: 500 }}> ({item.variant_label})</span>
                         ) : null}
@@ -372,6 +382,10 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
                     </>
                   )}
                 </Link>
+                {!isOwner && user && item.gcd_issue_id && (activeTab === "owned" || activeTab === "for_sale") && (
+                  <Link className="profile-book-contact" href={`/inbox/${encodeURIComponent(profileUsername)}?issue=${Number(item.gcd_issue_id)}&copy=${encodeURIComponent(item.id)}&ask=sell`}>Ask about it</Link>
+                )}
+                </div>
               );
             })}
             {activeItems.length > visibleGridItems && (
@@ -391,7 +405,7 @@ export default function ProfileTabs({ collection, isOwner, visibility = {} }) {
   );
 }
 
-function SeriesRowsView({ items, activeTab }) {
+function SeriesRowsView({ items, activeTab, askAbout = null }) {
   // Group by series (title + year as disambiguator for multi-volume runs).
   // We use display.title because that's already the resolved series title
   // (not the issue title), matching how cards label themselves.
@@ -502,9 +516,11 @@ function SeriesRowsView({ items, activeTab }) {
                       : null;
                   const cardHref = isForSale && item.listing_id ? `/listing/${item.listing_id}` : d.href;
                   return (
-                    <Link key={item.id} href={cardHref} className="comic-card">
+                    <div key={item.id} className="profile-book-contact-wrap">
+                    <Link href={cardHref} className="comic-card">
                       <div className="comic-card-cover" style={{ position: "relative" }}>
                         <img src={coverThumb(coverUrl)} alt={d.title} width="400" height="600" loading="lazy" decoding="async" />
+                        {item.open_to_trade && <span className="profile-trade-tag">Trade</span>}
                         {item.slab_company && item.grade_numeric ? (
                           <span className="profile-grade-badge">
                             {item.slab_company} {Number(item.grade_numeric).toFixed(1)}
@@ -513,7 +529,7 @@ function SeriesRowsView({ items, activeTab }) {
                       </div>
                       <div className="comic-card-title">
                         {d.title}
-                        {d.issueNumber ? ` #${d.issueNumber}` : ""}
+                        {issueNumberSuffix(d.issueNumber)}
                         {item.variant_label ? (
                           <span style={{ opacity: 0.7, fontWeight: 500 }}> ({item.variant_label})</span>
                         ) : null}
@@ -530,6 +546,10 @@ function SeriesRowsView({ items, activeTab }) {
                         ) : null}
                       </div>
                     </Link>
+                    {askAbout && item.gcd_issue_id && (activeTab === "owned" || activeTab === "for_sale") && (
+                      <Link className="profile-book-contact" href={`/inbox/${encodeURIComponent(askAbout)}?issue=${Number(item.gcd_issue_id)}&copy=${encodeURIComponent(item.id)}&ask=sell`}>Ask about it</Link>
+                    )}
+                    </div>
                   );
                 })}
               </div>
@@ -616,7 +636,7 @@ function ActivityList({ items }) {
                   <ActivityVerb status={item.status} />{" "}
                   <span className="profile-activity-title">
                     {d.title}
-                    {d.issueNumber ? ` #${d.issueNumber}` : ""}
+                    {issueNumberSuffix(d.issueNumber)}
                   </span>
                 </div>
                 <div className="profile-activity-meta">

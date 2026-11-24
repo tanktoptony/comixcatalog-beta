@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { authedFetch } from "@/lib/apiClient";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 export default function CollectionReconcileReview({ enabled, onChanged }) {
   const [entries, setEntries] = useState([]);
@@ -49,7 +50,7 @@ export default function CollectionReconcileReview({ enabled, onChanged }) {
       <div>
         <p className="library-kicker">Book review</p>
         <h2 id="collection-reconcile-title">Is this your book?</h2>
-        <p>We found {entry.candidates.length === 1 ? "a possible catalog match" : "a few possible catalog matches"} for {entry.comic.series_title} #{entry.comic.issue_number}.</p>
+        <p>We found {entry.candidates.length === 1 ? "a possible catalog match" : "a few possible catalog matches"} for {entry.comic.series_title} {issueNumberText(entry.comic.issue_number)}.</p>
       </div>
       <div className="collection-reconcile-candidates">
         {entry.candidates.map((candidate) => (
@@ -58,7 +59,7 @@ export default function CollectionReconcileReview({ enabled, onChanged }) {
             <img src={candidate.cover_url || "/fallback-cover.png"} alt="" />
             <div>
               <strong>{candidate.series_title}</strong>
-              <span>#{candidate.issue_number}{candidate.year ? ` · ${candidate.year}` : ""}</span>
+              <span>{issueNumberText(candidate.issue_number)}{candidate.year ? ` · ${candidate.year}` : ""}</span>
               <button type="button" className="add-comic-btn" disabled={busy != null} onClick={() => decide("link", candidate.gcd_issue_id)}>
                 Yes, that&apos;s it
               </button>

@@ -19,6 +19,14 @@ const earnedFixtures = {
   wantlistCount: 5,
   matchedScanCount: 25,
   isFoundingCollector: true,
+  zeroIssueCount: 1,
+  halfIssueCount: 1,
+  centennialCount: 1,
+  oneMillionCount: 1,
+  uniqueBookCount: 1,
+  duplicateIssueCount: 1,
+  busiestDayAdds: 50,
+  seriesSpanYears: 40,
 };
 
 for (const badge of BADGE_CATALOG) {
@@ -27,3 +35,17 @@ for (const badge of BADGE_CATALOG) {
     assert.equal(badge.test({}).earned, false);
   });
 }
+
+test("a locked secret badge shows only the placeholder", async () => {
+  const { badgeForDisplay, SECRET_PLACEHOLDER, SECRET_BADGE_COUNT } = await import("./catalog.js");
+  const secrets = BADGE_CATALOG.filter((badge) => badge.secret);
+  assert.equal(secrets.length, SECRET_BADGE_COUNT);
+  for (const badge of secrets) {
+    const locked = badgeForDisplay(badge, { earned: false });
+    assert.equal(locked.name, SECRET_PLACEHOLDER.name);
+    assert.equal(locked.mark, "?");
+    assert.ok(!JSON.stringify(locked).includes(badge.name), `${badge.id} leaks its name`);
+    assert.equal(locked.test, undefined);
+    assert.equal(badgeForDisplay(badge, { earned: true }).name, badge.name);
+  }
+});

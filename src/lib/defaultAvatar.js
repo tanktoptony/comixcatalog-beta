@@ -13,24 +13,28 @@ export function defaultAvatarFor(userIdOrUsername) {
   return `/avatars/default/cc_${number}.webp`;
 }
 
-export function avatarImageUrl(url, { width = 128, height = width, quality = 80 } = {}) {
-  if (!url || url.startsWith("/avatars/default/") || url.startsWith("/avatars/")) return url;
+// Uploaded avatars are served as stored. They used to go through Supabase's
+// /render/image/ resize, which is billed per image and was switched off on
+// 2026-11-21 after a $365 month of transforms; from then on every uploaded
+// avatar 403'd. Uploads are already re-encoded to at most 512px JPEG in the
+// browser (EditProfileModal), so the original is small. Square cropping is
+// CSS object-fit (globals.css), not a server resize. A URL saved while the
+// resize was on is turned back into the stored file's address.
+const RENDER_AVATARS = "/storage/v1/render/image/public/avatars/";
+const OBJECT_AVATARS = "/storage/v1/object/public/avatars/";
+const RESIZE_PARAMS = ["width", "height", "resize", "quality"];
 
+export function avatarImageUrl(url) {
+  if (!url || url.startsWith("/avatars/")) return url;
   let parsed;
   try {
     parsed = new URL(url);
   } catch {
     return url;
   }
-
-  const marker = "/storage/v1/object/public/avatars/";
-  if (!parsed.pathname.includes(marker)) return url;
-
-  parsed.pathname = parsed.pathname.replace(marker, "/storage/v1/render/image/public/avatars/");
-  parsed.searchParams.set("width", String(width));
-  parsed.searchParams.set("height", String(height));
-  parsed.searchParams.set("resize", "cover");
-  parsed.searchParams.set("quality", String(quality));
+  if (!parsed.pathname.includes(RENDER_AVATARS)) return url;
+  parsed.pathname = parsed.pathname.replace(RENDER_AVATARS, OBJECT_AVATARS);
+  for (const key of RESIZE_PARAMS) parsed.searchParams.delete(key);
   return parsed.toString();
 }
 

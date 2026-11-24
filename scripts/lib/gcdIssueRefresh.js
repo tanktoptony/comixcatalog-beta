@@ -102,3 +102,21 @@ export function variantFieldsFromSeriesJson(seriesJson) {
   }
   return fields;
 }
+
+// GCD deletes and merges series and issues, and their API then answers 404.
+// The variant repair pass records those ids in gcd-gone.json and leaves their
+// rows alone. Without this, the same dead series sorted first every run and
+// failed it: series 174856 failed every gcd-issue-refresh run from Nov 15 to
+// Nov 23, 2026, and because the repair step ran first, no new issues were
+// imported for eight days (Midnight Spider-Man #2 and friends).
+export function repairCandidates(rows, gone = {}) {
+  const goneSeries = new Set((gone?.series ?? []).map(Number));
+  const goneIssues = new Set((gone?.issues ?? []).map(Number));
+  return (rows ?? []).filter((row) => !goneSeries.has(Number(row.series_gcd_id)) && !goneIssues.has(Number(row.gcd_id)));
+}
+
+export function markGone(gone, kind, id) {
+  const ids = new Set((gone?.[kind] ?? []).map(Number));
+  ids.add(Number(id));
+  return { series: [], issues: [], ...gone, [kind]: [...ids].sort((a, b) => a - b) };
+}

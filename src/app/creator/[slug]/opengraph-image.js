@@ -2,15 +2,25 @@ import { getCreatorPage } from "@/lib/creatorData";
 import { topCreatorRole } from "@/lib/creatorPage";
 import { renderShelfCard, OG_SIZE } from "@/lib/og/card";
 import { homeImage } from "@/app/opengraph-image";
+import { cachedCard } from "@/lib/og/cache";
 
 export const alt = "Comic creator on ComixCatalog";
 export const size = OG_SIZE;
 export const contentType = "image/png";
 export const revalidate = 604800;
+// Cached between refreshes (Next 16 renders route handlers on every request
+// unless they are static): without these two lines every crawler hit
+// re-rendered the card and re-fetched its covers (72,300 billed image
+// transforms in Nov 2026). Unknown params render on first request, then
+// come from the cache until `revalidate` runs out.
+export const dynamic = "force-static";
+export function generateStaticParams() {
+  return [];
+}
 
 const roleLabel = (role) => (role === "cover" ? "Cover artist" : role ? `${role[0].toUpperCase()}${role.slice(1)}` : "Creator");
 
-export default async function Image({ params }) {
+async function Image({ params }) {
   try {
     const { slug } = await params;
     const c = await getCreatorPage(slug);
@@ -34,3 +44,6 @@ export default async function Image({ params }) {
     return homeImage();
   }
 }
+
+// Cached for `revalidate`, whatever the data caches say (src/lib/og/cache.js).
+export default cachedCard(revalidate, Image);

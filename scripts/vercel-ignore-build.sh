@@ -10,7 +10,9 @@
 # config. Anything else, or any doubt (no base commit in the shallow clone),
 # builds. 2026-10-08: added gcd-*-cursor.json and comicvine_api_output/ after
 # 33 bot data commits in one week still triggered full production deploys,
-# each throwing away the cached pages.
+# each throwing away the cached pages. 2026-11-01: added *-ledger.json and
+# gcd-*.json; trade-volume-ledger.json (hourly trade-volume-match) and
+# gcd-unmatched-checked.json were still causing ~5 production deploys a day.
 set -u
 # Preview deployments (every push to a PR branch) are skipped (2026-10-08).
 # PR CI already runs `npm run build`, so a preview build only re-checks the
@@ -31,7 +33,7 @@ if [ -z "$CHANGED" ]; then
   echo "No file changes since ${BASE}; building (manual redeploy)."
   exit 1
 fi
-SITE="$(printf '%s\n' "$CHANGED" | grep -v -E '^(\.ingest-done\.json|needs_volume_id\.json|gap-[a-z-]+\.json|gcd-[a-z-]+-cursor\.json|comicvine_api_output/|scripts/\.instagram-[a-z-]+\.json|reports/|docs/|video-production/|\.github/|[^/]+\.md$)')"
+SITE="$(printf '%s\n' "$CHANGED" | grep -v -E '^(\.ingest-done\.json|needs_volume_id\.json|gap-[a-z-]+\.json|gcd-[a-z-]+\.json|[a-z-]+-ledger\.json|comicvine_api_output/|scripts/\.instagram-[a-z-]+\.json|reports/|docs/|video-production/|\.github/|[^/]+\.md$)')"
 if [ -z "$SITE" ]; then
   echo "Only non-site files changed since ${BASE}; skipping the build:"
   printf '%s\n' "$CHANGED" | head -20

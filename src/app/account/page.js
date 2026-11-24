@@ -21,6 +21,7 @@ import { useAuth } from "@/context/AuthContext";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import styles from "./account.module.css";
 import PayoutsPrompt from "@/components/PayoutsPrompt";
+import { ACTIVITY_MODE_LABELS, ACTIVITY_MODES, DEFAULT_PREFS, prefsFromRow } from "@/lib/emailPrefs";
 
 export default function AccountSettingsPage() {
   const { user, profile, loading, signOut } = useAuth();
@@ -32,6 +33,10 @@ export default function AccountSettingsPage() {
   const [emailOnMessage, setEmailOnMessage] = useState(true);
   const [emailTips, setEmailTips] = useState(true);
   const [notificationMsg, setNotificationMsg] = useState(null);
+  const [emailActivity, setEmailActivity] = useState(DEFAULT_PREFS.email_activity);
+  const [emailDigest, setEmailDigest] = useState(DEFAULT_PREFS.email_weekly_digest);
+  const [activityMsg, setActivityMsg] = useState(null);
+  const [digestMsg, setDigestMsg] = useState(null);
   const [tipsMsg, setTipsMsg] = useState(null);
 
   // Mirror profile.is_public into local state once profile resolves so the
@@ -57,14 +62,17 @@ export default function AccountSettingsPage() {
     async function loadNotificationSetting() {
       const { data, error } = await supabase
         .from("notification_settings")
-        .select("email_on_message")
+        .select("*")
         .eq("user_id", user.id)
         .maybeSingle();
       if (!active) return;
       if (error) {
         setNotificationMsg({ kind: "error", text: error.message });
       } else {
-        setEmailOnMessage(data?.email_on_message !== false);
+        const prefs = prefsFromRow(data);
+        setEmailOnMessage(prefs.email_on_message);
+        setEmailActivity(prefs.email_activity);
+        setEmailDigest(prefs.email_weekly_digest);
       }
     }
     loadNotificationSetting();
@@ -95,6 +103,12 @@ export default function AccountSettingsPage() {
     const timer = setTimeout(() => setNotificationMsg(null), 2000);
     return () => clearTimeout(timer);
   }, [notificationMsg]);
+
+  useEffect(() => {
+    if (activityMsg?.kind !== "success" && digestMsg?.kind !== "success") return;
+    const timer = setTimeout(() => { setActivityMsg(null); setDigestMsg(null); }, 2000);
+    return () => clearTimeout(timer);
+  }, [activityMsg, digestMsg]);
 
   useEffect(() => {
     if (tipsMsg?.kind !== "success") return;
@@ -141,6 +155,34 @@ export default function AccountSettingsPage() {
     } else {
       setNotificationMsg({ kind: "success", text: "Saved" });
     }
+  }
+
+  async function savePreference(change, revert, setMsg) {
+    setMsg(null);
+    const { error } = await supabase.from("notification_settings").upsert({
+      user_id: user.id,
+      ...change,
+      updated_at: new Date().toISOString(),
+    });
+    if (error) {
+      revert();
+      setMsg({ kind: "error", text: error.message });
+    } else {
+      setMsg({ kind: "success", text: "Saved" });
+    }
+  }
+
+  function handleActivityMode(next) {
+    const previous = emailActivity;
+    if (next === previous) return;
+    setEmailActivity(next);
+    savePreference({ email_activity: next }, () => setEmailActivity(previous), setActivityMsg);
+  }
+
+  function handleDigestToggle(e) {
+    const next = e.target.checked;
+    setEmailDigest(next);
+    savePreference({ email_weekly_digest: next }, () => setEmailDigest(!next), setDigestMsg);
   }
 
   async function handleTipsToggle(e) {
@@ -221,11 +263,30 @@ export default function AccountSettingsPage() {
             label="Email me when someone sends me a message"
             message={notificationMsg}
           />
+          <ChoiceSetting
+            id="email-activity"
+            value={emailActivity}
+            options={ACTIVITY_MODES.map((mode) => ({ value: mode, label: ACTIVITY_MODE_LABELS[mode] }))}
+            onChange={handleActivityMode}
+            label="Replies, mentions and comments"
+            message={activityMsg}
+          >
+            When someone replies to you, @mentions you, or comments on your lists and reviews.
+          </ChoiceSetting>
+          <ToggleSetting
+            id="email-digest"
+            checked={emailDigest}
+            onChange={handleDigestToggle}
+            label="Weekly digest"
+            message={digestMsg}
+          >
+            Once a week: what the collectors you follow added, wantlist books someone listed, trade matches and your collection&apos;s value. Only sent when there&apos;s something new.
+          </ToggleSetting>
           <ToggleSetting
             id="email-tips"
             checked={emailTips}
             onChange={handleTipsToggle}
-            label="Tips to get started"
+            label="Tips and collection updates"
             message={tipsMsg}
           >
             A couple of short emails to help you add your first comic.
@@ -309,6 +370,40 @@ function SignOutEverywhere({ supabase }) {
         Cancel
       </button>
       {msg && <div className={styles.formError} role="status">{msg.text}</div>}
+    </div>
+  );
+}
+
+function ChoiceSetting({ id, value, options, onChange, label, message, children }) {
+  const helpId = children ? `${id}-help` : undefined;
+  return (
+    <div className={`${styles.setting} ${styles.settingStacked}`}>
+      <div className={styles.settingCopy}>
+        <label id={`${id}-label`} htmlFor={`${id}-${value}`} className={styles.settingLabel}>{label}</label>
+        {children && <p id={helpId} className={styles.settingHelp}>{children}</p>}
+      </div>
+      <div className={styles.settingControl}>
+        <div className={styles.segmented} role="radiogroup" aria-labelledby={`${id}-label`} aria-describedby={helpId}>
+          {options.map((option) => (
+            <button
+              key={option.value}
+              id={`${id}-${option.value}`}
+              type="button"
+              role="radio"
+              aria-checked={value === option.value}
+              className={value === option.value ? styles.segmentOn : styles.segment}
+              onClick={() => onChange(option.value)}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+        {message && (
+          <span className={message.kind === "success" ? styles.saved : styles.error} role="status">
+            {message.text}
+          </span>
+        )}
+      </div>
     </div>
   );
 }

@@ -22,6 +22,7 @@
 //   node scripts/refreshGcdIssuesFromApi.js --source=featured [--max-series=20]
 //   node scripts/refreshGcdIssuesFromApi.js --gcd-ids=217177 --dry-run
 //   node scripts/refreshGcdIssuesFromApi.js --source=featured --no-cursor
+//   node scripts/refreshGcdIssuesFromApi.js --repair-variants [--max-series=15] [--max-fallbacks=4]
 
 import dotenv from "dotenv";
 import { spawnSync } from "node:child_process";
@@ -35,7 +36,7 @@ import { orderActiveTargets, pickBestCandidate, readCursor, rotate, writeCursor 
 import { fetchRecentComicVineIssues } from "./lib/cvRecentReleases.js";
 import { fetchAllPages } from "../src/lib/supabase/fetchAllPages.js";
 import { catalogBarcodeRow, insertCatalogBarcode } from "./lib/gcdBarcodes.js";
-import { issueIdFromUrl, issueRowsFromJson, unmatchedCoverSeries, variantFieldsFromSeriesJson } from "./lib/gcdIssueRefresh.js";
+import { issueIdFromUrl, issueRowsFromJson, markGone, repairCandidates, unmatchedCoverSeries, variantFieldsFromSeriesJson } from "./lib/gcdIssueRefresh.js";
 import { issueNumberOrFilter } from "../src/lib/csvImport/matchRow.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -108,6 +109,9 @@ class RateLimited extends Error {
   }
 }
 
+// GCD answers 404 for series and issues it deleted or merged.
+class NotFound extends Error {}
+
 async function fetchJson(url, tries = 2) {
   for (let attempt = 1; attempt <= tries; attempt++) {
     const res = await fetch(url, { headers: UA });
@@ -120,6 +124,7 @@ async function fetchJson(url, tries = 2) {
       await sleep(SLEEP_MS * 2 * attempt);
       continue;
     }
+    if (res.status === 404) throw new NotFound(`404 Not Found for ${url}`);
     throw new Error(`${res.status} ${res.statusText} for ${url}`);
   }
   throw new Error(`Failed after ${tries} attempts: ${url}`);
@@ -393,10 +398,18 @@ async function refreshOne(seriesGcdId) {
   return { series: seriesJson.name, gcdId: seriesGcdId, missing: missing.length, inserted, complete: issuesToFetch.length === missing.length };
 }
 
+// Ids GCD answered 404 for (committed with the cursor). See repairCandidates().
+const GONE_FILE = path.resolve(__dirname, "../gcd-gone.json");
+function readGone() {
+  try { return JSON.parse(fs.readFileSync(GONE_FILE, "utf8")); } catch { return { series: [], issues: [] }; }
+}
+
 async function repairVariants() {
-  const rows = await fetchAllPages(() => supabase.from("gcd_issues")
+  let gone = readGone();
+  const allRows = await fetchAllPages(() => supabase.from("gcd_issues")
     .select("gcd_id, series_gcd_id, issue_number, base_gcd_issue_id")
     .is("base_gcd_issue_id", null).order("gcd_id", { ascending: false }), "gcd_id");
+  const rows = repairCandidates(allRows, gone);
   const counts = new Map();
   for (const row of rows) {
     const key = `${row.series_gcd_id}::${row.issue_number}`;
@@ -411,21 +424,46 @@ async function repairVariants() {
   // issue_descriptors mark variants ("40 (340) [Pere Pérez Cover]"), so the
   // 2,587 rows left on 2026-11-01 cost ~633 requests instead of 2,587. A row
   // the descriptors can't place (no same-number base) falls back to its own
-  // issue request. --max-series caps series per run (default 15).
+  // issue request. --max-series caps series per run (default 15), and
+  // --max-fallbacks caps those per-issue requests (default unlimited).
+  //
+  // 2026-11-02: as a step after the refresh, gated on "not rate-limited", it
+  // never ran: the refresh ends on a 429 nearly every run. The workflow now
+  // runs it first with small caps, so its share of the ~30-request hourly
+  // budget is bounded and the refresh still gets the rest.
   const seriesOrder = [...new Set(rows.map((row) => Number(row.series_gcd_id)))];
   const maxSeries = Number(args["max-series"] ?? 15);
+  const maxFallbacks = Number(args["max-fallbacks"] ?? Infinity);
   const selectedSeries = seriesOrder.slice(0, maxSeries);
   console.log(`Repair variants: ${rows.length} unrepaired rows in ${seriesOrder.length} series; processing ${selectedSeries.length} series, duplicate-number series first.`);
   let repaired = 0;
+  let fallbacks = 0;
+  let deferred = 0;
+  // Saved even when GCD rate-limits mid-run, so a 404 is never re-spent.
+  try {
   for (const seriesId of selectedSeries) {
     const seriesRows = rows.filter((row) => Number(row.series_gcd_id) === seriesId);
-    const seriesJson = await fetchJson(`https://www.comics.org/api/series/${seriesId}/?format=json`);
-    await sleep(SLEEP_MS);
+    let seriesJson;
+    try {
+      seriesJson = await fetchJson(`https://www.comics.org/api/series/${seriesId}/?format=json`);
+    } catch (error) {
+      if (!(error instanceof NotFound)) throw error;
+      console.log(`::warning::GCD series ${seriesId} is gone (404); skipping its ${seriesRows.length} rows from now on.`);
+      gone = markGone(gone, "series", seriesId);
+      continue;
+    } finally {
+      await sleep(SLEEP_MS);
+    }
     const fields = variantFieldsFromSeriesJson(seriesJson);
     for (const row of seriesRows) {
       try {
         let update = fields.get(Number(row.gcd_id));
+        if (!update && fallbacks >= maxFallbacks) {
+          deferred++;
+          continue;
+        }
         if (!update) {
+          fallbacks++;
           const json = await fetchJson(`https://www.comics.org/api/issue/${row.gcd_id}/?format=json`);
           await sleep(SLEEP_MS);
           const parentId = issueIdFromUrl(json.variant_of);
@@ -444,11 +482,15 @@ async function repairVariants() {
         repaired++;
       } catch (error) {
         if (error instanceof RateLimited) throw error;
+        if (error instanceof NotFound) gone = markGone(gone, "issues", row.gcd_id);
         console.error(`  repair failed for issue ${row.gcd_id}: ${describeError(error)}`);
       }
     }
   }
-  console.log(`Repair complete: ${repaired} rows updated across ${selectedSeries.length} series.`);
+  } finally {
+    fs.writeFileSync(GONE_FILE, JSON.stringify(gone, null, 2) + "\n");
+  }
+  console.log(`Repair complete: ${repaired} rows updated across ${selectedSeries.length} series${deferred ? `; ${deferred} rows left for a later run (per-issue cap)` : ""}.`);
 }
 
 // series.issue_count_cached only moved when weekly-refresh rotated around to

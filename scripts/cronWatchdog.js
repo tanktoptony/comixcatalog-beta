@@ -43,8 +43,25 @@ const WATCHED = [
   // that failure cheaper to hit.
   { file: "gcd-issue-refresh.yml", maxAgeHours: 12 },
   { file: "gcd-publisher-sync.yml", maxAgeHours: 6 },
+  // Daily. Every run was cancelled for 12 days (2026-10-23 to 11-04) because
+  // all 16 series sitemap files were returning 500, and nothing noticed.
+  { file: "warm-sitemaps.yml", maxAgeHours: 48 },
+  // Weekly Monday analytics import, with one day of scheduling slack.
+  { file: "youtube-weekly.yml", maxAgeHours: 24 * 8 },
+  // Nightly list of the issue pages in the sitemap.
+  { file: "issue-sitemap.yml", maxAgeHours: 48 },
+  // Every 6 hours plus after each PriceCharting refresh. The homepage value
+  // reads its latest row; on 2026-11-20 the schedule went 12 hours without
+  // firing and the homepage trailed the library by about $140.
+  { file: "snapshot-collection-value.yml", maxAgeHours: 13 },
+  // Daily at 08:20 UTC. Its first scheduled run (2026-11-20) never fired.
+  // A run takes about an hour, so 30 hours is one missed day plus slack.
+  { file: "pricecharting-refresh.yml", maxAgeHours: 30 },
 ];
 
+// Works whether this file loads as CommonJS (the watchdog job checks out only
+// this file, without package.json) or as an ES module (locally).
+const fs = process.getBuiltinModule("node:fs");
 const DRY_RUN = process.argv.includes("--dry-run");
 const repo = process.env.GITHUB_REPOSITORY; // "owner/repo"
 const token = process.env.GITHUB_TOKEN;
@@ -83,8 +100,20 @@ async function triggerWorkflow(workflowFile) {
   }
 }
 
+// Re-running a job that fails every time fixes nothing: gcd-issue-refresh
+// failed every run, retries included, from 2026-11-15 to 11-23 and nobody
+// heard, so a week of new issues never reached the catalog. A job with no
+// success for two of its windows (at least a day) is "stuck": it is still
+// re-triggered, but the watchdog run then ends red and the workflow emails
+// the reports address (once a day) with the list.
+const STUCK_MIN_HOURS = 24;
+function isStuck(ageHours, maxAgeHours) {
+  return ageHours > Math.max(2 * maxAgeHours, STUCK_MIN_HOURS);
+}
+
 async function main() {
   let triggeredAny = false;
+  const stuck = [];
 
   for (const { file, maxAgeHours } of WATCHED) {
     const run = await lastSuccessfulRun(file);
@@ -92,6 +121,9 @@ async function main() {
       ? (Date.now() - new Date(run.created_at).getTime()) / 3_600_000
       : Infinity;
 
+    if (isStuck(ageHours, maxAgeHours)) {
+      stuck.push(`${file}: no successful run for ${Number.isFinite(ageHours) ? `${Math.round(ageHours)} hours` : "ever"} (expected within ${maxAgeHours < 1 ? `${Math.round(maxAgeHours * 60)} minutes` : `${maxAgeHours} hours`})`);
+    }
     if (ageHours > maxAgeHours) {
       console.log(
         `${file}: last success was ${run ? `${ageHours.toFixed(1)}h ago` : "never"} — exceeds ${maxAgeHours}h, ${DRY_RUN ? "would trigger (--dry-run)" : "triggering now"}.`
@@ -105,6 +137,12 @@ async function main() {
 
   if (!triggeredAny) {
     console.log("All watched workflows are current. Nothing to do.");
+  }
+
+  if (stuck.length) {
+    fs.writeFileSync("watchdog-stuck.txt", stuck.map((line) => `${line}\n`).join(""));
+    for (const line of stuck) console.log(`::error::Stuck: ${line}`);
+    process.exitCode = 1;
   }
 }
 

@@ -158,6 +158,8 @@ API for whether a run was ever created.**
 | `instagram-post.yml` | — | posts an issue to Instagram | **never audited. The founder asked for an "Instagram bot refinement" and never specified what. Ask, do not guess.** |
 | `gcd-issue-refresh.yml` | every 3h `45 */3 * * *` | tops up `gcd_issues` for recent-release, member-owned, and featured series from comics.org's live API | active union was 316 series on 2026-10-05. **GCD's budget is ~30 requests per run and resets hourly**, so at 8 runs a day a check-only rotation takes about 1.4 days (it was 11+ days at the old daily cadence) and missing-issue fetches extend it. A 429 is exit 3 and expected. Rotation cursor lives in `gcd-refresh-cursor.json` |
 | `gcd-publisher-sync.yml` | `:15` on hours not used by issue refresh | incrementally mirrors GCD publishers, then walks GCD series pages for missing English-language US/Canadian catalog rows | publisher work finishes first; series discovery resumes from `gcd-series-discovery-cursor.json`; each 50-row list page supplies series metadata and provisional issue IDs without extra GCD requests; a 429 is exit 3 and expected; no phase deletes rows |
+| `youtube-weekly.yml` | Monday 11:00 UTC | imports the last two completed weeks of channel and per-video YouTube analytics before the scoreboard | an expired or revoked token surfaces as `invalid_grant`; rerun `node scripts/youtubeAuth.js` and update the YOUTUBE_REFRESH_TOKEN secret |
+| `traction-digest.yml` | Monday 13:00 UTC | the weekly scoreboard email: week-over-week product metrics, release results, cohorts, signup sources, YouTube, and Instagram login status | `-f dry_run=true` prints to the run log without sending or saving a snapshot. Needs INSTAGRAM_ACCESS_TOKEN and INSTAGRAM_BUSINESS_ACCOUNT_ID |
 | `snapshot-collection-value.yml`, `pr-ci.yml` | — | value snapshots, PR checks | |
 
 ---
@@ -267,6 +269,14 @@ Note `trackEvent` no-ops silently when `gtag` is absent (ad blockers, local
 dev), so expect real-world undercounting and do not treat GA as a source of
 truth for absolute numbers.
 
+**Signup attribution (November 2026).** `profiles.signup_source` is first touch
+and is the number to trust; GA undercounts. Before this fix a search visit saved
+its referrer and no source, so it read as "unknown" in `traction_report()`. To
+check a live path without creating an account, open the page in a browser with
+a referrer, intercept the `/auth/v1/signup` request to read
+`data.signup_attribution`, and POST that to `/api/attribution` as test_tony, then
+null the row again. test_tony and test_tony_depaul are excluded from every count.
+
 ### 8b. Mailing list — collection works, sending does not exist
 
 `newsletter_subscribers` (migration 0019) is **well built**: unique
@@ -297,6 +307,14 @@ work, the provider key goes in repo secrets (never in a file), and
 `unsubscribed_at` must be honoured on every send. One-click unsubscribe is a
 legal requirement for bulk mail, not a nicety.
 
+**Instagram login (November 2026).** The bot's token in the
+`INSTAGRAM_ACCESS_TOKEN` secret was a 60-day user token expiring 2026-12-01. On
+Nov 3, `me/accounts` returned no Pages for it, so its Page token can't be fetched
+without a new user token from Graph API Explorer. See
+`scripts/instagramPageTokenSwap.mjs`, which refuses to change anything unless the
+result is a Page token that doesn't expire and can reach the publishing endpoint.
+The Monday email reports the status and flags 10 days before any expiry.
+
 ### 8c. Blog — stalled, and it is the SEO asset
 
 Posts and dates, newest first:
@@ -317,6 +335,14 @@ readers rather than for the founder's own changelog. Reading guides and
 "which issues matter" content target searches people actually run; build
 updates do not.
 
+**Per-video YouTube links (November 2026).** `/yt/<slug>` is one tagged
+redirect per video, listed in `src/lib/youtubeLinks.js`; the campaign is
+`yt-<slug>`. To add a video, add a line there and put the link in its
+description and pinned comment. Links only click on long videos; on Shorts they
+are typed text, so set the Short's Related video as well. To confirm a link,
+`curl -sI https://www.comixcatalog.com/yt/<slug>` and check the `location` header
+keeps the tags, then open it and check `cc:attribution` in localStorage.
+
 ### 8d. SEO foundation
 
 Already present: `src/app/robots.js` and `generateMetadata`/openGraph on
@@ -335,6 +361,15 @@ cached a day. Logic is in `src/lib/sitemap.js`. Verified live against the
 dev server: all 16 chunks sum to **45,985** series URLs, zero duplicates,
 equal to the exact count of allowlisted series, so the §2a 1000-row cap is
 not in play. Issues (2.5M) are still not enumerated, deliberately.
+
+**2026-11-04:** all 16 series files returned 500 from 10-22 to 11-04. PR #367
+added a PostgREST embed of `gcd_issues` under `key_issues`, which have no
+foreign key, so every call failed with PGRST200 and each file took 16 s to
+give up. `warm-sitemaps.yml` ran out of time and showed "cancelled" for 12
+days with no alert. Fixed, and that workflow now ends red, emails, and is in
+the watchdog. `creators-z` and `creators-0-9` were also empty (collation),
+which hid 208 creators. Current numbers: 98,031 series, 660 `/keys` pages,
+50,044 creators.
 
 Still worth doing: resubmit `/sitemap.xml` in Search Console after this
 deploys and watch the indexed-page count over the following weeks. That is

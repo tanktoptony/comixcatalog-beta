@@ -20,7 +20,8 @@ import assert from "node:assert/strict";
 process.env.NEXT_PUBLIC_SUPABASE_URL ||= "https://example.supabase.co";
 process.env.SUPABASE_SERVICE_ROLE_KEY ||= "test-key";
 
-const { imageLedgerKey, isPostingDay } = await import("./instagramBot.js");
+const { imageLedgerKey, isPostingDay, buildBrandCaption, captionForPost, foundingPassesOpen } = await import("./instagramBot.js");
+const { FOUNDING_LINE, PERSONAL_POSTS } = await import("./lib/instagramVoice.js");
 
 const PATH = "comicvine/rai/vol-4828/1-issue-1.jpg";
 
@@ -105,4 +106,47 @@ test("the day boundary is UTC, matching the already-posted stamp", () => {
   assert.equal(isPostingDay(new Date("2026-09-25T00:00:00Z")), true);
   assert.equal(isPostingDay(new Date("2026-09-25T23:59:59Z")), true);
   assert.equal(isPostingDay(new Date("2026-09-26T00:00:00Z")), false);
+});
+
+// Nov 3, 2026: the carousel ending on this line drew 5 signups through the bio
+// link in an afternoon. Cover posts get more likes but never made the offer.
+
+const COVER = { type: "Cover Spotlight", title: "Birds of Prey", issueNumber: "17", year: 2023, publisher: "DC Comics" };
+const fakeCount = (result) => ({ from: () => ({ select: () => ({ eq: async () => result }) }) });
+
+test("a cover post makes the founding offer only while a pass is open", () => {
+  assert.ok(captionForPost(COVER, 1, { foundingOpen: true }).includes(FOUNDING_LINE));
+  assert.ok(!captionForPost(COVER, 1, { foundingOpen: false }).includes(FOUNDING_LINE));
+});
+
+test("no answer about the count means no founding offer", () => {
+  assert.ok(!captionForPost(COVER, 1).includes(FOUNDING_LINE));
+});
+
+test("the offer sits right above the link in bio, and the link appears once", () => {
+  const lines = captionForPost(COVER, 1, { foundingOpen: true }).split("\n");
+  const at = lines.indexOf(FOUNDING_LINE);
+  assert.match(lines[at + 1], /link in bio/i);
+  assert.equal(lines.filter((line) => /link in bio/i.test(line)).length, 1);
+});
+
+test("passes are open below 100 and closed at 100, and a failed count reads as closed", async () => {
+  assert.equal(await foundingPassesOpen(fakeCount({ count: 36 })), true);
+  assert.equal(await foundingPassesOpen(fakeCount({ count: 99 })), true);
+  assert.equal(await foundingPassesOpen(fakeCount({ count: 100 })), false);
+  assert.equal(await foundingPassesOpen(fakeCount({ count: null, error: { message: "timeout" } })), false);
+});
+
+test("the founding copy never prints a spots-left count", () => {
+  const post = PERSONAL_POSTS.find((p) => p.id === "founding-collectors");
+  for (const text of [FOUNDING_LINE, post.headline, post.subtext, post.captionBody]) {
+    assert.doesNotMatch(text, /\b\d+\s+(spots|passes|left)\b|\bspots? left\b/i);
+    for (const n of text.match(/\d+/g) ?? []) assert.equal(n, "100");
+  }
+});
+
+test("a brand post that already pitches the pass doesn't pitch it twice", () => {
+  const generated = (captionBody) => buildBrandCaption({ headline: "H", captionBody, dayIndex: 1, foundingOpen: true });
+  assert.ok(generated("Something about the catalog.").includes(FOUNDING_LINE));
+  assert.ok(!generated("Founding Collectors get a numbered badge.").includes(FOUNDING_LINE));
 });

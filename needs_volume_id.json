@@ -6995,9 +6995,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T04:10:17.355643+00:00",
-    "retry_after": "2026-11-24T04:10:17.355644+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T07:10:00.860431+00:00",
+    "retry_after": "2026-12-24T07:10:00.860433+00:00",
     "search_hydrated": true
   },
   {
@@ -10258,6 +10258,12 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
+        "id": 108448,
+        "name": "Lady Mechanika",
+        "publisher": "Splitter",
+        "start_year": 2017
+      },
+      {
         "id": 35855,
         "name": "Lady Mechanika",
         "publisher": "Benitez Productions",
@@ -10268,17 +10274,11 @@
         "name": "Lady Mechanika",
         "publisher": "Éditions Glénat",
         "start_year": 2016
-      },
-      {
-        "id": 108448,
-        "name": "Lady Mechanika",
-        "publisher": "Splitter",
-        "start_year": 2017
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T04:10:17.355631+00:00",
-    "retry_after": "2026-11-24T04:10:17.355633+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T07:10:00.860410+00:00",
+    "retry_after": "2026-12-24T07:10:00.860413+00:00",
     "search_hydrated": true
   },
   {
@@ -36287,9 +36287,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T06:10:43.820858+00:00",
-    "retry_after": "2026-11-24T06:10:43.820860+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T07:10:00.860448+00:00",
+    "retry_after": "2026-12-24T07:10:00.860450+00:00",
     "search_hydrated": true
   },
   {
@@ -83543,9 +83543,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T06:10:43.820776+00:00",
-    "retry_after": "2026-11-24T06:10:43.820778+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T07:10:00.860275+00:00",
+    "retry_after": "2026-12-24T07:10:00.860290+00:00",
     "search_hydrated": true
   },
   {
@@ -83567,9 +83567,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T06:10:43.820807+00:00",
-    "retry_after": "2026-11-24T06:10:43.820809+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T07:10:00.860338+00:00",
+    "retry_after": "2026-12-24T07:10:00.860343+00:00",
     "search_hydrated": true
   },
   {
@@ -83591,9 +83591,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T06:10:43.820832+00:00",
-    "retry_after": "2026-11-24T06:10:43.820834+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T07:10:00.860370+00:00",
+    "retry_after": "2026-12-24T07:10:00.860373+00:00",
     "search_hydrated": true
   },
   {
@@ -96052,9 +96052,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T06:03:51.158406+00:00",
-    "retry_after": "2026-11-24T06:03:51.158410+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T07:02:55.072381+00:00",
+    "retry_after": "2026-12-01T07:02:55.072397+00:00",
     "search_hydrated": true
   },
   {
@@ -96063,9 +96063,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T07:02:06.244870+00:00",
-    "retry_after": "2026-11-24T07:02:06.244884+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T07:02:25.786113+00:00",
+    "retry_after": "2026-12-01T07:02:25.786128+00:00",
     "search_hydrated": true
   },
   {
@@ -99701,6 +99701,189 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-24T06:03:12.652842+00:00",
     "retry_after": "2026-11-25T06:03:12.652847+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "French Ticklers",
+    "publisher": "Kitchen Sink Press",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41077,
+        "name": "French Ticklers",
+        "publisher": "Kitchen Sink",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T07:02:11.693737+00:00",
+    "retry_after": "2026-11-25T07:02:11.693752+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Bastard",
+    "publisher": "VIZ Media",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 60250,
+        "name": "Bastard!!",
+        "publisher": "Carlsen Verlag",
+        "start_year": 2000
+      },
+      {
+        "id": 169677,
+        "name": "Bastard",
+        "publisher": "Seven Seas Entertainment",
+        "start_year": 2025
+      },
+      {
+        "id": 158767,
+        "name": "Bastard!!",
+        "publisher": "Planeta DeAgostini",
+        "start_year": 1995
+      },
+      {
+        "id": 178078,
+        "name": "Bastard",
+        "publisher": "Crew",
+        "start_year": 2026
+      },
+      {
+        "id": 76773,
+        "name": "Bastard",
+        "publisher": "Oily Comics",
+        "start_year": 2014
+      },
+      {
+        "id": 114014,
+        "name": "Bastard",
+        "publisher": "Fantagraphics",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T07:02:55.072530+00:00",
+    "retry_after": "2026-11-25T07:02:55.072535+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Lexian Chronicles: Full Circle",
+    "publisher": "Markosia Publishing",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37380,
+        "name": "The Lexian Chronicles: Full Circle",
+        "publisher": "AAM/Markosia",
+        "start_year": 2005
+      },
+      {
+        "id": 37381,
+        "name": "The Lexian Chronicles: Full Circle",
+        "publisher": "AAM/Markosia",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T07:04:46.257387+00:00",
+    "retry_after": "2026-11-25T07:04:46.257401+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marineman",
+    "publisher": "Glénat",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37098,
+        "name": "Marineman",
+        "publisher": "Image",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T07:05:40.018733+00:00",
+    "retry_after": "2026-11-25T07:05:40.018749+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Nowhere Man",
+    "publisher": "Dynamite Entertainment",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45104,
+        "name": "Nowhere Man",
+        "publisher": "Liquid Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 56304,
+        "name": "Nowhere Man",
+        "publisher": "Liquid Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 61007,
+        "name": "Nowhere Man",
+        "publisher": "Forward Comix",
+        "start_year": 2013
+      },
+      {
+        "id": 86056,
+        "name": "The Nowhere Man",
+        "publisher": "Bloozit Press",
+        "start_year": 2015
+      },
+      {
+        "id": 88602,
+        "name": "Nowhere Man",
+        "publisher": "self published",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T07:06:23.614968+00:00",
+    "retry_after": "2026-11-25T07:06:23.614984+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "True Believers: Age of Apocalypse",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T07:10:12.139499+00:00",
+    "retry_after": "2026-11-25T07:10:12.139514+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Owlhoot Western",
+    "publisher": "Marvel Comics",
+    "year": 1950,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T07:10:12.139534+00:00",
+    "retry_after": "2026-11-25T07:10:12.139538+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "John Constantine, Hellblazer: Phantom Pains",
+    "publisher": "DC Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T07:10:12.139553+00:00",
+    "retry_after": "2026-11-25T07:10:12.139556+00:00",
     "search_hydrated": true
   }
 ]

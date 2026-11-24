@@ -483,7 +483,7 @@ Every blog post published from 2026-11-23 on is cross-posted by `blog-crosspost.
 
 ### Private members page (November 2026)
 
-`/u/<username>` can't see who is viewing (sessions live in the browser and the page renders on the server), so a private profile is "not found" for everyone, its owner included. Tony checks private members at `/admin/private-members` instead (linked from /admin): join date, last sign-in, signup source and every book. `PRIVATE_MEMBER_VIEWER_IDS` in `src/lib/admin.js` allows the admin account (two-factor still required, `requirePrivateMemberViewer()` in `src/lib/adminAuth.js`) and @test_tony, which gets nothing else from admin. The privacy policy promises private profiles leave public view, which this keeps.
+`/u/<username>` renders on the server, which can't see who is viewing, so a private profile hands off to `PrivateProfileOwnerView` in the browser. The owner sees their own page; since Nov 24, 2026 Tony's accounts (`PRIVATE_MEMBER_VIEWER_IDS`) see any private member's full profile right there (Tony: "im not going to another page to another page to a profile"), the admin account after its two-factor code entered inline (`AdminMfaGate`), and `/api/public-profile` treats them like the owner (`private, no-store`). Everyone else sees "This collector's profile is private." `/admin/private-members` (linked from /admin) still lists them all: join date, last sign-in, signup source and every book. `PRIVATE_MEMBER_VIEWER_IDS` in `src/lib/admin.js` allows the admin account (two-factor still required, `requirePrivateMemberViewer()` in `src/lib/adminAuth.js`) and @test_tony, which gets nothing else from admin. The privacy policy promises private profiles leave public view, which this keeps.
 
 ### Lists (November 2026)
 

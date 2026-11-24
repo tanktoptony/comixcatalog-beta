@@ -10,6 +10,7 @@ import Avatar from "@/components/Avatar";
 import EmptyState from "@/components/EmptyState";
 import NewMessagePicker from "@/components/inbox/NewMessagePicker";
 import { formatTimeAgo } from "@/lib/timeAgo";
+import { splitQuote } from "@/lib/messageQuote";
 import styles from "./ThreadList.module.css";
 
 export default function ThreadList({ threads, error, activeUsername = null, variant = "pane", onSelect }) {
@@ -74,7 +75,7 @@ export default function ThreadList({ threads, error, activeUsername = null, vari
               const username = t.profile?.username || "unknown";
               const name = t.profile?.display_name || t.profile?.username || "Unknown user";
               // Order notes are written by the site, not by either collector.
-              const preview = `${t.lastMessage.is_system ? "ComixCatalog: " : ""}${t.lastMessage.body || ""}`.slice(0, 110);
+              const preview = `${t.lastMessage.is_system ? "ComixCatalog: " : ""}${splitQuote(t.lastMessage.body).text}`.slice(0, 110);
               const isUnread = t.unread > 0;
               const isActive = activeUsername && username === activeUsername;
               const className = [styles.row, isUnread ? styles.rowUnread : "", isActive ? styles.rowActive : ""].filter(Boolean).join(" ");

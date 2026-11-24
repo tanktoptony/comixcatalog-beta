@@ -401,10 +401,58 @@
   .skeleton, .loadingRows span { animation: none; }
 }
 
-/* Emoji: reaction bar (hover, or tap the bubble on touch screens),
-   reaction chips, the composer's emoji button and :shortcode suggestions. */
+/* Message actions: a click or tap on a bubble opens the action bar
+   (reactions, reply, copy); nothing appears on hover. Also reaction chips,
+   the composer's emoji button and :shortcode suggestions. */
 .bubbleRow { position: relative; max-width: 100%; }
 .bubble { cursor: default; }
+.bubble[role="button"] { cursor: pointer; }
+.bubble[role="button"]:focus-visible { outline: 2px solid var(--cc-gold); outline-offset: 2px; }
+.msg[data-bar="open"] .bubble { box-shadow: 0 0 0 2px color-mix(in srgb, var(--cc-gold) 55%, transparent); }
+
+/* A reply's quote, inside the bubble. */
+.quote {
+  display: block;
+  margin: 0 0 6px;
+  padding: 2px 0 2px 8px;
+  border-left: 3px solid color-mix(in srgb, var(--cc-gold) 70%, transparent);
+  color: var(--cc-text-muted);
+  font-size: 0.86em;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.msgMine .quote { color: inherit; opacity: 0.75; border-left-color: rgba(0, 0, 0, 0.45); }
+
+/* "Replying to" strip above the composer. */
+.replying {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0 0 8px;
+  padding: 6px 8px 6px 10px;
+  border-left: 3px solid var(--cc-gold);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 0.85rem;
+  flex-basis: 100%;
+  min-width: 0;
+}
+.replyingText { display: grid; gap: 1px; min-width: 0; flex: 1; }
+.replyingText span { color: var(--cc-gold); font-weight: 700; font-size: 0.78rem; }
+.replyingText q { color: var(--cc-text-muted); quotes: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.replying button {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--cc-text-muted);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.replying button:hover, .replying button:focus-visible { background: rgba(255, 255, 255, 0.08); color: var(--cc-text); }
 
 .reactBar {
   position: absolute;
@@ -417,16 +465,16 @@
   border-radius: 999px;
   background: var(--cc-surface, #11161d);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
-  opacity: 0;
-  transform: translateY(4px);
-  pointer-events: none;
-  transition: opacity 0.12s, transform 0.12s;
+  animation: react-bar-in 0.12s ease-out;
 }
+@keyframes react-bar-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .reactBar { animation: none; } }
 .msgTheirs .reactBar { left: 6px; }
 .msgMine .reactBar { right: 6px; }
-.msg:hover .reactBar,
-.msg:focus-within .reactBar,
-.msg[data-bar="open"] .reactBar { opacity: 1; transform: none; pointer-events: auto; }
+.barDivider { align-self: center; width: 1px; height: 18px; margin: 0 3px; background: var(--cc-line); }
 .reactBar button {
   width: 30px;
   height: 30px;
@@ -441,11 +489,6 @@
 .reactBar button:hover, .reactBar button:focus-visible { background: rgba(255, 255, 255, 0.08); transform: scale(1.2); outline: none; }
 .reactBar .reactMore { color: var(--cc-text-muted); display: inline-grid; place-items: center; }
 .reactBar .reactMore:hover { color: var(--cc-gold); transform: none; }
-@media (hover: none) {
-  .bubble { cursor: pointer; }
-  .msg:hover .reactBar { opacity: 0; pointer-events: none; }
-  .msg[data-bar="open"] .reactBar { opacity: 1; pointer-events: auto; }
-}
 
 .chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
 .msgMine .chips { justify-content: flex-end; }

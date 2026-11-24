@@ -34263,9 +34263,10 @@
     "year": 2003,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-01T16:08:38.579435+00:00",
-    "retry_after": "2026-10-04T16:08:38.579453+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T09:02:54.265156+00:00",
+    "retry_after": "2026-12-01T09:02:54.265171+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Star Blazers 2199 Omnibus",
@@ -62084,29 +62085,6 @@
     "retry_after": "2026-10-23T01:16:04.174987+00:00"
   },
   {
-    "name": "Scalped",
-    "publisher": "DC Comics",
-    "year": 2007,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 18247,
-        "name": "Scalped",
-        "publisher": null,
-        "start_year": 2007
-      },
-      {
-        "id": 153982,
-        "name": "Scalped",
-        "publisher": null,
-        "start_year": 2008
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T01:16:05.217072+00:00",
-    "retry_after": "2026-10-23T01:16:05.217086+00:00"
-  },
-  {
     "name": "Chew",
     "publisher": "Image Comics",
     "year": 2009,
@@ -83353,9 +83331,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T03:23:15.464145+00:00",
-    "retry_after": "2026-11-24T03:23:15.464166+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T09:11:09.020009+00:00",
+    "retry_after": "2026-12-24T09:11:09.020024+00:00",
     "search_hydrated": true
   },
   {
@@ -89108,9 +89086,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T20:17:54.426858+00:00",
-    "retry_after": "2026-11-20T20:17:54.426875+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T09:11:04.237556+00:00",
+    "retry_after": "2026-12-08T09:11:04.237572+00:00",
     "search_hydrated": true
   },
   {
@@ -89119,9 +89097,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T21:10:49.186862+00:00",
-    "retry_after": "2026-11-20T21:10:49.186877+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T09:11:04.237597+00:00",
+    "retry_after": "2026-12-08T09:11:04.237601+00:00",
     "search_hydrated": true
   },
   {
@@ -95469,9 +95447,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T09:06:50.565582+00:00",
-    "retry_after": "2026-11-24T09:06:50.565593+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T09:11:09.086485+00:00",
+    "retry_after": "2026-12-01T09:11:09.086498+00:00",
     "search_hydrated": true
   },
   {
@@ -97988,9 +97966,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T09:05:58.829796+00:00",
-    "retry_after": "2026-11-24T09:05:58.829816+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-24T09:06:40.001433+00:00",
+    "retry_after": "2026-11-27T09:06:40.001450+00:00",
     "search_hydrated": true
   },
   {
@@ -100000,6 +99978,86 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-24T08:47:43.311837+00:00",
     "retry_after": "2026-11-25T08:47:43.311854+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Terror on the Planet of the Apes",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62074,
+        "name": "Terror on the Planet of the Apes",
+        "publisher": "Adventure",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T09:02:12.473705+00:00",
+    "retry_after": "2026-11-25T09:02:12.473721+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Shazam! The Monster Society of Evil",
+    "publisher": "DC Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T09:02:12.473746+00:00",
+    "retry_after": "2026-11-25T09:02:12.473750+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Hawkeye: Blindspot",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T09:07:17.293078+00:00",
+    "retry_after": "2026-11-25T09:07:17.293094+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Daredevil Gangwar",
+    "publisher": "Marvel Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T09:11:19.324545+00:00",
+    "retry_after": "2026-11-25T09:11:19.324562+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Codeflesh, the Definitive Edition Hardcover",
+    "publisher": "Image Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T09:11:19.709342+00:00",
+    "retry_after": "2026-11-25T09:11:19.709359+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Strike Back!",
+    "publisher": "Titan Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65180,
+        "name": "Simpsons Comics: Strike Back!",
+        "publisher": "HarperCollins",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T09:11:19.709416+00:00",
+    "retry_after": "2026-11-25T09:11:19.709420+00:00",
     "search_hydrated": true
   }
 ]

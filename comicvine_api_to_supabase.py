@@ -1419,7 +1419,10 @@ def upload_cover_thumb(storage_path: str, content: bytes) -> None:
         if img.width > THUMB_WIDTH:
             img = img.resize((THUMB_WIDTH, round(img.height * THUMB_WIDTH / img.width)), Image.LANCZOS)
         out = BytesIO()
-        img.save(out, "WEBP", quality=72, method=4)
+        # q85/method 6: q72 left blotchy blocks and smeared color that read as
+        # grain in small grid tiles (2026-11-24). Pillow has no sharp-YUV
+        # option; q85 matches sharp's q80 + smartSubsample in buildCoverThumbs.js.
+        img.save(out, "WEBP", quality=85, method=6)
         resp = requests.post(
             f"{SUPABASE_URL}/storage/v1/object/{THUMB_BUCKET}/w{THUMB_WIDTH}/{storage_path}.webp",
             headers={
@@ -1442,8 +1445,11 @@ def upload_cover_thumb(storage_path: str, content: bytes) -> None:
 # 13 MB; file storage hit 150 GB of the plan's 100 GB (2026-10-01) mostly from
 # them. 1600 px is still sharper than any page or video render uses. Same
 # rule scripts/shrinkCoverStorage.js applied to the existing bucket.
+# 2026-11-24: storage was back at 122 GB, so anything over 500 KB is
+# re-saved at quality 80 (no visible change at 1600 px; ~3x smaller).
 MAX_COVER_HEIGHT = 1600
-SHRINK_ABOVE_BYTES = 1_000_000
+SHRINK_ABOVE_BYTES = 500_000
+COVER_QUALITY = 80
 
 
 def shrink_cover_bytes(content: bytes, content_type: str) -> bytes:
@@ -1465,11 +1471,11 @@ def shrink_cover_bytes(content: bytes, content_type: str) -> bytes:
         if content_type == "image/png":
             img.save(out, "PNG", optimize=True)
         elif content_type == "image/webp":
-            img.save(out, "WEBP", quality=85, method=4)
+            img.save(out, "WEBP", quality=COVER_QUALITY, method=4)
         else:
             if img.mode not in ("RGB", "L"):
                 img = img.convert("RGB")
-            img.save(out, "JPEG", quality=85, optimize=True, progressive=True)
+            img.save(out, "JPEG", quality=COVER_QUALITY, optimize=True, progressive=True)
         smaller = out.getvalue()
         return smaller if len(smaller) <= len(content) * 0.8 else content
     except Exception as e:

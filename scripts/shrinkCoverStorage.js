@@ -11,11 +11,17 @@
 //   node scripts/shrinkCoverStorage.js --mode=orphans --apply
 //   node scripts/shrinkCoverStorage.js --mode=shrink --min-mb=1 --limit=20   # dry run sample
 //   node scripts/shrinkCoverStorage.js --mode=shrink --min-mb=1 --apply
+//   node scripts/shrinkCoverStorage.js --mode=shrink --min-mb=0 --thumbs --max-minutes=25 --apply
 //
 // orphans: delete files in the bucket that no canonical_covers.storage_path,
 //   cover_variants.storage_path or series.featured_cover_path_cached names.
 //   Every cover can be re-fetched from ComicVine, but nothing here re-fetches
 //   a deleted orphan: nothing points at it.
+// 2026-11-24: back at 122 GB of 100 (originals from before the October run
+// that were not 20% smaller at q85, plus 1-2 GB a day of new covers). Defaults
+// moved to --min-mb=0.5 --quality=80 (no visible change at 1600 px, ~3x
+// smaller on files over 500 KB). Files go largest first.
+//
 // shrink: re-save referenced files of at least --min-mb at most
 //   --max-height px tall (1600 default; issue pages show ~500 px, video
 //   renders ~1080 px). The source is the ComicVine original recorded on the
@@ -26,12 +32,20 @@
 // Needs the public.admin_storage_objects_by_id(bucket, after_id, limit) SQL
 // function (service_role only) to list objects with sizes.
 //
-// Progress for shrink is appended to .cover-thumbs/shrunk.txt so reruns skip
-// finished files.
+// --thumbs: also rebuild each file's grid thumb (cover-thumbs/w400/...) from
+//   the same download, overwriting the old one, so one pass over the bucket
+//   does both. Files with no ComicVine source get their thumb from our stored
+//   copy (a small Supabase egress cost).
+// --max-minutes: stop starting new files after this long, so an overnight
+//   batch ends before the top-of-hour cover ingest.
+//
+// Progress for shrink is appended to --state (default .cover-thumbs/shrunk.txt)
+// so reruns skip finished files.
 
 import fs from "node:fs";
 import dotenv from "dotenv";
 import sharp from "sharp";
+import { thumbStoragePath, THUMB_WIDTH, THUMB_WEBP } from "../src/lib/coverThumb.js";
 
 dotenv.config({ path: process.env.COMIXCATALOG_ENV_FILE || ".env.local" });
 
@@ -39,12 +53,14 @@ const arg = (name, fallback) =>
   process.argv.find((a) => a.startsWith(`--${name}=`))?.split("=").slice(1).join("=") ?? fallback;
 const apply = process.argv.includes("--apply");
 const mode = arg("mode", "report");
-const minBytes = Math.round(Number(arg("min-mb", "1")) * 1e6);
+const minBytes = Math.round(Number(arg("min-mb", "0.5")) * 1e6);
 const maxHeight = Number(arg("max-height", "1600"));
-const quality = Number(arg("quality", "85"));
+const quality = Number(arg("quality", "80"));
 const limit = Number(arg("limit", "0")) || Infinity;
 const concurrency = Number(arg("concurrency", "4"));
-const statePath = ".cover-thumbs/shrunk.txt";
+const statePath = arg("state", ".cover-thumbs/shrunk.txt");
+const thumbs = process.argv.includes("--thumbs");
+const deadline = Number(arg("max-minutes", "0")) ? Date.now() + Number(arg("max-minutes", "0")) * 60000 : Infinity;
 
 const BUCKET = "canonical-covers";
 const supabaseUrl = (process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL || "").replace(/\/$/, "");
@@ -188,26 +204,48 @@ async function fetchBytes(url) {
 async function shrink() {
   const [objects, refs] = await Promise.all([listObjects(minBytes), referencedPaths()]);
   const done = new Set(fs.existsSync(statePath) ? fs.readFileSync(statePath, "utf8").split(/\r?\n/).filter(Boolean) : []);
-  const todo = objects.filter((o) => refs.has(o.name) && !done.has(o.name)).slice(0, limit === Infinity ? undefined : limit);
+  const todo = objects
+    .filter((o) => refs.has(o.name) && !done.has(o.name))
+    .sort((a, b) => b.bytes - a.bytes)
+    .slice(0, limit === Infinity ? undefined : limit);
   console.log(`${todo.length} referenced files >= ${minBytes / 1e6} MB to process (${gb(todo.reduce((s, o) => s + o.bytes, 0))})`);
   fs.mkdirSync(".cover-thumbs", { recursive: true });
   const state = apply ? fs.createWriteStream(statePath, { flags: "a" }) : null;
-  const stats = { replaced: 0, skippedNoGain: 0, noSource: 0, failed: 0, before: 0, after: 0 };
+  const stats = { replaced: 0, skippedNoGain: 0, noSource: 0, failed: 0, before: 0, after: 0, thumbs: 0, thumbsFromStorage: 0 };
   let next = 0;
   const started = Date.now();
+
+  async function putThumb(name, input) {
+    const webp = await sharp(input, { failOn: "none" }).rotate().resize({ width: THUMB_WIDTH, withoutEnlargement: true }).webp(THUMB_WEBP).toBuffer();
+    if (apply) {
+      await withRetry("thumb upload", () =>
+        rest(`/storage/v1/object/cover-thumbs/${thumbStoragePath(name)}`, {
+          method: "POST",
+          headers: { "Content-Type": "image/webp", "cache-control": "max-age=31536000", "x-upsert": "true" },
+          body: webp,
+        })
+      );
+    }
+    stats.thumbs += 1;
+  }
 
   async function one(o) {
     const enc = encoderFor(o.name);
     const src = refs.get(o.name);
-    if (!enc || !src) {
-      stats.noSource += 1;
-      return;
-    }
-    const input = await fetchBytes(src);
+    const input = enc && src ? await fetchBytes(src) : null;
     if (!input) {
       stats.noSource += 1;
+      if (thumbs && enc) {
+        const stored = await fetchBytes(`${supabaseUrl}/storage/v1/object/public/${BUCKET}/${o.name}`);
+        if (stored) {
+          await putThumb(o.name, stored);
+          stats.thumbsFromStorage += 1;
+          state?.write(`${o.name}\n`);
+        }
+      }
       return;
     }
+    if (thumbs) await putThumb(o.name, input);
     const out = await enc.run(sharp(input, { failOn: "none" }).rotate().resize({ height: maxHeight, withoutEnlargement: true })).toBuffer();
     if (out.length > o.bytes * 0.8) {
       stats.skippedNoGain += 1;
@@ -231,7 +269,7 @@ async function shrink() {
 
   await Promise.all(
     Array.from({ length: concurrency }, async () => {
-      while (next < todo.length) {
+      while (next < todo.length && Date.now() < deadline) {
         const o = todo[next++];
         try {
           await one(o);
@@ -248,7 +286,8 @@ async function shrink() {
     })
   );
   state?.end();
-  console.log(JSON.stringify({ apply, ...stats, saved: gb(stats.before - stats.after) }));
+  const stopped = next < todo.length ? `stopped at --max-minutes with ${todo.length - next} left` : "finished";
+  console.log(JSON.stringify({ apply, stopped, ...stats, saved: gb(stats.before - stats.after) }));
 }
 
 if (mode === "report") await report();

@@ -202,6 +202,9 @@ jobs:
       - name: Pin trust tests
         run: npm run test:pin-trust
 
+      - name: Cover batch tests
+        run: npm run test:cover-batches
+
       - name: describeError tests
         run: npm run test:describe-error
 

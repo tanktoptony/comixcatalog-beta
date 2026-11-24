@@ -34195,9 +34195,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T20:10:33.329096+00:00",
-    "retry_after": "2026-11-24T20:10:33.329098+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T21:09:00.490623+00:00",
+    "retry_after": "2026-12-24T21:09:00.490625+00:00",
     "search_hydrated": true
   },
   {
@@ -43558,9 +43558,10 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-09T22:01:06.331937+00:00",
-    "retry_after": "2026-10-12T22:01:06.331953+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T21:02:21.354710+00:00",
+    "retry_after": "2026-12-01T21:02:21.354714+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Century: Distant Sons",
@@ -63702,35 +63703,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-22T05:10:27.449735+00:00",
     "retry_after": "2026-10-23T05:10:27.449751+00:00"
-  },
-  {
-    "name": "Beavis and Butt-Head",
-    "publisher": "Marvel Comics",
-    "year": 1994,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 21508,
-        "name": "Beavis & Butt-Head",
-        "publisher": null,
-        "start_year": 1994
-      },
-      {
-        "id": 125031,
-        "name": "Beavis & Butt-Head",
-        "publisher": null,
-        "start_year": 1995
-      },
-      {
-        "id": 125033,
-        "name": "Beavis & Butt-Head",
-        "publisher": null,
-        "start_year": 1995
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T05:10:29.999871+00:00",
-    "retry_after": "2026-10-23T05:10:29.999886+00:00"
   },
   {
     "name": "Heavy Metal Brasil",
@@ -83954,9 +83926,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T20:10:33.328968+00:00",
-    "retry_after": "2026-11-24T20:10:33.328987+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T21:09:00.490487+00:00",
+    "retry_after": "2026-12-24T21:09:00.490505+00:00",
     "search_hydrated": true
   },
   {
@@ -83965,9 +83937,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T20:10:33.329008+00:00",
-    "retry_after": "2026-11-24T20:10:33.329011+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T21:09:00.490551+00:00",
+    "retry_after": "2026-12-24T21:09:00.490556+00:00",
     "search_hydrated": true
   },
   {
@@ -83976,9 +83948,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T20:10:33.329037+00:00",
-    "retry_after": "2026-11-24T20:10:33.329041+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T21:09:00.490570+00:00",
+    "retry_after": "2026-12-24T21:09:00.490573+00:00",
     "search_hydrated": true
   },
   {
@@ -84005,9 +83977,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T20:20:38.926084+00:00",
-    "retry_after": "2026-11-24T20:20:38.926099+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T21:09:00.490586+00:00",
+    "retry_after": "2026-12-24T21:09:00.490588+00:00",
     "search_hydrated": true
   },
   {
@@ -96676,9 +96648,9 @@
         "start_year": 1995
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T20:05:44.064340+00:00",
-    "retry_after": "2026-11-24T20:05:44.064344+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T21:03:33.919861+00:00",
+    "retry_after": "2026-12-01T21:03:33.919878+00:00",
     "search_hydrated": true
   },
   {
@@ -96700,9 +96672,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T21:02:40.548209+00:00",
-    "retry_after": "2026-11-24T21:02:40.548225+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T21:03:07.997238+00:00",
+    "retry_after": "2026-12-01T21:03:07.997257+00:00",
     "search_hydrated": true
   },
   {
@@ -99782,6 +99754,334 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-24T20:10:15.738446+00:00",
     "retry_after": "2026-11-25T20:10:15.738451+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Death Wreck",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20528,
+        "name": "Death Wreck",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T21:02:21.354598+00:00",
+    "retry_after": "2026-11-25T21:02:21.354616+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Demi's Strange Bedfellows",
+    "publisher": "Carnal Comics; Opus Graphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35242,
+        "name": "Demi's Strange Bedfellows",
+        "publisher": "Carnal Comics",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T21:02:21.354739+00:00",
+    "retry_after": "2026-11-25T21:02:21.354742+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Team Anarchy",
+    "publisher": "Dagger Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 10936,
+        "name": "Team Anarchy",
+        "publisher": "Dagger Enterprises",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T21:02:21.354761+00:00",
+    "retry_after": "2026-11-25T21:02:21.354764+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Official Teen Titans Index",
+    "publisher": "Independent Comics Group",
+    "year": 1985,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23436,
+        "name": "The Official Teen Titans Index",
+        "publisher": "ICG",
+        "start_year": 1985
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T21:02:50.328962+00:00",
+    "retry_after": "2026-11-25T21:02:50.328979+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Devil's Keeper",
+    "publisher": "Alias",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28676,
+        "name": "Devil's Keeper",
+        "publisher": "Alias Enterprises",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T21:02:50.329010+00:00",
+    "retry_after": "2026-11-25T21:02:50.329013+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Codename: Genetix",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18337,
+        "name": "Codename: Genetix",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T21:02:50.329035+00:00",
+    "retry_after": "2026-11-25T21:02:50.329038+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Stratonaut",
+    "publisher": "Night Wynd",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 71307,
+        "name": "Stratonaut",
+        "publisher": "Night Wynd Enterprises",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T21:02:50.329080+00:00",
+    "retry_after": "2026-11-25T21:02:50.329084+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Highway 13",
+    "publisher": "Slave Labor",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 54638,
+        "name": "Highway 13",
+        "publisher": "SLG Publishing",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T21:03:07.997288+00:00",
+    "retry_after": "2026-11-25T21:03:07.997292+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Santos Sisters",
+    "publisher": "American Nature Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 165902,
+        "name": "Santos Sisters",
+        "publisher": "Floating World Comics",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T21:03:07.997315+00:00",
+    "retry_after": "2026-11-25T21:03:07.997318+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cyberspace 3000",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 21158,
+        "name": "Cyberspace 3000",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T21:03:07.997337+00:00",
+    "retry_after": "2026-11-25T21:03:07.997340+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Super Soldiers",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22935,
+        "name": "Super Soldiers",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T21:03:07.997357+00:00",
+    "retry_after": "2026-11-25T21:03:07.997359+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Spirit: The New Adventures",
+    "publisher": "Kitchen Sink Press",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20006,
+        "name": "The Spirit: The New Adventures",
+        "publisher": "Kitchen Sink",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T21:03:07.997377+00:00",
+    "retry_after": "2026-11-25T21:03:07.997379+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "100 Girls",
+    "publisher": "Arcana",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22031,
+        "name": "100 Girls",
+        "publisher": "Arcana Studio",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T21:03:33.919909+00:00",
+    "retry_after": "2026-11-25T21:03:33.919913+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gun Runner",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 5014,
+        "name": "Gun Runner",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T21:03:33.919936+00:00",
+    "retry_after": "2026-11-25T21:03:33.919939+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Boondoggle",
+    "publisher": "Knight Press",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45417,
+        "name": "Boondoggle",
+        "publisher": "Caliber Comics",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T21:03:33.919960+00:00",
+    "retry_after": "2026-11-25T21:03:33.919962+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Children of the Voyager",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 32523,
+        "name": "Children of the Voyager",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T21:03:33.919979+00:00",
+    "retry_after": "2026-11-25T21:03:33.919981+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Darkness & Witchblade",
+    "publisher": "Editora Abril",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T21:03:53.148658+00:00",
+    "retry_after": "2026-11-25T21:03:53.148677+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Lady Death Free Comic Book Day",
+    "publisher": "Avatar Press",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T21:04:16.433486+00:00",
+    "retry_after": "2026-11-25T21:04:16.433504+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Nemo: River of Ghosts",
+    "publisher": "IDW Publishing",
+    "year": 2015,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 80933,
+        "name": "Nemo: River of Ghosts",
+        "publisher": "Top Shelf",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T21:09:13.431657+00:00",
+    "retry_after": "2026-11-25T21:09:13.431675+00:00",
     "search_hydrated": true
   }
 ]

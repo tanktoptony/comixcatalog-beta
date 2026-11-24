@@ -56,7 +56,7 @@
     "test:import": "node --test src/lib/import/import.test.js src/lib/import/aiSuggest.test.js",
     "test:contribute-match": "node --test src/lib/csvImport/contributeMatch.test.js",
     "test:printings": "node --test src/lib/printings.test.js",
-    "test:search-query": "node --test src/lib/searchQuery.test.js",
+    "test:search-query": "node --test src/lib/searchQuery.test.js src/lib/searchEditions.test.js",
     "test:search-variety": "node --test src/lib/searchVariety.test.js",
     "test:search-aliases": "node --test src/lib/searchAliases.test.js",
     "test:search-cache": "node --test src/lib/searchCache.test.js src/lib/searchTermCache.test.js",

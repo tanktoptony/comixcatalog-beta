@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { barcodeVerdict, isPickedCatalogCover, labelForVersion, sharesRegularArt, versionChoices } from "./copyVersion.js";
+import { barcodeVerdict, isPickedCatalogCover, labelForVersion, sharesRegularArt, unmatchedCovers, versionChoices } from "./copyVersion.js";
 
 const SUPA = "https://x.supabase.co/storage/v1/object/public";
 const cand = (gcd_issue_id, extra = {}) => ({ gcd_issue_id, series_title: "Spawn", issue_number: String(gcd_issue_id), ...extra });
@@ -100,4 +100,29 @@ test("only editions that print the regular art borrow its cover", () => {
     versions: [{ gcdId: 10, name: "Direct" }, { gcdId: 12, name: "Cover B" }],
   });
   assert.equal(choices[1].cover, null);
+});
+
+test("unlabeled covers are offered once, and never one already tied to a version", () => {
+  const url = (name) => `${SUPA}/canonical-covers/spawn/${name}.jpg`;
+  const covers = unmatchedCovers({
+    base_gcd_issue_id: 10,
+    series_title: "Spawn",
+    cover: url("1"),
+    versions: [{ gcdId: 10, name: "Base edition" }, { gcdId: 11, name: "Mattina Variant" }],
+    variants: [
+      { id: "tied", storageUrl: url("1b"), caption: "Mattina Variant Cover" },
+      { id: "a", storageUrl: url("1c"), caption: null },
+      { id: "repeat", storageUrl: url("1c"), caption: "" },
+      { id: "main", storageUrl: url("1"), caption: null },
+      { id: "missing", storageUrl: null, caption: null },
+    ],
+  });
+  assert.deepEqual(covers.map((cover) => cover.id), ["a"]);
+  assert.equal(covers[0].url, url("1c"));
+  assert.match(covers[0].thumb, /cover-thumbs/);
+});
+
+test("an issue with no pictures offers no covers", () => {
+  assert.deepEqual(unmatchedCovers({ base_gcd_issue_id: 10, versions: [], variants: [] }), []);
+  assert.deepEqual(unmatchedCovers(null), []);
 });

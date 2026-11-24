@@ -9,7 +9,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { authedFetch } from "@/lib/apiClient";
 import { trackEvent } from "@/lib/analytics";
-import { barcodeVerdict } from "@/lib/copyVersion";
+import { barcodeVerdict, isPickedCatalogCover } from "@/lib/copyVersion";
 import { normalizeUpc, upcProblem } from "@/lib/printings";
 import { useBarcodeReader } from "@/components/useBarcodeReader";
 import { issueNumberSuffix } from "@/lib/issueNumberLabel";
@@ -52,7 +52,7 @@ function CameraPanel({ onUpc, onClose }) {
   );
 }
 
-export default function CopyVersionPicker({ collectionId, gcdIssueId, onSwitched }) {
+export default function CopyVersionPicker({ collectionId, gcdIssueId, userCoverUrl = null, onSwitched, onPickCover }) {
   const [currentId, setCurrentId] = useState(Number(gcdIssueId) || null);
   const [syncedProp, setSyncedProp] = useState(Number(gcdIssueId) || null);
   if (syncedProp !== (Number(gcdIssueId) || null)) {
@@ -60,6 +60,9 @@ export default function CopyVersionPicker({ collectionId, gcdIssueId, onSwitched
     setCurrentId(Number(gcdIssueId) || null);
   }
   const [versions, setVersions] = useState(null);
+  const [covers, setCovers] = useState([]);
+  const [showCovers, setShowCovers] = useState(false);
+  const [savingCover, setSavingCover] = useState(null);
   const [loadError, setLoadError] = useState(null);
   const [showAll, setShowAll] = useState(false);
   const [busyId, setBusyId] = useState(null);
@@ -77,7 +80,7 @@ export default function CopyVersionPicker({ collectionId, gcdIssueId, onSwitched
       .then(async (response) => {
         const data = await response.json();
         if (!response.ok) throw new Error(data.error || "Could not load versions.");
-        if (!cancelled) { setVersions(data.versions ?? []); setLoadError(null); }
+        if (!cancelled) { setVersions(data.versions ?? []); setCovers(data.covers ?? []); setLoadError(null); }
       })
       .catch((err) => { if (!cancelled) setLoadError(err.message); });
     return () => { cancelled = true; };
@@ -107,7 +110,7 @@ export default function CopyVersionPicker({ collectionId, gcdIssueId, onSwitched
       const crossIssue = !familyIds.includes(Number(targetId));
       trackEvent("library_version_switch", { via, cross_issue: crossIssue });
       setCurrentId(Number(targetId));
-      if (crossIssue) setVersions(null);
+      if (crossIssue) { setVersions(null); setCovers([]); setShowCovers(false); }
       setVerdict(null);
       setShowAll(false);
       const message = crossIssue ? `Saved. Moved to ${label}.` : `Saved. Your copy is now the ${label}.`;
@@ -118,6 +121,25 @@ export default function CopyVersionPicker({ collectionId, gcdIssueId, onSwitched
       setError(err.message);
     } finally {
       setBusyId(null);
+    }
+  }
+
+  // Says which picture is this copy. Their own photo always wins, so it is
+  // never replaced from here.
+  async function pickCover(cover) {
+    if (savingCover || !onPickCover) return;
+    setSavingCover(cover.id);
+    setError(null);
+    setDone(null);
+    try {
+      await onPickCover(cover.url);
+      trackEvent("library_cover_pick", { choices: covers.length });
+      setDone("Saved. That is now the cover for your copy.");
+    } catch (err) {
+      console.error("cover pick failed:", err);
+      setError("Could not save that cover. Please try again.");
+    } finally {
+      setSavingCover(null);
     }
   }
 
@@ -150,6 +172,8 @@ export default function CopyVersionPicker({ collectionId, gcdIssueId, onSwitched
   }, [familyIds, currentId]);
 
   const hasChoices = (versions?.length ?? 0) > 1;
+  const canPickCover = covers.length > 0 && Boolean(onPickCover);
+  const ownPhoto = Boolean(userCoverUrl) && !isPickedCatalogCover(userCoverUrl);
   const tiles = showAll ? versions ?? [] : [];
 
   return (
@@ -174,6 +198,11 @@ export default function CopyVersionPicker({ collectionId, gcdIssueId, onSwitched
         {hasChoices && (
           <button type="button" className="grade-cover-btn" onClick={() => setShowAll((open) => !open)} aria-expanded={showAll}>
             {showAll ? "Hide versions" : "Change version"}
+          </button>
+        )}
+        {canPickCover && (
+          <button type="button" className="grade-cover-btn" onClick={() => setShowCovers((open) => !open)} aria-expanded={showCovers}>
+            {showCovers ? "Hide covers" : "Pick your cover"}
           </button>
         )}
         <button type="button" className="grade-cover-btn" onClick={() => { setCamera((open) => !open); setVerdict(null); setError(null); }} disabled={checking}>
@@ -261,6 +290,36 @@ export default function CopyVersionPicker({ collectionId, gcdIssueId, onSwitched
             );
           })}
         </div>
+      )}
+
+      {showCovers && canPickCover && (
+        <>
+          <p className="copy-version-note">
+            {ownPhoto
+              ? "Your own photo is showing for this copy. Remove it below to use one of these instead."
+              : `${covers.length === 1 ? "One other cover" : `${covers.length} other covers`} on file for this issue. Tap yours. Only the picture changes.`}
+          </p>
+          <div className="copy-version-grid" role="list">
+            {covers.map((cover, index) => {
+              const isCurrent = cover.url === userCoverUrl;
+              return (
+                <button
+                  key={cover.id}
+                  type="button"
+                  role="listitem"
+                  className={`copy-version-tile${isCurrent ? " is-current" : ""}`}
+                  disabled={isCurrent || ownPhoto || Boolean(savingCover)}
+                  onClick={() => pickCover(cover)}
+                  aria-label={isCurrent ? `Cover ${index + 1}, your copy` : `Use cover ${index + 1} for your copy`}
+                >
+                  <img src={cover.thumb} alt="" loading="lazy" />
+                  {isCurrent && <span className="copy-version-tag">Yours</span>}
+                  {savingCover === cover.id && <span className="copy-version-tag">Saving...</span>}
+                </button>
+              );
+            })}
+          </div>
+        </>
       )}
 
       {error && <div className="grade-error">{error}</div>}

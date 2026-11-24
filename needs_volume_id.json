@@ -30508,9 +30508,9 @@
         "start_year": 1997
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T06:02:10.707354+00:00",
-    "retry_after": "2026-11-24T06:02:10.707369+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T06:02:21.487033+00:00",
+    "retry_after": "2026-12-01T06:02:21.487047+00:00",
     "search_hydrated": true
   },
   {
@@ -31300,8 +31300,9 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-09-28T10:49:18.021242+00:00",
-    "retry_after": "2026-09-29T10:49:18.021252+00:00"
+    "last_attempt_at": "2026-11-24T06:07:13.217601+00:00",
+    "retry_after": "2026-11-25T06:07:13.217618+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Avengers Strike File",
@@ -67122,29 +67123,6 @@
     "retry_after": "2026-10-27T02:23:55.736747+00:00"
   },
   {
-    "name": "Peter Parker, Spider-Man",
-    "publisher": "Marvel Comics",
-    "year": 2012,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 42854,
-        "name": "Peter Parker: Spider-Man",
-        "publisher": null,
-        "start_year": 2001
-      },
-      {
-        "id": 9142,
-        "name": "Peter Parker: Spider-Man",
-        "publisher": null,
-        "start_year": 1999
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-24T03:23:41.361488+00:00",
-    "retry_after": "2026-10-27T03:23:41.361506+00:00"
-  },
-  {
     "name": "The Greatest Adventure",
     "publisher": "Dynamite Entertainment",
     "year": 2018,
@@ -83449,9 +83427,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T05:11:22.828001+00:00",
-    "retry_after": "2026-11-24T05:11:22.828004+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T06:12:31.055320+00:00",
+    "retry_after": "2026-12-24T06:12:31.055334+00:00",
     "search_hydrated": true
   },
   {
@@ -83460,9 +83438,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T05:11:22.828017+00:00",
-    "retry_after": "2026-11-24T05:11:22.828019+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T06:12:31.055355+00:00",
+    "retry_after": "2026-12-24T06:12:31.055359+00:00",
     "search_hydrated": true
   },
   {
@@ -83471,9 +83449,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T06:10:43.820619+00:00",
-    "retry_after": "2026-11-24T06:10:43.820639+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T06:12:31.055374+00:00",
+    "retry_after": "2026-12-24T06:12:31.055377+00:00",
     "search_hydrated": true
   },
   {
@@ -83483,46 +83461,10 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 160861,
-        "name": "Batgirl",
-        "publisher": "DC Comics",
-        "start_year": 2025
-      },
-      {
-        "id": 82483,
-        "name": "Batgirl",
-        "publisher": "DC Comics",
-        "start_year": 2015
-      },
-      {
         "id": 7205,
         "name": "Batgirl",
         "publisher": "DC Comics",
         "start_year": 2000
-      },
-      {
-        "id": 92542,
-        "name": "Batgirl",
-        "publisher": "DC Comics",
-        "start_year": 2016
-      },
-      {
-        "id": 42604,
-        "name": "Batgirl",
-        "publisher": "DC Comics",
-        "start_year": 2011
-      },
-      {
-        "id": 27457,
-        "name": "Batgirl",
-        "publisher": "DC Comics",
-        "start_year": 2009
-      },
-      {
-        "id": 100119,
-        "name": "Batgirl",
-        "publisher": "DC Comics",
-        "start_year": 2017
       },
       {
         "id": 22245,
@@ -83531,10 +83473,46 @@
         "start_year": 2008
       },
       {
+        "id": 27457,
+        "name": "Batgirl",
+        "publisher": "DC Comics",
+        "start_year": 2009
+      },
+      {
+        "id": 42604,
+        "name": "Batgirl",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
         "id": 50413,
         "name": "Batgirl",
         "publisher": "DC Comics",
         "start_year": 2012
+      },
+      {
+        "id": 82483,
+        "name": "Batgirl",
+        "publisher": "DC Comics",
+        "start_year": 2015
+      },
+      {
+        "id": 92542,
+        "name": "Batgirl",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      },
+      {
+        "id": 100119,
+        "name": "Batgirl",
+        "publisher": "DC Comics",
+        "start_year": 2017
+      },
+      {
+        "id": 160861,
+        "name": "Batgirl",
+        "publisher": "DC Comics",
+        "start_year": 2025
       },
       {
         "id": 167372,
@@ -83543,9 +83521,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T06:10:43.820737+00:00",
-    "retry_after": "2026-11-24T06:10:43.820741+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T06:12:31.055463+00:00",
+    "retry_after": "2026-12-24T06:12:31.055467+00:00",
     "search_hydrated": true
   },
   {
@@ -83554,9 +83532,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T06:10:43.820760+00:00",
-    "retry_after": "2026-11-24T06:10:43.820763+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T06:12:31.055483+00:00",
+    "retry_after": "2026-12-24T06:12:31.055485+00:00",
     "search_hydrated": true
   },
   {
@@ -95468,9 +95446,9 @@
         "start_year": 1982
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T06:10:19.569497+00:00",
-    "retry_after": "2026-11-24T06:10:19.569501+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T06:12:32.928304+00:00",
+    "retry_after": "2026-12-01T06:12:32.928309+00:00",
     "search_hydrated": true
   },
   {
@@ -99688,6 +99666,41 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-24T05:05:01.467715+00:00",
     "retry_after": "2026-11-25T05:05:01.467730+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Prometheus",
+    "publisher": "Daedalus",
+    "year": 2009,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 99932,
+        "name": "Prometheus",
+        "publisher": "Splitter",
+        "start_year": 2009
+      },
+      {
+        "id": 166678,
+        "name": "Prometheus",
+        "publisher": "Sypher Publications",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T06:03:12.652776+00:00",
+    "retry_after": "2026-11-25T06:03:12.652790+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Smallville Season 11",
+    "publisher": "DC Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T06:03:12.652842+00:00",
+    "retry_after": "2026-11-25T06:03:12.652847+00:00",
     "search_hydrated": true
   }
 ]

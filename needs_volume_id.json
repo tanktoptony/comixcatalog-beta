@@ -7766,9 +7766,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T11:12:03.765408+00:00",
-    "retry_after": "2026-11-24T11:12:03.765411+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T13:08:54.663000+00:00",
+    "retry_after": "2026-12-24T13:08:54.663002+00:00",
     "search_hydrated": true
   },
   {
@@ -33134,21 +33134,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 51616,
-        "name": "Justice League International Annual",
-        "publisher": "DC Comics",
-        "start_year": 2012
-      },
-      {
         "id": 23398,
         "name": "Justice League International Annual",
         "publisher": "DC Comics",
         "start_year": 1988
+      },
+      {
+        "id": 51616,
+        "name": "Justice League International Annual",
+        "publisher": "DC Comics",
+        "start_year": 2012
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T12:15:45.500508+00:00",
-    "retry_after": "2026-11-24T12:15:45.500526+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T13:02:18.943576+00:00",
+    "retry_after": "2026-12-01T13:02:18.943579+00:00",
     "search_hydrated": true
   },
   {
@@ -37620,28 +37620,10 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 97450,
-        "name": "Ultraman",
-        "publisher": "Shogakukan",
-        "start_year": 2012
-      },
-      {
-        "id": 83937,
-        "name": "Ultraman",
-        "publisher": "Viz",
-        "start_year": 2015
-      },
-      {
         "id": 28593,
         "name": "Ultraman",
         "publisher": "Harvey",
         "start_year": 1993
-      },
-      {
-        "id": 166995,
-        "name": "Ultraman",
-        "publisher": "JBC",
-        "start_year": 2015
       },
       {
         "id": 28609,
@@ -37650,21 +37632,39 @@
         "start_year": 1994
       },
       {
-        "id": 173705,
+        "id": 83937,
         "name": "Ultraman",
-        "publisher": "Asahi Sonorama",
-        "start_year": 1978
+        "publisher": "Viz",
+        "start_year": 2015
+      },
+      {
+        "id": 97450,
+        "name": "Ultraman",
+        "publisher": "Shogakukan",
+        "start_year": 2012
       },
       {
         "id": 99459,
         "name": "Ultraman",
         "publisher": "Akita Shoten",
         "start_year": 1968
+      },
+      {
+        "id": 166995,
+        "name": "Ultraman",
+        "publisher": "JBC",
+        "start_year": 2015
+      },
+      {
+        "id": 173705,
+        "name": "Ultraman",
+        "publisher": "Asahi Sonorama",
+        "start_year": 1978
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T11:12:03.765382+00:00",
-    "retry_after": "2026-11-24T11:12:03.765387+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T13:08:54.662982+00:00",
+    "retry_after": "2026-12-24T13:08:54.662985+00:00",
     "search_hydrated": true
   },
   {
@@ -83746,9 +83746,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T11:12:03.765299+00:00",
-    "retry_after": "2026-11-24T11:12:03.765318+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T13:08:54.662912+00:00",
+    "retry_after": "2026-12-24T13:08:54.662928+00:00",
     "search_hydrated": true
   },
   {
@@ -89187,9 +89187,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-14T03:11:02.786954+00:00",
-    "retry_after": "2026-11-21T03:11:02.786958+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T13:08:54.663025+00:00",
+    "retry_after": "2026-12-08T13:08:54.663027+00:00",
     "search_hydrated": true
   },
   {
@@ -96380,9 +96380,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T12:16:20.367429+00:00",
-    "retry_after": "2026-11-24T12:16:20.367445+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T13:02:53.941271+00:00",
+    "retry_after": "2026-12-01T13:02:53.941274+00:00",
     "search_hydrated": true
   },
   {
@@ -96391,9 +96391,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T12:16:20.367472+00:00",
-    "retry_after": "2026-11-24T12:16:20.367476+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T13:02:53.941238+00:00",
+    "retry_after": "2026-12-01T13:02:53.941254+00:00",
     "search_hydrated": true
   },
   {
@@ -96437,9 +96437,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T12:16:07.827558+00:00",
-    "retry_after": "2026-11-24T12:16:07.827560+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T13:02:53.941323+00:00",
+    "retry_after": "2026-12-01T13:02:53.941325+00:00",
     "search_hydrated": true
   },
   {
@@ -96485,9 +96485,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T12:16:07.827496+00:00",
-    "retry_after": "2026-11-24T12:16:07.827512+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T13:02:53.941310+00:00",
+    "retry_after": "2026-12-01T13:02:53.941312+00:00",
     "search_hydrated": true
   },
   {
@@ -98109,9 +98109,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T13:02:04.752304+00:00",
-    "retry_after": "2026-11-24T13:02:04.752307+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-24T13:02:18.943485+00:00",
+    "retry_after": "2026-11-27T13:02:18.943501+00:00",
     "search_hydrated": true
   },
   {
@@ -100168,6 +100168,52 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-24T11:11:00.297541+00:00",
     "retry_after": "2026-11-25T11:11:00.297560+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Shadowland",
+    "publisher": "Fantagraphics",
+    "year": 2010,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 65888,
+        "name": "Shadowland",
+        "publisher": "Fantagraphics",
+        "start_year": 2006
+      },
+      {
+        "id": 70862,
+        "name": "Shadowland",
+        "publisher": "Fantagraphics",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T13:05:00.242698+00:00",
+    "retry_after": "2026-11-25T13:05:00.242713+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Bonafide",
+    "publisher": "Bonafide Productions",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T13:05:00.242757+00:00",
+    "retry_after": "2026-11-25T13:05:00.242761+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wizard Ace Edition: The Incredible Hulk #1",
+    "publisher": "Marvel Comics",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T13:09:05.520535+00:00",
+    "retry_after": "2026-11-25T13:09:05.520550+00:00",
     "search_hydrated": true
   }
 ]

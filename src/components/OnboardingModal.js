@@ -11,7 +11,7 @@
 // sharing, and Pro perks exist.
 //
 // Repeat-visit access: dispatch a `window` "cc:open-onboarding" event (see
-// the header's "How this works" button) to force it open regardless of the
+// the Help Center's "How ComixCatalog works" button) to force it open regardless of the
 // seen-flag — the one persistent, always-available way back into this
 // guidance for anyone who dismissed it once and later got lost.
 
@@ -85,8 +85,8 @@ export default function OnboardingModal() {
     return () => clearTimeout(t);
   }, [user, loading, holdForActivation, holdForFounding]);
 
-  // Manual re-open, regardless of the seen-flag — the header's "How this
-  // works" button dispatches this. Always starts back at step 0.
+  // Manual re-open, regardless of the seen-flag — the Help Center's tour
+  // button dispatches this. Always starts back at step 0.
   useEffect(() => {
     function handleForceOpen() {
       setStep(0);

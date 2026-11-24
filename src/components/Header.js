@@ -17,7 +17,7 @@ import { inboxAriaLabel, inboxBadgeTotal } from "@/lib/inboxNotifications";
 import { coverThumb } from "@/lib/coverThumb";
 import InviteButton from "@/components/InviteButton";
 import { authedFetch } from "@/lib/apiClient";
-import { CircleHelp, Inbox, LibraryBig, ListChecks, Package, Store, Users } from "lucide-react";
+import { Inbox, LibraryBig, ListChecks, Package, ShoppingBag, Users } from "lucide-react";
 import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 
 const NAV_ICON_PROPS = { size: 20, strokeWidth: 1.75, "aria-hidden": true };
@@ -117,20 +117,6 @@ export default function Header() {
     // tick. Then we navigate. The network signOut runs in the background.
     signOut();
     router.replace("/");
-  }
-
-  // Switch-account: same signOut, different destination. Sends straight to
-  // the login form instead of bouncing through the homepage — one click
-  // less for the "log in as someone else" path. Uses window.location instead
-  // of router.replace so the new page boots with a fully fresh auth state
-  // (handy if the previous session's getSession seed in AuthContext is
-  // still in flight).
-  function handleSwitchAccount() {
-    closeMenu();
-    signOut();
-    if (typeof window !== "undefined") {
-      window.location.href = "/login";
-    }
   }
 
   // Closes the panel. Results stay keyed to their query, so refocusing the
@@ -672,9 +658,11 @@ export default function Header() {
             narrowest widths via CSS. Always single-row, no wrapping. */}
         <nav className="main-nav" aria-label="Primary">
           {user && (
+            // Desktop only: on phones the bar has no room for both this and
+            // Marketplace, so Collectors moves into the avatar menu there.
             <Link
               href="/people"
-              className="nav-icon-btn"
+              className="nav-icon-btn nav-icon-btn-wide-only"
               aria-label="Collectors"
               data-label="Collectors"
               aria-current={routeIsCurrent(pathname, "/people") ? "page" : undefined}
@@ -683,8 +671,18 @@ export default function Header() {
               <Users {...NAV_ICON_PROPS} />
             </Link>
           )}
-          {/* Marketplace left the top bar on 2026-10-23 until real sellers
-              are on it; it lives in the avatar menu and the footer. */}
+          {user && (
+            <Link
+              href="/marketplace"
+              className="nav-icon-btn"
+              aria-label="Marketplace"
+              data-label="Marketplace"
+              aria-current={routeIsCurrent(pathname, "/marketplace") ? "page" : undefined}
+              onClick={closeMenu}
+            >
+              <ShoppingBag {...NAV_ICON_PROPS} />
+            </Link>
+          )}
 
           {!user && !loading && (
             <>
@@ -750,7 +748,6 @@ export default function Header() {
               isPlus={isPlus}
               hasSupporterPerks={hasSupporterPerks}
               onLogout={handleLogout}
-              onSwitchAccount={handleSwitchAccount}
               onNavigate={closeMenu}
             />
           </div>
@@ -799,8 +796,19 @@ function OrdersMenuItem({ onClick, orders }) {
   );
 }
 
+// The dropdown's identity block. With a public page it links there (your
+// Showcase); without one it stays plain text.
+function UserMenuHead({ href, onClick, children }) {
+  if (!href) return <div className="user-menu-head">{children}</div>;
+  return (
+    <Link href={href} className="user-menu-head user-menu-head-link" role="menuitem" onClick={onClick}>
+      {children}
+    </Link>
+  );
+}
+
 const UserMenu = forwardRef(function UserMenu(
-  { open, setOpen, user, profile, profileLoading, isPro, isPlus, hasSupporterPerks, onLogout, onSwitchAccount, onNavigate },
+  { open, setOpen, user, profile, profileLoading, isPro, isPlus, hasSupporterPerks, onLogout, onNavigate },
   ref
 ) {
   const username = profile?.username || null;
@@ -854,7 +862,13 @@ const UserMenu = forwardRef(function UserMenu(
 
       {open && (
         <div className="user-menu-panel" role="menu">
-          <div className="user-menu-head">
+          {/* The name row is the way to your public page (your Showcase), so
+              it needs no separate menu item. Without a username there is no
+              public page, and the row is plain text. */}
+          <UserMenuHead
+            href={username ? `/u/${username}` : null}
+            onClick={handleItem()}
+          >
             <div className="user-menu-name">{displayName}</div>
             {username && displayName !== username && (
               <div className="user-menu-handle">@{username}</div>
@@ -873,49 +887,17 @@ const UserMenu = forwardRef(function UserMenu(
             )}
             {isPro && <span className="user-menu-pro-pill">PRO</span>}
             {isPlus && <span className="user-menu-pro-pill">Collector+</span>}
-          </div>
+            {username && <span className="user-menu-showcase">View my Showcase</span>}
+          </UserMenuHead>
 
           <div className="user-menu-divider" />
 
+          {/* Library, Pull list, Collectors, Marketplace and Inbox are icons in
+              the header bar; the blog and Help live in the footer. This menu
+              holds only what has no other home. */}
           <OrdersMenuItem onClick={handleItem()} orders={orders} />
-          <Link href="/marketplace" className="user-menu-item user-menu-item-with-icon" role="menuitem" onClick={handleItem()}>
-            <Store {...NAV_ICON_PROPS} />
-            <span>Marketplace (beta)</span>
-          </Link>
-          <button
-            type="button"
-            className="user-menu-item user-menu-item-with-icon"
-            role="menuitem"
-            onClick={handleItem(() => window.dispatchEvent(new Event("cc:open-onboarding")))}
-          >
-            <CircleHelp {...NAV_ICON_PROPS} />
-            <span>How this works</span>
-          </button>
-
-          <div className="user-menu-divider" />
-
-          <Link
-            href="/library"
-            className="user-menu-item"
-            role="menuitem"
-            onClick={handleItem()}
-          >
-            Manage Collection
-          </Link>
-          <Link
-            href="/pull-list"
-            className="user-menu-item"
-            role="menuitem"
-            onClick={handleItem()}
-          >
-            Pull list
-          </Link>
-          <Link
-            href="/people"
-            className="user-menu-item"
-            role="menuitem"
-            onClick={handleItem()}
-          >
+          {/* Phones only: the header bar hides its Collectors icon there. */}
+          <Link href="/people" className="user-menu-item user-menu-item-phone-only" role="menuitem" onClick={handleItem()}>
             Find collectors
           </Link>
           <Link
@@ -937,16 +919,6 @@ const UserMenu = forwardRef(function UserMenu(
               onShared={handleItem()}
             />
           )}
-          {username && (
-            <Link
-              href={`/u/${username}`}
-              className="user-menu-item"
-              role="menuitem"
-              onClick={handleItem()}
-            >
-              My Profile
-            </Link>
-          )}
           <Link
             href="/founding-collectors"
             className="user-menu-item"
@@ -954,14 +926,6 @@ const UserMenu = forwardRef(function UserMenu(
             onClick={handleItem()}
           >
             Founding Collectors
-          </Link>
-          <Link
-            href="/blog"
-            className="user-menu-item"
-            role="menuitem"
-            onClick={handleItem()}
-          >
-            Developer Blog
           </Link>
 
           <div className="user-menu-divider" />
@@ -990,19 +954,6 @@ const UserMenu = forwardRef(function UserMenu(
 
           <div className="user-menu-divider" />
 
-          {/* Switch account: explicit affordance for the multi-account case.
-              Uses handleSwitchAccount (signOut → /login) instead of the
-              regular handleLogout (signOut → /). The previous inline
-              `await onLogout()` was racing router.replace("/") against
-              window.location.href = "/login" and you could land on either. */}
-          <button
-            type="button"
-            className="user-menu-item"
-            role="menuitem"
-            onClick={handleItem(onSwitchAccount)}
-          >
-            Switch account
-          </button>
           <button
             type="button"
             className="user-menu-item user-menu-item-danger"

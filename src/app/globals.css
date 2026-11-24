@@ -7998,9 +7998,21 @@ button.nav-link {
 }
 
 /* ── Mobile: ≤640px ── */
+/* Collectors is a header icon on wide screens and an avatar-menu row on
+   phones, where the bar holds Library, Pull list, Inbox and Marketplace. */
+.user-menu-item.user-menu-item-phone-only {
+  display: none;
+}
+
 @media (max-width: 640px) {
   .header-inner {
     gap: 8px;
+  }
+  .nav-icon-btn.nav-icon-btn-wide-only {
+    display: none;
+  }
+  .user-menu-item.user-menu-item-phone-only {
+    display: block;
   }
 
   /* Keep the avatar compact while icon controls retain a 40px hit area. */
@@ -8630,6 +8642,29 @@ button.nav-link {
   }
 }
 
+/* /help: reopens the first-visit guide (TourButton). */
+.help-tour {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin: 4px 0 20px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.92rem;
+}
+.help-tour-btn {
+  padding: 9px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--x-gold);
+  color: #181a22;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 #000;
+}
+.help-tour-btn:hover { filter: brightness(1.06); }
+.help-tour-btn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 /* /help page — channel list + FAQ accordion. */
 .help-channels {
   list-style: none;
@@ -9346,6 +9381,31 @@ button.nav-link {
 .user-menu-handle {
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.55);
+}
+/* The name row links to the member's Showcase (/u/<username>). */
+.user-menu-head-link {
+  margin: 4px 4px 0;
+  border-radius: 10px;
+  color: inherit;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.user-menu-head-link:hover,
+.user-menu-head-link:focus-visible {
+  background: rgba(255, 255, 255, 0.06);
+}
+.user-menu-head-link:focus-visible {
+  outline: 2px solid var(--x-gold);
+  outline-offset: -2px;
+}
+.user-menu-showcase {
+  margin-top: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--x-gold);
+}
+.user-menu-showcase::after {
+  content: " →";
 }
 .user-menu-pro-pill {
   margin-top: 6px;

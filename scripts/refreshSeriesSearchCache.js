@@ -498,9 +498,8 @@ async function processBatch(seriesBatch) {
   // pages elsewhere in this script.
   //
   // 2026-09-20: this pool is NO LONGER the featured-cover candidate pool.
-  // It still supplies the publisher signal (canonicalPublisher below feeds
-  // resolved_publisher_cached, which the search allowlist filters on, so
-  // narrowing it would silently drop series out of search), and it supplies
+  // Since 2026-10-27 it no longer supplies the publisher signal either (that
+  // comes from the series' own covers, see ownCoverPublisher). It supplies
   // the Tier 3 fallback — but Tier 3 is restricted to rows whose
   // series_gcd_id IS NULL, i.e. covers that no series row owns. A cover
   // tagged to some other gcd_id belongs to that series and must never be
@@ -561,17 +560,13 @@ async function processBatch(seriesBatch) {
 
   // Index covers by (lowercased title, issue_number) so each series can pull
   // exactly the candidate covers that correspond to its own issue numbers.
-  const coversByTitleKey = new Map();
   const coversByTitleAndIssue = new Map();
   // Tier 3 source: same title index, but only covers that no series row
-  // owns via series_gcd_id. Kept as a separate map so the publisher signal
-  // above can still see the full title pool.
+  // owns via series_gcd_id.
   const unownedCoversByTitleKey = new Map();
   for (const row of coverRows) {
     const titleKey = normTitle(row.series_title);
     if (!titleKey) continue;
-    if (!coversByTitleKey.has(titleKey)) coversByTitleKey.set(titleKey, []);
-    coversByTitleKey.get(titleKey).push(row);
 
     if (row.series_gcd_id == null) {
       if (!unownedCoversByTitleKey.has(titleKey)) {
@@ -702,26 +697,6 @@ async function processBatch(seriesBatch) {
       }
     }
 
-    // The FULL set of covers that share this title, across every volume.
-    // This is the pool the featured-cover scorer actually uses (see Phase 2).
-    //
-    // BUG FIX 2026-05-23: this used to be populated ONLY when per-issue
-    // matching found nothing. But GCD and ComicVine number the same logical
-    // series differently — GCD numbers each relaunch volume 1..N, while
-    // ComicVine (canonical_covers) keeps legacy whole-series numbering
-    // (Action Comics 2017 = #957+, Daredevil 2020 = #611+). So per-issue
-    // string matching on "1".."22" matched the 1938 and 2011 #1 covers and
-    // EXCLUDED the correct 2017-era covers (numbered 957+) from the candidate
-    // pool. Phase 2 then never fell back to this full pool, and the year
-    // scorer picked the least-wrong old cover. Always populate the full pool
-    // and let Phase 2 score year-fit across all of it.
-    const titlePool = coversByTitleKey.get(titleKey) ?? [];
-
-    const canonicalPublisher =
-      coverCandidates.find((r) => r.publisher)?.publisher
-      ?? titlePool.find((r) => r.publisher)?.publisher
-      ?? null;
-
     // ── Featured-cover candidate pools, scoped to THIS series row ─────────
     // Tier 1: canonical_covers.series_gcd_id == series.gcd_id.
     // Tier 2: canonical_covers.comicvine_volume_id == series.comicvine_volume_id.
@@ -744,6 +719,14 @@ async function processBatch(seriesBatch) {
         idPool.push(row);
       }
     }
+
+    // ComicVine's publisher for this series' OWN covers (Tier 1/2 only). It
+    // used to fall back to any cover with the same title, from any volume, so
+    // a modern series with no cv_publisher took whoever else published that
+    // title: UDON's 2003 Street Fighter read "Malibu", IDW's Star Trek and
+    // Powerpuff Girls read "DC Comics", Dark Horse's Savage Sword of Conan
+    // read "Marvel Comics" (2026-10-27).
+    const ownCoverPublisher = idPool.find((r) => r.publisher)?.publisher ?? null;
 
     // Tier 3: title-matched covers that carry NO series_gcd_id, i.e. covers
     // no series row owns. Excludes any cover pinned to a different ComicVine
@@ -771,7 +754,7 @@ async function processBatch(seriesBatch) {
     let resolvedPublisher;
     if (yearStart == null || yearStart >= MODERN_ERA_CUTOFF) {
       resolvedPublisher = resolvePublisher({
-        cv: series.cv_publisher ?? canonicalPublisher,
+        cv: series.cv_publisher ?? ownCoverPublisher,
         candidates,
         seriesTitle: series.title,
       });
@@ -787,7 +770,7 @@ async function processBatch(seriesBatch) {
         // Indicia useless — fall back to cv. Better something than
         // "Unknown Publisher" for a row that's clearly attributable.
         resolvedPublisher = resolvePublisher({
-          cv: series.cv_publisher ?? canonicalPublisher,
+          cv: series.cv_publisher ?? ownCoverPublisher,
           candidates,
           seriesTitle: series.title,
         });

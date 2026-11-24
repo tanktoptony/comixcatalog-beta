@@ -56,13 +56,6 @@
     "series_gcd_id": 126914
   },
   {
-    "name": "The Spectacular Spider-Man",
-    "publisher": "Marvel",
-    "year": 1976,
-    "volume_id": 2870,
-    "series_gcd_id": 2359
-  },
-  {
     "name": "Captain Marvel Jr.",
     "publisher": "Fawcett",
     "year": 1942,
@@ -154,13 +147,6 @@
     "series_gcd_id": 41180
   },
   {
-    "name": "Green Lantern",
-    "publisher": "DC",
-    "year": 2023,
-    "volume_id": 150172,
-    "series_gcd_id": 200158
-  },
-  {
     "name": "Disney Adventures",
     "publisher": "Disney",
     "year": 1990,
@@ -210,13 +196,6 @@
     "series_gcd_id": 165329
   },
   {
-    "name": "Iron Man",
-    "publisher": "Marvel",
-    "year": 2020,
-    "volume_id": 165197,
-    "series_gcd_id": 164030
-  },
-  {
     "name": "The Funnies",
     "publisher": "Dell",
     "year": 1929,
@@ -229,13 +208,6 @@
     "year": 2022,
     "volume_id": 135564,
     "series_gcd_id": 189937
-  },
-  {
-    "name": "The Mighty Thor",
-    "publisher": "Marvel",
-    "year": 2011,
-    "volume_id": 44149,
-    "series_gcd_id": 57806
   },
   {
     "name": "FOOM Magazine",
@@ -350,6 +322,13 @@
     "series_gcd_id": 126107
   },
   {
+    "name": "Copra",
+    "publisher": "Copra Press",
+    "year": 2012,
+    "volume_id": 62603,
+    "series_gcd_id": 73563
+  },
+  {
     "name": "Crossover",
     "publisher": "Image",
     "year": 2020,
@@ -362,6 +341,13 @@
     "year": 2016,
     "volume_id": 89936,
     "series_gcd_id": 103474
+  },
+  {
+    "name": "Judge Dredd: Legends of the Law",
+    "publisher": "DC",
+    "year": 1994,
+    "volume_id": 147187,
+    "series_gcd_id": 13304
   },
   {
     "name": "Bloodstrike",
@@ -404,13 +390,6 @@
     "year": 2015,
     "volume_id": 88410,
     "series_gcd_id": 91836
-  },
-  {
-    "name": "Storm",
-    "publisher": "Marvel",
-    "year": 2024,
-    "volume_id": 165055,
-    "series_gcd_id": 216025
   },
   {
     "name": "A Distant Soil",
@@ -488,13 +467,6 @@
     "year": 1986,
     "volume_id": 3652,
     "series_gcd_id": 3204
-  },
-  {
-    "name": "Thor",
-    "publisher": "Marvel",
-    "year": 2018,
-    "volume_id": 77223,
-    "series_gcd_id": 125894
   },
   {
     "name": "B.P.R.D.",
@@ -621,6 +593,13 @@
     "year": 2022,
     "volume_id": 154749,
     "series_gcd_id": 189397
+  },
+  {
+    "name": "Knights of the Dinner Table Illustrated",
+    "publisher": "Kenzer and Company",
+    "year": 2000,
+    "volume_id": 31213,
+    "series_gcd_id": 18404
   },
   {
     "name": "The Life and Death of Toyo Harada",
@@ -812,6 +791,20 @@
     "series_gcd_id": 133140
   },
   {
+    "name": "Blood Hunt",
+    "publisher": "Marvel",
+    "year": 2024,
+    "volume_id": 157939,
+    "series_gcd_id": 211711
+  },
+  {
+    "name": "Punk Mambo",
+    "publisher": "Valiant Entertainment",
+    "year": 2019,
+    "volume_id": 118524,
+    "series_gcd_id": 144510
+  },
+  {
     "name": "Quantum Vibe",
     "publisher": "Big Head Press",
     "year": 2013,
@@ -915,6 +908,20 @@
     "year": 2019,
     "volume_id": 116520,
     "series_gcd_id": 175557
+  },
+  {
+    "name": "Funnytime Features",
+    "publisher": "Eenieweenie Comics",
+    "year": 1994,
+    "volume_id": 73369,
+    "series_gcd_id": 24622
+  },
+  {
+    "name": "Superman / Supergirl: Maelstrom",
+    "publisher": "DC",
+    "year": 2009,
+    "volume_id": 165989,
+    "series_gcd_id": 32444
   },
   {
     "name": "Superman / Wonder Woman",
@@ -1463,17 +1470,31 @@
     "series_gcd_id": 5273
   },
   {
-    "name": "The Spire",
-    "publisher": "Boom! Studios",
-    "year": 2015,
-    "volume_id": 82987,
-    "series_gcd_id": 90489
-  },
-  {
     "name": "Armor Wars",
     "publisher": "Marvel",
     "year": 2015,
     "volume_id": 82340,
     "series_gcd_id": 89858
+  },
+  {
+    "name": "Daredevil / Punisher: The Devil's Trigger",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 168720,
+    "series_gcd_id": 229883
+  },
+  {
+    "name": "Megacity 909",
+    "publisher": "Devil's Due Publishing",
+    "year": 2004,
+    "volume_id": 20964,
+    "series_gcd_id": 26603
+  },
+  {
+    "name": "Marvels: Eye of the Camera",
+    "publisher": "Marvel",
+    "year": 2009,
+    "volume_id": 24399,
+    "series_gcd_id": 33370
   }
 ]

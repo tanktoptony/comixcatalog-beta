@@ -2293,6 +2293,20 @@ function LibraryPageContent() {
                                     ({label})
                                   </a>
                                 </span>
+                                {mv.graded_at && (
+                                  <>
+                                    <span>•</span>
+                                    <a
+                                      href={mv.url}
+                                      target="_blank"
+                                      rel="noopener"
+                                      style={{ opacity: 0.8, color: "inherit" }}
+                                      title={`PriceCharting price for a copy professionally graded ${mv.graded_at.grade}. Your copy is raw, so this isn't in your total.`}
+                                    >
+                                      Graded {mv.graded_at.grade}: ${Number(mv.graded_at.value).toFixed(2)}
+                                    </a>
+                                  </>
+                                )}
                               </>
                             );
                           })()}

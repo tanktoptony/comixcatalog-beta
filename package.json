@@ -46,7 +46,7 @@
     "test:instagram": "node --test scripts/instagramBot.test.js",
     "test:ig-series": "node --test scripts/igSeriesPost.test.js",
     "test:health-check": "node --test scripts/checkCoverIngestHealth.test.js",
-    "test:pin-trust": "node --test scripts/lib/pinTrust.test.js",
+    "test:pin-trust": "node --test scripts/lib/pinTrust.test.js scripts/lib/unfiledCovers.test.js",
     "test:describe-error": "node --test scripts/lib/describeError.test.js",
     "test:with-retry": "node --test scripts/lib/withRetry.test.js",
     "test:resolve-by-year": "node --test scripts/lib/resolveByYear.test.js",

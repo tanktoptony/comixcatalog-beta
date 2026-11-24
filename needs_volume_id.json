@@ -57002,9 +57002,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T13:11:42.766477+00:00",
-    "retry_after": "2026-11-24T13:11:42.766481+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T14:08:56.060614+00:00",
+    "retry_after": "2026-12-24T14:08:56.060632+00:00",
     "search_hydrated": true
   },
   {
@@ -62215,9 +62215,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T11:12:07.957497+00:00",
-    "retry_after": "2026-11-24T11:12:07.957509+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T14:09:02.008524+00:00",
+    "retry_after": "2026-12-24T14:09:02.008540+00:00",
     "search_hydrated": true
   },
   {
@@ -69664,29 +69664,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-10-25T09:17:19.655425+00:00",
     "retry_after": "2026-10-28T09:17:19.655440+00:00"
-  },
-  {
-    "name": "Captain Carrot and the Final Ark",
-    "publisher": "DC Comics",
-    "year": 2007,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 19670,
-        "name": "Captain Carrot and the Final Ark!",
-        "publisher": null,
-        "start_year": 2007
-      },
-      {
-        "id": 43746,
-        "name": "Captain Carrot and the Final Ark",
-        "publisher": null,
-        "start_year": 2008
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-25T10:17:27.583524+00:00",
-    "retry_after": "2026-10-28T10:17:27.583541+00:00"
   },
   {
     "name": "Living with the Dead",
@@ -83711,9 +83688,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T11:12:07.631482+00:00",
-    "retry_after": "2026-11-24T11:12:07.631490+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T14:09:01.830888+00:00",
+    "retry_after": "2026-12-24T14:09:01.830904+00:00",
     "search_hydrated": true
   },
   {
@@ -89229,9 +89206,9 @@
         "start_year": 2000
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-14T04:10:58.803747+00:00",
-    "retry_after": "2026-11-21T04:10:58.803750+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T14:09:02.122746+00:00",
+    "retry_after": "2026-12-08T14:09:02.122748+00:00",
     "search_hydrated": true
   },
   {
@@ -89247,9 +89224,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-14T04:10:58.803772+00:00",
-    "retry_after": "2026-11-21T04:10:58.803774+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T14:09:02.122763+00:00",
+    "retry_after": "2026-12-08T14:09:02.122765+00:00",
     "search_hydrated": true
   },
   {
@@ -89265,9 +89242,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-14T04:10:58.946837+00:00",
-    "retry_after": "2026-11-21T04:10:58.946851+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T14:09:02.222687+00:00",
+    "retry_after": "2026-12-08T14:09:02.222701+00:00",
     "search_hydrated": true
   },
   {
@@ -89294,9 +89271,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-14T10:10:24.982969+00:00",
-    "retry_after": "2026-11-21T10:10:24.982987+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T14:09:03.254200+00:00",
+    "retry_after": "2026-12-08T14:09:03.254217+00:00",
     "search_hydrated": true
   },
   {
@@ -93011,9 +92988,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-17T11:05:42.400757+00:00",
-    "retry_after": "2026-11-24T11:05:42.400773+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T14:09:02.122668+00:00",
+    "retry_after": "2026-12-08T14:09:02.122683+00:00",
     "search_hydrated": true
   },
   {
@@ -96293,9 +96270,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T10:01:56.295718+00:00",
-    "retry_after": "2026-11-24T10:01:56.295720+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T14:03:48.910946+00:00",
+    "retry_after": "2026-12-01T14:03:48.910962+00:00",
     "search_hydrated": true
   },
   {
@@ -96531,9 +96508,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T14:02:21.786518+00:00",
-    "retry_after": "2026-11-24T14:02:21.786531+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T14:03:27.212700+00:00",
+    "retry_after": "2026-12-01T14:03:27.212716+00:00",
     "search_hydrated": true
   },
   {
@@ -100214,6 +100191,101 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-24T13:09:05.520535+00:00",
     "retry_after": "2026-11-25T13:09:05.520550+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Boondoggle",
+    "publisher": "Knight Press",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45417,
+        "name": "Boondoggle",
+        "publisher": "Caliber Comics",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T14:02:08.642206+00:00",
+    "retry_after": "2026-11-25T14:02:08.642223+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cable TV",
+    "publisher": "Entity-Parody",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22957,
+        "name": "Cable TV",
+        "publisher": "Express Publications",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T14:02:57.379566+00:00",
+    "retry_after": "2026-11-25T14:02:57.379604+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Clock",
+    "publisher": "Starscreem Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 124097,
+        "name": "The Clock",
+        "publisher": "Image",
+        "start_year": 2020
+      },
+      {
+        "id": 130739,
+        "name": "The Clock",
+        "publisher": "Image",
+        "start_year": 2020
+      },
+      {
+        "id": 53375,
+        "name": "Clock!",
+        "publisher": "Zoo Arsonist Press",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T14:04:18.787321+00:00",
+    "retry_after": "2026-11-25T14:04:18.787338+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Clock!",
+    "publisher": "Top Shelf",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53375,
+        "name": "Clock!",
+        "publisher": "Zoo Arsonist Press",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T14:04:18.787399+00:00",
+    "retry_after": "2026-11-25T14:04:18.787402+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Dr. Strange and Dr. Doom: Triumph and Torment [Marvel Graphic Novel]",
+    "publisher": "Marvel Comics",
+    "year": 1989,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T14:09:11.973933+00:00",
+    "retry_after": "2026-11-25T14:09:11.973949+00:00",
     "search_hydrated": true
   }
 ]

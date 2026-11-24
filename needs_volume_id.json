@@ -6368,9 +6368,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T10:10:19.129174+00:00",
-    "retry_after": "2026-11-24T10:10:19.129177+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T11:10:44.949141+00:00",
+    "retry_after": "2026-12-24T11:10:44.949143+00:00",
     "search_hydrated": true
   },
   {
@@ -20730,9 +20730,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T10:10:19.129235+00:00",
-    "retry_after": "2026-11-24T10:10:19.129238+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T11:10:44.949154+00:00",
+    "retry_after": "2026-12-24T11:10:44.949155+00:00",
     "search_hydrated": true
   },
   {
@@ -50840,9 +50840,10 @@
     "year": 2003,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-19T01:38:37.908577+00:00",
-    "retry_after": "2026-10-22T01:38:37.908592+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T11:02:56.752312+00:00",
+    "retry_after": "2026-12-01T11:02:56.752329+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Batman: Hush Double Feature",
@@ -83734,9 +83735,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T10:10:19.129140+00:00",
-    "retry_after": "2026-11-24T10:10:19.129155+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T11:10:44.949107+00:00",
+    "retry_after": "2026-12-24T11:10:44.949123+00:00",
     "search_hydrated": true
   },
   {
@@ -89151,9 +89152,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-14T04:10:58.803634+00:00",
-    "retry_after": "2026-11-21T04:10:58.803644+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T11:10:49.174395+00:00",
+    "retry_after": "2026-12-08T11:10:49.174412+00:00",
     "search_hydrated": true
   },
   {
@@ -89175,9 +89176,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T22:11:24.378313+00:00",
-    "retry_after": "2026-11-20T22:11:24.378330+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T11:10:44.949187+00:00",
+    "retry_after": "2026-12-08T11:10:44.949189+00:00",
     "search_hydrated": true
   },
   {
@@ -92066,9 +92067,9 @@
         "start_year": 1983
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-15T04:05:39.539449+00:00",
-    "retry_after": "2026-11-22T04:05:39.539451+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T11:10:49.075995+00:00",
+    "retry_after": "2026-12-08T11:10:49.075997+00:00",
     "search_hydrated": true
   },
   {
@@ -96117,9 +96118,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T08:02:48.048881+00:00",
-    "retry_after": "2026-11-24T08:02:48.048886+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T11:04:45.497498+00:00",
+    "retry_after": "2026-12-01T11:04:45.497517+00:00",
     "search_hydrated": true
   },
   {
@@ -96333,9 +96334,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T10:02:26.843872+00:00",
-    "retry_after": "2026-11-24T10:02:26.843874+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T11:02:14.134880+00:00",
+    "retry_after": "2026-12-01T11:02:14.134898+00:00",
     "search_hydrated": true
   },
   {
@@ -96345,21 +96346,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 19928,
-        "name": "Batman Versus Predator II: Bloodmatch",
-        "publisher": "DC Comics",
-        "start_year": 1993
-      },
-      {
         "id": 54242,
         "name": "Batman Versus Predator II: Bloodmatch",
         "publisher": "DC Comics",
         "start_year": 1995
+      },
+      {
+        "id": 19928,
+        "name": "Batman Versus Predator II: Bloodmatch",
+        "publisher": "DC Comics",
+        "start_year": 1993
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T10:02:26.843828+00:00",
-    "retry_after": "2026-11-24T10:02:26.843841+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T11:02:14.134922+00:00",
+    "retry_after": "2026-12-01T11:02:14.134924+00:00",
     "search_hydrated": true
   },
   {
@@ -100120,6 +100121,53 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-24T10:08:24.455008+00:00",
     "retry_after": "2026-11-25T10:08:24.455025+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Psychoanalysis",
+    "publisher": "Gemstone",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1734,
+        "name": "Psychoanalysis",
+        "publisher": "EC",
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T11:02:56.752372+00:00",
+    "retry_after": "2026-11-25T11:02:56.752374+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Justice League Task Force",
+    "publisher": "DC Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 4967,
+        "name": "Justice League Task Force",
+        "publisher": "DC Comics",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T11:10:49.076012+00:00",
+    "retry_after": "2026-11-25T11:10:49.076014+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tomb of Dracula 10 (New Line Cinema)",
+    "publisher": "Marvel Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T11:11:00.297541+00:00",
+    "retry_after": "2026-11-25T11:11:00.297560+00:00",
     "search_hydrated": true
   }
 ]

@@ -13,6 +13,11 @@
 //     worth less than the average raw copy, and never more than a slabbed
 //     2.0. Raw grades below the lowest listed grade are capped at that
 //     lowest grade's price.
+//   - A raw copy with a condition also carries graded_at, the guide price of
+//     a graded copy at that condition, when it is more than the copy's value.
+//     It is shown beside the value and never counted: an ungraded book isn't
+//     worth a slab's price, but picking Near Mint should visibly say something
+//     (a member set NM on Saga #1 and nothing changed, 2026-11-21).
 //   - A numeric grade with no slab company is treated as a raw copy at that
 //     grade: we can't tell a self-graded book from a slab missing its label.
 //
@@ -76,6 +81,7 @@ export function pcValueForCopy(row, item = {}) {
   let valueCents = null;
   let gradeUsed = null;
   let conditionUnknown = false;
+  let gradedAt = null;
 
   if (numeric != null && hasSlab(item)) {
     valueCents = gradedCents(prices, numeric);
@@ -89,6 +95,10 @@ export function pcValueForCopy(row, item = {}) {
     valueCents = cap != null ? Math.min(ungraded, cap) : ungraded;
     gradeUsed = "ungraded";
     conditionUnknown = rawGrade == null;
+    const atGrade = rawGrade != null ? gradedCents(prices, rawGrade) : null;
+    if (atGrade != null && atGrade > valueCents) {
+      gradedAt = { grade: rawGrade.toFixed(1), value: Math.round(atGrade) / 100 };
+    }
   }
   if (valueCents == null || !(valueCents > 0)) return null;
 
@@ -105,6 +115,7 @@ export function pcValueForCopy(row, item = {}) {
     pc_id: Number(row.pc_id),
     url: priceChartingUrl(row.pc_id),
     grade_used: gradeUsed,
+    graded_at: gradedAt,
   };
 }
 

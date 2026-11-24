@@ -46,6 +46,22 @@ test("a raw copy in high condition never beats the ungraded price", () => {
   assert.equal(pcValueForCopy(UXM, { condition: "Near Mint" }).value, 108.4);
 });
 
+test("a raw copy shows the graded price at its condition, without counting it", () => {
+  // Saga #1 (2012): ungraded $122.75, graded 9.4 $150.00, graded 8.0 $104.10.
+  const SAGA = { pc_id: 2402989, sales_volume: 122, prices: { ungraded: 12275, "2.0": 4700, "8.0": 10410, "9.4": 15000 } };
+  const nm = pcValueForCopy(SAGA, { condition: "Near Mint" });
+  assert.equal(nm.value, 122.75);
+  assert.deepEqual(nm.graded_at, { grade: "9.4", value: 150 });
+  // Capped at the graded price already, so there is nothing more to say.
+  const vf = pcValueForCopy(SAGA, { condition: "Very Fine" });
+  assert.equal(vf.value, 104.1);
+  assert.equal(vf.graded_at, null);
+  // No condition, a condition below the listed grades, and a slab.
+  assert.equal(pcValueForCopy(SAGA, {}).graded_at, null);
+  assert.equal(pcValueForCopy(SAGA, { condition: "Poor" }).graded_at, null);
+  assert.equal(pcValueForCopy(SAGA, { grade_numeric: 9.4, slab_company: "CGC" }).graded_at, null);
+});
+
 test("a numeric grade with no slab company is valued as raw at that grade", () => {
   assert.equal(pcValueForCopy(UXM, { grade_numeric: 4.0 }).value, 70);
   assert.equal(pcValueForCopy(UXM, { grade_numeric: 9.8 }).value, 108.4);

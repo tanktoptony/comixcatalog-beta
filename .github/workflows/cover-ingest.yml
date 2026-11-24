@@ -530,6 +530,26 @@ jobs:
           fi
           exit "$code"
 
+      # Once a night (11:00 UTC, 5 AM CT), after the overnight ingests: file
+      # covers that are stored but belong to no series, for series where a
+      # member's book is blank on the site. Searching ComicVine can't fix
+      # those; the ingest sees the cover exists and skips it. 675 were filed by
+      # hand on 2026-11-24. Rules: scripts/lib/unfiledCovers.js. A failure is
+      # recorded and turns "Report lane outcomes" red without stopping the rest.
+      - name: File unfiled covers for members' blank books
+        id: file_unfiled
+        if: always()
+        run: |
+          if [ "$(date -u +%H)" != "11" ]; then echo "Runs on the 11:00 UTC run only."; exit 0; fi
+          set +e
+          timeout --kill-after=30s 5m node scripts/fileUnfiledCovers.js --apply --max-rows=500
+          code=$?
+          set -e
+          if [ "$code" -ne 0 ]; then
+            echo "::error::fileUnfiledCovers exited $code."
+            echo "failed=true" >> "$GITHUB_OUTPUT"
+          fi
+
       # Runs for real (not --dry-run) so any mis-tagged volumes from this
       # run's own ingestion get fixed automatically instead of waiting for
       # a human to see a failure email and run this by hand. Uses the same
@@ -614,6 +634,12 @@ jobs:
           check "run-completion" "${{ steps.lane_runs.outcome }}"
           check "width"          "${{ steps.lane_width.outcome }}"
           check "depth"          "${{ steps.lane_depth.outcome }}"
+          if [ "${{ steps.file_unfiled.outputs.failed }}" = "true" ]; then
+            echo "  FAILED   file-unfiled"
+            fail=1
+          else
+            check "file-unfiled"   "${{ steps.file_unfiled.outcome }}"
+          fi
           check "auto-repair"    "${{ steps.auto_repair.outcome }}"
           if [ "$fail" -eq 1 ]; then
             echo ""

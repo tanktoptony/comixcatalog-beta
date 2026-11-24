@@ -311,17 +311,22 @@ jobs:
       # one (120).
       - name: Ingest new-member targets
         id: lane_new_members
+        # No blanket continue-on-error: the 30-minute cap (124/137) is expected
+        # and translated to 0; any other non-zero exit is recorded as
+        # failed=true so the lanes after it still run, and "Report lane
+        # outcomes" turns the run red.
         if: steps.night.outputs.on == 'true' && hashFiles('gap-new-members.json') != ''
-        continue-on-error: true
         run: |
           set +e
           timeout --kill-after=60s 30m python comicvine_api_to_supabase.py --targets gap-new-members.json --skip-existing --missing-only --max-search-calls 60 --vol-sleep 1.0 --max-minutes 28 --max-variant-images-per-issue 0
           code=$?
+          set -e
           if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
             echo "Lane hit its 30-minute cap. The ledger picks it up next hour."
-            exit 0
+          elif [ "$code" -ne 0 ]; then
+            echo "::error::New-member lane exited $code."
+            echo "failed=true" >> "$GITHUB_OUTPUT"
           fi
-          exit "$code"
 
       - name: Ingest requested-book targets
         id: lane_requested
@@ -585,7 +590,12 @@ jobs:
             fi
           }
           echo "Ingest lane outcomes:"
-          check "new-members"    "${{ steps.lane_new_members.outcome }}"
+          if [ "${{ steps.lane_new_members.outputs.failed }}" = "true" ]; then
+            echo "  FAILED   new-members"
+            fail=1
+          else
+            check "new-members" "${{ steps.lane_new_members.outcome }}"
+          fi
           check "requested-books" "${{ steps.lane_requested.outcome }}"
           check "new-releases"   "${{ steps.lane_new_releases.outcome }}"
           check "user-collected" "${{ steps.lane_user_collected.outcome }}"

@@ -39,6 +39,11 @@ import { issueNumberSuffix, issueNumberText } from "@/lib/issueNumberLabel";
 // Books per /api/library-hydrate request. The route caps a request at 2,000.
 const HYDRATE_CHUNK = 1000;
 
+// What a copy's value depends on. Values saved for another grade are stale.
+function gradeKey(g) {
+  return `${g.gcd_issue_id}|${g.grade_numeric ?? ""}|${g.slab_company ?? ""}|${g.condition ?? ""}`;
+}
+
 // Module-scoped so it survives across component re-mounts within a tab
 // (see the user-change-clear logic below for why that's usually right).
 // Entries carry a `cachedAt` timestamp and are treated as stale past
@@ -312,6 +317,8 @@ function LibraryPageContent() {
   // Shape: { [collection_id]: { value, sample_size, fallback, bucket_used,
   //   newest_comp_date, oldest_comp_date } }
   const [marketValues, setMarketValues] = useState({});
+  // collection_id -> the grade a value was requested for, this visit.
+  const asking = useRef(new Map());
   const [comicIndex, setComicIndex] = useState(() => {
     const initial = {};
     for (const key of hydrationCache.keys()) {
@@ -792,6 +799,21 @@ function LibraryPageContent() {
     }
   }
 
+  // collection_id -> the grade its value was worked out for. Saved beside the
+  // values (hydrate:mvk) so a copy regraded elsewhere, e.g. on its issue page,
+  // is asked about again instead of keeping the old grade's value.
+  const valuedAs = useRef({ userId: null, keys: new Map() });
+  function valuedKeys() {
+    const id = user?.id ?? null;
+    if (valuedAs.current.userId !== id) {
+      valuedAs.current = { userId: id, keys: new Map(Object.entries((id && readLocal(`hydrate:mvk:${id}`)) || {})) };
+    }
+    return valuedAs.current.keys;
+  }
+  function saveValuedKeys() {
+    if (user?.id) writeLocal(`hydrate:mvk:${user.id}`, Object.fromEntries(valuedKeys()));
+  }
+
   const librarySignature = useMemo(() => {
     const keys = [];
     for (const item of collections) {
@@ -906,6 +928,10 @@ function LibraryPageContent() {
           if (!cancelled) {
             setComicIndex((prev) => ({ ...prev, ...fresh }));
             if (data.market_values && typeof data.market_values === "object") {
+              for (const g of collectionGrades) {
+                if (data.market_values[g.collection_id] !== undefined) valuedKeys().set(g.collection_id, gradeKey(g));
+              }
+              saveValuedKeys();
               setMarketValues((prev) => {
                 const next = { ...prev, ...data.market_values };
                 if (user?.id) writeLocal(`hydrate:mv:${user.id}`, next);
@@ -946,26 +972,20 @@ function LibraryPageContent() {
         })),
     [collections]
   );
-  // collection_id -> the grade it was last valued at (or asked about).
-  const valuedAs = useRef(new Map());
   useEffect(() => {
-    const gradeKey = (g) => `${g.gcd_issue_id}|${g.grade_numeric ?? ""}|${g.slab_company ?? ""}|${g.condition ?? ""}`;
+    const keys = valuedKeys();
     const pending = [];
     for (const g of valueRows) {
-      const key = gradeKey(g);
-      const seen = valuedAs.current.get(g.collection_id);
-      if (seen === key) continue;
+      // Valued at this grade already, and the value is still here.
+      if (keys.get(g.collection_id) === gradeKey(g) && marketValues[g.collection_id] !== undefined) continue;
       // A book not hydrated yet gets its values from the hydration request.
       if (!comicIndex[`gcd-${g.gcd_issue_id}`]) continue;
-      // Already valued (this visit or the browser copy) and never regraded here.
-      if (seen === undefined && marketValues[g.collection_id] !== undefined) {
-        valuedAs.current.set(g.collection_id, key);
-        continue;
-      }
+      // Asked already this visit; the answer is on its way.
+      if (asking.current.get(g.collection_id) === gradeKey(g)) continue;
       pending.push(g);
     }
     if (pending.length === 0) return;
-    for (const g of pending) valuedAs.current.set(g.collection_id, gradeKey(g));
+    for (const g of pending) asking.current.set(g.collection_id, gradeKey(g));
     // Not cancelled on re-run: the copies are already marked as asked, so a
     // dropped answer would leave them without a value until the next visit.
     (async () => {
@@ -984,9 +1004,15 @@ function LibraryPageContent() {
         const data = res ? await res.json().catch(() => null) : null;
         if (!data?.market_values) {
           console.error("copy values failed; they'll be asked for again on the next change");
-          for (const g of batch) valuedAs.current.delete(g.collection_id);
+          for (const g of batch) asking.current.delete(g.collection_id);
           continue;
         }
+        for (const g of batch) {
+          // Regraded again while this was in flight: that newer ask wins.
+          if (asking.current.get(g.collection_id) !== gradeKey(g)) delete data.market_values[g.collection_id];
+          else valuedKeys().set(g.collection_id, gradeKey(g));
+        }
+        saveValuedKeys();
         setMarketValues((prev) => {
           const next = { ...prev, ...data.market_values };
           if (user?.id) writeLocal(`hydrate:mv:${user.id}`, next);

@@ -10,11 +10,6 @@
     "year": 1956
   },
   {
-    "name": "Dracula",
-    "publisher": "Dell Comics",
-    "year": 1962
-  },
-  {
     "name": "Amazing Fantasy",
     "publisher": "Marvel Comics",
     "year": 1962
@@ -41,16 +36,6 @@
   },
   {
     "name": "The Incredible Hulk Annual",
-    "publisher": "Marvel Comics",
-    "year": 1976
-  },
-  {
-    "name": "The Spectacular Spider-Man",
-    "publisher": "Marvel Comics",
-    "year": 1976
-  },
-  {
-    "name": "Iron Man Annual",
     "publisher": "Marvel Comics",
     "year": 1976
   },
@@ -83,11 +68,6 @@
     "name": "Revolver",
     "publisher": "Renegade Press",
     "year": 1985
-  },
-  {
-    "name": "G.I. Joe Comics Magazine",
-    "publisher": "Marvel Comics",
-    "year": 1986
   },
   {
     "name": "Border Worlds",
@@ -160,6 +140,16 @@
     "year": 1988
   },
   {
+    "name": "Damage Control",
+    "publisher": "Marvel Comics",
+    "year": 1989
+  },
+  {
+    "name": "Justice League Special",
+    "publisher": "DC Comics",
+    "year": 1990
+  },
+  {
     "name": "Wild Cards",
     "publisher": "Marvel Comics",
     "year": 1990
@@ -200,21 +190,6 @@
     "year": 1992
   },
   {
-    "name": "Digitek",
-    "publisher": "Marvel Comics",
-    "year": 1992
-  },
-  {
-    "name": "ElfQuest: New Blood",
-    "publisher": "WaRP Graphics",
-    "year": 1992
-  },
-  {
-    "name": "Jonah Hex: Two-Gun Mojo",
-    "publisher": "DC Comics",
-    "year": 1993
-  },
-  {
     "name": "Daredevil The Man without Fear",
     "publisher": "Marvel Comics",
     "year": 1993
@@ -230,28 +205,13 @@
     "year": 1993
   },
   {
-    "name": "Super Soldiers",
-    "publisher": "Marvel Comics",
-    "year": 1993
-  },
-  {
     "name": "Captain Sternn: Running Out of Time",
     "publisher": "Kitchen Sink Press",
     "year": 1993
   },
   {
-    "name": "Die-Cut",
-    "publisher": "Marvel Comics",
-    "year": 1993
-  },
-  {
     "name": "WildThing",
     "publisher": "Marvel Comics",
-    "year": 1993
-  },
-  {
-    "name": "The Shadow: In the Coils of Leviathan",
-    "publisher": "Dark Horse Comics",
     "year": 1993
   },
   {
@@ -276,6 +236,11 @@
   },
   {
     "name": "Savage Dragon",
+    "publisher": "Image Comics",
+    "year": 1993
+  },
+  {
+    "name": "Savage Dragon vs. Savage Megaton Man",
     "publisher": "Image Comics",
     "year": 1993
   },
@@ -320,6 +285,11 @@
     "year": 1994
   },
   {
+    "name": "2099 A.D.",
+    "publisher": "Marvel Comics",
+    "year": 1995
+  },
+  {
     "name": "Superman vs. Aliens",
     "publisher": "Dark Horse Comics",
     "year": 1995
@@ -332,11 +302,6 @@
   {
     "name": "Shadowhawk - Vampirella: Creatures of the Night",
     "publisher": "Image Comics",
-    "year": 1995
-  },
-  {
-    "name": "Krusty Comics",
-    "publisher": "Bongo",
     "year": 1995
   },
   {
@@ -361,6 +326,11 @@
   },
   {
     "name": "Justice League: A Midsummer's Nightmare",
+    "publisher": "DC Comics",
+    "year": 1996
+  },
+  {
+    "name": "Terminal City",
     "publisher": "DC Comics",
     "year": 1996
   },
@@ -420,6 +390,11 @@
     "year": 1998
   },
   {
+    "name": "Thor",
+    "publisher": "Marvel Comics",
+    "year": 1998
+  },
+  {
     "name": "Crimson",
     "publisher": "DC Comics",
     "year": 1999
@@ -460,11 +435,6 @@
     "year": 1998
   },
   {
-    "name": "Storm",
-    "publisher": "Marvel Comics",
-    "year": 1996
-  },
-  {
     "name": "Battle of the Planets",
     "publisher": "Western",
     "year": 1979
@@ -500,39 +470,9 @@
     "year": 1994
   },
   {
-    "name": "Sigil",
-    "publisher": "CrossGen",
-    "year": 2000
-  },
-  {
-    "name": "The Path",
-    "publisher": "CrossGen",
-    "year": 2002
-  },
-  {
-    "name": "Superboy and the Ravers",
-    "publisher": "DC Comics",
-    "year": 1996
-  },
-  {
-    "name": "Apache Skies",
+    "name": "Fantastic Four",
     "publisher": "Marvel Comics",
-    "year": 2002
-  },
-  {
-    "name": "Route 666",
-    "publisher": "CrossGen",
-    "year": 2002
-  },
-  {
-    "name": "Batman: No Man's Land",
-    "publisher": "DC Comics",
-    "year": 1999
-  },
-  {
-    "name": "Fantastic Four: 1234",
-    "publisher": "Marvel Comics",
-    "year": 2001
+    "year": 1998
   },
   {
     "name": "The Amazing Spider-Man",
@@ -560,14 +500,14 @@
     "year": 1976
   },
   {
-    "name": "Cerebus",
-    "publisher": "Aardvark-Vanaheim",
+    "name": "G.I. Joe Comics Magazine",
+    "publisher": "Marvel Comics",
     "year": 1986
   },
   {
-    "name": "The Knights of Pendragon",
-    "publisher": "Marvel Comics",
-    "year": 1990
+    "name": "Cerebus",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 1986
   },
   {
     "name": "Motormouth",
@@ -576,16 +516,6 @@
   },
   {
     "name": "Black Axe",
-    "publisher": "Marvel Comics",
-    "year": 1993
-  },
-  {
-    "name": "Children of the Voyager",
-    "publisher": "Marvel Comics",
-    "year": 1993
-  },
-  {
-    "name": "Cyberspace 3000",
     "publisher": "Marvel Comics",
     "year": 1993
   },
@@ -605,22 +535,7 @@
     "year": 1993
   },
   {
-    "name": "Gun Runner",
-    "publisher": "Marvel Comics",
-    "year": 1993
-  },
-  {
-    "name": "The Marvel Masterpieces Collection",
-    "publisher": "Marvel Comics",
-    "year": 1993
-  },
-  {
     "name": "Plasmer",
-    "publisher": "Marvel Comics",
-    "year": 1993
-  },
-  {
-    "name": "Shadow Riders",
     "publisher": "Marvel Comics",
     "year": 1993
   },
@@ -635,11 +550,6 @@
     "year": 1994
   },
   {
-    "name": "Nightwatch",
-    "publisher": "Marvel Comics",
-    "year": 1994
-  },
-  {
     "name": "DC One Million",
     "publisher": "DC Comics",
     "year": 1998
@@ -650,14 +560,59 @@
     "year": 1998
   },
   {
+    "name": "Incredible Hulk",
+    "publisher": "Marvel Comics",
+    "year": 2000
+  },
+  {
     "name": "Spider-Man's Tangled Web",
     "publisher": "Marvel Comics",
     "year": 2001
   },
   {
+    "name": "Sigil",
+    "publisher": "CrossGen",
+    "year": 2000
+  },
+  {
+    "name": "The Path",
+    "publisher": "CrossGen",
+    "year": 2002
+  },
+  {
+    "name": "Superboy and the Ravers",
+    "publisher": "DC Comics",
+    "year": 1996
+  },
+  {
     "name": "The Waiting Place",
     "publisher": "Slave Labor",
     "year": 1999
+  },
+  {
+    "name": "Apache Skies",
+    "publisher": "Marvel Comics",
+    "year": 2002
+  },
+  {
+    "name": "Route 666",
+    "publisher": "CrossGen",
+    "year": 2002
+  },
+  {
+    "name": "Batman: No Man's Land",
+    "publisher": "DC Comics",
+    "year": 1999
+  },
+  {
+    "name": "Namor, the Sub-Mariner Annual",
+    "publisher": "Marvel Comics",
+    "year": 1991
+  },
+  {
+    "name": "Fantastic Four: 1234",
+    "publisher": "Marvel Comics",
+    "year": 2001
   },
   {
     "name": "Venom: Carnage Unleashed",
@@ -690,9 +645,19 @@
     "year": 2002
   },
   {
+    "name": "Captain Marvel",
+    "publisher": "Marvel Comics",
+    "year": 2002
+  },
+  {
     "name": "Underworld Unleashed: Apokolips -- Dark Uprising",
     "publisher": "DC Comics",
     "year": 1995
+  },
+  {
+    "name": "Slingers",
+    "publisher": "Marvel Comics",
+    "year": 1998
   },
   {
     "name": "Don Pendleton's Mack Bolan: The Executioner",
@@ -710,6 +675,11 @@
     "year": 1991
   },
   {
+    "name": "Essential Uncanny X-Men",
+    "publisher": "Marvel Comics",
+    "year": 1999
+  },
+  {
     "name": "Demi's Strange Bedfellows",
     "publisher": "Carnal Comics; Opus Graphics",
     "year": 2001
@@ -725,11 +695,6 @@
     "year": 1993
   },
   {
-    "name": "Spider-Man Adventures",
-    "publisher": "Marvel Comics",
-    "year": 1994
-  },
-  {
     "name": "Robotech",
     "publisher": "Titan Comics",
     "year": 2003
@@ -743,21 +708,6 @@
     "name": "Avengers / JLA",
     "publisher": "DC Comics",
     "year": 2003
-  },
-  {
-    "name": "Daredevil: Father",
-    "publisher": "Marvel Comics",
-    "year": 2004
-  },
-  {
-    "name": "Kingpin",
-    "publisher": "Marvel Comics",
-    "year": 2003
-  },
-  {
-    "name": "Avengers Forever",
-    "publisher": "Marvel Comics",
-    "year": 1998
   },
   {
     "name": "She-Hulk",
@@ -793,11 +743,6 @@
     "name": "New Thunderbolts",
     "publisher": "Marvel Comics",
     "year": 2005
-  },
-  {
-    "name": "Spider-Man Unlimited",
-    "publisher": "Marvel Comics",
-    "year": 2004
   },
   {
     "name": "The New Invaders",
@@ -858,11 +803,6 @@
     "name": "That Wilkin Boy",
     "publisher": "Archie Comics",
     "year": 1969
-  },
-  {
-    "name": "Daredevil: Redemption",
-    "publisher": "Marvel Comics",
-    "year": 2005
   },
   {
     "name": "Teenage Mutant Ninja Turtles Presents: Merdude",
@@ -1025,19 +965,9 @@
     "year": 1993
   },
   {
-    "name": "Spider-Man: Lifeline",
-    "publisher": "Marvel Comics",
-    "year": 2001
-  },
-  {
-    "name": "Rising Stars: Voices of the Dead",
-    "publisher": "Image Comics",
-    "year": 2005
-  },
-  {
-    "name": "Dragon Lines",
-    "publisher": "Marvel Comics",
-    "year": 1993
+    "name": "Undertaker",
+    "publisher": "Chaos! Comics",
+    "year": 1999
   },
   {
     "name": "Beetle Bailey",
@@ -1060,39 +990,9 @@
     "year": 2005
   },
   {
-    "name": "Supermen of America",
-    "publisher": "DC Comics",
-    "year": 2000
-  },
-  {
-    "name": "Punisher vs. Bullseye",
-    "publisher": "Marvel Comics",
-    "year": 2006
-  },
-  {
-    "name": "Ultimate Iron Man",
-    "publisher": "Marvel Comics",
-    "year": 2005
-  },
-  {
-    "name": "Tales from the Crypt",
-    "publisher": "Gladstone",
-    "year": 1990
-  },
-  {
-    "name": "Hellcop",
-    "publisher": "Image Comics",
-    "year": 1998
-  },
-  {
     "name": "Cyberforce Origins",
     "publisher": "Image Comics",
     "year": 1995
-  },
-  {
-    "name": "Lone Wolf 2100",
-    "publisher": "Dark Horse Comics",
-    "year": 2002
   },
   {
     "name": "Marvel Action Hour, Featuring Iron Man",
@@ -1100,34 +1000,9 @@
     "year": 1994
   },
   {
-    "name": "Lady Death II: Between Heaven & Hell",
-    "publisher": "Chaos! Comics",
-    "year": 1995
-  },
-  {
-    "name": "Spider-Man: Breakout",
-    "publisher": "Marvel Comics",
-    "year": 2005
-  },
-  {
-    "name": "Aquaman: Sword of Atlantis",
-    "publisher": "DC Comics",
-    "year": 2006
-  },
-  {
-    "name": "Transformers Summer Special",
-    "publisher": "Dreamwave Productions",
-    "year": 2004
-  },
-  {
     "name": "Justice",
     "publisher": "Marvel Comics",
     "year": 2005
-  },
-  {
-    "name": "Psychoblast",
-    "publisher": "First Comics",
-    "year": 1987
   },
   {
     "name": "Wizard in Training",
@@ -1135,39 +1010,9 @@
     "year": 2001
   },
   {
-    "name": "Doctor Octopus: Negative Exposure",
-    "publisher": "Marvel Comics",
-    "year": 2003
-  },
-  {
-    "name": "The X-Files: Ground Zero",
-    "publisher": "Topps Comics",
-    "year": 1997
-  },
-  {
-    "name": "Godzilla",
-    "publisher": "Dark Horse Comics",
-    "year": 1995
-  },
-  {
-    "name": "Star Wars: Jedi Quest",
-    "publisher": "Dark Horse Comics",
-    "year": 2001
-  },
-  {
     "name": "Star Wars: Dark Force Rising",
     "publisher": "Dark Horse Comics",
     "year": 1997
-  },
-  {
-    "name": "Warblade: Endangered Species",
-    "publisher": "Image Comics",
-    "year": 1995
-  },
-  {
-    "name": "Disavowed",
-    "publisher": "DC Comics",
-    "year": 2000
   },
   {
     "name": "Fantastic Four: First Family",
@@ -1185,19 +1030,9 @@
     "year": 1986
   },
   {
-    "name": "Spawn / WildC.A.T.s",
+    "name": "Spawn Bible",
     "publisher": "Image Comics",
     "year": 1996
-  },
-  {
-    "name": "Ultimate Extinction",
-    "publisher": "Marvel Comics",
-    "year": 2006
-  },
-  {
-    "name": "Hawkgirl",
-    "publisher": "DC Comics",
-    "year": 2006
   },
   {
     "name": "The Darkness / Batman",
@@ -1205,44 +1040,14 @@
     "year": 1999
   },
   {
-    "name": "Spider-Man: Get Kraven",
-    "publisher": "Marvel Comics",
-    "year": 2002
-  },
-  {
     "name": "Tribe",
     "publisher": "Axis Comics",
     "year": 1993
   },
   {
-    "name": "Soul Saga",
-    "publisher": "Image Comics",
-    "year": 2000
-  },
-  {
     "name": "Superman / Gen 13",
     "publisher": "DC Comics",
     "year": 2000
-  },
-  {
-    "name": "All-New Official Handbook of the Marvel Universe A to Z",
-    "publisher": "Marvel Comics",
-    "year": 2006
-  },
-  {
-    "name": "Re:Gex",
-    "publisher": "Awesome",
-    "year": 1998
-  },
-  {
-    "name": "Trident",
-    "publisher": "Trident",
-    "year": 1989
-  },
-  {
-    "name": "Marvel Double Shot",
-    "publisher": "Marvel Comics",
-    "year": 2003
   },
   {
     "name": "Star Wars: Jedi vs. Sith",
@@ -1255,14 +1060,9 @@
     "year": 1998
   },
   {
-    "name": "The Adventures of Spider-Man",
+    "name": "Deadpool",
     "publisher": "Marvel Comics",
-    "year": 1996
-  },
-  {
-    "name": "Superman: Metropolis",
-    "publisher": "DC Comics",
-    "year": 2003
+    "year": 1998
   },
   {
     "name": "Superman / Shazam: First Thunder",
@@ -1270,24 +1070,9 @@
     "year": 2005
   },
   {
-    "name": "Batman: Journey into Knight",
-    "publisher": "DC Comics",
-    "year": 2005
-  },
-  {
-    "name": "Codename: Danger",
-    "publisher": "Lodestone",
-    "year": 1985
-  },
-  {
     "name": "Justice League International Annual",
     "publisher": "DC Comics",
     "year": 1993
-  },
-  {
-    "name": "Annihilation: Ronan",
-    "publisher": "Marvel Comics",
-    "year": 2006
   },
   {
     "name": "Faust",
@@ -1295,19 +1080,9 @@
     "year": 1988
   },
   {
-    "name": "Ion",
-    "publisher": "DC Comics",
-    "year": 2006
-  },
-  {
     "name": "Captain Atom: Armageddon",
     "publisher": "DC Comics",
     "year": 2005
-  },
-  {
-    "name": "Nightcrawler",
-    "publisher": "Marvel Comics",
-    "year": 2004
   },
   {
     "name": "Joker / Mask",
@@ -1315,33 +1090,8 @@
     "year": 2000
   },
   {
-    "name": "Joker: Last Laugh",
-    "publisher": "DC Comics",
-    "year": 2001
-  },
-  {
-    "name": "Star Wars: The Last Command",
-    "publisher": "Dark Horse Comics",
-    "year": 1997
-  },
-  {
     "name": "Star Wars: Splinter of the Mind's Eye",
     "publisher": "Dark Horse Comics",
-    "year": 1995
-  },
-  {
-    "name": "Weird Space",
-    "publisher": "Avalon Communications",
-    "year": 2000
-  },
-  {
-    "name": "Young Master",
-    "publisher": "New Comics Group",
-    "year": 1987
-  },
-  {
-    "name": "Spider-Man: The Final Adventure",
-    "publisher": "Marvel Comics",
     "year": 1995
   },
   {
@@ -1350,24 +1100,9 @@
     "year": 2004
   },
   {
-    "name": "Knights of the Dinner Table Illustrated",
-    "publisher": "Kenzer and Company",
-    "year": 2000
-  },
-  {
-    "name": "Team Zero",
-    "publisher": "DC Comics",
-    "year": 2006
-  },
-  {
     "name": "The Futurians by Dave Cockrum",
     "publisher": "Lodestone",
     "year": 1985
-  },
-  {
-    "name": "Battler Britton",
-    "publisher": "DC Comics",
-    "year": 2006
   },
   {
     "name": "Weapon X: Days of Future Now",
@@ -1375,34 +1110,9 @@
     "year": 2005
   },
   {
-    "name": "WildC.A.T.s Adventures",
-    "publisher": "Image Comics",
-    "year": 1994
-  },
-  {
-    "name": "The Escapists",
-    "publisher": "Dark Horse Comics",
-    "year": 2006
-  },
-  {
-    "name": "Silent Dragon",
-    "publisher": "DC Comics",
-    "year": 2005
-  },
-  {
     "name": "Devil's Reign 1/2: Silver Surfer / Witchblade",
     "publisher": "Marvel Comics",
     "year": 1997
-  },
-  {
-    "name": "Beyond!",
-    "publisher": "Marvel Comics",
-    "year": 2006
-  },
-  {
-    "name": "Rush City",
-    "publisher": "DC Comics",
-    "year": 2006
   },
   {
     "name": "Devi",
@@ -1413,46 +1123,6 @@
     "name": "Agents of Atlas",
     "publisher": "Marvel Comics",
     "year": 2006
-  },
-  {
-    "name": "Druid",
-    "publisher": "Marvel Comics",
-    "year": 1995
-  },
-  {
-    "name": "Mary Jane: Homecoming",
-    "publisher": "Marvel Comics",
-    "year": 2005
-  },
-  {
-    "name": "Toxin",
-    "publisher": "Marvel Comics",
-    "year": 2005
-  },
-  {
-    "name": "Ghost / Batgirl",
-    "publisher": "Dark Horse Comics",
-    "year": 2000
-  },
-  {
-    "name": "Ultimate Nightmare",
-    "publisher": "Marvel Comics",
-    "year": 2004
-  },
-  {
-    "name": "Ultimate Secret",
-    "publisher": "Marvel Comics",
-    "year": 2005
-  },
-  {
-    "name": "Civil War: X-Men",
-    "publisher": "Marvel Comics",
-    "year": 2006
-  },
-  {
-    "name": "Jay & Silent Bob",
-    "publisher": "Oni Press",
-    "year": 1998
   },
   {
     "name": "French Ticklers",
@@ -1470,11 +1140,6 @@
     "year": 2005
   },
   {
-    "name": "Supernaturals",
-    "publisher": "Marvel Comics",
-    "year": 1998
-  },
-  {
     "name": "Venom vs. Carnage",
     "publisher": "Marvel Comics",
     "year": 2004
@@ -1488,11 +1153,6 @@
     "name": "Vampi Digital Preview",
     "publisher": "ParaGraphics",
     "year": 2001
-  },
-  {
-    "name": "Battle Beasts",
-    "publisher": "Blackthorne",
-    "year": 1988
   },
   {
     "name": "Fantastic Four: The End",
@@ -1515,11 +1175,6 @@
     "year": 2006
   },
   {
-    "name": "Tales of the Unexpected",
-    "publisher": "DC Comics",
-    "year": 2006
-  },
-  {
     "name": "Wetworks",
     "publisher": "Image Comics",
     "year": 2006
@@ -1528,11 +1183,6 @@
     "name": "Marvel Age Spider-Man",
     "publisher": "Marvel Comics",
     "year": 2004
-  },
-  {
-    "name": "Superman Confidential",
-    "publisher": "DC Comics",
-    "year": 2007
   },
   {
     "name": "Superman vs. The Terminator: Death to the Future",
@@ -1545,11 +1195,6 @@
     "year": 1997
   },
   {
-    "name": "White Tiger",
-    "publisher": "Marvel Comics",
-    "year": 2007
-  },
-  {
     "name": "Daredevil: Father [Director's Cut]",
     "publisher": "Marvel Comics",
     "year": 2005
@@ -1560,16 +1205,6 @@
     "year": 1997
   },
   {
-    "name": "Tomb Raider: Scarface's Treasure",
-    "publisher": "Top Cow Comics",
-    "year": 2003
-  },
-  {
-    "name": "Barney the Invisible Turtle",
-    "publisher": "Amazing",
-    "year": 1987
-  },
-  {
     "name": "Livingstone Mountain",
     "publisher": "Malibu Comics",
     "year": 1991
@@ -1578,11 +1213,6 @@
     "name": "Spider-Man: Reign",
     "publisher": "Marvel Comics",
     "year": 2007
-  },
-  {
-    "name": "Savage Red Sonja: Queen of the Frozen Wastes",
-    "publisher": "Dynamite Entertainment",
-    "year": 2006
   },
   {
     "name": "Sandman Mystery Theatre: Sleep of Reason",
@@ -1610,16 +1240,6 @@
     "year": 1995
   },
   {
-    "name": "Creepy Worlds",
-    "publisher": "Alan Class",
-    "year": 1962
-  },
-  {
-    "name": "Sinister Tales",
-    "publisher": "Alan Class",
-    "year": 1964
-  },
-  {
     "name": "The Mighty World of Marvel",
     "publisher": "Marvel Comics",
     "year": 1972
@@ -1640,11 +1260,6 @@
     "year": 2007
   },
   {
-    "name": "Spider-Man and the Fantastic Four",
-    "publisher": "Marvel Comics",
-    "year": 2007
-  },
-  {
     "name": "Spaced",
     "publisher": "Eclipse Comics",
     "year": 1986
@@ -1653,21 +1268,6 @@
     "name": "Marvel Zombies / Army of Darkness",
     "publisher": "Marvel Comics",
     "year": 2007
-  },
-  {
-    "name": "Mucha Lucha",
-    "publisher": "DC Comics",
-    "year": 2003
-  },
-  {
-    "name": "Cap'n Oatmeal",
-    "publisher": "Innovation",
-    "year": 1990
-  },
-  {
-    "name": "The Next",
-    "publisher": "DC Comics",
-    "year": 2006
   },
   {
     "name": "Avengers: The Initiative",
@@ -1685,11 +1285,6 @@
     "year": 2006
   },
   {
-    "name": "The Winter Men",
-    "publisher": "DC Comics",
-    "year": 2005
-  },
-  {
     "name": "Wolverine / Doop",
     "publisher": "Marvel Comics",
     "year": 2003
@@ -1697,16 +1292,6 @@
   {
     "name": "Scalped",
     "publisher": "DC Comics",
-    "year": 2007
-  },
-  {
-    "name": "Crossing Midnight",
-    "publisher": "DC Comics",
-    "year": 2007
-  },
-  {
-    "name": "The Loners",
-    "publisher": "Marvel Comics",
     "year": 2007
   },
   {
@@ -1730,11 +1315,6 @@
     "year": 2005
   },
   {
-    "name": "Legend",
-    "publisher": "DC Comics",
-    "year": 2005
-  },
-  {
     "name": "Danger Girl 3-D",
     "publisher": "DC Comics",
     "year": 2003
@@ -1745,19 +1325,14 @@
     "year": 1994
   },
   {
-    "name": "Rokkin",
-    "publisher": "DC Comics",
-    "year": 2006
-  },
-  {
     "name": "Psychoanalysis",
     "publisher": "Gemstone",
     "year": 1999
   },
   {
-    "name": "Daredevil: Battlin' Jack Murdock",
-    "publisher": "Marvel Comics",
-    "year": 2007
+    "name": "Crime Suspenstories",
+    "publisher": "Russ Cochran",
+    "year": 1992
   },
   {
     "name": "Black Summer",
@@ -1765,13 +1340,8 @@
     "year": 2007
   },
   {
-    "name": "Silent War",
-    "publisher": "Marvel Comics",
-    "year": 2007
-  },
-  {
-    "name": "World War Hulk: X-Men",
-    "publisher": "Marvel Comics",
+    "name": "First Born First Look",
+    "publisher": "Image Comics",
     "year": 2007
   },
   {
@@ -1783,31 +1353,6 @@
     "name": "Green Arrow: Year One",
     "publisher": "DC Comics",
     "year": 2007
-  },
-  {
-    "name": "Super-Villain Team-Up / Modok's 11",
-    "publisher": "Marvel Comics",
-    "year": 2007
-  },
-  {
-    "name": "Marvel Two-in-One",
-    "publisher": "Marvel Comics",
-    "year": 2007
-  },
-  {
-    "name": "The Others",
-    "publisher": "Image Comics",
-    "year": 1995
-  },
-  {
-    "name": "Black Adam: The Dark Age",
-    "publisher": "DC Comics",
-    "year": 2007
-  },
-  {
-    "name": "Bade Biker and Orson",
-    "publisher": "Mirage Studios",
-    "year": 1986
   },
   {
     "name": "Spider-Man / Red Sonja",
@@ -1825,26 +1370,6 @@
     "year": 2005
   },
   {
-    "name": "Annihilation: Conquest - Quasar",
-    "publisher": "Marvel Comics",
-    "year": 2007
-  },
-  {
-    "name": "Death Takes a Holiday",
-    "publisher": "Varmint Press",
-    "year": 2003
-  },
-  {
-    "name": "Exposure",
-    "publisher": "Image Comics",
-    "year": 1999
-  },
-  {
-    "name": "Countdown to Adventure",
-    "publisher": "DC Comics",
-    "year": 2007
-  },
-  {
     "name": "Boondoggle",
     "publisher": "Knight Press",
     "year": 1995
@@ -1855,49 +1380,49 @@
     "year": 1999
   },
   {
-    "name": "X-Men: Emperor Vulcan",
-    "publisher": "Marvel Comics",
-    "year": 2007
-  },
-  {
-    "name": "Captain Carrot and the Final Ark",
-    "publisher": "DC Comics",
-    "year": 2007
-  },
-  {
     "name": "Cable TV",
     "publisher": "Entity-Parody",
     "year": 1993
   },
   {
-    "name": "Death of the New Gods",
+    "name": "Lady Death: The Crucible",
+    "publisher": "Chaos! Comics",
+    "year": 1996
+  },
+  {
+    "name": "The Avengers",
+    "publisher": "Marvel Comics",
+    "year": 1999
+  },
+  {
+    "name": "Scavengers",
+    "publisher": "Fleetway/Quality",
+    "year": 1988
+  },
+  {
+    "name": "Cherry",
+    "publisher": "Kitchen Sink Press",
+    "year": 1993
+  },
+  {
+    "name": "Tomb Raider: Scarface's Treasure",
+    "publisher": "Top Cow Comics",
+    "year": 2003
+  },
+  {
+    "name": "Crossing Midnight",
     "publisher": "DC Comics",
     "year": 2007
   },
   {
-    "name": "Primordia",
-    "publisher": "Archaia",
+    "name": "Grimm Fairy Tales: Return to Wonderland",
+    "publisher": "Zenescope Entertainment",
     "year": 2007
   },
   {
-    "name": "Gotham Underground",
-    "publisher": "DC Comics",
-    "year": 2007
-  },
-  {
-    "name": "The Authority: Prime",
-    "publisher": "DC Comics",
-    "year": 2007
-  },
-  {
-    "name": "X-Men: Die by the Sword",
+    "name": "Marvel Two-in-One",
     "publisher": "Marvel Comics",
     "year": 2007
-  },
-  {
-    "name": "My Romantic Adventures?",
-    "publisher": "Avalon Communications",
-    "year": 1997
   },
   {
     "name": "Dan Dare",
@@ -1915,34 +1440,14 @@
     "year": 2001
   },
   {
-    "name": "Inferno",
-    "publisher": "Caliber Comics",
-    "year": 1995
-  },
-  {
-    "name": "Bullet Points",
-    "publisher": "Marvel Comics",
-    "year": 2007
-  },
-  {
     "name": "10th Muse",
     "publisher": "Avatar Press",
     "year": 2000
   },
   {
-    "name": "Teen Titans Year One",
-    "publisher": "DC Comics",
-    "year": 2008
-  },
-  {
     "name": "Faust [Rebel Edition]",
     "publisher": "Rebel Studios",
     "year": 1991
-  },
-  {
-    "name": "Kindergoth",
-    "publisher": "BloodFire Studios",
-    "year": 2003
   },
   {
     "name": "Ezra",
@@ -1955,17 +1460,7 @@
     "year": 2008
   },
   {
-    "name": "100 Girls",
-    "publisher": "Arcana",
-    "year": 2004
-  },
-  {
     "name": "Spider-Man: With Great Power...",
-    "publisher": "Marvel Comics",
-    "year": 2008
-  },
-  {
-    "name": "House of M: Avengers",
     "publisher": "Marvel Comics",
     "year": 2008
   },
@@ -1973,11 +1468,6 @@
     "name": "Fantastic Comics",
     "publisher": "Image Comics",
     "year": 2008
-  },
-  {
-    "name": "Atlantis Rising",
-    "publisher": "Platinum Studios",
-    "year": 2007
   },
   {
     "name": "Hercules",
@@ -1995,33 +1485,13 @@
     "year": 2008
   },
   {
-    "name": "Tangent: Superman's Reign",
-    "publisher": "DC Comics",
-    "year": 2008
-  },
-  {
     "name": "Number of the Beast",
     "publisher": "DC Comics",
     "year": 2008
   },
   {
-    "name": "Last Planet Standing",
-    "publisher": "Marvel Comics",
-    "year": 2006
-  },
-  {
     "name": "X-Men: Divided We Stand",
     "publisher": "Marvel Comics",
-    "year": 2008
-  },
-  {
-    "name": "Iron Man: Legacy of Doom",
-    "publisher": "Marvel Comics",
-    "year": 2008
-  },
-  {
-    "name": "Supernatural: Rising Son",
-    "publisher": "DC Comics",
     "year": 2008
   },
   {
@@ -2040,22 +1510,12 @@
     "year": 2008
   },
   {
-    "name": "Tor",
-    "publisher": "DC Comics",
-    "year": 2008
-  },
-  {
     "name": "Pretty Baby Machine",
     "publisher": "Image Comics",
     "year": 2008
   },
   {
     "name": "Invincible Iron Man",
-    "publisher": "Marvel Comics",
-    "year": 2008
-  },
-  {
-    "name": "American Dream",
     "publisher": "Marvel Comics",
     "year": 2008
   },
@@ -2070,32 +1530,7 @@
     "year": 2008
   },
   {
-    "name": "Ultimate Origins",
-    "publisher": "Marvel Comics",
-    "year": 2008
-  },
-  {
-    "name": "X-Men: Ronin",
-    "publisher": "Marvel Comics",
-    "year": 2003
-  },
-  {
-    "name": "Genext",
-    "publisher": "Marvel Comics",
-    "year": 2008
-  },
-  {
-    "name": "Marvel 1602: New World",
-    "publisher": "Marvel Comics",
-    "year": 2005
-  },
-  {
     "name": "Secret Invasion: Runaways / Young Avengers",
-    "publisher": "Marvel Comics",
-    "year": 2008
-  },
-  {
-    "name": "Secret Invasion: Front Line",
     "publisher": "Marvel Comics",
     "year": 2008
   },
@@ -2110,67 +1545,12 @@
     "year": 2008
   },
   {
-    "name": "Reign in Hell",
-    "publisher": "DC Comics",
-    "year": 2008
-  },
-  {
-    "name": "X-Men: Manifest Destiny",
-    "publisher": "Marvel Comics",
-    "year": 2008
-  },
-  {
-    "name": "Amazing Spider-Man Family",
-    "publisher": "Marvel Comics",
-    "year": 2008
-  },
-  {
-    "name": "Secret Invasion: Inhumans",
-    "publisher": "Marvel Comics",
-    "year": 2008
-  },
-  {
-    "name": "Secret Invasion: Thor",
-    "publisher": "Marvel Comics",
-    "year": 2008
-  },
-  {
-    "name": "Shrugged",
-    "publisher": "Aspen Comics",
-    "year": 2006
-  },
-  {
-    "name": "Transformers / G.I. Joe",
-    "publisher": "Dreamwave Productions",
-    "year": 2003
-  },
-  {
     "name": "Marvel Apes",
     "publisher": "Marvel Comics",
     "year": 2008
   },
   {
-    "name": "X-Men: Magneto Testament",
-    "publisher": "Marvel Comics",
-    "year": 2008
-  },
-  {
-    "name": "DC Universe: Decisions",
-    "publisher": "DC Comics",
-    "year": 2008
-  },
-  {
     "name": "Angel: Revelations",
-    "publisher": "Marvel Comics",
-    "year": 2008
-  },
-  {
-    "name": "Superman and Batman vs. Vampires and Werewolves",
-    "publisher": "DC Comics",
-    "year": 2008
-  },
-  {
-    "name": "Ghost Rider: Danny Ketch",
     "publisher": "Marvel Comics",
     "year": 2008
   },
@@ -2205,51 +1585,6 @@
     "year": 2009
   },
   {
-    "name": "The Avengers",
-    "publisher": "Marvel Comics",
-    "year": 1999
-  },
-  {
-    "name": "Scavengers",
-    "publisher": "Fleetway/Quality",
-    "year": 1988
-  },
-  {
-    "name": "Tarot: Witch of the Black Rose",
-    "publisher": "Broadsword",
-    "year": 2000
-  },
-  {
-    "name": "Cherry",
-    "publisher": "Kitchen Sink Press",
-    "year": 1993
-  },
-  {
-    "name": "Ultimate Wolverine vs. Hulk",
-    "publisher": "Marvel Comics",
-    "year": 2006
-  },
-  {
-    "name": "Meat Cake",
-    "publisher": "Fantagraphics",
-    "year": 1993
-  },
-  {
-    "name": "The Simpsons Winter Wingding",
-    "publisher": "Bongo",
-    "year": 2006
-  },
-  {
-    "name": "Grimm Fairy Tales: Return to Wonderland",
-    "publisher": "Zenescope Entertainment",
-    "year": 2007
-  },
-  {
-    "name": "No Hero",
-    "publisher": "Avatar Press",
-    "year": 2008
-  },
-  {
     "name": "The Amazing Spider-Man: Double Trouble",
     "publisher": "Marvel Comics",
     "year": 1993
@@ -2263,16 +1598,6 @@
     "name": "Marvels: Eye of the Camera",
     "publisher": "Marvel Comics",
     "year": 2009
-  },
-  {
-    "name": "Guardians",
-    "publisher": "Marvel Comics",
-    "year": 2004
-  },
-  {
-    "name": "Squadron Supreme: Hyperion vs. Nighthawk",
-    "publisher": "Marvel Comics",
-    "year": 2007
   },
   {
     "name": "Resistance",
@@ -2295,16 +1620,6 @@
     "year": 2009
   },
   {
-    "name": "X-Men: First Class Finals",
-    "publisher": "Marvel Comics",
-    "year": 2009
-  },
-  {
-    "name": "Dark Reign: Fantastic Four",
-    "publisher": "Marvel Comics",
-    "year": 2009
-  },
-  {
     "name": "Witchblade / Tomb Raider",
     "publisher": "Image Comics",
     "year": 2000
@@ -2312,11 +1627,6 @@
   {
     "name": "Oracle: The Cure",
     "publisher": "DC Comics",
-    "year": 2009
-  },
-  {
-    "name": "Amber Atoms",
-    "publisher": "Image Comics",
     "year": 2009
   },
   {
@@ -2330,22 +1640,12 @@
     "year": 2007
   },
   {
-    "name": "War of Kings: Ascension",
-    "publisher": "Marvel Comics",
-    "year": 2009
-  },
-  {
     "name": "Destroyer",
     "publisher": "Valiant Comics",
     "year": 2009
   },
   {
     "name": "Deadpool: Suicide Kings",
-    "publisher": "Marvel Comics",
-    "year": 2009
-  },
-  {
-    "name": "Dark Reign: Hawkeye",
     "publisher": "Marvel Comics",
     "year": 2009
   },
@@ -2360,11 +1660,6 @@
     "year": 2009
   },
   {
-    "name": "Trident Sampler",
-    "publisher": "Trident",
-    "year": 1989
-  },
-  {
     "name": "Hellgate: London",
     "publisher": "Dark Horse Comics",
     "year": 2006
@@ -2373,16 +1668,6 @@
     "name": "Final Crisis Aftermath: Run!",
     "publisher": "DC Comics",
     "year": 2009
-  },
-  {
-    "name": "Final Crisis Aftermath: Escape",
-    "publisher": "DC Comics",
-    "year": 2009
-  },
-  {
-    "name": "Justice League Legends",
-    "publisher": "Titan Comics",
-    "year": 2007
   },
   {
     "name": "Final Crisis Aftermath: Dance",
@@ -2415,19 +1700,9 @@
     "year": 2008
   },
   {
-    "name": "Fusion",
-    "publisher": "Image Comics",
-    "year": 2009
-  },
-  {
     "name": "Dark Reign: The Hood",
     "publisher": "Marvel Comics",
     "year": 2009
-  },
-  {
-    "name": "Stealth Force",
-    "publisher": "Malibu Comics",
-    "year": 1987
   },
   {
     "name": "Essential X-Men",
@@ -2438,11 +1713,6 @@
     "name": "The Avengers United",
     "publisher": "Panini UK",
     "year": 2001
-  },
-  {
-    "name": "Immortal Weapons",
-    "publisher": "Marvel Comics",
-    "year": 2009
   },
   {
     "name": "Wolverine and Gambit",
@@ -2460,16 +1730,6 @@
     "year": 2009
   },
   {
-    "name": "Go-Man",
-    "publisher": "Caliber Comics",
-    "year": 1989
-  },
-  {
-    "name": "Zulunation",
-    "publisher": "Caliber Comics",
-    "year": 1991
-  },
-  {
     "name": "The Shield",
     "publisher": "Archie Comics",
     "year": 2009
@@ -2480,34 +1740,9 @@
     "year": 2009
   },
   {
-    "name": "Punisher Noir",
-    "publisher": "Marvel Comics",
-    "year": 2009
-  },
-  {
-    "name": "Azrael",
-    "publisher": "DC Comics",
-    "year": 2009
-  },
-  {
     "name": "Realm of Kings",
     "publisher": "Marvel Comics",
     "year": 2010
-  },
-  {
-    "name": "Realm of Kings Inhumans",
-    "publisher": "Marvel Comics",
-    "year": 2010
-  },
-  {
-    "name": "Psylocke",
-    "publisher": "Marvel Comics",
-    "year": 2010
-  },
-  {
-    "name": "Captain Satan",
-    "publisher": "Millennium Publications",
-    "year": 1994
   },
   {
     "name": "Zen Intergalactic Ninja Color",
@@ -2515,19 +1750,9 @@
     "year": 1993
   },
   {
-    "name": "Nation X",
-    "publisher": "Marvel Comics",
-    "year": 2010
-  },
-  {
     "name": "Bodyguard",
     "publisher": "Malibu Comics",
     "year": 1990
-  },
-  {
-    "name": "Power",
-    "publisher": "Malibu Comics",
-    "year": 1991
   },
   {
     "name": "Puppet Master: Children of the Puppet Master",
@@ -2543,11 +1768,6 @@
     "name": "Tommy and the Monsters",
     "publisher": "New Comics Group",
     "year": 1989
-  },
-  {
-    "name": "The Law of Dredd",
-    "publisher": "Fleetway/Quality",
-    "year": 1988
   },
   {
     "name": "Invincible Presents: Atom Eve & Rex Splode",
@@ -2570,24 +1790,9 @@
     "year": 1991
   },
   {
-    "name": "X-Men Noir: Mark of Cain",
-    "publisher": "Marvel Comics",
-    "year": 2010
-  },
-  {
-    "name": "Supernatural: Beginning's End",
-    "publisher": "DC Comics",
-    "year": 2010
-  },
-  {
     "name": "Siege: Embedded",
     "publisher": "Marvel Comics",
     "year": 2010
-  },
-  {
-    "name": "Burglar Bill",
-    "publisher": "Image Comics",
-    "year": 2004
   },
   {
     "name": "Bastard",
@@ -2595,29 +1800,19 @@
     "year": 2001
   },
   {
-    "name": "Sparta: USA",
-    "publisher": "DC Comics",
-    "year": 2010
-  },
-  {
-    "name": "Ghost Projekt",
-    "publisher": "Oni Press",
-    "year": 2010
-  },
-  {
     "name": "Girl Comics",
     "publisher": "Marvel Comics",
+    "year": 2010
+  },
+  {
+    "name": "Alan Moore's Neonomicon",
+    "publisher": "Avatar Press",
     "year": 2010
   },
   {
     "name": "Corporate Ninja",
     "publisher": "Slave Labor",
     "year": 2005
-  },
-  {
-    "name": "X-Factor Forever",
-    "publisher": "Marvel Comics",
-    "year": 2010
   },
   {
     "name": "Witchblade / Tomb Raider",
@@ -2633,16 +1828,6 @@
     "name": "Shock Therapy",
     "publisher": "Brave New Words",
     "year": 1990
-  },
-  {
-    "name": "Captain Crusader",
-    "publisher": "TPI Comics",
-    "year": 1990
-  },
-  {
-    "name": "Ghost Rider: Trail of Tears",
-    "publisher": "Marvel Comics",
-    "year": 2007
   },
   {
     "name": "The Magdalena / Vampirella",
@@ -2665,34 +1850,9 @@
     "year": 2004
   },
   {
-    "name": "Ultimate X",
-    "publisher": "Marvel Comics",
-    "year": 2010
-  },
-  {
-    "name": "DV8 vs. Black Ops",
-    "publisher": "Image Comics",
-    "year": 1997
-  },
-  {
-    "name": "Revenge of the Oil Slick Ducks",
-    "publisher": "Canew Ideas",
-    "year": 1991
-  },
-  {
     "name": "In Rage",
     "publisher": "CFD Productions",
     "year": 1994
-  },
-  {
-    "name": "Garrison",
-    "publisher": "DC Comics",
-    "year": 2010
-  },
-  {
-    "name": "Spectacular Spider-Girl",
-    "publisher": "Marvel Comics",
-    "year": 2010
   },
   {
     "name": "Clock!",
@@ -2705,24 +1865,9 @@
     "year": 1992
   },
   {
-    "name": "Heroic Age: Prince of Power",
-    "publisher": "Marvel Comics",
-    "year": 2010
-  },
-  {
     "name": "Prometheus",
     "publisher": "Daedalus",
     "year": 2009
-  },
-  {
-    "name": "The Thanos Imperative",
-    "publisher": "Marvel Comics",
-    "year": 2010
-  },
-  {
-    "name": "Heralds",
-    "publisher": "Marvel Comics",
-    "year": 2010
   },
   {
     "name": "Astonishing X-Men: Xenogenesis",
@@ -2730,19 +1875,9 @@
     "year": 2010
   },
   {
-    "name": "The Stand: Hardcases",
-    "publisher": "Marvel Comics",
-    "year": 2010
-  },
-  {
     "name": "The Clock",
     "publisher": "Starscreem Comics",
     "year": 1994
-  },
-  {
-    "name": "Franken-Castle",
-    "publisher": "Marvel Comics",
-    "year": 2010
   },
   {
     "name": "Bonafide",
@@ -2765,11 +1900,6 @@
     "year": 1983
   },
   {
-    "name": "Big Monster Fight",
-    "publisher": "Kidgang Comics",
-    "year": 1995
-  },
-  {
     "name": "Steve Rogers: Super-Soldier",
     "publisher": "Marvel Comics",
     "year": 2010
@@ -2780,37 +1910,12 @@
     "year": 1991
   },
   {
-    "name": "Man Against Time",
-    "publisher": "Image Comics",
-    "year": 1996
-  },
-  {
-    "name": "Welcome to Tranquility: One Foot in the Grave",
-    "publisher": "DC Comics",
-    "year": 2010
-  },
-  {
-    "name": "Amazing Spider-Man Presents: American Son",
-    "publisher": "Marvel Comics",
-    "year": 2010
-  },
-  {
-    "name": "Ultimate New Ultimates",
-    "publisher": "Marvel Comics",
-    "year": 2010
-  },
-  {
-    "name": "Ultimate Mystery",
-    "publisher": "Marvel Comics",
-    "year": 2010
-  },
-  {
-    "name": "Marvel Super Heroes Secret Wars",
-    "publisher": "Marvel Comics",
-    "year": 1985
-  },
-  {
     "name": "Thor the Mighty Avenger",
+    "publisher": "Marvel Comics",
+    "year": 2010
+  },
+  {
+    "name": "New Mutants Forever",
     "publisher": "Marvel Comics",
     "year": 2010
   },
@@ -2820,12 +1925,12 @@
     "year": 2010
   },
   {
-    "name": "Wolverine",
-    "publisher": "Marvel Comics",
+    "name": "Phoenix Without Ashes",
+    "publisher": "IDW Publishing",
     "year": 2010
   },
   {
-    "name": "I Am an Avenger",
+    "name": "Wolverine",
     "publisher": "Marvel Comics",
     "year": 2010
   },
@@ -2835,18 +1940,8 @@
     "year": 2010
   },
   {
-    "name": "Thor: For Asgard",
-    "publisher": "Marvel Comics",
-    "year": 2010
-  },
-  {
-    "name": "Thor: First Thunder",
-    "publisher": "Marvel Comics",
-    "year": 2010
-  },
-  {
-    "name": "Captain America: Patriot",
-    "publisher": "Marvel Comics",
+    "name": "Green Hornet Annual",
+    "publisher": "Now Comics",
     "year": 2010
   },
   {
@@ -2860,28 +1955,8 @@
     "year": 2007
   },
   {
-    "name": "The Terminator: 1984",
-    "publisher": "Dark Horse Comics",
-    "year": 2010
-  },
-  {
-    "name": "Chaos War",
-    "publisher": "Marvel Comics",
-    "year": 2010
-  },
-  {
-    "name": "Ultimate Thor",
-    "publisher": "Marvel Comics",
-    "year": 2010
-  },
-  {
     "name": "X-Men: Curse of the Mutants - X-Men vs. Vampires",
     "publisher": "Marvel Comics",
-    "year": 2010
-  },
-  {
-    "name": "DC Comics Presents: Brightest Day",
-    "publisher": "DC Comics",
     "year": 2010
   },
   {
@@ -2890,27 +1965,7 @@
     "year": 2009
   },
   {
-    "name": "Telara Chronicles",
-    "publisher": "DC Comics",
-    "year": 2010
-  },
-  {
-    "name": "Generation Hope",
-    "publisher": "Marvel Comics",
-    "year": 2011
-  },
-  {
     "name": "Punisher: In the Blood",
-    "publisher": "Marvel Comics",
-    "year": 2011
-  },
-  {
-    "name": "Iron Man / Thor",
-    "publisher": "Marvel Comics",
-    "year": 2011
-  },
-  {
-    "name": "Iron Man: Rapture",
     "publisher": "Marvel Comics",
     "year": 2011
   },
@@ -2918,11 +1973,6 @@
     "name": "Astonishing Thor",
     "publisher": "Marvel Comics",
     "year": 2011
-  },
-  {
-    "name": "Inferno: Hellbound",
-    "publisher": "Image Comics",
-    "year": 2002
   },
   {
     "name": "Grimmax",
@@ -2940,11 +1990,6 @@
     "year": 2011
   },
   {
-    "name": "Ultimate Doom",
-    "publisher": "Marvel Comics",
-    "year": 2011
-  },
-  {
     "name": "Chaos War: X-Men",
     "publisher": "Marvel Comics",
     "year": 2011
@@ -2955,23 +2000,8 @@
     "year": 2011
   },
   {
-    "name": "Ultimate Captain America",
-    "publisher": "Marvel Comics",
-    "year": 2011
-  },
-  {
     "name": "Daredevil: Reborn",
     "publisher": "Marvel Comics",
-    "year": 2011
-  },
-  {
-    "name": "The Stand: No Man's Land",
-    "publisher": "Marvel Comics",
-    "year": 2011
-  },
-  {
-    "name": "SpongeBob Comics",
-    "publisher": "United Plankton Pictures, Inc.",
     "year": 2011
   },
   {
@@ -2980,32 +2010,12 @@
     "year": 2011
   },
   {
-    "name": "Headhunters",
-    "publisher": "Image Comics",
-    "year": 1997
-  },
-  {
-    "name": "Wulf",
-    "publisher": "Ardden Entertainment",
-    "year": 2011
-  },
-  {
     "name": "The Trouble with Girls",
     "publisher": "Malibu Comics",
     "year": 1987
   },
   {
-    "name": "The Mighty Thor",
-    "publisher": "Marvel Comics",
-    "year": 2011
-  },
-  {
     "name": "Planet of the Apes",
-    "publisher": "Marvel Comics",
-    "year": 2011
-  },
-  {
-    "name": "X-Men: Prelude to Schism",
     "publisher": "Marvel Comics",
     "year": 2011
   },
@@ -3015,53 +2025,33 @@
     "year": 2011
   },
   {
+    "name": "Free Comic Book Day and Nickelodeon Avatar: The Last Airbender / Free Comic Book Day and Star Wars: The Clone Wars",
+    "publisher": "Dark Horse Comics",
+    "year": 2011
+  },
+  {
     "name": "The Strange Case of Mr. Hyde",
     "publisher": "Dark Horse Comics",
     "year": 2011
   },
   {
-    "name": "'Breed III",
-    "publisher": "Image Comics",
-    "year": 2011
-  },
-  {
-    "name": "Kirby: Genesis",
+    "name": "Vampirella and the Scarlet Legion",
     "publisher": "Dynamite Entertainment",
     "year": 2011
   },
   {
-    "name": "Mystery Men",
-    "publisher": "Marvel Comics",
-    "year": 2011
-  },
-  {
-    "name": "Supreme Power",
-    "publisher": "Marvel Comics",
-    "year": 2011
-  },
-  {
-    "name": "Captain America Corps",
-    "publisher": "Marvel Comics",
-    "year": 2011
-  },
-  {
-    "name": "The Transformers: Dark of the Moon Movie Adaptation",
-    "publisher": "IDW Publishing",
-    "year": 2011
-  },
-  {
-    "name": "All-Winners Squad: Band of Heroes",
-    "publisher": "Marvel Comics",
-    "year": 2011
-  },
-  {
-    "name": "All Nighter",
+    "name": "Tales of the Witchblade Collected Editions",
     "publisher": "Image Comics",
+    "year": 1998
+  },
+  {
+    "name": "Red Sonja: Blue",
+    "publisher": "Dynamite Entertainment",
     "year": 2011
   },
   {
-    "name": "Star Wars: Invasion - Revelations",
-    "publisher": "Dark Horse Comics",
+    "name": "Red Sonja: Break the Skin",
+    "publisher": "Dynamite Entertainment",
     "year": 2011
   },
   {
@@ -3075,13 +2065,13 @@
     "year": 2011
   },
   {
-    "name": "Spontaneous",
-    "publisher": "Oni Press",
+    "name": "Mystic",
+    "publisher": "Marvel Comics",
     "year": 2011
   },
   {
-    "name": "Mystic",
-    "publisher": "Marvel Comics",
+    "name": "Rachel Rising",
+    "publisher": "Abstract Studio",
     "year": 2011
   },
   {
@@ -3125,43 +2115,13 @@
     "year": 2011
   },
   {
-    "name": "Annihilators: Earthfall",
-    "publisher": "Marvel Comics",
-    "year": 2011
-  },
-  {
-    "name": "Brilliant",
-    "publisher": "Marvel Comics",
-    "year": 2011
-  },
-  {
-    "name": "My Greatest Adventure",
-    "publisher": "DC Comics",
-    "year": 2011
-  },
-  {
-    "name": "Legion of Monsters",
-    "publisher": "Marvel Comics",
-    "year": 2011
-  },
-  {
     "name": "Star Trek / Legion of Super-Heroes",
     "publisher": "IDW Publishing",
     "year": 2011
   },
   {
-    "name": "Fear Itself: The Fearless",
-    "publisher": "Marvel Comics",
-    "year": 2011
-  },
-  {
     "name": "Key of Z",
     "publisher": "BOOM! Studios",
-    "year": 2011
-  },
-  {
-    "name": "Spaceman",
-    "publisher": "DC Comics",
     "year": 2011
   },
   {
@@ -3190,23 +2150,8 @@
     "year": 2012
   },
   {
-    "name": "House of Night",
-    "publisher": "Dark Horse Comics",
-    "year": 2011
-  },
-  {
     "name": "T.H.U.N.D.E.R. Agents",
     "publisher": "DC Comics",
-    "year": 2012
-  },
-  {
-    "name": "Villains for Hire",
-    "publisher": "Marvel Comics",
-    "year": 2012
-  },
-  {
-    "name": "X-Club",
-    "publisher": "Marvel Comics",
     "year": 2012
   },
   {
@@ -3230,9 +2175,14 @@
     "year": 2012
   },
   {
-    "name": "Winter Soldier",
+    "name": "Memorial",
+    "publisher": "IDW Publishing",
+    "year": 2011
+  },
+  {
+    "name": "Astonishing X-Men",
     "publisher": "Marvel Comics",
-    "year": 2012
+    "year": 2004
   },
   {
     "name": "Simpsons Illustrated",
@@ -3245,13 +2195,13 @@
     "year": 2012
   },
   {
-    "name": "Hell Yeah",
-    "publisher": "Image Comics",
+    "name": "Dorothy of Oz Prequel",
+    "publisher": "IDW Publishing",
     "year": 2012
   },
   {
-    "name": "Dorothy of Oz Prequel",
-    "publisher": "IDW Publishing",
+    "name": "Avengers vs. X-Men",
+    "publisher": "Marvel Comics",
     "year": 2012
   },
   {
@@ -3285,9 +2235,14 @@
     "year": 2012
   },
   {
-    "name": "Masters of the Universe: Rise of the Snake Men",
-    "publisher": "CrossGen",
-    "year": 2003
+    "name": "Lady Death Free Comic Book Day",
+    "publisher": "Avatar Press",
+    "year": 2012
+  },
+  {
+    "name": "Witchblade Unbalanced Pieces FCBD Edition",
+    "publisher": "Image Comics",
+    "year": 2012
   },
   {
     "name": "The Complete Spider-Man",
@@ -3295,8 +2250,8 @@
     "year": 1990
   },
   {
-    "name": "Spider-Men",
-    "publisher": "Marvel Comics",
+    "name": "Lady Death Origins: Cursed",
+    "publisher": "Avatar Press",
     "year": 2012
   },
   {
@@ -3320,21 +2275,6 @@
     "year": 2012
   },
   {
-    "name": "Axe Cop: President of the World",
-    "publisher": "Dark Horse Comics",
-    "year": 2012
-  },
-  {
-    "name": "Deadworld: War of the Dead",
-    "publisher": "IDW Publishing",
-    "year": 2012
-  },
-  {
-    "name": "Deadpool Kills the Marvel Universe",
-    "publisher": "Marvel Comics",
-    "year": 2012
-  },
-  {
     "name": "First X-Men",
     "publisher": "Marvel Comics",
     "year": 2012
@@ -3347,11 +2287,6 @@
   {
     "name": "Sensational Spider-Man",
     "publisher": "Marvel Comics",
-    "year": 2012
-  },
-  {
-    "name": "It Girl! and the Atomics",
-    "publisher": "Image Comics",
     "year": 2012
   },
   {
@@ -3370,43 +2305,18 @@
     "year": 2012
   },
   {
+    "name": "Jennifer Blood: First Blood",
+    "publisher": "Dynamite Entertainment",
+    "year": 2012
+  },
+  {
     "name": "Captain America",
     "publisher": "Marvel Comics",
     "year": 2013
   },
   {
-    "name": "Happy!",
-    "publisher": "Image Comics",
-    "year": 2012
-  },
-  {
-    "name": "Spider-Man: Legend of the Spider-Clan",
-    "publisher": "Marvel Comics",
-    "year": 2002
-  },
-  {
-    "name": "Point of Impact",
-    "publisher": "Image Comics",
-    "year": 2012
-  },
-  {
     "name": "Haunted Horror",
     "publisher": "IDW Publishing",
-    "year": 2012
-  },
-  {
-    "name": "Marvel: The Year in Review",
-    "publisher": "Marvel Comics",
-    "year": 1989
-  },
-  {
-    "name": "Ex Sanguine",
-    "publisher": "Dark Horse Comics",
-    "year": 2012
-  },
-  {
-    "name": "Punisher: War Zone",
-    "publisher": "Marvel Comics",
     "year": 2012
   },
   {
@@ -3420,19 +2330,9 @@
     "year": 2012
   },
   {
-    "name": "Colder",
-    "publisher": "Dark Horse Comics",
-    "year": 2012
-  },
-  {
     "name": "Iron Man",
     "publisher": "Marvel Comics",
     "year": 2013
-  },
-  {
-    "name": "Where Is Jake Ellis?",
-    "publisher": "Image Comics",
-    "year": 2012
   },
   {
     "name": "Judge Dredd",
@@ -3440,44 +2340,9 @@
     "year": 2012
   },
   {
-    "name": "Human Bomb",
-    "publisher": "DC Comics",
-    "year": 2013
-  },
-  {
-    "name": "Cable and X-Force",
-    "publisher": "Marvel Comics",
-    "year": 2013
-  },
-  {
     "name": "Avengers Arena",
     "publisher": "Marvel Comics",
     "year": 2013
-  },
-  {
-    "name": "Storm Dogs",
-    "publisher": "Image Comics",
-    "year": 2012
-  },
-  {
-    "name": "Punisher: Nightmare",
-    "publisher": "Marvel Comics",
-    "year": 2013
-  },
-  {
-    "name": "Repossessed",
-    "publisher": "Image Comics",
-    "year": 2013
-  },
-  {
-    "name": "Empty Zone",
-    "publisher": "Sirius Entertainment",
-    "year": 1998
-  },
-  {
-    "name": "Bodycount",
-    "publisher": "Image Comics",
-    "year": 1996
   },
   {
     "name": "Doctor Who: Prisoners of Time",
@@ -3520,11 +2385,6 @@
     "year": 2013
   },
   {
-    "name": "Copra",
-    "publisher": "Copra Press",
-    "year": 2012
-  },
-  {
     "name": "He-Man and the Masters of the Universe",
     "publisher": "Dark Horse Comics",
     "year": 2013
@@ -3555,11 +2415,6 @@
     "year": 1985
   },
   {
-    "name": "Dream Merchant",
-    "publisher": "Image Comics",
-    "year": 2013
-  },
-  {
     "name": "Avengers: The Enemy Within",
     "publisher": "Marvel Comics",
     "year": 2013
@@ -3570,13 +2425,13 @@
     "year": 2013
   },
   {
-    "name": "Akaneiro",
-    "publisher": "Dark Horse Comics",
+    "name": "The Wake",
+    "publisher": "DC Comics",
     "year": 2013
   },
   {
-    "name": "The Wake",
-    "publisher": "DC Comics",
+    "name": "King Conan: The Hour of the Dragon",
+    "publisher": "Dark Horse Comics",
     "year": 2013
   },
   {
@@ -3615,12 +2470,7 @@
     "year": 1999
   },
   {
-    "name": "Batman Beyond Universe",
-    "publisher": "DC Comics",
-    "year": 2013
-  },
-  {
-    "name": "Itty Bitty Hellboy",
+    "name": "The Star Wars",
     "publisher": "Dark Horse Comics",
     "year": 2013
   },
@@ -3628,11 +2478,6 @@
     "name": "Zero",
     "publisher": "Image Comics",
     "year": 2013
-  },
-  {
-    "name": "Amazing X-Men",
-    "publisher": "Marvel Comics",
-    "year": 1996
   },
   {
     "name": "Powerpuff Girls",
@@ -3655,11 +2500,6 @@
     "year": 2013
   },
   {
-    "name": "Cryptozoic Man",
-    "publisher": "Dynamite Entertainment",
-    "year": 2013
-  },
-  {
     "name": "Forever Evil: Rogues Rebellion",
     "publisher": "DC Comics",
     "year": 2013
@@ -3670,23 +2510,8 @@
     "year": 2014
   },
   {
-    "name": "Drumhellar",
-    "publisher": "Image Comics",
-    "year": 2013
-  },
-  {
-    "name": "Bloodhound: Crowbar Medicine",
-    "publisher": "Dark Horse Comics",
-    "year": 2013
-  },
-  {
     "name": "Harley Quinn",
     "publisher": "DC Comics",
-    "year": 2014
-  },
-  {
-    "name": "Cataclysm: Ultimates",
-    "publisher": "Marvel Comics",
     "year": 2014
   },
   {
@@ -3698,16 +2523,6 @@
     "name": "Sharky",
     "publisher": "Image Comics",
     "year": 1998
-  },
-  {
-    "name": "Origin II",
-    "publisher": "Marvel Comics",
-    "year": 2014
-  },
-  {
-    "name": "Miracleman",
-    "publisher": "Eclipse Comics",
-    "year": 2014
   },
   {
     "name": "Loki: Agent of Asgard",
@@ -3730,19 +2545,9 @@
     "year": 2014
   },
   {
-    "name": "Fantastic Four",
-    "publisher": "Marvel Comics",
-    "year": 2014
-  },
-  {
     "name": "Moon Knight",
     "publisher": "Marvel Comics",
     "year": 2014
-  },
-  {
-    "name": "The Auteur",
-    "publisher": "Oni Press",
-    "year": 2013
   },
   {
     "name": "Daredevil",
@@ -3755,11 +2560,6 @@
     "year": 2013
   },
   {
-    "name": "Iron Patriot",
-    "publisher": "Marvel Comics",
-    "year": 2014
-  },
-  {
     "name": "Survive!",
     "publisher": "Marvel Comics",
     "year": 2014
@@ -3770,11 +2570,6 @@
     "year": 2014
   },
   {
-    "name": "The Field",
-    "publisher": "Image Comics",
-    "year": 2014
-  },
-  {
     "name": "Deadpool vs. Carnage",
     "publisher": "Marvel Comics",
     "year": 2014
@@ -3782,11 +2577,6 @@
   {
     "name": "What If? Age of Ultron",
     "publisher": "Marvel Comics",
-    "year": 2014
-  },
-  {
-    "name": "Dead Letters",
-    "publisher": "BOOM! Studios",
     "year": 2014
   },
   {
@@ -3805,31 +2595,6 @@
     "year": 2014
   },
   {
-    "name": "Deadly Hands of Kung Fu",
-    "publisher": "Marvel Comics",
-    "year": 2014
-  },
-  {
-    "name": "Batman: Legends of the Dark Knight",
-    "publisher": "DC Comics",
-    "year": 2013
-  },
-  {
-    "name": "Dejah of Mars",
-    "publisher": "Dynamite Entertainment",
-    "year": 2014
-  },
-  {
-    "name": "Infinity Man and the Forever People",
-    "publisher": "DC Comics",
-    "year": 2014
-  },
-  {
-    "name": "The Empty Man",
-    "publisher": "BOOM! Studios",
-    "year": 2014
-  },
-  {
     "name": "Legendary Star-Lord",
     "publisher": "Marvel Comics",
     "year": 2014
@@ -3837,26 +2602,6 @@
   {
     "name": "Deadpool vs. X-Force",
     "publisher": "Marvel Comics",
-    "year": 2014
-  },
-  {
-    "name": "Death Vigil",
-    "publisher": "Image Comics",
-    "year": 2014
-  },
-  {
-    "name": "Deadpool: Dracula's Gauntlet",
-    "publisher": "Marvel Comics",
-    "year": 2014
-  },
-  {
-    "name": "Supreme Blue Rose",
-    "publisher": "Image Comics",
-    "year": 2014
-  },
-  {
-    "name": "Sensation Comics Featuring Wonder Woman",
-    "publisher": "DC Comics",
     "year": 2014
   },
   {
@@ -3875,18 +2620,8 @@
     "year": 2014
   },
   {
-    "name": "Lobo",
-    "publisher": "DC Comics",
-    "year": 2014
-  },
-  {
     "name": "Thor",
     "publisher": "Marvel Comics",
-    "year": 2014
-  },
-  {
-    "name": "Fiction Squad",
-    "publisher": "BOOM! Studios",
     "year": 2014
   },
   {
@@ -3920,14 +2655,64 @@
     "year": 2014
   },
   {
-    "name": "The Humans",
+    "name": "Captain America and the Mighty Avengers",
+    "publisher": "Marvel Comics",
+    "year": 2015
+  },
+  {
+    "name": "Graveyard Shift",
     "publisher": "Image Comics",
     "year": 2014
   },
   {
-    "name": "Captain America and the Mighty Avengers",
+    "name": "Beavis and Butt-Head",
     "publisher": "Marvel Comics",
-    "year": 2015
+    "year": 1994
+  },
+  {
+    "name": "Twisted Tales 3-D",
+    "publisher": "Blackthorne",
+    "year": 1986
+  },
+  {
+    "name": "Marvel Super Heroes Secret Wars",
+    "publisher": "Marvel Comics",
+    "year": 1985
+  },
+  {
+    "name": "Revival",
+    "publisher": "Image Comics",
+    "year": 2012
+  },
+  {
+    "name": "Bodycount",
+    "publisher": "Image Comics",
+    "year": 1996
+  },
+  {
+    "name": "Amazing X-Men",
+    "publisher": "Marvel Comics",
+    "year": 1996
+  },
+  {
+    "name": "Fantastic Four",
+    "publisher": "Marvel Comics",
+    "year": 2014
+  },
+  {
+    "name": "Death Vigil",
+    "publisher": "Image Comics",
+    "year": 2014
+  },
+  {
+    "name": "Teen Titans",
+    "publisher": "DC Comics",
+    "year": 2014
+  },
+  {
+    "name": "The Humans",
+    "publisher": "Image Comics",
+    "year": 2014
   },
   {
     "name": "Captain Stone",
@@ -3945,14 +2730,9 @@
     "year": 2015
   },
   {
-    "name": "Graveyard Shift",
-    "publisher": "Image Comics",
-    "year": 2014
-  },
-  {
-    "name": "Twisted Tales 3-D",
-    "publisher": "Blackthorne",
-    "year": 1986
+    "name": "Free Comic Book Day 2015 (Secret Wars)",
+    "publisher": "Marvel Comics",
+    "year": 2015
   },
   {
     "name": "Valiant Pullbox Preview: Bloodshot Reborn",
@@ -3965,6 +2745,11 @@
     "year": 1966
   },
   {
+    "name": "Injection",
+    "publisher": "Image Comics",
+    "year": 2015
+  },
+  {
     "name": "Ultimate End",
     "publisher": "Marvel Comics",
     "year": 2015
@@ -3972,11 +2757,6 @@
   {
     "name": "Lantern City",
     "publisher": "BOOM! Studios",
-    "year": 2015
-  },
-  {
-    "name": "Insufferable",
-    "publisher": "IDW Publishing",
     "year": 2015
   },
   {
@@ -4005,11 +2785,6 @@
     "year": 2015
   },
   {
-    "name": "Bizarro",
-    "publisher": "DC Comics",
-    "year": 2015
-  },
-  {
     "name": "Groot",
     "publisher": "Marvel Comics",
     "year": 2015
@@ -4017,6 +2792,11 @@
   {
     "name": "Giant-Size Little Marvel: AvX",
     "publisher": "Marvel Comics",
+    "year": 2015
+  },
+  {
+    "name": "Starve",
+    "publisher": "Image Comics",
     "year": 2015
   },
   {
@@ -4060,11 +2840,6 @@
     "year": 2015
   },
   {
-    "name": "The Spire",
-    "publisher": "BOOM! Studios",
-    "year": 2015
-  },
-  {
     "name": "Eternal Soulfire",
     "publisher": "Aspen Comics",
     "year": 2015
@@ -4075,8 +2850,18 @@
     "year": 2015
   },
   {
+    "name": "Batman Eternal",
+    "publisher": "DC Comics",
+    "year": 2014
+  },
+  {
     "name": "Hail Hydra",
     "publisher": "Marvel Comics",
+    "year": 2015
+  },
+  {
+    "name": "Cyborg",
+    "publisher": "DC Comics",
     "year": 2015
   },
   {
@@ -4155,11 +2940,6 @@
     "year": 2015
   },
   {
-    "name": "Guardians of the Galaxy",
-    "publisher": "Marvel Comics",
-    "year": 2015
-  },
-  {
     "name": "Assassin's Creed",
     "publisher": "Titan Comics",
     "year": 2015
@@ -4190,87 +2970,22 @@
     "year": 2016
   },
   {
-    "name": "Batman / Teenage Mutant Ninja Turtles",
-    "publisher": "DC Comics",
-    "year": 2016
-  },
-  {
-    "name": "Last Gang in Town",
-    "publisher": "DC Comics",
-    "year": 2016
-  },
-  {
-    "name": "Star Trek: Starfleet Academy",
-    "publisher": "IDW Publishing",
-    "year": 2015
-  },
-  {
-    "name": "Six",
-    "publisher": "Image Comics",
-    "year": 2015
-  },
-  {
-    "name": "Brain Boy",
-    "publisher": "Dark Horse Comics",
-    "year": 2013
-  },
-  {
-    "name": "The Last Contract",
-    "publisher": "BOOM! Studios",
-    "year": 2016
-  },
-  {
-    "name": "Gutter Magic",
-    "publisher": "IDW Publishing",
-    "year": 2016
-  },
-  {
-    "name": "Spider-Man",
-    "publisher": "Marvel Comics",
-    "year": 2016
-  },
-  {
-    "name": "Dusu: Path of the Ancient",
-    "publisher": "Stranger Comics",
-    "year": 2016
-  },
-  {
-    "name": "Power Man and Iron Fist",
-    "publisher": "Marvel Comics",
-    "year": 2016
-  },
-  {
-    "name": "X-Men: Worst X-Man Ever",
-    "publisher": "Marvel Comics",
-    "year": 2016
-  },
-  {
-    "name": "Revival",
-    "publisher": "Image Comics",
-    "year": 2012
-  },
-  {
-    "name": "Injection",
-    "publisher": "Image Comics",
-    "year": 2015
-  },
-  {
-    "name": "Starve",
-    "publisher": "Image Comics",
-    "year": 2015
-  },
-  {
-    "name": "Cyborg",
-    "publisher": "DC Comics",
-    "year": 2015
-  },
-  {
     "name": "Ringside",
     "publisher": "Image Comics",
     "year": 2015
   },
   {
     "name": "Scarlet Witch",
+    "publisher": "Marvel Comics",
+    "year": 2016
+  },
+  {
+    "name": "Batman / Teenage Mutant Ninja Turtles",
+    "publisher": "DC Comics",
+    "year": 2016
+  },
+  {
+    "name": "Squadron Supreme",
     "publisher": "Marvel Comics",
     "year": 2016
   },
@@ -4285,14 +3000,29 @@
     "year": 2016
   },
   {
-    "name": "Judge Dredd",
-    "publisher": "Titan Comics",
+    "name": "Last Gang in Town",
+    "publisher": "DC Comics",
+    "year": 2016
+  },
+  {
+    "name": "Star Trek: Starfleet Academy",
+    "publisher": "IDW Publishing",
     "year": 2015
   },
   {
     "name": "The Witchfinder General",
     "publisher": "First Comics",
     "year": 2015
+  },
+  {
+    "name": "Six",
+    "publisher": "Image Comics",
+    "year": 2015
+  },
+  {
+    "name": "Brain Boy",
+    "publisher": "Dark Horse Comics",
+    "year": 2013
   },
   {
     "name": "Rocket Raccoon and Groot",
@@ -4307,6 +3037,11 @@
   {
     "name": "Spider-Man / Deadpool",
     "publisher": "Marvel Comics",
+    "year": 2016
+  },
+  {
+    "name": "Gutter Magic",
+    "publisher": "IDW Publishing",
     "year": 2016
   },
   {
@@ -4325,13 +3060,28 @@
     "year": 2016
   },
   {
+    "name": "Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2016
+  },
+  {
     "name": "Futurama Comics",
     "publisher": "Dino Verlag",
     "year": 2001
   },
   {
+    "name": "Power Man and Iron Fist",
+    "publisher": "Marvel Comics",
+    "year": 2016
+  },
+  {
     "name": "Dirk Gently's Holistic Detective Agency: A Spoon Too Short",
     "publisher": "IDW Publishing",
+    "year": 2016
+  },
+  {
+    "name": "X-Men: Worst X-Man Ever",
+    "publisher": "Marvel Comics",
     "year": 2016
   },
   {
@@ -4397,11 +3147,6 @@
   {
     "name": "A Year of Marvels Amazing",
     "publisher": "Marvel Comics",
-    "year": 2016
-  },
-  {
-    "name": "Unleash",
-    "publisher": "Amigo",
     "year": 2016
   },
   {
@@ -4480,6 +3225,11 @@
     "year": 2016
   },
   {
+    "name": "Nightwing",
+    "publisher": "DC Comics",
+    "year": 2016
+  },
+  {
     "name": "Hal Jordan and the Green Lantern Corps",
     "publisher": "DC Comics",
     "year": 2016
@@ -4497,11 +3247,6 @@
   {
     "name": "Solo",
     "publisher": "Dark Horse Comics",
-    "year": 2016
-  },
-  {
-    "name": "Kill or Be Killed",
-    "publisher": "Image Comics",
     "year": 2016
   },
   {
@@ -4600,11 +3345,6 @@
     "year": 2016
   },
   {
-    "name": "James Bond: Hammerhead",
-    "publisher": "Dynamite Entertainment",
-    "year": 2016
-  },
-  {
     "name": "Spell on Wheels",
     "publisher": "Dark Horse Comics",
     "year": 2016
@@ -4621,6 +3361,11 @@
   },
   {
     "name": "Invincible Iron Man",
+    "publisher": "Marvel Comics",
+    "year": 2017
+  },
+  {
+    "name": "Black Panther: World of Wakanda",
     "publisher": "Marvel Comics",
     "year": 2017
   },
@@ -4663,11 +3408,6 @@
     "name": "Justice League vs. Suicide Squad",
     "publisher": "DC Comics",
     "year": 2017
-  },
-  {
-    "name": "Essential X-Men",
-    "publisher": "Marvel Comics",
-    "year": 2016
   },
   {
     "name": "Dead Inside",
@@ -4796,7 +3536,7 @@
   },
   {
     "name": "Scrimshaw",
-    "publisher": "Alterna",
+    "publisher": "Alterna Comics",
     "year": 2017
   },
   {
@@ -4807,11 +3547,6 @@
   {
     "name": "Spider-Men II",
     "publisher": "Marvel Comics",
-    "year": 2017
-  },
-  {
-    "name": "Calexit",
-    "publisher": "Black Mask Studios",
     "year": 2017
   },
   {
@@ -4832,11 +3567,6 @@
   {
     "name": "Slam! The Next Jam",
     "publisher": "BOOM! Studios",
-    "year": 2017
-  },
-  {
-    "name": "Made Men",
-    "publisher": "Oni Press",
     "year": 2017
   },
   {
@@ -4916,11 +3646,6 @@
   },
   {
     "name": "Legion",
-    "publisher": "DC Comics",
-    "year": 2018
-  },
-  {
-    "name": "The Brave and the Bold: Batman and Wonder Woman",
     "publisher": "DC Comics",
     "year": 2018
   },
@@ -5005,6 +3730,11 @@
     "year": 2018
   },
   {
+    "name": "Superman",
+    "publisher": "DC Comics",
+    "year": 2018
+  },
+  {
     "name": "Outpost Zero",
     "publisher": "Image Comics",
     "year": 2018
@@ -5075,6 +3805,11 @@
     "year": 2018
   },
   {
+    "name": "The Darkness & Witchblade",
+    "publisher": "Editora Abril",
+    "year": 1998
+  },
+  {
     "name": "Unstoppable Wasp",
     "publisher": "Marvel Comics",
     "year": 2018
@@ -5095,6 +3830,16 @@
     "year": 2018
   },
   {
+    "name": "True Believers: What If the Fantastic Four Had Different Super-Powers?",
+    "publisher": "Marvel Comics",
+    "year": 2018
+  },
+  {
+    "name": "True Believers: What If Legion Had Killed Magneto?",
+    "publisher": "Marvel Comics",
+    "year": 2018
+  },
+  {
     "name": "Marvel Knights 20th",
     "publisher": "Panini España",
     "year": 2018
@@ -5108,11 +3853,6 @@
     "name": "Uncanny X-Men",
     "publisher": "Marvel Comics",
     "year": 2019
-  },
-  {
-    "name": "God of War",
-    "publisher": "Dark Horse Comics",
-    "year": 2018
   },
   {
     "name": "American Carnage",
@@ -5145,11 +3885,6 @@
     "year": 2019
   },
   {
-    "name": "Miles Morales: Spider-Man",
-    "publisher": "Marvel Comics",
-    "year": 2019
-  },
-  {
     "name": "Darkham Vale",
     "publisher": "Bamboo Édition",
     "year": 2007
@@ -5172,11 +3907,6 @@
   {
     "name": "Daredevil",
     "publisher": "Marvel Comics",
-    "year": 2019
-  },
-  {
-    "name": "Female Furies",
-    "publisher": "DC Comics",
     "year": 2019
   },
   {
@@ -5210,11 +3940,6 @@
     "year": 2019
   },
   {
-    "name": "Domino: Hotshots",
-    "publisher": "Marvel Comics",
-    "year": 2019
-  },
-  {
     "name": "Meet the Skrulls",
     "publisher": "Marvel Comics",
     "year": 2019
@@ -5232,21 +3957,6 @@
   {
     "name": "Marvel's Spider-Man: City at War",
     "publisher": "Marvel Comics",
-    "year": 2019
-  },
-  {
-    "name": "Spider-Man: Life Story",
-    "publisher": "Marvel Comics",
-    "year": 2019
-  },
-  {
-    "name": "Invisible Kingdom",
-    "publisher": "Dark Horse Comics",
-    "year": 2019
-  },
-  {
-    "name": "Bad Luck Chuck",
-    "publisher": "Dark Horse Comics",
     "year": 2019
   },
   {
@@ -5317,11 +4027,6 @@
   {
     "name": "X-Men: Grand Design - X-Tinction",
     "publisher": "Marvel Comics",
-    "year": 2019
-  },
-  {
-    "name": "Usagi Yojimbo",
-    "publisher": "Dark Horse Comics",
     "year": 2019
   },
   {
@@ -5430,6 +4135,11 @@
     "year": 2020
   },
   {
+    "name": "The Question: The Deaths of Vic Sage",
+    "publisher": "DC Comics",
+    "year": 2020
+  },
+  {
     "name": "Folklords",
     "publisher": "BOOM! Studios",
     "year": 2019
@@ -5485,17 +4195,57 @@
     "year": 2020
   },
   {
-    "name": "Marvel's Spider-Man: The Black Cat Strikes",
-    "publisher": "Marvel Comics",
-    "year": 2020
-  },
-  {
     "name": "Venom: The End",
     "publisher": "Marvel Comics",
     "year": 2020
   },
   {
     "name": "Ravencroft",
+    "publisher": "Marvel Comics",
+    "year": 2020
+  },
+  {
+    "name": "Vampire State Building",
+    "publisher": "Ablaze Publishing",
+    "year": 2019
+  },
+  {
+    "name": "Starship Down",
+    "publisher": "Dark Horse Comics",
+    "year": 2020
+  },
+  {
+    "name": "Something Is Killing the Children",
+    "publisher": "BOOM! Studios",
+    "year": 2019
+  },
+  {
+    "name": "Tales of the Witchblade",
+    "publisher": "Image; Wizard",
+    "year": 1997
+  },
+  {
+    "name": "The Fabulous Furry Freak Brothers",
+    "publisher": "Knockabout",
+    "year": 1976
+  },
+  {
+    "name": "Essential X-Men",
+    "publisher": "Marvel Comics",
+    "year": 2016
+  },
+  {
+    "name": "Miles Morales: Spider-Man",
+    "publisher": "Marvel Comics",
+    "year": 2019
+  },
+  {
+    "name": "Usagi Yojimbo",
+    "publisher": "Dark Horse Comics",
+    "year": 2019
+  },
+  {
+    "name": "Marvel's Spider-Man: The Black Cat Strikes",
     "publisher": "Marvel Comics",
     "year": 2020
   },
@@ -5510,24 +4260,9 @@
     "year": 2020
   },
   {
-    "name": "Vampire State Building",
-    "publisher": "Ablaze Publishing",
-    "year": 2019
-  },
-  {
     "name": "Spider-Woman",
     "publisher": "Marvel Comics",
     "year": 2020
-  },
-  {
-    "name": "Starship Down",
-    "publisher": "Dark Horse Comics",
-    "year": 2020
-  },
-  {
-    "name": "Something Is Killing the Children",
-    "publisher": "BOOM! Studios",
-    "year": 2019
   },
   {
     "name": "Seven Secrets",
@@ -5647,6 +4382,11 @@
   {
     "name": "Stud and the Bloodblade",
     "publisher": "Comics Experience Publishing",
+    "year": 2021
+  },
+  {
+    "name": "Red Sonja",
+    "publisher": "Dynamite Entertainment",
     "year": 2021
   },
   {
@@ -5795,33 +4535,23 @@
     "year": 2004
   },
   {
+    "name": "Statics",
+    "publisher": "Jeffrey Lewis",
+    "year": 2022
+  },
+  {
     "name": "X-Men '92: House of XCII",
+    "publisher": "Marvel Comics",
+    "year": 2022
+  },
+  {
+    "name": "The Amazing Spider-Man",
     "publisher": "Marvel Comics",
     "year": 2022
   },
   {
     "name": "Metal Society",
     "publisher": "Image Comics",
-    "year": 2022
-  },
-  {
-    "name": "The Fabulous Furry Freak Brothers",
-    "publisher": "Knockabout",
-    "year": 1976
-  },
-  {
-    "name": "Red Sonja",
-    "publisher": "Dynamite Entertainment",
-    "year": 2021
-  },
-  {
-    "name": "Statics",
-    "publisher": "Jeffrey Lewis",
-    "year": 2022
-  },
-  {
-    "name": "The Amazing Spider-Man",
-    "publisher": "Marvel Comics",
     "year": 2022
   },
   {
@@ -6020,11 +4750,6 @@
     "year": 2022
   },
   {
-    "name": "Saga of a Doomed Universe",
-    "publisher": "Comics Experience Publishing",
-    "year": 2022
-  },
-  {
     "name": "Planet Hulk: Worldbreaker",
     "publisher": "Marvel Comics",
     "year": 2023
@@ -6147,6 +4872,11 @@
   {
     "name": "Spider-Man 2099: Dark Genesis",
     "publisher": "Marvel Comics",
+    "year": 2023
+  },
+  {
+    "name": "Teenage Mutant Ninja Turtles Free Comic Book Day [2023]",
+    "publisher": "IDW Publishing",
     "year": 2023
   },
   {
@@ -6465,6 +5195,11 @@
     "year": 2023
   },
   {
+    "name": "Image Firsts: Monstress",
+    "publisher": "Image Comics",
+    "year": 2024
+  },
+  {
     "name": "Zdarsky Comic News",
     "publisher": "Zdarsky",
     "year": 2024
@@ -6600,6 +5335,11 @@
     "year": 2025
   },
   {
+    "name": "Vampirella",
+    "publisher": "Dynamite Entertainment",
+    "year": 2025
+  },
+  {
     "name": "Fantastic Four No. 1 Facsimile Edition",
     "publisher": "Marvel Comics",
     "year": 2025
@@ -6627,6 +5367,11 @@
   {
     "name": "Mark Spears Monsters FCBD Special",
     "publisher": "Keenspot Entertainment",
+    "year": 2025
+  },
+  {
+    "name": "Godzilla: Here There Be Aliens",
+    "publisher": "IDW Publishing",
     "year": 2025
   },
   {
@@ -6665,8 +5410,8 @@
     "year": 2025
   },
   {
-    "name": "Escape",
-    "publisher": "Image Comics",
+    "name": "Event Horizon: Dark Descent",
+    "publisher": "IDW Publishing",
     "year": 2025
   },
   {
@@ -6677,6 +5422,16 @@
   {
     "name": "Absolute Evil",
     "publisher": "DC Comics",
+    "year": 2025
+  },
+  {
+    "name": "DC's Zatannic Panic!",
+    "publisher": "DC Comics",
+    "year": 2025
+  },
+  {
+    "name": "X-Men: Age of Revelation Overture",
+    "publisher": "Marvel Comics",
     "year": 2025
   },
   {
@@ -6740,6 +5495,11 @@
     "year": 2025
   },
   {
+    "name": "Batman / Green Arrow / The Question: Arcadia",
+    "publisher": "DC Comics",
+    "year": 2026
+  },
+  {
     "name": "Save Now",
     "publisher": "Bad Idea Comics",
     "year": 2025
@@ -6747,6 +5507,11 @@
   {
     "name": "Planet She-Hulk",
     "publisher": "Marvel Comics",
+    "year": 2026
+  },
+  {
+    "name": "Batman / Static: Beyond",
+    "publisher": "DC Comics",
     "year": 2026
   },
   {
@@ -6765,11 +5530,6 @@
     "year": 2025
   },
   {
-    "name": "Final Boss",
-    "publisher": "Image Comics",
-    "year": 2025
-  },
-  {
     "name": "Capes",
     "publisher": "Image Comics",
     "year": 2025
@@ -6780,8 +5540,8 @@
     "year": 2026
   },
   {
-    "name": "Doctor Strange",
-    "publisher": "Marvel Comics",
+    "name": "DC K.O.: Red Hood vs. Joker",
+    "publisher": "DC Comics",
     "year": 2026
   },
   {
@@ -6798,6 +5558,11 @@
     "name": "The Darkness",
     "publisher": "Image Comics",
     "year": 2025
+  },
+  {
+    "name": "Sorcerer Supreme",
+    "publisher": "Marvel Comics",
+    "year": 2026
   },
   {
     "name": "DC K.O.: Boss Battle",
@@ -6915,11 +5680,6 @@
     "year": 2026
   },
   {
-    "name": "Barbara Gordon: Breakout",
-    "publisher": "DC Comics",
-    "year": 2026
-  },
-  {
     "name": "DC x Sonic the Hedgehog: Metal Legion",
     "publisher": "DC Comics",
     "year": 2026
@@ -6927,6 +5687,11 @@
   {
     "name": "Mortal Thor",
     "publisher": "Marvel Comics",
+    "year": 2026
+  },
+  {
+    "name": "Event Horizon: Inferno",
+    "publisher": "IDW Publishing",
     "year": 2026
   },
   {
@@ -6940,23 +5705,58 @@
     "year": 2026
   },
   {
-    "name": "The Deadman",
-    "publisher": "DC Comics",
-    "year": 2026
-  },
-  {
     "name": "Avatar: The Last Airbender - The Kyoshi Warriors",
     "publisher": "Dark Horse Comics",
     "year": 2026
   },
   {
-    "name": "Avengers: Armageddon",
+    "name": "Ben 10",
+    "publisher": "Dynamite Entertainment",
+    "year": 2026
+  },
+  {
+    "name": "Red Sonja: She-Devil with a Sword",
+    "publisher": "Dynamite Entertainment",
+    "year": 2026
+  },
+  {
+    "name": "Fantastic Four",
+    "publisher": "Marvel Comics",
+    "year": 2025
+  },
+  {
+    "name": "Escape",
+    "publisher": "Image Comics",
+    "year": 2025
+  },
+  {
+    "name": "Thor",
+    "publisher": "Marvel Comics",
+    "year": 2025
+  },
+  {
+    "name": "Final Boss",
+    "publisher": "Image Comics",
+    "year": 2025
+  },
+  {
+    "name": "Doctor Strange",
     "publisher": "Marvel Comics",
     "year": 2026
   },
   {
-    "name": "Ben 10",
-    "publisher": "Dynamite Entertainment",
+    "name": "Barbara Gordon: Breakout",
+    "publisher": "DC Comics",
+    "year": 2026
+  },
+  {
+    "name": "The Deadman",
+    "publisher": "DC Comics",
+    "year": 2026
+  },
+  {
+    "name": "Avengers: Armageddon",
+    "publisher": "Marvel Comics",
     "year": 2026
   },
   {
@@ -7000,8 +5800,18 @@
     "year": 2026
   },
   {
+    "name": "The Last Starfighter",
+    "publisher": "Mad Cave Studios",
+    "year": 2026
+  },
+  {
     "name": "Do a PowerBomb Black & White",
     "publisher": "Image Comics",
+    "year": 2026
+  },
+  {
+    "name": "Pimp Killer",
+    "publisher": "Keenspot Entertainment",
     "year": 2026
   },
   {
@@ -7056,6 +5866,16 @@
   },
   {
     "name": "DNX",
+    "publisher": "Marvel Comics",
+    "year": 2026
+  },
+  {
+    "name": "Jade Warriors",
+    "publisher": "Keenspot Entertainment",
+    "year": 2026
+  },
+  {
+    "name": "Alien vs. X-Men",
     "publisher": "Marvel Comics",
     "year": 2026
   },

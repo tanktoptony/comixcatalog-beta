@@ -165,7 +165,10 @@ export default function IssueClient({ initialIssue = null }) {
   const [variantLabel, setVariantLabel] = useState("");
   const [variantSaveState, setVariantSaveState] = useState(null);
   const [versionSwitchState, setVersionSwitchState] = useState(null);
-  const [gradeData, setGradeData] = useState(null);
+  // Edits saved on this page, tied to the copy they belong to: when the page
+  // moves to another copy (say, after one is removed) they must not be shown
+  // as, or saved over, that copy's details.
+  const [gradeEdits, setGradeEdits] = useState({ id: null, data: null });
   const [mutationError, setMutationError] = useState(null);
   const [showAds, setShowAds] = useState(false);
 
@@ -250,6 +253,10 @@ export default function IssueClient({ initialIssue = null }) {
     ?? issueRows.find((row) => row.status === "for_sale")
     ?? null;
   const copyCount = countCopies(issueRows);
+  const gradeData = collectionRow && gradeEdits.id === collectionRow.id ? gradeEdits.data : null;
+  function setGradeData(copyId, patch) {
+    setGradeEdits((prev) => ({ id: copyId, data: { ...(prev.id === copyId ? prev.data : null), ...patch } }));
+  }
 
   // A copy of this issue saved under another version (usually the base
   // edition). Moving it here gives the library this version's cover and
@@ -385,7 +392,7 @@ export default function IssueClient({ initialIssue = null }) {
       if (error) throw error;
       // The library reads the copy's cover from its own loaded list, so
       // reload it; otherwise the old cover showed until a full refresh.
-      if (selectedCover) setGradeData((prev) => ({ ...prev, user_cover_url: selectedCover }));
+      if (selectedCover) setGradeData(collectionRow.id, { user_cover_url: selectedCover });
       await refreshLibrary({ background: true });
       setVariantSaveState("saved");
     } catch (error) {
@@ -833,6 +840,7 @@ export default function IssueClient({ initialIssue = null }) {
               <div className="metadata-section" style={{ margin: 0, marginBottom: "22px" }}>
                 <h3 className="issue-section-title">Condition & Grade</h3>
                 <GradeEditor
+                  key={collectionRow.id}
                   collectionId={collectionRow.id}
                   canonicalCover={selectedCover || issue.cover || null}
                   releaseYear={issue?.release_year ?? null}
@@ -856,7 +864,7 @@ export default function IssueClient({ initialIssue = null }) {
                     user_cover_url: collectionRow.user_cover_url ?? null,
                     ...(gradeData ?? {}),
                   }}
-                  onSave={(updated) => { setGradeData((prev) => ({ ...prev, ...updated })); refreshLibrary({ background: true }); }}
+                  onSave={(updated) => { setGradeData(collectionRow.id, updated); refreshLibrary({ background: true }); }}
                 />
               </div>
             )}

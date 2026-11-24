@@ -397,7 +397,9 @@ Every video gets its own short link, `comixcatalog.com/yt/<slug>`, listed in [sr
 Three bugs fixed:
 1. **Initial-session race in AuthContext** — `useEffect` now explicitly calls `supabase.auth.getSession()` on mount and feeds the result through the same `applySession()` handler the listener uses. Previously relied solely on `onAuthStateChange` firing INITIAL_SESSION, which dropped silently in certain timing scenarios.
 2. **Dropdown identity always visible** — UserMenu now falls through to `user.email` if no profile.username exists. The bare "Account" fallback string is unreachable.
-3. **Switch Account affordance** — new button between "Manage Pro" and "Sign out" that signs out and lands directly on `/login` via `window.location.href` (avoiding the `router.replace("/")` race that would otherwise send users to homepage).
+3. ~~**Switch Account affordance**~~ (removed Nov 24, 2026; sign out, then sign in) — new button between "Manage Pro" and "Sign out" that signs out and lands directly on `/login` via `window.location.href` (avoiding the `router.replace("/")` race that would otherwise send users to homepage).
+
+**Avatar menu (trimmed Nov 24, 2026).** The menu holds only what has no other home: the name row (links to the member's public page, called their Showcase), Orders, Lists, Trade matches, Invite, Founding Collectors, Account settings, membership and Sign out. Library, Pull list, Collectors, Marketplace (shopping bag) and Inbox are header icons; the blog and Help live in the footer; the first-visit guide reopens from the Help Center ("How ComixCatalog works"). Don't add a menu item for something that already has a header icon or footer link.
 
 ### Signup attribution (fixed November 2026)
 

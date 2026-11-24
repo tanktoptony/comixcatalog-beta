@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { VIDEO_GUIDES, youtubeThumbUrl, youtubeWatchUrl } from "@/lib/videoGuides";
+import TourButton from "./TourButton";
 
 export const metadata = {
   title: "Help Center",
@@ -15,6 +16,11 @@ export default function HelpPage() {
           to get a real answer is direct contact. Email and Discord are both read
           daily.
         </p>
+
+        <div className="help-tour">
+          <span>New here, or skipped the walkthrough?</span>
+          <TourButton />
+        </div>
 
         <ul className="help-channels">
           <HelpChannel

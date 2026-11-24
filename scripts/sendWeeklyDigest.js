@@ -17,6 +17,7 @@ import { fileURLToPath } from "node:url";
 import { mkdir, writeFile } from "node:fs/promises";
 import { createClient } from "@supabase/supabase-js";
 import { buildDigestEmail, digestCampaign, digestHasNews, prefsFromRow } from "../src/lib/emailPrefs.js";
+import { canSendOther, loadRecentEmails } from "../src/lib/emailCap.js";
 import { unsubscribeLink } from "../src/lib/emailUnsubscribe.js";
 import { feedItems, blockedIds } from "../src/lib/feed/feedEvents.js";
 import { changeWindowStart, valueChange } from "../src/lib/shelfHunt.js";
@@ -142,6 +143,7 @@ const alreadySent = new Set((await pages(() => db.from("email_campaign_sends").s
 
 let sent = 0;
 let quiet = 0;
+let held = 0;
 let off = 0;
 for (const member of members) {
   if (!prefsFromRow(settings.get(String(member.id))).email_weekly_digest) { off += 1; continue; }
@@ -152,6 +154,10 @@ for (const member of members) {
   const { data: auth } = await db.auth.admin.getUserById(member.id);
   const email = auth?.user?.email;
   if (!email || !auth.user.email_confirmed_at) continue;
+  try {
+    const mode = prefsFromRow(settings.get(String(member.id))).email_activity;
+    if (!canSendOther(await loadRecentEmails(db, member.id, { mode }))) { held += 1; continue; }
+  } catch (error) { console.error(`@${member.username}: ${error.message}`); continue; }
   const message = buildDigestEmail({ digest, unsubscribeUrl: unsubscribeLink("digest", member.id) });
   if (outDir) {
     await mkdir(outDir, { recursive: true });
@@ -172,4 +178,4 @@ for (const member of members) {
     console.error(`send failed for @${member.username}: ${error.message}`);
   }
 }
-console.log(`${apply ? "Sent" : "Dry run"} ${campaign}: ${apply ? sent : "see above"}; ${quiet} with nothing new, ${off} turned off.`);
+console.log(`${apply ? "Sent" : "Dry run"} ${campaign}: ${apply ? sent : "see above"}; ${quiet} with nothing new, ${held} held for the weekly cap, ${off} turned off.`);

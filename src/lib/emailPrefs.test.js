@@ -39,6 +39,14 @@ test("long activity lists show ten and count the rest", () => {
   assert.match(email.html, /And 3 more\./);
 });
 
+test("the subject says what is inside", () => {
+  const done = (label) => ({ kind: "request_done", label, url: "/issue/gcd-1" });
+  const subject = (items) => buildActivityEmail({ items, mode: "daily" }).subject;
+  assert.equal(subject([done("Saga #1"), done("Saga #2")]), "2 books you asked for are in the catalog");
+  assert.equal(subject([done("Saga #1"), { kind: "reply", actor: "a", label: "X #1", url: "/x" }]), "2 new things for you on ComixCatalog");
+  assert.equal(subject([done("Saga #1")]), "Saga #1 is in the catalog now");
+});
+
 test("the digest only goes out when there's something besides the value", () => {
   assert.equal(digestHasNews({ value: { total: 500, change: 20 }, following: [{ username: "a", added: 0, wanted: 0, listed: 0, reviewed: 0 }], wantlistListed: [], tradeMatches: 0, unread: 0 }), false);
   assert.equal(digestHasNews({ following: [], wantlistListed: [], tradeMatches: 4, unread: 0 }), false);

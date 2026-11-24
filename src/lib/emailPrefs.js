@@ -3,7 +3,7 @@
 // (the account page reads the constants) and in scripts.
 
 export const ACTIVITY_MODES = ["instant", "daily", "off"];
-export const ACTIVITY_MODE_LABELS = { instant: "Right away", daily: "Daily summary", off: "Off" };
+export const ACTIVITY_MODE_LABELS = { instant: "Right away", daily: "Summary", off: "Off" };
 export const DEFAULT_PREFS = { email_on_message: true, email_activity: "daily", email_weekly_digest: true };
 
 // A missing row (or a column the database doesn't have yet) means defaults.
@@ -59,18 +59,27 @@ function shell({ bodyHtml, footerHtml }) {
 
 const button = (href, label) => `<p style="margin:20px 0 0"><a href="${escapeHtml(href)}" style="display:inline-block;padding:11px 17px;background:#f5c518;color:#111;font-family:Arial,sans-serif;font-weight:bold;text-decoration:none;border-radius:4px">${escapeHtml(label)}</a></p>`;
 
+// Says what is in the email. "20 new replies" for 20 finished book requests
+// went to three members on 2026-11-24.
+export function activitySubject(items) {
+  if (items.length === 1) return activityLine(items[0]);
+  if (items.every((item) => item.kind === "request_done")) return `${items.length} books you asked for are in the catalog`;
+  if (items.every((item) => item.kind === "reply" || item.kind === "mention")) return `${items.length} new replies and mentions on ComixCatalog`;
+  return `${items.length} new things for you on ComixCatalog`;
+}
+
 // items: [{ kind, actor, label, excerpt, url }], newest first.
 export function buildActivityEmail({ items, mode, unsubscribeUrl = SETTINGS_URL }) {
   const shown = items.slice(0, 10);
   const more = items.length - shown.length;
-  const subject = items.length === 1 ? activityLine(items[0]) : `${items.length} new replies and mentions on ComixCatalog`;
-  const lead = mode === "daily" ? "Here's what happened on ComixCatalog since yesterday." : "New on ComixCatalog:";
+  const subject = activitySubject(items);
+  const lead = mode === "daily" ? "Here's what's new for you on ComixCatalog." : "New on ComixCatalog:";
   const rows = shown.map((item) => {
     const excerpt = item.excerpt ? `<br><span style="color:#555">“${escapeHtml(item.excerpt)}”</span>` : "";
     return `<tr><td style="padding:8px 0;border-bottom:1px solid #eee;font-size:15px"><a href="${escapeHtml(absolute(item.url))}" style="color:#222">${escapeHtml(activityLine(item))}</a>${excerpt}</td></tr>`;
   }).join("");
   const moreHtml = more > 0 ? `<p style="margin:12px 0 0;font-size:14px;color:#555">And ${more} more.</p>` : "";
-  const footer = `You can choose Right away, Daily summary or Off in <a href="${SETTINGS_URL}" style="color:#666">your settings</a>. <a href="${escapeHtml(unsubscribeUrl)}" style="color:#666">Stop these emails</a>`;
+  const footer = `You can choose Right away, Summary or Off in <a href="${SETTINGS_URL}" style="color:#666">your settings</a>. <a href="${escapeHtml(unsubscribeUrl)}" style="color:#666">Stop these emails</a>`;
   const html = shell({
     bodyHtml: `<p style="margin:0 0 12px;font-size:16px">${escapeHtml(lead)}</p><table role="presentation" width="100%" cellspacing="0" cellpadding="0">${rows}</table>${moreHtml}${button(`${SITE_URL}/inbox`, "Open your inbox")}`,
     footerHtml: footer,

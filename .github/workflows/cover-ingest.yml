@@ -223,6 +223,29 @@ jobs:
       # Member book requests (catalog_requests, /request). A failure here must
       # never block the ingest, but it must be visible: warn, write an empty
       # target file so the lane below skips cleanly, and carry on.
+      # Overnight window, 04:00-12:59 UTC (10 PM-7 AM CT): the new-member
+      # lane below takes the night's ComicVine budget (Tony, 2026-11-24:
+      # "an ingest run on all covers my new users bring in nightly ...
+      # prioritize these over all other ingests"). Bulk DB reads stay
+      # off-peak per the ops rules, so its generator only runs in this window.
+      - name: Check overnight window
+        id: night
+        run: |
+          h=$((10#$(date -u +%H)))
+          if [ "$h" -ge 4 ] && [ "$h" -le 12 ]; then echo "on=true" >> "$GITHUB_OUTPUT"; else echo "on=false" >> "$GITHUB_OUTPUT"; fi
+          echo "UTC hour $h, overnight=$([ "$h" -ge 4 ] && [ "$h" -le 12 ] && echo yes || echo no)"
+
+      # Books added to any collection or wantlist in the last 30 days whose
+      # issue still has no cover: new members' imports, newest first. Same
+      # failure posture as the generators below.
+      - name: Generate new-member targets
+        if: steps.night.outputs.on == 'true'
+        run: |
+          if ! node scripts/generateUserCollectedGap.js --since-days=30 --out=gap-new-members.json; then
+            echo "::warning::New-member generator failed; this run ingests without the new-member lane."
+            echo '[]' > gap-new-members.json
+          fi
+
       - name: Generate requested-book targets
         run: |
           if ! node scripts/generateRequestedGap.js --apply; then
@@ -279,6 +302,27 @@ jobs:
       # two; the done-ledger sweeps whatever is left on the next run.
       # Regenerated twice weekly by gap-probe.yml so this lane can't go
       # stale the way it did between Aug 25 and Sep 20.
+      # New-member lane: first, and overnight only. 60 searches and a 30-minute
+      # cap (the hourly lanes otherwise get 15). Variant images are skipped
+      # (--max-variant-images-per-issue 0) so this lane adds no extra storage
+      # beyond the covers themselves. Overnight only requested books and new
+      # releases run beside it; the catalog-completeness lanes below wait for
+      # the day, which keeps the night's search total (90) under the daytime
+      # one (120).
+      - name: Ingest new-member targets
+        id: lane_new_members
+        if: steps.night.outputs.on == 'true' && hashFiles('gap-new-members.json') != ''
+        continue-on-error: true
+        run: |
+          set +e
+          timeout --kill-after=60s 30m python comicvine_api_to_supabase.py --targets gap-new-members.json --skip-existing --missing-only --max-search-calls 60 --vol-sleep 1.0 --max-minutes 28 --max-variant-images-per-issue 0
+          code=$?
+          if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
+            echo "Lane hit its 30-minute cap. The ledger picks it up next hour."
+            exit 0
+          fi
+          exit "$code"
+
       - name: Ingest requested-book targets
         id: lane_requested
         if: hashFiles('gap-requested.json') != ''
@@ -313,7 +357,7 @@ jobs:
 
       - name: Ingest user-collected gap targets
         id: lane_user_collected
-        if: hashFiles('gap-user-collected.json') != ''
+        if: hashFiles('gap-user-collected.json') != '' && steps.night.outputs.on != 'true'
         continue-on-error: true
         run: |
           set +e
@@ -327,7 +371,7 @@ jobs:
 
       - name: Ingest launch-priority gap targets
         id: lane_priority
-        if: hashFiles('gap-priority.json') != ''
+        if: hashFiles('gap-priority.json') != '' && steps.night.outputs.on != 'true'
         continue-on-error: true
         run: |
           set +e
@@ -341,7 +385,7 @@ jobs:
 
       - name: Ingest featured-gap targets
         id: lane_featured
-        if: hashFiles('gap-featured.json') != ''
+        if: hashFiles('gap-featured.json') != '' && steps.night.outputs.on != 'true'
         continue-on-error: true
         run: |
           set +e
@@ -363,7 +407,7 @@ jobs:
       # lane to "Report lane outcomes" and emails a false alarm.
       - name: Ingest manual-gap targets
         id: lane_manual
-        if: hashFiles('gap-manual.json') != ''
+        if: hashFiles('gap-manual.json') != '' && steps.night.outputs.on != 'true'
         continue-on-error: true
         run: |
           set +e
@@ -380,7 +424,7 @@ jobs:
       # title/publisher search that failed for these in the first place.
       - name: Ingest pinned-volume targets
         id: lane_pinned
-        if: hashFiles('gap-pinned.json') != ''
+        if: hashFiles('gap-pinned.json') != '' && steps.night.outputs.on != 'true'
         continue-on-error: true
         run: |
           set +e
@@ -404,7 +448,7 @@ jobs:
       # cost. Recent runs take 12-30 of the 55-minute job, so this fits.
       - name: Ingest key-issue targets
         id: lane_keys
-        if: hashFiles('gap-keys.json') != ''
+        if: hashFiles('gap-keys.json') != '' && steps.night.outputs.on != 'true'
         continue-on-error: true
         run: |
           set +e
@@ -421,7 +465,7 @@ jobs:
       # series an hour (was 30 until the key-issue lane took half, 2026-11-02).
       - name: Ingest backfill targets
         id: lane_backfill
-        if: hashFiles('gap-backfill.json') != ''
+        if: hashFiles('gap-backfill.json') != '' && steps.night.outputs.on != 'true'
         continue-on-error: true
         run: |
           set +e
@@ -435,7 +479,7 @@ jobs:
 
       - name: Ingest run-completion targets
         id: lane_runs
-        if: hashFiles('gap-runs.json') != ''
+        if: hashFiles('gap-runs.json') != '' && steps.night.outputs.on != 'true'
         continue-on-error: true
         run: |
           set +e
@@ -449,7 +493,7 @@ jobs:
 
       - name: Ingest width-gap targets
         id: lane_width
-        if: hashFiles('gap-width.json') != ''
+        if: hashFiles('gap-width.json') != '' && steps.night.outputs.on != 'true'
         continue-on-error: true
         run: |
           set +e
@@ -463,7 +507,7 @@ jobs:
 
       - name: Ingest depth-gap targets
         id: lane_depth
-        if: hashFiles('gap-depth.json') != ''
+        if: hashFiles('gap-depth.json') != '' && steps.night.outputs.on != 'true'
         continue-on-error: true
         run: |
           set +e
@@ -535,12 +579,13 @@ jobs:
               echo "  FAILED   $1"
               fail=1
             elif [ "$2" = "skipped" ]; then
-              echo "  skipped  $1 (no target file)"
+              echo "  skipped  $1 (no target file, or paused overnight for the new-member lane)"
             else
               echo "  ok       $1"
             fi
           }
           echo "Ingest lane outcomes:"
+          check "new-members"    "${{ steps.lane_new_members.outcome }}"
           check "requested-books" "${{ steps.lane_requested.outcome }}"
           check "new-releases"   "${{ steps.lane_new_releases.outcome }}"
           check "user-collected" "${{ steps.lane_user_collected.outcome }}"

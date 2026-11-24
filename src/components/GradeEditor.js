@@ -374,7 +374,7 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
         <div className="grade-editor-panel">
 
           {gcdIssueId && collectionId && (
-            <CopyVersionPicker collectionId={collectionId} gcdIssueId={gcdIssueId} userCoverUrl={userCoverUrl} onSwitched={handleVersionSwitched} onPickCover={handlePickCover} />
+            <CopyVersionPicker collectionId={collectionId} gcdIssueId={gcdIssueId} variantLabel={initialData.variant_label || null} userCoverUrl={userCoverUrl} onSwitched={handleVersionSwitched} onPickCover={handlePickCover} />
           )}
 
           {(initialData.status === "owned" || initialData.status === "for_sale") && (

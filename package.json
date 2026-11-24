@@ -26,7 +26,7 @@
     "test:activity-feed": "node --test src/lib/activityFeed.test.js src/lib/feed/feedEvents.test.js",
     "test:social": "node --test src/lib/messageContext.test.js src/lib/issueCollectors.test.js",
     "test:variant-covers": "node --test src/lib/variantCovers.test.js",
-    "test:copy-version": "node --test src/lib/copyVersion.test.js",
+    "test:copy-version": "node --test src/lib/copyVersion.test.js src/lib/labelEdition.test.js",
     "test:issue-seo": "node --test src/lib/issueSeo.test.js",
     "test:value-email": "node --test src/lib/valueEmail.test.js",
     "test:library-mutations": "node --test src/lib/libraryMutations.test.js",

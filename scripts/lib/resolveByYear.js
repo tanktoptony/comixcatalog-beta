@@ -41,6 +41,37 @@ function normalizeTitle(value) {
   return String(value ?? "").toLowerCase().replace(/[^a-z0-9]/g, "");
 }
 
+// GCD lists joint publishers in one string ("Henchman Publishing; Do Gooder
+// Press"). Any of them may be the one ComicVine files the book under.
+function anyPublisherCompatible(ours, theirs) {
+  return String(ours ?? "").split(";").some((part) => publisherCompatible(part, theirs));
+}
+
+// The only same-titled volume ComicVine returned. "Only one" was long taken to
+// mean "no ambiguity", but a title says nothing about whose edition it is:
+// ComicVine usually has no entry for the Australian or German reprint, so its
+// one hit is the American original. That is how Yaffa's and Federal's
+// "Peter Parker, the Spectacular Spider-Man" were both pinned to Marvel's, and
+// 85 Marvel covers disappeared under a one-book reprint (2026-11-24; 59 of the
+// 80 wrong pins found that day came from this path). Same rules as below:
+// compatible publisher, start year within one, not a trade for a monthly.
+export function resolveSingle(entry) {
+  const candidates = entry?.candidates ?? [];
+  if (candidates.length !== 1) return { status: "ambiguous", reason: "not_single" };
+  const [candidate] = candidates;
+  if (!anyPublisherCompatible(entry.publisher, candidate.publisher)) {
+    return { status: "ambiguous", reason: "publisher_not_compatible" };
+  }
+  const ours = yearOf(entry.year);
+  const theirs = yearOf(candidate.start_year);
+  if (ours == null || theirs == null) return { status: "ambiguous", reason: "no_year_to_compare" };
+  if (Math.abs(ours - theirs) > 1) return { status: "ambiguous", reason: "years_differ" };
+  if (looksCollectedTitle(candidate.name) && !looksCollectedTitle(entry.name)) {
+    return { status: "ambiguous", reason: "candidate_looks_collected" };
+  }
+  return { status: "matched", candidate, basis: "single" };
+}
+
 /**
  * Returns one of:
  *   { status: "matched", candidate, basis: "exact-year" | "near-year" }

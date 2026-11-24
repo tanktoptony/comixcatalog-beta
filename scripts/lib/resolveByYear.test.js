@@ -7,7 +7,7 @@
 
 import test from "node:test";
 import assert from "node:assert/strict";
-import { resolveByYear } from "./resolveByYear.js";
+import { resolveByYear, resolveSingle } from "./resolveByYear.js";
 import { looksCollectedTitle } from "./collectedTitle.js";
 import { publisherCompatible } from "./publisherCompat.js";
 
@@ -174,4 +174,29 @@ test("publisher compatibility is exact-set, never a prefix", () => {
   assert.ok(!publisherCompatible("Dynamite Entertainment", "Dynamite (France)"));
   assert.ok(!publisherCompatible("Avatar Press", "Panini España"));
   assert.ok(!publisherCompatible("", "Marvel"));
+});
+
+const spidey = {
+  name: "Peter Parker the Spectacular Spider-Man", publisher: "Yaffa / Page", year: 1979,
+  candidates: [{ id: 139754, name: "Peter Parker, the Spectacular Spider-Man", publisher: "Marvel", start_year: 1980 }],
+};
+
+test("a lone same-titled volume from another publisher is never pinned", () => {
+  assert.equal(resolveSingle(spidey).reason, "publisher_not_compatible");
+  assert.equal(resolveSingle({ ...spidey, publisher: "Federal", year: 1985 }).reason, "publisher_not_compatible");
+});
+
+test("a lone volume needs a matching year and cannot be a trade", () => {
+  const ok = { ...spidey, publisher: "Marvel Comics", year: 1980 };
+  assert.equal(resolveSingle(ok).status, "matched");
+  assert.equal(resolveSingle({ ...ok, year: 1979 }).status, "matched");
+  assert.equal(resolveSingle({ ...ok, year: 1990 }).reason, "years_differ");
+  assert.equal(resolveSingle({ ...ok, year: null }).reason, "no_year_to_compare");
+  assert.equal(resolveSingle({ ...ok, candidates: [{ ...ok.candidates[0], name: "Peter Parker Omnibus" }] }).reason, "candidate_looks_collected");
+  assert.equal(resolveSingle({ ...ok, candidates: [] }).reason, "not_single");
+});
+
+test("one of several joint publishers is enough", () => {
+  const joint = { name: "Nodwick", publisher: "Henchman Publishing; Do Gooder Press", year: 2000, candidates: [{ id: 53474, name: "Nodwick", publisher: "Henchman Publishing", start_year: 2000 }] };
+  assert.equal(resolveSingle(joint).status, "matched");
 });

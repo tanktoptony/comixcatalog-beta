@@ -32,7 +32,7 @@ import fs from "node:fs";
 import path from "node:path";
 import dotenv from "dotenv";
 import sharp from "sharp";
-import { thumbStoragePath, THUMB_WIDTH } from "../src/lib/coverThumb.js";
+import { thumbStoragePath, THUMB_WIDTH, THUMB_WEBP } from "../src/lib/coverThumb.js";
 
 dotenv.config({ path: process.env.COMIXCATALOG_ENV_FILE || ".env.local" });
 
@@ -44,6 +44,9 @@ const limit = Number(arg("limit", "0")) || Infinity;
 const concurrency = Number(arg("concurrency", "6"));
 const statePath = arg("state", ".cover-thumbs/done.txt");
 const pathsFile = arg("paths", null);
+// Replace thumbs that already exist (a rebuild at new settings). Without it an
+// existing thumb counts as done.
+const overwrite = process.argv.includes("--overwrite");
 
 const supabaseUrl = (process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL || "").replace(/\/$/, "");
 const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -169,7 +172,9 @@ async function makeThumb(row) {
       const webp = await sharp(input, { failOn: "none" })
         .rotate()
         .resize({ width: THUMB_WIDTH, withoutEnlargement: true })
-        .webp({ quality: 72, effort: 4 })
+        // q72 left blotchy blocks and smeared color edges that read as grain
+        // in small tiles (2026-11-24); same setting as shrinkCoverStorage --thumbs.
+        .webp(THUMB_WEBP)
         .toBuffer();
       return { webp, from: url.includes("/storage/v1/") ? "storage" : "comicvine" };
     } catch {
@@ -191,7 +196,7 @@ async function upload(storagePath, webp) {
         ...supabaseHeaders,
         "Content-Type": "image/webp",
         "cache-control": "max-age=31536000",
-        "x-upsert": "false",
+        "x-upsert": overwrite ? "true" : "false",
       },
       body: webp,
     });

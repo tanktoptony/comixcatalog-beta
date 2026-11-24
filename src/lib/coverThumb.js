@@ -16,6 +16,11 @@ const THUMB_MARKER = "/storage/v1/object/public/cover-thumbs/w400/";
 
 export const THUMB_WIDTH = 400;
 
+// sharp WebP settings for thumbs. q72 (until 2026-11-24) left blotchy blocks
+// and smeared color edges that read as grain in small tiles; smartSubsample
+// keeps red/blue edges clean. The Python ingester uses Pillow q85, method 6.
+export const THUMB_WEBP = { quality: 80, smartSubsample: true, effort: 4 };
+
 // Storage path of the thumb for an original's storage path.
 export function thumbStoragePath(storagePath) {
   return `w${THUMB_WIDTH}/${storagePath}.webp`;

@@ -10615,7 +10615,9 @@
       }
     ],
     "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556237+00:00"
+    "last_attempt_at": "2026-11-24T10:03:47.158430+00:00",
+    "retry_after": "2026-11-25T10:03:47.158433+00:00",
+    "search_hydrated": true
   },
   {
     "name": "King of the Royal Mounted",
@@ -38147,8 +38149,9 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-10-03T21:54:31.121842+00:00",
-    "retry_after": "2026-10-04T21:54:31.121858+00:00"
+    "last_attempt_at": "2026-11-24T10:03:47.158382+00:00",
+    "retry_after": "2026-11-25T10:03:47.158399+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Showcase Presents: Supergirl",
@@ -44810,9 +44813,9 @@
     "year": 1945,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T10:02:17.444367+00:00",
-    "retry_after": "2026-11-24T10:02:17.444385+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-24T10:02:26.825019+00:00",
+    "retry_after": "2026-11-27T10:02:26.825035+00:00",
     "search_hydrated": true
   },
   {
@@ -56640,9 +56643,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T09:11:04.973399+00:00",
-    "retry_after": "2026-11-24T09:11:04.973402+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T10:08:13.037676+00:00",
+    "retry_after": "2026-12-24T10:08:13.037693+00:00",
     "search_hydrated": true
   },
   {
@@ -89108,9 +89111,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T21:10:49.186901+00:00",
-    "retry_after": "2026-11-20T21:10:49.186905+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T10:08:13.037739+00:00",
+    "retry_after": "2026-12-08T10:08:13.037743+00:00",
     "search_hydrated": true
   },
   {
@@ -89119,9 +89122,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T21:10:49.186922+00:00",
-    "retry_after": "2026-11-20T21:10:49.186924+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T10:08:13.037756+00:00",
+    "retry_after": "2026-12-08T10:08:13.037759+00:00",
     "search_hydrated": true
   },
   {
@@ -89130,9 +89133,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T21:10:49.186938+00:00",
-    "retry_after": "2026-11-20T21:10:49.186940+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T10:08:13.037769+00:00",
+    "retry_after": "2026-12-08T10:08:13.037770+00:00",
     "search_hydrated": true
   },
   {
@@ -95827,9 +95830,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T00:03:35.302917+00:00",
-    "retry_after": "2026-11-24T00:03:35.302918+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T10:02:45.512964+00:00",
+    "retry_after": "2026-12-01T10:02:45.512966+00:00",
     "search_hydrated": true
   },
   {
@@ -96172,40 +96175,10 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 19402,
+        "id": 1668,
         "name": "The Blue Beetle",
-        "publisher": "Fox Comics (US)",
-        "start_year": 1939
-      },
-      {
-        "id": 2219,
-        "name": "Blue Beetle",
         "publisher": "Charlton",
-        "start_year": 1965
-      },
-      {
-        "id": 54022,
-        "name": "Blue Beetle",
-        "publisher": "DC Comics",
-        "start_year": 2012
-      },
-      {
-        "id": 18443,
-        "name": "Blue Beetle",
-        "publisher": "DC Comics",
-        "start_year": 2006
-      },
-      {
-        "id": 3595,
-        "name": "Blue Beetle",
-        "publisher": "DC Comics",
-        "start_year": 1986
-      },
-      {
-        "id": 94410,
-        "name": "Blue Beetle",
-        "publisher": "DC Comics",
-        "start_year": 2016
+        "start_year": 1955
       },
       {
         "id": 2170,
@@ -96214,22 +96187,10 @@
         "start_year": 1964
       },
       {
-        "id": 113540,
-        "name": "The Blue Beetle",
-        "publisher": "Gwandanaland Comics",
-        "start_year": null
-      },
-      {
-        "id": 42970,
+        "id": 2219,
         "name": "Blue Beetle",
-        "publisher": "DC Comics",
-        "start_year": 2011
-      },
-      {
-        "id": 153329,
-        "name": "Blue Beetle",
-        "publisher": "DC Comics",
-        "start_year": 2023
+        "publisher": "Charlton",
+        "start_year": 1965
       },
       {
         "id": 2330,
@@ -96238,10 +96199,46 @@
         "start_year": 1967
       },
       {
-        "id": 1668,
+        "id": 3595,
+        "name": "Blue Beetle",
+        "publisher": "DC Comics",
+        "start_year": 1986
+      },
+      {
+        "id": 11393,
+        "name": "Blue Beetle",
+        "publisher": "Modern",
+        "start_year": 1977
+      },
+      {
+        "id": 18443,
+        "name": "Blue Beetle",
+        "publisher": "DC Comics",
+        "start_year": 2006
+      },
+      {
+        "id": 19402,
         "name": "The Blue Beetle",
-        "publisher": "Charlton",
-        "start_year": 1955
+        "publisher": "Fox Comics (US)",
+        "start_year": 1939
+      },
+      {
+        "id": 42970,
+        "name": "Blue Beetle",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
+        "id": 54022,
+        "name": "Blue Beetle",
+        "publisher": "DC Comics",
+        "start_year": 2012
+      },
+      {
+        "id": 94410,
+        "name": "Blue Beetle",
+        "publisher": "DC Comics",
+        "start_year": 2016
       },
       {
         "id": 101382,
@@ -96250,15 +96247,21 @@
         "start_year": 2017
       },
       {
-        "id": 11393,
+        "id": 113540,
+        "name": "The Blue Beetle",
+        "publisher": "Gwandanaland Comics",
+        "start_year": null
+      },
+      {
+        "id": 153329,
         "name": "Blue Beetle",
-        "publisher": "Modern",
-        "start_year": 1977
+        "publisher": "DC Comics",
+        "start_year": 2023
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T09:02:17.421166+00:00",
-    "retry_after": "2026-11-24T09:02:17.421181+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T10:02:26.825156+00:00",
+    "retry_after": "2026-12-01T10:02:26.825158+00:00",
     "search_hydrated": true
   },
   {
@@ -96278,9 +96281,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T10:01:56.295729+00:00",
-    "retry_after": "2026-11-24T10:01:56.295730+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T10:02:45.512813+00:00",
+    "retry_after": "2026-12-01T10:02:45.512831+00:00",
     "search_hydrated": true
   },
   {
@@ -96300,9 +96303,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T10:01:56.295682+00:00",
-    "retry_after": "2026-11-24T10:01:56.295700+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T10:02:45.512874+00:00",
+    "retry_after": "2026-12-01T10:02:45.512877+00:00",
     "search_hydrated": true
   },
   {
@@ -97942,9 +97945,9 @@
         "start_year": 1984
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T09:03:25.953109+00:00",
-    "retry_after": "2026-11-24T09:03:25.953127+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-24T10:02:13.569219+00:00",
+    "retry_after": "2026-11-27T10:02:13.569235+00:00",
     "search_hydrated": true
   },
   {
@@ -98001,9 +98004,9 @@
         "start_year": 1992
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T10:02:17.444465+00:00",
-    "retry_after": "2026-11-24T10:02:17.444467+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-24T10:02:26.825078+00:00",
+    "retry_after": "2026-11-27T10:02:26.825080+00:00",
     "search_hydrated": true
   },
   {
@@ -98012,9 +98015,9 @@
     "year": 1992,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T10:02:17.444493+00:00",
-    "retry_after": "2026-11-24T10:02:17.444495+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-24T10:02:26.825093+00:00",
+    "retry_after": "2026-11-27T10:02:26.825095+00:00",
     "search_hydrated": true
   },
   {
@@ -100058,6 +100061,65 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-24T09:11:19.709416+00:00",
     "retry_after": "2026-11-25T09:11:19.709420+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Burn",
+    "publisher": "Arcana",
+    "year": 2008,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 117260,
+        "name": "Burn",
+        "publisher": "self published",
+        "start_year": 2019
+      },
+      {
+        "id": 22396,
+        "name": "Burn",
+        "publisher": "Arcana Studio",
+        "start_year": 2008
+      },
+      {
+        "id": 56554,
+        "name": "Burn",
+        "publisher": "Arcana Studio",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T10:02:45.512946+00:00",
+    "retry_after": "2026-11-25T10:02:45.512951+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Grimmax",
+    "publisher": "Defiant",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T10:04:28.362307+00:00",
+    "retry_after": "2026-11-25T10:04:28.362323+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman / Teenage Mutant Ninja Turtles Adventures",
+    "publisher": "IDW Publishing",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 108878,
+        "name": "Batman / Teenage Mutant Ninja Turtles Adventures",
+        "publisher": "Panini Verlag",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T10:08:24.455008+00:00",
+    "retry_after": "2026-11-25T10:08:24.455025+00:00",
     "search_hydrated": true
   }
 ]

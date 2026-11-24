@@ -4,6 +4,7 @@ import { coverThumb } from "./coverThumb.js";
 import { OWNED_STATUSES } from "./collectionStatus.js";
 import { getServiceClient } from "./supabase/service.js";
 import { pickShowcase, pickShowcaseList } from "./foundingShowcasePick.js";
+import { issueNumberText } from "./issueNumberLabel.js";
 
 // One book per founder for their tile on the Founding Collectors wall: the
 // most valuable owned copy that has a catalog cover, else the newest one.
@@ -79,7 +80,7 @@ async function loadCandidates(userIds) {
 }
 
 const titleOf = (issue) =>
-  [issue?.series_title, issue?.issue_number ? `#${issue.issue_number}` : null].filter(Boolean).join(" ") || null;
+  [issue?.series_title, issue?.issue_number ? issueNumberText(issue.issue_number) : null].filter(Boolean).join(" ") || null;
 
 async function computeShowcase(userIds) {
   const { perUser, issueMap, covers } = await loadCandidates(userIds);

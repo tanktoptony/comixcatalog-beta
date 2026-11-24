@@ -9,6 +9,7 @@ import { useAuth } from "@/context/AuthContext";
 import { authedFetch } from "@/lib/apiClient";
 import { reorder } from "@/lib/lists";
 import styles from "./ListPage.module.css";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 function formatUpdated(value) {
   return new Date(value).toLocaleDateString("en-US", {
@@ -361,7 +362,7 @@ function AddBooks({ listId, items, onAdded }) {
       base_gcd_issue_id: requestedIssueId,
       position: items.length,
       note: null,
-      title: `${row.series_title} #${row.issue_number}`,
+      title: `${row.series_title} ${issueNumberText(row.issue_number)}`,
       series_title: row.series_title,
       issue_number: row.issue_number,
       year: row.release_year,
@@ -418,7 +419,7 @@ function AddBooks({ listId, items, onAdded }) {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={row.cover_path || "/fallback-cover.png"} alt="" />
                 <span className={styles.resultTitle}>
-                  {row.series_title} #{row.issue_number}
+                  {row.series_title} {issueNumberText(row.issue_number)}
                   {row.release_year ? ` (${row.release_year})` : ""}
                 </span>
                 <button

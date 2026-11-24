@@ -8,6 +8,7 @@ import Avatar from "@/components/Avatar";
 import FollowButton from "@/components/FollowButton";
 import { notificationSentence } from "@/lib/comments";
 import { formatTimeAgo } from "@/lib/timeAgo";
+import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 
 // Replies, mentions and comments on your lists and reviews. Unread ones
 // carry a gold dot; opening the inbox marks them read for next time.
@@ -77,7 +78,7 @@ export function PendingPurchasesStrip({ purchases }) {
       <div className="inbox-followers-heading"><h2 id="pending-purchases-heading">Pending purchases</h2></div>
       <div className="inbox-followers-list">
         {purchases.map((purchase) => {
-          const title = `${purchase.series_title}${purchase.issue_number ? ` #${purchase.issue_number}` : ""}`;
+          const title = `${purchase.series_title}${issueNumberSuffix(purchase.issue_number)}`;
           return (
             <article className="inbox-purchase" key={purchase.id}>
               <div className="inbox-purchase-cover">

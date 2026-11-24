@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { ADMIN_ID } from "@/lib/admin";
 import { authedFetch } from "@/lib/apiClient";
 import { useAuth } from "@/context/AuthContext";
+import { issueNumberSuffix, issueNumberText } from "@/lib/issueNumberLabel";
 
 // useSearchParams needs a Suspense boundary or the build bails on prerender.
 export default function ReviewPage() {
@@ -114,7 +115,7 @@ function PrintingReview({ item }) {
         {item.photo_url ? <ReviewPhoto src={item.photo_url} caption="Their photo" /> : <p>No photo (reported from the issue page)</p>}
         {item.current_cover_url ? <ReviewPhoto src={item.current_cover_url} caption="Our cover today" /> : <p>We have no cover for this issue</p>}
       </div>
-      <h2>{item.series_title} #{item.issue_number} {item.year ? `(${item.year})` : ""}</h2>
+      <h2>{item.series_title} {issueNumberText(item.issue_number)} {item.year ? `(${item.year})` : ""}</h2>
       <p>{item.kind}: {item.printing_name}{item.upc ? ` · ${item.upc}` : ""}</p>
     </>
   );
@@ -132,7 +133,7 @@ function ReviewPhoto({ src, caption }) {
 function BookReview({ item }) {
   return (
     <>
-      <h2>{item.series_title} #{item.issue_number}</h2>
+      <h2>{item.series_title} {issueNumberText(item.issue_number)}</h2>
       <p>{item.publisher} {item.release_year || ""} {item.variant_name || ""}</p>
       {item.possible_match && <p>Possible match: {item.possible_match}</p>}
     </>
@@ -143,7 +144,7 @@ function RequestReview({ item, issueId, setIssueId }) {
   return (
     <>
       {item.photo_url && <img src={item.photo_url} alt="Requested book" style={{ width: 180, objectFit: "contain" }} />}
-      <h2>{item.title}{item.issue_number ? ` #${item.issue_number}` : ""}</h2>
+      <h2>{item.title}{issueNumberSuffix(item.issue_number)}</h2>
       <p>{[item.publisher, item.year].filter(Boolean).join(" · ")}</p>
       <p>Source: {item.source}{item.search_term ? ` · Search: ${item.search_term}` : ""}{item.barcode ? ` · Barcode: ${item.barcode}` : ""}</p>
       {item.notes && <p>Notes: {item.notes}</p>}

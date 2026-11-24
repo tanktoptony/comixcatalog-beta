@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import EmptyState from "./EmptyState";
 import { coverThumb } from "@/lib/coverThumb";
 import { useAuth } from "@/context/AuthContext";
+import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 
 const VIEW_STORAGE_KEY = "cc:profile-view";
 const INITIAL_GRID_ITEMS = 60;
@@ -314,7 +315,7 @@ export default function ProfileTabs({ collection, isOwner, visibility = {}, prof
                   : null;
               const cardHref = isForSale && item.listing_id ? `/listing/${item.listing_id}` : d.href;
 
-              const fullTitle = `${d.title}${d.issueNumber ? ` #${d.issueNumber}` : ""}`;
+              const fullTitle = `${d.title}${issueNumberSuffix(d.issueNumber)}`;
 
               return (
                 <div key={item.id} className="profile-book-contact-wrap">
@@ -362,7 +363,7 @@ export default function ProfileTabs({ collection, isOwner, visibility = {}, prof
                     <>
                       <div className="comic-card-title">
                         {d.title}
-                        {d.issueNumber ? ` #${d.issueNumber}` : ""}
+                        {issueNumberSuffix(d.issueNumber)}
                         {item.variant_label ? (
                           <span style={{ opacity: 0.7, fontWeight: 500 }}> ({item.variant_label})</span>
                         ) : null}
@@ -528,7 +529,7 @@ function SeriesRowsView({ items, activeTab, askAbout = null }) {
                       </div>
                       <div className="comic-card-title">
                         {d.title}
-                        {d.issueNumber ? ` #${d.issueNumber}` : ""}
+                        {issueNumberSuffix(d.issueNumber)}
                         {item.variant_label ? (
                           <span style={{ opacity: 0.7, fontWeight: 500 }}> ({item.variant_label})</span>
                         ) : null}
@@ -635,7 +636,7 @@ function ActivityList({ items }) {
                   <ActivityVerb status={item.status} />{" "}
                   <span className="profile-activity-title">
                     {d.title}
-                    {d.issueNumber ? ` #${d.issueNumber}` : ""}
+                    {issueNumberSuffix(d.issueNumber)}
                   </span>
                 </div>
                 <div className="profile-activity-meta">

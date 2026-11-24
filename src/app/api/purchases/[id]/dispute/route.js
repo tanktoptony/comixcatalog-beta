@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getAuthedUser } from "@/lib/authServer";
 import { getServiceClient } from "@/lib/supabase/service";
 import { resendBatch, SITE_URL } from "@/lib/newsletter";
+import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 
 export async function POST(req, { params }) {
   const user = await getAuthedUser(req);
@@ -14,7 +15,7 @@ export async function POST(req, { params }) {
   const { error } = await sb.rpc("dispute_sale_transfer", { p_sale_id: id, p_buyer_id: user.id });
   if (error) return NextResponse.json({ error: error.code === "22023" ? error.message : "Could not report this purchase." }, { status: error.code === "22023" ? 409 : 500 });
   if (process.env.REPORTS_NOTIFY_EMAIL && process.env.RESEND_API_KEY) {
-    const title = `${sale.series_title}${sale.issue_number ? ` #${sale.issue_number}` : ""}`;
+    const title = `${sale.series_title}${issueNumberSuffix(sale.issue_number)}`;
     await resendBatch([{ to: process.env.REPORTS_NOTIFY_EMAIL, subject: `Disputed sale: ${title}`, text: `A buyer disputed ${title}. Review: ${SITE_URL}/admin/reports`, html: `<p>A buyer disputed ${title}.</p><p><a href="${SITE_URL}/admin/reports">Review reports</a></p>` }]).catch((emailError) => console.error("Dispute report email failed:", emailError));
   }
   return NextResponse.json({ ok: true });

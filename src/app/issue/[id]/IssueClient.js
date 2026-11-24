@@ -15,8 +15,8 @@ import { getSupabaseClient } from "@/lib/supabase/client";
 import GradeEditor from "@/components/GradeEditor";
 import { countCopies } from "@/lib/libraryMutations";
 import { publisherHref } from "@/lib/publisherPages";
-import { issueNumberSuffix } from "@/lib/issueNumberLabel";
-import { buildIssueDetailsRows, humanizeStoryType, parseGcdCreditList, stripGcdCharacterNoise } from "@/lib/issueDetails";
+import { issueNumberSuffix, issueNumberText } from "@/lib/issueNumberLabel";
+import { buildIssueDetailsRows, humanizeStoryType, issueDateChip, parseGcdCreditList, stripGcdCharacterNoise } from "@/lib/issueDetails";
 import { conditionLabel, contactLabel, formatValue, offerHref } from "@/lib/marketplaceFormat";
 import Avatar from "@/components/Avatar";
 import { cleanVariantCaption, matchVariantCovers } from "@/lib/variantCovers";
@@ -133,7 +133,7 @@ function ReprintList({ title, items }) {
       <ol style={{ margin: 0, paddingLeft: "22px", display: "grid", gap: "6px" }}>
         {shown.map((item) => (
           <li key={`${item.gcd_issue_id}-${item.notes ?? ""}`}>
-            <Link href={item.href}>{item.series_title || "Untitled"}{item.issue_number != null ? ` #${item.issue_number}` : ""}{item.year ? ` (${item.year})` : ""}</Link>
+            <Link href={item.href}>{item.series_title || "Untitled"}{item.issue_number != null ? ` ${issueNumberText(item.issue_number)}` : ""}{item.year ? ` (${item.year})` : ""}</Link>
             {item.notes && <span className="muted"> · {item.notes}</span>}
           </li>
         ))}
@@ -230,6 +230,7 @@ export default function IssueClient({ initialIssue = null }) {
     return `${issue.series_title}${issueNumberSuffix(issue.issue_number)}`;
   }, [issue]);
   const detailRows = useMemo(() => buildIssueDetailsRows(issue), [issue]);
+  const dateChip = useMemo(() => issueDateChip(issue), [issue]);
   const allCharacters = useMemo(() => {
     const characters = (issue?.stories ?? []).flatMap((story) => storyCharacters(story.characters).shown).map(stripGcdCharacterNoise);
     return [...new Map(characters.map((character) => [character.name, character])).values()];
@@ -420,10 +421,10 @@ export default function IssueClient({ initialIssue = null }) {
           <div>{publisherHref(issue.publisher) ? <Link href={publisherHref(issue.publisher)}>{issue.publisher}</Link> : <span>{issue.publisher || "Unknown publisher"}</span>}<span>/</span>{issue.series_id ? <Link href={`/series/${issue.series_id}`}>{issue.series_title}{issue.series_year_start ? ` (${issue.series_year_start})` : ""}</Link> : <span>{issue.series_title}</span>}{issueNumberSuffix(issue.issue_number) ? <><span>/</span><strong>{issueNumberSuffix(issue.issue_number).trim()}</strong></> : null}</div>
           <div className="issue-prev-next">
               {issue.prev_issue ? (
-                <Link href={`/issue/${issue.prev_issue.id}`} aria-label={`Previous issue, number ${issue.prev_issue.issue_number}`}>← #{issue.prev_issue.issue_number}</Link>
+                <Link href={`/issue/${issue.prev_issue.id}`} aria-label={`Previous issue, number ${issue.prev_issue.issue_number}`}>← {issueNumberText(issue.prev_issue.issue_number)}</Link>
               ) : <span>←</span>}
               {issue.next_issue ? (
-                <Link href={`/issue/${issue.next_issue.id}`} aria-label={`Next issue, number ${issue.next_issue.issue_number}`}>#{issue.next_issue.issue_number} →</Link>
+                <Link href={`/issue/${issue.next_issue.id}`} aria-label={`Next issue, number ${issue.next_issue.issue_number}`}>{issueNumberText(issue.next_issue.issue_number)} →</Link>
               ) : <span>→</span>}
           </div>
         </nav>
@@ -646,11 +647,9 @@ export default function IssueClient({ initialIssue = null }) {
             <div className="issue-fact-chips">
               {publisherHref(issue.publisher) ? <Link href={publisherHref(issue.publisher)}>{issue.publisher}</Link> : <span>{issue.publisher || "Unknown Publisher"}</span>}
               {issue.series_format_tag && <span className="pill pill-format" title={issue.series_format_tag_title || issue.series_format || undefined}>{issue.series_format_tag}</span>}
-              {/* display_date is the API's canonical English "Month YYYY"
-                  rendering, derived from key_date. Replaces the redundant
-                  release_year + raw publication_date pair that used to leak
-                  foreign-language month names (e.g. "septembre 2008"). */}
-              {issue.display_date && <span>{issue.display_date}</span>}
+              {/* The on-sale date when GCD has it ("Out Nov 18, 2026"), else
+                  display_date, the API's English "Month YYYY" cover date. */}
+              {dateChip && <span title={dateChip.title ?? undefined}>{dateChip.label}</span>}
               {issue.details?.page_count && <span>{issue.details.page_count} pages</span>}
               {issue.versions?.length > 1 && <span>{issue.versions.length} versions</span>}
             </div>
@@ -893,7 +892,7 @@ export default function IssueClient({ initialIssue = null }) {
                       <img src={related.cover} alt="" className="issue-nearby-cover" />
                     </>
                   )}
-                  <div className="comic-card-title">{issue.series_title} #{related.issue_number}</div>
+                  <div className="comic-card-title">{issue.series_title} {issueNumberText(related.issue_number)}</div>
                   {related.title && <div className="comic-card-meta" style={{ marginBottom: 4 }}>{related.title}</div>}
                   <div className="comic-card-meta">{related.release_year || "Unknown Year"}</div>
                 </Link>

@@ -1,5 +1,6 @@
 import { compareIssueNumbers } from "./coverMatch.js";
 import { eraForYear, KEY_TIMELINE_ERAS } from "./keyTimeline.js";
+import { issueNumberText } from "./issueNumberLabel.js";
 
 export function seriesYearLabel(series) {
   const start = Number(series?.year_start);
@@ -27,7 +28,7 @@ export function buildKeysDescription(series) {
   const majorKeys = keys.filter((issue) => Number(issue.tier) === 1);
   const highlights = majorKeys
     .slice(0, 3)
-    .map((issue) => `#${issue.issue_number}: ${issue.reason}`)
+    .map((issue) => `${issueNumberText(issue.issue_number)}: ${issue.reason}`)
     .join("; ");
   const summary = `${keys.length} key issue${keys.length === 1 ? "" : "s"}, ${majorKeys.length} major.`;
   return highlights ? `${summary} Major keys include ${highlights}.` : summary;

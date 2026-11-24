@@ -8,6 +8,7 @@ import { resolvePublisher } from "@/lib/publisher";
 import { getAuthedUser } from "@/lib/authServer";
 import { ADMIN_ID } from "@/lib/admin";
 import { canSeeComic } from "@/lib/review";
+import { onSaleYear } from "@/lib/issueDetails";
 import { formatLabel, formatTag, formatTagTitle, isCollectedEdition } from "@/lib/seriesFormat";
 import { OWNED_STATUSES } from "@/lib/collectionStatus";
 
@@ -641,7 +642,9 @@ export async function GET(req, context) {
           series_format_tag_title: formatTagTitle({ name: seriesTitle, ...seriesFormat }),
           issue_number: issue.issue_number,
           title: issue.title ?? null,
-          release_year: issueYear ?? coverYear(canonicalMatch),
+          // The year it came out (on-sale), not the cover year Marvel prints
+          // two months ahead. Cover matching above still uses issueYear.
+          release_year: onSaleYear(details?.on_sale_date) ?? issueYear ?? coverYear(canonicalMatch),
           publication_date: issue.publication_date ?? null,
           display_date: formatDisplayDate(issue) ?? coverYear(canonicalMatch)?.toString() ?? null,
           publisher: publisherName,

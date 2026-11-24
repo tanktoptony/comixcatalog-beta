@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { authedFetch } from "@/lib/apiClient";
 import { useAuth } from "@/context/AuthContext";
+import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 
 const STATUS_LABELS = {
   open: "Open",
@@ -161,7 +162,7 @@ export default function RequestBookClient() {
               {requests.map((request) => (
                 <li key={request.id}>
                   <div>
-                    <strong>{request.title}{request.issue_number ? ` #${request.issue_number}` : ""}</strong>
+                    <strong>{request.title}{issueNumberSuffix(request.issue_number)}</strong>
                     <small>{[request.publisher, request.year].filter(Boolean).join(" · ")}</small>
                   </div>
                   {(request.status === "added" || request.status === "already_there") && request.resolved_gcd_issue_id ? (

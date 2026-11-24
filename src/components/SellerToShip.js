@@ -6,6 +6,7 @@ import { Package } from "lucide-react";
 import { authedFetch } from "@/lib/apiClient";
 import { shipByLabel } from "@/lib/shipBy";
 import { useSellerOrders } from "@/hooks/useSellerOrders";
+import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 
 // "Oct 28": the year only adds width on a phone.
 const shortDate = (paidAt) => shipByLabel(paidAt).replace(/, \d{4}$/, "");
@@ -45,7 +46,7 @@ export default function SellerToShip() {
   // Multi-book orders name the first book and count the rest.
   const first = next.items?.[0] || next;
   const more = (next.items?.length || 1) - 1;
-  const title = `${first.series_title}${first.issue_number ? ` #${first.issue_number}` : ""}${more > 0 ? ` and ${more} more` : ""}`;
+  const title = `${first.series_title}${issueNumberSuffix(first.issue_number)}${more > 0 ? ` and ${more} more` : ""}`;
 
   return (
     <Link href={single ? `/orders/${next.id}?ship=1` : "/orders"} className="to-ship-bar">

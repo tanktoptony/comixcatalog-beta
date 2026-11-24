@@ -22,6 +22,7 @@ import {
   sortListings,
   wantlistMatches,
 } from "@/lib/marketplaceFacets";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 // /marketplace, Discogs style. With no search or filter it's a short landing
 // page of shelves (just listed, most wanted, highest priced, publishers, most
@@ -88,7 +89,7 @@ function Card({ l, issueLink = false }) {
     <li className="mk-card">
       <Link prefetch={false} href={href} className="mk-card-cover">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={coverThumb(l.cover || "/fallback-cover.png")} alt={`${l.title} #${l.issueNumber}`} loading="lazy" />
+        <img src={coverThumb(l.cover || "/fallback-cover.png")} alt={`${l.title} ${issueNumberText(l.issueNumber)}`} loading="lazy" />
         {l.key && <span className="mk-card-key">KEY</span>}
         {l.buyNow && <span className="mk-card-buy">Buy now</span>}
       </Link>

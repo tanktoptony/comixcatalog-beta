@@ -1,5 +1,6 @@
+import { issueNumberSuffix } from "./issueNumberLabel.js";
 function itemName(order) {
-  const issue = order.issue_number ? ` #${order.issue_number}` : "";
+  const issue = issueNumberSuffix(order.issue_number);
   const label = order.slab_company
     ? `${order.slab_company}${order.grade_numeric ? ` ${order.grade_numeric}` : ""}`
     : order.condition || (order.grade_numeric ? `Grade ${order.grade_numeric}` : "");

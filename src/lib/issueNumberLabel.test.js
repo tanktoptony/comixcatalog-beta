@@ -14,3 +14,11 @@ test("suffix drops the number only for unnumbered or missing", () => {
   assert.equal(issueNumberSuffix(""), "");
   assert.equal(issueNumberSuffix(null), "");
 });
+
+test("issueNumberText drops GCD's [nn] marker", async () => {
+  const { issueNumberText } = await import("./issueNumberLabel.js");
+  assert.equal(issueNumberText("12"), "#12");
+  assert.equal(issueNumberText("[nn]"), "");
+  assert.equal(issueNumberText(" NN "), "");
+  assert.equal(issueNumberText(null), "");
+});

@@ -25,6 +25,7 @@
 import { useEffect, useRef, useState } from "react";
 import { authedFetch } from "@/lib/apiClient";
 import { coverThumb } from "@/lib/coverThumb";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 export default function CatalogLinkPicker({
   entry, // {collection_id, comic: {series_title, issue_number, release_year}, candidates? }
@@ -356,7 +357,7 @@ export default function CatalogLinkPicker({
                         {hasMatch ? (
                           <>
                             <div style={{ fontSize: "0.7rem", fontWeight: 700, color: "#4CAF50" }}>
-                              ✓ Has #{s.matching_issue.issue_number}
+                              ✓ Has {issueNumberText(s.matching_issue.issue_number)}
                             </div>
                             <div style={{ fontSize: "0.75rem", color: "var(--cc-gold, #FFD700)", marginTop: 4 }}>
                               Select →
@@ -489,7 +490,7 @@ export default function CatalogLinkPicker({
                     </div>
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div style={{ fontWeight: 700, fontSize: "0.95rem" }}>
-                        #{i.issue_number}
+                        {issueNumberText(i.issue_number)}
                         {i.issue_title ? `, ${i.issue_title}` : ""}
                       </div>
                       <div style={{ fontSize: "0.8rem", opacity: 0.7, marginTop: 2 }}>

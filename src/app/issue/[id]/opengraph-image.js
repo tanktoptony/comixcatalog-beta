@@ -3,6 +3,8 @@ import { getServiceClient } from "@/lib/supabase/service";
 import { renderCoverCard, OG_SIZE } from "@/lib/og/card";
 import { homeImage } from "@/app/opengraph-image";
 import { cachedCard } from "@/lib/og/cache";
+import { issueDateChip } from "@/lib/issueDetails";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 export const alt = "Comic issue on ComixCatalog";
 export const size = OG_SIZE;
@@ -57,8 +59,8 @@ async function Image({ params }) {
     return renderCoverCard({
       cover: x.cover,
       title: x.series_title || "Comic issue",
-      issue: x.issue_number && x.issue_number !== "[nn]" ? `#${x.issue_number}` : null,
-      eyebrow: [x.publisher, x.display_date || x.release_year].filter(Boolean).join(" · "),
+      issue: (issueNumberText(x.issue_number) || null),
+      eyebrow: [x.publisher, issueDateChip(x)?.label || x.release_year].filter(Boolean).join(" · "),
       pill: key ? "KEY ISSUE" : null,
       lines: [
         key?.reason ? { children: key.reason, color: "#ecd48c", size: 22 } : story && { children: story, size: 22 },

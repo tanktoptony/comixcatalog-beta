@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { requireAdmin } from "@/lib/adminAuth";
 import { revalidateListings } from "@/lib/marketplace";
 import { getServiceClient } from "@/lib/supabase/service";
+import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 
 async function hydrateReports(supabase, reports) {
   const reporterIds = [...new Set(reports.map((report) => report.reporter_id))];
@@ -30,7 +31,7 @@ async function hydrateReports(supabase, reports) {
     let summary = "Target is no longer available";
     if (report.target_type === "listing") {
       const listing = listings.get(report.target_id);
-      if (listing) summary = `${listing.series_title}${listing.issue_number ? ` #${listing.issue_number}` : ""} from @${names.get(listing.seller_id) || "unknown"} (${listing.status})`;
+      if (listing) summary = `${listing.series_title}${issueNumberSuffix(listing.issue_number)} from @${names.get(listing.seller_id) || "unknown"} (${listing.status})`;
     } else if (report.target_type === "user") {
       summary = `@${names.get(report.target_id) || "unknown"}`;
     } else if (report.target_type === "message") {
@@ -38,7 +39,7 @@ async function hydrateReports(supabase, reports) {
       if (message) summary = `@${names.get(message.sender_id) || "unknown"} to @${names.get(message.recipient_id) || "unknown"}: ${message.body}`;
     } else if (report.target_type === "sale") {
       const sale = sales.get(report.target_id);
-      if (sale) summary = `${sale.series_title}${sale.issue_number ? ` #${sale.issue_number}` : ""}, @${names.get(sale.seller_id) || "unknown"} to @${names.get(sale.buyer_id) || "unknown"} (${sale.status})`;
+      if (sale) summary = `${sale.series_title}${issueNumberSuffix(sale.issue_number)}, @${names.get(sale.seller_id) || "unknown"} to @${names.get(sale.buyer_id) || "unknown"} (${sale.status})`;
     } else {
       summary = `Photo ${report.target_id}`;
     }

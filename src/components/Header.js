@@ -18,6 +18,7 @@ import { coverThumb } from "@/lib/coverThumb";
 import InviteButton from "@/components/InviteButton";
 import { authedFetch } from "@/lib/apiClient";
 import { CircleHelp, Inbox, LibraryBig, ListChecks, Package, Store, Users } from "lucide-react";
+import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 
 const NAV_ICON_PROPS = { size: 20, strokeWidth: 1.75, "aria-hidden": true };
 
@@ -617,7 +618,7 @@ export default function Header() {
                         <span className="header-search-item-body">
                           <span className="header-search-item-title">
                             {comic.title}
-                            {comic.issueNumber ? ` #${comic.issueNumber}` : ""}
+                            {issueNumberSuffix(comic.issueNumber)}
                           </span>
                           <span className="header-search-item-meta">
                             {[

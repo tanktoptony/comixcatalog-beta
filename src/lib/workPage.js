@@ -5,6 +5,7 @@ import { resolveCovers } from "@/lib/catalog/covers";
 import { getSeriesData } from "@/lib/pageData";
 import { editionGroup, EDITION_GROUP_ORDER } from "@/lib/searchWorks";
 import { compareEditionBooks, editionBookLabel } from "@/lib/workPagePure";
+import { issueNumberText } from "./issueNumberLabel.js";
 
 const CHUNK_SIZE = 300;
 
@@ -105,7 +106,7 @@ async function loadWorkData(id) {
   const single_issues = (seriesData?.issues ?? []).slice(0, 12).map((issue) => ({
     ...issue,
     href: `/issue/${issue.id}`,
-    label: issue.issue_number ? `#${issue.issue_number}` : "Issue", title: issue.title || work.title,
+    label: issue.issue_number ? issueNumberText(issue.issue_number) : "Issue", title: issue.title || work.title,
     year: issue.release_year,
   }));
 

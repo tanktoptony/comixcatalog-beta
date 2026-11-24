@@ -2,6 +2,7 @@ import { getSeriesData } from "@/lib/pageData";
 import { renderCoverCard, OG_SIZE } from "@/lib/og/card";
 import { homeImage } from "@/app/opengraph-image";
 import { cachedCard } from "@/lib/og/cache";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 export const alt = "Comic series on ComixCatalog";
 export const size = OG_SIZE;
@@ -43,7 +44,7 @@ async function Image({ params }) {
         { value: s.issue_count, label: "issues" },
         { value: s.key_issues?.length, label: "key issues" },
       ],
-      strip: { label: "KEY ISSUES", items: keys.map((k) => ({ cover: k.cover, caption: `#${k.issue_number}` })) },
+      strip: { label: "KEY ISSUES", items: keys.map((k) => ({ cover: k.cover, caption: issueNumberText(k.issue_number) })) },
     });
   } catch (error) {
     console.warn("series OG card failed:", error);

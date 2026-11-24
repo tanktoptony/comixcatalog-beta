@@ -1,3 +1,5 @@
+import { isUnnumberedIssue } from "./issueNumberLabel.js";
+
 function present(value) {
   return value !== null && value !== undefined && String(value).trim() !== "";
 }
@@ -17,6 +19,29 @@ export function formatGcdDate(value) {
   const monthName = MONTHS[Number(month) - 1];
   if (!monthName) return year;
   return Number(day) ? `${monthName} ${Number(day)}, ${year}` : `${monthName} ${year}`;
+}
+
+const SHORT_MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+// The year a book actually came out. Marvel and DC date covers about two
+// months ahead, so a book on sale Nov 18, 2026 says "January 2027" on the
+// cover. GCD's on_sale_date is the real release; null when GCD lacks it.
+export function onSaleYear(value) {
+  const match = String(value ?? "").trim().match(/^(\d{4})-(\d{2})/);
+  return match ? Number(match[1]) : null;
+}
+
+// The date chip on an issue page: "Out Nov 18, 2026" when GCD has the
+// on-sale date, else the cover date as before. `title` keeps the cover date
+// one hover away.
+export function issueDateChip(issue) {
+  const coverDate = issue?.display_date || null;
+  const match = String(issue?.details?.on_sale_date ?? "").trim().match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  const month = match ? SHORT_MONTHS[Number(match[2]) - 1] : null;
+  if (!match || !month) return coverDate ? { label: coverDate, title: null } : null;
+  const day = Number(match[3]);
+  const label = `Out ${day ? `${month} ${day}, ` : `${month} `}${match[1]}`;
+  return { label, title: coverDate ? `Cover date ${coverDate}` : null };
 }
 
 // "0.12 USD; 0.15 CAD" -> "$0.12 · 0.15 CAD". Only USD gets a symbol; other
@@ -70,7 +95,7 @@ export function buildIssueDetailsRows(issue) {
       ? { label: "Indicia publisher", value: details.indicia_publisher }
       : null,
     { label: "Series", value: issue?.series_title, href: issue?.series_id ? `/series/${issue.series_id}` : null },
-    { label: "Issue", value: issue?.issue_number },
+    { label: "Issue", value: isUnnumberedIssue(issue?.issue_number) ? null : issue?.issue_number },
     { label: "Variant", value: details.variant_name },
     { label: "Cover date", value: formatGcdDate(details.keydate) || issue?.display_date || issue?.publication_date },
     { label: "On sale", value: formatGcdDate(details.on_sale_date) },

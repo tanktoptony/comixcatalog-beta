@@ -1,4 +1,5 @@
 import { addBusinessDays } from "./shipBy.js";
+import { issueNumberSuffix } from "./issueNumberLabel.js";
 
 // One line per order on /orders saying where it stands for whoever is
 // looking: the seller sees what they owe (ship by, payout), the buyer sees
@@ -14,12 +15,12 @@ export function money(cents) {
 
 export function orderTitle(order) {
   if (order.items?.length > 1) return `${order.items.length} books`;
-  return `${order.series_title}${order.issue_number ? ` #${order.issue_number}` : ""}`;
+  return `${order.series_title}${issueNumberSuffix(order.issue_number)}`;
 }
 
 export function orderGrade(order) {
   if (order.items?.length > 1) {
-    return order.items.map((item) => `${item.series_title}${item.issue_number ? ` #${item.issue_number}` : ""}`).join(", ");
+    return order.items.map((item) => `${item.series_title}${issueNumberSuffix(item.issue_number)}`).join(", ");
   }
   if (order.slab_company) return `${order.slab_company} ${order.grade_numeric || ""}`.trim();
   return order.condition || "Raw";

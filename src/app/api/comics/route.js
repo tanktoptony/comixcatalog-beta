@@ -6,6 +6,7 @@ import { notifyReviewQueue } from "@/lib/reviewQueueNotify";
 import { getFeaturedSeries } from "@/lib/featuredSeriesData";
 import { normalizeKey, chooseSeries, matchIssue } from "@/lib/csvImport/matchRow";
 import { CDN_CACHE_LONG } from "@/lib/cdnCache";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 // GET /api/comics — the no-query "browse" surface for /search + the homepage
 // Featured Series carousel.
@@ -291,7 +292,7 @@ async function insertComic(supabase, fields) {
     .select()
     .single();
   if (error) throw error;
-  const added = [fields.series_title, fields.issue_number ? `#${fields.issue_number}` : null, fields.variant_name].filter(Boolean).join(" ");
+  const added = [fields.series_title, (issueNumberText(fields.issue_number) || null), fields.variant_name].filter(Boolean).join(" ");
   after(() => notifyReviewQueue(supabase, { actorId: fields.created_by, excerpt: `Added ${added}`, tab: "books" }));
   return { comic };
 }

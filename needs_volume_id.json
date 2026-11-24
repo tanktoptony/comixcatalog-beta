@@ -4744,9 +4744,9 @@
     "year": 2012,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T02:01:59.372359+00:00",
-    "retry_after": "2026-11-24T02:01:59.372374+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T04:07:20.132792+00:00",
+    "retry_after": "2026-12-01T04:07:20.132811+00:00",
     "search_hydrated": true
   },
   {
@@ -14832,9 +14832,10 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-09-21T16:17:47.814079+00:00",
-    "retry_after": "2026-09-22T16:17:47.814096+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-24T04:02:16.688120+00:00",
+    "retry_after": "2026-11-27T04:02:16.688122+00:00",
+    "search_hydrated": true
   },
   {
     "name": "M.G.M.'s Tom and Jerry Picnic Time",
@@ -43438,9 +43439,10 @@
     "year": 1990,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-09T17:02:07.228527+00:00",
-    "retry_after": "2026-10-12T17:02:07.228542+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T04:02:16.688070+00:00",
+    "retry_after": "2026-12-01T04:02:16.688074+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Doom Patrol Director's Cut",
@@ -45874,9 +45876,10 @@
     "year": 2012,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-15T11:17:36.434012+00:00",
-    "retry_after": "2026-10-22T11:17:36.434028+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T04:11:25.364725+00:00",
+    "retry_after": "2026-12-08T04:11:25.364729+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The Compleat Reactoman",
@@ -59180,11 +59183,17 @@
         "name": "Batman / Aliens",
         "publisher": "Norma Editorial",
         "start_year": 2001
+      },
+      {
+        "id": 6820,
+        "name": "Batman/Aliens",
+        "publisher": "DC Comics",
+        "start_year": 1997
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T03:02:26.145105+00:00",
-    "retry_after": "2026-11-24T03:02:26.145121+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-24T04:03:52.353449+00:00",
+    "retry_after": "2026-11-27T04:03:52.353452+00:00",
     "search_hydrated": true
   },
   {
@@ -83065,9 +83074,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T03:23:13.639647+00:00",
-    "retry_after": "2026-11-24T03:23:13.639667+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T04:17:20.291964+00:00",
+    "retry_after": "2026-12-24T04:17:20.291981+00:00",
     "search_hydrated": true
   },
   {
@@ -83137,9 +83146,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T03:23:14.309439+00:00",
-    "retry_after": "2026-11-24T03:23:14.309459+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T04:17:24.889461+00:00",
+    "retry_after": "2026-12-24T04:17:24.889477+00:00",
     "search_hydrated": true
   },
   {
@@ -83214,9 +83223,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T03:23:13.639719+00:00",
-    "retry_after": "2026-11-24T03:23:13.639722+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T04:17:20.292032+00:00",
+    "retry_after": "2026-12-24T04:17:20.292036+00:00",
     "search_hydrated": true
   },
   {
@@ -83289,9 +83298,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T03:23:14.447021+00:00",
-    "retry_after": "2026-11-24T03:23:14.447041+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T04:17:25.032355+00:00",
+    "retry_after": "2026-12-24T04:17:25.032373+00:00",
     "search_hydrated": true
   },
   {
@@ -83307,9 +83316,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T03:23:14.739580+00:00",
-    "retry_after": "2026-11-24T03:23:14.739599+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T04:17:25.313958+00:00",
+    "retry_after": "2026-12-24T04:17:25.313976+00:00",
     "search_hydrated": true
   },
   {
@@ -83325,9 +83334,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T03:23:14.857395+00:00",
-    "retry_after": "2026-11-24T03:23:14.857415+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T04:17:25.463274+00:00",
+    "retry_after": "2026-12-24T04:17:25.463292+00:00",
     "search_hydrated": true
   },
   {
@@ -83343,9 +83352,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T03:23:15.173538+00:00",
-    "retry_after": "2026-11-24T03:23:15.173557+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T04:17:25.727490+00:00",
+    "retry_after": "2026-12-24T04:17:25.727509+00:00",
     "search_hydrated": true
   },
   {
@@ -95988,9 +95997,9 @@
     "year": 1997,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T03:47:19.763601+00:00",
-    "retry_after": "2026-11-24T03:47:19.763617+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T04:03:52.353379+00:00",
+    "retry_after": "2026-12-01T04:03:52.353398+00:00",
     "search_hydrated": true
   },
   {
@@ -97845,21 +97854,21 @@
         "start_year": 2016
       },
       {
-        "id": 100431,
-        "name": "Hillbilly",
-        "publisher": "Exploding Albatross Funnybooks",
-        "start_year": 2017
-      },
-      {
         "id": 107804,
         "name": "Hillbilly",
         "publisher": "Delcourt",
         "start_year": 2018
+      },
+      {
+        "id": 100431,
+        "name": "Hillbilly",
+        "publisher": "Exploding Albatross Funnybooks",
+        "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T04:06:28.885995+00:00",
-    "retry_after": "2026-11-24T04:06:28.886011+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-24T04:11:25.364579+00:00",
+    "retry_after": "2026-11-27T04:11:25.364598+00:00",
     "search_hydrated": true
   },
   {
@@ -99460,6 +99469,87 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-24T03:15:47.278995+00:00",
     "retry_after": "2026-11-25T03:15:47.278997+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "2000 A.D.",
+    "publisher": "Eagle Comics",
+    "year": 1986,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T04:02:16.688001+00:00",
+    "retry_after": "2026-11-25T04:02:16.688020+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "2000 AD Free Comic Book Day",
+    "publisher": "Rebellion",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T04:02:16.688141+00:00",
+    "retry_after": "2026-11-25T04:02:16.688143+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Scavengers",
+    "publisher": "Fleetway/Quality",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 4143,
+        "name": "Scavengers",
+        "publisher": "Quality Communications",
+        "start_year": 1987
+      },
+      {
+        "id": 54092,
+        "name": "Scavengers",
+        "publisher": "Triumphant",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T04:07:20.132889+00:00",
+    "retry_after": "2026-11-25T04:07:20.132893+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Underworld Evolution DVD Edition",
+    "publisher": "IDW Publishing",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T04:17:36.391638+00:00",
+    "retry_after": "2026-11-25T04:17:36.391657+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Star Wars Adventures: Flight of the Falcon",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "multiple_same_start_year_tied",
+    "candidates": [
+      {
+        "id": 120355,
+        "name": "Star Wars Adventures: Flight of the Falcon",
+        "publisher": "IDW Publishing",
+        "start_year": 2019
+      },
+      {
+        "id": 118625,
+        "name": "Star Wars Adventures: Flight of the Falcon",
+        "publisher": "IDW Publishing",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T04:17:36.391698+00:00",
+    "retry_after": "2026-11-25T04:17:36.391702+00:00",
     "search_hydrated": true
   }
 ]

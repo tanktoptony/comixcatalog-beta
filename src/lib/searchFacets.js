@@ -1,3 +1,5 @@
+import { canonicalPublisher } from "./publisherNames.js";
+
 export const FORMAT_FACETS = [
   { key: "issues", label: "Single issues" },
   { key: "tpb", label: "Trade paperbacks" },
@@ -59,7 +61,7 @@ function decadesOfIssue(row) {
 
 function publisherName(row, work) {
   const raw = work ? row?.publisher?.name : row?.publisher;
-  const name = String(raw ?? "").trim();
+  const name = canonicalPublisher(raw);
   return !name || name.toLowerCase() === "unknown publisher" ? null : name;
 }
 

@@ -370,7 +370,7 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
       <section className="fc-perks">
         <h2>What you keep, for life</h2>
         <div className="fc-perk-grid">
-          <div className="fc-perk"><b>Lifetime membership</b><span>Everyone after the first 100 pays $4 a month for it. Yours is free, for life.</span></div>
+          <div className="fc-perk"><b>Lifetime membership</b><span>After the first 100, Collector+ costs $4 a month. The collector toolkit stays free for everyone. Your membership is free, for life.</span></div>
           <div className="fc-perk"><b>No upgrade prompts</b><span>House promos will not ask you to upgrade.</span></div>
           <div className="fc-perk"><b>The badge</b><span>A permanent Founding Collector badge on your profile.</span></div>
         </div>

@@ -45,6 +45,8 @@ const nextConfig = {
       { source: "/about", destination: "/start", permanent: true },
       { source: "/get-started", destination: "/start", permanent: true },
       { source: "/collectors", destination: "/founding-collectors", permanent: true },
+      // /pricing was a 404 (reported 2026-11-21); the plans live on /upgrade.
+      { source: "/pricing", destination: "/upgrade", permanent: false },
       // Short link for the Instagram bio. Temporary (302) on purpose: point
       // it at whatever the current push is without touching the bio again.
       // The utm tags ride along so first-touch attribution counts these

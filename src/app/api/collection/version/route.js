@@ -27,7 +27,7 @@ export async function GET(req) {
     if (!edition) return NextResponse.json({ error: "Issue not found" }, { status: 404 });
     const issue = await getIssuePageData(edition.baseGcdId, edition.baseGcdId, edition.hasEditionColumns);
     if (!issue) return NextResponse.json({ error: "Issue not found" }, { status: 404 });
-    return NextResponse.json({ base_gcd_issue_id: edition.baseGcdId, versions: versionChoices(issue), covers: unmatchedCovers(issue) });
+    return NextResponse.json({ base_gcd_issue_id: edition.baseGcdId, versions: versionChoices(issue), covers: unmatchedCovers(issue), series_title: issue.series_title ?? null });
   } catch (error) {
     console.error("GET /api/collection/version failed:", error);
     return NextResponse.json({ error: "Could not load the versions of this issue." }, { status: 500 });
@@ -74,8 +74,17 @@ export async function POST(req) {
       }),
     };
     // A catalog cover picked for the old version would now show the wrong
-    // book. The collector's own photo of their copy is still right.
-    if (isPickedCatalogCover(row.user_cover_url)) patch.user_cover_url = null;
+    // book. The collector's own photo of their copy is still right. So is a
+    // picked cover when the switch only confirms what their label already
+    // said (keep_cover, same issue): that picture was of this version.
+    if (isPickedCatalogCover(row.user_cover_url)) {
+      let sameIssue = false;
+      if (body.keep_cover === true) {
+        const { data: from } = await supabase.from("gcd_issues").select("gcd_id, base_gcd_issue_id").eq("gcd_id", row.gcd_issue_id).maybeSingle();
+        sameIssue = Boolean(from) && Number(from.base_gcd_issue_id ?? from.gcd_id) === Number(target.base_gcd_issue_id ?? target.gcd_id);
+      }
+      if (!sameIssue) patch.user_cover_url = null;
+    }
 
     const { data: updated, error: updateError } = await supabase.from("user_collections")
       .update(patch).eq("id", row.id).eq("user_id", user.id)

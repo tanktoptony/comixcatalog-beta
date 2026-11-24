@@ -199,6 +199,9 @@ jobs:
       - name: Error-handling ratchet
         run: npm run audit:errors
 
+      - name: Pin trust tests
+        run: npm run test:pin-trust
+
       - name: describeError tests
         run: npm run test:describe-error
 

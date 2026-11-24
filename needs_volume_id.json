@@ -23177,8 +23177,9 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-09-24T11:02:06.850235+00:00",
-    "retry_after": "2026-09-25T11:02:06.850256+00:00"
+    "last_attempt_at": "2026-11-24T18:03:44.953250+00:00",
+    "retry_after": "2026-11-25T18:03:44.953254+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Dark Crossings: Dark Clouds Overhead",
@@ -32795,9 +32796,10 @@
         "start_year": 2008
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-03T10:00:50.271502+00:00",
-    "retry_after": "2026-10-10T10:00:50.271518+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T18:02:28.777284+00:00",
+    "retry_after": "2026-11-25T18:02:28.777288+00:00",
+    "search_hydrated": true
   },
   {
     "name": "ElfQuest: The Original Quest",
@@ -50897,9 +50899,10 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-16T00:35:39.600443+00:00",
-    "retry_after": "2026-10-19T00:35:39.600453+00:00"
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T18:03:44.953208+00:00",
+    "retry_after": "2026-12-01T18:03:44.953213+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Sgt. Fury & His Howling Commandos One-Shot",
@@ -60953,23 +60956,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-10-21T22:32:42.255506+00:00",
     "retry_after": "2026-10-22T22:32:42.255519+00:00"
-  },
-  {
-    "name": "The Amazing Spider-Man: Chaos in Calgary",
-    "publisher": "Marvel Comics",
-    "year": 1993,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 57422,
-        "name": "The Amazing Spider-Man: Chaos in Calgary",
-        "publisher": null,
-        "start_year": 1992
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-21T23:15:49.123820+00:00",
-    "retry_after": "2026-10-22T23:15:49.123834+00:00"
   },
   {
     "name": "Strange Tales II",
@@ -75060,9 +75046,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T18:07:07.622581+00:00",
-    "retry_after": "2026-11-24T18:07:07.622583+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T18:08:04.860734+00:00",
+    "retry_after": "2026-12-24T18:08:04.860737+00:00",
     "search_hydrated": true
   },
   {
@@ -83945,9 +83931,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T17:07:10.295474+00:00",
-    "retry_after": "2026-11-24T17:07:10.295479+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T18:08:04.860699+00:00",
+    "retry_after": "2026-12-24T18:08:04.860704+00:00",
     "search_hydrated": true
   },
   {
@@ -89295,9 +89281,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-14T10:10:25.050963+00:00",
-    "retry_after": "2026-11-21T10:10:25.050982+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T18:08:07.208179+00:00",
+    "retry_after": "2026-12-08T18:08:07.208191+00:00",
     "search_hydrated": true
   },
   {
@@ -89328,9 +89314,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-14T06:11:02.997445+00:00",
-    "retry_after": "2026-11-21T06:11:02.997447+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T18:08:04.860772+00:00",
+    "retry_after": "2026-12-08T18:08:04.860775+00:00",
     "search_hydrated": true
   },
   {
@@ -89369,9 +89355,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-14T06:11:02.997477+00:00",
-    "retry_after": "2026-11-21T06:11:02.997480+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T18:08:04.860803+00:00",
+    "retry_after": "2026-12-08T18:08:04.860806+00:00",
     "search_hydrated": true
   },
   {
@@ -89380,9 +89366,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-14T06:11:02.997494+00:00",
-    "retry_after": "2026-11-21T06:11:02.997496+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T18:08:10.071278+00:00",
+    "retry_after": "2026-12-08T18:08:10.071290+00:00",
     "search_hydrated": true
   },
   {
@@ -89431,9 +89417,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-14T10:10:25.178928+00:00",
-    "retry_after": "2026-11-21T10:10:25.178946+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T18:08:07.488122+00:00",
+    "retry_after": "2026-12-08T18:08:07.488134+00:00",
     "search_hydrated": true
   },
   {
@@ -93163,9 +93149,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-17T18:01:44.982190+00:00",
-    "retry_after": "2026-11-24T18:01:44.982192+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T18:02:19.027429+00:00",
+    "retry_after": "2026-12-08T18:02:19.027441+00:00",
     "search_hydrated": true
   },
   {
@@ -93174,9 +93160,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-17T18:06:06.621059+00:00",
-    "retry_after": "2026-11-24T18:06:06.621079+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T18:08:04.860508+00:00",
+    "retry_after": "2026-12-08T18:08:04.860521+00:00",
     "search_hydrated": true
   },
   {
@@ -95508,9 +95494,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-20T20:04:46.016580+00:00",
-    "retry_after": "2026-11-23T20:04:46.016583+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T18:03:23.634255+00:00",
+    "retry_after": "2026-12-01T18:03:23.634270+00:00",
     "search_hydrated": true
   },
   {
@@ -96044,9 +96030,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T07:04:22.246336+00:00",
-    "retry_after": "2026-11-24T07:04:22.246351+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T18:03:00.966247+00:00",
+    "retry_after": "2026-12-01T18:03:00.966250+00:00",
     "search_hydrated": true
   },
   {
@@ -96584,9 +96570,9 @@
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T18:02:36.016331+00:00",
-    "retry_after": "2026-11-24T18:02:36.016347+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T18:03:00.966167+00:00",
+    "retry_after": "2026-12-01T18:03:00.966171+00:00",
     "search_hydrated": true
   },
   {
@@ -96608,9 +96594,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T18:02:36.016395+00:00",
-    "retry_after": "2026-11-24T18:02:36.016398+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T18:03:00.966282+00:00",
+    "retry_after": "2026-12-01T18:03:00.966285+00:00",
     "search_hydrated": true
   },
   {
@@ -96631,21 +96617,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 133599,
-        "name": "Graphic Fantasy",
-        "publisher": "Image",
-        "start_year": 2021
-      },
-      {
         "id": 31752,
         "name": "Graphic Fantasy",
         "publisher": "Ajax Comics Group",
         "start_year": 1982
+      },
+      {
+        "id": 133599,
+        "name": "Graphic Fantasy",
+        "publisher": "Image",
+        "start_year": 2021
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T18:02:36.016462+00:00",
-    "retry_after": "2026-11-24T18:02:36.016464+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T18:03:00.966096+00:00",
+    "retry_after": "2026-12-01T18:03:00.966109+00:00",
     "search_hydrated": true
   },
   {
@@ -96655,21 +96641,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 125840,
+        "id": 130936,
         "name": "The Resistance",
         "publisher": "AWA Studios",
         "start_year": 2020
       },
       {
-        "id": 130936,
+        "id": 125840,
         "name": "The Resistance",
         "publisher": "AWA Studios",
         "start_year": 2020
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T18:02:36.016501+00:00",
-    "retry_after": "2026-11-24T18:02:36.016503+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T18:03:00.966217+00:00",
+    "retry_after": "2026-12-01T18:03:00.966220+00:00",
     "search_hydrated": true
   },
   {
@@ -98158,9 +98144,9 @@
     "year": 1986,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T17:07:46.557541+00:00",
-    "retry_after": "2026-11-24T17:07:46.557558+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-24T18:03:44.953140+00:00",
+    "retry_after": "2026-11-27T18:03:44.953153+00:00",
     "search_hydrated": true
   },
   {
@@ -98180,9 +98166,9 @@
     "year": 2004,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T18:02:20.431429+00:00",
-    "retry_after": "2026-11-24T18:02:20.431448+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-24T18:02:28.777204+00:00",
+    "retry_after": "2026-11-27T18:02:28.777216+00:00",
     "search_hydrated": true
   },
   {
@@ -100385,6 +100371,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-24T17:10:11.846788+00:00",
     "retry_after": "2026-11-25T17:10:11.846806+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Black Dahlia",
+    "publisher": "BOOM! Studios",
+    "year": 2016,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 91087,
+        "name": "The Black Dahlia",
+        "publisher": "Archaia",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T18:08:22.210337+00:00",
+    "retry_after": "2026-11-25T18:08:22.210351+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Crime Mysteries",
+    "publisher": "Atlas Comics",
+    "year": 1950,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 10802,
+        "name": "Crime Mysteries",
+        "publisher": "Trojan Magazines",
+        "start_year": 1952
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T18:08:22.210394+00:00",
+    "retry_after": "2026-11-25T18:08:22.210398+00:00",
     "search_hydrated": true
   }
 ]

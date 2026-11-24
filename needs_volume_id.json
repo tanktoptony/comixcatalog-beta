@@ -32503,9 +32503,10 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 5,
-    "last_attempt_at": "2026-10-25T07:09:19.790671+00:00",
-    "retry_after": "2026-11-24T07:09:19.790686+00:00"
+    "attempts": 6,
+    "last_attempt_at": "2026-11-24T08:01:57.767568+00:00",
+    "retry_after": "2026-12-24T08:01:57.767587+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Lady Death IV: The Crucible",
@@ -39090,33 +39091,33 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 3600,
-        "name": "The Green Lantern Corps",
-        "publisher": "DC Comics",
-        "start_year": 1986
-      },
-      {
         "id": 18248,
         "name": "Green Lantern Corps",
         "publisher": "DC Comics",
         "start_year": 2006
       },
       {
-        "id": 42916,
-        "name": "Green Lantern Corps",
+        "id": 3600,
+        "name": "The Green Lantern Corps",
         "publisher": "DC Comics",
-        "start_year": 2011
+        "start_year": 1986
       },
       {
         "id": 162400,
         "name": "Green Lantern Corps",
         "publisher": "DC Comics",
         "start_year": 2025
+      },
+      {
+        "id": 42916,
+        "name": "Green Lantern Corps",
+        "publisher": "DC Comics",
+        "start_year": 2011
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T18:33:38.507007+00:00",
-    "retry_after": "2026-11-20T18:33:38.507012+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T08:10:46.603871+00:00",
+    "retry_after": "2026-12-08T08:10:46.603873+00:00",
     "search_hydrated": true
   },
   {
@@ -83609,9 +83610,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T07:10:43.009440+00:00",
-    "retry_after": "2026-11-24T07:10:43.009455+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T08:10:46.603821+00:00",
+    "retry_after": "2026-12-24T08:10:46.603840+00:00",
     "search_hydrated": true
   },
   {
@@ -88984,9 +88985,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T18:33:38.507030+00:00",
-    "retry_after": "2026-11-20T18:33:38.507033+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T08:10:46.603885+00:00",
+    "retry_after": "2026-12-08T08:10:46.603887+00:00",
     "search_hydrated": true
   },
   {
@@ -89070,9 +89071,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T19:10:45.503823+00:00",
-    "retry_after": "2026-11-20T19:10:45.503841+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T08:10:46.603905+00:00",
+    "retry_after": "2026-12-08T08:10:46.603907+00:00",
     "search_hydrated": true
   },
   {
@@ -95877,9 +95878,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T00:03:35.302934+00:00",
-    "retry_after": "2026-11-24T00:03:35.302935+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T08:03:27.923576+00:00",
+    "retry_after": "2026-12-01T08:03:27.923578+00:00",
     "search_hydrated": true
   },
   {
@@ -95888,9 +95889,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T01:04:19.026185+00:00",
-    "retry_after": "2026-11-24T01:04:19.026202+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T08:03:27.923584+00:00",
+    "retry_after": "2026-12-01T08:03:27.923586+00:00",
     "search_hydrated": true
   },
   {
@@ -96085,9 +96086,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T07:04:22.246381+00:00",
-    "retry_after": "2026-11-24T07:04:22.246385+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T08:03:27.923481+00:00",
+    "retry_after": "2026-12-01T08:03:27.923498+00:00",
     "search_hydrated": true
   },
   {
@@ -96177,9 +96178,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T08:02:25.947316+00:00",
-    "retry_after": "2026-11-24T08:02:25.947320+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T08:03:27.923557+00:00",
+    "retry_after": "2026-12-01T08:03:27.923560+00:00",
     "search_hydrated": true
   },
   {
@@ -97888,9 +97889,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T07:06:09.846932+00:00",
-    "retry_after": "2026-11-24T07:06:09.846934+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-24T08:04:42.697039+00:00",
+    "retry_after": "2026-11-27T08:04:42.697058+00:00",
     "search_hydrated": true
   },
   {
@@ -97912,9 +97913,9 @@
         "start_year": 2000
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T08:04:25.419364+00:00",
-    "retry_after": "2026-11-24T08:04:25.419384+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-24T08:04:42.697095+00:00",
+    "retry_after": "2026-11-27T08:04:42.697098+00:00",
     "search_hydrated": true
   },
   {
@@ -99884,6 +99885,88 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-24T07:10:12.139553+00:00",
     "retry_after": "2026-11-25T07:10:12.139556+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vampi Digital Preview",
+    "publisher": "ParaGraphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48954,
+        "name": "Vampi Digital Preview",
+        "publisher": "Anarchy Studios",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T08:01:57.767619+00:00",
+    "retry_after": "2026-11-25T08:01:57.767621+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Creed/Teenage Mutant Ninja Turtles",
+    "publisher": "Lightning Comics [1990s]",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 33473,
+        "name": "CreeD/Teenage Mutant Ninja Turtles",
+        "publisher": "Lightning Comics",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T08:01:57.767658+00:00",
+    "retry_after": "2026-11-25T08:01:57.767660+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Superman vs. The Terminator: Death to the Future",
+    "publisher": "Dark Horse Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T08:02:52.460618+00:00",
+    "retry_after": "2026-11-25T08:02:52.460635+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Divine Right",
+    "publisher": "Image Comics",
+    "year": 1997,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 93248,
+        "name": "Divine Right",
+        "publisher": "Splitter",
+        "start_year": 1998
+      },
+      {
+        "id": 127388,
+        "name": "Divine Right",
+        "publisher": "JuniorPress BV",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T08:02:52.460694+00:00",
+    "retry_after": "2026-11-25T08:02:52.460696+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Graphic Novel: The Amazing Spider-Man in Hooky",
+    "publisher": "Marvel Comics",
+    "year": 1986,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T08:10:57.320992+00:00",
+    "retry_after": "2026-11-25T08:10:57.321010+00:00",
     "search_hydrated": true
   }
 ]

@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase/service";
 import { getAuthedUser } from "@/lib/authServer";
+import { ADMIN_ID, canSeePrivateMembers } from "@/lib/admin";
+import { aalFromToken, bearerToken } from "@/lib/adminAal";
 import { getMarketValuesBulk } from "@/lib/marketValue";
 import { normTitle, titleVariants } from "@/lib/titleMatch";
 import { isOwnedStatus } from "@/lib/collectionStatus";
@@ -70,14 +72,28 @@ export async function GET(req) {
     return json({ error: "Not found" }, { status: 404 });
   }
 
-  const isOwner = viewerId && viewerId === profile.id;
+  const ownerViewer = Boolean(viewerId && viewerId === profile.id);
 
-  // Non-owners are blocked from non-public profiles entirely.
+  // Tony's accounts (admin + @test_tony) see private members' profiles in
+  // full, on the profile page itself (Tony, 2026-11-24: "i should be able to
+  // see private profile pages ... im not going to another page"). Same gate
+  // as /admin/private-members: the admin account needs a two-factor session.
+  let privateMemberViewer = false;
+  if (!ownerViewer && !profile.is_public && canSeePrivateMembers(viewerId)) {
+    if (viewerId === ADMIN_ID && aalFromToken(bearerToken(req)) !== "aal2") {
+      return json({ error: "Two-factor sign-in required.", mfa_required: true }, { status: 401 });
+    }
+    privateMemberViewer = true;
+  }
+  const isOwner = ownerViewer || privateMemberViewer;
+
+  // Everyone else is blocked from non-public profiles entirely.
   if (!isOwner && !profile.is_public) {
     return json({ error: "Not found" }, { status: 404 });
   }
 
-  // Per-section privacy. Owners see everything regardless.
+  // Per-section privacy. Owners (and the private-member viewers above) see
+  // everything regardless.
   const visibility = {
     collection: isOwner || profile.show_collection !== false,
     wantlist: isOwner || profile.show_wantlist !== false,

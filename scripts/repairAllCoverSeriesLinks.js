@@ -39,6 +39,7 @@ import dotenv from "dotenv";
 import { createClient } from "@supabase/supabase-js";
 import { baseIssueNumber } from "../src/lib/coverMatch.js";
 import { chooseSkippedCandidate, publisherMatches } from "./lib/publisherMatch.js";
+import { PIN_MAX_OVERLAP, PIN_MIN_ISSUES, pinIsWrong, samePublisherFamily } from "./lib/pinTrust.js";
 import { withRetry } from "./lib/withRetry.js";
 
 dotenv.config({ path: ".env.local" });
@@ -302,6 +303,43 @@ async function run() {
 
   const needsResolution = [];
   let alreadyClean = 0;
+  // Pins the evidence overrules (scripts/lib/pinTrust.js). Their volumes are
+  // scored below like unpinned ones.
+  const numbersOf = (rows) => new Set(rows.map((r) => baseIssueNumber(r.issue_number)).filter(Boolean));
+  const publisherOf = (rows) => mode(rows.map((r) => r.publisher).filter(Boolean));
+  const pinned = [...byVolume].filter(([volume]) => pinnedGcdIdByVolume.has(volume))
+    .map(([volume, rows]) => ({ volume, rows, gcdId: pinnedGcdIdByVolume.get(volume), numbers: numbersOf(rows) }))
+    .filter((p) => p.numbers.size >= PIN_MIN_ISSUES);
+  const unloadedPins = pinned.map((p) => p.gcdId).filter((id) => !issueSets.has(id));
+  for (const [k, v] of await fetchIssueSets(unloadedPins)) issueSets.set(k, v);
+  const suspects = pinned.filter((p) => overlapOf(p.numbers, issueSets.get(p.gcdId)) < PIN_MAX_OVERLAP);
+  const pinSeries = new Map();
+  const suspectIds = [...new Set(suspects.map((p) => p.gcdId))];
+  for (let i = 0; i < suspectIds.length; i += 200) {
+    const data = await fetchAllPages(() => supabase.from("gcd_series")
+      .select("gcd_id, name, year_ended, publisher_gcd_id").in("gcd_id", suspectIds.slice(i, i + 200)).order("gcd_id"));
+    for (const row of data) pinSeries.set(row.gcd_id, row);
+  }
+  const pinPublishers = new Map();
+  const pinPublisherIds = [...new Set([...pinSeries.values()].map((row) => row.publisher_gcd_id).filter((id) => id != null))];
+  for (let i = 0; i < pinPublisherIds.length; i += 200) {
+    const data = await fetchAllPages(() => supabase.from("gcd_publishers")
+      .select("gcd_id, name").in("gcd_id", pinPublisherIds.slice(i, i + 200)).order("gcd_id"));
+    for (const row of data) pinPublishers.set(row.gcd_id, row.name);
+  }
+  const wrongPins = new Set();
+  for (const p of suspects) {
+    const meta = pinSeries.get(p.gcdId);
+    const pinPublisher = pinPublishers.get(meta?.publisher_gcd_id);
+    if (!pinIsWrong({
+      volumeIssues: p.numbers.size, overlap: overlapOf(p.numbers, issueSets.get(p.gcdId)),
+      volumePublisher: publisherOf(p.rows), pinPublisher, pinYearEnded: meta?.year_ended,
+    })) continue;
+    wrongPins.add(p.volume);
+    console.log(`  pin not trusted: volume ${p.volume} "${mode(p.rows.map((r) => r.series_title))}" (${publisherOf(p.rows)}, ${p.numbers.size} issues) -> ${p.gcdId} "${meta.name}" (${pinPublisher}, ended ${meta.year_ended})`);
+  }
+  console.log(`Pins not trusted: ${wrongPins.size}`);
+
   let pinnedRelinks = 0;
   let pinnedRelinkRows = 0;
   const plan = [];
@@ -355,7 +393,7 @@ async function run() {
     if (volIssueNumbers.size === 0) continue;
 
     const pinnedGcdId = pinnedGcdIdByVolume.get(volume);
-    if (pinnedGcdId != null) {
+    if (pinnedGcdId != null && !wrongPins.has(volume)) {
       const rowsToFix = rows.filter((r) => r.series_gcd_id !== pinnedGcdId);
       if (rowsToFix.length > 0) {
         pinnedRelinks++;
@@ -457,6 +495,7 @@ async function run() {
   // from the loop above — this appends the overlap-scored ones to the same
   // array so the summary and apply step below cover both in one pass.
   let resolved = 0, skippedNoCandidate = 0, skippedAmbiguous = 0, skippedSameYear = 0;
+  let skippedOtherPublisher = 0;
   let yearGated = 0, publisherTiebreaks = 0, titlePublisherYear = 0;
   let totalRowsToUpdate = pinnedRelinkRows + singleBookRows;
   for (const v of needsResolution) {
@@ -533,6 +572,12 @@ async function run() {
       else titlePublisherYear++;
     }
 
+    if (wrongPins.has(v.volume)
+      && !samePublisherFamily(v.publisher, publishers.get(seriesMeta.get(best.gcdId)?.publisher_gcd_id)?.name)) {
+      skippedOtherPublisher++;
+      continue;
+    }
+
     // Split runs: ComicVine keeps Speed Comics #1-44 as one volume, GCD has
     // Brookwood #1-11 and Harvey #12-44 as two series. Moving every row to
     // the winner would strip covers that are right where they are, so a row
@@ -596,6 +641,7 @@ async function run() {
   console.log(`Skipped — ambiguous (winner/runner-up within ${MIN_MARGIN * 100} points): ${skippedAmbiguous}`);
   console.log(`Candidates excluded by the year gate (series not in publication at the volume's start year): ${yearGated}`);
   console.log(`Skipped — a same-start-year series exists but did not win (GCD mirror likely thin): ${skippedSameYear}`);
+  console.log(`Skipped — pin not trusted, but the best match is another publisher: ${skippedOtherPublisher}`);
   console.log(`Resolved by publisher tiebreak: ${publisherTiebreaks}`);
   console.log(`Resolved by title+publisher+year: ${titlePublisherYear}`);
   // Single machine-parseable line for checkCoverIngestHealth.js --mode=mislink

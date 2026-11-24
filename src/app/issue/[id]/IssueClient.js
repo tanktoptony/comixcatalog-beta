@@ -836,15 +836,27 @@ export default function IssueClient({ initialIssue = null }) {
                   collectionId={collectionRow.id}
                   canonicalCover={selectedCover || issue.cover || null}
                   releaseYear={issue?.release_year ?? null}
+                  // Every field the editor saves, or Save writes blanks over
+                  // them: the paid price, value, version name, copy number
+                  // and trade flag used to be missing here, so saving a grade
+                  // from the issue page wiped them and reset Copy 2 to 1.
+                  // Edits made on this page (gradeData) win, including ones
+                  // that cleared a field.
                   initialData={{
-                    grade_numeric: gradeData?.grade_numeric ?? collectionRow.grade_numeric ?? null,
-                    condition: gradeData?.condition ?? collectionRow.condition ?? null,
-                    slab_company: gradeData?.slab_company ?? collectionRow.slab_company ?? null,
-                    slab_cert_number: gradeData?.slab_cert_number ?? collectionRow.slab_cert_number ?? null,
-                    notes: gradeData?.notes ?? collectionRow.notes ?? null,
-                    user_cover_url: gradeData?.user_cover_url ?? collectionRow.user_cover_url ?? null,
+                    grade_numeric: collectionRow.grade_numeric ?? null,
+                    condition: collectionRow.condition ?? null,
+                    slab_company: collectionRow.slab_company ?? null,
+                    slab_cert_number: collectionRow.slab_cert_number ?? null,
+                    notes: collectionRow.notes ?? null,
+                    purchase_price: collectionRow.purchase_price ?? null,
+                    market_value: collectionRow.market_value ?? null,
+                    variant_label: collectionRow.variant_label ?? null,
+                    copy_number: collectionRow.copy_number ?? null,
+                    open_to_trade: Boolean(collectionRow.open_to_trade),
+                    user_cover_url: collectionRow.user_cover_url ?? null,
+                    ...(gradeData ?? {}),
                   }}
-                  onSave={(updated) => setGradeData((prev) => ({ ...prev, ...updated }))}
+                  onSave={(updated) => { setGradeData((prev) => ({ ...prev, ...updated })); refreshLibrary({ background: true }); }}
                 />
               </div>
             )}

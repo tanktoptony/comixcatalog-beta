@@ -1,3 +1,5 @@
+import { isUnnumberedIssue } from "./issueNumberLabel.js";
+
 function present(value) {
   return value !== null && value !== undefined && String(value).trim() !== "";
 }
@@ -93,7 +95,7 @@ export function buildIssueDetailsRows(issue) {
       ? { label: "Indicia publisher", value: details.indicia_publisher }
       : null,
     { label: "Series", value: issue?.series_title, href: issue?.series_id ? `/series/${issue.series_id}` : null },
-    { label: "Issue", value: issue?.issue_number },
+    { label: "Issue", value: isUnnumberedIssue(issue?.issue_number) ? null : issue?.issue_number },
     { label: "Variant", value: details.variant_name },
     { label: "Cover date", value: formatGcdDate(details.keydate) || issue?.display_date || issue?.publication_date },
     { label: "On sale", value: formatGcdDate(details.on_sale_date) },

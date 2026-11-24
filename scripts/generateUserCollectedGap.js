@@ -29,6 +29,16 @@
 // Usage:
 //   node scripts/generateUserCollectedGap.js
 //   node scripts/generateUserCollectedGap.js --include-pattern-filter
+//   node scripts/generateUserCollectedGap.js --since-days=30 --out=gap-new-members.json
+//
+// --since-days=N (Nov 24, 2026, Tony: "an ingest run on all covers my new
+// users bring in nightly ... prioritize these over all other ingests"):
+// only books added to a collection or wantlist in the last N days, so new
+// members' imports come first. Only series with an uncovered owned book
+// count (no "no featured cover" union), each target carries series_gcd_id
+// so the ingester can check the volume against the right GCD run, and the
+// most recently added series go first. cover-ingest.yml runs this as its
+// overnight new-member lane.
 //
 // The --include-pattern-filter flag additionally strips known-garbage
 // title patterns (omnibus / compendium / wal-mart / true believers /
@@ -64,6 +74,13 @@ const GARBAGE_PATTERNS = [
 ];
 
 const args = new Set(process.argv.slice(2));
+const argValue = (name) => process.argv.slice(2).find((a) => a.startsWith(`${name}=`))?.slice(name.length + 1);
+const SINCE_DAYS = argValue("--since-days") ? Number(argValue("--since-days")) : null;
+if (SINCE_DAYS != null && !(SINCE_DAYS > 0)) {
+  console.error("--since-days must be a positive number of days");
+  process.exit(1);
+}
+const OUT = argValue("--out") || "gap-user-collected.json";
 const PAGE = 1000;
 // PostgREST chokes on very long `in.(...)` lists in a URL, so the
 // canonical_covers lookups below go out in chunks rather than one request
@@ -88,20 +105,29 @@ async function paginate(builder) {
 async function main() {
   console.log("\n=== generateUserCollectedGap ===\n");
 
-  // 1. Distinct gcd_issue_ids any user has collected.
-  const collected = await paginate(() =>
-    supabase
+  // 1. Distinct gcd_issue_ids any user has collected (with --since-days,
+  //    only books added in that window). lastAdded keeps the newest add per
+  //    issue so recent imports can go first.
+  const sinceIso = SINCE_DAYS ? new Date(Date.now() - SINCE_DAYS * 86400000).toISOString() : null;
+  const collected = await paginate(() => {
+    let q = supabase
       .from("user_collections")
-      .select("gcd_issue_id")
-      .not("gcd_issue_id", "is", null)
-      .order("gcd_issue_id")
-  );
-  const uniqueIssueIds = [...new Set(collected.map((r) => r.gcd_issue_id))];
-  console.log(`User-collected distinct issues: ${uniqueIssueIds.length}`);
+      .select("gcd_issue_id, created_at")
+      .not("gcd_issue_id", "is", null);
+    if (sinceIso) q = q.gte("created_at", sinceIso);
+    return q.order("gcd_issue_id").order("id");
+  });
+  const lastAdded = new Map();
+  for (const row of collected) {
+    const prev = lastAdded.get(row.gcd_issue_id);
+    if (!prev || row.created_at > prev) lastAdded.set(row.gcd_issue_id, row.created_at);
+  }
+  const uniqueIssueIds = [...lastAdded.keys()];
+  console.log(`User-collected distinct issues${sinceIso ? ` added since ${sinceIso.slice(0, 10)}` : ""}: ${uniqueIssueIds.length}`);
 
   if (uniqueIssueIds.length === 0) {
     console.log("No user-collected issues. Nothing to do.");
-    fs.writeFileSync("gap-user-collected.json", "[]", "utf-8");
+    fs.writeFileSync(OUT, "[]", "utf-8");
     return;
   }
 
@@ -187,6 +213,7 @@ async function main() {
   //    cover. Same rule as generateUserGap.js: a run that covers #1-50 but
   //    not #75 is still a gap, and --skip-existing makes re-walking it cheap.
   const gapSeriesGcdIds = new Set();
+  const seriesLastAdded = new Map();
   let missingIssueCount = 0;
   for (const issue of issueRows) {
     const series = seriesByGcdId.get(Number(issue.series_gcd_id));
@@ -197,7 +224,10 @@ async function main() {
       ) || coverByTitle.has(`${norm(series.title)}::${norm(issue.issue_number)}`);
     if (!hasCover) {
       missingIssueCount += 1;
-      gapSeriesGcdIds.add(Number(issue.series_gcd_id));
+      const sid = Number(issue.series_gcd_id);
+      gapSeriesGcdIds.add(sid);
+      const added = lastAdded.get(issue.gcd_id) ?? "";
+      if (added > (seriesLastAdded.get(sid) ?? "")) seriesLastAdded.set(sid, added);
     }
   }
   const issueLevelGapSeries = gapSeriesGcdIds.size;
@@ -209,7 +239,7 @@ async function main() {
     (s) => !s.featured_cover_path_cached
   ).length;
   for (const series of seriesRows) {
-    if (!series.featured_cover_path_cached) {
+    if (!SINCE_DAYS && !series.featured_cover_path_cached) {
       gapSeriesGcdIds.add(Number(series.gcd_id));
     }
   }
@@ -226,10 +256,14 @@ async function main() {
   //    title (ingester can't search without them).
   let targets = gaps
     .filter((s) => s.title && s.resolved_publisher_cached)
+    .sort((a, b) => SINCE_DAYS
+      ? String(seriesLastAdded.get(Number(b.gcd_id)) ?? "").localeCompare(String(seriesLastAdded.get(Number(a.gcd_id)) ?? ""))
+      : 0)
     .map((s) => ({
       name: s.title,
       publisher: s.resolved_publisher_cached,
       year: s.year_start_cached ?? null,
+      ...(SINCE_DAYS ? { series_gcd_id: Number(s.gcd_id) } : {}),
     }));
 
   if (args.has("--include-pattern-filter")) {
@@ -277,9 +311,9 @@ async function main() {
     return;
   }
 
-  fs.writeFileSync("gap-user-collected.json", JSON.stringify(targets, null, 2), "utf-8");
+  fs.writeFileSync(OUT, JSON.stringify(targets, null, 2), "utf-8");
 
-  console.log(`\nWrote gap-user-collected.json — ${targets.length} target(s).`);
+  console.log(`\nWrote ${OUT} — ${targets.length} target(s).`);
   console.log("\nRun the ingester:");
   console.log("  python comicvine_api_to_supabase.py --targets gap-user-collected.json --skip-existing --max-search-calls 180 --vol-sleep 1.0\n");
 }

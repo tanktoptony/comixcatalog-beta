@@ -4,6 +4,7 @@ import { resolveCovers } from "@/lib/catalog/covers";
 import { reviewActionToUpdate } from "@/lib/review";
 import { notifyRequestDone, refreshReviewQueue } from "@/lib/reviewQueueNotify";
 import { getServiceClient } from "@/lib/supabase/service";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 const publicCanonicalCover = (path) => path ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/canonical-covers/${path}` : null;
 const normalize = (value) => String(value ?? "").toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -75,7 +76,7 @@ export async function GET(req) {
     ]);
     const names = new Map((profilesResult.data ?? []).map((row) => [row.id, row.username]));
     const candidates = matchesResult.data ?? [];
-    items = (data ?? []).map((row) => ({ ...row, submitter: names.get(row.created_by) ?? "Unknown", possible_match: candidates.find((match) => normalize(match.title) === normalize(row.series_title)) ? `${candidates.find((match) => normalize(match.title) === normalize(row.series_title)).title} #${row.issue_number}` : null }));
+    items = (data ?? []).map((row) => ({ ...row, submitter: names.get(row.created_by) ?? "Unknown", possible_match: candidates.find((match) => normalize(match.title) === normalize(row.series_title)) ? `${candidates.find((match) => normalize(match.title) === normalize(row.series_title)).title} ${issueNumberText(row.issue_number)}` : null }));
   }
   return NextResponse.json({
     items,

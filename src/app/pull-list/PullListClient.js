@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { authedFetch } from "@/lib/apiClient";
 import PullListIssueCard from "@/components/pull-list/PullListIssueCard";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 const MONTH = new Intl.DateTimeFormat("en-US", { month: "long", timeZone: "UTC" });
 const SHORT_DATE = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
@@ -248,7 +249,7 @@ export default function PullListClient() {
               <ul className="pull-upcoming-list">
                 {items.map((item) => (
                   <li key={`${month}:${item.series_title}:${item.issue_number}`}>
-                    <span>{item.series_title} #{item.issue_number}</span>
+                    <span>{item.series_title} {issueNumberText(item.issue_number)}</span>
                     <small>{SHORT_DATE.format(new Date(`${item.on_sale_date}T00:00:00Z`))}</small>
                   </li>
                 ))}

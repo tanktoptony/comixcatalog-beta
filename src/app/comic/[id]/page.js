@@ -9,6 +9,7 @@ import GradeEditor from "@/components/GradeEditor";
 import CatalogLinkPicker from "@/components/CatalogLinkPicker";
 import { authedFetch } from "@/lib/apiClient";
 import { isUnlinkedForSale } from "@/lib/listingCompleteness";
+import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 
 export default function ComicDetailPage() {
   const { id } = useParams();
@@ -134,7 +135,7 @@ export default function ComicDetailPage() {
     );
   }
 
-  const issueTitle = `${comic.title || "Untitled"}${comic.issueNumber ? ` #${comic.issueNumber}` : ""}`;
+  const issueTitle = `${comic.title || "Untitled"}${issueNumberSuffix(comic.issueNumber)}`;
 
   return (
     <main className="page-wrapper">

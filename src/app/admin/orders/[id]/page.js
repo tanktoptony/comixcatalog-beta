@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { authedFetch } from "@/lib/apiClient";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 const money = (cents) => new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format((cents || 0) / 100);
 
@@ -92,7 +93,7 @@ export default function AdminOrderPage({ params }) {
     );
   }
   if (!order) return <main className="admin-shell"><p>{error || "Loading..."}</p></main>;
-  return <main className="admin-shell"><header className="admin-header"><p className="admin-kicker">Admin Order</p><h1 className="admin-title">{order.series_title} {order.issue_number ? `#${order.issue_number}` : ""}</h1><p className="admin-lede">{order.id}</p></header>
+  return <main className="admin-shell"><header className="admin-header"><p className="admin-kicker">Admin Order</p><h1 className="admin-title">{order.series_title} {issueNumberText(order.issue_number)}</h1><p className="admin-lede">{order.id}</p></header>
     {error && <p className="admin-err">{error}</p>}{message && <p className="admin-message ok">{message}</p>}
     <section className="admin-card"><h2 className="admin-card-title">Receipt</h2><p>Status: {order.status}. Total: {money(order.total_cents)}. Refunded: {money(order.refunded_cents)}.</p><pre style={{ whiteSpace: "pre-wrap", overflowWrap: "anywhere" }}>{JSON.stringify(order.ship_to, null, 2)}</pre>{Object.entries(order.stripe_links).map(([label, link]) => link && <p key={label}><a href={link} target="_blank" rel="noreferrer">Stripe {label}</a></p>)}</section>
     <section className="admin-card"><h2 className="admin-card-title">Refund</h2><form className="admin-form" onSubmit={refund}><label>Amount<input className="admin-input" type="number" min="0.01" step="0.01" value={refundAmount} onChange={(event) => setRefundAmount(event.target.value)} /></label><label>Reason<input className="admin-input" minLength={3} required value={reason} onChange={(event) => setReason(event.target.value)} /></label><button className="admin-btn admin-btn-danger">Review refund</button></form></section>

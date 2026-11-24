@@ -1,3 +1,4 @@
+import { issueNumberSuffix } from "./issueNumberLabel.js";
 // Display helpers shared by the marketplace grid and the issue page's
 // "For sale" section. Pure, so they work on the server and in the browser.
 
@@ -10,7 +11,7 @@ export function conditionLabel(l) {
 // "Make an offer" opens a message thread with the seller, pre-filled with
 // the book in question.
 export function offerHref(l) {
-  const about = `${l.title}${l.issueNumber ? ` #${l.issueNumber}` : ""}${l.year ? ` (${l.year})` : ""}`;
+  const about = `${l.title}${issueNumberSuffix(l.issueNumber)}${l.year ? ` (${l.year})` : ""}`;
   return `/inbox/${encodeURIComponent(l.seller)}?about=${encodeURIComponent(about)}`;
 }
 

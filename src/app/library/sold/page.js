@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { getSupabaseClient } from "@/lib/supabase/client";
+import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 
 const PAGE_SIZE = 500;
 
@@ -66,7 +67,7 @@ export default function SoldHistoryPage() {
           const grade = sale.slab_company && sale.grade_numeric != null ? `${sale.slab_company} ${Number(sale.grade_numeric).toFixed(1)}` : sale.condition || (sale.grade_numeric != null ? Number(sale.grade_numeric).toFixed(1) : "Not graded");
           return <article key={sale.id} className="sold-row">
             <time dateTime={sale.sold_at}>{new Date(sale.sold_at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</time>
-            <div><strong>{href ? <Link href={href}>{sale.series_title}{sale.issue_number ? ` #${sale.issue_number}` : ""}</Link> : <>{sale.series_title}{sale.issue_number ? ` #${sale.issue_number}` : ""}</>}</strong>{sale.variant_label && <small>{sale.variant_label}</small>}</div>
+            <div><strong>{href ? <Link href={href}>{sale.series_title}{issueNumberSuffix(sale.issue_number)}</Link> : <>{sale.series_title}{issueNumberSuffix(sale.issue_number)}</>}</strong>{sale.variant_label && <small>{sale.variant_label}</small>}</div>
             <span>{grade}</span>
             <span className="sold-buyer-status">{sale.buyer_id && <small>@{buyerNames[sale.buyer_id] || "member"}</small>}<span className={`sold-status-chip sold-status-${sale.status}`}>{sale.buyer_id ? sale.status === "pending_buyer" ? "Pending" : sale.status === "order_pending" ? "In order" : sale.status[0].toUpperCase() + sale.status.slice(1) : "Recorded"}</span></span>
             <b>{new Intl.NumberFormat("en-US", { style: "currency", currency: sale.currency || "USD" }).format(Number(sale.sale_price))}</b>

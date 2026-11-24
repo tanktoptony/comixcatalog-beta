@@ -10,6 +10,7 @@ import PullListIssueCard from "@/components/pull-list/PullListIssueCard";
 import InviteButton from "@/components/InviteButton";
 import CollectorFeed from "./CollectorFeed";
 import styles from "./YourShelf.module.css";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 const SHORT_DATE = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
 const TODAY = new Intl.DateTimeFormat("en-US", { weekday: "long", month: "long", day: "numeric" });
@@ -111,7 +112,7 @@ export default function YourShelf() {
       <section className={`${styles.card} ${styles.recent}`}>
         <h2>Recently added</h2>
         {shelf.loading ? <Skeleton /> : shelf.error ? <ErrorCard retry={retry} /> : shelf.data.recent.length ? <div className={styles.recentGrid}>{shelf.data.recent.map((item) => <Link href={item.href} key={item.gcd_issue_id}>
-          <Cover src={item.cover_url} /><span>{item.title} #{item.issue_number}</span>
+          <Cover src={item.cover_url} /><span>{item.title} {issueNumberText(item.issue_number)}</span>
         </Link>)}</div> : <div className={styles.state}>Add your first book.<div><Link href="/scan">Scan a cover</Link> · <Link href="/library">Open your library</Link></div></div>}
       </section>
     </div>

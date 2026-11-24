@@ -5,6 +5,7 @@ import { normTitle, titleVariants } from "@/lib/titleMatch";
 import { bestYearFor, parseYear } from "@/lib/years";
 import { fetchAllPagesParallel } from "@/lib/supabase/fetchAllPages";
 import { resolveCovers } from "@/lib/catalog/covers";
+import { onSaleYear } from "@/lib/issueDetails";
 
 // PostgREST silently caps any unpaginated response at 1000 rows. A single
 // series' cover query stays well under that, but a real collection's full
@@ -522,6 +523,31 @@ async function computeHydration(supabase, { comicIds, gcdIds, collectionGrades }
         item.cover = url;
         item.canonicalCover = url;
       }
+    }
+  }
+
+  // Show the year a book came out, not its cover year: Marvel's Nov 18, 2026
+  // releases say "January 2027" on the cover. Cover matching above keeps the
+  // cover year. Optional: a failed read leaves the cover year in place.
+  const gcdKeys = Object.keys(items).filter((key) => key.startsWith("gcd-"));
+  if (gcdKeys.length) {
+    try {
+      const ids = gcdKeys.map((key) => Number(key.slice(4)));
+      const pages = [];
+      for (let index = 0; index < ids.length; index += 300) pages.push(ids.slice(index, index + 300));
+      const results = await Promise.all(pages.map((page) =>
+        supabase.from("gcd_issue_details").select("gcd_issue_id, on_sale_date").in("gcd_issue_id", page)
+      ));
+      for (const { data, error } of results) {
+        if (error) throw error;
+        for (const row of data ?? []) {
+          const year = onSaleYear(row.on_sale_date);
+          const item = items[`gcd-${row.gcd_issue_id}`];
+          if (year != null && item) item.year = year;
+        }
+      }
+    } catch (error) {
+      console.error("library-hydrate: on-sale years failed", error?.message ?? error);
     }
   }
 

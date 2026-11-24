@@ -5,6 +5,7 @@ import { getCreatorPage } from "@/lib/creatorData";
 import { buildCreatorSummary, creatorJsonLd, topCreatorRole } from "@/lib/creatorPage";
 import { safeJsonLd } from "@/lib/jsonLd";
 import { SITE_URL } from "@/lib/siteUrl";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 const roleLabel = (role) => role === "cover" ? "Cover artist" : `${role[0].toUpperCase()}${role.slice(1)}`;
 const yearLabel = (run) => run.year_start && run.year_end && run.year_start !== run.year_end
@@ -69,7 +70,7 @@ export default async function CreatorPage({ params }) {
                   <Link href={`/issue/gcd-${issue.gcd_issue_id}`} className="creator-key-card">
                     <Image src={issue.cover || "/fallback-cover.png"} alt="" width={240} height={360} loading="lazy" unoptimized />
                     <div>
-                    <strong>{issue.series_title} #{issue.issue_number}</strong>
+                    <strong>{issue.series_title} {issueNumberText(issue.issue_number)}</strong>
                     {issue.title && <div>{issue.title}</div>}
                     <div className="muted">{issue.reason}</div>
                     </div>

@@ -18,6 +18,7 @@ import InviteButton from "@/components/InviteButton";
 import ProfileBadgeRow from "@/components/ProfileBadgeRow";
 import ListCard from "@/components/lists/ListCard";
 import listStyles from "@/components/lists/Lists.module.css";
+import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 
 function formatJoinDate(iso) {
   if (!iso) return null;
@@ -273,7 +274,7 @@ export default function ProfileView({ data, isOwner = false }) {
                   </div>
                   <div className="profile-top-shelf-title-line">
                     {d.title}
-                    {d.issueNumber ? ` #${d.issueNumber}` : ""}
+                    {issueNumberSuffix(d.issueNumber)}
                   </div>
                   {/* A key issue with no price yet (no comps, nothing
                       user-priced) still needs a caption — "$0" would read as
@@ -332,7 +333,7 @@ export default function ProfileView({ data, isOwner = false }) {
                   </div>
                   <div className="profile-top-shelf-title-line">
                     {d.title}
-                    {d.issueNumber ? ` #${d.issueNumber}` : ""}
+                    {issueNumberSuffix(d.issueNumber)}
                   </div>
                   {addedLine && (
                     <div className="profile-recent-added-caption">{addedLine}</div>

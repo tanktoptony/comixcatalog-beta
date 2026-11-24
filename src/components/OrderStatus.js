@@ -12,6 +12,7 @@ import { feedbackRatingLabel } from "@/lib/feedback";
 import { findOffPlatformPaymentTerms } from "@/lib/messageContent";
 import ReportButton from "@/components/ReportButton";
 import styles from "@/app/orders/[id]/order.module.css";
+import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 
 const money = (value) => new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -140,8 +141,8 @@ export default function OrderStatus({ id }) {
         <div className={order.items?.length > 1 ? styles.coverStack : styles.cover}>{(order.items?.length ? order.items : [{ cover_url: order.cover_url }]).map((item, index) => item.cover_url && <img src={item.cover_url} alt="" key={`${item.listing_id || order.id}-${index}`} />)}</div>
         <div className={styles.details}>
           <p className={styles.eyebrow}>Marketplace receipt</p>
-          <h1>{order.items?.length > 1 ? `${order.items.length} books from @${order.seller_username}` : `${order.series_title}${order.issue_number ? ` #${order.issue_number}` : ""}`}</h1>
-          {order.items?.length > 1 && <ul>{order.items.map((item) => <li key={item.listing_id}>{item.series_title}{item.issue_number ? ` #${item.issue_number}` : ""} · {money(item.item_cents)}</li>)}</ul>}
+          <h1>{order.items?.length > 1 ? `${order.items.length} books from @${order.seller_username}` : `${order.series_title}${issueNumberSuffix(order.issue_number)}`}</h1>
+          {order.items?.length > 1 && <ul>{order.items.map((item) => <li key={item.listing_id}>{item.series_title}{issueNumberSuffix(item.issue_number)} · {money(item.item_cents)}</li>)}</ul>}
           <p>{[order.variant_label, order.printing_name].filter(Boolean).join(" · ")}</p>
           {order.items?.length > 1 ? null : order.slab_company ? (
             <div className={styles.slab}>{order.slab_company} <strong>{order.grade_numeric}</strong><small>Cert {order.slab_cert_number}</small></div>

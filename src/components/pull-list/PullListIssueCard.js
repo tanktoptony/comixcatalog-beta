@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { authedFetch } from "@/lib/apiClient";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 // One release on the pull list: cover, title, and Got it / Want. Shared by
 // /pull-list and the signed-in home (Your shelf).
@@ -29,7 +30,7 @@ export default function PullListIssueCard({ item, onSaved }) {
     }
   }
 
-  const title = `${item.series_title} #${item.issue_number}`;
+  const title = `${item.series_title} ${issueNumberText(item.issue_number)}`;
   return (
     <article className={`pull-issue${item.owned ? " is-owned" : ""}`}>
       <div className="pull-cover-frame">

@@ -21,6 +21,7 @@ import ReportButton from "@/components/ReportButton";
 import { messageDateLabel, shouldStartMessageGroup } from "@/lib/messageThreads";
 import { QUICK_REACTIONS, groupReactions, replaceShortcodes, searchEmoji, shortcodeFor, shortcodeQueryAt, toggleReactionRows } from "@/lib/emoji";
 import EmojiPicker from "@/components/inbox/EmojiPicker";
+import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 
 const REACTION_COLUMNS = "message_id, user_id, emoji, created_at";
 // Reactions are fetched for the newest messages only; older ones keep theirs
@@ -160,7 +161,7 @@ export default function ThreadView({ username, variant = "pane", onBack }) {
   useEffect(() => {
     const book = bookCache[issueParam];
     if (!book || !askKind || body || prefilledIssue.current === issueParam) return;
-    const name = `${book.series_title}${book.issue_number ? ` #${book.issue_number}` : ""}`;
+    const name = `${book.series_title}${issueNumberSuffix(book.issue_number)}`;
     const text = askKind === "sell"
       ? `Hi! Would you consider selling or trading your copy of ${name}?`
       : askKind === "have"
@@ -869,6 +870,6 @@ function BookCard({ book, styles, label }) {
   return <Link href={`/issue/gcd-${book.gcd_issue_id}`} className={styles.bookCard}>
     {/* eslint-disable-next-line @next/next/no-img-element */}
     {book.cover && <img src={book.cover} alt="" width="36" height="54" />}
-    <span>{label && <small>{label}</small>}<strong>{book.series_title}{book.issue_number ? ` #${book.issue_number}` : ""}</strong>{book.year && <em>{book.year}</em>}</span>
+    <span>{label && <small>{label}</small>}<strong>{book.series_title}{issueNumberSuffix(book.issue_number)}</strong>{book.year && <em>{book.year}</em>}</span>
   </Link>;
 }

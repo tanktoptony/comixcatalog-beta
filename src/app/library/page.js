@@ -34,6 +34,7 @@ import { buildLibraryItems, groupLibraryRows } from "@/lib/libraryView";
 import PayoutsPrompt from "@/components/PayoutsPrompt";
 import SellerToShip from "@/components/SellerToShip";
 import CollectionReconcileReview from "@/components/CollectionReconcileReview";
+import { issueNumberSuffix, issueNumberText } from "@/lib/issueNumberLabel";
 
 // Books per /api/library-hydrate request. The route caps a request at 2,000.
 const HYDRATE_CHUNK = 1000;
@@ -535,7 +536,7 @@ function LibraryPageContent() {
   // which is the trade-off for keeping this simple.
   async function handleUnlinkRow(item) {
     if (!item?.id) return;
-    const label = `${item.comic?.title ?? "this book"}${item.comic?.issueNumber ? ` #${item.comic.issueNumber}` : ""}`;
+    const label = `${item.comic?.title ?? "this book"}${item.comic?.issueNumber ? ` ${issueNumberText(item.comic.issueNumber)}` : ""}`;
     const ok = window.confirm(
       `Unlink ${label} from the catalog?\n\n` +
       `This removes the row from your collection entirely. If you uploaded a photo of your copy, it'll be lost. ` +
@@ -2012,7 +2013,7 @@ function LibraryPageContent() {
                 const listing = myListings[item.id];
                 return listing ? (
                   <article key={item.id} className="listing-price-run-card">
-                    <div><strong>{item.comic.title}{item.comic.issueNumber ? ` #${item.comic.issueNumber}` : ""}</strong><small>{item.comic.publisher || "Unknown Publisher"}</small></div>
+                    <div><strong>{item.comic.title}{issueNumberSuffix(item.comic.issueNumber)}</strong><small>{item.comic.publisher || "Unknown Publisher"}</small></div>
                     <ListingQuickPrice listing={listing} estimate={Number(item.market_value) > 0 ? Number(item.market_value) : marketValues?.[item.id]?.value ?? null} onSaved={(saved) => updateListing(item.id, saved)} />
                   </article>
                 ) : null;
@@ -2119,7 +2120,7 @@ function LibraryPageContent() {
                     <div className="library-list-main">
                       <Link prefetch={false} href={getLibraryHref(item, comic)} className="library-list-title">
                         {comic.title}
-                        {comic.issueNumber ? ` #${comic.issueNumber}` : ""}
+                        {issueNumberSuffix(comic.issueNumber)}
                         {item.variant_label ? (
                           <span style={{ opacity: 0.7, fontWeight: 500 }}> ({item.variant_label})</span>
                         ) : null}
@@ -2286,7 +2287,7 @@ function LibraryPageContent() {
                           onClick={() =>
                             setEditing({
                               listing: myListings[item.id],
-                              title: `${comic.title}${comic.issueNumber ? ` #${comic.issueNumber}` : ""}`,
+                              title: `${comic.title}${issueNumberSuffix(comic.issueNumber)}`,
                               estValue: Number(liveGrade?.market_value) > 0 ? Number(liveGrade.market_value) : marketValues?.[item.id]?.value ?? null,
                             })
                           }
@@ -2452,7 +2453,7 @@ function LibraryPageContent() {
                                 <div className="library-list-main">
                                   <Link prefetch={false} href={getLibraryHref(item, comic)} className="library-list-title">
                                     {comic.title}
-                                    {comic.issueNumber ? ` #${comic.issueNumber}` : ""}
+                                    {issueNumberSuffix(comic.issueNumber)}
                                     {item.variant_label ? (
                                       <span style={{ opacity: 0.7, fontWeight: 500 }}> ({item.variant_label})</span>
                                     ) : null}
@@ -2544,7 +2545,7 @@ function LibraryPageContent() {
                       </div>
                       <div className="comic-card-title">
                         {comic.title}
-                        {comic.issueNumber ? ` #${comic.issueNumber}` : ""}
+                        {issueNumberSuffix(comic.issueNumber)}
                         {item.variant_label ? (
                           <span style={{ opacity: 0.7, fontWeight: 500 }}> ({item.variant_label})</span>
                         ) : null}
@@ -2564,7 +2565,7 @@ function LibraryPageContent() {
                         onClick={() =>
                           setEditing({
                             listing: myListings[item.id],
-                            title: `${comic.title}${comic.issueNumber ? ` #${comic.issueNumber}` : ""}`,
+                            title: `${comic.title}${issueNumberSuffix(comic.issueNumber)}`,
                             estValue: Number(liveGrade?.market_value) > 0 ? Number(liveGrade.market_value) : marketValues?.[item.id]?.value ?? null,
                           })
                         }

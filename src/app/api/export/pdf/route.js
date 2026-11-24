@@ -11,6 +11,7 @@ import { resolveCovers } from "@/lib/catalog/covers";
 import { pdfGradeLabel } from "@/lib/pdfGrade";
 import { compareExportItems, fetchInChunks } from "@/lib/exportData";
 import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 export const maxDuration = 300;
 
@@ -571,7 +572,7 @@ export async function POST(req) {
       }
       // Issue
       if (item.issueNumber) {
-        page.drawText(truncate(`#${item.issueNumber}`, reg, ts, CW.issue - 2), {
+        page.drawText(truncate(issueNumberText(item.issueNumber), reg, ts, CW.issue - 2), {
           x: CX.issue, y: ty + 4, size: ts, font: reg, color: DGRAY,
         });
       }

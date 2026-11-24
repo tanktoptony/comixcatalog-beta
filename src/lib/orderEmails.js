@@ -1,4 +1,5 @@
 import { resendBatch } from "./newsletter.js";
+import { issueNumberSuffix } from "./issueNumberLabel.js";
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.comixcatalog.com").replace(/\/+$/, "");
 
@@ -13,7 +14,7 @@ export function escapeHtml(value) {
 
 function title(order) {
   const first = order.items?.[0] || order;
-  return `${first.series_title}${first.issue_number ? ` #${first.issue_number}` : ""}${order.items?.length > 1 ? ` and ${order.items.length - 1} more` : ""}`;
+  return `${first.series_title}${issueNumberSuffix(first.issue_number)}${order.items?.length > 1 ? ` and ${order.items.length - 1} more` : ""}`;
 }
 
 function shipSummary(order) {

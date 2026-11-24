@@ -7,6 +7,7 @@ import Avatar from "@/components/Avatar";
 import { authedFetch } from "@/lib/apiClient";
 import { trackEvent } from "@/lib/analytics";
 import styles from "./purchase.module.css";
+import { issueNumberSuffix, issueNumberText } from "@/lib/issueNumberLabel";
 
 const storageBase = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/listing-photos/`;
 const photoUrl = (photo) => photo?.url || (photo?.storage_path ? `${storageBase}${photo.storage_path}` : "");
@@ -37,7 +38,7 @@ export default function PurchasePage({ params }) {
   if (!purchase) return <Skeleton />;
 
   const photos = Array.isArray(purchase.seller_photo_keys) ? purchase.seller_photo_keys : [];
-  const title = `${purchase.series_title}${purchase.issue_number ? ` #${purchase.issue_number}` : ""}`;
+  const title = `${purchase.series_title}${issueNumberSuffix(purchase.issue_number)}`;
   const hero = photoUrl(photos[0]) || purchase.user_cover_url;
   const seller = purchase.seller || { username: "unknown" };
   const grade = purchase.slab_company ? `${purchase.slab_company}${purchase.grade_numeric != null ? ` ${Number(purchase.grade_numeric).toFixed(1)}` : ""}` : purchase.condition || (purchase.grade_numeric != null ? Number(purchase.grade_numeric).toFixed(1) : "Not graded");
@@ -47,7 +48,7 @@ export default function PurchasePage({ params }) {
   return <main className={styles.page}>
     <section className={styles.hero}>
       <div className={styles.coverWrap}>{hero ? <button type="button" onClick={() => openPhoto(hero)} aria-label="Enlarge cover"><img src={hero} alt={`Seller's copy of ${title}`} /></button> : <div className={styles.coverMissing}>Cover unavailable</div>}</div>
-      <div className={styles.details}><p className={styles.eyebrow}>Confirm your purchase</p><h1>{title}</h1><p className={styles.edition}>{[purchase.issue_number ? `#${purchase.issue_number}` : null, purchase.variant_label || "Standard edition"].filter(Boolean).join(" · ")}</p><div className={styles.pills}><span>{grade}</span>{purchase.slab_cert_number && <span>Cert {purchase.slab_cert_number}</span>}</div><strong className={styles.price}>{price}</strong><Link className={styles.seller} href={`/u/${encodeURIComponent(seller.username)}`}><Avatar profile={seller} width={42} height={42} /><span>Sold to you by <b>@{seller.username}</b><small>{soldOn}</small></span></Link></div>
+      <div className={styles.details}><p className={styles.eyebrow}>Confirm your purchase</p><h1>{title}</h1><p className={styles.edition}>{[(issueNumberText(purchase.issue_number) || null), purchase.variant_label || "Standard edition"].filter(Boolean).join(" · ")}</p><div className={styles.pills}><span>{grade}</span>{purchase.slab_cert_number && <span>Cert {purchase.slab_cert_number}</span>}</div><strong className={styles.price}>{price}</strong><Link className={styles.seller} href={`/u/${encodeURIComponent(seller.username)}`}><Avatar profile={seller} width={42} height={42} /><span>Sold to you by <b>@{seller.username}</b><small>{soldOn}</small></span></Link></div>
     </section>
     {photos.length > 0 && <section className={styles.photos} aria-labelledby="seller-photos"><h2 id="seller-photos">Seller's photos</h2><div>{photos.map((photo, index) => { const url = photoUrl(photo); return <button type="button" key={photo.storage_path || url || index} onClick={() => openPhoto(url)}><img src={url} alt={photo.kind || `Seller photo ${index + 1}`} /></button>; })}</div></section>}
     <section className={styles.explainer}><span aria-hidden="true">✓</span><p><strong>Add this exact copy to your collection</strong>Confirming adds this exact copy to your collection with its grade and photos. Only confirm once it's in your hands.</p></section>

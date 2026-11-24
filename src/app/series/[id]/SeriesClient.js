@@ -16,7 +16,7 @@ import { buildSeriesIntro } from "@/lib/seriesSeo";
 import KeyTimeline from "@/components/KeyTimeline";
 import { KeyRound } from "lucide-react";
 import { publisherHref } from "@/lib/publisherPages";
-import { isUnnumberedIssue, issueNumberSuffix } from "@/lib/issueNumberLabel";
+import { isUnnumberedIssue, issueNumberSuffix, issueNumberText } from "@/lib/issueNumberLabel";
 import { ageSpanLabel, heroKeyCovers } from "@/lib/seriesPage";
 import {
   buildRunQuickAddPayload,
@@ -919,7 +919,7 @@ export default function SeriesClient({ initialSeries = null, initialOwnMode = fa
                   <div className="comic-card-meta">
                     {isUnnumberedIssue(issue.issue_number)
                       ? series.format_tag || (series.format_noun === "one-shot" ? "One-shot" : "Book")
-                      : issue.issue_number ? `#${issue.issue_number}` : "Issue"}
+                      : issue.issue_number ? issueNumberText(issue.issue_number) : "Issue"}
                     {issue.title && issue.title !== series.title ? ` ${issue.title}` : ""}
                     {issue.release_year ? ` (${issue.release_year})` : ""}
                   </div>

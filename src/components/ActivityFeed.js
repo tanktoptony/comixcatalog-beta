@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 export default function ActivityFeed() {
   const [activity, setActivity] = useState([]);
@@ -60,7 +61,7 @@ export default function ActivityFeed() {
               const username = a?.profiles?.username || "Collector";
               const status = a?.verb || "added";
               const title = a?.comics?.series_title || "Unknown comic";
-              const issue = a?.comics?.issue_number ? ` #${a.comics.issue_number}` : "";
+              const issue = a?.comics?.issue_number ? ` ${issueNumberText(a.comics.issue_number)}` : "";
 
               return (
                 <li key={`${a.user_id}-${a.comic_id}-${a.created_at}-${i}`}>

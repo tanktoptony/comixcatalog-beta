@@ -19,6 +19,29 @@ export function formatGcdDate(value) {
   return Number(day) ? `${monthName} ${Number(day)}, ${year}` : `${monthName} ${year}`;
 }
 
+const SHORT_MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+// The year a book actually came out. Marvel and DC date covers about two
+// months ahead, so a book on sale Nov 18, 2026 says "January 2027" on the
+// cover. GCD's on_sale_date is the real release; null when GCD lacks it.
+export function onSaleYear(value) {
+  const match = String(value ?? "").trim().match(/^(\d{4})-(\d{2})/);
+  return match ? Number(match[1]) : null;
+}
+
+// The date chip on an issue page: "Out Nov 18, 2026" when GCD has the
+// on-sale date, else the cover date as before. `title` keeps the cover date
+// one hover away.
+export function issueDateChip(issue) {
+  const coverDate = issue?.display_date || null;
+  const match = String(issue?.details?.on_sale_date ?? "").trim().match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  const month = match ? SHORT_MONTHS[Number(match[2]) - 1] : null;
+  if (!match || !month) return coverDate ? { label: coverDate, title: null } : null;
+  const day = Number(match[3]);
+  const label = `Out ${day ? `${month} ${day}, ` : `${month} `}${match[1]}`;
+  return { label, title: coverDate ? `Cover date ${coverDate}` : null };
+}
+
 // "0.12 USD; 0.15 CAD" -> "$0.12 · 0.15 CAD". Only USD gets a symbol; other
 // currencies stay as GCD wrote them.
 const CURRENCY_SYMBOLS = { USD: "$", CAD: "$", GBP: "£" };

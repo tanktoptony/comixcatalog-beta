@@ -3,6 +3,7 @@ import { getAuthedUser } from "@/lib/authServer";
 import { resendBatch } from "@/lib/newsletter";
 import { reportSubmissionDecision, validateReportInput } from "@/lib/reports";
 import { getServiceClient } from "@/lib/supabase/service";
+import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 
 const SITE_URL = "https://www.comixcatalog.com";
 const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
@@ -48,7 +49,7 @@ async function loadTarget(supabase, report, reporterId) {
     if (error) throw error;
     if (!data) return null;
     if (data.seller_id === reporterId) return { own: true };
-    return { text: `${data.series_title}${data.issue_number ? ` #${data.issue_number}` : ""}`, url: `${SITE_URL}/listing/${data.id}` };
+    return { text: `${data.series_title}${issueNumberSuffix(data.issue_number)}`, url: `${SITE_URL}/listing/${data.id}` };
   }
   if (report.target_type === "user") {
     const { data, error } = await supabase.from("profiles").select("id, username").eq("id", report.target_id).maybeSingle();

@@ -1,9 +1,10 @@
 import { sendFeedbackRequestEmails, sendOrderEmails } from "./orderEmails.js";
 import { shipByLabel } from "./shipBy.js";
+import { issueNumberSuffix } from "./issueNumberLabel.js";
 
 export function orderSystemText(order, event) {
   const first = order.items?.[0] || order;
-  const book = `${first.series_title}${first.issue_number ? ` #${first.issue_number}` : ""}${order.items?.length > 1 ? ` and ${order.items.length - 1} more` : ""}`;
+  const book = `${first.series_title}${issueNumberSuffix(first.issue_number)}${order.items?.length > 1 ? ` and ${order.items.length - 1} more` : ""}`;
   if (event === "paid") {
     // Both sides read this note, and the inbox shows it as from ComixCatalog.
     return `${book} paid. The seller ships by ${shipByLabel(order.paid_at)}.`;

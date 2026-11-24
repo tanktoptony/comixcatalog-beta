@@ -4,6 +4,7 @@ import { getAuthedUser } from "@/lib/authServer";
 import { normalizeRequestInput, requestDedupeKey } from "@/lib/catalogRequests";
 import { notifyReviewQueue } from "@/lib/reviewQueueNotify";
 import { getServiceClient } from "@/lib/supabase/service";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 const MAX_PHOTO_BYTES = 8 * 1024 * 1024;
 const PHOTO_TYPES = new Map([
@@ -99,7 +100,7 @@ export async function POST(req) {
     console.error("catalog request insert failed", error);
     return NextResponse.json({ error: "Could not send your request." }, { status: 500 });
   }
-  const asked = [normalized.value.title, normalized.value.issue_number ? `#${normalized.value.issue_number}` : null].filter(Boolean).join(" ");
+  const asked = [normalized.value.title, (issueNumberText(normalized.value.issue_number) || null)].filter(Boolean).join(" ");
   after(() => notifyReviewQueue(supabase, { actorId: user.id, excerpt: `Asked for ${asked}`, tab: "requests" }));
   return NextResponse.json({ ok: true, id: requestId }, { status: 201 });
 }

@@ -11,3 +11,9 @@ export function issueNumberSuffix(value) {
   const s = String(value ?? "").trim();
   return s && !isUnnumberedIssue(s) ? ` #${s}` : "";
 }
+
+// "#12" for a numbered issue, "" for an unnumbered book or a missing number.
+export function issueNumberText(value) {
+  const s = String(value ?? "").trim();
+  return s && !isUnnumberedIssue(s) ? `#${s}` : "";
+}

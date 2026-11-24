@@ -12,6 +12,7 @@ import { trackEvent } from "@/lib/analytics";
 import { barcodeVerdict } from "@/lib/copyVersion";
 import { normalizeUpc, upcProblem } from "@/lib/printings";
 import { useBarcodeReader } from "@/components/useBarcodeReader";
+import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 
 // A version switch changes the library row's key (it includes the issue),
 // so React mounts a fresh editor once the library reloads. This carries
@@ -28,7 +29,7 @@ function takeRecentSwitch(collectionId) {
   return entry && Date.now() - entry.at < RECENT_MS ? entry.message : null;
 }
 
-const issueName = (row) => `${row.series_title}${row.issue_number ? ` #${row.issue_number}` : ""}${row.year ? ` (${row.year})` : ""}`;
+const issueName = (row) => `${row.series_title}${issueNumberSuffix(row.issue_number)}${row.year ? ` (${row.year})` : ""}`;
 
 function CameraPanel({ onUpc, onClose }) {
   const { videoRef, cameraState } = useBarcodeReader({ active: true, onUpc });

@@ -11,6 +11,7 @@ import BuyNowButton from "@/components/BuyNowButton";
 import { Suspense } from "react";
 import { TRUST_POINTS as TRUST_COPY, communityLine, discountLabel, guideGradeLabel, isUnderGuide, totalWithShipping } from "@/lib/marketplaceDeals";
 import { CreditCard, ShieldCheck, Truck } from "lucide-react";
+import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 
 // One copy for sale, Discogs item-page style: the copy, its condition, the
 // seller, the price, and the way to buy (Buy now when checkout takes the
@@ -22,7 +23,7 @@ export const revalidate = 120;
 const TRUST_ICONS = { card: CreditCard, truck: Truck, shield: ShieldCheck };
 const TRUST_POINTS = TRUST_COPY.map(([icon, title, copy]) => [TRUST_ICONS[icon], title, copy]);
 
-const titleOf = (l) => `${l.title}${l.issueNumber ? ` #${l.issueNumber}` : ""}`;
+const titleOf = (l) => `${l.title}${issueNumberSuffix(l.issueNumber)}`;
 
 export async function generateMetadata({ params }) {
   const { id } = await params;

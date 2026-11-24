@@ -7,6 +7,7 @@ import Avatar from "@/components/Avatar";
 import { authedFetch } from "@/lib/apiClient";
 import { coverThumb } from "@/lib/coverThumb";
 import styles from "./CollectorFeed.module.css";
+import { issueNumberText } from "@/lib/issueNumberLabel";
 
 const TABS = [{ id: "following", label: "Following" }, { id: "everyone", label: "Everyone" }];
 const DAY = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric" });
@@ -25,7 +26,7 @@ function ago(at) {
   return DAY.format(new Date(at));
 }
 
-const bookLabel = (book) => book.issue_number ? `${book.title} #${book.issue_number}` : book.title;
+const bookLabel = (book) => book.issue_number ? `${book.title} ${issueNumberText(book.issue_number)}` : book.title;
 
 function Phrase({ event }) {
   const n = event.count_is_floor ? `${count(event.count)}+` : count(event.count);

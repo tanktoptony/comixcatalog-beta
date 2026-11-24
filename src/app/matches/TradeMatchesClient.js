@@ -6,19 +6,20 @@ import { useAuth } from "@/context/AuthContext";
 import { authedFetch } from "@/lib/apiClient";
 import { coverThumb } from "@/lib/coverThumb";
 import Avatar from "@/components/Avatar";
+import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 
 function MatchCard({ match, mode }) {
   const first = mode === "have" ? match.youHave[0] : match.theyHave[0];
   const ask = mode === "have" ? "have" : "sell";
-  const about = first ? `${first.title}${first.issueNumber ? ` #${first.issueNumber}` : ""}` : "a comic";
+  const about = first ? `${first.title}${issueNumberSuffix(first.issueNumber)}` : "a comic";
   const messageHref = `/inbox/${encodeURIComponent(match.username)}?issue=${first?.id ?? ""}&ask=${ask}&about=${encodeURIComponent(about)}`;
   const open = new Set(match.openToTrade.map(String));
   const row = (books) => <div className="trade-cover-row">{books.slice(0, 6).map((book) => (
     <Link href={book.href} key={book.id} className="trade-cover">
       {book.coverUrl
         // eslint-disable-next-line @next/next/no-img-element -- Supabase storage covers, same as the rest of the site
-        ? <img src={coverThumb(book.coverUrl)} alt={`${book.title}${book.issueNumber ? ` #${book.issueNumber}` : ""}`} loading="lazy" />
-        : <em className="trade-cover-text">{book.title}{book.issueNumber ? ` #${book.issueNumber}` : ""}</em>}
+        ? <img src={coverThumb(book.coverUrl)} alt={`${book.title}${issueNumberSuffix(book.issueNumber)}`} loading="lazy" />
+        : <em className="trade-cover-text">{book.title}{issueNumberSuffix(book.issueNumber)}</em>}
       {open.has(String(book.id)) && <span>Open to trade</span>}
     </Link>
   ))}</div>;

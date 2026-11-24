@@ -6689,9 +6689,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T05:11:22.827985+00:00",
-    "retry_after": "2026-11-24T05:11:22.827988+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T05:14:06.062968+00:00",
+    "retry_after": "2026-12-24T05:14:06.062971+00:00",
     "search_hydrated": true
   },
   {
@@ -22522,9 +22522,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T05:11:22.827947+00:00",
-    "retry_after": "2026-11-24T05:11:22.827950+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T05:14:06.062931+00:00",
+    "retry_after": "2026-12-24T05:14:06.062934+00:00",
     "search_hydrated": true
   },
   {
@@ -83280,9 +83280,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T04:10:17.355519+00:00",
-    "retry_after": "2026-11-24T04:10:17.355537+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T05:14:06.062790+00:00",
+    "retry_after": "2026-12-24T05:14:06.062806+00:00",
     "search_hydrated": true
   },
   {
@@ -83394,9 +83394,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T04:10:17.355576+00:00",
-    "retry_after": "2026-11-24T04:10:17.355578+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T05:14:06.062853+00:00",
+    "retry_after": "2026-12-24T05:14:06.062858+00:00",
     "search_hydrated": true
   },
   {
@@ -83405,9 +83405,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T05:11:22.827867+00:00",
-    "retry_after": "2026-11-24T05:11:22.827882+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T05:14:06.062877+00:00",
+    "retry_after": "2026-12-24T05:14:06.062880+00:00",
     "search_hydrated": true
   },
   {
@@ -83416,9 +83416,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T05:11:22.827904+00:00",
-    "retry_after": "2026-11-24T05:11:22.827908+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T05:14:06.062894+00:00",
+    "retry_after": "2026-12-24T05:14:06.062896+00:00",
     "search_hydrated": true
   },
   {
@@ -97888,9 +97888,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T05:06:17.917143+00:00",
-    "retry_after": "2026-11-24T05:06:17.917162+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-24T05:09:05.564495+00:00",
+    "retry_after": "2026-11-27T05:09:05.564511+00:00",
     "search_hydrated": true
   },
   {
@@ -99550,6 +99550,144 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-24T04:17:36.391698+00:00",
     "retry_after": "2026-11-25T04:17:36.391702+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Futurians by Dave Cockrum",
+    "publisher": "Lodestone",
+    "year": 1985,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78596,
+        "name": "The Futurians",
+        "publisher": "Eternity",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T05:02:22.276356+00:00",
+    "retry_after": "2026-11-25T05:02:22.276374+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Spirit",
+    "publisher": "Kitchen Sink Press",
+    "year": 1977,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36486,
+        "name": "The Spirit",
+        "publisher": "Register and Tribune Syndicate",
+        "start_year": 1940
+      },
+      {
+        "id": 46826,
+        "name": "The Spirit",
+        "publisher": "Norma Editorial",
+        "start_year": 1988
+      },
+      {
+        "id": 18509,
+        "name": "The Spirit",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      },
+      {
+        "id": 2929,
+        "name": "The Spirit",
+        "publisher": "Kitchen Sink",
+        "start_year": 1977
+      },
+      {
+        "id": 34245,
+        "name": "The Spirit",
+        "publisher": "Quality Comics",
+        "start_year": 1944
+      },
+      {
+        "id": 162286,
+        "name": "Spirit",
+        "publisher": "Garbo Editorial",
+        "start_year": 1975
+      },
+      {
+        "id": 2705,
+        "name": "The Spirit",
+        "publisher": "Warren",
+        "start_year": 1974
+      },
+      {
+        "id": 1483,
+        "name": "The Spirit",
+        "publisher": "Fiction House",
+        "start_year": 1952
+      },
+      {
+        "id": 44685,
+        "name": "The Spirit",
+        "publisher": null,
+        "start_year": 1955
+      },
+      {
+        "id": 2661,
+        "name": "The Spirit",
+        "publisher": "Kitchen Sink",
+        "start_year": 1973
+      },
+      {
+        "id": 51594,
+        "name": "The Spirit",
+        "publisher": "Boardman Books (TV Boardman Ltd)",
+        "start_year": 1948
+      },
+      {
+        "id": 69329,
+        "name": "The Spirit",
+        "publisher": "Gredown",
+        "start_year": 1978
+      },
+      {
+        "id": 3251,
+        "name": "The Spirit",
+        "publisher": "Kitchen Sink",
+        "start_year": 1983
+      },
+      {
+        "id": 32663,
+        "name": "The Spirit",
+        "publisher": "DC Comics",
+        "start_year": 2010
+      },
+      {
+        "id": 158829,
+        "name": "The Spirit",
+        "publisher": "Bell Features",
+        "start_year": 1949
+      },
+      {
+        "id": 31032,
+        "name": "The Spirit",
+        "publisher": "DC Comics",
+        "start_year": 2008
+      },
+      {
+        "id": 2288,
+        "name": "Spirit",
+        "publisher": "Harvey",
+        "start_year": 1966
+      },
+      {
+        "id": 64165,
+        "name": "The Spirit",
+        "publisher": "I.W. Publishing",
+        "start_year": 1963
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T05:05:01.467715+00:00",
+    "retry_after": "2026-11-25T05:05:01.467730+00:00",
     "search_hydrated": true
   }
 ]

@@ -11,7 +11,7 @@ import { NextResponse } from "next/server";
 import { getAuthedUser } from "@/lib/authServer";
 import { getServiceClient } from "@/lib/supabase/service";
 import { getIssuePageData, resolveIssueEdition } from "@/lib/pageData";
-import { isPickedCatalogCover, labelForVersion, versionChoices } from "@/lib/copyVersion";
+import { isPickedCatalogCover, labelForVersion, unmatchedCovers, versionChoices } from "@/lib/copyVersion";
 import { refreshListingSnapshots, revalidateListings } from "@/lib/marketplace";
 
 const toId = (value) => {
@@ -27,7 +27,7 @@ export async function GET(req) {
     if (!edition) return NextResponse.json({ error: "Issue not found" }, { status: 404 });
     const issue = await getIssuePageData(edition.baseGcdId, edition.baseGcdId, edition.hasEditionColumns);
     if (!issue) return NextResponse.json({ error: "Issue not found" }, { status: 404 });
-    return NextResponse.json({ base_gcd_issue_id: edition.baseGcdId, versions: versionChoices(issue) });
+    return NextResponse.json({ base_gcd_issue_id: edition.baseGcdId, versions: versionChoices(issue), covers: unmatchedCovers(issue) });
   } catch (error) {
     console.error("GET /api/collection/version failed:", error);
     return NextResponse.json({ error: "Could not load the versions of this issue." }, { status: 500 });

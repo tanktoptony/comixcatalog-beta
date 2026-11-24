@@ -58,6 +58,24 @@ export function versionChoices(issue) {
   }).filter((version) => version.gcdId);
 }
 
+// Pictures on file for this issue that nothing ties to one version. ComicVine
+// leaves nearly every variant image unlabeled, so only the collector can say
+// which one is theirs. Picking one changes the copy's picture, not its version.
+export function unmatchedCovers(issue) {
+  const matched = matchVariantCovers(issue?.versions, issue?.variants, {
+    baseGcdId: toId(issue?.base_gcd_issue_id),
+    seriesTitle: issue?.series_title,
+  });
+  const seen = new Set([issue?.cover]);
+  const covers = [];
+  for (const image of matched) {
+    if (image.versionGcdId || !isPickedCatalogCover(image.storageUrl) || seen.has(image.storageUrl)) continue;
+    seen.add(image.storageUrl);
+    covers.push({ id: image.id, url: image.storageUrl, thumb: coverThumb(image.storageUrl) });
+  }
+  return covers;
+}
+
 // What the library prints in brackets after the title. The regular edition
 // needs no label; anything else says which version it is.
 export function labelForVersion({ gcdId, baseGcdId, variantName }) {

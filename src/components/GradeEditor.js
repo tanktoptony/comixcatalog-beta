@@ -226,6 +226,20 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
     }
   }
 
+  // A catalog picture the collector says is their copy. Asks for the row back
+  // because an update that matches nothing is not an error in Supabase.
+  async function handlePickCover(url) {
+    const { data, error: dbErr } = await getSupabaseClient()
+      .from("user_collections")
+      .update({ user_cover_url: url })
+      .eq("id", collectionId)
+      .select("id");
+    if (dbErr) throw dbErr;
+    if (!data?.length) throw new Error("That copy was not updated.");
+    setUserCoverUrl(url);
+    onSave?.({ user_cover_url: url });
+  }
+
   async function handleRemoveCover() {
     if (!collectionId) return;
     setUploading(true);
@@ -360,7 +374,7 @@ export default function GradeEditor({ collectionId, initialData = {}, canonicalC
         <div className="grade-editor-panel">
 
           {gcdIssueId && collectionId && (
-            <CopyVersionPicker collectionId={collectionId} gcdIssueId={gcdIssueId} onSwitched={handleVersionSwitched} />
+            <CopyVersionPicker collectionId={collectionId} gcdIssueId={gcdIssueId} userCoverUrl={userCoverUrl} onSwitched={handleVersionSwitched} onPickCover={handlePickCover} />
           )}
 
           {(initialData.status === "owned" || initialData.status === "for_sale") && (

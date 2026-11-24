@@ -14035,6 +14035,9 @@ select.input {
 .issue-value-card { display: grid; gap: 6px; margin: 0 0 14px; padding: 18px; border: 1px solid var(--cc-line); border-radius: 14px; background: var(--cc-surface); }
 .issue-value-card strong { color: var(--cc-gold); font-family: var(--font-display); font-size: 2.25rem; line-height: 1; }
 .issue-value-card small { color: var(--cc-text-muted); }
+.issue-copy-value { margin: 10px 0 0; color: var(--cc-gold); font-size: .92rem; }
+.issue-copy-value a, .issue-copy-value span { color: var(--cc-text-muted); }
+.issue-copy-value a:hover { color: var(--cc-gold); text-decoration: underline; }
 .issue-community-counts { display: grid; gap: 4px; padding: 14px 16px; border: 1px solid var(--cc-line); border-radius: 12px; color: var(--cc-text); background: var(--cc-surface); font-size: 0.86rem; line-height: 1.45; }
 .issue-community-counts small { color: var(--cc-text-muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; }
 .issue-kicker { color: var(--cc-text-muted); font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }

@@ -14,6 +14,7 @@ import { SLOT } from "@/lib/houseAds";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import GradeEditor from "@/components/GradeEditor";
 import { countCopies } from "@/lib/libraryMutations";
+import { copyGradeLabel, guideCopyValue } from "@/lib/guideCopyValue";
 import { publisherHref } from "@/lib/publisherPages";
 import { issueNumberSuffix, issueNumberText } from "@/lib/issueNumberLabel";
 import { buildIssueDetailsRows, humanizeStoryType, issueDateChip, parseGcdCreditList, stripGcdCharacterNoise } from "@/lib/issueDetails";
@@ -254,6 +255,10 @@ export default function IssueClient({ initialIssue = null }) {
     ?? null;
   const copyCount = countCopies(issueRows);
   const gradeData = collectionRow && gradeEdits.id === collectionRow.id ? gradeEdits.data : null;
+  // This copy's value follows its saved grade right away.
+  const myCopy = user && collectionRow ? { ...collectionRow, ...(gradeData ?? {}) } : null;
+  const myGrade = copyGradeLabel(myCopy);
+  const myValue = guideCopyValue(issue?.price_guide, myCopy);
   function setGradeData(copyId, patch) {
     setGradeEdits((prev) => ({ id: copyId, data: { ...(prev.id === copyId ? prev.data : null), ...patch } }));
   }
@@ -664,8 +669,23 @@ export default function IssueClient({ initialIssue = null }) {
             <aside className="issue-hero-rail">
               {issue.price_guide?.ungraded != null ? (
                 <div className="issue-value-card">
-                  <span className="issue-kicker">Ungraded value</span>
-                  <strong>{guideMoney(issue.price_guide.ungraded)}</strong>
+                  {myValue && (myGrade || myValue.mine) ? (
+                    <>
+                      <span className="issue-kicker">
+                        {copyCount > 1 ? `Your copy ${myCopy.copy_number ?? 1}` : "Your copy"} · {myValue.mine ? "your estimate" : myGrade}
+                      </span>
+                      <strong>{guideMoney(myValue.value)}</strong>
+                      {myValue.graded_at && (
+                        <small>Graded {myValue.graded_at.grade}: {guideMoney(myValue.graded_at.value)}</small>
+                      )}
+                      {myValue.value !== issue.price_guide.ungraded && <small>Ungraded value {guideMoney(issue.price_guide.ungraded)}</small>}
+                    </>
+                  ) : (
+                    <>
+                      <span className="issue-kicker">Ungraded value</span>
+                      <strong>{guideMoney(issue.price_guide.ungraded)}</strong>
+                    </>
+                  )}
                   <small>
                     <a href={issue.price_guide.url} target="_blank" rel="noopener" className="issue-pc-credit">
                       Price guide by PriceCharting
@@ -866,6 +886,26 @@ export default function IssueClient({ initialIssue = null }) {
                   }}
                   onSave={(updated) => { setGradeData(collectionRow.id, updated); refreshLibrary({ background: true }); }}
                 />
+                {myValue && (
+                  <p className="issue-copy-value" aria-live="polite">
+                    Worth {myValue.mine ? "" : "~"}{guideMoney(myValue.value)}{" "}
+                    {myValue.mine ? (
+                      <span>(your estimate)</span>
+                    ) : (
+                      <a href={issue.price_guide.url} target="_blank" rel="noopener">
+                        ({myValue.graded ? myGrade : "raw"}, PriceCharting)
+                      </a>
+                    )}
+                    {myValue.graded_at && (
+                      <>
+                        {" · "}
+                        <a href={issue.price_guide.url} target="_blank" rel="noopener">
+                          Graded {myValue.graded_at.grade}: {guideMoney(myValue.graded_at.value)}
+                        </a>
+                      </>
+                    )}
+                  </p>
+                )}
               </div>
             )}
 

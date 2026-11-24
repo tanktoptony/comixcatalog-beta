@@ -3,10 +3,12 @@
     "name": "What If? Avengers Disassembled",
     "publisher": "Marvel Comics",
     "year": 2007,
-    "reason": "publisher_mismatch",
+    "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.553852+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-24T08:36:38.431368+00:00",
+    "retry_after": "2026-11-27T08:36:38.431372+00:00",
+    "search_hydrated": true
   },
   {
     "name": "The Mishkin File",
@@ -6774,9 +6776,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T08:10:47.086905+00:00",
-    "retry_after": "2026-11-24T08:10:47.086921+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T08:47:32.787483+00:00",
+    "retry_after": "2026-12-24T08:47:32.787501+00:00",
     "search_hydrated": true
   },
   {
@@ -11566,7 +11568,9 @@
       }
     ],
     "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556456+00:00"
+    "last_attempt_at": "2026-11-24T08:37:35.795579+00:00",
+    "retry_after": "2026-11-25T08:37:35.795596+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Fast Fiction",
@@ -39931,9 +39935,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T08:10:47.086941+00:00",
-    "retry_after": "2026-11-24T08:10:47.086945+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T08:47:32.787522+00:00",
+    "retry_after": "2026-12-24T08:47:32.787527+00:00",
     "search_hydrated": true
   },
   {
@@ -89082,9 +89086,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T19:10:45.503866+00:00",
-    "retry_after": "2026-11-20T19:10:45.503870+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T08:47:32.787570+00:00",
+    "retry_after": "2026-12-08T08:47:32.787574+00:00",
     "search_hydrated": true
   },
   {
@@ -89093,9 +89097,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-13T19:10:45.503884+00:00",
-    "retry_after": "2026-11-20T19:10:45.503887+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T08:47:32.787587+00:00",
+    "retry_after": "2026-12-08T08:47:32.787590+00:00",
     "search_hydrated": true
   },
   {
@@ -96108,9 +96112,9 @@
     "year": 1993,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T08:02:25.947247+00:00",
-    "retry_after": "2026-11-24T08:02:25.947266+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T08:36:38.431174+00:00",
+    "retry_after": "2026-12-01T08:36:38.431191+00:00",
     "search_hydrated": true
   },
   {
@@ -99967,6 +99971,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-24T08:10:57.320992+00:00",
     "retry_after": "2026-11-25T08:10:57.321010+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Livingstone Mountain",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63545,
+        "name": "Livingstone Mountain",
+        "publisher": "Adventure",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T08:36:38.431298+00:00",
+    "retry_after": "2026-11-25T08:36:38.431303+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "FCBD 2015: Valiant 25th Anniversary Special",
+    "publisher": "Valiant Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T08:47:43.311837+00:00",
+    "retry_after": "2026-11-25T08:47:43.311854+00:00",
     "search_hydrated": true
   }
 ]

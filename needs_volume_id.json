@@ -33511,9 +33511,10 @@
     "year": 1998,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-04T00:12:17.576051+00:00",
-    "retry_after": "2026-10-11T00:12:17.576068+00:00"
+    "attempts": 4,
+    "last_attempt_at": "2026-11-24T22:03:06.727380+00:00",
+    "retry_after": "2026-12-08T22:03:06.727400+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Driving Mother Up the Wall",
@@ -48731,9 +48732,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T21:10:54.241847+00:00",
-    "retry_after": "2026-11-24T21:10:54.241850+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T22:07:21.412253+00:00",
+    "retry_after": "2026-12-24T22:07:21.412255+00:00",
     "search_hydrated": true
   },
   {
@@ -50312,9 +50313,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T21:10:54.241827+00:00",
-    "retry_after": "2026-11-24T21:10:54.241831+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T22:07:21.412240+00:00",
+    "retry_after": "2026-12-24T22:07:21.412243+00:00",
     "search_hydrated": true
   },
   {
@@ -51041,9 +51042,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T21:10:54.241788+00:00",
-    "retry_after": "2026-11-24T21:10:54.241803+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T22:07:21.412203+00:00",
+    "retry_after": "2026-12-24T22:07:21.412221+00:00",
     "search_hydrated": true
   },
   {
@@ -57659,9 +57660,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T21:10:54.241863+00:00",
-    "retry_after": "2026-11-24T21:10:54.241865+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T22:07:21.412263+00:00",
+    "retry_after": "2026-12-24T22:07:21.412265+00:00",
     "search_hydrated": true
   },
   {
@@ -96726,9 +96727,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T22:02:12.041192+00:00",
-    "retry_after": "2026-11-24T22:02:12.041198+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T22:02:38.720222+00:00",
+    "retry_after": "2026-12-01T22:02:38.720239+00:00",
     "search_hydrated": true
   },
   {
@@ -100082,6 +100083,251 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-24T21:09:13.431657+00:00",
     "retry_after": "2026-11-25T21:09:13.431675+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wizard in Training",
+    "publisher": "Upper Deck",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 86505,
+        "name": "Wizard in Training",
+        "publisher": "Unknown Publisher",
+        "start_year": null
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T22:02:10.796131+00:00",
+    "retry_after": "2026-11-25T22:02:10.796149+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Futurians by Dave Cockrum",
+    "publisher": "Lodestone",
+    "year": 1985,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78596,
+        "name": "The Futurians",
+        "publisher": "Eternity",
+        "start_year": 1987
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T22:02:11.427814+00:00",
+    "retry_after": "2026-11-25T22:02:11.427833+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "French Ticklers",
+    "publisher": "Kitchen Sink Press",
+    "year": 1989,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 41077,
+        "name": "French Ticklers",
+        "publisher": "Kitchen Sink",
+        "start_year": 1989
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T22:02:11.427866+00:00",
+    "retry_after": "2026-11-25T22:02:11.427868+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vampi Digital Preview",
+    "publisher": "ParaGraphics",
+    "year": 2001,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 48954,
+        "name": "Vampi Digital Preview",
+        "publisher": "Anarchy Studios",
+        "start_year": 2001
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T22:02:21.965907+00:00",
+    "retry_after": "2026-11-25T22:02:21.965926+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Creed/Teenage Mutant Ninja Turtles",
+    "publisher": "Lightning Comics [1990s]",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 33473,
+        "name": "CreeD/Teenage Mutant Ninja Turtles",
+        "publisher": "Lightning Comics",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T22:02:21.965950+00:00",
+    "retry_after": "2026-11-25T22:02:21.965952+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Die-Cut",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20631,
+        "name": "Die-Cut",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T22:02:38.720263+00:00",
+    "retry_after": "2026-11-25T22:02:38.720266+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Digitek",
+    "publisher": "Marvel Comics",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 18451,
+        "name": "Digitek",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1992
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T22:02:38.720281+00:00",
+    "retry_after": "2026-11-25T22:02:38.720283+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Freak Snow",
+    "publisher": "Behemoth Comics",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 136775,
+        "name": "Freak Snow",
+        "publisher": "Happy Tank",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T22:02:38.720295+00:00",
+    "retry_after": "2026-11-25T22:02:38.720297+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Livingstone Mountain",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 63545,
+        "name": "Livingstone Mountain",
+        "publisher": "Adventure",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T22:02:38.720308+00:00",
+    "retry_after": "2026-11-25T22:02:38.720310+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Action Hour",
+    "publisher": "Panini UK",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53527,
+        "name": "Marvel Action Hour",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T22:02:38.720331+00:00",
+    "retry_after": "2026-11-25T22:02:38.720333+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Psychoanalysis",
+    "publisher": "Gemstone",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 1734,
+        "name": "Psychoanalysis",
+        "publisher": "EC",
+        "start_year": 1955
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T22:02:48.901384+00:00",
+    "retry_after": "2026-11-25T22:02:48.901401+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Shadow Riders",
+    "publisher": "Marvel Comics",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27172,
+        "name": "Shadow Riders",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T22:02:48.901420+00:00",
+    "retry_after": "2026-11-25T22:02:48.901422+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Terror on the Planet of the Apes",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62074,
+        "name": "Terror on the Planet of the Apes",
+        "publisher": "Adventure",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T22:02:48.901435+00:00",
+    "retry_after": "2026-11-25T22:02:48.901437+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Free Comic Book Day and Nickelodeon Avatar: The Last Airbender / Free Comic Book Day and Star Wars: The Clone Wars",
+    "publisher": "Dark Horse Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T22:03:06.727429+00:00",
+    "retry_after": "2026-11-25T22:03:06.727431+00:00",
     "search_hydrated": true
   }
 ]

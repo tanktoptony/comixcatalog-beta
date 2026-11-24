@@ -6319,9 +6319,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T22:11:36.478403+00:00",
-    "retry_after": "2026-11-24T22:11:36.478418+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T23:07:11.990161+00:00",
+    "retry_after": "2026-12-24T23:07:11.990178+00:00",
     "search_hydrated": true
   },
   {
@@ -10210,21 +10210,21 @@
     "reason": "multiple_same_start_year_tied",
     "candidates": [
       {
-        "id": 147646,
-        "name": "Sins of Sinister",
-        "publisher": "Marvel",
-        "start_year": 2023
-      },
-      {
         "id": 153615,
         "name": "Sins of Sinister ",
         "publisher": "Marvel",
         "start_year": 2023
+      },
+      {
+        "id": 147646,
+        "name": "Sins of Sinister",
+        "publisher": "Marvel",
+        "start_year": 2023
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T22:07:58.414637+00:00",
-    "retry_after": "2026-11-24T22:07:58.414658+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-24T23:02:51.873587+00:00",
+    "retry_after": "2026-11-27T23:02:51.873605+00:00",
     "search_hydrated": true
   },
   {
@@ -28781,9 +28781,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T22:11:36.478487+00:00",
-    "retry_after": "2026-11-24T22:11:36.478491+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T23:07:11.990221+00:00",
+    "retry_after": "2026-12-24T23:07:11.990225+00:00",
     "search_hydrated": true
   },
   {
@@ -33997,9 +33997,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T22:11:36.478523+00:00",
-    "retry_after": "2026-11-24T22:11:36.478525+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-24T23:07:11.990237+00:00",
+    "retry_after": "2026-12-24T23:07:11.990240+00:00",
     "search_hydrated": true
   },
   {
@@ -95739,9 +95739,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T00:03:35.302908+00:00",
-    "retry_after": "2026-11-24T00:03:35.302909+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T23:03:41.179591+00:00",
+    "retry_after": "2026-12-01T23:03:41.179593+00:00",
     "search_hydrated": true
   },
   {
@@ -96048,9 +96048,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T08:02:48.048805+00:00",
-    "retry_after": "2026-11-24T08:02:48.048811+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T23:03:17.946414+00:00",
+    "retry_after": "2026-12-01T23:03:17.946417+00:00",
     "search_hydrated": true
   },
   {
@@ -96625,9 +96625,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T19:02:25.903690+00:00",
-    "retry_after": "2026-11-24T19:02:25.903702+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-24T23:02:33.757661+00:00",
+    "retry_after": "2026-12-01T23:02:33.757677+00:00",
     "search_hydrated": true
   },
   {
@@ -98146,9 +98146,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T19:04:11.932840+00:00",
-    "retry_after": "2026-11-24T19:04:11.932842+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-24T23:02:51.873739+00:00",
+    "retry_after": "2026-11-27T23:02:51.873744+00:00",
     "search_hydrated": true
   },
   {
@@ -98234,9 +98234,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T21:04:45.413068+00:00",
-    "retry_after": "2026-11-24T21:04:45.413083+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-24T23:03:17.946380+00:00",
+    "retry_after": "2026-11-27T23:03:17.946395+00:00",
     "search_hydrated": true
   },
   {
@@ -98245,9 +98245,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T21:04:45.413198+00:00",
-    "retry_after": "2026-11-24T21:04:45.413202+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-24T23:03:41.179297+00:00",
+    "retry_after": "2026-11-27T23:03:41.179316+00:00",
     "search_hydrated": true
   },
   {
@@ -98256,9 +98256,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T21:04:45.413243+00:00",
-    "retry_after": "2026-11-24T21:04:45.413247+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-24T23:03:41.179346+00:00",
+    "retry_after": "2026-11-27T23:03:41.179350+00:00",
     "search_hydrated": true
   },
   {
@@ -98267,9 +98267,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T22:15:20.250298+00:00",
-    "retry_after": "2026-11-24T22:15:20.250319+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-24T23:07:25.307072+00:00",
+    "retry_after": "2026-11-27T23:07:25.307090+00:00",
     "search_hydrated": true
   },
   {
@@ -100328,6 +100328,138 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-24T22:03:06.727429+00:00",
     "retry_after": "2026-11-25T22:03:06.727431+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Crime Suspenstories",
+    "publisher": "Russ Cochran",
+    "year": 1992,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 57775,
+        "name": "Crime Suspenstories",
+        "publisher": "Gemstone",
+        "start_year": 1992
+      },
+      {
+        "id": 1373,
+        "name": "Crime SuspenStories",
+        "publisher": "EC",
+        "start_year": 1950
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T23:02:14.167066+00:00",
+    "retry_after": "2026-11-25T23:02:14.167083+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cable TV",
+    "publisher": "Entity-Parody",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22957,
+        "name": "Cable TV",
+        "publisher": "Express Publications",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T23:02:14.167119+00:00",
+    "retry_after": "2026-11-25T23:02:14.167123+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Corporate Ninja",
+    "publisher": "Slave Labor",
+    "year": 2005,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 24559,
+        "name": "Corporate Ninja",
+        "publisher": "SLG Publishing",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T23:02:33.757729+00:00",
+    "retry_after": "2026-11-25T23:02:33.757732+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Witchblade / Tomb Raider",
+    "publisher": "Image; Wizard",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 74149,
+        "name": "Witchblade / Tomb Raider",
+        "publisher": "Image",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T23:02:33.757753+00:00",
+    "retry_after": "2026-11-25T23:02:33.757756+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Rock Heads",
+    "publisher": "Solson Publications",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 76428,
+        "name": "Rock Heads",
+        "publisher": "Solson-Lubert Publications",
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T23:03:41.179461+00:00",
+    "retry_after": "2026-11-25T23:03:41.179464+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marineman",
+    "publisher": "Glénat",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 37098,
+        "name": "Marineman",
+        "publisher": "Image",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T23:03:41.179513+00:00",
+    "retry_after": "2026-11-25T23:03:41.179516+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Clock!",
+    "publisher": "Top Shelf",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 53375,
+        "name": "Clock!",
+        "publisher": "Zoo Arsonist Press",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-24T23:03:41.179536+00:00",
+    "retry_after": "2026-11-25T23:03:41.179538+00:00",
     "search_hydrated": true
   }
 ]

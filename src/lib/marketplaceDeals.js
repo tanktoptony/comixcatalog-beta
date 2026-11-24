@@ -9,6 +9,14 @@ export function isUnderGuide(listing) {
   return discount != null && discount >= 0.05;
 }
 
+// The asking price is the guide value, to the cent: printing both says the
+// same number twice.
+export function isAtGuide(listing) {
+  const price = listing?.price;
+  const guide = listing?.guide?.value;
+  return price != null && guide != null && Math.round(Number(price) * 100) === Math.round(Number(guide) * 100);
+}
+
 export function totalWithShipping(listing) {
   return listing?.price != null && listing?.shipping != null
     ? Number(listing.price) + Number(listing.shipping)

@@ -33,6 +33,10 @@
 
 **Pricing shown**
 - Buyers only see the seller's price (`price_cents`). Unpriced listings read "Open to offers" on browse, listing, issue and profile pages, in page metadata, and in wantlist matches. Price sorts, the price facet and the "Highest priced" shelf ignore unpriced listings.
+- Prices, guide values and totals show to the cent (`formatValue`, `src/lib/marketplaceFormat.js`). Cards hide the guide line when it equals the price.
+- A collected edition reads "Vol. 4 TPB", not "#4" (`listingName`; the tag comes from `gcd_series` format, so an unsynced series keeps its plain number).
+- Shipping (2026-11-24): pricing a listing requires a shipping price, 0 for free (`shippingError`, `src/lib/listingEdit.js`). Listings priced before that show "Shipping not set", and checkout charges $0 shipping on them. Migration 0120 makes checkout refuse them; it is NOT applied until those listings have a shipping price.
+- `/listing/[id]` renders Buy now on the server for a copy checkout accepts, signed out included; pressing it signed out goes to `/login?next=` and back. The seller sees neither Buy now nor Make an offer on their own book.
 - The estimate (`market_value`, else eBay asking-price `auto_market_value`) is only shown to the seller, in the library and `ListingEditor`, as a pricing hint.
 
 **Fees**

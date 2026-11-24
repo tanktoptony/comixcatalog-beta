@@ -60,6 +60,7 @@ export async function startDatabase() {
   const orderItemsMigration = await readFile(new URL("../../scripts/migrations/0085_order_items.sql", import.meta.url), "utf8");
   const modeSwitchMigration = await readFile(new URL("../../scripts/migrations/0090_seller_account_mode_switch.sql", import.meta.url), "utf8");
   const needsConditionMigration = await readFile(new URL("../../scripts/migrations/0093_checkout_needs_condition.sql", import.meta.url), "utf8");
+  const needsShippingMigration = await readFile(new URL("../../scripts/migrations/0120_checkout_needs_shipping.sql", import.meta.url), "utf8");
   await client.query(fixture);
   await client.query(migration);
   await client.query(sellersMigration);
@@ -72,6 +73,7 @@ export async function startDatabase() {
   await client.query(orderItemsMigration);
   await client.query(modeSwitchMigration);
   await client.query(needsConditionMigration);
+  await client.query(needsShippingMigration);
   await client.end();
 }
 

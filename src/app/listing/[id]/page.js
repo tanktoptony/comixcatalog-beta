@@ -1,17 +1,15 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getListing, getListingsForIssue } from "@/lib/marketplace";
-import { conditionLabel, contactLabel, formatValue, offerHref, shippingLabel } from "@/lib/marketplaceFormat";
+import { conditionLabel, contactLabel, formatValue, listingName, offerHref, shippingLabel } from "@/lib/marketplaceFormat";
 import { SITE_URL } from "@/lib/siteUrl";
 import ListingGallery from "@/components/ListingGallery";
 import { safeJsonLd } from "@/lib/jsonLd";
 import ReportButton from "@/components/ReportButton";
 import MarkSoldButton from "@/components/MarkSoldButton";
 import BuyNowButton from "@/components/BuyNowButton";
-import { Suspense } from "react";
 import { TRUST_POINTS as TRUST_COPY, communityLine, discountLabel, guideGradeLabel, isUnderGuide, totalWithShipping } from "@/lib/marketplaceDeals";
 import { CreditCard, ShieldCheck, Truck } from "lucide-react";
-import { issueNumberSuffix } from "@/lib/issueNumberLabel";
 
 // One copy for sale, Discogs item-page style: the copy, its condition, the
 // seller, the price, and the way to buy (Buy now when checkout takes the
@@ -23,7 +21,7 @@ export const revalidate = 120;
 const TRUST_ICONS = { card: CreditCard, truck: Truck, shield: ShieldCheck };
 const TRUST_POINTS = TRUST_COPY.map(([icon, title, copy]) => [TRUST_ICONS[icon], title, copy]);
 
-const titleOf = (l) => `${l.title}${issueNumberSuffix(l.issueNumber)}`;
+const titleOf = listingName;
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
@@ -125,7 +123,7 @@ export default async function ListingPage({ params }) {
                     <b>Open to offers</b>
                   )}
                 </div>
-                {shippingLabel(l) && <div className="lp-ship">{shippingLabel(l)}</div>}
+                {l.price != null && <div className="lp-ship">{shippingLabel(l) ?? "Shipping not set"}</div>}
                 {total != null && l.shipping > 0 && <div className="lp-total">{formatValue(total)} total with shipping</div>}
                 {l.guide?.url && (
                   <div className="lp-guide">
@@ -138,14 +136,23 @@ export default async function ListingPage({ params }) {
                 )}
                 {reserved ? (
                   <div className="lp-status">On hold</div>
-                ) : l.price != null ? (
-                  <Suspense fallback={offerBlock}>
-                    <BuyNowButton listingId={l.id} totalCents={Math.round((l.price + (l.shipping || 0)) * 100)} shippingCents={Math.round((l.shipping || 0) * 100)} otherListings={l.sellerInfo.pricedListings} seller={l.seller} additionalShippingCents={l.sellerInfo.additionalShippingCents} offerHref={offerHref(l)} offerLabel={contactLabel(l)}>
-                      {offerBlock}
-                    </BuyNowButton>
-                  </Suspense>
                 ) : (
-                  offerBlock
+                  <BuyNowButton
+                    listingId={l.id}
+                    sellerId={l.sellerInfo.id}
+                    buyable={l.buyNow}
+                    priced={l.price != null}
+                    shippingSet={l.shipping != null}
+                    totalCents={Math.round(((l.price || 0) + (l.shipping || 0)) * 100)}
+                    shippingCents={Math.round((l.shipping || 0) * 100)}
+                    otherListings={l.sellerInfo.pricedListings}
+                    seller={l.seller}
+                    additionalShippingCents={l.sellerInfo.additionalShippingCents}
+                    offerHref={offerHref(l)}
+                    offerLabel={contactLabel(l)}
+                  >
+                    {offerBlock}
+                  </BuyNowButton>
                 )}
                 <MarkSoldButton
                   collectionItemId={l.collectionId}

@@ -11522,8 +11522,8 @@
       }
     ],
     "attempts": 5,
-    "last_attempt_at": "2026-11-24T19:58:56.959889+00:00",
-    "retry_after": "2026-12-24T19:58:56.959905+00:00",
+    "last_attempt_at": "2026-11-24T20:07:53.231283+00:00",
+    "retry_after": "2026-12-24T20:07:53.231299+00:00",
     "search_hydrated": true
   },
   {
@@ -15208,8 +15208,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 2,
-    "last_attempt_at": "2026-11-24T19:58:56.960036+00:00",
-    "retry_after": "2026-11-27T19:58:56.960038+00:00",
+    "last_attempt_at": "2026-11-24T20:07:53.231465+00:00",
+    "retry_after": "2026-11-27T20:07:53.231467+00:00",
     "search_hydrated": true
   },
   {
@@ -22904,8 +22904,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 4,
-    "last_attempt_at": "2026-11-24T20:00:25.471200+00:00",
-    "retry_after": "2026-12-08T20:00:25.471216+00:00",
+    "last_attempt_at": "2026-11-24T20:08:55.651649+00:00",
+    "retry_after": "2026-12-08T20:08:55.651664+00:00",
     "search_hydrated": true
   },
   {
@@ -28614,8 +28614,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-24T20:04:06.549758+00:00",
-    "retry_after": "2026-12-24T20:04:06.549762+00:00",
+    "last_attempt_at": "2026-11-24T20:09:40.453672+00:00",
+    "retry_after": "2026-12-24T20:09:40.453677+00:00",
     "search_hydrated": true
   },
   {
@@ -39085,8 +39085,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 4,
-    "last_attempt_at": "2026-11-24T20:00:25.471234+00:00",
-    "retry_after": "2026-12-08T20:00:25.471237+00:00",
+    "last_attempt_at": "2026-11-24T20:08:55.651686+00:00",
+    "retry_after": "2026-12-08T20:08:55.651689+00:00",
     "search_hydrated": true
   },
   {
@@ -83944,8 +83944,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-24T20:04:06.549687+00:00",
-    "retry_after": "2026-12-24T20:04:06.549704+00:00",
+    "last_attempt_at": "2026-11-24T20:09:40.453579+00:00",
+    "retry_after": "2026-12-24T20:09:40.453601+00:00",
     "search_hydrated": true
   },
   {
@@ -92205,8 +92205,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 4,
-    "last_attempt_at": "2026-11-24T20:04:06.549816+00:00",
-    "retry_after": "2026-12-08T20:04:06.549818+00:00",
+    "last_attempt_at": "2026-11-24T20:09:40.453750+00:00",
+    "retry_after": "2026-12-08T20:09:40.453753+00:00",
     "search_hydrated": true
   },
   {
@@ -92216,8 +92216,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 4,
-    "last_attempt_at": "2026-11-24T20:04:06.549828+00:00",
-    "retry_after": "2026-12-08T20:04:06.549830+00:00",
+    "last_attempt_at": "2026-11-24T20:09:40.453767+00:00",
+    "retry_after": "2026-12-08T20:09:40.453769+00:00",
     "search_hydrated": true
   },
   {
@@ -98191,22 +98191,10 @@
         "start_year": 1992
       },
       {
-        "id": 143331,
-        "name": "Dark Angel",
-        "publisher": "Norma Editorial",
-        "start_year": 1995
-      },
-      {
-        "id": 50557,
+        "id": 23770,
         "name": "Dark Angel",
         "publisher": "Boneyard Press",
-        "start_year": 1991
-      },
-      {
-        "id": 143332,
-        "name": "Dark Angel",
-        "publisher": "Norma Editorial",
-        "start_year": 1996
+        "start_year": 1997
       },
       {
         "id": 34575,
@@ -98215,16 +98203,16 @@
         "start_year": 2003
       },
       {
+        "id": 50557,
+        "name": "Dark Angel",
+        "publisher": "Boneyard Press",
+        "start_year": 1991
+      },
+      {
         "id": 51605,
         "name": "Dark Angel",
         "publisher": "Panini Verlag",
         "start_year": 2000
-      },
-      {
-        "id": 23770,
-        "name": "Dark Angel",
-        "publisher": "Boneyard Press",
-        "start_year": 1997
       },
       {
         "id": 126694,
@@ -98233,15 +98221,27 @@
         "start_year": 1994
       },
       {
+        "id": 143331,
+        "name": "Dark Angel",
+        "publisher": "Norma Editorial",
+        "start_year": 1995
+      },
+      {
+        "id": 143332,
+        "name": "Dark Angel",
+        "publisher": "Norma Editorial",
+        "start_year": 1996
+      },
+      {
         "id": 163134,
         "name": "Dark Angel",
         "publisher": "MangaLine Ediciones",
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T20:02:49.243436+00:00",
-    "retry_after": "2026-11-24T20:02:49.243454+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-24T20:08:22.561348+00:00",
+    "retry_after": "2026-11-27T20:08:22.561352+00:00",
     "search_hydrated": true
   },
   {
@@ -99301,8 +99301,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T19:58:27.379914+00:00",
-    "retry_after": "2026-11-25T19:58:27.379929+00:00",
+    "last_attempt_at": "2026-11-24T20:07:33.976232+00:00",
+    "retry_after": "2026-11-25T20:07:33.976247+00:00",
     "search_hydrated": true
   },
   {
@@ -99319,8 +99319,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T19:58:56.959968+00:00",
-    "retry_after": "2026-11-25T19:58:56.959971+00:00",
+    "last_attempt_at": "2026-11-24T20:07:53.231377+00:00",
+    "retry_after": "2026-11-25T20:07:53.231382+00:00",
     "search_hydrated": true
   },
   {
@@ -99337,8 +99337,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T19:58:56.960004+00:00",
-    "retry_after": "2026-11-25T19:58:56.960006+00:00",
+    "last_attempt_at": "2026-11-24T20:07:53.231419+00:00",
+    "retry_after": "2026-11-25T20:07:53.231423+00:00",
     "search_hydrated": true
   },
   {
@@ -99355,8 +99355,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T19:58:56.960022+00:00",
-    "retry_after": "2026-11-25T19:58:56.960024+00:00",
+    "last_attempt_at": "2026-11-24T20:07:53.231445+00:00",
+    "retry_after": "2026-11-25T20:07:53.231448+00:00",
     "search_hydrated": true
   },
   {
@@ -99373,8 +99373,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T19:58:56.960059+00:00",
-    "retry_after": "2026-11-25T19:58:56.960061+00:00",
+    "last_attempt_at": "2026-11-24T20:07:53.231497+00:00",
+    "retry_after": "2026-11-25T20:07:53.231499+00:00",
     "search_hydrated": true
   },
   {
@@ -99397,8 +99397,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T19:58:56.960081+00:00",
-    "retry_after": "2026-11-25T19:58:56.960082+00:00",
+    "last_attempt_at": "2026-11-24T20:07:53.231528+00:00",
+    "retry_after": "2026-11-25T20:07:53.231531+00:00",
     "search_hydrated": true
   },
   {
@@ -99415,8 +99415,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T19:59:06.077551+00:00",
-    "retry_after": "2026-11-25T19:59:06.077567+00:00",
+    "last_attempt_at": "2026-11-24T20:08:00.167016+00:00",
+    "retry_after": "2026-11-25T20:08:00.167031+00:00",
     "search_hydrated": true
   },
   {
@@ -99433,8 +99433,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T19:59:06.077592+00:00",
-    "retry_after": "2026-11-25T19:59:06.077595+00:00",
+    "last_attempt_at": "2026-11-24T20:08:00.167062+00:00",
+    "retry_after": "2026-11-25T20:08:00.167065+00:00",
     "search_hydrated": true
   },
   {
@@ -99451,8 +99451,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T19:59:06.077611+00:00",
-    "retry_after": "2026-11-25T19:59:06.077613+00:00",
+    "last_attempt_at": "2026-11-24T20:08:00.167087+00:00",
+    "retry_after": "2026-11-25T20:08:00.167105+00:00",
     "search_hydrated": true
   },
   {
@@ -99469,8 +99469,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T19:59:22.544724+00:00",
-    "retry_after": "2026-11-25T19:59:22.544738+00:00",
+    "last_attempt_at": "2026-11-24T20:08:15.111365+00:00",
+    "retry_after": "2026-11-25T20:08:15.111378+00:00",
     "search_hydrated": true
   },
   {
@@ -99487,8 +99487,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T19:59:22.544768+00:00",
-    "retry_after": "2026-11-25T19:59:22.544771+00:00",
+    "last_attempt_at": "2026-11-24T20:08:15.111416+00:00",
+    "retry_after": "2026-11-25T20:08:15.111421+00:00",
     "search_hydrated": true
   },
   {
@@ -99505,8 +99505,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T19:59:22.544788+00:00",
-    "retry_after": "2026-11-25T19:59:22.544790+00:00",
+    "last_attempt_at": "2026-11-24T20:08:15.111445+00:00",
+    "retry_after": "2026-11-25T20:08:15.111448+00:00",
     "search_hydrated": true
   },
   {
@@ -99523,8 +99523,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T19:59:22.544814+00:00",
-    "retry_after": "2026-11-25T19:59:22.544816+00:00",
+    "last_attempt_at": "2026-11-24T20:08:15.111478+00:00",
+    "retry_after": "2026-11-25T20:08:15.111481+00:00",
     "search_hydrated": true
   },
   {
@@ -99541,8 +99541,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T19:59:22.544832+00:00",
-    "retry_after": "2026-11-25T19:59:22.544833+00:00",
+    "last_attempt_at": "2026-11-24T20:08:15.111502+00:00",
+    "retry_after": "2026-11-25T20:08:15.111505+00:00",
     "search_hydrated": true
   },
   {
@@ -99559,8 +99559,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T19:59:22.544848+00:00",
-    "retry_after": "2026-11-25T19:59:22.544849+00:00",
+    "last_attempt_at": "2026-11-24T20:08:15.111525+00:00",
+    "retry_after": "2026-11-25T20:08:15.111528+00:00",
     "search_hydrated": true
   },
   {
@@ -99577,8 +99577,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T19:59:22.544863+00:00",
-    "retry_after": "2026-11-25T19:59:22.544865+00:00",
+    "last_attempt_at": "2026-11-24T20:08:15.111548+00:00",
+    "retry_after": "2026-11-25T20:08:15.111550+00:00",
     "search_hydrated": true
   },
   {
@@ -99595,8 +99595,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T19:59:36.600517+00:00",
-    "retry_after": "2026-11-25T19:59:36.600532+00:00",
+    "last_attempt_at": "2026-11-24T20:08:22.561227+00:00",
+    "retry_after": "2026-11-25T20:08:22.561251+00:00",
     "search_hydrated": true
   },
   {
@@ -99613,8 +99613,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T19:59:36.600556+00:00",
-    "retry_after": "2026-11-25T19:59:36.600559+00:00",
+    "last_attempt_at": "2026-11-24T20:08:22.561281+00:00",
+    "retry_after": "2026-11-25T20:08:22.561285+00:00",
     "search_hydrated": true
   },
   {
@@ -99631,26 +99631,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T19:59:36.600576+00:00",
-    "retry_after": "2026-11-25T19:59:36.600578+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Highway 13",
-    "publisher": "Slave Labor",
-    "year": 2001,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 54638,
-        "name": "Highway 13",
-        "publisher": "SLG Publishing",
-        "start_year": 2001
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T19:59:36.600592+00:00",
-    "retry_after": "2026-11-25T19:59:36.600594+00:00",
+    "last_attempt_at": "2026-11-24T20:08:22.561374+00:00",
+    "retry_after": "2026-11-25T20:08:22.561377+00:00",
     "search_hydrated": true
   },
   {
@@ -99660,8 +99642,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T19:59:54.470172+00:00",
-    "retry_after": "2026-11-25T19:59:54.470188+00:00",
+    "last_attempt_at": "2026-11-24T20:08:38.640552+00:00",
+    "retry_after": "2026-11-25T20:08:38.640569+00:00",
     "search_hydrated": true
   },
   {
@@ -99684,8 +99666,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T19:59:54.470327+00:00",
-    "retry_after": "2026-11-25T19:59:54.470331+00:00",
+    "last_attempt_at": "2026-11-24T20:08:38.640751+00:00",
+    "retry_after": "2026-11-25T20:08:38.640756+00:00",
     "search_hydrated": true
   },
   {
@@ -99702,8 +99684,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T20:04:35.268739+00:00",
-    "retry_after": "2026-11-25T20:04:35.268755+00:00",
+    "last_attempt_at": "2026-11-24T20:10:05.209715+00:00",
+    "retry_after": "2026-11-25T20:10:05.209732+00:00",
     "search_hydrated": true
   },
   {
@@ -99720,8 +99702,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T20:04:35.268786+00:00",
-    "retry_after": "2026-11-25T20:04:35.268789+00:00",
+    "last_attempt_at": "2026-11-24T20:10:05.209798+00:00",
+    "retry_after": "2026-11-25T20:10:05.209803+00:00",
     "search_hydrated": true
   },
   {
@@ -99735,11 +99717,17 @@
         "name": "The Black Dahlia",
         "publisher": "Archaia",
         "start_year": 2016
+      },
+      {
+        "id": 91204,
+        "name": "Black Dahlia",
+        "publisher": "Verlag Schreiber & Leser",
+        "start_year": 2015
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T20:04:35.268808+00:00",
-    "retry_after": "2026-11-25T20:04:35.268810+00:00",
+    "last_attempt_at": "2026-11-24T20:10:05.209836+00:00",
+    "retry_after": "2026-11-25T20:10:05.209839+00:00",
     "search_hydrated": true
   },
   {
@@ -99756,26 +99744,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T20:04:35.268827+00:00",
-    "retry_after": "2026-11-25T20:04:35.268829+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Nemo: River of Ghosts",
-    "publisher": "IDW Publishing",
-    "year": 2015,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 80933,
-        "name": "Nemo: River of Ghosts",
-        "publisher": "Top Shelf",
-        "start_year": 2015
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T20:04:35.268842+00:00",
-    "retry_after": "2026-11-25T20:04:35.268844+00:00",
+    "last_attempt_at": "2026-11-24T20:10:05.209860+00:00",
+    "retry_after": "2026-11-25T20:10:05.209863+00:00",
     "search_hydrated": true
   },
   {
@@ -99792,8 +99762,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T20:04:42.304707+00:00",
-    "retry_after": "2026-11-25T20:04:42.304724+00:00",
+    "last_attempt_at": "2026-11-24T20:10:15.738318+00:00",
+    "retry_after": "2026-11-25T20:10:15.738335+00:00",
     "search_hydrated": true
   },
   {
@@ -99810,8 +99780,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-24T20:04:42.304810+00:00",
-    "retry_after": "2026-11-25T20:04:42.304814+00:00",
+    "last_attempt_at": "2026-11-24T20:10:15.738446+00:00",
+    "retry_after": "2026-11-25T20:10:15.738451+00:00",
     "search_hydrated": true
   }
 ]

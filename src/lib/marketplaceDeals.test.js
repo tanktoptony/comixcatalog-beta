@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { communityLine, discountLabel, guideDiscount, guideGradeLabel, isUnderGuide, totalWithShipping } from "./marketplaceDeals.js";
+import { communityLine, discountLabel, guideDiscount, guideGradeLabel, isAtGuide, isUnderGuide, totalWithShipping } from "./marketplaceDeals.js";
 
 test("guide discounts require a price and positive guide", () => {
   assert.ok(Math.abs(guideDiscount({ price: 71, guide: { value: 100 } }) - 0.29) < Number.EPSILON);
@@ -30,4 +30,12 @@ test("guide grade label", () => {
   assert.equal(guideGradeLabel("ungraded"), "raw");
   assert.equal(guideGradeLabel(null), "raw");
   assert.equal(guideGradeLabel("9.4"), "9.4");
+});
+
+test("at guide compares to the cent", () => {
+  assert.equal(isAtGuide({ price: 4.05, guide: { value: 4.05 } }), true);
+  assert.equal(isAtGuide({ price: 4.05, guide: { value: 4.0499999 } }), true);
+  assert.equal(isAtGuide({ price: 4.05, guide: { value: 4.06 } }), false);
+  assert.equal(isAtGuide({ price: 4.05, guide: null }), false);
+  assert.equal(isAtGuide({ price: null, guide: { value: 4 } }), false);
 });

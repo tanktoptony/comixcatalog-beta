@@ -64,6 +64,14 @@ export function formatTag(format = {}) {
   return null;
 }
 
+// formatTag for collected editions and graphic novels only, null for every
+// single-issue format. Unsynced formats are null, so a book is never called
+// a trade without GCD saying so.
+export function collectedTag(format = {}) {
+  const collected = isCollectedEdition(format) || has(format.publishing_format, /graphic novel/i);
+  return collected ? formatTag(format) : null;
+}
+
 export function formatTagTitle(format = {}) {
   const tag = formatTag(format);
   if (!tag) return null;

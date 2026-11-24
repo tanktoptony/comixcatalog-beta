@@ -186,7 +186,7 @@ export default function YourShelf() {
             {l.key && <span className={styles.tagKey}>Key</span>}
             {l.buy_now && <span className={styles.tagSale}>Buy now</span>}
           </Link>
-          <Link href={l.href} className={styles.bookTitle}>{issueLabel(l.title, l.issue_number)}</Link>
+          <Link href={l.href} className={styles.bookTitle}>{l.name ?? issueLabel(l.title, l.issue_number)}</Link>
           {l.key && <span className={styles.bookKey}>{l.key}</span>}
           <Link href={l.href} className={styles.bookPrice}>{l.price != null ? cents.format(l.price) : "Ask the seller"}</Link>
           {l.guide && <a href={l.guide.url} target="_blank" rel="noopener" className={styles.bookGuide}>Guide {cents.format(l.guide.value)}</a>}

@@ -6235,9 +6235,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T19:11:43.517933+00:00",
-    "retry_after": "2026-11-25T19:11:43.517937+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T20:07:20.342535+00:00",
+    "retry_after": "2026-12-25T20:07:20.342537+00:00",
     "search_hydrated": true
   },
   {
@@ -9349,9 +9349,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T19:11:43.517897+00:00",
-    "retry_after": "2026-11-25T19:11:43.517909+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T20:07:20.342513+00:00",
+    "retry_after": "2026-12-25T20:07:20.342517+00:00",
     "search_hydrated": true
   },
   {
@@ -14290,9 +14290,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T17:09:08.933769+00:00",
-    "retry_after": "2026-11-25T17:09:08.933784+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T20:07:20.342477+00:00",
+    "retry_after": "2026-12-25T20:07:20.342492+00:00",
     "search_hydrated": true
   },
   {
@@ -31998,9 +31998,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T16:07:41.549728+00:00",
-    "retry_after": "2026-11-25T16:07:41.549730+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T20:07:20.342654+00:00",
+    "retry_after": "2026-12-25T20:07:20.342658+00:00",
     "search_hydrated": true
   },
   {
@@ -96644,16 +96644,16 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 122513,
-        "name": "Pink Lemonade",
-        "publisher": "It's Alive",
-        "start_year": 2019
-      },
-      {
         "id": 145289,
         "name": "Pink Lemonade",
         "publisher": "Oni Press",
         "start_year": 2022
+      },
+      {
+        "id": 122513,
+        "name": "Pink Lemonade",
+        "publisher": "It's Alive",
+        "start_year": 2019
       },
       {
         "id": 151940,
@@ -96663,8 +96663,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-25T19:05:06.981978+00:00",
-    "retry_after": "2026-11-26T19:05:06.981997+00:00",
+    "last_attempt_at": "2026-11-25T20:03:30.670093+00:00",
+    "retry_after": "2026-11-26T20:03:30.670106+00:00",
     "search_hydrated": true
   },
   {

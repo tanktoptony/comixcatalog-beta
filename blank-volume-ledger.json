@@ -1,4 +1,38 @@
 {
+  "389": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "A-1",
+    "publisher": "Magazine Enterprises",
+    "year": 1945,
+    "count": 138,
+    "collected": false,
+    "blank": [
+      "4"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
+  },
+  "428": {
+    "status": "sure",
+    "volume": {
+      "id": 19512,
+      "name": "Frankenstein",
+      "publisher": "Prize",
+      "start_year": 1945,
+      "count": 33
+    },
+    "name": "Frankenstein",
+    "publisher": "Prize",
+    "year": 1945,
+    "count": 33,
+    "collected": false,
+    "blank": [
+      "v2#5 (17)",
+      "v2#4 (16)"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z",
+    "tries": 1
+  },
   "1750": {
     "status": "ask",
     "reason": "issue count differs",
@@ -24,6 +58,60 @@
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
   },
+  "1786": {
+    "status": "sure",
+    "volume": {
+      "id": 2330,
+      "name": "Blue Beetle",
+      "publisher": "Charlton",
+      "start_year": 1967,
+      "count": 5
+    },
+    "name": "Blue Beetle",
+    "publisher": "Charlton",
+    "year": 1967,
+    "count": 5,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z",
+    "tries": 1
+  },
+  "2423": {
+    "status": "sure",
+    "volume": {
+      "id": 2929,
+      "name": "The Spirit",
+      "publisher": "Kitchen Sink",
+      "start_year": 1977,
+      "count": 25
+    },
+    "name": "The Spirit",
+    "publisher": "Kitchen Sink Press",
+    "year": 1977,
+    "count": 25,
+    "collected": false,
+    "blank": [
+      "17"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z",
+    "tries": 1
+  },
+  "3031": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Moon Knight",
+    "publisher": "Marvel",
+    "year": 1985,
+    "count": 6,
+    "collected": false,
+    "blank": [
+      "2",
+      "1"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
+  },
   "3993": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -36,6 +124,55 @@
       "1"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "4770": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 20507,
+        "name": "Wild Thing",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993,
+        "count": 7,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "WildThing",
+    "publisher": "Marvel UK",
+    "year": 1993,
+    "count": 7,
+    "collected": false,
+    "blank": [
+      "5",
+      "3",
+      "2",
+      "6",
+      "1"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
+  },
+  "5570": {
+    "status": "sure",
+    "volume": {
+      "id": 5797,
+      "name": "X-Men: ClanDestine",
+      "publisher": "Marvel",
+      "start_year": 1996,
+      "count": 2
+    },
+    "name": "X-Men: Clan Destine",
+    "publisher": "Marvel",
+    "year": 1996,
+    "count": 2,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z",
+    "tries": 1
   },
   "5933": {
     "status": "ask",
@@ -66,6 +203,57 @@
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
   },
+  "6212": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "The Truth",
+    "publisher": "Dark Horse",
+    "year": 1999,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
+  },
+  "9847": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "The Amazing Spider-Man: Skating on Thin Ice",
+    "publisher": "Marvel",
+    "year": 1993,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
+  },
+  "11033": {
+    "status": "ask",
+    "reason": "title differs",
+    "options": [
+      {
+        "id": 22670,
+        "name": "Underworld Unleashed: Apokolips",
+        "publisher": "DC Comics",
+        "start_year": 1995,
+        "count": 1,
+        "why": [
+          "title differs"
+        ]
+      }
+    ],
+    "name": "Underworld Unleashed: Apokolips -- Dark Uprising",
+    "publisher": "DC",
+    "year": 1995,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
+  },
   "11228": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -78,6 +266,26 @@
       "1"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "11861": {
+    "status": "sure",
+    "volume": {
+      "id": 10936,
+      "name": "Team Anarchy",
+      "publisher": "Dagger Enterprises",
+      "start_year": 1993,
+      "count": 8
+    },
+    "name": "Team Anarchy",
+    "publisher": "Dagger Comics",
+    "year": 1993,
+    "count": 8,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z",
+    "tries": 1
   },
   "12465": {
     "status": "ask",
@@ -106,6 +314,69 @@
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
   },
+  "13453": {
+    "status": "ask",
+    "reason": "title differs",
+    "options": [
+      {
+        "id": 19047,
+        "name": "X-Men: The End: Book 2: Heroes & Martyrs",
+        "publisher": "Marvel",
+        "start_year": 2005,
+        "count": 6,
+        "why": [
+          "title differs"
+        ]
+      }
+    ],
+    "name": "X-Men: The End - Heroes and Martyrs",
+    "publisher": "Marvel",
+    "year": 2005,
+    "count": 6,
+    "collected": false,
+    "blank": [
+      "3"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
+  },
+  "15877": {
+    "status": "ask",
+    "reason": "issue count differs",
+    "options": [
+      {
+        "id": 19681,
+        "name": "Marvel Action Hour, Featuring Iron Man",
+        "publisher": "Marvel",
+        "start_year": 1994,
+        "count": 7,
+        "why": [
+          "issue count differs"
+        ]
+      }
+    ],
+    "name": "Marvel Action Hour, Featuring Iron Man",
+    "publisher": "Marvel",
+    "year": 1994,
+    "count": 8,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
+  },
+  "16128": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Wizard in Training",
+    "publisher": "Upper Deck",
+    "year": 2001,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "0"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
+  },
   "16319": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -118,6 +389,29 @@
       "1"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "20747": {
+    "status": "ask",
+    "reason": "several volumes fit",
+    "options": [
+      {
+        "id": 39903,
+        "name": "Daredevil: Father",
+        "publisher": "Marvel",
+        "start_year": 2006,
+        "count": 1,
+        "why": []
+      }
+    ],
+    "name": "Daredevil: Father [Director's Cut]",
+    "publisher": "Marvel",
+    "year": 2005,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
   },
   "20782": {
     "status": "sure",
@@ -137,6 +431,51 @@
       "[nn]"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z",
+    "tries": 2
+  },
+  "21096": {
+    "status": "ask",
+    "reason": "title differs",
+    "options": [
+      {
+        "id": 21359,
+        "name": "What If? Featuring Avengers Disassembled",
+        "publisher": "Marvel",
+        "start_year": 2007,
+        "count": 1,
+        "why": [
+          "title differs"
+        ]
+      }
+    ],
+    "name": "What If? Avengers Disassembled",
+    "publisher": "Marvel",
+    "year": 2007,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
+  },
+  "23538": {
+    "status": "sure",
+    "volume": {
+      "id": 18514,
+      "name": "Wolverine & Doop",
+      "publisher": "Marvel",
+      "start_year": 2003,
+      "count": 2
+    },
+    "name": "Wolverine / Doop",
+    "publisher": "Marvel",
+    "year": 2003,
+    "count": 2,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z",
     "tries": 1
   },
   "24916": {
@@ -151,6 +490,37 @@
       "4"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "28104": {
+    "status": "ask",
+    "reason": "several volumes fit",
+    "options": [
+      {
+        "id": 20155,
+        "name": "What If? Civil War",
+        "publisher": "Marvel",
+        "start_year": 2008,
+        "count": 1,
+        "why": []
+      },
+      {
+        "id": 30060,
+        "name": "What If? Civil War",
+        "publisher": "Marvel",
+        "start_year": 2008,
+        "count": 1,
+        "why": []
+      }
+    ],
+    "name": "What If? Civil War",
+    "publisher": "Marvel",
+    "year": 2008,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
   },
   "29195": {
     "status": "none",
@@ -167,6 +537,88 @@
       "7"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "30407": {
+    "status": "sure",
+    "volume": {
+      "id": 21203,
+      "name": "X-Men: Divided We Stand",
+      "publisher": "Marvel",
+      "start_year": 2008,
+      "count": 2
+    },
+    "name": "X-Men: Divided We Stand",
+    "publisher": "Marvel",
+    "year": 2008,
+    "count": 2,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z",
+    "tries": 1
+  },
+  "33088": {
+    "status": "ask",
+    "reason": "several volumes fit",
+    "options": [
+      {
+        "id": 24595,
+        "name": "Wolverine: Flies to a Spider",
+        "publisher": "Marvel",
+        "start_year": 2009,
+        "count": 1,
+        "why": []
+      },
+      {
+        "id": 29136,
+        "name": "Wolverine: Flies to a Spider",
+        "publisher": "Marvel",
+        "start_year": 2009,
+        "count": 1,
+        "why": []
+      }
+    ],
+    "name": "Wolverine: Flies to a Spider",
+    "publisher": "Marvel",
+    "year": 2008,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
+  },
+  "36937": {
+    "status": "ask",
+    "reason": "several volumes fit",
+    "options": [
+      {
+        "id": 156393,
+        "name": "The Darkness: Prelude",
+        "publisher": "Top Cow Productions",
+        "start_year": 2003,
+        "count": 1,
+        "why": []
+      },
+      {
+        "id": 61171,
+        "name": "The Darkness: Prelude",
+        "publisher": "Top Cow Productions",
+        "start_year": 2003,
+        "count": 1,
+        "why": []
+      }
+    ],
+    "name": "The Darkness: Prelude",
+    "publisher": "Top Cow Productions",
+    "year": 2003,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
   },
   "37719": {
     "status": "ask",
@@ -195,6 +647,19 @@
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
   },
+  "40713": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Tommy and the Monsters",
+    "publisher": "New Comics Group",
+    "year": 1989,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
+  },
   "44210": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -208,6 +673,19 @@
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
   },
+  "44271": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Bastard",
+    "publisher": "Viz",
+    "year": 2001,
+    "count": 15,
+    "collected": false,
+    "blank": [
+      "2"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
+  },
   "45562": {
     "status": "none",
     "reason": "its covers are already filed under another series",
@@ -220,6 +698,19 @@
       "1/2"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "49834": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "The Clock",
+    "publisher": "Starscreem Comics",
+    "year": 1994,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
   },
   "53944": {
     "status": "sure",
@@ -379,6 +870,19 @@
     "checked_at": "2026-11-25T07:02:10.053Z",
     "tries": 1
   },
+  "60975": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Ultimate Hawkeye",
+    "publisher": "Marvel",
+    "year": 2011,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "4"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
+  },
   "62175": {
     "status": "ask",
     "reason": "publisher differs",
@@ -404,6 +908,45 @@
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
   },
+  "73684": {
+    "status": "sure",
+    "volume": {
+      "id": 59980,
+      "name": "He-Man and the Masters of the Universe",
+      "publisher": "DC Comics",
+      "start_year": 2013,
+      "count": 19
+    },
+    "name": "He-Man and the Masters of the Universe",
+    "publisher": "DC",
+    "year": 2013,
+    "count": 19,
+    "collected": false,
+    "blank": [
+      "9",
+      "4"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z",
+    "tries": 1
+  },
+  "76698": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Amazing X-Men",
+    "publisher": "Marvel UK",
+    "year": 1996,
+    "count": 17,
+    "collected": false,
+    "blank": [
+      "10",
+      "7",
+      "11",
+      "8",
+      "12",
+      "17"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
+  },
   "86022": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -416,6 +959,19 @@
       "1"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "86227": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Twisted Tales 3-D",
+    "publisher": "Blackthorne",
+    "year": 1986,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
   },
   "90562": {
     "status": "sure",
@@ -464,6 +1020,31 @@
     "checked_at": "2026-11-25T07:02:10.053Z",
     "tries": 1
   },
+  "95128": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 86797,
+        "name": "The Witchfinder General",
+        "publisher": "1First Comics",
+        "start_year": 2015,
+        "count": 6,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "The Witchfinder General",
+    "publisher": "Devil's Due / 1First Comics",
+    "year": 2015,
+    "count": 6,
+    "collected": false,
+    "blank": [
+      "5"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
+  },
   "95476": {
     "status": "none",
     "reason": "its covers are already filed under another series",
@@ -487,6 +1068,109 @@
       "6"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "95543": {
+    "status": "sure",
+    "volume": {
+      "id": 85397,
+      "name": "I, Mage",
+      "publisher": "Action Lab",
+      "start_year": 2015,
+      "count": 7
+    },
+    "name": "I, Mage",
+    "publisher": "Action Lab Comics",
+    "year": 2016,
+    "count": 7,
+    "collected": false,
+    "blank": [
+      "4"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z",
+    "tries": 1
+  },
+  "103813": {
+    "status": "sure",
+    "volume": {
+      "id": 91868,
+      "name": "Zoe Dare Versus The Disasteroid",
+      "publisher": "Action Lab",
+      "start_year": 2016,
+      "count": 4
+    },
+    "name": "Zoe Dare vs. the Disasteroid",
+    "publisher": "Action Lab Comics",
+    "year": 2016,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "2"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z",
+    "tries": 1
+  },
+  "105890": {
+    "status": "sure",
+    "volume": {
+      "id": 93639,
+      "name": "The X-Files: Origins",
+      "publisher": "IDW Publishing",
+      "start_year": 2016,
+      "count": 4
+    },
+    "name": "The X-Files Origins",
+    "publisher": "IDW",
+    "year": 2016,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "2",
+      "3"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z",
+    "tries": 1
+  },
+  "110665": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Essential X-Men",
+    "publisher": "Panini UK",
+    "year": 2016,
+    "count": 22,
+    "collected": false,
+    "blank": [
+      "21",
+      "17",
+      "20",
+      "14",
+      "22"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
+  },
+  "115078": {
+    "status": "ask",
+    "reason": "title differs",
+    "options": [
+      {
+        "id": 102218,
+        "name": "The X-Files: Origins—Dog Days of Summer",
+        "publisher": "IDW Publishing",
+        "start_year": 2017,
+        "count": 4,
+        "why": [
+          "title differs"
+        ]
+      }
+    ],
+    "name": "The X-Files Origins II: Dog Days of Summer",
+    "publisher": "IDW",
+    "year": 2017,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
   },
   "119418": {
     "status": "sure",
@@ -565,6 +1249,26 @@
     "checked_at": "2026-11-25T07:02:10.053Z",
     "tries": 1
   },
+  "128734": {
+    "status": "sure",
+    "volume": {
+      "id": 113232,
+      "name": "Cover",
+      "publisher": "DC Comics",
+      "start_year": 2018,
+      "count": 6
+    },
+    "name": "Cover",
+    "publisher": "DC",
+    "year": 2018,
+    "count": 6,
+    "collected": false,
+    "blank": [
+      "2"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z",
+    "tries": 1
+  },
   "132538": {
     "status": "ask",
     "reason": "title differs",
@@ -631,6 +1335,40 @@
       "4"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "146182": {
+    "status": "sure",
+    "volume": {
+      "id": 119344,
+      "name": "X-Men: Grand Design – X-Tinction",
+      "publisher": "Marvel",
+      "start_year": 2019,
+      "count": 2
+    },
+    "name": "X-Men: Grand Design - X-Tinction",
+    "publisher": "Marvel",
+    "year": 2019,
+    "count": 2,
+    "collected": false,
+    "blank": [
+      "1",
+      "2"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z",
+    "tries": 1
+  },
+  "150345": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "The Flash Giant",
+    "publisher": "DC",
+    "year": 2019,
+    "count": 5,
+    "collected": false,
+    "blank": [
+      "2"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
   },
   "152844": {
     "status": "sure",
@@ -784,6 +1522,19 @@
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
   },
+  "205587": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Adventure Man",
+    "publisher": "Sparkle Comics",
+    "year": 2017,
+    "count": 3,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
+  },
   "214802": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -811,6 +1562,19 @@
       "2"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "229764": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Brides",
+    "publisher": "Resolute Bliss Publishing",
+    "year": 2025,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
   },
   "234577": {
     "status": "none",
@@ -852,6 +1616,19 @@
       "2"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "237814": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Transformers: The Movie 40th Anniversary Edition",
+    "publisher": "Image",
+    "year": 2026,
+    "count": 3,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T09:02:53.709Z"
   },
   "239035": {
     "status": "none",

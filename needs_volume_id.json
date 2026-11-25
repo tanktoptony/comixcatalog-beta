@@ -11573,9 +11573,9 @@
         "start_year": 2007
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T08:37:35.795579+00:00",
-    "retry_after": "2026-11-25T08:37:35.795596+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T09:05:05.824955+00:00",
+    "retry_after": "2026-11-28T09:05:05.824958+00:00",
     "search_hydrated": true
   },
   {
@@ -11873,20 +11873,22 @@
     "reason": "multiple_same_start_year_tied",
     "candidates": [
       {
-        "id": 156393,
+        "id": 61171,
         "name": "The Darkness: Prelude",
         "publisher": "Top Cow Productions",
         "start_year": 2003
       },
       {
-        "id": 61171,
+        "id": 156393,
         "name": "The Darkness: Prelude",
         "publisher": "Top Cow Productions",
         "start_year": 2003
       }
     ],
     "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556557+00:00"
+    "last_attempt_at": "2026-11-25T09:05:05.824810+00:00",
+    "retry_after": "2026-11-26T09:05:05.824826+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Ponytail",
@@ -18100,9 +18102,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-12T19:06:39.983613+00:00",
-    "retry_after": "2026-11-19T19:06:39.983618+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-25T09:13:51.648223+00:00",
+    "retry_after": "2026-12-09T09:13:51.648240+00:00",
     "search_hydrated": true
   },
   {
@@ -82554,9 +82556,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-12T21:55:28.697342+00:00",
-    "retry_after": "2026-11-19T21:55:28.697344+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-25T09:13:51.648368+00:00",
+    "retry_after": "2026-12-09T09:13:51.648371+00:00",
     "search_hydrated": true
   },
   {
@@ -92646,9 +92648,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-16T20:06:02.612436+00:00",
-    "retry_after": "2026-11-23T20:06:02.612438+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-25T09:13:51.648265+00:00",
+    "retry_after": "2026-12-09T09:13:51.648270+00:00",
     "search_hydrated": true
   },
   {
@@ -92694,9 +92696,9 @@
         "start_year": 2007
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-16T22:05:41.799564+00:00",
-    "retry_after": "2026-11-23T22:05:41.799571+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-25T09:13:51.648347+00:00",
+    "retry_after": "2026-12-09T09:13:51.648350+00:00",
     "search_hydrated": true
   },
   {
@@ -96706,8 +96708,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-25T08:03:36.451712+00:00",
-    "retry_after": "2026-11-26T08:03:36.451727+00:00",
+    "last_attempt_at": "2026-11-25T09:10:03.376410+00:00",
+    "retry_after": "2026-11-26T09:10:03.376423+00:00",
     "search_hydrated": true
   },
   {
@@ -98911,9 +98913,9 @@
     "year": 1986,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T08:10:57.320992+00:00",
-    "retry_after": "2026-11-25T08:10:57.321010+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T09:14:03.972919+00:00",
+    "retry_after": "2026-11-28T09:14:03.972945+00:00",
     "search_hydrated": true
   },
   {
@@ -98922,9 +98924,9 @@
     "year": 2015,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T08:47:43.311837+00:00",
-    "retry_after": "2026-11-25T08:47:43.311854+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T09:14:03.972974+00:00",
+    "retry_after": "2026-11-28T09:14:03.972978+00:00",
     "search_hydrated": true
   },
   {
@@ -98933,9 +98935,9 @@
     "year": 2007,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T09:02:12.473746+00:00",
-    "retry_after": "2026-11-25T09:02:12.473750+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T09:05:05.824923+00:00",
+    "retry_after": "2026-11-28T09:05:05.824928+00:00",
     "search_hydrated": true
   },
   {
@@ -98944,9 +98946,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T09:07:17.293078+00:00",
-    "retry_after": "2026-11-25T09:07:17.293094+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T09:09:16.553411+00:00",
+    "retry_after": "2026-11-28T09:09:16.553426+00:00",
     "search_hydrated": true
   },
   {
@@ -98955,9 +98957,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T09:11:19.324545+00:00",
-    "retry_after": "2026-11-25T09:11:19.324562+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T09:14:03.972995+00:00",
+    "retry_after": "2026-11-28T09:14:03.972998+00:00",
     "search_hydrated": true
   },
   {
@@ -98966,9 +98968,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T09:11:19.709342+00:00",
-    "retry_after": "2026-11-25T09:11:19.709359+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T09:14:04.337850+00:00",
+    "retry_after": "2026-11-28T09:14:04.337865+00:00",
     "search_hydrated": true
   },
   {
@@ -100895,6 +100897,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-25T07:09:54.418051+00:00",
     "retry_after": "2026-11-26T07:09:54.418068+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Stray Toasters: Designer Collection",
+    "publisher": "Marvel Comics",
+    "year": 1991,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T09:14:04.337906+00:00",
+    "retry_after": "2026-11-26T09:14:04.337910+00:00",
     "search_hydrated": true
   }
 ]

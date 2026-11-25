@@ -10616,9 +10616,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T10:03:47.158430+00:00",
-    "retry_after": "2026-11-25T10:03:47.158433+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T11:02:46.100070+00:00",
+    "retry_after": "2026-11-28T11:02:46.100073+00:00",
     "search_hydrated": true
   },
   {
@@ -11641,8 +11641,10 @@
         "start_year": 1998
       }
     ],
-    "attempts": 1,
-    "retry_after": "2026-09-21T14:00:38.556477+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T11:02:46.099947+00:00",
+    "retry_after": "2026-11-28T11:02:46.099965+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Batman and the Outsiders",
@@ -38160,9 +38162,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T10:03:47.158382+00:00",
-    "retry_after": "2026-11-25T10:03:47.158399+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T11:03:38.248637+00:00",
+    "retry_after": "2026-11-28T11:03:38.248655+00:00",
     "search_hydrated": true
   },
   {
@@ -84251,9 +84253,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T10:11:04.361745+00:00",
-    "retry_after": "2026-11-25T10:11:04.361749+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T11:08:25.436574+00:00",
+    "retry_after": "2026-12-25T11:08:25.436576+00:00",
     "search_hydrated": true
   },
   {
@@ -84304,9 +84306,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T10:11:04.758090+00:00",
-    "retry_after": "2026-11-25T10:11:04.758109+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T11:08:25.795727+00:00",
+    "retry_after": "2026-12-25T11:08:25.795746+00:00",
     "search_hydrated": true
   },
   {
@@ -84344,9 +84346,9 @@
         "start_year": 2002
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T10:11:04.758149+00:00",
-    "retry_after": "2026-11-25T10:11:04.758152+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T11:08:25.795787+00:00",
+    "retry_after": "2026-12-25T11:08:25.795789+00:00",
     "search_hydrated": true
   },
   {
@@ -84373,9 +84375,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T10:11:04.758177+00:00",
-    "retry_after": "2026-11-25T10:11:04.758180+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T11:08:25.795808+00:00",
+    "retry_after": "2026-12-25T11:08:25.795809+00:00",
     "search_hydrated": true
   },
   {
@@ -84391,9 +84393,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T10:11:04.758211+00:00",
-    "retry_after": "2026-11-25T10:11:04.758213+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T11:08:25.795832+00:00",
+    "retry_after": "2026-12-25T11:08:25.795833+00:00",
     "search_hydrated": true
   },
   {
@@ -84448,9 +84450,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T10:11:01.404050+00:00",
-    "retry_after": "2026-11-25T10:11:01.404068+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T11:08:22.411290+00:00",
+    "retry_after": "2026-12-25T11:08:22.411307+00:00",
     "search_hydrated": true
   },
   {
@@ -84459,9 +84461,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T10:11:01.404089+00:00",
-    "retry_after": "2026-11-25T10:11:01.404093+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T11:08:22.411325+00:00",
+    "retry_after": "2026-12-25T11:08:22.411327+00:00",
     "search_hydrated": true
   },
   {
@@ -84470,9 +84472,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T10:11:01.404110+00:00",
-    "retry_after": "2026-11-25T10:11:01.404113+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T11:08:27.048317+00:00",
+    "retry_after": "2026-12-25T11:08:27.048334+00:00",
     "search_hydrated": true
   },
   {
@@ -96708,8 +96710,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-25T10:03:21.177722+00:00",
-    "retry_after": "2026-11-26T10:03:21.177741+00:00",
+    "last_attempt_at": "2026-11-25T11:04:33.247210+00:00",
+    "retry_after": "2026-11-26T11:04:33.247227+00:00",
     "search_hydrated": true
   },
   {
@@ -99009,9 +99011,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T10:04:28.362307+00:00",
-    "retry_after": "2026-11-25T10:04:28.362323+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T11:02:46.100084+00:00",
+    "retry_after": "2026-11-28T11:02:46.100086+00:00",
     "search_hydrated": true
   },
   {
@@ -99027,9 +99029,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T10:08:24.455008+00:00",
-    "retry_after": "2026-11-25T10:08:24.455025+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T11:08:36.589932+00:00",
+    "retry_after": "2026-11-28T11:08:36.589951+00:00",
     "search_hydrated": true
   },
   {

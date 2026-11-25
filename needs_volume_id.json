@@ -84483,9 +84483,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T11:10:59.352427+00:00",
-    "retry_after": "2026-11-25T11:10:59.352443+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T12:08:13.307845+00:00",
+    "retry_after": "2026-12-25T12:08:13.307864+00:00",
     "search_hydrated": true
   },
   {
@@ -84530,9 +84530,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T11:10:59.352472+00:00",
-    "retry_after": "2026-11-25T11:10:59.352475+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T12:08:13.307884+00:00",
+    "retry_after": "2026-12-25T12:08:13.307888+00:00",
     "search_hydrated": true
   },
   {
@@ -84563,9 +84563,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T11:10:59.352487+00:00",
-    "retry_after": "2026-11-25T11:10:59.352489+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T12:08:13.307902+00:00",
+    "retry_after": "2026-12-25T12:08:13.307905+00:00",
     "search_hydrated": true
   },
   {
@@ -96710,8 +96710,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-25T11:04:33.247210+00:00",
-    "retry_after": "2026-11-26T11:04:33.247227+00:00",
+    "last_attempt_at": "2026-11-25T12:04:27.394052+00:00",
+    "retry_after": "2026-11-26T12:04:27.394071+00:00",
     "search_hydrated": true
   },
   {
@@ -99035,32 +99035,14 @@
     "search_hydrated": true
   },
   {
-    "name": "Justice League Task Force",
-    "publisher": "DC Comics",
-    "year": 2018,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 4967,
-        "name": "Justice League Task Force",
-        "publisher": "DC Comics",
-        "start_year": 1993
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T11:10:49.076012+00:00",
-    "retry_after": "2026-11-25T11:10:49.076014+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Tomb of Dracula 10 (New Line Cinema)",
     "publisher": "Marvel Comics",
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T11:11:00.297541+00:00",
-    "retry_after": "2026-11-25T11:11:00.297560+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T12:08:25.316913+00:00",
+    "retry_after": "2026-11-28T12:08:25.316932+00:00",
     "search_hydrated": true
   },
   {
@@ -100928,6 +100910,36 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-25T10:07:16.987135+00:00",
     "retry_after": "2026-11-26T10:07:16.987152+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marshal Law",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 9307,
+        "name": "Marshal Law",
+        "publisher": "Marvel",
+        "start_year": 1987
+      },
+      {
+        "id": 154347,
+        "name": "Marshal Law",
+        "publisher": "ECC Ediciones",
+        "start_year": 2013
+      },
+      {
+        "id": 155618,
+        "name": "Marshal Law",
+        "publisher": "Panini Brasil",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T12:08:25.317044+00:00",
+    "retry_after": "2026-11-26T12:08:25.317048+00:00",
     "search_hydrated": true
   }
 ]

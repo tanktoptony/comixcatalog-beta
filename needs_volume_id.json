@@ -9543,9 +9543,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T17:05:06.738429+00:00",
-    "retry_after": "2026-11-25T17:05:06.738448+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T18:02:05.607733+00:00",
+    "retry_after": "2026-11-28T18:02:05.607735+00:00",
     "search_hydrated": true
   },
   {
@@ -30399,9 +30399,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T17:18:08.303755+00:00",
-    "retry_after": "2026-11-25T17:18:08.303758+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T18:06:54.916064+00:00",
+    "retry_after": "2026-12-25T18:06:54.916081+00:00",
     "search_hydrated": true
   },
   {
@@ -32789,21 +32789,21 @@
     "reason": "multiple_same_start_year_tied",
     "candidates": [
       {
-        "id": 30099,
+        "id": 21203,
         "name": "X-Men: Divided We Stand",
         "publisher": "Marvel",
         "start_year": 2008
       },
       {
-        "id": 21203,
+        "id": 30099,
         "name": "X-Men: Divided We Stand",
         "publisher": "Marvel",
         "start_year": 2008
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T18:02:28.777284+00:00",
-    "retry_after": "2026-11-25T18:02:28.777288+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T18:02:43.454423+00:00",
+    "retry_after": "2026-11-28T18:02:43.454441+00:00",
     "search_hydrated": true
   },
   {
@@ -84937,9 +84937,9 @@
         "start_year": 2026
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T17:18:10.807483+00:00",
-    "retry_after": "2026-11-25T17:18:10.807486+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T18:06:50.515165+00:00",
+    "retry_after": "2026-12-25T18:06:50.515168+00:00",
     "search_hydrated": true
   },
   {
@@ -84988,9 +84988,9 @@
         "start_year": 2006
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T17:18:10.807512+00:00",
-    "retry_after": "2026-11-25T17:18:10.807514+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T18:06:50.515215+00:00",
+    "retry_after": "2026-12-25T18:06:50.515217+00:00",
     "search_hydrated": true
   },
   {
@@ -85006,9 +85006,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T17:18:10.807529+00:00",
-    "retry_after": "2026-11-25T17:18:10.807531+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T18:06:50.515230+00:00",
+    "retry_after": "2026-12-25T18:06:50.515232+00:00",
     "search_hydrated": true
   },
   {
@@ -85064,9 +85064,9 @@
         "start_year": 2003
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T17:18:10.807552+00:00",
-    "retry_after": "2026-11-25T17:18:10.807554+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T18:06:50.515249+00:00",
+    "retry_after": "2026-12-25T18:06:50.515251+00:00",
     "search_hydrated": true
   },
   {
@@ -85093,9 +85093,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T17:18:10.986852+00:00",
-    "retry_after": "2026-11-25T17:18:10.986867+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T18:06:55.566696+00:00",
+    "retry_after": "2026-12-25T18:06:55.566712+00:00",
     "search_hydrated": true
   },
   {
@@ -96710,8 +96710,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-25T17:03:59.046614+00:00",
-    "retry_after": "2026-11-26T17:03:59.046628+00:00",
+    "last_attempt_at": "2026-11-25T18:03:02.314289+00:00",
+    "retry_after": "2026-11-26T18:03:02.314304+00:00",
     "search_hydrated": true
   },
   {
@@ -99162,9 +99162,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T17:05:06.738577+00:00",
-    "retry_after": "2026-11-25T17:05:06.738580+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T18:02:05.607704+00:00",
+    "retry_after": "2026-11-28T18:02:05.607707+00:00",
     "search_hydrated": true
   },
   {
@@ -99173,9 +99173,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T17:06:00.253217+00:00",
-    "retry_after": "2026-11-25T17:06:00.253235+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T18:02:05.607643+00:00",
+    "retry_after": "2026-11-28T18:02:05.607661+00:00",
     "search_hydrated": true
   },
   {
@@ -99191,9 +99191,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T17:09:57.604074+00:00",
-    "retry_after": "2026-11-25T17:09:57.604094+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T18:06:48.643748+00:00",
+    "retry_after": "2026-11-28T18:06:48.643769+00:00",
     "search_hydrated": true
   },
   {
@@ -99202,9 +99202,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T17:10:11.846788+00:00",
-    "retry_after": "2026-11-25T17:10:11.846806+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T18:07:07.713357+00:00",
+    "retry_after": "2026-11-28T18:07:07.713390+00:00",
     "search_hydrated": true
   },
   {
@@ -100991,6 +100991,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-25T17:05:44.421979+00:00",
     "retry_after": "2026-11-26T17:05:44.421995+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Little Bird",
+    "publisher": "Image Comics",
+    "year": 2020,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 117592,
+        "name": "Little Bird",
+        "publisher": "Image",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T18:06:55.637338+00:00",
+    "retry_after": "2026-11-26T18:06:55.637356+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Bratty Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2004,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62713,
+        "name": "Big Bratty Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2004
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T18:07:07.713483+00:00",
+    "retry_after": "2026-11-26T18:07:07.713486+00:00",
     "search_hydrated": true
   }
 ]

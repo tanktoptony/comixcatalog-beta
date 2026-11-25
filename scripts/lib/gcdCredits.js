@@ -65,9 +65,22 @@ export function slugify(name) {
 }
 
 export function storyRows(gcdIssueId, apiIssue) {
-  return (apiIssue?.story_set ?? []).map((story, index) => ({
+  const stories = (apiIssue?.story_set ?? []).map((story, index) => ({
+    story,
+    sequence: Number.isFinite(Number(story.sequence_number)) ? Number(story.sequence_number) : index,
+  }));
+  // gcd_stories holds one row per (issue, number), and GCD sometimes gives two
+  // entries the same one (issue 613276 has two covers numbered 0). A repeat
+  // goes after the last number, so both are kept and the rest keep theirs.
+  let next = Math.max(-1, ...stories.map((entry) => entry.sequence)) + 1;
+  const used = new Set();
+  for (const entry of stories) {
+    if (used.has(entry.sequence)) { entry.sequence = next; next += 1; }
+    used.add(entry.sequence);
+  }
+  return stories.map(({ story, sequence }) => ({
     gcd_issue_id: Number(gcdIssueId),
-    sequence_number: Number.isFinite(Number(story.sequence_number)) ? Number(story.sequence_number) : index,
+    sequence_number: sequence,
     type: cleanText(story.type), title: cleanText(story.title), feature: cleanText(story.feature),
     script: cleanText(story.script), pencils: cleanText(story.pencils), inks: cleanText(story.inks),
     colors: cleanText(story.colors), letters: cleanText(story.letters), characters: cleanText(story.characters),

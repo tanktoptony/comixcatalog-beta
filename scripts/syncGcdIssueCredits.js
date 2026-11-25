@@ -200,7 +200,7 @@ async function writeIssue(supabase, gcdId, apiIssue) {
 async function run() {
   if (!Number.isInteger(LIMIT) || LIMIT < 1) throw new Error(`--limit must be a positive integer, got ${args.limit}`);
   const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
-  const selection = await candidates(supabase); let fetched = 0; let written = 0; let notFound = 0; let rateLimited = false;
+  const selection = await candidates(supabase); let fetched = 0; let written = 0; let notFound = 0; let rateLimited = false; const failed = [];
   for (const gcdId of selection.ids) {
     let json;
     try { json = await fetchJson(`https://www.comics.org/api/issue/${gcdId}/?format=json`); }
@@ -210,10 +210,17 @@ async function run() {
     }
     fetched += 1; if (!json) notFound += 1;
     if (DRY_RUN) console.log(JSON.stringify({ gcd_issue_id: gcdId, not_found: !json, credits: json ? creditsForIssue(json) : [] }));
-    else { await writeIssue(supabase, gcdId, json); written += 1; }
+    else {
+      // One bad issue must not stop the rest: it stays unfetched, so it comes
+      // first again next run and blocked every run from 2026-11-04 to 11-25.
+      // The run still ends red.
+      try { await writeIssue(supabase, gcdId, json); written += 1; }
+      catch (error) { failed.push(gcdId); console.error(`  gcd ${gcdId}: ${error?.code ? `${error.code} | ` : ""}${error?.message ?? error}`); }
+    }
     await sleep(SLEEP_MS);
   }
   console.log(`summary fetched=${fetched} written=${written} not_found=${notFound} rate_limited=${rateLimited} sources=${Object.entries(selection.counts).map(([k, v]) => `${k}:${v}`).join(",")}`);
+  if (failed.length) throw new Error(`${failed.length} issue(s) could not be written: ${failed.join(", ")}`);
 }
 
 export { RateLimited, fetchJson };

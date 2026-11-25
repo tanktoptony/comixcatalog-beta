@@ -33,6 +33,13 @@ test("includes text stories and pin-ups but not filler", () => {
 
 test("slugifies accents deterministically", () => assert.equal(slugify("José García, Jr."), "jose-garcia-jr"));
 test("handles an empty story set", () => { assert.deepEqual(creditsForIssue({ story_set: [] }), []); assert.deepEqual(storyRows(1, {}), []); });
+test("two entries with the same number both get rows, and the rest keep theirs", () => {
+  const rows = storyRows(613276, { story_set: [
+    { sequence_number: 0, type: "cover", title: "A" }, { sequence_number: 0, type: "cover", title: "B" },
+    { sequence_number: 1, type: "comic story", title: "C" }, { sequence_number: 8, type: "illustration", title: "D" },
+  ] });
+  assert.deepEqual(rows.map((r) => [r.sequence_number, r.title]), [[0, "A"], [9, "B"], [1, "C"], [8, "D"]]);
+});
 test("builds normalized story rows", () => {
   const [row] = storyRows(89805, { story_set: [{ sequence_number: 0, type: "cover", title: "None", feature: "?", script: "None", page_count: "1.000" }] });
   assert.equal(row.gcd_issue_id, 89805); assert.equal(row.page_count, 1); assert.equal(row.title, null); assert.equal(row.feature, null); assert.equal(row.script, null);

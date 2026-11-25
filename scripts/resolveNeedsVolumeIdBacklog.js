@@ -2,9 +2,8 @@
 // comicvine_api_to_supabase.py found a title/publisher mismatch on
 // ComicVine (GCD says one publisher, ComicVine files it under another —
 // UK reprints, foreign imprints, distributor-vs-publisher drift) but
-// ComicVine's search returned EXACTLY ONE same-titled candidate. With
-// only one candidate there's nothing to disambiguate — it's not a real
-// ambiguity, just a name the matcher was told to be conservative about.
+// ComicVine's search returned EXACTLY ONE same-titled candidate. One
+// candidate is not proof: see resolveSingle() for what it must also satisfy.
 //
 // For each single-candidate entry this script:
 //   1. Finds the matching `series` row by (title, resolved_publisher_cached),
@@ -33,7 +32,7 @@ import path from "path";
 import { readFileSync, writeFileSync, existsSync } from "fs";
 import { fileURLToPath } from "url";
 import { createClient } from "@supabase/supabase-js";
-import { resolveByYear } from "./lib/resolveByYear.js";
+import { resolveByYear, resolveSingle } from "./lib/resolveByYear.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(__dirname, "../.env.local") });
@@ -67,12 +66,18 @@ async function run() {
   // first. resolveByYear refuses everything else — see its header for the
   // four ways it declines and why each one would otherwise be a guess.
   const work = [];
+  const refusedSingles = {};
   const byBasis = { single: 0, "exact-year": 0, "near-year": 0 };
   for (const entry of backlog) {
     const candidates = entry.candidates || [];
     if (candidates.length === 1) {
-      work.push({ entry, candidate: candidates[0], basis: "single" });
-      byBasis.single++;
+      const single = resolveSingle(entry);
+      if (single.status === "matched") {
+        work.push({ entry, candidate: single.candidate, basis: "single" });
+        byBasis.single++;
+      } else {
+        refusedSingles[single.reason] = (refusedSingles[single.reason] ?? 0) + 1;
+      }
       continue;
     }
     const decision = resolveByYear(entry);
@@ -84,7 +89,7 @@ async function run() {
 
   console.log(`Backlog entries: ${backlog.length}`);
   console.log(`Resolvable: ${work.length}`);
-  console.log(`  single candidate:        ${byBasis.single}`);
+  console.log(`  single candidate:        ${byBasis.single} (refused: ${JSON.stringify(refusedSingles)})`);
   console.log(`  disambiguated by year:   ${byBasis["exact-year"]}`);
   console.log(`  disambiguated within 1y: ${byBasis["near-year"]}`);
 

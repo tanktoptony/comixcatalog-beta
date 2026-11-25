@@ -12,6 +12,9 @@ test("counts seller prices and copy photos, excluding rows without a marketplace
   const listings = { priced: { price_cents: 2500 }, open: { price_cents: null } };
   const result = listingCompleteness(rows, listings, new Set(["open"]));
   assert.deepEqual(result.needsPrice.map((x) => x.id), ["open"]);
+  assert.deepEqual(result.needsShipping.map((x) => x.id), ["priced"]);
+  const withShipping = { priced: { price_cents: 2500, shipping_cents: 0 }, open: { price_cents: null } };
+  assert.deepEqual(listingCompleteness(rows, withShipping, new Set()).needsShipping, []);
   assert.deepEqual(result.needsPhoto.map((x) => x.id), ["priced"]);
 });
 

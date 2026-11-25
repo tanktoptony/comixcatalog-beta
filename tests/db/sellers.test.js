@@ -50,6 +50,17 @@ test("buy now needs a raw condition or a slab grade", async () => {
   await db.end();
 });
 
+test("buy now needs a shipping price, and 0 is one", async () => {
+  const db = await dbClient(); const s = await setup(db, { priceCents: 2500, shippingCents: null });
+  assert.equal(await block(db, s.listingId), "needs_shipping");
+  await assert.rejects(() => createOrder(db, s.buyerId, s.listingId), { code: "55006", message: /needs_shipping/ });
+  await asOwner(db); await db.query("update public.listings set shipping_cents=0 where id=$1", [s.listingId]);
+  assert.equal(await block(db, s.listingId), null);
+  await asOwner(db); await db.query("update public.listings set shipping_cents=500 where id=$1", [s.listingId]);
+  assert.equal(await block(db, s.listingId), null);
+  await db.end();
+});
+
 test("new seller price and listing caps do not restrict established sellers", async () => {
   const db=await dbClient(); const high=await setup(db,{priceCents:100001}); await photo(db,high,"front"); await photo(db,high,"back");
   assert.equal(await block(db,high.listingId),"new_seller_price_cap"); await asOwner(db); await db.query("update public.seller_accounts set tier='established' where user_id=$1",[high.sellerId]); assert.equal(await block(db,high.listingId),null);

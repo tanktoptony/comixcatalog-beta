@@ -6,15 +6,31 @@ import { aalFromToken, bearerToken } from "@/lib/adminAal";
 import { getMarketValuesBulk } from "@/lib/marketValue";
 import { normTitle, titleVariants } from "@/lib/titleMatch";
 import { isOwnedStatus } from "@/lib/collectionStatus";
-import { fetchAllPages, fetchAllPagesParallel } from "@/lib/supabase/fetchAllPages";
+import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { bestYearFor, parseYear } from "@/lib/years";
 import { createServerTiming } from "@/lib/serverTiming";
 import { resolveCovers } from "@/lib/catalog/covers";
+import { coverBatches, numbersByKey } from "@/lib/coverBatches";
 
 // publication_date is null on ~65% of gcd_issues rows; key_date (GCD's sortable
 // approximation) fills most of that gap. Without this fallback a collector's
 // owned issues show "Unknown" year ~⅔ of the time AND lose their cover (the
 // year-aware matcher below requires a non-null year).
+// Two reads at a time per call, as before: one profile load never has more than
+// four in flight.
+async function readBatches(batches, read) {
+  const results = new Array(batches.length);
+  let next = 0;
+  await Promise.all(Array.from({ length: Math.min(2, batches.length) }, async () => {
+    while (next < batches.length) {
+      const index = next;
+      next += 1;
+      results[index] = await fetchAllPages(() => read(batches[index]), "id");
+    }
+  }));
+  return results.flat();
+}
+
 function norm(value) {
   return String(value ?? "").trim().toLowerCase();
 }
@@ -178,10 +194,18 @@ export async function GET(req) {
   // rather than caching; revisit if this profile route ever needs to shed
   // round-trips.
   const keyIssuesPromise = gcdIds.length > 0
-    ? timing.measure("key_issues", () => supabase
-      .from("key_issues")
-      .select("gcd_issue_id, character, reason, tier")
-      .in("gcd_issue_id", gcdIds))
+    ? timing.measure("key_issues", async () => {
+        const rows = [];
+        for (let i = 0; i < gcdIds.length; i += 500) {
+          const { data, error } = await supabase
+            .from("key_issues")
+            .select("gcd_issue_id, character, reason, tier")
+            .in("gcd_issue_id", gcdIds.slice(i, i + 500));
+          if (error) return { data: rows, error };
+          rows.push(...(data ?? []));
+        }
+        return { data: rows, error: null };
+      })
     : Promise.resolve({ data: [], error: null });
 
   const gcdDisplayLookup = {};
@@ -219,25 +243,21 @@ export async function GET(req) {
     const seriesGcdIds = [
       ...new Set(issueList.map((i) => i.series_gcd_id).filter(Boolean)),
     ];
-    const issueNumbers = [
-      ...new Set(issueList.map((i) => i.issue_number).filter((v) => v != null)),
-    ];
 
     // This cover path needs only issue metadata, so overlap it with the
     // series and publisher lookups below.
     const finishCoverTiming = timing.start("covers");
-    const idCoversPromise = seriesGcdIds.length > 0 && issueNumbers.length > 0
-      ? fetchAllPagesParallel(() =>
-          supabase
-            .from("canonical_covers")
-            .select("series_gcd_id, issue_number, series_year, cover_date, storage_path")
-            .in("series_gcd_id", seriesGcdIds)
-            .in("issue_number", issueNumbers)
-            .not("storage_path", "is", null),
-          "id",
-          2
-        )
-      : Promise.resolve([]);
+    const numbersBySeries = numbersByKey(issueList, (i) => i.series_gcd_id);
+    const idCoversPromise = readBatches(coverBatches(seriesGcdIds, numbersBySeries), ({ group, numbers }) =>
+      supabase
+        .from("canonical_covers")
+        .select("series_gcd_id, issue_number, series_year, cover_date, storage_path")
+        .in("series_gcd_id", group)
+        .in("issue_number", numbers)
+        .not("storage_path", "is", null));
+    // Awaited further down, after the series reads: without this a failure
+    // before that point is an unhandled rejection.
+    idCoversPromise.catch(() => {});
 
     // Paged and chunked like the issue read above: a large, varied collection
     // can pass 1,000 series or publishers, and a plain .in() stops there.
@@ -309,25 +329,18 @@ export async function GET(req) {
     const coversByIdKey = new Map();
     const coversByKey = new Map();
 
-    // PostgREST silently caps responses at 1000 rows, so both reads page
-    // through fetchAllPagesParallel. The two passes are independent and run
-    // together, two pages each, so one profile load never has more than four
-    // reads in flight.
+    // The two passes are independent and run together, two reads each.
+    const numbersByTitle = numbersByKey(intermediate, (r) => r.seriesTitle);
     const [idCovers, covers] = await Promise.all([
       idCoversPromise,
-      seriesTitles.length > 0 && issueNumbers.length > 0
-        ? fetchAllPagesParallel(() =>
-            supabase
-              .from("canonical_covers")
-              .select("series_title, issue_number, series_year, cover_date, storage_path")
-              // Title variants + normTitle keys, same as /api/library-hydrate.
-              .in("series_title", [...new Set(seriesTitles.flatMap(titleVariants))])
-              .in("issue_number", issueNumbers)
-              .not("storage_path", "is", null),
-            "id",
-            2
-          )
-        : [],
+      readBatches(coverBatches(seriesTitles, numbersByTitle), ({ group, numbers }) =>
+        supabase
+          .from("canonical_covers")
+          .select("series_title, issue_number, series_year, cover_date, storage_path")
+          // Title variants + normTitle keys, same as /api/library-hydrate.
+          .in("series_title", [...new Set(group.flatMap(titleVariants))])
+          .in("issue_number", numbers)
+          .not("storage_path", "is", null)),
     ]);
     for (const c of idCovers) {
       const key = `${c.series_gcd_id}::${norm(c.issue_number)}`;

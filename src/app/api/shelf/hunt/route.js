@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getAuthedUser } from "@/lib/authServer";
 import { canonicalCoverUrl, resolveCovers } from "@/lib/catalog/covers";
 import { getListings } from "@/lib/marketplace";
+import { listingName } from "@/lib/marketplaceFormat";
 import { loadPriceChartingRows, pcValueForIssue } from "@/lib/pcValue";
 import { marketPicks, marketStats, sellerSummary, wantlistCards } from "@/lib/shelfHunt";
 import { getServiceClient } from "@/lib/supabase/service";
@@ -81,7 +82,7 @@ async function loadWantlist(supabase, userId, listings) {
 }
 
 const pickFields = (l) => ({
-  id: l.id, href: l.listingHref, title: l.title, issue_number: l.issueNumber, year: l.year, cover: l.cover,
+  id: l.id, href: l.listingHref, title: l.title, name: listingName(l), issue_number: l.issueNumber, year: l.year, cover: l.cover,
   price: l.price, guide: l.guide ? { value: l.guide.value, url: l.guide.url } : null,
   key: l.key ? (l.key.reason || l.key.character) : null, buy_now: Boolean(l.buyNow), seller: l.seller,
 });

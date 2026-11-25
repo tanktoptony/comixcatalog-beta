@@ -66,3 +66,12 @@ export function suggestVersion(label, versions, { seriesTitle = "", currentGcdId
   const hits = versions.filter((version) => saysTheSame(wanted, readVariantName(version.name, seriesTitle)));
   return hits.length === 1 && !hits[0].isBase ? hits[0] : null;
 }
+
+// "Not mine" is remembered on this device so the question isn't asked again.
+const dismissKey = (collectionId) => `cc-label-suggestion-no:${collectionId}`;
+export function isLabelSuggestionDismissed(collectionId) {
+  try { return window.localStorage.getItem(dismissKey(collectionId)) === "1"; } catch { return false; }
+}
+export function dismissLabelSuggestion(collectionId) {
+  try { window.localStorage.setItem(dismissKey(collectionId), "1"); } catch { /* asked again next time */ }
+}

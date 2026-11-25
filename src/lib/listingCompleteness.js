@@ -4,8 +4,9 @@ export function listingCompleteness(collections, listingsByCollection, photoColl
   const photos = photoCollectionIds instanceof Set ? photoCollectionIds : new Set(photoCollectionIds ?? []);
   const listed = (collections ?? []).filter((item) => item.status === "for_sale" && listingsByCollection?.[item.id]);
   const needsPrice = listed.filter((item) => listingsByCollection[item.id].price_cents == null);
+  const needsShipping = listed.filter((item) => listingsByCollection[item.id].price_cents != null && listingsByCollection[item.id].shipping_cents == null);
   const needsPhoto = listed.filter((item) => !photos.has(item.id));
-  return { listed, needsPrice, needsPhoto };
+  return { listed, needsPrice, needsShipping, needsPhoto };
 }
 
 export function isUnlinkedForSale(item) {

@@ -11,6 +11,8 @@ import { MARKETPLACE_LIVEMODE } from "@/lib/marketplaceStripe";
 import { publicCounts } from "@/lib/publicCounts";
 import { loadPriceChartingRows, pcValueForIssue } from "@/lib/pcValue";
 import { buildPriceGuide } from "@/lib/priceGuide";
+import { collectedTag } from "@/lib/seriesFormat";
+import { canUseCheckout } from "@/lib/marketplaceFlags";
 
 // Marketplace v2 read model (migration 0031). Each listed copy is a row in
 // `listings` that snapshots the title, issue, publisher, cover and grade, so
@@ -129,10 +131,25 @@ async function communityCounts(sb, gcdIds) {
   return counts;
 }
 
-async function chunkedRows(ids, read) {
+async function chunkedRows(ids, read, orderCol) {
   const rows = [];
-  for (let i = 0; i < ids.length; i += 300) rows.push(...await fetchAllPages(() => read(ids.slice(i, i + 300))));
+  for (let i = 0; i < ids.length; i += 300) rows.push(...await fetchAllPages(() => read(ids.slice(i, i + 300)), orderCol));
   return rows;
+}
+
+// Trades, hardcovers and graphic novels among these issues: issue id -> tag
+// ("TPB"). Single issues and unsynced formats aren't in the map.
+async function collectedTags(sb, issueIds) {
+  const issues = await chunkedRows(issueIds, (slice) => sb.from("gcd_issues").select("gcd_id, series_gcd_id").in("gcd_id", slice), "gcd_id");
+  const seriesIds = [...new Set(issues.map((row) => row.series_gcd_id).filter((id) => id != null))];
+  const series = await chunkedRows(seriesIds, (slice) => sb.from("gcd_series").select("gcd_id, name, publishing_format, binding").in("gcd_id", slice), "gcd_id");
+  const tagOf = new Map(series.map((row) => [Number(row.gcd_id), collectedTag(row)]));
+  const tags = new Map();
+  for (const row of issues) {
+    const tag = tagOf.get(Number(row.series_gcd_id));
+    if (tag) tags.set(Number(row.gcd_id), tag);
+  }
+  return tags;
 }
 
 async function mapLimit(items, limit, fn) {
@@ -174,6 +191,10 @@ async function computeListings() {
     l.community = community.get(l.gcdIssueId) ?? null;
     l.photoCount = photos.get(l.collectionId) ?? 0;
   }
+  try {
+    const tags = await collectedTags(sb, issueIds);
+    for (const l of listings) l.format = tags.get(l.gcdIssueId) ?? null;
+  } catch (error) { console.error("marketplace formats failed:", error); }
   try {
     const details = await chunkedRows(ids, (slice) => sb.from("listings").select("id, condition_notes, restored, signed").in("id", slice));
     const byId = new Map(details.map((row) => [row.id, row]));
@@ -270,7 +291,7 @@ async function computeListingsForIssue(gcdIssueId) {
 // two minutes and dropped early by revalidateListings() on any listing
 // change. A failed read throws (never cached) so the page can say so
 // instead of showing an empty market.
-export const getListings = unstable_cache(computeListings, ["marketplace-listings-v7"], {
+export const getListings = unstable_cache(computeListings, ["marketplace-listings-v8"], {
   revalidate: 120,
   tags: [LISTINGS_TAG],
 });
@@ -359,6 +380,16 @@ async function computeListing(id) {
 
   const base = toListing({ ...l, ...(uc ?? {}), seller_username: seller.username }, supa);
   let guide = null, priceGuide = null, key = null, community = null;
+  // Buy now in the first HTML, for signed-out visitors too. Only an active,
+  // priced listing can be buyable; a failed check falls back to offers.
+  let buyNow = false;
+  if (l.status === "active" && l.price_cents != null && canUseCheckout(null)) {
+    const { data: block, error: blockError } = await sb.rpc("mkt_listing_checkout_block", { p_listing: l.id });
+    if (blockError) console.error("listing checkout eligibility failed:", blockError);
+    else buyNow = block == null;
+  }
+  let tags = new Map();
+  try { tags = await collectedTags(sb, [...new Set([base.gcdIssueId, ...buyable.map((row) => Number(row.gcd_issue_id))])]); } catch (formatError) { console.error("listing format failed:", formatError); }
   try {
     const { rowsByIssue, error: guideError } = await loadPriceChartingRows(sb, [base.gcdIssueId]);
     if (guideError) throw guideError;
@@ -375,6 +406,8 @@ async function computeListing(id) {
   try { community = (await communityCounts(sb, [base.gcdIssueId])).get(base.gcdIssueId) ?? null; } catch (countError) { console.error("listing community counts failed:", countError); }
   return {
     ...base,
+    format: tags.get(base.gcdIssueId) ?? null,
+    buyNow,
     guide,
     priceGuide,
     key,
@@ -395,14 +428,14 @@ async function computeListing(id) {
       otherListings: otherCount ?? 0,
       rating: formatSellerRating(rating),
       sales: salesCount ?? 0,
-      pricedListings: buyable.map((row) => toListing({ ...row, seller_username: seller.username }, supa)),
+      pricedListings: buyable.map((row) => ({ ...toListing({ ...row, seller_username: seller.username }, supa), format: tags.get(Number(row.gcd_issue_id)) ?? null })),
       additionalShippingCents: sellerAccount?.additional_item_shipping_cents ?? 100,
     },
   };
 }
 
 export async function getListing(id) {
-  return unstable_cache(() => computeListing(id), ["marketplace-listing-v3", String(id)], {
+  return unstable_cache(() => computeListing(id), ["marketplace-listing-v4", String(id)], {
     revalidate: 120,
     tags: [LISTINGS_TAG],
   })();

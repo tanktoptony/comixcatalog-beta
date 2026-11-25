@@ -1,3 +1,5 @@
+import { gunzipSync, gzipSync } from "node:zlib";
+import { cache } from "react";
 import { unstable_cache } from "next/cache";
 import { getCachedComicsSearch } from "@/app/api/search/comics/route";
 import { getCachedSeriesSearch } from "@/app/api/search/series/route";
@@ -249,6 +251,9 @@ export function getIssuePageData(baseGcdId, editionGcdId, hasEditionColumns = tr
 // fetch our own /api/public-profile over HTTP (an extra serverless hop on
 // every view); this calls the handler in-process and caches the result for
 // a minute. A missing or private profile caches as { notFound: true }.
+// Stored gzipped: the data cache refuses entries over 2 MB, and a 10,000-book
+// profile is 6.7 MB of JSON, so the largest collections were rebuilt on every
+// view (about a tenth of that compressed).
 const cachedPublicProfile = unstable_cache(
   async (username) => {
     const res = await publicProfileGET(
@@ -256,12 +261,14 @@ const cachedPublicProfile = unstable_cache(
     );
     if (res.status === 400 || res.status === 404) return { notFound: true };
     if (!res.ok) throw new Error(`public-profile returned ${res.status}`);
-    return res.json();
+    return { gz: gzipSync(Buffer.from(await res.arrayBuffer())).toString("base64") };
   },
-  ["page-public-profile-v1"],
+  ["page-public-profile-v2"],
   { revalidate: 60 }
 );
 
-export function getPublicProfile(username) {
-  return cachedPublicProfile(username);
-}
+// cache(): the page and its metadata ask for the same profile in one request.
+export const getPublicProfile = cache(async (username) => {
+  const entry = await cachedPublicProfile(username);
+  return entry.gz ? JSON.parse(gunzipSync(Buffer.from(entry.gz, "base64")).toString("utf8")) : entry;
+});

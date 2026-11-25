@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase/service";
 import { getAuthedUser } from "@/lib/authServer";
-import { validateListingEdit } from "@/lib/listingEdit";
+import { shippingError, validateListingEdit } from "@/lib/listingEdit";
 import { revalidateListings } from "@/lib/marketplace";
 
 // PATCH /api/listings/:id
@@ -26,6 +26,17 @@ export async function PATCH(req, { params }) {
 
   const sb = getServiceClient();
   try {
+    const { data: current, error: readError } = await sb
+      .from("listings")
+      .select("price_cents, shipping_cents")
+      .eq("id", id)
+      .eq("seller_id", user.id)
+      .maybeSingle();
+    if (readError) throw readError;
+    if (!current) return NextResponse.json({ error: "That listing can't be edited right now." }, { status: 404 });
+    const needsShipping = shippingError(patch, current);
+    if (needsShipping) return NextResponse.json({ error: needsShipping }, { status: 400 });
+
     const { data, error } = await sb
       .from("listings")
       .update({ ...patch, updated_at: new Date().toISOString() })

@@ -6,9 +6,9 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { useLibrary } from "@/context/LibraryContext";
 import { coverThumb } from "@/lib/coverThumb";
-import { conditionLabel, offerHref, formatValue, shippingLabel, contactLabel } from "@/lib/marketplaceFormat";
+import { conditionLabel, offerHref, formatValue, shippingLabel, contactLabel, listingName, listingNumber } from "@/lib/marketplaceFormat";
 import { CreditCard, ShieldCheck, Truck } from "lucide-react";
-import { TRUST_POINTS, communityLine, discountLabel, isUnderGuide, totalWithShipping } from "@/lib/marketplaceDeals";
+import { TRUST_POINTS, communityLine, discountLabel, isAtGuide, isUnderGuide, totalWithShipping } from "@/lib/marketplaceDeals";
 import {
   FILTER_KEYS,
   SORTS,
@@ -22,7 +22,6 @@ import {
   sortListings,
   wantlistMatches,
 } from "@/lib/marketplaceFacets";
-import { issueNumberText } from "@/lib/issueNumberLabel";
 
 // /marketplace, Discogs style. With no search or filter it's a short landing
 // page of shelves (just listed, most wanted, highest priced, publishers, most
@@ -83,24 +82,48 @@ function TrustStrip() {
   );
 }
 
+// The series name can shorten; the number never does, because it's what
+// tells one book from the next.
+function Title({ l }) {
+  const number = listingNumber(l);
+  return (
+    <>
+      <span className="mk-title-name">{l.title}</span>
+      {number && <span className="mk-title-num"> {number}</span>}
+    </>
+  );
+}
+
 function Card({ l, issueLink = false }) {
   const href = issueLink ? l.href : l.listingHref;
   return (
     <li className="mk-card">
       <Link prefetch={false} href={href} className="mk-card-cover">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={coverThumb(l.cover || "/fallback-cover.png")} alt={`${l.title} ${issueNumberText(l.issueNumber)}`} loading="lazy" />
+        <img src={coverThumb(l.cover || "/fallback-cover.png")} alt={listingName(l)} loading="lazy" />
         {l.key && <span className="mk-card-key">KEY</span>}
         {l.buyNow && <span className="mk-card-buy">Buy now</span>}
       </Link>
-      <Link prefetch={false} href={href} className="mk-card-title">
-        {l.title} #{l.issueNumber || "?"}
+      <Link prefetch={false} href={href} className="mk-card-title" title={listingName(l)}>
+        <Title l={l} />
       </Link>
       <span className="mk-card-meta">
         {conditionLabel(l)}
         {l.year ? ` · ${l.year}` : ""}
       </span>
-      {!issueLink && <><span className="mk-price"><b>{l.price != null ? formatValue(l.price) : "Offers"}</b></span>{isUnderGuide(l) ? <span className="mk-discount">{discountLabel(l)}</span> : <GuideLine l={l}/>}</>}
+      {!issueLink && (
+        <>
+          <span className="mk-price">
+            <b>{l.price != null ? formatValue(l.price) : "Offers"}</b>
+            {l.price != null && <em>{shippingLabel(l) ?? "Shipping not set"}</em>}
+          </span>
+          {isUnderGuide(l) && <span className="mk-discount">{discountLabel(l)}</span>}
+          {!isAtGuide(l) && <GuideLine l={l} />}
+          <Link prefetch={false} href={`/u/${encodeURIComponent(l.seller)}`} className="mk-card-seller">
+            @{l.seller}
+          </Link>
+        </>
+      )}
     </li>
   );
 }
@@ -242,8 +265,8 @@ function Row({ l }) {
       </Link>
 
       <div className="mk-row-main">
-        <Link prefetch={false} href={l.listingHref} className="mk-row-title">
-          {l.title} #{l.issueNumber || "?"}
+        <Link prefetch={false} href={l.listingHref} className="mk-row-title" title={listingName(l)}>
+          <Title l={l} />
         </Link>
         <span className="mk-row-meta">
           {[l.publisher ? filterLabel("publisher", l.publisher) : null, l.year, l.variant].filter(Boolean).join(" · ")}
@@ -281,10 +304,10 @@ function Row({ l }) {
         <span className={`mk-price${l.price == null ? " is-offers" : ""}`}>
           <b>{l.price != null ? formatValue(l.price) : "Open to offers"}</b>
         </span>
-        {l.price != null && shippingLabel(l) && <span className="mk-ship">{shippingLabel(l)}</span>}
-        {total != null && l.shipping > 0 && <span className="mk-total">about {formatValue(total)} total</span>}
+        {l.price != null && <span className="mk-ship">{shippingLabel(l) ?? "Shipping not set"}</span>}
+        {total != null && l.shipping > 0 && <span className="mk-total">{formatValue(total)} total</span>}
         {isUnderGuide(l) && <span className="mk-discount">{discountLabel(l)}</span>}
-        <GuideLine l={l} />
+        {!isAtGuide(l) && <GuideLine l={l} />}
         {l.buyNow ? (
           <>
             <Link prefetch={false} href={l.listingHref} className="mk-buy-now">

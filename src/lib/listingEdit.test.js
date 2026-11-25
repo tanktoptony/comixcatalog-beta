@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { toCents, validateListingEdit } from "./listingEdit.js";
+import { SHIPPING_NEEDED, shippingError, toCents, validateListingEdit } from "./listingEdit.js";
 
 test("dollar strings become cents", () => {
   assert.equal(toCents("25"), 2500);
@@ -48,4 +48,22 @@ test("condition must be one of the raw grades, and blank clears it", () => {
   assert.deepEqual(validateListingEdit({ condition: "Very Fine" }).patch, { condition: "Very Fine" });
   assert.deepEqual(validateListingEdit({ condition: "" }).patch, { condition: null });
   assert.match(validateListingEdit({ condition: "Pristine" }).error, /Pick a condition/);
+});
+
+test("a priced listing needs shipping, and 0 counts", () => {
+  const unpriced = { price_cents: null, shipping_cents: null };
+  assert.equal(shippingError({ price_cents: 405 }, unpriced), SHIPPING_NEEDED);
+  assert.equal(shippingError({ price_cents: 405, shipping_cents: null }, unpriced), SHIPPING_NEEDED);
+  assert.equal(shippingError({ price_cents: 405, shipping_cents: 0 }, unpriced), null);
+  assert.equal(shippingError({ price_cents: 405 }, { price_cents: null, shipping_cents: 500 }), null);
+  // Offers only: no price, no shipping needed.
+  assert.equal(shippingError({ price_cents: null, shipping_cents: null }, unpriced), null);
+});
+
+test("listings priced before the rule stay editable but can't lose shipping", () => {
+  const old = { price_cents: 405, shipping_cents: null };
+  assert.equal(shippingError({ condition_notes: "Spine tick" }, old), null);
+  assert.equal(shippingError({ price_cents: 500 }, old), null);
+  assert.equal(shippingError({ price_cents: 500, shipping_cents: null }, old), SHIPPING_NEEDED);
+  assert.equal(shippingError({ shipping_cents: null }, { price_cents: 405, shipping_cents: 500 }), SHIPPING_NEEDED);
 });

@@ -14,14 +14,16 @@ import { SLOT } from "@/lib/houseAds";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import GradeEditor from "@/components/GradeEditor";
 import { countCopies } from "@/lib/libraryMutations";
+import { copyGradeLabel, guideCopyValue } from "@/lib/guideCopyValue";
 import { publisherHref } from "@/lib/publisherPages";
 import { issueNumberSuffix, issueNumberText } from "@/lib/issueNumberLabel";
 import { buildIssueDetailsRows, humanizeStoryType, issueDateChip, parseGcdCreditList, stripGcdCharacterNoise } from "@/lib/issueDetails";
-import { conditionLabel, contactLabel, formatValue, offerHref } from "@/lib/marketplaceFormat";
+import { conditionLabel, contactLabel, formatValue, offerHref, shippingLabel } from "@/lib/marketplaceFormat";
 import Avatar from "@/components/Avatar";
 import { cleanVariantCaption, matchVariantCovers } from "@/lib/variantCovers";
 import AddToListButton from "@/components/lists/AddToListButton";
 import IssueReviews from "@/components/issue/IssueReviews";
+import OwnCopyCover from "@/components/issue/OwnCopyCover";
 import IssueVersions from "@/components/issue/IssueVersions";
 import CommentThread from "@/components/comments/CommentThread";
 
@@ -162,8 +164,6 @@ export default function IssueClient({ initialIssue = null }) {
   const [addCopyBusy, setAddCopyBusy] = useState(false);
   const [selectedCover, setSelectedCover] = useState(null);
   const [unmatchedCover, setUnmatchedCover] = useState(false);
-  const [variantLabel, setVariantLabel] = useState("");
-  const [variantSaveState, setVariantSaveState] = useState(null);
   const [versionSwitchState, setVersionSwitchState] = useState(null);
   // Edits saved on this page, tied to the copy they belong to: when the page
   // moves to another copy (say, after one is removed) they must not be shown
@@ -254,6 +254,10 @@ export default function IssueClient({ initialIssue = null }) {
     ?? null;
   const copyCount = countCopies(issueRows);
   const gradeData = collectionRow && gradeEdits.id === collectionRow.id ? gradeEdits.data : null;
+  // This copy's value follows its saved grade right away.
+  const myCopy = user && collectionRow ? { ...collectionRow, ...(gradeData ?? {}) } : null;
+  const myGrade = copyGradeLabel(myCopy);
+  const myValue = guideCopyValue(issue?.price_guide, myCopy);
   function setGradeData(copyId, patch) {
     setGradeEdits((prev) => ({ id: copyId, data: { ...(prev.id === copyId ? prev.data : null), ...patch } }));
   }
@@ -299,6 +303,7 @@ export default function IssueClient({ initialIssue = null }) {
   // picked (both live in user_cover_url). When there is one, the page leads
   // with it, and the strip below flips to the catalog cover and variants.
   const ownCover = inCollection ? gradeData?.user_cover_url ?? collectionRow?.user_cover_url ?? null : null;
+  const ownsThis = Boolean(user && inCollection && collectionRow?.id && issue?.source === "gcd");
   const matchedVariants = matchVariantCovers(issue?.versions, issue?.variants, {
     baseGcdId: issue?.base_gcd_issue_id,
     seriesTitle: issue?.series_title,
@@ -368,37 +373,18 @@ export default function IssueClient({ initialIssue = null }) {
     }
   }
 
-  async function saveOwnedVariant() {
-    if (!collectionRow?.id || issue?.source !== "gcd") return;
-    setVariantSaveState("saving");
-    try {
-      // `variant_of_gcd_id` is a forward-hook for a future GCD-native
-      // variant-issue link (see migration 0010) - it points to a *different*
-      // base gcd_issue, which this page never has. Writing this issue's own
-      // id into it (the old behavior) was a no-op self-reference that also
-      // ignored which cover thumbnail the collector actually clicked. The
-      // thing the user is picking here is which `cover_variants` image is
-      // their printing, so persist that into `user_cover_url` - the field
-      // already used sitewide as "the image representing this specific
-      // copy" (library, public profile, PDF export). Only write it when a
-      // thumbnail was actually selected, so confirming just a label doesn't
-      // clobber a personal photo the collector uploaded elsewhere.
-      const payload = { variant_label: variantLabel.trim() || null };
-      if (selectedCover) payload.user_cover_url = selectedCover;
-      const { error } = await getSupabaseClient()
-        .from("user_collections")
-        .update(payload)
-        .eq("id", collectionRow.id);
-      if (error) throw error;
-      // The library reads the copy's cover from its own loaded list, so
-      // reload it; otherwise the old cover showed until a full refresh.
-      if (selectedCover) setGradeData(collectionRow.id, { user_cover_url: selectedCover });
-      await refreshLibrary({ background: true });
-      setVariantSaveState("saved");
-    } catch (error) {
-      console.error("Variant selection save failed:", error);
-      setVariantSaveState("error");
-    }
+  // The collector's copy shows the cover they picked. The library reads it
+  // from its own loaded list, so that reloads too.
+  async function handleCoverSaved(url) {
+    setGradeData(collectionRow.id, { user_cover_url: url });
+    setSelectedCover(null);
+    setUnmatchedCover(false);
+    await refreshLibrary({ background: true });
+  }
+
+  async function handleVersionSaved(gcdId) {
+    await refreshLibrary({ background: true });
+    router.push(`/issue/gcd-${issue.base_gcd_issue_id}?edition=${gcdId}`, { scroll: false });
   }
 
   if (loading) {
@@ -509,7 +495,7 @@ export default function IssueClient({ initialIssue = null }) {
             {coverChoices.length > 1 && (
               <div className="issue-cover-choices" style={{ marginTop: 14 }}>
                 <div className="muted" style={{ fontSize: "0.8rem", marginBottom: 8 }}>
-                  {issue.variants?.length > 0 ? "Covers" : "Your copy and the catalog cover"}
+                  {ownsThis ? "Which cover is yours? Tap it." : issue.variants?.length > 0 ? "Covers" : "Your copy and the catalog cover"}
                 </div>
                 <div className="issue-cover-strip" style={{ display: "flex", gap: 8, overflowX: "auto", paddingBottom: 4 }}>
                   {coverChoices.map((c) => (
@@ -530,16 +516,19 @@ export default function IssueClient({ initialIssue = null }) {
                 {unmatchedCover && (
                   <p className="issue-cover-match-note">Details on this page are for {issue.edition_name || "the catalog edition"}. This cover isn&apos;t matched to an edition yet.</p>
                 )}
-                {user && inCollection && collectionRow?.id && issue.variants?.length > 0 && (
-                  <div style={{ display: "flex", gap: 8, marginTop: 10, flexWrap: "wrap" }}>
-                    <input value={variantLabel} onChange={(event) => setVariantLabel(event.target.value)} placeholder="Printing label (optional)" maxLength={80} className="admin-input" style={{ flex: "1 1 180px" }} />
-                    <button type="button" className="add-comic-btn" onClick={saveOwnedVariant} disabled={variantSaveState === "saving"}>
-                      {variantSaveState === "saved" ? "Saved" : "This is the printing I own"}
-                    </button>
-                  </div>
-                )}
-                {variantSaveState === "error" && <div className="muted" style={{ color: "#fca5a5", marginTop: 6 }}>Could not save this printing.</div>}
               </div>
+            )}
+
+            {ownsThis && (
+              <OwnCopyCover
+                key={collectionRow.id}
+                issue={issue}
+                row={{ ...collectionRow, ...(gradeData ?? {}) }}
+                ownCover={ownCover}
+                choice={selectedCover ? coverChoices.find((choice) => choice.url === selectedCover) ?? null : null}
+                onCoverSaved={handleCoverSaved}
+                onVersionSaved={handleVersionSaved}
+              />
             )}
 
             <div className="issue-collection-actions"
@@ -664,8 +653,23 @@ export default function IssueClient({ initialIssue = null }) {
             <aside className="issue-hero-rail">
               {issue.price_guide?.ungraded != null ? (
                 <div className="issue-value-card">
-                  <span className="issue-kicker">Ungraded value</span>
-                  <strong>{guideMoney(issue.price_guide.ungraded)}</strong>
+                  {myValue && (myGrade || myValue.mine) ? (
+                    <>
+                      <span className="issue-kicker">
+                        {copyCount > 1 ? `Your copy ${myCopy.copy_number ?? 1}` : "Your copy"} · {myValue.mine ? "your estimate" : myGrade}
+                      </span>
+                      <strong>{guideMoney(myValue.value)}</strong>
+                      {myValue.graded_at && (
+                        <small>Graded {myValue.graded_at.grade}: {guideMoney(myValue.graded_at.value)}</small>
+                      )}
+                      {myValue.value !== issue.price_guide.ungraded && <small>Ungraded value {guideMoney(issue.price_guide.ungraded)}</small>}
+                    </>
+                  ) : (
+                    <>
+                      <span className="issue-kicker">Ungraded value</span>
+                      <strong>{guideMoney(issue.price_guide.ungraded)}</strong>
+                    </>
+                  )}
                   <small>
                     <a href={issue.price_guide.url} target="_blank" rel="noopener" className="issue-pc-credit">
                       Price guide by PriceCharting
@@ -844,6 +848,8 @@ export default function IssueClient({ initialIssue = null }) {
                   collectionId={collectionRow.id}
                   canonicalCover={selectedCover || issue.cover || null}
                   releaseYear={issue?.release_year ?? null}
+                  gcdIssueId={collectionRow.gcd_issue_id ?? null}
+                  onVersionChange={(item) => { if (item?.gcd_issue_id) handleVersionSaved(item.gcd_issue_id); }}
                   // Every field the editor saves, or Save writes blanks over
                   // them: the paid price, value, version name, copy number
                   // and trade flag used to be missing here, so saving a grade
@@ -866,6 +872,26 @@ export default function IssueClient({ initialIssue = null }) {
                   }}
                   onSave={(updated) => { setGradeData(collectionRow.id, updated); refreshLibrary({ background: true }); }}
                 />
+                {myValue && (
+                  <p className="issue-copy-value" aria-live="polite">
+                    Worth {myValue.mine ? "" : "~"}{guideMoney(myValue.value)}{" "}
+                    {myValue.mine ? (
+                      <span>(your estimate)</span>
+                    ) : (
+                      <a href={issue.price_guide.url} target="_blank" rel="noopener">
+                        ({myValue.graded ? myGrade : "raw"}, PriceCharting)
+                      </a>
+                    )}
+                    {myValue.graded_at && (
+                      <>
+                        {" · "}
+                        <a href={issue.price_guide.url} target="_blank" rel="noopener">
+                          Graded {myValue.graded_at.grade}: {guideMoney(myValue.graded_at.value)}
+                        </a>
+                      </>
+                    )}
+                  </p>
+                )}
               </div>
             )}
 
@@ -882,7 +908,7 @@ export default function IssueClient({ initialIssue = null }) {
           <section id="forsale" className="issue-discogs-section">
             <div className="issue-section-heading"><h2>For sale</h2>{issue.listings?.length > 0 && <span>{issue.listings.length} available</span>}</div>
             {!issue.listings?.length ? <div className="issue-empty-card">No copies for sale yet{user && inCollection && <> · <Link href="/library?tab=collection">Sell yours</Link></>}</div> : <div className="issue-table-box"><table className="issue-discogs-table"><thead><tr><th>Grade</th><th>Edition</th><th>Seller</th><th>Price</th><th></th></tr></thead><tbody>
-              {issue.listings.map((listing) => <tr key={listing.id}><td>{conditionLabel(listing)}</td><td>{listing.variant || "Base edition"}</td><td><Link href={`/u/${encodeURIComponent(listing.seller)}`}>@{listing.seller}</Link><small>Listed {new Date(listing.listedAt).toLocaleDateString("en-US", { month: "short", year: "numeric" })}</small></td><td>{listing.price != null ? formatValue(listing.price) : "Open to offers"}</td><td><Link className="issue-row-button" href={offerHref(listing)}>{contactLabel(listing)}</Link></td></tr>)}
+              {issue.listings.map((listing) => <tr key={listing.id}><td>{conditionLabel(listing)}</td><td>{listing.variant || "Base edition"}</td><td><Link href={`/u/${encodeURIComponent(listing.seller)}`}>@{listing.seller}</Link><small>Listed {new Date(listing.listedAt).toLocaleDateString("en-US", { month: "short", year: "numeric" })}</small></td><td>{listing.price != null ? <>{formatValue(listing.price)}<small>{shippingLabel(listing) ?? "Shipping not set"}</small></> : "Open to offers"}</td><td>{listing.price != null ? <Link className="issue-row-button" href={`/listing/${listing.id}`}>See this copy</Link> : <Link className="issue-row-button" href={offerHref(listing)}>{contactLabel(listing)}</Link>}</td></tr>)}
             </tbody></table></div>}
           </section>
         )}

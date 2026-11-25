@@ -84355,9 +84355,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T09:15:55.476172+00:00",
-    "retry_after": "2026-11-25T09:15:55.476189+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T10:07:12.029317+00:00",
+    "retry_after": "2026-12-25T10:07:12.029338+00:00",
     "search_hydrated": true
   },
   {
@@ -84413,9 +84413,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T09:15:55.476220+00:00",
-    "retry_after": "2026-11-25T09:15:55.476224+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T10:07:12.029353+00:00",
+    "retry_after": "2026-12-25T10:07:12.029356+00:00",
     "search_hydrated": true
   },
   {
@@ -84424,9 +84424,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T09:15:55.476238+00:00",
-    "retry_after": "2026-11-25T09:15:55.476241+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T10:07:12.029364+00:00",
+    "retry_after": "2026-12-25T10:07:12.029366+00:00",
     "search_hydrated": true
   },
   {
@@ -96708,8 +96708,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-25T09:10:03.376410+00:00",
-    "retry_after": "2026-11-26T09:10:03.376423+00:00",
+    "last_attempt_at": "2026-11-25T10:03:21.177722+00:00",
+    "retry_after": "2026-11-26T10:03:21.177741+00:00",
     "search_hydrated": true
   },
   {
@@ -98998,9 +98998,9 @@
         "start_year": null
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T10:02:45.512946+00:00",
-    "retry_after": "2026-11-25T10:02:45.512951+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T10:03:00.319459+00:00",
+    "retry_after": "2026-11-28T10:03:00.319478+00:00",
     "search_hydrated": true
   },
   {
@@ -100908,6 +100908,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-25T09:14:04.337906+00:00",
     "retry_after": "2026-11-26T09:14:04.337910+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Falling in Love on the Path to Hell",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 158412,
+        "name": "Falling in Love on the Path to Hell",
+        "publisher": "Image",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T10:07:16.987135+00:00",
+    "retry_after": "2026-11-26T10:07:16.987152+00:00",
     "search_hydrated": true
   }
 ]

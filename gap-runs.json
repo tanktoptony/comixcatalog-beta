@@ -546,13 +546,6 @@
     "series_gcd_id": 1426
   },
   {
-    "name": "Thor",
-    "publisher": "Marvel",
-    "year": 2025,
-    "volume_id": 166460,
-    "series_gcd_id": 227097
-  },
-  {
     "name": "Wandering Son",
     "publisher": "Fantagraphics",
     "year": 2011,
@@ -588,18 +581,18 @@
     "series_gcd_id": 44560
   },
   {
-    "name": "Lovecraft: Unknown Kadath",
-    "publisher": "Ablaze Publishing",
-    "year": 2022,
-    "volume_id": 154749,
-    "series_gcd_id": 189397
-  },
-  {
     "name": "Knights of the Dinner Table Illustrated",
     "publisher": "Kenzer and Company",
     "year": 2000,
     "volume_id": 31213,
     "series_gcd_id": 18404
+  },
+  {
+    "name": "Thor",
+    "publisher": "Marvel",
+    "year": 2025,
+    "volume_id": 166460,
+    "series_gcd_id": 227097
   },
   {
     "name": "The Life and Death of Toyo Harada",
@@ -735,13 +728,6 @@
     "series_gcd_id": 10527
   },
   {
-    "name": "The Forever Home",
-    "publisher": "Oni Press",
-    "year": 2026,
-    "volume_id": 176901,
-    "series_gcd_id": 240351
-  },
-  {
     "name": "The Exiled",
     "publisher": "Massive",
     "year": 2023,
@@ -861,6 +847,13 @@
     "series_gcd_id": 10096
   },
   {
+    "name": "The Forever Home",
+    "publisher": "Oni Press",
+    "year": 2026,
+    "volume_id": 176901,
+    "series_gcd_id": 240351
+  },
+  {
     "name": "CMX Manga Sampler",
     "publisher": "DC",
     "year": 2004,
@@ -931,18 +924,18 @@
     "series_gcd_id": 94164
   },
   {
+    "name": "The Eye Collector",
+    "publisher": "Image",
+    "year": 2026,
+    "volume_id": 173285,
+    "series_gcd_id": 238478
+  },
+  {
     "name": "Clayface: Celebrity Dirt",
     "publisher": "DC",
     "year": 2026,
     "volume_id": 174198,
     "series_gcd_id": 238018
-  },
-  {
-    "name": "Terminal",
-    "publisher": "Image",
-    "year": 2026,
-    "volume_id": 175072,
-    "series_gcd_id": 239300
   },
   {
     "name": "TaleSpin",
@@ -1113,11 +1106,11 @@
     "series_gcd_id": 234848
   },
   {
-    "name": "The Eye Collector",
+    "name": "Terminal",
     "publisher": "Image",
     "year": 2026,
-    "volume_id": 173285,
-    "series_gcd_id": 238478
+    "volume_id": 175072,
+    "series_gcd_id": 239300
   },
   {
     "name": "Slingers",
@@ -1414,13 +1407,6 @@
     "series_gcd_id": 5306
   },
   {
-    "name": "Death of Wolverine: The Weapon X Program",
-    "publisher": "Marvel",
-    "year": 2015,
-    "volume_id": 77940,
-    "series_gcd_id": 84384
-  },
-  {
     "name": "Marvel Action Hour, Featuring Iron Man",
     "publisher": "Marvel",
     "year": 1994,
@@ -1496,5 +1482,12 @@
     "year": 2009,
     "volume_id": 24399,
     "series_gcd_id": 33370
+  },
+  {
+    "name": "Vampirella and the Scarlet Legion",
+    "publisher": "Dynamite Entertainment",
+    "year": 2011,
+    "volume_id": 40213,
+    "series_gcd_id": 58743
   }
 ]

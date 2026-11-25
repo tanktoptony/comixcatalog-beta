@@ -100373,24 +100373,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Witchblade / Tomb Raider",
-    "publisher": "Image; Wizard",
-    "year": 1999,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 74149,
-        "name": "Witchblade / Tomb Raider",
-        "publisher": "Image",
-        "start_year": 2000
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T23:02:33.757753+00:00",
-    "retry_after": "2026-11-25T23:02:33.757756+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Rock Heads",
     "publisher": "Solson Publications",
     "year": 1986,
@@ -100626,24 +100608,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-25T03:05:38.183589+00:00",
     "retry_after": "2026-11-26T03:05:38.183595+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Mage: The Hero Defined",
-    "publisher": "Image Comics",
-    "year": 1998,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 6091,
-        "name": "Mage: The Hero Defined",
-        "publisher": "Image",
-        "start_year": 1997
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T04:03:35.353113+00:00",
-    "retry_after": "2026-11-26T04:03:35.353131+00:00",
     "search_hydrated": true
   },
   {

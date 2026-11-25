@@ -1204,9 +1204,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T23:28:20.507992+00:00",
-    "retry_after": "2026-11-24T23:28:20.507997+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T00:02:15.921198+00:00",
+    "retry_after": "2026-11-28T00:02:15.921215+00:00",
     "search_hydrated": true
   },
   {
@@ -13252,9 +13252,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T06:02:10.707526+00:00",
-    "retry_after": "2026-11-24T06:02:10.707531+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-25T00:02:31.382389+00:00",
+    "retry_after": "2026-12-02T00:02:31.382406+00:00",
     "search_hydrated": true
   },
   {
@@ -33576,21 +33576,21 @@
     "reason": "multiple_same_start_year_tied",
     "candidates": [
       {
-        "id": 114948,
+        "id": 112481,
         "name": "X-Men: Grand Design - Second Genesis",
         "publisher": "Marvel",
         "start_year": 2018
       },
       {
-        "id": 112481,
+        "id": 114948,
         "name": "X-Men: Grand Design - Second Genesis",
         "publisher": "Marvel",
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T23:06:34.587873+00:00",
-    "retry_after": "2026-11-24T23:06:34.587876+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T00:03:40.657865+00:00",
+    "retry_after": "2026-11-28T00:03:40.657882+00:00",
     "search_hydrated": true
   },
   {
@@ -34655,9 +34655,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T23:06:34.587823+00:00",
-    "retry_after": "2026-11-24T23:06:34.587842+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T00:03:00.027670+00:00",
+    "retry_after": "2026-11-28T00:03:00.027687+00:00",
     "search_hydrated": true
   },
   {
@@ -83989,9 +83989,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T23:10:44.678875+00:00",
-    "retry_after": "2026-11-24T23:10:44.678890+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T00:07:31.142542+00:00",
+    "retry_after": "2026-12-25T00:07:31.142558+00:00",
     "search_hydrated": true
   },
   {
@@ -84000,9 +84000,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T23:10:44.678916+00:00",
-    "retry_after": "2026-11-24T23:10:44.678921+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T00:07:31.142580+00:00",
+    "retry_after": "2026-12-25T00:07:31.142585+00:00",
     "search_hydrated": true
   },
   {
@@ -84011,9 +84011,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T23:10:44.678936+00:00",
-    "retry_after": "2026-11-24T23:10:44.678939+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T00:07:31.142600+00:00",
+    "retry_after": "2026-12-25T00:07:31.142603+00:00",
     "search_hydrated": true
   },
   {
@@ -84022,9 +84022,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T23:10:44.678952+00:00",
-    "retry_after": "2026-11-24T23:10:44.678954+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T00:07:39.767551+00:00",
+    "retry_after": "2026-12-25T00:07:39.767567+00:00",
     "search_hydrated": true
   },
   {
@@ -95914,9 +95914,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T05:04:58.537993+00:00",
-    "retry_after": "2026-11-24T05:04:58.537997+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-25T00:03:40.658119+00:00",
+    "retry_after": "2026-12-02T00:03:40.658122+00:00",
     "search_hydrated": true
   },
   {
@@ -96002,9 +96002,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T07:04:22.246404+00:00",
-    "retry_after": "2026-11-24T07:04:22.246407+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-25T00:03:40.658141+00:00",
+    "retry_after": "2026-12-02T00:03:40.658144+00:00",
     "search_hydrated": true
   },
   {
@@ -96059,9 +96059,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T08:02:48.048755+00:00",
-    "retry_after": "2026-11-24T08:02:48.048778+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-25T00:03:53.441173+00:00",
+    "retry_after": "2026-12-02T00:03:53.441189+00:00",
     "search_hydrated": true
   },
   {
@@ -96380,9 +96380,9 @@
         "start_year": 2021
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T12:16:07.827540+00:00",
-    "retry_after": "2026-11-24T12:16:07.827543+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-25T00:03:00.027848+00:00",
+    "retry_after": "2026-12-02T00:03:00.027854+00:00",
     "search_hydrated": true
   },
   {
@@ -96751,9 +96751,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T23:06:28.030823+00:00",
-    "retry_after": "2026-11-24T23:06:28.030839+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-25T00:02:15.921340+00:00",
+    "retry_after": "2026-12-02T00:02:15.921344+00:00",
     "search_hydrated": true
   },
   {
@@ -98278,9 +98278,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T23:14:01.958863+00:00",
-    "retry_after": "2026-11-24T23:14:01.958866+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T00:07:51.471335+00:00",
+    "retry_after": "2026-11-28T00:07:51.471351+00:00",
     "search_hydrated": true
   },
   {
@@ -98289,9 +98289,9 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-23T23:36:29.016663+00:00",
-    "retry_after": "2026-11-24T23:36:29.016679+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T00:07:51.471385+00:00",
+    "retry_after": "2026-11-28T00:07:51.471390+00:00",
     "search_hydrated": true
   },
   {
@@ -100460,6 +100460,132 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-24T23:03:41.179536+00:00",
     "retry_after": "2026-11-25T23:03:41.179538+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Shock Therapy",
+    "publisher": "Brave New Words",
+    "year": 1990,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36630,
+        "name": "Shock Therapy",
+        "publisher": "Harrier",
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T00:02:15.921276+00:00",
+    "retry_after": "2026-11-26T00:02:15.921282+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Blonde: Double Cross",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45991,
+        "name": "The Blonde: Double Cross",
+        "publisher": "Eros Comix",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T00:02:15.921368+00:00",
+    "retry_after": "2026-11-26T00:02:15.921379+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vampirella: Hell on Earth Battlebook: Streets of Fire",
+    "publisher": "BattleBooks Inc.",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22057,
+        "name": "Vampirella: Hell on Earth Battlebook: Streets of Fire",
+        "publisher": "Battlebooks Incorporated",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T00:03:40.658093+00:00",
+    "retry_after": "2026-11-26T00:03:40.658098+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Saga of a Doomed Universe",
+    "publisher": "Comics Experience Publishing",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 76602,
+        "name": "Saga Of A Doomed Universe",
+        "publisher": "Webs Best Comics",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T00:03:40.658171+00:00",
+    "retry_after": "2026-11-26T00:03:40.658174+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Statics",
+    "publisher": "Jeffrey Lewis",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 142337,
+        "name": "Statics",
+        "publisher": "Fantagraphics",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T00:03:53.441234+00:00",
+    "retry_after": "2026-11-26T00:03:53.441238+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Official Doom Patrol Index",
+    "publisher": "Independent Comics Group",
+    "year": 1986,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 23428,
+        "name": "The Official Doom Patrol Index",
+        "publisher": "ICG",
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T00:03:53.441293+00:00",
+    "retry_after": "2026-11-26T00:03:53.441299+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Discipline",
+    "publisher": "Image Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 88560,
+        "name": "The Discipline",
+        "publisher": "Image",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T00:07:38.180542+00:00",
+    "retry_after": "2026-11-26T00:07:38.180547+00:00",
     "search_hydrated": true
   }
 ]

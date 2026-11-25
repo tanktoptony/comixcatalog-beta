@@ -1,5 +1,269 @@
 [
   {
+    "name": "51",
+    "publisher": "Mad Cave Studios",
+    "year": 2026,
+    "volume_id": 170948,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "7"
+    ]
+  },
+  {
+    "name": "Absolute Wonder Woman",
+    "publisher": "DC Comics",
+    "year": 2024,
+    "volume_id": 160511,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "26"
+    ]
+  },
+  {
+    "name": "Aladdin",
+    "publisher": "Dynamite Entertainment",
+    "year": null,
+    "volume_id": 174194,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "5"
+    ]
+  },
+  {
+    "name": "Alien vs. X-Men",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "volume_id": 177251,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "3"
+    ]
+  },
+  {
+    "name": "Archie",
+    "publisher": "Oni Press",
+    "year": 2026,
+    "volume_id": 176680,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "3"
+    ]
+  },
+  {
+    "name": "Batman: Bad Seeds - Gotham General",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 177710,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "2"
+    ]
+  },
+  {
+    "name": "Black Tower: The Raven Conspiracy",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 176383,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "4"
+    ]
+  },
+  {
+    "name": "Concrete: Stars Over Sand",
+    "publisher": "Dark Horse Comics",
+    "year": null,
+    "volume_id": 173106,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "5"
+    ]
+  },
+  {
+    "name": "Crimes Against Nature",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "volume_id": 177135,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "3"
+    ]
+  },
+  {
+    "name": "Dark Knights of Steel II",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 174602,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "5"
+    ]
+  },
+  {
+    "name": "Die Loaded",
+    "publisher": "Image",
+    "year": 2025,
+    "volume_id": 168405,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "11"
+    ]
+  },
+  {
+    "name": "EC Cruel Kingdom",
+    "publisher": "Oni Press",
+    "year": 2026,
+    "volume_id": 176686,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "3"
+    ]
+  },
+  {
+    "name": "Escape from New York: Escape from Chicago",
+    "publisher": "Mad Cave Studios",
+    "year": 2026,
+    "volume_id": 177138,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "3"
+    ]
+  },
+  {
+    "name": "Feral",
+    "publisher": "Image",
+    "year": 2024,
+    "volume_id": 157432,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "28"
+    ]
+  },
+  {
+    "name": "Fixation",
+    "publisher": "IDW Publishing",
+    "year": 2026,
+    "volume_id": 176899,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "3"
+    ]
+  },
+  {
+    "name": "Fort Psycho",
+    "publisher": "Oni Press",
+    "year": 2026,
+    "volume_id": 175524,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "4"
+    ]
+  },
+  {
+    "name": "Gambit Gone",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "volume_id": 177139,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "3"
+    ]
+  },
+  {
+    "name": "Gatchaman",
+    "publisher": "Mad Cave Studios",
+    "year": 2024,
+    "volume_id": 158145,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "23"
+    ]
+  },
+  {
+    "name": "Ghost Pepper",
+    "publisher": "Image",
+    "year": 2025,
+    "volume_id": 165542,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "17"
+    ]
+  },
+  {
+    "name": "Godzilla: Revenge of the Deadzone",
+    "publisher": "IDW Publishing",
+    "year": 2026,
+    "volume_id": 177719,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "2"
+    ]
+  },
+  {
+    "name": "The Amazing Spider-Man",
+    "publisher": "Marvel",
+    "year": 2025,
+    "volume_id": 163325,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "1004"
+    ]
+  },
+  {
+    "name": "The Darkness",
+    "publisher": "Image",
+    "year": 2025,
+    "volume_id": 169122,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "9"
+    ]
+  },
+  {
+    "name": "The Deadman",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 172456,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "6"
+    ]
+  },
+  {
+    "name": "The Forever Home",
+    "publisher": "Oni Press",
+    "year": 2026,
+    "volume_id": 176901,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "3"
+    ]
+  },
+  {
     "name": "Archie Jumbo Comic Magazine",
     "publisher": "Archie Comics",
     "year": 2026,

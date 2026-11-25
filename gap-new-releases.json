@@ -1,20 +1,20 @@
 [
   {
-    "name": "Capes",
-    "publisher": "Image",
-    "year": 2025,
-    "volume_id": 168595,
+    "name": "Conan the Barbarian",
+    "publisher": "Titan Comics",
+    "year": 2023,
+    "volume_id": 152857,
     "series_gcd_id": null,
     "newest_release": "2026-11-25",
     "missing": [
-      "13"
+      "37"
     ]
   },
   {
-    "name": "Gambit Gone",
+    "name": "Marvel Zombies: War Zone",
     "publisher": "Marvel Comics",
     "year": 2026,
-    "volume_id": 177139,
+    "volume_id": 176690,
     "series_gcd_id": null,
     "newest_release": "2026-11-25",
     "missing": [
@@ -22,54 +22,10 @@
     ]
   },
   {
-    "name": "Gatchaman",
-    "publisher": "Mad Cave Studios",
-    "year": 2024,
-    "volume_id": 158145,
-    "series_gcd_id": null,
-    "newest_release": "2026-11-25",
-    "missing": [
-      "23"
-    ]
-  },
-  {
-    "name": "Ghost Pepper",
-    "publisher": "Image",
-    "year": 2025,
-    "volume_id": 165542,
-    "series_gcd_id": null,
-    "newest_release": "2026-11-25",
-    "missing": [
-      "17"
-    ]
-  },
-  {
-    "name": "Godzilla: Revenge of the Deadzone",
-    "publisher": "IDW Publishing",
+    "name": "Mighty Morphin Power Rangers",
+    "publisher": "Boom! Studios",
     "year": 2026,
-    "volume_id": 177719,
-    "series_gcd_id": null,
-    "newest_release": "2026-11-25",
-    "missing": [
-      "2"
-    ]
-  },
-  {
-    "name": "Green Lantern",
-    "publisher": "DC Comics",
-    "year": 2023,
-    "volume_id": 150172,
-    "series_gcd_id": null,
-    "newest_release": "2026-11-25",
-    "missing": [
-      "41"
-    ]
-  },
-  {
-    "name": "Grimm Fairy Tales",
-    "publisher": "Zenescope Entertainment",
-    "year": 2026,
-    "volume_id": 170576,
+    "volume_id": 172461,
     "series_gcd_id": null,
     "newest_release": "2026-11-25",
     "missing": [
@@ -77,43 +33,10 @@
     ]
   },
   {
-    "name": "Harley Quinn",
-    "publisher": "DC Comics",
-    "year": 2021,
-    "volume_id": 134718,
-    "series_gcd_id": null,
-    "newest_release": "2026-11-25",
-    "missing": [
-      "68"
-    ]
-  },
-  {
-    "name": "Hello Darkness",
-    "publisher": "Boom! Studios",
-    "year": 2024,
-    "volume_id": 159025,
-    "series_gcd_id": null,
-    "newest_release": "2026-11-25",
-    "missing": [
-      "27"
-    ]
-  },
-  {
-    "name": "Justice League Unlimited",
-    "publisher": "DC Comics",
-    "year": 2025,
-    "volume_id": 161311,
-    "series_gcd_id": null,
-    "newest_release": "2026-11-25",
-    "missing": [
-      "25"
-    ]
-  },
-  {
-    "name": "Kill All Immortals III",
-    "publisher": "Dark Horse Comics",
+    "name": "Pathfinder/Vampirella: Blade of Darkness",
+    "publisher": "Dynamite Entertainment",
     "year": 2026,
-    "volume_id": 177377,
+    "volume_id": 177727,
     "series_gcd_id": null,
     "newest_release": "2026-11-25",
     "missing": [
@@ -121,10 +44,65 @@
     ]
   },
   {
-    "name": "Lost Fantasy",
+    "name": "Predator vs. the Planet of the Apes",
+    "publisher": "Marvel",
+    "year": 2026,
+    "volume_id": 175258,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "5"
+    ]
+  },
+  {
+    "name": "Red Roots",
     "publisher": "Image",
+    "year": 2026,
+    "volume_id": 171694,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "6"
+    ]
+  },
+  {
+    "name": "Spider-Man/Hulk: Fire and Brimstone",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "volume_id": 176116,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "4"
+    ]
+  },
+  {
+    "name": "Star Wars: The Book of Boba Fett",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "volume_id": 176913,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "6"
+    ]
+  },
+  {
+    "name": "Superman",
+    "publisher": "DC Comics",
+    "year": 2023,
+    "volume_id": 148476,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "44"
+    ]
+  },
+  {
+    "name": "Teenage Mutant Ninja Turtles: Shredder",
+    "publisher": "IDW Publishing",
     "year": 2025,
-    "volume_id": 164032,
+    "volume_id": 166458,
     "series_gcd_id": null,
     "newest_release": "2026-11-25",
     "missing": [
@@ -132,36 +110,36 @@
     ]
   },
   {
-    "name": "M1: Monster Racing League",
+    "name": "Terminal",
     "publisher": "Image",
     "year": 2026,
-    "volume_id": 172755,
+    "volume_id": 175072,
     "series_gcd_id": null,
     "newest_release": "2026-11-25",
     "missing": [
-      "6"
+      "5"
     ]
   },
   {
-    "name": "The Amazing Spider-Man",
-    "publisher": "Marvel",
-    "year": 2025,
-    "volume_id": 163325,
+    "name": "That Texas Blood: Hell Comes to Allison Ranch",
+    "publisher": "Image Comics",
+    "year": 2026,
+    "volume_id": 177151,
     "series_gcd_id": null,
     "newest_release": "2026-11-25",
     "missing": [
-      "1004"
+      "3"
     ]
   },
   {
-    "name": "The Darkness",
-    "publisher": "Image",
-    "year": 2025,
-    "volume_id": 169122,
+    "name": "The Amazing Venom",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "volume_id": 177268,
     "series_gcd_id": null,
     "newest_release": "2026-11-25",
     "missing": [
-      "9"
+      "3"
     ]
   },
   {
@@ -180,6 +158,160 @@
     "publisher": "Dynamite Entertainment",
     "year": 2025,
     "volume_id": 168596,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "8"
+    ]
+  },
+  {
+    "name": "The Ring: The Man Who Beat the Man",
+    "publisher": "Dark Horse Comics",
+    "year": 2026,
+    "volume_id": 172465,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "5"
+    ]
+  },
+  {
+    "name": "The Rocketfellers",
+    "publisher": "Image",
+    "year": 2024,
+    "volume_id": 161157,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "15"
+    ]
+  },
+  {
+    "name": "The Scorched",
+    "publisher": "Image",
+    "year": 2022,
+    "volume_id": 141163,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "57"
+    ]
+  },
+  {
+    "name": "Thor",
+    "publisher": "Marvel",
+    "year": 2025,
+    "volume_id": 166460,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "803"
+    ]
+  },
+  {
+    "name": "Thundercats",
+    "publisher": "Dynamite Entertainment",
+    "year": 2026,
+    "volume_id": 177682,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "2"
+    ]
+  },
+  {
+    "name": "Uncanny X-Men",
+    "publisher": "Marvel",
+    "year": 2024,
+    "volume_id": 159189,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "39"
+    ]
+  },
+  {
+    "name": "Universal Monsters: The Bride of Frankenstein Lives",
+    "publisher": "Image Comics",
+    "year": null,
+    "volume_id": 177734,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "2"
+    ]
+  },
+  {
+    "name": "Vampirella",
+    "publisher": "Dynamite Entertainment",
+    "year": 2026,
+    "volume_id": 171601,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "8"
+    ]
+  },
+  {
+    "name": "Vampyrates!",
+    "publisher": "Boom! Studios",
+    "year": 2026,
+    "volume_id": 174215,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "4"
+    ]
+  },
+  {
+    "name": "Venom",
+    "publisher": "Marvel Comics",
+    "year": 2026,
+    "volume_id": 177487,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "2"
+    ]
+  },
+  {
+    "name": "Void Rivals",
+    "publisher": "Image Comics",
+    "year": 2023,
+    "volume_id": 151301,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "36"
+    ]
+  },
+  {
+    "name": "White Sky",
+    "publisher": "Image",
+    "year": 2026,
+    "volume_id": 170598,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "7"
+    ]
+  },
+  {
+    "name": "Witness Point",
+    "publisher": "Dark Horse Comics",
+    "year": 2026,
+    "volume_id": 174216,
+    "series_gcd_id": null,
+    "newest_release": "2026-11-25",
+    "missing": [
+      "4"
+    ]
+  },
+  {
+    "name": "Zatanna",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": 171700,
     "series_gcd_id": null,
     "newest_release": "2026-11-25",
     "missing": [

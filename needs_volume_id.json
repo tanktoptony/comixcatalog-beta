@@ -84851,9 +84851,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T14:11:27.373019+00:00",
-    "retry_after": "2026-11-25T14:11:27.373022+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T15:08:12.339651+00:00",
+    "retry_after": "2026-12-25T15:08:12.339667+00:00",
     "search_hydrated": true
   },
   {
@@ -84862,9 +84862,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T14:11:27.373037+00:00",
-    "retry_after": "2026-11-25T14:11:27.373039+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T15:08:12.339687+00:00",
+    "retry_after": "2026-12-25T15:08:12.339692+00:00",
     "search_hydrated": true
   },
   {
@@ -84886,9 +84886,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T14:11:27.373079+00:00",
-    "retry_after": "2026-11-25T14:11:27.373082+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T15:08:12.339751+00:00",
+    "retry_after": "2026-12-25T15:08:12.339755+00:00",
     "search_hydrated": true
   },
   {
@@ -84897,9 +84897,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T14:11:27.373097+00:00",
-    "retry_after": "2026-11-25T14:11:27.373099+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T15:08:12.339770+00:00",
+    "retry_after": "2026-12-25T15:08:12.339773+00:00",
     "search_hydrated": true
   },
   {
@@ -85046,9 +85046,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T15:06:04.103559+00:00",
-    "retry_after": "2026-11-25T15:06:04.103574+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T15:08:16.534982+00:00",
+    "retry_after": "2026-12-25T15:08:16.534998+00:00",
     "search_hydrated": true
   },
   {
@@ -96710,8 +96710,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-25T14:08:13.889010+00:00",
-    "retry_after": "2026-11-26T14:08:13.889023+00:00",
+    "last_attempt_at": "2026-11-25T15:04:43.357119+00:00",
+    "retry_after": "2026-11-26T15:04:43.357132+00:00",
     "search_hydrated": true
   },
   {
@@ -100962,6 +100962,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-25T13:07:35.931094+00:00",
     "retry_after": "2026-11-26T13:07:35.931111+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Compass",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 136955,
+        "name": "Compass",
+        "publisher": "Image",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T15:08:17.000453+00:00",
+    "retry_after": "2026-11-26T15:08:17.000468+00:00",
     "search_hydrated": true
   }
 ]

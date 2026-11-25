@@ -31379,9 +31379,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T22:10:30.839346+00:00",
-    "retry_after": "2026-11-25T22:10:30.839348+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T23:03:35.641962+00:00",
+    "retry_after": "2026-12-25T23:03:35.641966+00:00",
     "search_hydrated": true
   },
   {
@@ -85242,9 +85242,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T22:10:30.839320+00:00",
-    "retry_after": "2026-11-25T22:10:30.839331+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T23:03:35.641921+00:00",
+    "retry_after": "2026-12-25T23:03:35.641939+00:00",
     "search_hydrated": true
   },
   {
@@ -96644,16 +96644,16 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 122513,
-        "name": "Pink Lemonade",
-        "publisher": "It's Alive",
-        "start_year": 2019
-      },
-      {
         "id": 145289,
         "name": "Pink Lemonade",
         "publisher": "Oni Press",
         "start_year": 2022
+      },
+      {
+        "id": 122513,
+        "name": "Pink Lemonade",
+        "publisher": "It's Alive",
+        "start_year": 2019
       },
       {
         "id": 151940,
@@ -96663,8 +96663,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-25T22:03:29.817990+00:00",
-    "retry_after": "2026-11-26T22:03:29.817995+00:00",
+    "last_attempt_at": "2026-11-25T22:59:44.347235+00:00",
+    "retry_after": "2026-11-26T22:59:44.347250+00:00",
     "search_hydrated": true
   },
   {
@@ -100183,9 +100183,9 @@
         "start_year": 1955
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T22:02:48.901384+00:00",
-    "retry_after": "2026-11-25T22:02:48.901401+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T22:58:47.847048+00:00",
+    "retry_after": "2026-11-28T22:58:47.847052+00:00",
     "search_hydrated": true
   },
   {
@@ -100201,9 +100201,9 @@
         "start_year": 1993
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T22:02:48.901420+00:00",
-    "retry_after": "2026-11-25T22:02:48.901422+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T22:59:22.353395+00:00",
+    "retry_after": "2026-11-28T22:59:22.353411+00:00",
     "search_hydrated": true
   },
   {
@@ -100219,9 +100219,9 @@
         "start_year": 1991
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T22:02:48.901435+00:00",
-    "retry_after": "2026-11-25T22:02:48.901437+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T22:58:47.846987+00:00",
+    "retry_after": "2026-11-28T22:58:47.847004+00:00",
     "search_hydrated": true
   },
   {
@@ -101025,6 +101025,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-25T22:08:30.252068+00:00",
     "retry_after": "2026-11-26T22:08:30.252072+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Incredible Hulk Visionaries: John Byrne",
+    "publisher": "Marvel Comics",
+    "year": 2008,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T23:03:48.585104+00:00",
+    "retry_after": "2026-11-26T23:03:48.585122+00:00",
     "search_hydrated": true
   }
 ]

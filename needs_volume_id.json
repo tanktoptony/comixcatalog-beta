@@ -7334,9 +7334,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T04:11:40.157930+00:00",
-    "retry_after": "2026-11-25T04:11:40.157932+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T05:06:28.199034+00:00",
+    "retry_after": "2026-12-25T05:06:28.199037+00:00",
     "search_hydrated": true
   },
   {
@@ -84155,9 +84155,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T04:11:40.157805+00:00",
-    "retry_after": "2026-11-25T04:11:40.157822+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T05:06:28.198893+00:00",
+    "retry_after": "2026-12-25T05:06:28.198905+00:00",
     "search_hydrated": true
   },
   {
@@ -84167,16 +84167,16 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 158163,
-        "name": "Monolith",
-        "publisher": "Image",
-        "start_year": 2024
-      },
-      {
         "id": 50775,
         "name": "The Monolith",
         "publisher": "Image",
         "start_year": 2012
+      },
+      {
+        "id": 158163,
+        "name": "Monolith",
+        "publisher": "Image",
+        "start_year": 2024
       },
       {
         "id": 165170,
@@ -84185,9 +84185,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T04:11:40.157878+00:00",
-    "retry_after": "2026-11-25T04:11:40.157881+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T05:06:28.198972+00:00",
+    "retry_after": "2026-12-25T05:06:28.198977+00:00",
     "search_hydrated": true
   },
   {
@@ -84196,9 +84196,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T04:11:40.157897+00:00",
-    "retry_after": "2026-11-25T04:11:40.157899+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T05:06:28.198999+00:00",
+    "retry_after": "2026-12-25T05:06:28.199002+00:00",
     "search_hydrated": true
   },
   {
@@ -84207,9 +84207,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T04:11:40.157910+00:00",
-    "retry_after": "2026-11-25T04:11:40.157913+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T05:06:28.199018+00:00",
+    "retry_after": "2026-12-25T05:06:28.199021+00:00",
     "search_hydrated": true
   },
   {
@@ -96704,8 +96704,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-25T04:05:40.290026+00:00",
-    "retry_after": "2026-11-26T04:05:40.290044+00:00",
+    "last_attempt_at": "2026-11-25T05:04:45.391370+00:00",
+    "retry_after": "2026-11-26T05:04:45.391382+00:00",
     "search_hydrated": true
   },
   {
@@ -98538,9 +98538,9 @@
         "start_year": 1993
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T04:07:20.132889+00:00",
-    "retry_after": "2026-11-25T04:07:20.132893+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T05:02:30.446024+00:00",
+    "retry_after": "2026-11-28T05:02:30.446031+00:00",
     "search_hydrated": true
   },
   {
@@ -98549,9 +98549,9 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T04:17:36.391638+00:00",
-    "retry_after": "2026-11-25T04:17:36.391657+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T05:06:39.195405+00:00",
+    "retry_after": "2026-11-28T05:06:39.195417+00:00",
     "search_hydrated": true
   },
   {
@@ -98573,9 +98573,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T04:17:36.391698+00:00",
-    "retry_after": "2026-11-25T04:17:36.391702+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T05:06:39.195465+00:00",
+    "retry_after": "2026-11-28T05:06:39.195470+00:00",
     "search_hydrated": true
   },
   {
@@ -100668,6 +100668,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-25T04:03:35.353113+00:00",
     "retry_after": "2026-11-26T04:03:35.353131+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Painkiller Jane Zero",
+    "publisher": "Event Comics",
+    "year": 1999,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T05:02:30.445701+00:00",
+    "retry_after": "2026-11-26T05:02:30.445712+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Maxi Zagor",
+    "publisher": "Marvel Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 45725,
+        "name": "Maxi Zagor",
+        "publisher": "Sergio Bonelli Editore",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T05:07:19.909970+00:00",
+    "retry_after": "2026-11-26T05:07:19.909983+00:00",
     "search_hydrated": true
   }
 ]

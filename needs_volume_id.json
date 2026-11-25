@@ -14584,9 +14584,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-15T06:05:35.710540+00:00",
-    "retry_after": "2026-11-22T06:05:35.710556+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-25T06:06:19.467430+00:00",
+    "retry_after": "2026-12-09T06:06:19.467433+00:00",
     "search_hydrated": true
   },
   {
@@ -14625,9 +14625,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-15T05:10:53.432099+00:00",
-    "retry_after": "2026-11-22T05:10:53.432102+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-25T06:06:19.467372+00:00",
+    "retry_after": "2026-12-09T06:06:19.467390+00:00",
     "search_hydrated": true
   },
   {
@@ -14636,9 +14636,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-15T05:10:53.432116+00:00",
-    "retry_after": "2026-11-22T05:10:53.432118+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-25T06:06:19.467412+00:00",
+    "retry_after": "2026-12-09T06:06:19.467416+00:00",
     "search_hydrated": true
   },
   {
@@ -20195,9 +20195,9 @@
         "start_year": 2013
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-22T06:02:10.272538+00:00",
-    "retry_after": "2026-11-25T06:02:10.272544+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-25T06:03:36.292566+00:00",
+    "retry_after": "2026-12-02T06:03:36.292569+00:00",
     "search_hydrated": true
   },
   {
@@ -37942,9 +37942,10 @@
     "year": 2008,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-03T19:03:02.692940+00:00",
-    "retry_after": "2026-10-04T19:03:02.692956+00:00"
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T06:02:34.812555+00:00",
+    "retry_after": "2026-11-28T06:02:34.812572+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Li'l Bionic Kids One-Shot",
@@ -96704,8 +96705,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-25T05:04:45.391370+00:00",
-    "retry_after": "2026-11-26T05:04:45.391382+00:00",
+    "last_attempt_at": "2026-11-25T06:04:55.021273+00:00",
+    "retry_after": "2026-11-26T06:04:55.021290+00:00",
     "search_hydrated": true
   },
   {
@@ -96890,9 +96891,9 @@
     "year": 2015,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-22T06:02:10.272562+00:00",
-    "retry_after": "2026-11-25T06:02:10.272565+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-25T06:03:36.292583+00:00",
+    "retry_after": "2026-12-02T06:03:36.292587+00:00",
     "search_hydrated": true
   },
   {
@@ -98585,58 +98586,10 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 36486,
-        "name": "The Spirit",
-        "publisher": "Register and Tribune Syndicate",
-        "start_year": 1940
-      },
-      {
-        "id": 46826,
-        "name": "The Spirit",
-        "publisher": "Norma Editorial",
-        "start_year": 1988
-      },
-      {
-        "id": 18509,
-        "name": "The Spirit",
-        "publisher": "DC Comics",
-        "start_year": 2007
-      },
-      {
-        "id": 2929,
-        "name": "The Spirit",
-        "publisher": "Kitchen Sink",
-        "start_year": 1977
-      },
-      {
-        "id": 34245,
-        "name": "The Spirit",
-        "publisher": "Quality Comics",
-        "start_year": 1944
-      },
-      {
-        "id": 162286,
-        "name": "Spirit",
-        "publisher": "Garbo Editorial",
-        "start_year": 1975
-      },
-      {
-        "id": 2705,
-        "name": "The Spirit",
-        "publisher": "Warren",
-        "start_year": 1974
-      },
-      {
         "id": 1483,
         "name": "The Spirit",
         "publisher": "Fiction House",
         "start_year": 1952
-      },
-      {
-        "id": 44685,
-        "name": "The Spirit",
-        "publisher": null,
-        "start_year": 1955
       },
       {
         "id": 2661,
@@ -98645,16 +98598,16 @@
         "start_year": 1973
       },
       {
-        "id": 51594,
+        "id": 2705,
         "name": "The Spirit",
-        "publisher": "Boardman Books (TV Boardman Ltd)",
-        "start_year": 1948
+        "publisher": "Warren",
+        "start_year": 1974
       },
       {
-        "id": 69329,
+        "id": 2929,
         "name": "The Spirit",
-        "publisher": "Gredown",
-        "start_year": 1978
+        "publisher": "Kitchen Sink",
+        "start_year": 1977
       },
       {
         "id": 3251,
@@ -98663,16 +98616,10 @@
         "start_year": 1983
       },
       {
-        "id": 32663,
+        "id": 18509,
         "name": "The Spirit",
         "publisher": "DC Comics",
-        "start_year": 2010
-      },
-      {
-        "id": 158829,
-        "name": "The Spirit",
-        "publisher": "Bell Features",
-        "start_year": 1949
+        "start_year": 2007
       },
       {
         "id": 31032,
@@ -98681,21 +98628,63 @@
         "start_year": 2008
       },
       {
-        "id": 2288,
-        "name": "Spirit",
-        "publisher": "Harvey",
-        "start_year": 1966
+        "id": 32663,
+        "name": "The Spirit",
+        "publisher": "DC Comics",
+        "start_year": 2010
+      },
+      {
+        "id": 34245,
+        "name": "The Spirit",
+        "publisher": "Quality Comics",
+        "start_year": 1944
+      },
+      {
+        "id": 36486,
+        "name": "The Spirit",
+        "publisher": "Register and Tribune Syndicate",
+        "start_year": 1940
+      },
+      {
+        "id": 44685,
+        "name": "The Spirit",
+        "publisher": null,
+        "start_year": 1955
+      },
+      {
+        "id": 46826,
+        "name": "The Spirit",
+        "publisher": "Norma Editorial",
+        "start_year": 1988
+      },
+      {
+        "id": 51594,
+        "name": "The Spirit",
+        "publisher": "Boardman Books (TV Boardman Ltd)",
+        "start_year": 1948
       },
       {
         "id": 64165,
         "name": "The Spirit",
         "publisher": "I.W. Publishing",
         "start_year": 1963
+      },
+      {
+        "id": 69329,
+        "name": "The Spirit",
+        "publisher": "Gredown",
+        "start_year": 1978
+      },
+      {
+        "id": 158829,
+        "name": "The Spirit",
+        "publisher": "Bell Features",
+        "start_year": 1949
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T05:05:01.467715+00:00",
-    "retry_after": "2026-11-25T05:05:01.467730+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T06:04:18.694525+00:00",
+    "retry_after": "2026-11-28T06:04:18.694544+00:00",
     "search_hydrated": true
   },
   {
@@ -98717,9 +98706,9 @@
         "start_year": 1994
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T06:03:12.652776+00:00",
-    "retry_after": "2026-11-25T06:03:12.652790+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T06:03:36.292530+00:00",
+    "retry_after": "2026-11-28T06:03:36.292533+00:00",
     "search_hydrated": true
   },
   {
@@ -98728,9 +98717,9 @@
     "year": 2012,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T06:03:12.652842+00:00",
-    "retry_after": "2026-11-25T06:03:12.652847+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T06:03:36.292451+00:00",
+    "retry_after": "2026-11-28T06:03:36.292469+00:00",
     "search_hydrated": true
   },
   {
@@ -100697,6 +100686,113 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-25T05:07:19.909970+00:00",
     "retry_after": "2026-11-26T05:07:19.909983+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Executive Assistant: Iris",
+    "publisher": "Aspen Comics",
+    "year": 2009,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 115107,
+        "name": "Executive Assistant: Iris",
+        "publisher": "Aspen MLT",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T06:02:53.866008+00:00",
+    "retry_after": "2026-11-26T06:02:53.866035+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Witchblade",
+    "publisher": "Top Cow Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62183,
+        "name": "Witchblade",
+        "publisher": "Panini Verlag",
+        "start_year": 2007
+      },
+      {
+        "id": 7300,
+        "name": "Witchblade",
+        "publisher": "Image",
+        "start_year": 1995
+      },
+      {
+        "id": 45637,
+        "name": "Witchblade",
+        "publisher": "Image",
+        "start_year": 2008
+      },
+      {
+        "id": 162081,
+        "name": "Witchblade",
+        "publisher": "Image",
+        "start_year": 2025
+      },
+      {
+        "id": 158904,
+        "name": "Witchblade",
+        "publisher": "Image",
+        "start_year": 2024
+      },
+      {
+        "id": 113386,
+        "name": "Witchblade",
+        "publisher": "Splitter",
+        "start_year": 1996
+      },
+      {
+        "id": 130589,
+        "name": "Witchblade",
+        "publisher": "Infinity Verlag",
+        "start_year": 2000
+      },
+      {
+        "id": 127234,
+        "name": "Witchblade",
+        "publisher": "JuniorPress BV",
+        "start_year": 1996
+      },
+      {
+        "id": 106705,
+        "name": "Witchblade",
+        "publisher": "Image",
+        "start_year": 2017
+      },
+      {
+        "id": 62097,
+        "name": "Witchblade",
+        "publisher": "Panini Verlag",
+        "start_year": 2009
+      },
+      {
+        "id": 112061,
+        "name": "Witchblade",
+        "publisher": "Image",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T06:04:36.547899+00:00",
+    "retry_after": "2026-11-26T06:04:36.547917+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Wizard Ace Edition: Amazing Spider-Man #14",
+    "publisher": "Marvel Comics",
+    "year": 2002,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T06:06:32.251255+00:00",
+    "retry_after": "2026-11-26T06:06:32.251274+00:00",
     "search_hydrated": true
   }
 ]

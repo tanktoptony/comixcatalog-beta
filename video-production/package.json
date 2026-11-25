@@ -25,6 +25,8 @@
     "thumbs:003": "npm run index && node scripts/thumbs.mjs episode-003 Thumb003LongBoxes Thumb003CouldntFind",
     "shorts:004": "npm run index && node scripts/render-shorts.mjs Short004BagOnLine Short004TwoIssues Short004ThreeTimelines",
     "thumbs:004": "npm run index && node scripts/thumbs.mjs episode-004 Thumb004AmoryWars Thumb004TwoIssues",
+    "shorts:005": "npm run index && node scripts/render-shorts.mjs Short005CastList Short005TheCouple Short005Jesse",
+    "thumbs:005": "npm run index && node scripts/thumbs.mjs episode-005 Thumb005TenSongs Thumb005NameNames",
     "package:001": "node scripts/ep.mjs 001 package"
   },
   "dependencies": {

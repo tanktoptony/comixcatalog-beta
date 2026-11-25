@@ -105,6 +105,27 @@ export const SHORTS = [
     endNudge: 0.03,
     hook: "Three timelines make The Amory Wars confusing",
   },
+  {
+    id: "Short005CastList",
+    episode: "episode-005-shorts",
+    fromBeat: "Short 1 start",
+    toBeat: "Short 1 end",
+    hook: "The lyrics name the characters",
+  },
+  {
+    id: "Short005TheCouple",
+    episode: "episode-005-shorts",
+    fromBeat: "Short 2 start",
+    toBeat: "Short 2 end",
+    hook: "Blades in one arm, a gun in the other",
+  },
+  {
+    id: "Short005Jesse",
+    episode: "episode-005-shorts",
+    fromBeat: "Short 3 start",
+    toBeat: "Short 3 end",
+    hook: "He opens fire on his brother's ship",
+  },
 ];
 
 // Seconds of each clip. The clip stops just before the next beat.

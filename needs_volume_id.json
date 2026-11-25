@@ -26680,9 +26680,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-10T22:11:36.478537+00:00",
-    "retry_after": "2026-11-24T22:11:36.478539+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T01:05:56.987055+00:00",
+    "retry_after": "2026-12-25T01:05:56.987058+00:00",
     "search_hydrated": true
   },
   {
@@ -84033,9 +84033,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T00:10:30.430365+00:00",
-    "retry_after": "2026-11-25T00:10:30.430368+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T01:05:56.986977+00:00",
+    "retry_after": "2026-12-25T01:05:56.986996+00:00",
     "search_hydrated": true
   },
   {
@@ -84044,9 +84044,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T00:10:30.430378+00:00",
-    "retry_after": "2026-11-25T00:10:30.430380+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T01:05:56.987015+00:00",
+    "retry_after": "2026-12-25T01:05:56.987019+00:00",
     "search_hydrated": true
   },
   {
@@ -92217,9 +92217,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-16T01:07:23.090990+00:00",
-    "retry_after": "2026-11-23T01:07:23.090995+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-25T01:05:56.987114+00:00",
+    "retry_after": "2026-12-09T01:05:56.987116+00:00",
     "search_hydrated": true
   },
   {
@@ -92239,9 +92239,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-16T01:07:23.091010+00:00",
-    "retry_after": "2026-11-23T01:07:23.091013+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-25T01:05:56.987126+00:00",
+    "retry_after": "2026-12-09T01:05:56.987128+00:00",
     "search_hydrated": true
   },
   {
@@ -96680,10 +96680,16 @@
   },
   {
     "name": "Pink Lemonade",
-    "publisher": "Oni Press",
+    "publisher": "It's Alive Press",
     "year": 2019,
-    "reason": "multiple_candidates",
+    "reason": "publisher_mismatch",
     "candidates": [
+      {
+        "id": 122513,
+        "name": "Pink Lemonade",
+        "publisher": "It's Alive",
+        "start_year": 2019
+      },
       {
         "id": 145289,
         "name": "Pink Lemonade",
@@ -96697,9 +96703,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-23T19:03:52.065689+00:00",
-    "retry_after": "2026-11-26T19:03:52.065691+00:00",
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T01:04:24.396235+00:00",
+    "retry_after": "2026-11-26T01:04:24.396239+00:00",
     "search_hydrated": true
   },
   {
@@ -96775,9 +96781,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-22T00:13:31.246298+00:00",
-    "retry_after": "2026-11-25T00:13:31.246301+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-25T01:02:09.777156+00:00",
+    "retry_after": "2026-12-02T01:02:09.777159+00:00",
     "search_hydrated": true
   },
   {
@@ -96786,9 +96792,9 @@
     "year": 1998,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-22T00:13:31.246329+00:00",
-    "retry_after": "2026-11-25T00:13:31.246331+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-25T01:02:09.777210+00:00",
+    "retry_after": "2026-12-02T01:02:09.777213+00:00",
     "search_hydrated": true
   },
   {
@@ -98331,9 +98337,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T00:04:07.648230+00:00",
-    "retry_after": "2026-11-25T00:04:07.648232+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T01:02:26.499395+00:00",
+    "retry_after": "2026-11-28T01:02:26.499398+00:00",
     "search_hydrated": true
   },
   {
@@ -98355,9 +98361,9 @@
         "start_year": 1986
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T01:01:59.029073+00:00",
-    "retry_after": "2026-11-25T01:01:59.029091+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T01:02:26.499318+00:00",
+    "retry_after": "2026-11-28T01:02:26.499336+00:00",
     "search_hydrated": true
   },
   {
@@ -100586,6 +100592,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-25T00:07:38.180542+00:00",
     "retry_after": "2026-11-26T00:07:38.180547+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mr & Mrs X",
+    "publisher": "Panini France",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 112458,
+        "name": "Mr. and Mrs. X",
+        "publisher": "Marvel",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T01:04:24.396150+00:00",
+    "retry_after": "2026-11-26T01:04:24.396169+00:00",
     "search_hydrated": true
   }
 ]

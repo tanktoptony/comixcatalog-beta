@@ -84501,9 +84501,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T12:11:24.677945+00:00",
-    "retry_after": "2026-11-25T12:11:24.677951+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T13:07:25.492457+00:00",
+    "retry_after": "2026-12-25T13:07:25.492468+00:00",
     "search_hydrated": true
   },
   {
@@ -84519,9 +84519,9 @@
         "start_year": 1993
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T12:11:24.677983+00:00",
-    "retry_after": "2026-11-25T12:11:24.677985+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T13:07:25.492533+00:00",
+    "retry_after": "2026-12-25T13:07:25.492536+00:00",
     "search_hydrated": true
   },
   {
@@ -84581,9 +84581,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T12:11:24.913562+00:00",
-    "retry_after": "2026-11-25T12:11:24.913569+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T13:07:25.664970+00:00",
+    "retry_after": "2026-12-25T13:07:25.664984+00:00",
     "search_hydrated": true
   },
   {
@@ -84603,9 +84603,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T12:11:20.551902+00:00",
-    "retry_after": "2026-11-25T12:11:20.551914+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T13:07:21.762338+00:00",
+    "retry_after": "2026-12-25T13:07:21.762354+00:00",
     "search_hydrated": true
   },
   {
@@ -84627,9 +84627,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T12:11:20.551944+00:00",
-    "retry_after": "2026-11-25T12:11:20.551946+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T13:07:21.762396+00:00",
+    "retry_after": "2026-12-25T13:07:21.762400+00:00",
     "search_hydrated": true
   },
   {
@@ -84638,9 +84638,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T12:11:20.551963+00:00",
-    "retry_after": "2026-11-25T12:11:20.551965+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T13:07:27.350280+00:00",
+    "retry_after": "2026-12-25T13:07:27.350295+00:00",
     "search_hydrated": true
   },
   {
@@ -84656,9 +84656,9 @@
         "start_year": 2026
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T12:11:24.913599+00:00",
-    "retry_after": "2026-11-25T12:11:24.913601+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T13:07:25.665043+00:00",
+    "retry_after": "2026-12-25T13:07:25.665047+00:00",
     "search_hydrated": true
   },
   {
@@ -84747,9 +84747,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T12:11:23.824991+00:00",
-    "retry_after": "2026-11-25T12:11:23.824998+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T13:07:24.599964+00:00",
+    "retry_after": "2026-12-25T13:07:24.599977+00:00",
     "search_hydrated": true
   },
   {
@@ -96710,8 +96710,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-25T12:04:27.394052+00:00",
-    "retry_after": "2026-11-26T12:04:27.394071+00:00",
+    "last_attempt_at": "2026-11-25T13:03:30.560335+00:00",
+    "retry_after": "2026-11-26T13:03:30.560352+00:00",
     "search_hydrated": true
   },
   {
@@ -100940,6 +100940,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-25T12:08:25.317044+00:00",
     "retry_after": "2026-11-26T12:08:25.317048+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Dark Swan: Storm Born",
+    "publisher": "Sea - Lion - Books",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T13:02:03.064623+00:00",
+    "retry_after": "2026-11-26T13:02:03.064641+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Zorro: The Dailies, First Year",
+    "publisher": "Image Comics",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T13:07:35.931094+00:00",
+    "retry_after": "2026-11-26T13:07:35.931111+00:00",
     "search_hydrated": true
   }
 ]

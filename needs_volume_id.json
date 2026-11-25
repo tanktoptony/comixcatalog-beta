@@ -10842,9 +10842,9 @@
         "start_year": 2008
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T17:02:31.568173+00:00",
-    "retry_after": "2026-11-25T17:02:31.568192+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T17:03:01.705278+00:00",
+    "retry_after": "2026-11-28T17:03:01.705295+00:00",
     "search_hydrated": true
   },
   {
@@ -84908,9 +84908,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T15:06:02.396269+00:00",
-    "retry_after": "2026-11-25T15:06:02.396286+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T17:05:29.547828+00:00",
+    "retry_after": "2026-12-25T17:05:29.547832+00:00",
     "search_hydrated": true
   },
   {
@@ -84919,9 +84919,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T15:06:02.396307+00:00",
-    "retry_after": "2026-11-25T15:06:02.396311+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T17:05:29.547843+00:00",
+    "retry_after": "2026-12-25T17:05:29.547845+00:00",
     "search_hydrated": true
   },
   {
@@ -84970,9 +84970,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T15:06:02.396327+00:00",
-    "retry_after": "2026-11-25T15:06:02.396330+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T17:05:29.547856+00:00",
+    "retry_after": "2026-12-25T17:05:29.547858+00:00",
     "search_hydrated": true
   },
   {
@@ -85028,9 +85028,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T15:06:02.396344+00:00",
-    "retry_after": "2026-11-25T15:06:02.396346+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T17:05:29.547867+00:00",
+    "retry_after": "2026-12-25T17:05:29.547869+00:00",
     "search_hydrated": true
   },
   {
@@ -85075,9 +85075,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T16:07:41.549636+00:00",
-    "retry_after": "2026-11-25T16:07:41.549640+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T17:05:29.547882+00:00",
+    "retry_after": "2026-12-25T17:05:29.547883+00:00",
     "search_hydrated": true
   },
   {
@@ -85115,9 +85115,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T16:07:41.549490+00:00",
-    "retry_after": "2026-11-25T16:07:41.549507+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T17:05:29.547688+00:00",
+    "retry_after": "2026-12-25T17:05:29.547704+00:00",
     "search_hydrated": true
   },
   {
@@ -85126,9 +85126,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T16:07:41.549653+00:00",
-    "retry_after": "2026-11-25T16:07:41.549655+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T17:05:29.547892+00:00",
+    "retry_after": "2026-12-25T17:05:29.547894+00:00",
     "search_hydrated": true
   },
   {
@@ -96710,8 +96710,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-25T15:04:43.357119+00:00",
-    "retry_after": "2026-11-26T15:04:43.357132+00:00",
+    "last_attempt_at": "2026-11-25T17:03:59.046614+00:00",
+    "retry_after": "2026-11-26T17:03:59.046628+00:00",
     "search_hydrated": true
   },
   {
@@ -99138,9 +99138,9 @@
     "year": 1989,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T16:03:54.121378+00:00",
-    "retry_after": "2026-11-25T16:03:54.121383+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T17:03:01.705315+00:00",
+    "retry_after": "2026-11-28T17:03:01.705318+00:00",
     "search_hydrated": true
   },
   {
@@ -100980,6 +100980,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-25T15:08:17.000453+00:00",
     "retry_after": "2026-11-26T15:08:17.000468+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Nickelodeon The Legend of Korra: Turf Wars Library Edition",
+    "publisher": "Dark Horse Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T17:05:44.421979+00:00",
+    "retry_after": "2026-11-26T17:05:44.421995+00:00",
     "search_hydrated": true
   }
 ]

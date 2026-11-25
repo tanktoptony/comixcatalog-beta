@@ -84668,8 +84668,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-25T14:02:38.882555+00:00",
-    "retry_after": "2026-12-25T14:02:38.882573+00:00",
+    "last_attempt_at": "2026-11-25T14:12:02.207110+00:00",
+    "retry_after": "2026-12-25T14:12:02.207125+00:00",
     "search_hydrated": true
   },
   {
@@ -84679,8 +84679,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-25T14:02:38.882594+00:00",
-    "retry_after": "2026-12-25T14:02:38.882597+00:00",
+    "last_attempt_at": "2026-11-25T14:12:02.207146+00:00",
+    "retry_after": "2026-12-25T14:12:02.207151+00:00",
     "search_hydrated": true
   },
   {
@@ -84730,8 +84730,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-25T14:02:38.882611+00:00",
-    "retry_after": "2026-12-25T14:02:38.882613+00:00",
+    "last_attempt_at": "2026-11-25T14:12:02.207166+00:00",
+    "retry_after": "2026-12-25T14:12:02.207169+00:00",
     "search_hydrated": true
   },
   {
@@ -84759,8 +84759,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-25T14:02:38.882624+00:00",
-    "retry_after": "2026-12-25T14:02:38.882626+00:00",
+    "last_attempt_at": "2026-11-25T14:12:02.207182+00:00",
+    "retry_after": "2026-12-25T14:12:02.207184+00:00",
     "search_hydrated": true
   },
   {
@@ -84770,8 +84770,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 5,
-    "last_attempt_at": "2026-11-25T14:02:38.882638+00:00",
-    "retry_after": "2026-12-25T14:02:38.882640+00:00",
+    "last_attempt_at": "2026-11-25T14:12:02.207199+00:00",
+    "retry_after": "2026-12-25T14:12:02.207202+00:00",
     "search_hydrated": true
   },
   {
@@ -84780,9 +84780,9 @@
     "year": 2021,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T14:11:27.372869+00:00",
-    "retry_after": "2026-11-25T14:11:27.372872+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T14:12:02.207216+00:00",
+    "retry_after": "2026-12-25T14:12:02.207219+00:00",
     "search_hydrated": true
   },
   {
@@ -84840,9 +84840,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T14:11:27.372995+00:00",
-    "retry_after": "2026-11-25T14:11:27.372999+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T14:12:02.207322+00:00",
+    "retry_after": "2026-12-25T14:12:02.207326+00:00",
     "search_hydrated": true
   },
   {
@@ -96710,8 +96710,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-25T13:58:50.960812+00:00",
-    "retry_after": "2026-11-26T13:58:50.960829+00:00",
+    "last_attempt_at": "2026-11-25T14:08:13.889010+00:00",
+    "retry_after": "2026-11-26T14:08:13.889023+00:00",
     "search_hydrated": true
   },
   {
@@ -99052,21 +99052,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 65888,
-        "name": "Shadowland",
-        "publisher": "Fantagraphics",
-        "start_year": 2006
-      },
-      {
         "id": 70862,
         "name": "Shadowland",
         "publisher": "Fantagraphics",
         "start_year": 1989
+      },
+      {
+        "id": 65888,
+        "name": "Shadowland",
+        "publisher": "Fantagraphics",
+        "start_year": 2006
       }
     ],
     "attempts": 2,
-    "last_attempt_at": "2026-11-25T13:57:36.872306+00:00",
-    "retry_after": "2026-11-28T13:57:36.872309+00:00",
+    "last_attempt_at": "2026-11-25T14:07:19.120082+00:00",
+    "retry_after": "2026-11-28T14:07:19.120085+00:00",
     "search_hydrated": true
   },
   {
@@ -99076,8 +99076,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 2,
-    "last_attempt_at": "2026-11-25T13:57:36.872246+00:00",
-    "retry_after": "2026-11-28T13:57:36.872262+00:00",
+    "last_attempt_at": "2026-11-25T14:07:19.120042+00:00",
+    "retry_after": "2026-11-28T14:07:19.120046+00:00",
     "search_hydrated": true
   },
   {
@@ -99087,8 +99087,8 @@
     "reason": "no_title_match",
     "candidates": [],
     "attempts": 2,
-    "last_attempt_at": "2026-11-25T14:02:50.388313+00:00",
-    "retry_after": "2026-11-28T14:02:50.388330+00:00",
+    "last_attempt_at": "2026-11-25T14:12:13.051459+00:00",
+    "retry_after": "2026-11-28T14:12:13.051473+00:00",
     "search_hydrated": true
   },
   {
@@ -99116,9 +99116,9 @@
         "start_year": 1996
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T14:04:18.787321+00:00",
-    "retry_after": "2026-11-25T14:04:18.787338+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T14:07:19.120004+00:00",
+    "retry_after": "2026-11-28T14:07:19.120019+00:00",
     "search_hydrated": true
   },
   {
@@ -99127,9 +99127,9 @@
     "year": 1989,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T14:09:11.973933+00:00",
-    "retry_after": "2026-11-25T14:09:11.973949+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T14:12:13.051504+00:00",
+    "retry_after": "2026-11-28T14:12:13.051508+00:00",
     "search_hydrated": true
   },
   {

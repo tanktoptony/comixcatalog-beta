@@ -1,0 +1,869 @@
+{
+  "1750": {
+    "status": "ask",
+    "reason": "issue count differs",
+    "options": [
+      {
+        "id": 2295,
+        "name": "Thor Annual",
+        "publisher": "Marvel",
+        "start_year": 1966,
+        "count": 12,
+        "why": [
+          "issue count differs"
+        ]
+      }
+    ],
+    "name": "Thor Annual",
+    "publisher": "Marvel",
+    "year": 1966,
+    "count": 18,
+    "collected": false,
+    "blank": [
+      "18"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "3993": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Justice League Special",
+    "publisher": "DC",
+    "year": 1990,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "5933": {
+    "status": "ask",
+    "reason": "issue count differs",
+    "options": [
+      {
+        "id": 6126,
+        "name": "Painkiller Jane",
+        "publisher": "Event Comics",
+        "start_year": 1997,
+        "count": 6,
+        "why": [
+          "issue count differs"
+        ]
+      }
+    ],
+    "name": "Painkiller Jane",
+    "publisher": "Event Comics",
+    "year": 1997,
+    "count": 5,
+    "collected": false,
+    "blank": [
+      "1",
+      "4",
+      "2",
+      "3",
+      "5"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "11228": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Essential Uncanny X-Men",
+    "publisher": "Marvel",
+    "year": 1999,
+    "count": 1,
+    "collected": true,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "12465": {
+    "status": "ask",
+    "reason": "issue count differs",
+    "options": [
+      {
+        "id": 18220,
+        "name": "Iron Man",
+        "publisher": "Marvel",
+        "start_year": 2005,
+        "count": 35,
+        "why": [
+          "issue count differs"
+        ]
+      }
+    ],
+    "name": "Iron Man",
+    "publisher": "Marvel",
+    "year": 2005,
+    "count": 16,
+    "collected": false,
+    "blank": [
+      "7",
+      "1",
+      "14"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "16319": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "The Punisher Meets Archie",
+    "publisher": "Marvel",
+    "year": 1994,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "20782": {
+    "status": "sure",
+    "volume": {
+      "id": 18979,
+      "name": "Tomb Raider: Scarface's Treasure",
+      "publisher": "Top Cow Productions",
+      "start_year": 2003,
+      "count": 1
+    },
+    "name": "Tomb Raider: Scarface's Treasure",
+    "publisher": "Top Cow Productions",
+    "year": 2003,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "[nn]"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z",
+    "tries": 1
+  },
+  "24916": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Crime Suspenstories",
+    "publisher": "Russ Cochran",
+    "year": 1992,
+    "count": 8,
+    "collected": false,
+    "blank": [
+      "4"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "29195": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Terminator 2",
+    "publisher": "Dynamite Entertainment",
+    "year": 2008,
+    "count": 2,
+    "collected": false,
+    "blank": [
+      "6",
+      "7",
+      "6",
+      "7"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "37719": {
+    "status": "ask",
+    "reason": "issue count differs",
+    "options": [
+      {
+        "id": 25912,
+        "name": "Executive Assistant Iris",
+        "publisher": "Aspen MLT",
+        "start_year": 2009,
+        "count": 8,
+        "why": [
+          "issue count differs"
+        ]
+      }
+    ],
+    "name": "Executive Assistant: Iris",
+    "publisher": "Aspen",
+    "year": 2009,
+    "count": 7,
+    "collected": false,
+    "blank": [
+      "2",
+      "1",
+      "0"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "44210": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Painkiller Jane Zero",
+    "publisher": "Event Comics",
+    "year": 1999,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "0"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "45562": {
+    "status": "none",
+    "reason": "its covers are already filed under another series",
+    "name": "Witchblade / Tomb Raider",
+    "publisher": "Image; Wizard",
+    "year": 1999,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1/2"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "53944": {
+    "status": "sure",
+    "volume": {
+      "id": 38553,
+      "name": "Who is Jake Ellis?",
+      "publisher": "Image",
+      "start_year": 2011,
+      "count": 5
+    },
+    "name": "Who Is Jake Ellis?",
+    "publisher": "Image",
+    "year": 2011,
+    "count": 5,
+    "collected": false,
+    "blank": [
+      "2",
+      "1",
+      "3",
+      "5",
+      "4"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z",
+    "tries": 1
+  },
+  "54501": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Lady Mechanika",
+    "publisher": "Aspen",
+    "year": 2010,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "0",
+      "3",
+      "2",
+      "1"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "54521": {
+    "status": "sure",
+    "volume": {
+      "id": 37096,
+      "name": "Lady Death",
+      "publisher": "Avatar Press",
+      "start_year": 2010,
+      "count": 27
+    },
+    "name": "Lady Death",
+    "publisher": "Avatar Press",
+    "year": 2010,
+    "count": 27,
+    "collected": false,
+    "blank": [
+      "15",
+      "23",
+      "7",
+      "24",
+      "22",
+      "11",
+      "20",
+      "3",
+      "0",
+      "12",
+      "16",
+      "4"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z",
+    "tries": 1
+  },
+  "59045": {
+    "status": "sure",
+    "volume": {
+      "id": 40759,
+      "name": "Shinku",
+      "publisher": "Image",
+      "start_year": 2011,
+      "count": 5
+    },
+    "name": "Shinku",
+    "publisher": "Image",
+    "year": 2011,
+    "count": 5,
+    "collected": false,
+    "blank": [
+      "3",
+      "2",
+      "4",
+      "1"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z",
+    "tries": 1
+  },
+  "59071": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Andrea Grant's Minx",
+    "publisher": "Copious Amounts Press; Ardden",
+    "year": 2011,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "59104": {
+    "status": "sure",
+    "volume": {
+      "id": 40652,
+      "name": "Ninjas vs Zombies",
+      "publisher": "Azure Press",
+      "start_year": 2011,
+      "count": 6
+    },
+    "name": "Ninjas vs Zombies",
+    "publisher": "Azure Press",
+    "year": 2011,
+    "count": 6,
+    "collected": false,
+    "blank": [
+      "3",
+      "5",
+      "6",
+      "2",
+      "1",
+      "4"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z",
+    "tries": 1
+  },
+  "60459": {
+    "status": "sure",
+    "volume": {
+      "id": 42010,
+      "name": "War Goddess",
+      "publisher": "Avatar Press",
+      "start_year": 2011,
+      "count": 13
+    },
+    "name": "War Goddess",
+    "publisher": "Avatar Press",
+    "year": 2011,
+    "count": 13,
+    "collected": false,
+    "blank": [
+      "3",
+      "6",
+      "5",
+      "1",
+      "2",
+      "0",
+      "4"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z",
+    "tries": 1
+  },
+  "62175": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 44096,
+        "name": "Rain",
+        "publisher": "TidalWave Productions",
+        "start_year": 2011,
+        "count": 5,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "Rain",
+    "publisher": "Bluewater / StormFront / Storm / TidalWave",
+    "year": 2011,
+    "count": 5,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "86022": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Beavis and Butt-Head",
+    "publisher": "Marvel UK",
+    "year": 1994,
+    "count": 24,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "90562": {
+    "status": "sure",
+    "volume": {
+      "id": 83125,
+      "name": "Civil War",
+      "publisher": "Marvel",
+      "start_year": 2015,
+      "count": 5
+    },
+    "name": "Civil War",
+    "publisher": "Marvel",
+    "year": 2015,
+    "count": 5,
+    "collected": false,
+    "blank": [
+      "5",
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z",
+    "tries": 1
+  },
+  "91821": {
+    "status": "sure",
+    "volume": {
+      "id": 83959,
+      "name": "House of M",
+      "publisher": "Marvel",
+      "start_year": 2015,
+      "count": 4
+    },
+    "name": "House of M",
+    "publisher": "Marvel",
+    "year": 2015,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "2",
+      "3",
+      "1",
+      "4"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z",
+    "tries": 1
+  },
+  "95476": {
+    "status": "none",
+    "reason": "its covers are already filed under another series",
+    "name": "Spider-Man / Deadpool",
+    "publisher": "Marvel",
+    "year": 2016,
+    "count": 51,
+    "collected": false,
+    "blank": [
+      "39",
+      "49",
+      "11",
+      "44",
+      "13",
+      "38",
+      "46",
+      "1",
+      "19",
+      "47",
+      "27",
+      "6"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "119418": {
+    "status": "sure",
+    "volume": {
+      "id": 107121,
+      "name": "X-Men: Grand Design",
+      "publisher": "Marvel",
+      "start_year": 2018,
+      "count": 2
+    },
+    "name": "X-Men Grand Design",
+    "publisher": "Marvel",
+    "year": 2018,
+    "count": 2,
+    "collected": false,
+    "blank": [
+      "1",
+      "2"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z",
+    "tries": 1
+  },
+  "126584": {
+    "status": "ask",
+    "reason": "several volumes fit",
+    "options": [
+      {
+        "id": 112028,
+        "name": "Catwoman",
+        "publisher": "DC Comics",
+        "start_year": 2018,
+        "count": 93,
+        "why": [
+          "issue count differs"
+        ]
+      }
+    ],
+    "name": "Catwoman",
+    "publisher": "DC",
+    "year": 2018,
+    "count": 92,
+    "collected": false,
+    "blank": [
+      "52",
+      "65",
+      "50",
+      "47",
+      "40",
+      "45",
+      "64",
+      "62",
+      "17",
+      "4",
+      "66"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "127116": {
+    "status": "sure",
+    "volume": {
+      "id": 112481,
+      "name": "X-Men: Grand Design - Second Genesis",
+      "publisher": "Marvel",
+      "start_year": 2018,
+      "count": 2
+    },
+    "name": "X-Men: Grand Design - Second Genesis",
+    "publisher": "Marvel",
+    "year": 2018,
+    "count": 2,
+    "collected": false,
+    "blank": [
+      "2",
+      "1"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z",
+    "tries": 1
+  },
+  "132538": {
+    "status": "ask",
+    "reason": "title differs",
+    "options": [
+      {
+        "id": 114424,
+        "name": "True Believers: What If The Fantastic Four Had Not Gained Their Powers?",
+        "publisher": "Marvel",
+        "start_year": 2018,
+        "count": 1,
+        "why": [
+          "title differs"
+        ]
+      }
+    ],
+    "name": "True Believers: What If the Fantastic Four Had Different Super-Powers?",
+    "publisher": "Marvel",
+    "year": 2018,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "132539": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "True Believers: What If Legion Had Killed Magneto?",
+    "publisher": "Marvel",
+    "year": 2018,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "133140": {
+    "status": "ask",
+    "reason": "its covers are already filed under another series",
+    "options": [
+      {
+        "id": 118520,
+        "name": "Marvel Knights: 20th",
+        "publisher": "Marvel",
+        "start_year": 2019,
+        "count": 1,
+        "why": [
+          "issue count differs"
+        ]
+      }
+    ],
+    "name": "Marvel Knights 20th",
+    "publisher": "Marvel",
+    "year": 2019,
+    "count": 6,
+    "collected": false,
+    "blank": [
+      "5",
+      "6",
+      "2",
+      "3",
+      "4"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "152844": {
+    "status": "sure",
+    "volume": {
+      "id": 122969,
+      "name": "The Question: The Deaths of Vic Sage",
+      "publisher": "DC Comics",
+      "start_year": 2019,
+      "count": 4
+    },
+    "name": "The Question: The Deaths of Vic Sage",
+    "publisher": "DC",
+    "year": 2020,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "2",
+      "3",
+      "4"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z",
+    "tries": 1
+  },
+  "156215": {
+    "status": "sure",
+    "volume": {
+      "id": 119541,
+      "name": "Lady Mechanika: Sangre",
+      "publisher": "Benitez Productions",
+      "start_year": 2019,
+      "count": 5
+    },
+    "name": "Lady Mechanika: Sangre",
+    "publisher": "Benitez Productions",
+    "year": 2019,
+    "count": 5,
+    "collected": false,
+    "blank": [
+      "1",
+      "5",
+      "4",
+      "2",
+      "3"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z",
+    "tries": 1
+  },
+  "195668": {
+    "status": "ask",
+    "reason": "several volumes fit",
+    "options": [
+      {
+        "id": 153615,
+        "name": "Sins of Sinister ",
+        "publisher": "Marvel",
+        "start_year": 2023,
+        "count": 1,
+        "why": []
+      },
+      {
+        "id": 147646,
+        "name": "Sins of Sinister",
+        "publisher": "Marvel",
+        "start_year": 2023,
+        "count": 1,
+        "why": []
+      }
+    ],
+    "name": "Sins of Sinister",
+    "publisher": "Marvel",
+    "year": 2023,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "200232": {
+    "status": "ask",
+    "reason": "its covers are already filed under another series",
+    "options": [
+      {
+        "id": 153353,
+        "name": "Spider-Man 2099: Dark Genesis",
+        "publisher": "Marvel",
+        "start_year": 2023,
+        "count": 1,
+        "why": [
+          "issue count differs"
+        ]
+      }
+    ],
+    "name": "Spider-Man 2099: Dark Genesis",
+    "publisher": "Marvel",
+    "year": 2023,
+    "count": 5,
+    "collected": false,
+    "blank": [
+      "1 (93)",
+      "5 (97)",
+      "3 (95)",
+      "2 (94)",
+      "4 (96)"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "201652": {
+    "status": "ask",
+    "reason": "issue count differs",
+    "options": [
+      {
+        "id": 154832,
+        "name": "Star Wars: The Mandalorian Season 2 ",
+        "publisher": "Marvel",
+        "start_year": 2024,
+        "count": 2,
+        "why": [
+          "issue count differs"
+        ]
+      },
+      {
+        "id": 151516,
+        "name": "Star Wars: The Mandalorian ",
+        "publisher": "Marvel",
+        "start_year": 2023,
+        "count": 8,
+        "why": [
+          "title differs"
+        ]
+      },
+      {
+        "id": 144030,
+        "name": "Star Wars: The Mandalorian",
+        "publisher": "Marvel",
+        "start_year": 2022,
+        "count": 8,
+        "why": [
+          "title differs"
+        ]
+      }
+    ],
+    "name": "Star Wars: The Mandalorian Season 2",
+    "publisher": "Marvel",
+    "year": 2023,
+    "count": 8,
+    "collected": false,
+    "blank": [
+      "5",
+      "8"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "214802": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Image Firsts: Monstress",
+    "publisher": "Image",
+    "year": 2024,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "[nn]"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "228872": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Mark Spears Monsters: The Monster and the Wolf",
+    "publisher": "Keenspot Entertainment",
+    "year": 2025,
+    "count": 3,
+    "collected": false,
+    "blank": [
+      "1",
+      "3",
+      "2"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "234577": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Maid Cafe",
+    "publisher": "Keenspot Entertainment",
+    "year": 2026,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "2",
+      "3",
+      "1"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "236130": {
+    "status": "ask",
+    "reason": "issue count differs",
+    "options": [
+      {
+        "id": 177511,
+        "name": "Mortal Thor",
+        "publisher": "Marvel",
+        "start_year": 2026,
+        "count": 7,
+        "why": [
+          "issue count differs"
+        ]
+      }
+    ],
+    "name": "Mortal Thor",
+    "publisher": "Marvel",
+    "year": 2026,
+    "count": 2,
+    "collected": true,
+    "blank": [
+      "1",
+      "2"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "239035": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Pimp Killer",
+    "publisher": "Keenspot Entertainment",
+    "year": 2026,
+    "count": 2,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-25T07:02:10.053Z"
+  }
+}

@@ -14760,9 +14760,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-15T10:06:13.502185+00:00",
-    "retry_after": "2026-11-22T10:06:13.502188+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-25T07:09:43.322089+00:00",
+    "retry_after": "2026-12-09T07:09:43.322091+00:00",
     "search_hydrated": true
   },
   {
@@ -23050,9 +23050,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-15T16:06:24.678617+00:00",
-    "retry_after": "2026-11-22T16:06:24.678634+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-25T07:09:43.322101+00:00",
+    "retry_after": "2026-12-09T07:09:43.322103+00:00",
     "search_hydrated": true
   },
   {
@@ -31310,9 +31310,9 @@
         "start_year": 1996
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T06:07:13.217601+00:00",
-    "retry_after": "2026-11-25T06:07:13.217618+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T07:05:04.117354+00:00",
+    "retry_after": "2026-11-28T07:05:04.117369+00:00",
     "search_hydrated": true
   },
   {
@@ -31755,9 +31755,10 @@
         "start_year": 1994
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-10-02T21:37:47.577607+00:00",
-    "retry_after": "2026-10-09T21:37:47.577622+00:00"
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T07:04:02.029923+00:00",
+    "retry_after": "2026-11-26T07:04:02.029925+00:00",
+    "search_hydrated": true
   },
   {
     "name": "Sexy Cartoons",
@@ -38601,9 +38602,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T06:10:26.789123+00:00",
-    "retry_after": "2026-11-25T06:10:26.789126+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T07:09:43.321983+00:00",
+    "retry_after": "2026-12-25T07:09:43.321986+00:00",
     "search_hydrated": true
   },
   {
@@ -55682,9 +55683,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-15T08:05:46.157499+00:00",
-    "retry_after": "2026-11-22T08:05:46.157516+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-25T07:09:43.322074+00:00",
+    "retry_after": "2026-12-09T07:09:43.322077+00:00",
     "search_hydrated": true
   },
   {
@@ -84283,9 +84284,9 @@
         "start_year": 2005
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T06:10:26.788999+00:00",
-    "retry_after": "2026-11-25T06:10:26.789015+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T07:09:43.321946+00:00",
+    "retry_after": "2026-12-25T07:09:43.321963+00:00",
     "search_hydrated": true
   },
   {
@@ -96705,8 +96706,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-25T06:04:55.021273+00:00",
-    "retry_after": "2026-11-26T06:04:55.021290+00:00",
+    "last_attempt_at": "2026-11-25T07:08:31.690085+00:00",
+    "retry_after": "2026-11-26T07:08:31.690101+00:00",
     "search_hydrated": true
   },
   {
@@ -98765,9 +98766,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T07:02:55.072530+00:00",
-    "retry_after": "2026-11-25T07:02:55.072535+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T07:04:02.029980+00:00",
+    "retry_after": "2026-11-28T07:04:02.029982+00:00",
     "search_hydrated": true
   },
   {
@@ -98789,9 +98790,9 @@
         "start_year": 2006
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T07:04:46.257387+00:00",
-    "retry_after": "2026-11-25T07:04:46.257401+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T07:05:04.117398+00:00",
+    "retry_after": "2026-11-28T07:05:04.117400+00:00",
     "search_hydrated": true
   },
   {
@@ -98801,10 +98802,16 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 45104,
+        "id": 61007,
         "name": "Nowhere Man",
-        "publisher": "Liquid Comics",
-        "start_year": 2012
+        "publisher": "Forward Comix",
+        "start_year": 2013
+      },
+      {
+        "id": 88602,
+        "name": "Nowhere Man",
+        "publisher": "self published",
+        "start_year": 2016
       },
       {
         "id": 56304,
@@ -98813,27 +98820,21 @@
         "start_year": 2012
       },
       {
-        "id": 61007,
-        "name": "Nowhere Man",
-        "publisher": "Forward Comix",
-        "start_year": 2013
-      },
-      {
         "id": 86056,
         "name": "The Nowhere Man",
         "publisher": "Bloozit Press",
         "start_year": 2015
       },
       {
-        "id": 88602,
+        "id": 45104,
         "name": "Nowhere Man",
-        "publisher": "self published",
-        "start_year": 2016
+        "publisher": "Liquid Comics",
+        "start_year": 2012
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T07:06:23.614968+00:00",
-    "retry_after": "2026-11-25T07:06:23.614984+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T07:07:28.124332+00:00",
+    "retry_after": "2026-11-28T07:07:28.124347+00:00",
     "search_hydrated": true
   },
   {
@@ -100793,6 +100794,107 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-25T06:06:32.251255+00:00",
     "retry_after": "2026-11-26T06:06:32.251274+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Rain",
+    "publisher": "Bluewater / StormFront / Storm / TidalWave",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 121870,
+        "name": "Rain",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2019
+      },
+      {
+        "id": 128036,
+        "name": "Rain",
+        "publisher": "Envision Comics",
+        "start_year": 2020
+      },
+      {
+        "id": 44096,
+        "name": "Rain",
+        "publisher": "TidalWave Productions",
+        "start_year": 2011
+      },
+      {
+        "id": 58051,
+        "name": "Rain",
+        "publisher": "Arcana Studio",
+        "start_year": 2013
+      },
+      {
+        "id": 99149,
+        "name": "Rain",
+        "publisher": "Mag Garden",
+        "start_year": 2009
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T07:04:02.029805+00:00",
+    "retry_after": "2026-11-26T07:04:02.029821+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Andrea Grant's Minx",
+    "publisher": "Copious Amounts Press; Ardden",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T07:04:02.029849+00:00",
+    "retry_after": "2026-11-26T07:04:02.029853+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Lady Mechanika",
+    "publisher": "Aspen Comics",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 35855,
+        "name": "Lady Mechanika",
+        "publisher": "Benitez Productions",
+        "start_year": 2010
+      },
+      {
+        "id": 96456,
+        "name": "Lady Mechanika",
+        "publisher": "Éditions Glénat",
+        "start_year": 2016
+      },
+      {
+        "id": 108448,
+        "name": "Lady Mechanika",
+        "publisher": "Splitter",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T07:04:02.029890+00:00",
+    "retry_after": "2026-11-26T07:04:02.029892+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Toy Story: Tales from the Toy Chest",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 36143,
+        "name": "Toy Story: Tales From the Toy Chest",
+        "publisher": "Boom! Studios",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T07:09:54.418051+00:00",
+    "retry_after": "2026-11-26T07:09:54.418068+00:00",
     "search_hydrated": true
   }
 ]

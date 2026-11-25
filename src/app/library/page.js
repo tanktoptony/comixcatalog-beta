@@ -1088,7 +1088,7 @@ function LibraryPageContent() {
     }
 
     if (tab === "for_sale" && completionFilter !== "all") {
-      const needed = new Set((completionFilter === "photo" ? completeness.needsPhoto : completeness.needsPrice).map((item) => item.id));
+      const needed = new Set((completionFilter === "photo" ? completeness.needsPhoto : completionFilter === "shipping" ? completeness.needsShipping : completeness.needsPrice).map((item) => item.id));
       result = result.filter((item) => needed.has(item.id));
     }
 
@@ -2089,8 +2089,10 @@ function LibraryPageContent() {
               <span>
                 <b>{completeness.needsPrice.length}</b> of your listings {completeness.needsPrice.length === 1 ? "has" : "have"} no price
               </span>
+              {completeness.needsShipping.length > 0 && <span><b>{completeness.needsShipping.length}</b> {completeness.needsShipping.length === 1 ? "has" : "have"} no shipping price</span>}
               <span><b>{completeness.needsPhoto.length}</b> need a photo</span>
               <button type="button" className={completionFilter === "price" ? "active" : ""} onClick={() => setCompletionFilter(completionFilter === "price" ? "all" : "price")}>Needs a price</button>
+              {(completeness.needsShipping.length > 0 || completionFilter === "shipping") && <button type="button" className={completionFilter === "shipping" ? "active" : ""} onClick={() => setCompletionFilter(completionFilter === "shipping" ? "all" : "shipping")}>Needs shipping</button>}
               <button type="button" className={completionFilter === "photo" ? "active" : ""} onClick={() => setCompletionFilter(completionFilter === "photo" ? "all" : "photo")}>Needs a photo</button>
             </div>
           )}
@@ -2103,7 +2105,7 @@ function LibraryPageContent() {
             </div>
           )}
 
-          {!loading && tab === "for_sale" && completionFilter === "price" && filteredItems.length > 0 && (
+          {!loading && tab === "for_sale" && (completionFilter === "price" || completionFilter === "shipping") && filteredItems.length > 0 && (
             <div className="listing-price-run">
               {filteredItems.map((item) => {
                 const listing = myListings[item.id];

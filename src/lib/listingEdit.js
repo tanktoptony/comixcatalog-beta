@@ -19,6 +19,20 @@ export function toCents(value) {
   return Math.round(Number(s) * 100);
 }
 
+// Checkout charges $0 shipping when none is set, so a priced listing needs a
+// shipping price; 0 is a real answer (free shipping). `current` is the saved
+// row. Listings priced before this rule (2026-11) can still change other
+// fields, and their price, without it.
+export const SHIPPING_NEEDED = "Add a shipping price so buyers see the full cost. Use 0 for free shipping.";
+export function shippingError(patch, current = {}) {
+  const price = "price_cents" in patch ? patch.price_cents : current.price_cents;
+  const shipping = "shipping_cents" in patch ? patch.shipping_cents : current.shipping_cents;
+  if (price == null || shipping != null) return null;
+  const clearing = "shipping_cents" in patch;
+  const pricing = "price_cents" in patch && current.price_cents == null;
+  return clearing || pricing ? SHIPPING_NEEDED : null;
+}
+
 // Body from the editor -> { patch } ready for the listings table, or
 // { error } with a message a seller can act on. Only known fields pass.
 export function validateListingEdit(body) {

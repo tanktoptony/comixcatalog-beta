@@ -13282,7 +13282,12 @@ html[data-signed-in="1"] .founding-banner-guest { display: none; }
 .mk-card-cover { display: block; aspect-ratio: 2 / 3; border-radius: 3px; overflow: hidden; background: rgba(255, 255, 255, 0.04); margin-bottom: 4px; }
 .mk-card-cover img { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.15s; }
 .mk-card-cover:hover img { opacity: 0.85; }
-.mk-card-title { font-size: 0.86rem; font-weight: 600; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mk-card-title { display: flex; gap: 4px; min-width: 0; font-size: 0.86rem; font-weight: 600; line-height: 1.3; }
+.mk-title-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mk-title-num { flex: none; white-space: nowrap; }
+.mk-card-seller { font-size: 0.76rem; color: var(--mk-muted) !important; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mk-card-seller:hover { color: var(--mk-text) !important; }
+.mk-card .mk-price { flex-wrap: wrap; }
 .mk-card-title:hover { text-decoration: underline !important; }
 .mk-card-meta { font-size: 0.78rem; color: var(--mk-muted); }
 .mk-price { display: inline-flex; align-items: baseline; gap: 5px; font-size: 0.9rem; }
@@ -13324,7 +13329,7 @@ html[data-signed-in="1"] .founding-banner-guest { display: none; }
 .mk-row-cover { display: block; width: 56px; aspect-ratio: 2 / 3; border-radius: 2px; overflow: hidden; background: rgba(255, 255, 255, 0.04); }
 .mk-row-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .mk-row-main { display: grid; gap: 3px; min-width: 0; }
-.mk-row-title { font-size: 0.98rem; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mk-row-title { display: flex; gap: 5px; min-width: 0; font-size: 0.98rem; font-weight: 700; }
 .mk-row-title:hover { text-decoration: underline !important; }
 .mk-row-meta { font-size: 0.82rem; color: var(--mk-muted); }
 .mk-row-sub { display: flex; gap: 12px; align-items: center; font-size: 0.82rem; }
@@ -13356,6 +13361,7 @@ html[data-signed-in="1"] .founding-banner-guest { display: none; }
 }
 @media (max-width: 560px) {
   .mk-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .mk-card-title { flex-direction: column; gap: 0; }
   .mk-cards .mk-card:nth-child(n + 4) { display: none; }
   .mk-pubs, .mk-sellers { grid-template-columns: 1fr; }
   .mk-row { grid-template-columns: 48px minmax(0, 1fr); }
@@ -13470,6 +13476,10 @@ html[data-signed-in="1"] .founding-banner-guest { display: none; }
 .order-page { max-width:760px; margin:0 auto; padding:80px 20px; display:grid; grid-template-columns:minmax(100px,180px) 1fr; gap:28px; align-items:start; } .order-page img { width:100%; border-radius:8px; } .order-page h1 { margin:8px 0; } .order-page strong { font-size:1.5rem; } .order-page div>p:last-child { text-transform:capitalize; }
 @media(max-width:480px){.order-page{padding:48px 16px;grid-template-columns:92px 1fr;gap:16px}.order-page h1{font-size:1.3rem}}
 .lp-status { font-weight: 800; color: #e9ebf0; }
+.lp-own { display: grid; gap: 6px; justify-items: start; }
+.lp-own p { margin: 0; color: #c9cfdb; font-size: 0.9rem; }
+.lp-own .lp-own-warn, .le-need, .listing-quick-price .listing-need-ship { color: #F4D03F; }
+.listing-quick-ship input { width: 92px; }
 .lp-fine { margin: 4px 0 0; color: #8d93a1; font-size: 0.8rem; }
 .lp-block h2 { margin: 0 0 10px; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #8d93a1; }
 .lp-facts { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; margin: 0; font-size: 0.94rem; }
@@ -14860,10 +14870,12 @@ a.pull-issue-title:hover { color: var(--cc-gold); }
   .mk-row-sellerbox { grid-template-columns: repeat(2,minmax(0,1fr)); padding-top: 10px; border-top: 1px solid var(--mk-line); }
   .mk-row-buy { text-align: left; }
   .mk-buy-now, .mk-offer { width: 100%; }
+  .mk-row-buy { flex-wrap: wrap; justify-content: flex-start; align-items: baseline; gap: 6px 10px; }
 }
 @media (max-width: 420px) {
   .mk-row { gap: 12px; padding: 11px; }
-  .mk-row-title { white-space: normal; }
+  .mk-row-title { display: block; }
+  .mk-row-title .mk-title-name { white-space: normal; }
   .mk-stat-chips { align-items: stretch; }
   .mk-stat-chips > span { flex: 1 1 42%; text-align: center; }
   .lp-guide-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }

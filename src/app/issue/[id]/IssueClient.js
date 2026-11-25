@@ -18,7 +18,7 @@ import { copyGradeLabel, guideCopyValue } from "@/lib/guideCopyValue";
 import { publisherHref } from "@/lib/publisherPages";
 import { issueNumberSuffix, issueNumberText } from "@/lib/issueNumberLabel";
 import { buildIssueDetailsRows, humanizeStoryType, issueDateChip, parseGcdCreditList, stripGcdCharacterNoise } from "@/lib/issueDetails";
-import { conditionLabel, contactLabel, formatValue, offerHref } from "@/lib/marketplaceFormat";
+import { conditionLabel, contactLabel, formatValue, offerHref, shippingLabel } from "@/lib/marketplaceFormat";
 import Avatar from "@/components/Avatar";
 import { cleanVariantCaption, matchVariantCovers } from "@/lib/variantCovers";
 import AddToListButton from "@/components/lists/AddToListButton";
@@ -908,7 +908,7 @@ export default function IssueClient({ initialIssue = null }) {
           <section id="forsale" className="issue-discogs-section">
             <div className="issue-section-heading"><h2>For sale</h2>{issue.listings?.length > 0 && <span>{issue.listings.length} available</span>}</div>
             {!issue.listings?.length ? <div className="issue-empty-card">No copies for sale yet{user && inCollection && <> · <Link href="/library?tab=collection">Sell yours</Link></>}</div> : <div className="issue-table-box"><table className="issue-discogs-table"><thead><tr><th>Grade</th><th>Edition</th><th>Seller</th><th>Price</th><th></th></tr></thead><tbody>
-              {issue.listings.map((listing) => <tr key={listing.id}><td>{conditionLabel(listing)}</td><td>{listing.variant || "Base edition"}</td><td><Link href={`/u/${encodeURIComponent(listing.seller)}`}>@{listing.seller}</Link><small>Listed {new Date(listing.listedAt).toLocaleDateString("en-US", { month: "short", year: "numeric" })}</small></td><td>{listing.price != null ? formatValue(listing.price) : "Open to offers"}</td><td><Link className="issue-row-button" href={offerHref(listing)}>{contactLabel(listing)}</Link></td></tr>)}
+              {issue.listings.map((listing) => <tr key={listing.id}><td>{conditionLabel(listing)}</td><td>{listing.variant || "Base edition"}</td><td><Link href={`/u/${encodeURIComponent(listing.seller)}`}>@{listing.seller}</Link><small>Listed {new Date(listing.listedAt).toLocaleDateString("en-US", { month: "short", year: "numeric" })}</small></td><td>{listing.price != null ? <>{formatValue(listing.price)}<small>{shippingLabel(listing) ?? "Shipping not set"}</small></> : "Open to offers"}</td><td>{listing.price != null ? <Link className="issue-row-button" href={`/listing/${listing.id}`}>See this copy</Link> : <Link className="issue-row-button" href={offerHref(listing)}>{contactLabel(listing)}</Link>}</td></tr>)}
             </tbody></table></div>}
           </section>
         )}

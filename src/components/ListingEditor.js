@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { authedFetch } from "@/lib/apiClient";
-import { validateListingEdit, LIMITS, RAW_CONDITIONS } from "@/lib/listingEdit";
+import { shippingError, validateListingEdit, LIMITS, RAW_CONDITIONS } from "@/lib/listingEdit";
 import PhotoManager from "@/components/PhotoManager";
 import { trackEvent } from "@/lib/analytics";
 import Link from "next/link";
@@ -52,6 +52,8 @@ export default function ListingEditor({ listing, title, estValue, onClose, onSav
     const body = { price, shipping, acceptsOffers, conditionNotes: notes, restored, signed, ...(graded ? {} : { condition }) };
     const check = validateListingEdit(body);
     if (check.error) return setError(check.error);
+    const needsShipping = shippingError(check.patch, listing);
+    if (needsShipping) return setError(needsShipping);
     setBusy(true);
     setError("");
     try {
@@ -94,9 +96,11 @@ export default function ListingEditor({ listing, title, estValue, onClose, onSav
             <span>Shipping</span>
             <div className="le-money">
               <em>$</em>
-              <input inputMode="decimal" value={shipping} onChange={(e) => setShipping(e.target.value)} placeholder="Ask" />
+              <input inputMode="decimal" value={shipping} onChange={(e) => setShipping(e.target.value)} placeholder="5" aria-describedby="le-shipping-note" />
             </div>
-            <small>US shipping. 0 means free.</small>
+            <small id="le-shipping-note" className={price && !shipping ? "le-need" : undefined}>
+              {price && !shipping ? "Buyers need a shipping price. Enter 0 for free shipping." : "US shipping. 0 means free."}
+            </small>
           </label>
         </div>
 

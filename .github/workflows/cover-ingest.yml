@@ -246,6 +246,19 @@ jobs:
             echo '[]' > gap-new-members.json
           fi
 
+      # Members' books that are blank on the site right now, matched to
+      # ComicVine by title, publisher, year and issue count. Three overnight
+      # runs a night, 40 searches each. Same failure posture as above. Rules:
+      # scripts/lib/blankVolumeMatch.js.
+      - name: Match members' blank books
+        if: steps.night.outputs.on == 'true'
+        run: |
+          case "$(date -u +%H)" in 05|07|09) ;; *) echo "Runs on the 05, 07 and 09 UTC runs only."; echo '[]' > gap-blank.json; exit 0;; esac
+          if ! timeout --kill-after=30s 6m node scripts/matchBlankBooks.js --apply --max-searches=40; then
+            echo "::warning::Blank-book matcher failed; this run ingests without the blank-book lane."
+            echo '[]' > gap-blank.json
+          fi
+
       - name: Generate requested-book targets
         run: |
           if ! node scripts/generateRequestedGap.js --apply; then
@@ -333,6 +346,25 @@ jobs:
           took=$(( $(date +%s) - started ))
           echo "New-member lane took ${took}s."
           if [ "$took" -ge 180 ]; then echo "busy=true" >> "$GITHUB_OUTPUT"; fi
+
+      # Each target names its ComicVine volume and GCD series, so nothing is
+      # searched or guessed. Its own done and backlog files, kept out of the
+      # repo: the main ledger marks a series done for months, and 116 of the
+      # blank series were in it on 2026-11-24.
+      - name: Ingest blank-book targets
+        id: lane_blank
+        if: steps.night.outputs.on == 'true' && hashFiles('gap-blank.json') != ''
+        run: |
+          set +e
+          timeout --kill-after=60s 8m python comicvine_api_to_supabase.py --targets gap-blank.json --skip-existing --done-file "$RUNNER_TEMP/blank-done.json" --needs-volume-id-out "$RUNNER_TEMP/blank-needs.json" --vol-sleep 1.0 --max-minutes 7 --max-variant-images-per-issue 0
+          code=$?
+          set -e
+          if [ "$code" -eq 124 ] || [ "$code" -eq 137 ]; then
+            echo "Lane hit its 8-minute cap. What is still blank is tried again on a later run."
+          elif [ "$code" -ne 0 ]; then
+            echo "::error::Blank-book lane exited $code."
+            echo "failed=true" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Ingest requested-book targets
         id: lane_requested
@@ -621,6 +653,12 @@ jobs:
             fail=1
           else
             check "new-members" "${{ steps.lane_new_members.outcome }}"
+          fi
+          if [ "${{ steps.lane_blank.outputs.failed }}" = "true" ]; then
+            echo "  FAILED   blank-books"
+            fail=1
+          else
+            check "blank-books" "${{ steps.lane_blank.outcome }}"
           fi
           check "requested-books" "${{ steps.lane_requested.outcome }}"
           check "new-releases"   "${{ steps.lane_new_releases.outcome }}"

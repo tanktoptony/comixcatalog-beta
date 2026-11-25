@@ -1,7 +1,8 @@
-// Daily activity emails: replies, @mentions and comments on your lists and
+// Activity summaries: replies, @mentions and comments on your lists and
 // reviews that haven't been emailed or read yet (notifications.emailed_at,
-// read_at both null). Members on "Daily summary" (the default) get all of
-// them; members on "Right away" get only what the instant sender held back
+// read_at both null). Members on "Summary" (the default) get all of them,
+// at most once a week and inside the two-a-week cap (emailCap.js); the job
+// runs daily so a first notice isn't held for a fixed day. Members on "Right away" get only what the instant sender held back
 // (older than INSTANT_GAP_MINUTES); "Off" gets nothing.
 //
 // Dry run by default (prints who would get what). --apply sends.
@@ -15,6 +16,7 @@ import { fileURLToPath } from "node:url";
 import { mkdir, writeFile } from "node:fs/promises";
 import { createClient } from "@supabase/supabase-js";
 import { buildActivityEmail, INSTANT_GAP_MINUTES, prefsFromRow } from "../src/lib/emailPrefs.js";
+import { canSendSummary, loadRecentEmails } from "../src/lib/emailCap.js";
 import { unsubscribeLink } from "../src/lib/emailUnsubscribe.js";
 import { actorNames, loadPendingActivity, sendActivityEmail } from "../src/lib/activityEmailSend.js";
 
@@ -25,7 +27,9 @@ const option = (name) => process.argv.find((value) => value.startsWith(`--${name
 const apply = process.argv.includes("--apply");
 const only = new Set((option("only") || "").split(",").map((value) => value.trim().toLowerCase()).filter(Boolean));
 const outDir = option("out");
-const WINDOW_DAYS = 7;
+// Two weeks, so a notice held back by the weekly cap isn't too old to send
+// once its turn comes.
+const WINDOW_DAYS = 14;
 
 for (const name of ["NEXT_PUBLIC_SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY", "EMAIL_UNSUBSCRIBE_SECRET"]) {
   if (!process.env[name]) throw new Error(`${name} is required`);
@@ -63,6 +67,7 @@ for (let i = 0; i < userIds.length; i += 200) {
 
 let sent = 0;
 let skipped = 0;
+let held = 0;
 for (const userId of userIds) {
   const username = profiles.get(userId)?.username ?? userId;
   if (only.size && !only.has(String(username).toLowerCase())) continue;
@@ -71,6 +76,15 @@ for (const userId of userIds) {
   const rows = (await loadPendingActivity(db, userId, { olderThan: mode === "instant" ? heldBefore : null }))
     .filter((row) => row.created_at >= since);
   if (!rows.length) continue;
+  if (mode !== "instant") {
+    try {
+      if (!canSendSummary(await loadRecentEmails(db, userId, { mode }))) { held += 1; continue; }
+    } catch (error) {
+      console.error(`skipped @${username}: ${error.message}`);
+      skipped += 1;
+      continue;
+    }
+  }
   const { data: auth, error: authError } = await db.auth.admin.getUserById(userId);
   const email = auth?.user?.email;
   if (authError || !email || !auth.user.email_confirmed_at) { skipped += 1; continue; }
@@ -95,4 +109,4 @@ for (const userId of userIds) {
     console.error(`failed for @${username}: ${error.message}`);
   }
 }
-console.log(apply ? `Sent ${sent}; skipped ${skipped} (off or no confirmed email).` : `Dry run; ${skipped} skipped (off or no confirmed email).`);
+console.log(`${apply ? `Sent ${sent}` : "Dry run"}; ${held} held for the weekly cap, ${skipped} skipped (off, no confirmed email or a failed check).`);

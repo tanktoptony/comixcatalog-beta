@@ -271,7 +271,7 @@ export default function AccountSettingsPage() {
             label="Replies, mentions and comments"
             message={activityMsg}
           >
-            When someone replies to you, @mentions you, or comments on your lists and reviews.
+            When someone replies to you, @mentions you, or comments on your lists and reviews, and when a book you asked for is added. A summary comes at most once a week.
           </ChoiceSetting>
           <ToggleSetting
             id="email-digest"

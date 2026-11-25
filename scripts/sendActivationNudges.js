@@ -1,6 +1,7 @@
 import "dotenv/config";
 import { createClient } from "@supabase/supabase-js";
 import { ACTIVATION_NUDGE_SEND_CAP, buildActivationNudgeEmail, chooseActivationNudge } from "../src/lib/activationNudges.js";
+import { canSendOther, loadRecentEmails } from "../src/lib/emailCap.js";
 import { resendBatch } from "../src/lib/newsletter.js";
 
 const dryRun = process.argv.includes("--dry-run");
@@ -39,6 +40,7 @@ for (const profile of profiles || []) {
     .in("status", ["owned", "for_sale"]);
   if (countError) throw new Error(`Collection check failed for ${profile.id}: ${countError.message}`);
   if (count) continue;
+  if (!canSendOther(await loadRecentEmails(supabase, profile.id))) continue;
 
   const { data: authData, error: authError } = await supabase.auth.admin.getUserById(profile.id);
   if (authError) throw new Error(`Email lookup failed for ${profile.id}: ${authError.message}`);

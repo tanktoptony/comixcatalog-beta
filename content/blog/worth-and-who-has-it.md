@@ -61,7 +61,7 @@ Now the [importer](https://www.comixcatalog.com/switch) takes a second look at t
 
 ## Email you control
 
-In [Account settings](https://www.comixcatalog.com/account), you choose how you hear about replies, @mentions and comments: right away, one summary a day, or not at all.
+In [Account settings](https://www.comixcatalog.com/account), you choose how you hear about replies, @mentions and comments: right away, in a summary at most once a week, or not at all.
 
 There's also a weekly digest: what the collectors you follow added, wantlist books someone listed, your trade matches and your collection's value. It only goes out when there's something new, and every email has a one-click unsubscribe.
 

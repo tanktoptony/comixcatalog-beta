@@ -3,9 +3,8 @@
 -- having agreed to it. An explicit 0 still means free shipping. Same function
 -- as 0093 otherwise; the new check sits after the condition check.
 --
--- HOLD: not applied when written (2026-11-24). On that day 81 of the 103
--- Buy now listings had no shipping price, and applying this turns Buy now off
--- for every listing still missing one. Set those first, then apply.
+-- Applied in production 2026-11-25, after the 81 Buy now listings without a
+-- shipping price were given one ($5). Buy now count was 104 before and after.
 --
 -- Until then the app stops new ones: PATCH /api/listings/:id refuses to price
 -- a listing without shipping (shippingError in src/lib/listingEdit.js).

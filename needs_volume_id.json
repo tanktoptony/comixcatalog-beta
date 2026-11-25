@@ -14399,9 +14399,9 @@
     "year": 2015,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-21T06:05:26.625741+00:00",
-    "retry_after": "2026-11-24T06:05:26.625756+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-25T02:02:10.994009+00:00",
+    "retry_after": "2026-12-02T02:02:10.994022+00:00",
     "search_hydrated": true
   },
   {
@@ -24581,9 +24581,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T01:23:09.766234+00:00",
-    "retry_after": "2026-11-25T01:23:09.766250+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T02:04:33.986712+00:00",
+    "retry_after": "2026-12-25T02:04:33.986724+00:00",
     "search_hydrated": true
   },
   {
@@ -84097,9 +84097,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T01:23:14.788604+00:00",
-    "retry_after": "2026-11-25T01:23:14.788620+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T02:04:36.123884+00:00",
+    "retry_after": "2026-12-25T02:04:36.123892+00:00",
     "search_hydrated": true
   },
   {
@@ -92272,9 +92272,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-16T02:06:22.695025+00:00",
-    "retry_after": "2026-11-23T02:06:22.695041+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-25T02:04:33.986810+00:00",
+    "retry_after": "2026-12-09T02:04:33.986815+00:00",
     "search_hydrated": true
   },
   {
@@ -92283,9 +92283,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-16T02:06:22.695063+00:00",
-    "retry_after": "2026-11-23T02:06:22.695067+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-25T02:04:33.986831+00:00",
+    "retry_after": "2026-12-09T02:04:33.986834+00:00",
     "search_hydrated": true
   },
   {
@@ -92294,9 +92294,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-16T02:06:22.695083+00:00",
-    "retry_after": "2026-11-23T02:06:22.695086+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-25T02:04:33.986848+00:00",
+    "retry_after": "2026-12-09T02:04:33.986850+00:00",
     "search_hydrated": true
   },
   {
@@ -96704,8 +96704,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-25T01:04:24.396235+00:00",
-    "retry_after": "2026-11-26T01:04:24.396239+00:00",
+    "last_attempt_at": "2026-11-25T02:03:22.839830+00:00",
+    "retry_after": "2026-11-26T02:03:22.839841+00:00",
     "search_hydrated": true
   },
   {
@@ -98373,21 +98373,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 46662,
-        "name": "The Steel Claw",
-        "publisher": "Quality Communications",
-        "start_year": 1986
-      },
-      {
         "id": 46661,
         "name": "The Steel Claw",
         "publisher": "Titan Comics",
         "start_year": 2005
+      },
+      {
+        "id": 46662,
+        "name": "The Steel Claw",
+        "publisher": "Quality Communications",
+        "start_year": 1986
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T02:01:57.001244+00:00",
-    "retry_after": "2026-11-25T02:01:57.001258+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T02:02:24.975138+00:00",
+    "retry_after": "2026-11-28T02:02:24.975149+00:00",
     "search_hydrated": true
   },
   {
@@ -100610,6 +100610,28 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-25T01:04:24.396150+00:00",
     "retry_after": "2026-11-26T01:04:24.396169+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Man: One Moment in Time",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T02:04:46.249814+00:00",
+    "retry_after": "2026-11-26T02:04:46.249826+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics On Parade",
+    "publisher": "Titan Comics",
+    "year": 1998,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T02:04:46.249849+00:00",
+    "retry_after": "2026-11-26T02:04:46.249853+00:00",
     "search_hydrated": true
   }
 ]

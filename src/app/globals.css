@@ -12839,6 +12839,9 @@ html[data-signed-in="1"] .founding-banner-guest { display: none; }
 .issue-cover-pick.is-on { border-color: var(--cc-gold, #ffd700); color: #fff; }
 .issue-cover-pick img { width: 54px; height: 80px; object-fit: cover; border-radius: 4px; }
 .issue-cover-pick span { max-width: 78px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.issue-own-cover { display: grid; gap: 10px; margin-top: 12px; }
+.issue-own-cover p { margin: 0; font-size: 0.85rem; line-height: 1.4; }
+.issue-own-cover-save { width: 100%; min-height: 44px; }
 .issue-cover-strip { scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--cc-text) 22%, transparent) transparent; }
 .issue-cover-match-note { margin: 9px 0 0; color: var(--cc-text-muted); font-size: .78rem; line-height: 1.4; }
 .issue-sale-list { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 8px; }

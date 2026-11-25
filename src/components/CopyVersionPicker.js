@@ -10,7 +10,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { authedFetch } from "@/lib/apiClient";
 import { trackEvent } from "@/lib/analytics";
 import { barcodeVerdict, isPickedCatalogCover } from "@/lib/copyVersion";
-import { suggestVersion } from "@/lib/labelEdition";
+import { dismissLabelSuggestion, isLabelSuggestionDismissed, suggestVersion } from "@/lib/labelEdition";
 import { normalizeUpc, upcProblem } from "@/lib/printings";
 import { useBarcodeReader } from "@/components/useBarcodeReader";
 import { issueNumberSuffix } from "@/lib/issueNumberLabel";
@@ -28,12 +28,6 @@ function takeRecentSwitch(collectionId) {
   const entry = recentSwitches.get(collectionId);
   recentSwitches.delete(collectionId);
   return entry && Date.now() - entry.at < RECENT_MS ? entry.message : null;
-}
-
-// "Not mine" is remembered on this device so the question isn't asked again.
-const dismissKey = (collectionId) => `cc-label-suggestion-no:${collectionId}`;
-function wasDismissed(collectionId) {
-  try { return window.localStorage.getItem(dismissKey(collectionId)) === "1"; } catch { return false; }
 }
 
 const issueName = (row) => `${row.series_title}${issueNumberSuffix(row.issue_number)}${row.year ? ` (${row.year})` : ""}`;
@@ -89,7 +83,7 @@ export default function CopyVersionPicker({ collectionId, gcdIssueId, variantLab
       .then(async (response) => {
         const data = await response.json();
         if (!response.ok) throw new Error(data.error || "Could not load versions.");
-        if (!cancelled) { setVersions(data.versions ?? []); setCovers(data.covers ?? []); setSeriesTitle(data.series_title ?? ""); setDismissed(wasDismissed(collectionId)); setLoadError(null); }
+        if (!cancelled) { setVersions(data.versions ?? []); setCovers(data.covers ?? []); setSeriesTitle(data.series_title ?? ""); setDismissed(isLabelSuggestionDismissed(collectionId)); setLoadError(null); }
       })
       .catch((err) => { if (!cancelled) setLoadError(err.message); });
     return () => { cancelled = true; };
@@ -140,7 +134,7 @@ export default function CopyVersionPicker({ collectionId, gcdIssueId, variantLab
   function dismissSuggestion() {
     setDismissed(true);
     trackEvent("library_label_suggestion", { answer: "no" });
-    try { window.localStorage.setItem(dismissKey(collectionId), "1"); } catch { /* asked again next time */ }
+    dismissLabelSuggestion(collectionId);
   }
 
   // Says which picture is this copy. Their own photo always wins, so it is

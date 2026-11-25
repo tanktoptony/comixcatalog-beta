@@ -23,6 +23,7 @@ import Avatar from "@/components/Avatar";
 import { cleanVariantCaption, matchVariantCovers } from "@/lib/variantCovers";
 import AddToListButton from "@/components/lists/AddToListButton";
 import IssueReviews from "@/components/issue/IssueReviews";
+import OwnCopyCover from "@/components/issue/OwnCopyCover";
 import IssueVersions from "@/components/issue/IssueVersions";
 import CommentThread from "@/components/comments/CommentThread";
 
@@ -163,8 +164,6 @@ export default function IssueClient({ initialIssue = null }) {
   const [addCopyBusy, setAddCopyBusy] = useState(false);
   const [selectedCover, setSelectedCover] = useState(null);
   const [unmatchedCover, setUnmatchedCover] = useState(false);
-  const [variantLabel, setVariantLabel] = useState("");
-  const [variantSaveState, setVariantSaveState] = useState(null);
   const [versionSwitchState, setVersionSwitchState] = useState(null);
   // Edits saved on this page, tied to the copy they belong to: when the page
   // moves to another copy (say, after one is removed) they must not be shown
@@ -304,6 +303,7 @@ export default function IssueClient({ initialIssue = null }) {
   // picked (both live in user_cover_url). When there is one, the page leads
   // with it, and the strip below flips to the catalog cover and variants.
   const ownCover = inCollection ? gradeData?.user_cover_url ?? collectionRow?.user_cover_url ?? null : null;
+  const ownsThis = Boolean(user && inCollection && collectionRow?.id && issue?.source === "gcd");
   const matchedVariants = matchVariantCovers(issue?.versions, issue?.variants, {
     baseGcdId: issue?.base_gcd_issue_id,
     seriesTitle: issue?.series_title,
@@ -373,37 +373,18 @@ export default function IssueClient({ initialIssue = null }) {
     }
   }
 
-  async function saveOwnedVariant() {
-    if (!collectionRow?.id || issue?.source !== "gcd") return;
-    setVariantSaveState("saving");
-    try {
-      // `variant_of_gcd_id` is a forward-hook for a future GCD-native
-      // variant-issue link (see migration 0010) - it points to a *different*
-      // base gcd_issue, which this page never has. Writing this issue's own
-      // id into it (the old behavior) was a no-op self-reference that also
-      // ignored which cover thumbnail the collector actually clicked. The
-      // thing the user is picking here is which `cover_variants` image is
-      // their printing, so persist that into `user_cover_url` - the field
-      // already used sitewide as "the image representing this specific
-      // copy" (library, public profile, PDF export). Only write it when a
-      // thumbnail was actually selected, so confirming just a label doesn't
-      // clobber a personal photo the collector uploaded elsewhere.
-      const payload = { variant_label: variantLabel.trim() || null };
-      if (selectedCover) payload.user_cover_url = selectedCover;
-      const { error } = await getSupabaseClient()
-        .from("user_collections")
-        .update(payload)
-        .eq("id", collectionRow.id);
-      if (error) throw error;
-      // The library reads the copy's cover from its own loaded list, so
-      // reload it; otherwise the old cover showed until a full refresh.
-      if (selectedCover) setGradeData(collectionRow.id, { user_cover_url: selectedCover });
-      await refreshLibrary({ background: true });
-      setVariantSaveState("saved");
-    } catch (error) {
-      console.error("Variant selection save failed:", error);
-      setVariantSaveState("error");
-    }
+  // The collector's copy shows the cover they picked. The library reads it
+  // from its own loaded list, so that reloads too.
+  async function handleCoverSaved(url) {
+    setGradeData(collectionRow.id, { user_cover_url: url });
+    setSelectedCover(null);
+    setUnmatchedCover(false);
+    await refreshLibrary({ background: true });
+  }
+
+  async function handleVersionSaved(gcdId) {
+    await refreshLibrary({ background: true });
+    router.push(`/issue/gcd-${issue.base_gcd_issue_id}?edition=${gcdId}`, { scroll: false });
   }
 
   if (loading) {
@@ -514,7 +495,7 @@ export default function IssueClient({ initialIssue = null }) {
             {coverChoices.length > 1 && (
               <div className="issue-cover-choices" style={{ marginTop: 14 }}>
                 <div className="muted" style={{ fontSize: "0.8rem", marginBottom: 8 }}>
-                  {issue.variants?.length > 0 ? "Covers" : "Your copy and the catalog cover"}
+                  {ownsThis ? "Which cover is yours? Tap it." : issue.variants?.length > 0 ? "Covers" : "Your copy and the catalog cover"}
                 </div>
                 <div className="issue-cover-strip" style={{ display: "flex", gap: 8, overflowX: "auto", paddingBottom: 4 }}>
                   {coverChoices.map((c) => (
@@ -535,16 +516,19 @@ export default function IssueClient({ initialIssue = null }) {
                 {unmatchedCover && (
                   <p className="issue-cover-match-note">Details on this page are for {issue.edition_name || "the catalog edition"}. This cover isn&apos;t matched to an edition yet.</p>
                 )}
-                {user && inCollection && collectionRow?.id && issue.variants?.length > 0 && (
-                  <div style={{ display: "flex", gap: 8, marginTop: 10, flexWrap: "wrap" }}>
-                    <input value={variantLabel} onChange={(event) => setVariantLabel(event.target.value)} placeholder="Printing label (optional)" maxLength={80} className="admin-input" style={{ flex: "1 1 180px" }} />
-                    <button type="button" className="add-comic-btn" onClick={saveOwnedVariant} disabled={variantSaveState === "saving"}>
-                      {variantSaveState === "saved" ? "Saved" : "This is the printing I own"}
-                    </button>
-                  </div>
-                )}
-                {variantSaveState === "error" && <div className="muted" style={{ color: "#fca5a5", marginTop: 6 }}>Could not save this printing.</div>}
               </div>
+            )}
+
+            {ownsThis && (
+              <OwnCopyCover
+                key={collectionRow.id}
+                issue={issue}
+                row={{ ...collectionRow, ...(gradeData ?? {}) }}
+                ownCover={ownCover}
+                choice={selectedCover ? coverChoices.find((choice) => choice.url === selectedCover) ?? null : null}
+                onCoverSaved={handleCoverSaved}
+                onVersionSaved={handleVersionSaved}
+              />
             )}
 
             <div className="issue-collection-actions"
@@ -864,6 +848,8 @@ export default function IssueClient({ initialIssue = null }) {
                   collectionId={collectionRow.id}
                   canonicalCover={selectedCover || issue.cover || null}
                   releaseYear={issue?.release_year ?? null}
+                  gcdIssueId={collectionRow.gcd_issue_id ?? null}
+                  onVersionChange={(item) => { if (item?.gcd_issue_id) handleVersionSaved(item.gcd_issue_id); }}
                   // Every field the editor saves, or Save writes blanks over
                   // them: the paid price, value, version name, copy number
                   // and trade flag used to be missing here, so saving a grade

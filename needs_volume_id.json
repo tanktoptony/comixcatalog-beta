@@ -5820,9 +5820,9 @@
         "start_year": 2002
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T17:18:15.139123+00:00",
-    "retry_after": "2026-11-25T17:18:15.139138+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T19:10:17.564203+00:00",
+    "retry_after": "2026-12-25T19:10:17.564220+00:00",
     "search_hydrated": true
   },
   {
@@ -7228,9 +7228,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T18:07:21.663146+00:00",
-    "retry_after": "2026-11-25T18:07:21.663164+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T19:10:17.564252+00:00",
+    "retry_after": "2026-12-25T19:10:17.564253+00:00",
     "search_hydrated": true
   },
   {
@@ -7323,9 +7323,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T17:18:15.139158+00:00",
-    "retry_after": "2026-11-25T17:18:15.139161+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T19:10:17.564237+00:00",
+    "retry_after": "2026-12-25T19:10:17.564240+00:00",
     "search_hydrated": true
   },
   {
@@ -22189,9 +22189,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T18:07:21.663187+00:00",
-    "retry_after": "2026-11-25T18:07:21.663190+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-25T19:10:17.564264+00:00",
+    "retry_after": "2026-12-25T19:10:17.564266+00:00",
     "search_hydrated": true
   },
   {
@@ -23180,9 +23180,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T18:03:44.953250+00:00",
-    "retry_after": "2026-11-25T18:03:44.953254+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T19:03:42.418013+00:00",
+    "retry_after": "2026-11-28T19:03:42.418016+00:00",
     "search_hydrated": true
   },
   {
@@ -64613,53 +64613,6 @@
     "retry_after": "2026-10-23T08:07:08.635345+00:00"
   },
   {
-    "name": "Centuria",
-    "publisher": "VIZ Media",
-    "year": 2026,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 158724,
-        "name": "Centuria",
-        "publisher": null,
-        "start_year": 2024
-      },
-      {
-        "id": 167261,
-        "name": "Centuria",
-        "publisher": null,
-        "start_year": 2025
-      },
-      {
-        "id": 171043,
-        "name": "Centuria",
-        "publisher": null,
-        "start_year": 2025
-      },
-      {
-        "id": 170393,
-        "name": "Centuria",
-        "publisher": null,
-        "start_year": 2026
-      },
-      {
-        "id": 170611,
-        "name": "Centuria",
-        "publisher": null,
-        "start_year": 2026
-      },
-      {
-        "id": 165473,
-        "name": "Centuria",
-        "publisher": null,
-        "start_year": 2025
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-10-22T08:07:12.042123+00:00",
-    "retry_after": "2026-10-23T08:07:12.042138+00:00"
-  },
-  {
     "name": "Cobb",
     "publisher": "IDW Publishing",
     "year": 2006,
@@ -96691,16 +96644,16 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 145289,
-        "name": "Pink Lemonade",
-        "publisher": "Oni Press",
-        "start_year": 2022
-      },
-      {
         "id": 122513,
         "name": "Pink Lemonade",
         "publisher": "It's Alive",
         "start_year": 2019
+      },
+      {
+        "id": 145289,
+        "name": "Pink Lemonade",
+        "publisher": "Oni Press",
+        "start_year": 2022
       },
       {
         "id": 151940,
@@ -96710,8 +96663,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-25T18:03:02.314289+00:00",
-    "retry_after": "2026-11-26T18:03:02.314304+00:00",
+    "last_attempt_at": "2026-11-25T19:05:06.981978+00:00",
+    "retry_after": "2026-11-26T19:05:06.981997+00:00",
     "search_hydrated": true
   },
   {
@@ -99213,9 +99166,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T19:02:16.519931+00:00",
-    "retry_after": "2026-11-25T19:02:16.519945+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T19:03:42.417962+00:00",
+    "retry_after": "2026-11-28T19:03:42.417980+00:00",
     "search_hydrated": true
   },
   {
@@ -99237,9 +99190,9 @@
         "start_year": 1964
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-24T19:02:16.520001+00:00",
-    "retry_after": "2026-11-25T19:02:16.520003+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-25T19:04:35.122537+00:00",
+    "retry_after": "2026-11-28T19:04:35.122553+00:00",
     "search_hydrated": true
   },
   {
@@ -100991,6 +100944,64 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-25T18:07:07.713483+00:00",
     "retry_after": "2026-11-26T18:07:07.713486+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Witchblade / Tomb Raider",
+    "publisher": "Image; Wizard",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 74149,
+        "name": "Witchblade / Tomb Raider",
+        "publisher": "Image",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T19:03:42.418047+00:00",
+    "retry_after": "2026-11-26T19:03:42.418049+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "John Constantine, Hellblazer: Freezes Over",
+    "publisher": "DC Comics",
+    "year": 2003,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T19:10:34.092582+00:00",
+    "retry_after": "2026-11-26T19:10:34.092600+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Une femme fidèle",
+    "publisher": "Dynamite Entertainment",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 150328,
+        "name": "Une Femme Fidèle",
+        "publisher": "Dynamite (France)",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T19:10:34.092647+00:00",
+    "retry_after": "2026-11-26T19:10:34.092650+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Millennium Edition: Our Army at War No. 81",
+    "publisher": "DC Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-25T19:10:34.092683+00:00",
+    "retry_after": "2026-11-26T19:10:34.092685+00:00",
     "search_hydrated": true
   }
 ]

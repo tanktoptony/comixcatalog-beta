@@ -6519,9 +6519,9 @@
         "start_year": 1990
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-17T08:05:40.455436+00:00",
-    "retry_after": "2026-11-24T08:05:40.455452+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T08:06:48.605796+00:00",
+    "retry_after": "2026-12-10T08:06:48.605812+00:00",
     "search_hydrated": true
   },
   {
@@ -92770,9 +92770,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-17T08:05:40.455472+00:00",
-    "retry_after": "2026-11-24T08:05:40.455475+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T08:06:48.605830+00:00",
+    "retry_after": "2026-12-10T08:06:48.605833+00:00",
     "search_hydrated": true
   },
   {
@@ -92781,9 +92781,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-17T08:05:40.455486+00:00",
-    "retry_after": "2026-11-24T08:05:40.455488+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T08:06:48.605843+00:00",
+    "retry_after": "2026-12-10T08:06:48.605845+00:00",
     "search_hydrated": true
   },
   {
@@ -92816,9 +92816,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-17T08:05:40.455517+00:00",
-    "retry_after": "2026-11-24T08:05:40.455519+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T08:06:48.605873+00:00",
+    "retry_after": "2026-12-10T08:06:48.605875+00:00",
     "search_hydrated": true
   },
   {
@@ -96663,8 +96663,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-26T07:06:58.983410+00:00",
-    "retry_after": "2026-11-27T07:06:58.983425+00:00",
+    "last_attempt_at": "2026-11-26T08:03:10.006755+00:00",
+    "retry_after": "2026-11-27T08:03:10.006770+00:00",
     "search_hydrated": true
   },
   {
@@ -101284,6 +101284,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-26T07:10:54.797896+00:00",
     "retry_after": "2026-11-27T07:10:54.797900+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spider-Man Visionaries",
+    "publisher": "Marvel Comics",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T08:06:58.828930+00:00",
+    "retry_after": "2026-11-27T08:06:58.828945+00:00",
     "search_hydrated": true
   }
 ]

@@ -7,8 +7,13 @@ import { spawnSync } from "node:child_process";
 
 const helper = resolve("scripts/ci/push-with-retry.sh");
 
+// A git hook (pre-push runs this suite) exports GIT_DIR, GIT_INDEX_FILE and
+// friends. Left in place they point every git call below at the real repo
+// instead of the scratch clones.
+const env = Object.fromEntries(Object.entries(process.env).filter(([key]) => !key.startsWith("GIT_")));
+
 function command(bin, args, cwd) {
-  const result = spawnSync(bin, args, { cwd, encoding: "utf8" });
+  const result = spawnSync(bin, args, { cwd, encoding: "utf8", env });
   if (result.status !== 0) {
     throw new Error(`${bin} ${args.join(" ")} failed:\n${result.stdout}${result.stderr}`);
   }
@@ -60,6 +65,7 @@ function clone(remote, path) {
 function runHelper(cwd) {
   return spawnSync("bash", [shellPath(helper), "origin", "main"], {
     cwd,
+    env,
     encoding: "utf8",
   });
 }

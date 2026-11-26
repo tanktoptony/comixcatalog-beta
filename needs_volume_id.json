@@ -93110,21 +93110,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 10945,
-        "name": "Batman / Superman / Wonder Woman: Trinity",
-        "publisher": "DC Comics",
-        "start_year": 2003
-      },
-      {
         "id": 60745,
         "name": "Batman / Superman / Wonder Woman: Trinity",
         "publisher": "DC Comics",
         "start_year": 2004
+      },
+      {
+        "id": 10945,
+        "name": "Batman / Superman / Wonder Woman: Trinity",
+        "publisher": "DC Comics",
+        "start_year": 2003
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-18T03:05:46.302332+00:00",
-    "retry_after": "2026-11-25T03:05:46.302335+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T10:07:28.927845+00:00",
+    "retry_after": "2026-12-10T10:07:28.927858+00:00",
     "search_hydrated": true
   },
   {
@@ -96663,8 +96663,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-26T09:06:39.355930+00:00",
-    "retry_after": "2026-11-27T09:06:39.355947+00:00",
+    "last_attempt_at": "2026-11-26T10:03:21.987528+00:00",
+    "retry_after": "2026-11-27T10:03:21.987544+00:00",
     "search_hydrated": true
   },
   {
@@ -100770,9 +100770,9 @@
     "year": 1991,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T09:14:04.337906+00:00",
-    "retry_after": "2026-11-26T09:14:04.337910+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-26T10:07:46.222010+00:00",
+    "retry_after": "2026-11-29T10:07:46.222025+00:00",
     "search_hydrated": true
   },
   {
@@ -100788,9 +100788,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T10:07:16.987135+00:00",
-    "retry_after": "2026-11-26T10:07:16.987152+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-26T10:07:34.172257+00:00",
+    "retry_after": "2026-11-29T10:07:34.172269+00:00",
     "search_hydrated": true
   },
   {
@@ -101295,6 +101295,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-26T08:06:58.828930+00:00",
     "retry_after": "2026-11-27T08:06:58.828945+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Eternal Warrior/Bloodshot and H.A.R.D. Corps Flip Sketchbook",
+    "publisher": "Valiant Comics",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T10:07:46.222081+00:00",
+    "retry_after": "2026-11-27T10:07:46.222086+00:00",
     "search_hydrated": true
   }
 ]

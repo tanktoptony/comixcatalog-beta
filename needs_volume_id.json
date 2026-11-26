@@ -92737,9 +92737,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-17T01:05:48.585653+00:00",
-    "retry_after": "2026-11-24T01:05:48.585670+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T06:07:06.312388+00:00",
+    "retry_after": "2026-12-10T06:07:06.312410+00:00",
     "search_hydrated": true
   },
   {
@@ -92748,9 +92748,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-17T01:05:48.585691+00:00",
-    "retry_after": "2026-11-24T01:05:48.585694+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T06:07:06.312447+00:00",
+    "retry_after": "2026-12-10T06:07:06.312451+00:00",
     "search_hydrated": true
   },
   {
@@ -92759,9 +92759,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-17T01:05:48.585704+00:00",
-    "retry_after": "2026-11-24T01:05:48.585706+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T06:07:06.312467+00:00",
+    "retry_after": "2026-12-10T06:07:06.312470+00:00",
     "search_hydrated": true
   },
   {
@@ -96644,16 +96644,16 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 145289,
-        "name": "Pink Lemonade",
-        "publisher": "Oni Press",
-        "start_year": 2022
-      },
-      {
         "id": 122513,
         "name": "Pink Lemonade",
         "publisher": "It's Alive",
         "start_year": 2019
+      },
+      {
+        "id": 145289,
+        "name": "Pink Lemonade",
+        "publisher": "Oni Press",
+        "start_year": 2022
       },
       {
         "id": 151940,
@@ -96663,8 +96663,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-26T05:09:03.663800+00:00",
-    "retry_after": "2026-11-27T05:09:03.663816+00:00",
+    "last_attempt_at": "2026-11-26T06:03:16.322176+00:00",
+    "retry_after": "2026-11-27T06:03:16.322190+00:00",
     "search_hydrated": true
   },
   {
@@ -100575,24 +100575,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Executive Assistant: Iris",
-    "publisher": "Aspen Comics",
-    "year": 2009,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 115107,
-        "name": "Executive Assistant: Iris",
-        "publisher": "Aspen MLT",
-        "start_year": 2018
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T06:02:53.866008+00:00",
-    "retry_after": "2026-11-26T06:02:53.866035+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Witchblade",
     "publisher": "Top Cow Comics",
     "year": 1998,
@@ -100676,9 +100658,9 @@
     "year": 2002,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T06:06:32.251255+00:00",
-    "retry_after": "2026-11-26T06:06:32.251274+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-26T06:07:21.473775+00:00",
+    "retry_after": "2026-11-29T06:07:21.473792+00:00",
     "search_hydrated": true
   },
   {
@@ -101238,6 +101220,59 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-26T04:07:25.622366+00:00",
     "retry_after": "2026-11-27T04:07:25.622386+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "All-Star Comics",
+    "publisher": "DC Comics",
+    "year": 1976,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2833,
+        "name": "All-Star Comics",
+        "publisher": "DC Comics",
+        "start_year": 1940
+      },
+      {
+        "id": 6596,
+        "name": "All Star Comics",
+        "publisher": "DC Comics",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T06:03:30.616809+00:00",
+    "retry_after": "2026-11-27T06:03:30.616821+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Super Creepshow",
+    "publisher": "Image Comics",
+    "year": 2025,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 171029,
+        "name": "Super Creepshow",
+        "publisher": "Image",
+        "start_year": 2026
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T06:07:10.281398+00:00",
+    "retry_after": "2026-11-27T06:07:10.281414+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Punisher Max: Homeless",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T06:07:21.473838+00:00",
+    "retry_after": "2026-11-27T06:07:21.473843+00:00",
     "search_hydrated": true
   }
 ]

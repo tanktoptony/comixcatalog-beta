@@ -86351,9 +86351,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T20:06:03.566011+00:00",
-    "retry_after": "2026-11-26T20:06:03.566027+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T20:07:44.929063+00:00",
+    "retry_after": "2026-12-26T20:07:44.929080+00:00",
     "search_hydrated": true
   },
   {
@@ -86438,9 +86438,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T20:06:03.566050+00:00",
-    "retry_after": "2026-11-26T20:06:03.566054+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T20:07:44.929097+00:00",
+    "retry_after": "2026-12-26T20:07:44.929100+00:00",
     "search_hydrated": true
   },
   {
@@ -86462,9 +86462,9 @@
         "start_year": 2004
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T20:06:03.566101+00:00",
-    "retry_after": "2026-11-26T20:06:03.566105+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T20:07:44.929133+00:00",
+    "retry_after": "2026-12-26T20:07:44.929135+00:00",
     "search_hydrated": true
   },
   {
@@ -96639,10 +96639,16 @@
   },
   {
     "name": "Pink Lemonade",
-    "publisher": "Oni Press",
+    "publisher": "It's Alive Press",
     "year": 2019,
-    "reason": "multiple_candidates",
+    "reason": "publisher_mismatch",
     "candidates": [
+      {
+        "id": 122513,
+        "name": "Pink Lemonade",
+        "publisher": "It's Alive",
+        "start_year": 2019
+      },
       {
         "id": 145289,
         "name": "Pink Lemonade",
@@ -96657,8 +96663,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-26T19:04:21.371502+00:00",
-    "retry_after": "2026-11-27T19:04:21.371506+00:00",
+    "last_attempt_at": "2026-11-26T20:03:46.289438+00:00",
+    "retry_after": "2026-11-27T20:03:46.289441+00:00",
     "search_hydrated": true
   },
   {
@@ -97418,9 +97424,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-23T19:04:11.932751+00:00",
-    "retry_after": "2026-11-26T19:04:11.932753+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-26T20:03:02.100705+00:00",
+    "retry_after": "2026-12-03T20:03:02.100708+00:00",
     "search_hydrated": true
   },
   {
@@ -97448,9 +97454,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-23T20:02:05.623988+00:00",
-    "retry_after": "2026-11-26T20:02:05.624007+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-26T20:03:02.100670+00:00",
+    "retry_after": "2026-12-03T20:03:02.100687+00:00",
     "search_hydrated": true
   },
   {
@@ -97459,9 +97465,9 @@
     "year": 1987,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-23T20:02:05.624027+00:00",
-    "retry_after": "2026-11-26T20:02:05.624030+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-26T20:03:46.289378+00:00",
+    "retry_after": "2026-12-03T20:03:46.289395+00:00",
     "search_hydrated": true
   },
   {
@@ -97470,9 +97476,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-23T20:03:43.804188+00:00",
-    "retry_after": "2026-11-26T20:03:43.804206+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-26T20:04:00.778230+00:00",
+    "retry_after": "2026-12-03T20:04:00.778246+00:00",
     "search_hydrated": true
   },
   {
@@ -101422,6 +101428,78 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-26T19:08:22.048416+00:00",
     "retry_after": "2026-11-27T19:08:22.048419+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Darkchylde: The Legacy",
+    "publisher": "Image Comics",
+    "year": 1998,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 20921,
+        "name": "Darkchylde: The Legacy",
+        "publisher": "DC Comics",
+        "start_year": 1998
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T20:03:29.884708+00:00",
+    "retry_after": "2026-11-27T20:03:29.884724+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Silver Surfer Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1982,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 79670,
+        "name": "Silver Surfer Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1982
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T20:07:59.343862+00:00",
+    "retry_after": "2026-11-27T20:07:59.343882+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Conan Exiles",
+    "publisher": "Dark Horse Comics",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 141912,
+        "name": "Conan: Exiles",
+        "publisher": "Marvel",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T20:07:59.343914+00:00",
+    "retry_after": "2026-11-27T20:07:59.343917+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Trio Grande: Adios Palomita",
+    "publisher": "Heavy Metal",
+    "year": 1993,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 27096,
+        "name": "Trio Grande: Adios Palomita",
+        "publisher": "Tundra",
+        "start_year": 1993
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T20:07:59.343948+00:00",
+    "retry_after": "2026-11-27T20:07:59.343951+00:00",
     "search_hydrated": true
   }
 ]

@@ -85097,9 +85097,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-11T22:10:34.356416+00:00",
-    "retry_after": "2026-11-25T22:10:34.356421+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T02:06:47.809420+00:00",
+    "retry_after": "2026-12-26T02:06:47.809436+00:00",
     "search_hydrated": true
   },
   {
@@ -92438,9 +92438,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-16T18:06:07.971052+00:00",
-    "retry_after": "2026-11-23T18:06:07.971067+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T02:06:48.780230+00:00",
+    "retry_after": "2026-12-10T02:06:48.780247+00:00",
     "search_hydrated": true
   },
   {
@@ -92726,9 +92726,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-16T23:19:04.965583+00:00",
-    "retry_after": "2026-11-23T23:19:04.965599+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T02:06:48.909798+00:00",
+    "retry_after": "2026-12-10T02:06:48.909814+00:00",
     "search_hydrated": true
   },
   {
@@ -96644,16 +96644,16 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 145289,
-        "name": "Pink Lemonade",
-        "publisher": "Oni Press",
-        "start_year": 2022
-      },
-      {
         "id": 122513,
         "name": "Pink Lemonade",
         "publisher": "It's Alive",
         "start_year": 2019
+      },
+      {
+        "id": 145289,
+        "name": "Pink Lemonade",
+        "publisher": "Oni Press",
+        "start_year": 2022
       },
       {
         "id": 151940,
@@ -96663,8 +96663,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-26T01:03:10.254003+00:00",
-    "retry_after": "2026-11-27T01:03:10.254019+00:00",
+    "last_attempt_at": "2026-11-26T02:03:04.571574+00:00",
+    "retry_after": "2026-11-27T02:03:04.571577+00:00",
     "search_hydrated": true
   },
   {
@@ -100482,9 +100482,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T00:07:38.180542+00:00",
-    "retry_after": "2026-11-26T00:07:38.180547+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-26T02:06:47.702106+00:00",
+    "retry_after": "2026-11-29T02:06:47.702110+00:00",
     "search_hydrated": true
   },
   {
@@ -100500,9 +100500,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T01:04:24.396150+00:00",
-    "retry_after": "2026-11-26T01:04:24.396169+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-26T02:03:04.571524+00:00",
+    "retry_after": "2026-11-29T02:03:04.571541+00:00",
     "search_hydrated": true
   },
   {
@@ -100511,9 +100511,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T02:04:46.249814+00:00",
-    "retry_after": "2026-11-26T02:04:46.249826+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-26T02:06:58.550590+00:00",
+    "retry_after": "2026-11-29T02:06:58.550608+00:00",
     "search_hydrated": true
   },
   {
@@ -100522,9 +100522,9 @@
     "year": 1998,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T02:04:46.249849+00:00",
-    "retry_after": "2026-11-26T02:04:46.249853+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-26T02:06:58.550631+00:00",
+    "retry_after": "2026-11-29T02:06:58.550635+00:00",
     "search_hydrated": true
   },
   {
@@ -101083,6 +101083,78 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-26T01:07:01.590659+00:00",
     "retry_after": "2026-11-27T01:07:01.590674+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Retcon",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 104317,
+        "name": "Retcon",
+        "publisher": "Image",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T02:06:48.439698+00:00",
+    "retry_after": "2026-11-27T02:06:48.439718+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Section Zero",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 118144,
+        "name": "Section Zero",
+        "publisher": "Image",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T02:06:48.566352+00:00",
+    "retry_after": "2026-11-27T02:06:48.566368+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Espers",
+    "publisher": "Caliber Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 6086,
+        "name": "ESPers",
+        "publisher": "Image",
+        "start_year": 1997
+      },
+      {
+        "id": 41525,
+        "name": "ESPers",
+        "publisher": "Marvel",
+        "start_year": 1990
+      },
+      {
+        "id": 22126,
+        "name": "ESPers",
+        "publisher": "Halloween Comics",
+        "start_year": 1996
+      },
+      {
+        "id": 3670,
+        "name": "Espers",
+        "publisher": "Eclipse",
+        "start_year": 1986
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T02:06:58.550698+00:00",
+    "retry_after": "2026-11-27T02:06:58.550701+00:00",
     "search_hydrated": true
   }
 ]

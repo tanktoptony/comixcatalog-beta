@@ -8083,9 +8083,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T04:10:36.249314+00:00",
-    "retry_after": "2026-11-26T04:10:36.249315+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T04:52:16.330990+00:00",
+    "retry_after": "2026-12-26T04:52:16.330991+00:00",
     "search_hydrated": true
   },
   {
@@ -26266,9 +26266,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-12T23:10:12.960863+00:00",
-    "retry_after": "2026-11-19T23:10:12.960881+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T04:52:17.762612+00:00",
+    "retry_after": "2026-12-10T04:52:17.762631+00:00",
     "search_hydrated": true
   },
   {
@@ -55738,9 +55738,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T04:10:36.249304+00:00",
-    "retry_after": "2026-11-26T04:10:36.249305+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T04:52:16.330979+00:00",
+    "retry_after": "2026-12-26T04:52:16.330980+00:00",
     "search_hydrated": true
   },
   {
@@ -84901,9 +84901,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T04:10:36.249290+00:00",
-    "retry_after": "2026-11-26T04:10:36.249293+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T04:52:16.330966+00:00",
+    "retry_after": "2026-12-26T04:52:16.330968+00:00",
     "search_hydrated": true
   },
   {
@@ -85525,10 +85525,10 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 4596,
+        "id": 82203,
         "name": "The Infinity Gauntlet",
         "publisher": "Marvel",
-        "start_year": 1991
+        "start_year": 2015
       },
       {
         "id": 30365,
@@ -85537,15 +85537,15 @@
         "start_year": 2006
       },
       {
-        "id": 82203,
+        "id": 4596,
         "name": "The Infinity Gauntlet",
         "publisher": "Marvel",
-        "start_year": 2015
+        "start_year": 1991
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T04:10:36.249253+00:00",
-    "retry_after": "2026-11-26T04:10:36.249272+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T04:52:16.330930+00:00",
+    "retry_after": "2026-12-26T04:52:16.330948+00:00",
     "search_hydrated": true
   },
   {
@@ -92708,9 +92708,9 @@
         "start_year": 2008
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-16T23:19:02.297953+00:00",
-    "retry_after": "2026-11-23T23:19:02.297971+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T04:52:16.331047+00:00",
+    "retry_after": "2026-12-10T04:52:16.331049+00:00",
     "search_hydrated": true
   },
   {
@@ -96663,8 +96663,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-26T04:03:26.678872+00:00",
-    "retry_after": "2026-11-27T04:03:26.678890+00:00",
+    "last_attempt_at": "2026-11-26T04:48:25.242291+00:00",
+    "retry_after": "2026-11-27T04:48:25.242308+00:00",
     "search_hydrated": true
   },
   {
@@ -97136,9 +97136,9 @@
         "start_year": 1992
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-23T04:06:06.181534+00:00",
-    "retry_after": "2026-11-26T04:06:06.181539+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-26T04:48:04.926781+00:00",
+    "retry_after": "2026-12-03T04:48:04.926800+00:00",
     "search_hydrated": true
   },
   {

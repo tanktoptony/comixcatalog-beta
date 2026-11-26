@@ -100911,24 +100911,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Witchblade / Tomb Raider",
-    "publisher": "Image; Wizard",
-    "year": 1999,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 74149,
-        "name": "Witchblade / Tomb Raider",
-        "publisher": "Image",
-        "start_year": 2000
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T19:03:42.418047+00:00",
-    "retry_after": "2026-11-26T19:03:42.418049+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "John Constantine, Hellblazer: Freezes Over",
     "publisher": "DC Comics",
     "year": 2003,
@@ -101191,24 +101173,6 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-26T03:06:30.311801+00:00",
     "retry_after": "2026-11-27T03:06:30.311803+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Mage: The Hero Defined",
-    "publisher": "Image Comics",
-    "year": 1998,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 6091,
-        "name": "Mage: The Hero Defined",
-        "publisher": "Image",
-        "start_year": 1997
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-26T04:02:14.792907+00:00",
-    "retry_after": "2026-11-27T04:02:14.792927+00:00",
     "search_hydrated": true
   },
   {

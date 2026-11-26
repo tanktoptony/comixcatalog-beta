@@ -6297,9 +6297,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T02:10:49.283314+00:00",
-    "retry_after": "2026-11-26T02:10:49.283317+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T03:06:19.102008+00:00",
+    "retry_after": "2026-12-26T03:06:19.102009+00:00",
     "search_hydrated": true
   },
   {
@@ -22048,9 +22048,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T02:10:49.283258+00:00",
-    "retry_after": "2026-11-26T02:10:49.283272+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T03:06:19.101962+00:00",
+    "retry_after": "2026-12-26T03:06:19.101981+00:00",
     "search_hydrated": true
   },
   {
@@ -30441,9 +30441,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-23T02:03:35.218668+00:00",
-    "retry_after": "2026-11-26T02:03:35.218684+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-26T03:01:44.687941+00:00",
+    "retry_after": "2026-12-03T03:01:44.687955+00:00",
     "search_hydrated": true
   },
   {
@@ -40043,9 +40043,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T02:10:49.283294+00:00",
-    "retry_after": "2026-11-26T02:10:49.283298+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T03:06:19.101996+00:00",
+    "retry_after": "2026-12-26T03:06:19.101999+00:00",
     "search_hydrated": true
   },
   {
@@ -40236,9 +40236,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T02:10:49.283330+00:00",
-    "retry_after": "2026-11-26T02:10:49.283333+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T03:06:19.102018+00:00",
+    "retry_after": "2026-12-26T03:06:19.102019+00:00",
     "search_hydrated": true
   },
   {
@@ -96644,16 +96644,16 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 122513,
-        "name": "Pink Lemonade",
-        "publisher": "It's Alive",
-        "start_year": 2019
-      },
-      {
         "id": 145289,
         "name": "Pink Lemonade",
         "publisher": "Oni Press",
         "start_year": 2022
+      },
+      {
+        "id": 122513,
+        "name": "Pink Lemonade",
+        "publisher": "It's Alive",
+        "start_year": 2019
       },
       {
         "id": 151940,
@@ -96663,8 +96663,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-26T02:03:04.571574+00:00",
-    "retry_after": "2026-11-27T02:03:04.571577+00:00",
+    "last_attempt_at": "2026-11-26T03:02:33.576867+00:00",
+    "retry_after": "2026-11-27T03:02:33.576886+00:00",
     "search_hydrated": true
   },
   {
@@ -101155,6 +101155,60 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-26T02:06:58.550698+00:00",
     "retry_after": "2026-11-27T02:06:58.550701+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "???????: ???? ????????????",
+    "publisher": "BOOM! Studios",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 172641,
+        "name": "!",
+        "publisher": "Alpha Polis",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T03:06:30.311747+00:00",
+    "retry_after": "2026-11-27T03:06:30.311764+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Run Wild",
+    "publisher": "BOOM! Studios",
+    "year": 2018,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 112198,
+        "name": "Run Wild",
+        "publisher": "Archaia",
+        "start_year": 2018
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T03:06:30.311786+00:00",
+    "retry_after": "2026-11-27T03:06:30.311788+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Meltdown",
+    "publisher": "Titan Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161288,
+        "name": "Simpsons Comics Meltdown",
+        "publisher": "HarperCollins",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T03:06:30.311801+00:00",
+    "retry_after": "2026-11-27T03:06:30.311803+00:00",
     "search_hydrated": true
   }
 ]

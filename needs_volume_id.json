@@ -434,9 +434,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T05:10:22.588346+00:00",
-    "retry_after": "2026-11-26T05:10:22.588348+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T05:12:47.731193+00:00",
+    "retry_after": "2026-12-26T05:12:47.731196+00:00",
     "search_hydrated": true
   },
   {
@@ -7501,9 +7501,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T05:10:22.588365+00:00",
-    "retry_after": "2026-11-26T05:10:22.588366+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T05:12:47.731230+00:00",
+    "retry_after": "2026-12-26T05:12:47.731232+00:00",
     "search_hydrated": true
   },
   {
@@ -7717,9 +7717,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T05:10:22.588356+00:00",
-    "retry_after": "2026-11-26T05:10:22.588357+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T05:12:47.731213+00:00",
+    "retry_after": "2026-12-26T05:12:47.731215+00:00",
     "search_hydrated": true
   },
   {
@@ -27491,6 +27491,12 @@
         "start_year": 1987
       },
       {
+        "id": 42590,
+        "name": "Justice League International",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      },
+      {
         "id": 4966,
         "name": "Justice League International",
         "publisher": "DC Comics",
@@ -27503,21 +27509,15 @@
         "start_year": 2009
       },
       {
-        "id": 42590,
-        "name": "Justice League International",
-        "publisher": "DC Comics",
-        "start_year": 2011
-      },
-      {
         "id": 55320,
         "name": "Justice League International",
         "publisher": "DC Comics",
         "start_year": 2012
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T05:10:22.588301+00:00",
-    "retry_after": "2026-11-26T05:10:22.588314+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T05:12:47.731125+00:00",
+    "retry_after": "2026-12-26T05:12:47.731142+00:00",
     "search_hydrated": true
   },
   {
@@ -85554,9 +85554,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T05:10:22.588332+00:00",
-    "retry_after": "2026-11-26T05:10:22.588335+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T05:12:47.731169+00:00",
+    "retry_after": "2026-12-26T05:12:47.731174+00:00",
     "search_hydrated": true
   },
   {
@@ -96663,8 +96663,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-26T04:48:25.242291+00:00",
-    "retry_after": "2026-11-27T04:48:25.242308+00:00",
+    "last_attempt_at": "2026-11-26T05:09:03.663800+00:00",
+    "retry_after": "2026-11-27T05:09:03.663816+00:00",
     "search_hydrated": true
   },
   {
@@ -100551,9 +100551,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T05:02:30.445701+00:00",
-    "retry_after": "2026-11-26T05:02:30.445712+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-26T05:04:00.684821+00:00",
+    "retry_after": "2026-11-29T05:04:00.684837+00:00",
     "search_hydrated": true
   },
   {
@@ -100569,9 +100569,9 @@
         "start_year": 2000
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T05:07:19.909970+00:00",
-    "retry_after": "2026-11-26T05:07:19.909983+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-26T05:13:27.661619+00:00",
+    "retry_after": "2026-11-29T05:13:27.661635+00:00",
     "search_hydrated": true
   },
   {

@@ -31,7 +31,33 @@
       "v2#4 (16)"
     ],
     "checked_at": "2026-11-25T09:02:53.709Z",
-    "tries": 1
+    "tries": 2
+  },
+  "1701": {
+    "status": "ask",
+    "reason": "issue count differs",
+    "options": [
+      {
+        "id": 27344,
+        "name": "Ripley's Believe it or Not!",
+        "publisher": "Western Publishing",
+        "start_year": 1965,
+        "count": 94,
+        "why": [
+          "issue count differs"
+        ]
+      }
+    ],
+    "name": "Ripley's Believe It or Not!",
+    "publisher": "Western",
+    "year": 1965,
+    "count": 93,
+    "collected": false,
+    "blank": [
+      "49",
+      "51"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z"
   },
   "1750": {
     "status": "ask",
@@ -78,6 +104,52 @@
     "checked_at": "2026-11-25T09:02:53.709Z",
     "tries": 1
   },
+  "2310": {
+    "status": "sure",
+    "volume": {
+      "id": 2822,
+      "name": "Tiger-Man",
+      "publisher": "Atlas Comics",
+      "start_year": 1975,
+      "count": 3
+    },
+    "name": "Tigerman",
+    "publisher": "Seaboard",
+    "year": 1975,
+    "count": 3,
+    "collected": false,
+    "blank": [
+      "2",
+      "3"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z",
+    "tries": 1
+  },
+  "2318": {
+    "status": "ask",
+    "reason": "already pinned to ComicVine 117469",
+    "options": [
+      {
+        "id": 2830,
+        "name": "Six Million Dollar Man",
+        "publisher": "Charlton",
+        "start_year": 1976,
+        "count": 9,
+        "why": [
+          "pinned elsewhere"
+        ]
+      }
+    ],
+    "name": "The Six Million Dollar Man",
+    "publisher": "Charlton",
+    "year": 1976,
+    "count": 9,
+    "collected": false,
+    "blank": [
+      "9"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z"
+  },
   "2423": {
     "status": "sure",
     "volume": {
@@ -111,6 +183,57 @@
       "1"
     ],
     "checked_at": "2026-11-25T09:02:53.709Z"
+  },
+  "3129": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Revolver",
+    "publisher": "Renegade Press",
+    "year": 1985,
+    "count": 6,
+    "collected": false,
+    "blank": [
+      "1",
+      "4",
+      "2"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z"
+  },
+  "3380": {
+    "status": "sure",
+    "volume": {
+      "id": 3810,
+      "name": "Shazam! The New Beginning",
+      "publisher": "DC Comics",
+      "start_year": 1987,
+      "count": 4
+    },
+    "name": "Shazam: The New Beginning",
+    "publisher": "DC",
+    "year": 1987,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "3",
+      "4",
+      "2",
+      "1"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z",
+    "tries": 1
+  },
+  "3748": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Scavengers",
+    "publisher": "Fleetway/Quality",
+    "year": 1988,
+    "count": 26,
+    "collected": false,
+    "blank": [
+      "15 [UK]"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z"
   },
   "3993": {
     "status": "none",
@@ -153,6 +276,44 @@
       "1"
     ],
     "checked_at": "2026-11-25T09:02:53.709Z"
+  },
+  "4873": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Pitt",
+    "publisher": "Image",
+    "year": 1993,
+    "count": 9,
+    "collected": false,
+    "blank": [
+      "9",
+      "1",
+      "2",
+      "7",
+      "3"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z"
+  },
+  "5406": {
+    "status": "sure",
+    "volume": {
+      "id": 5659,
+      "name": "Superman vs. Aliens",
+      "publisher": "DC Comics",
+      "start_year": 1995,
+      "count": 3
+    },
+    "name": "Superman vs. Aliens",
+    "publisher": "DC; Dark Horse",
+    "year": 1995,
+    "count": 3,
+    "collected": false,
+    "blank": [
+      "2",
+      "3"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z",
+    "tries": 1
   },
   "5570": {
     "status": "sure",
@@ -339,6 +500,142 @@
     ],
     "checked_at": "2026-11-25T09:02:53.709Z"
   },
+  "13696": {
+    "status": "ask",
+    "reason": "title differs",
+    "options": [
+      {
+        "id": 24677,
+        "name": "Paradise X Special: Devils",
+        "publisher": "Marvel",
+        "start_year": 2002,
+        "count": 1,
+        "why": [
+          "title differs"
+        ]
+      },
+      {
+        "id": 61158,
+        "name": "Paradise X: X",
+        "publisher": "Marvel",
+        "start_year": 2003,
+        "count": 1,
+        "why": [
+          "title differs"
+        ]
+      }
+    ],
+    "name": "Paradise X: Devils",
+    "publisher": "Marvel",
+    "year": 2002,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z"
+  },
+  "13697": {
+    "status": "ask",
+    "reason": "title differs",
+    "options": [
+      {
+        "id": 24744,
+        "name": "Paradise X Special: Ragnarok",
+        "publisher": "Marvel",
+        "start_year": 2003,
+        "count": 2,
+        "why": [
+          "title differs"
+        ]
+      }
+    ],
+    "name": "Paradise X: Ragnarok",
+    "publisher": "Marvel",
+    "year": 2003,
+    "count": 2,
+    "collected": false,
+    "blank": [
+      "1",
+      "2"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z"
+  },
+  "13699": {
+    "status": "ask",
+    "reason": "title differs",
+    "options": [
+      {
+        "id": 24617,
+        "name": "Paradise X Special: Xen",
+        "publisher": "Marvel",
+        "start_year": 2002,
+        "count": 1,
+        "why": [
+          "title differs"
+        ]
+      },
+      {
+        "id": 61158,
+        "name": "Paradise X: X",
+        "publisher": "Marvel",
+        "start_year": 2003,
+        "count": 1,
+        "why": [
+          "title differs"
+        ]
+      }
+    ],
+    "name": "Paradise X: Xen",
+    "publisher": "Marvel",
+    "year": 2002,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z"
+  },
+  "14017": {
+    "status": "sure",
+    "volume": {
+      "id": 23436,
+      "name": "The Official Teen Titans Index",
+      "publisher": "ICG",
+      "start_year": 1985,
+      "count": 5
+    },
+    "name": "The Official Teen Titans Index",
+    "publisher": "Independent Comics Group",
+    "year": 1985,
+    "count": 5,
+    "collected": false,
+    "blank": [
+      "5"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z",
+    "tries": 1
+  },
+  "14650": {
+    "status": "sure",
+    "volume": {
+      "id": 71307,
+      "name": "Stratonaut",
+      "publisher": "Night Wynd Enterprises",
+      "start_year": 1991,
+      "count": 4
+    },
+    "name": "Stratonaut",
+    "publisher": "Night Wynd",
+    "year": 1991,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z",
+    "tries": 1
+  },
   "15877": {
     "status": "ask",
     "reason": "issue count differs",
@@ -390,6 +687,74 @@
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
   },
+  "16453": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 46662,
+        "name": "The Steel Claw",
+        "publisher": "Quality Communications",
+        "start_year": 1986,
+        "count": 4,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "Steel Claw",
+    "publisher": "Quality Periodicals",
+    "year": 1986,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "2"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z"
+  },
+  "17140": {
+    "status": "sure",
+    "volume": {
+      "id": 20006,
+      "name": "The Spirit: The New Adventures",
+      "publisher": "Kitchen Sink",
+      "start_year": 1998,
+      "count": 8
+    },
+    "name": "The Spirit: The New Adventures",
+    "publisher": "Kitchen Sink Press",
+    "year": 1998,
+    "count": 8,
+    "collected": false,
+    "blank": [
+      "2"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z",
+    "tries": 1
+  },
+  "20634": {
+    "status": "sure",
+    "volume": {
+      "id": 19649,
+      "name": "Superman vs. Terminator: Death to the Future",
+      "publisher": "Dark Horse Comics",
+      "start_year": 1999,
+      "count": 4
+    },
+    "name": "Superman vs. The Terminator: Death to the Future",
+    "publisher": "Dark Horse",
+    "year": 1999,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "4",
+      "1",
+      "3",
+      "2"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z",
+    "tries": 1
+  },
   "20747": {
     "status": "ask",
     "reason": "several volumes fit",
@@ -431,7 +796,7 @@
       "[nn]"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z",
-    "tries": 2
+    "tries": 3
   },
   "21096": {
     "status": "ask",
@@ -457,6 +822,27 @@
       "1"
     ],
     "checked_at": "2026-11-25T09:02:53.709Z"
+  },
+  "22106": {
+    "status": "sure",
+    "volume": {
+      "id": 18168,
+      "name": "Shazam!: The Monster Society of Evil",
+      "publisher": "DC Comics",
+      "start_year": 2007,
+      "count": 4
+    },
+    "name": "Shazam! The Monster Society of Evil",
+    "publisher": "DC",
+    "year": 2007,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "4",
+      "2"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z",
+    "tries": 1
   },
   "23538": {
     "status": "sure",
@@ -558,6 +944,26 @@
     "checked_at": "2026-11-25T09:02:53.709Z",
     "tries": 1
   },
+  "32444": {
+    "status": "sure",
+    "volume": {
+      "id": 23603,
+      "name": "Superman/Supergirl: Maelstrom",
+      "publisher": "DC Comics",
+      "start_year": 2008,
+      "count": 5
+    },
+    "name": "Superman / Supergirl: Maelstrom",
+    "publisher": "DC",
+    "year": 2009,
+    "count": 5,
+    "collected": false,
+    "blank": [
+      "2"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z",
+    "tries": 1
+  },
   "33088": {
     "status": "ask",
     "reason": "several volumes fit",
@@ -588,6 +994,26 @@
       "1"
     ],
     "checked_at": "2026-11-25T09:02:53.709Z"
+  },
+  "36656": {
+    "status": "sure",
+    "volume": {
+      "id": 26330,
+      "name": "Witchblade Annual",
+      "publisher": "Image",
+      "start_year": 2009,
+      "count": 2
+    },
+    "name": "Witchblade Annual",
+    "publisher": "Image",
+    "year": 2009,
+    "count": 2,
+    "collected": false,
+    "blank": [
+      "[1]"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z",
+    "tries": 1
   },
   "36937": {
     "status": "ask",
@@ -646,6 +1072,70 @@
       "0"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "39497": {
+    "status": "sure",
+    "volume": {
+      "id": 27860,
+      "name": "The Shield",
+      "publisher": "DC Comics",
+      "start_year": 2009,
+      "count": 10
+    },
+    "name": "The Shield",
+    "publisher": "DC",
+    "year": 2009,
+    "count": 10,
+    "collected": false,
+    "blank": [
+      "2"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z",
+    "tries": 1
+  },
+  "40047": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Tales of the Darkness",
+    "publisher": "Top Cow; Wizard",
+    "year": 1999,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1/2"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z"
+  },
+  "40452": {
+    "status": "ask",
+    "reason": "several volumes fit",
+    "options": [
+      {
+        "id": 57989,
+        "name": "Puppet Master: Children of the Puppet Master",
+        "publisher": "Eternity",
+        "start_year": 1991,
+        "count": 2,
+        "why": []
+      },
+      {
+        "id": 58033,
+        "name": "Puppet Master: Children of the Puppet Master",
+        "publisher": "Eternity",
+        "start_year": 1991,
+        "count": 2,
+        "why": []
+      }
+    ],
+    "name": "Puppet Master: Children of the Puppet Master",
+    "publisher": "Malibu",
+    "year": 1991,
+    "count": 2,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z"
   },
   "40713": {
     "status": "none",
@@ -735,6 +1225,37 @@
     ],
     "checked_at": "2026-11-25T07:02:10.053Z",
     "tries": 1
+  },
+  "54220": {
+    "status": "ask",
+    "reason": "several volumes fit",
+    "options": [
+      {
+        "id": 37834,
+        "name": "Thor: Wolves of the North",
+        "publisher": "Marvel",
+        "start_year": 2011,
+        "count": 1,
+        "why": []
+      },
+      {
+        "id": 40600,
+        "name": "Thor: Wolves of the North",
+        "publisher": "Marvel",
+        "start_year": 2011,
+        "count": 1,
+        "why": []
+      }
+    ],
+    "name": "Thor: Wolves of the North",
+    "publisher": "Marvel",
+    "year": 2011,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z"
   },
   "54501": {
     "status": "none",
@@ -908,6 +1429,87 @@
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
   },
+  "62781": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 45104,
+        "name": "Nowhere Man",
+        "publisher": "Liquid Comics",
+        "start_year": 2012,
+        "count": 4,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "Nowhere Man",
+    "publisher": "Dynamite Entertainment",
+    "year": 2012,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "2"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z"
+  },
+  "63133": {
+    "status": "ask",
+    "reason": "issue count differs",
+    "options": [
+      {
+        "id": 48637,
+        "name": "Simpsons Illustrated",
+        "publisher": "Bongo",
+        "start_year": 2012,
+        "count": 28,
+        "why": [
+          "issue count differs"
+        ]
+      }
+    ],
+    "name": "Simpsons Illustrated",
+    "publisher": "Bongo",
+    "year": 2012,
+    "count": 27,
+    "collected": false,
+    "blank": [
+      "5",
+      "14"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z"
+  },
+  "65266": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Smallville Season 11",
+    "publisher": "DC",
+    "year": 2012,
+    "count": 19,
+    "collected": false,
+    "blank": [
+      "11",
+      "12"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z"
+  },
+  "66314": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Sam Slade, Robo-Hunter",
+    "publisher": "Quality Periodicals",
+    "year": 1986,
+    "count": 7,
+    "collected": false,
+    "blank": [
+      "2",
+      "1",
+      "5",
+      "3"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z"
+  },
   "73684": {
     "status": "sure",
     "volume": {
@@ -947,6 +1549,47 @@
     ],
     "checked_at": "2026-11-25T09:02:53.709Z"
   },
+  "76971": {
+    "status": "sure",
+    "volume": {
+      "id": 68150,
+      "name": "Superman/Wonder Woman",
+      "publisher": "DC Comics",
+      "start_year": 2013,
+      "count": 29
+    },
+    "name": "Superman / Wonder Woman",
+    "publisher": "DC",
+    "year": 2013,
+    "count": 29,
+    "collected": false,
+    "blank": [
+      "29",
+      "1"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z",
+    "tries": 1
+  },
+  "83645": {
+    "status": "sure",
+    "volume": {
+      "id": 77425,
+      "name": "Thanos: A God Up There Listening",
+      "publisher": "Marvel",
+      "start_year": 2014,
+      "count": 4
+    },
+    "name": "Thanos: A God Up There Listening",
+    "publisher": "Marvel",
+    "year": 2014,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z",
+    "tries": 1
+  },
   "86022": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -972,6 +1615,37 @@
       "1"
     ],
     "checked_at": "2026-11-25T09:02:53.709Z"
+  },
+  "90551": {
+    "status": "ask",
+    "reason": "several volumes fit",
+    "options": [
+      {
+        "id": 83115,
+        "name": "Star Trek/Green Lantern",
+        "publisher": "IDW Publishing",
+        "start_year": 2015,
+        "count": 6,
+        "why": []
+      },
+      {
+        "id": 97074,
+        "name": "Star Trek/Green Lantern",
+        "publisher": "IDW Publishing",
+        "start_year": 2016,
+        "count": 6,
+        "why": []
+      }
+    ],
+    "name": "Star Trek / Green Lantern",
+    "publisher": "IDW",
+    "year": 2015,
+    "count": 6,
+    "collected": false,
+    "blank": [
+      "5"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z"
   },
   "90562": {
     "status": "sure",
@@ -1020,6 +1694,50 @@
     "checked_at": "2026-11-25T07:02:10.053Z",
     "tries": 1
   },
+  "93778": {
+    "status": "sure",
+    "volume": {
+      "id": 85968,
+      "name": "Superman: American Alien",
+      "publisher": "DC Comics",
+      "start_year": 2015,
+      "count": 7
+    },
+    "name": "Superman: American Alien",
+    "publisher": "DC",
+    "year": 2016,
+    "count": 7,
+    "collected": false,
+    "blank": [
+      "2"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z",
+    "tries": 1
+  },
+  "93779": {
+    "status": "sure",
+    "volume": {
+      "id": 85965,
+      "name": "Slash & Burn",
+      "publisher": "DC Comics",
+      "start_year": 2015,
+      "count": 6
+    },
+    "name": "Slash & Burn",
+    "publisher": "DC",
+    "year": 2016,
+    "count": 6,
+    "collected": false,
+    "blank": [
+      "2",
+      "3",
+      "5",
+      "6",
+      "4"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z",
+    "tries": 1
+  },
   "95128": {
     "status": "ask",
     "reason": "publisher differs",
@@ -1044,6 +1762,32 @@
       "5"
     ],
     "checked_at": "2026-11-25T09:02:53.709Z"
+  },
+  "95237": {
+    "status": "sure",
+    "volume": {
+      "id": 86125,
+      "name": "SIX",
+      "publisher": "451 Media Group",
+      "start_year": 2015,
+      "count": 8
+    },
+    "name": "Six",
+    "publisher": "451 Media Group",
+    "year": 2015,
+    "count": 8,
+    "collected": false,
+    "blank": [
+      "6",
+      "4",
+      "2",
+      "3",
+      "5",
+      "7",
+      "8"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z",
+    "tries": 1
   },
   "95476": {
     "status": "none",
@@ -1109,6 +1853,26 @@
     "checked_at": "2026-11-25T09:02:53.709Z",
     "tries": 1
   },
+  "104631": {
+    "status": "sure",
+    "volume": {
+      "id": 92485,
+      "name": "ROM",
+      "publisher": "IDW Publishing",
+      "start_year": 2016,
+      "count": 14
+    },
+    "name": "Rom",
+    "publisher": "IDW",
+    "year": 2016,
+    "count": 14,
+    "collected": false,
+    "blank": [
+      "2"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z",
+    "tries": 1
+  },
   "105890": {
     "status": "sure",
     "volume": {
@@ -1129,6 +1893,33 @@
     ],
     "checked_at": "2026-11-25T09:02:53.709Z",
     "tries": 1
+  },
+  "109768": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 95239,
+        "name": "Spook House",
+        "publisher": "Exploding Albatross Funnybooks",
+        "start_year": 2016,
+        "count": 5,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "Spook House",
+    "publisher": "Albatross",
+    "year": 2016,
+    "count": 5,
+    "collected": false,
+    "blank": [
+      "4",
+      "1",
+      "2"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z"
   },
   "110665": {
     "status": "none",
@@ -1171,6 +1962,26 @@
       "1"
     ],
     "checked_at": "2026-11-25T09:02:53.709Z"
+  },
+  "116721": {
+    "status": "sure",
+    "volume": {
+      "id": 104328,
+      "name": "SLAM!: The Next Jam",
+      "publisher": "Boom! Studios",
+      "start_year": 2017,
+      "count": 4
+    },
+    "name": "Slam! The Next Jam",
+    "publisher": "Boom! Studios",
+    "year": 2017,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "4"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z",
+    "tries": 1
   },
   "119418": {
     "status": "sure",
@@ -1336,6 +2147,27 @@
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
   },
+  "142999": {
+    "status": "sure",
+    "volume": {
+      "id": 117996,
+      "name": "Spider-Man: Far From Home Prelude",
+      "publisher": "Marvel",
+      "start_year": 2019,
+      "count": 2
+    },
+    "name": "Spider-Man: Far from Home Prelude",
+    "publisher": "Marvel",
+    "year": 2019,
+    "count": 2,
+    "collected": false,
+    "blank": [
+      "2",
+      "1"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z",
+    "tries": 1
+  },
   "146182": {
     "status": "sure",
     "volume": {
@@ -1369,6 +2201,20 @@
       "2"
     ],
     "checked_at": "2026-11-25T09:02:53.709Z"
+  },
+  "150548": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "SFSX (Safe Sex)",
+    "publisher": "Image",
+    "year": 2019,
+    "count": 7,
+    "collected": false,
+    "blank": [
+      "7",
+      "5"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z"
   },
   "152844": {
     "status": "sure",
@@ -1416,6 +2262,41 @@
     "checked_at": "2026-11-25T07:02:10.053Z",
     "tries": 1
   },
+  "157729": {
+    "status": "ask",
+    "reason": "several volumes fit",
+    "options": [
+      {
+        "id": 125798,
+        "name": "Starship Down",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2020,
+        "count": 1,
+        "why": [
+          "issue count differs"
+        ]
+      },
+      {
+        "id": 131335,
+        "name": "Starship Down",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2020,
+        "count": 1,
+        "why": [
+          "issue count differs"
+        ]
+      }
+    ],
+    "name": "Starship Down",
+    "publisher": "Dark Horse",
+    "year": 2020,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z"
+  },
   "195668": {
     "status": "ask",
     "reason": "several volumes fit",
@@ -1446,6 +2327,31 @@
       "1"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "199276": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 76428,
+        "name": "Rock Heads",
+        "publisher": "Solson-Lubert Publications",
+        "start_year": 1986,
+        "count": 1,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "Rock Heads",
+    "publisher": "Solson Publications",
+    "year": 1986,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T05:02:15.630Z"
   },
   "200232": {
     "status": "ask",

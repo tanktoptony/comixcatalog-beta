@@ -31390,9 +31390,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-17T12:07:03.656770+00:00",
-    "retry_after": "2026-11-24T12:07:03.656772+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T22:07:12.781848+00:00",
+    "retry_after": "2026-12-10T22:07:12.781850+00:00",
     "search_hydrated": true
   },
   {
@@ -86554,9 +86554,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T20:06:03.566209+00:00",
-    "retry_after": "2026-11-26T20:06:03.566212+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T22:07:12.781736+00:00",
+    "retry_after": "2026-12-26T22:07:12.781754+00:00",
     "search_hydrated": true
   },
   {
@@ -86565,9 +86565,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T21:04:42.475846+00:00",
-    "retry_after": "2026-11-26T21:04:42.475864+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T22:07:12.781772+00:00",
+    "retry_after": "2026-12-26T22:07:12.781774+00:00",
     "search_hydrated": true
   },
   {
@@ -96657,8 +96657,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-26T21:03:32.008739+00:00",
-    "retry_after": "2026-11-27T21:03:32.008753+00:00",
+    "last_attempt_at": "2026-11-26T22:03:17.470169+00:00",
+    "retry_after": "2026-11-27T22:03:17.470187+00:00",
     "search_hydrated": true
   },
   {
@@ -100945,24 +100945,6 @@
     "search_hydrated": true
   },
   {
-    "name": "Crime Mysteries",
-    "publisher": "Atlas Comics",
-    "year": 1950,
-    "reason": "publisher_mismatch",
-    "candidates": [
-      {
-        "id": 10802,
-        "name": "Crime Mysteries",
-        "publisher": "Trojan Magazines",
-        "start_year": 1952
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T21:07:03.213109+00:00",
-    "retry_after": "2026-11-26T21:07:03.213111+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Thor: Alone Against the Celestials",
     "publisher": "Marvel Comics",
     "year": 1992,
@@ -101530,6 +101512,60 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-26T21:08:10.669234+00:00",
     "retry_after": "2026-11-27T21:08:10.669238+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Tits ! Tits ! Tits !",
+    "publisher": "Dynamite Entertainment",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 167384,
+        "name": "Tits! Tits! Tits!",
+        "publisher": "Dynamite (France)",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T22:07:27.218681+00:00",
+    "retry_after": "2026-11-27T22:07:27.218700+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Extravaganza",
+    "publisher": "Titan Comics",
+    "year": 1994,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 64945,
+        "name": "Simpsons Comics Extravaganza",
+        "publisher": "HarperCollins",
+        "start_year": 1994
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T22:07:27.218723+00:00",
+    "retry_after": "2026-11-27T22:07:27.218726+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "They Called Us Enemy – Expanded Edition",
+    "publisher": "IDW Publishing",
+    "year": 2020,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 129898,
+        "name": "They Called Us Enemy: Expanded Edition",
+        "publisher": "Top Shelf",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T22:07:27.218741+00:00",
+    "retry_after": "2026-11-27T22:07:27.218743+00:00",
     "search_hydrated": true
   }
 ]

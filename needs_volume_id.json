@@ -43452,9 +43452,9 @@
         "start_year": 1977
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-23T20:03:28.770850+00:00",
-    "retry_after": "2026-11-26T20:03:28.770851+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-26T21:02:14.754610+00:00",
+    "retry_after": "2026-12-03T21:02:14.754625+00:00",
     "search_hydrated": true
   },
   {
@@ -51142,9 +51142,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T20:06:03.566151+00:00",
-    "retry_after": "2026-11-26T20:06:03.566154+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T21:07:42.689928+00:00",
+    "retry_after": "2026-12-26T21:07:42.689932+00:00",
     "search_hydrated": true
   },
   {
@@ -86340,9 +86340,9 @@
         "start_year": 2006
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T19:06:34.385832+00:00",
-    "retry_after": "2026-11-26T19:06:34.385835+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T21:07:53.869771+00:00",
+    "retry_after": "2026-12-26T21:07:53.869774+00:00",
     "search_hydrated": true
   },
   {
@@ -86369,9 +86369,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T19:06:34.385781+00:00",
-    "retry_after": "2026-11-26T19:06:34.385796+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T21:07:53.869720+00:00",
+    "retry_after": "2026-12-26T21:07:53.869735+00:00",
     "search_hydrated": true
   },
   {
@@ -86473,9 +86473,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T20:06:03.566122+00:00",
-    "retry_after": "2026-11-26T20:06:03.566125+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T21:07:42.689880+00:00",
+    "retry_after": "2026-12-26T21:07:42.689896+00:00",
     "search_hydrated": true
   },
   {
@@ -86497,9 +86497,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T20:06:03.566178+00:00",
-    "retry_after": "2026-11-26T20:06:03.566181+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T21:07:42.689958+00:00",
+    "retry_after": "2026-12-26T21:07:42.689961+00:00",
     "search_hydrated": true
   },
   {
@@ -86508,9 +86508,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T20:06:03.566194+00:00",
-    "retry_after": "2026-11-26T20:06:03.566197+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T21:07:54.874290+00:00",
+    "retry_after": "2026-12-26T21:07:54.874305+00:00",
     "search_hydrated": true
   },
   {
@@ -94103,9 +94103,9 @@
         "start_year": 1963
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-19T20:09:32.820581+00:00",
-    "retry_after": "2026-11-26T20:09:32.820582+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T21:07:52.324886+00:00",
+    "retry_after": "2026-12-10T21:07:52.324890+00:00",
     "search_hydrated": true
   },
   {
@@ -96639,16 +96639,10 @@
   },
   {
     "name": "Pink Lemonade",
-    "publisher": "It's Alive Press",
+    "publisher": "Oni Press",
     "year": 2019,
-    "reason": "publisher_mismatch",
+    "reason": "multiple_candidates",
     "candidates": [
-      {
-        "id": 122513,
-        "name": "Pink Lemonade",
-        "publisher": "It's Alive",
-        "start_year": 2019
-      },
       {
         "id": 145289,
         "name": "Pink Lemonade",
@@ -96663,8 +96657,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-26T20:03:46.289438+00:00",
-    "retry_after": "2026-11-27T20:03:46.289441+00:00",
+    "last_attempt_at": "2026-11-26T21:03:32.008739+00:00",
+    "retry_after": "2026-11-27T21:03:32.008753+00:00",
     "search_hydrated": true
   },
   {
@@ -101500,6 +101494,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-26T20:07:59.343948+00:00",
     "retry_after": "2026-11-27T20:07:59.343951+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Team-Up Winter Special",
+    "publisher": "Marvel Comics",
+    "year": 1980,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52549,
+        "name": "Marvel Team-Up Winter Special",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1980
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T21:08:10.669185+00:00",
+    "retry_after": "2026-11-27T21:08:10.669200+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mystic: The Tenth Apprentice",
+    "publisher": "Marvel Comics",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 88473,
+        "name": "Mystic: The Tenth Apprentice",
+        "publisher": "Crossgen",
+        "start_year": 2012
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T21:08:10.669234+00:00",
+    "retry_after": "2026-11-27T21:08:10.669238+00:00",
     "search_hydrated": true
   }
 ]

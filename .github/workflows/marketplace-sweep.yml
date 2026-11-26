@@ -16,15 +16,15 @@ jobs:
       REPORTS_NOTIFY_EMAIL: ${{ secrets.REPORTS_NOTIFY_EMAIL }}
     steps:
       - name: Check configuration
-        run: if [ -z "$STRIPE_MKT_SECRET_KEY" ]; then echo "STRIPE_MKT_SECRET_KEY not set; marketplace sweep skipped"; fi
+        run: |
+          if [ -z "$STRIPE_MKT_SECRET_KEY" ]; then
+            echo "::error::Required secret STRIPE_MKT_SECRET_KEY is not set."
+            exit 1
+          fi
       - uses: actions/checkout@v4
-        if: env.STRIPE_MKT_SECRET_KEY != ''
       - uses: actions/setup-node@v4
-        if: env.STRIPE_MKT_SECRET_KEY != ''
         with:
           node-version: 20
           cache: npm
       - run: npm ci --ignore-scripts
-        if: env.STRIPE_MKT_SECRET_KEY != ''
       - run: node scripts/marketplaceSweep.js --apply
-        if: env.STRIPE_MKT_SECRET_KEY != ''

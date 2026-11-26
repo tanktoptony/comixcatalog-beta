@@ -6,7 +6,8 @@
 //      Authorization header (see src/lib/supabase/server.js — there is no
 //      session cookie to read it from).
 //   2. Get their user.id (the only ID we need — they can only delete themselves).
-//   3. Service-role client deletes, in FK-safe order:
+//   3. Refuse deletion while marketplace orders, payouts, or disputes are open.
+//   4. Service-role client deletes, in FK-safe order:
 //        - user_collections (references comics.id and auth.users.id)
 //        - comic_covers they uploaded, AND comic_covers on comics they
 //          created (references comics.id and auth.users.id) — added
@@ -18,19 +19,30 @@
 //        - comics they created (created_by) — same FK reason
 //        - the profile row
 //        - finally, the auth.users row itself
-//   4. Caller is signed out client-side after the response returns.
+//   5. Caller is signed out client-side after the response returns.
 //
-// We intentionally tolerate partial failures (logged, not surfaced) for the
-// non-critical sub-deletes. The hard requirement is that auth.users goes
-// away; once that happens the user has no way to log back in and the
-// remaining rows are orphans that a sweep job can clean up later. comics/
-// comic_covers are deleted up front specifically because leaving them
-// behind is what breaks that hard requirement, not because they're
-// non-critical.
+// Every database error stops the sequence before auth.users is removed. A
+// partial cleanup is repairable; deleting the login while owned rows remain
+// is not.
 
 import { NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase/service";
 import { supabaseServer } from "@/lib/supabase/server";
+import { accountDeletionDecision } from "@/lib/accountDeletion";
+
+const OPEN_ORDER_STATUSES = [
+  "created",
+  "awaiting_payment",
+  "paid",
+  "shipped",
+  "delivered",
+  "disputed",
+];
+
+function databaseFailure(userId, operation, error) {
+  console.error(`delete-account: ${operation} failed for ${userId}:`, error);
+  return NextResponse.json({ error: "Could not delete account." }, { status: 500 });
+}
 
 export async function POST(request) {
   let userId = null;
@@ -71,12 +83,93 @@ export async function POST(request) {
   // Service-role client for the destructive operations.
   const admin = getServiceClient();
 
-  // Best-effort: delete user_collections (they reference auth.users but we
-  // don't trust the FK cascade is in place across all environments).
+  // These reads must all finish before the first mutation. Orders use
+  // buyer_id/seller_id and transfer state from migration 0066; disputes use
+  // order_disputes.status from migration 0073.
+  let obligationResults;
   try {
-    await admin.from("user_collections").delete().eq("user_id", userId);
+    obligationResults = await Promise.all([
+      admin
+        .from("orders")
+        .select("status")
+        .or(`buyer_id.eq.${userId},seller_id.eq.${userId}`)
+        .in("status", OPEN_ORDER_STATUSES)
+        .limit(1),
+      admin
+        .from("orders")
+        .select("id")
+        .eq("seller_id", userId)
+        .eq("status", "completed")
+        .is("stripe_transfer_id", null)
+        .is("transferred_at", null)
+        .not("stripe_charge_id", "is", null)
+        .gt("seller_net_cents", 0)
+        .limit(1),
+      admin
+        .from("order_disputes")
+        .select("id,orders!inner(buyer_id,seller_id)")
+        .eq("status", "open")
+        .or(`buyer_id.eq.${userId},seller_id.eq.${userId}`, { referencedTable: "orders" })
+        .limit(1),
+      admin
+        .from("orders")
+        .select("id")
+        .or(`buyer_id.eq.${userId},seller_id.eq.${userId}`)
+        .limit(1),
+      admin
+        .from("seller_accounts")
+        .select("user_id")
+        .eq("user_id", userId)
+        .limit(1),
+      admin
+        .from("order_email_log")
+        .select("order_id")
+        .eq("recipient_id", userId)
+        .limit(1),
+      admin
+        .from("order_feedback")
+        .select("order_id")
+        .or(`subject_id.eq.${userId},author_id.eq.${userId},removed_by.eq.${userId}`)
+        .limit(1),
+    ]);
   } catch (err) {
-    console.warn(`delete-account: collection cleanup failed for ${userId}:`, err);
+    obligationResults = [{ error: err }];
+  }
+
+  const [
+    openOrdersResult = {},
+    transfersResult = {},
+    disputesResult = {},
+    ordersResult = {},
+    sellerAccountsResult = {},
+    orderEmailLogsResult = {},
+    orderFeedbackResult = {},
+  ] = obligationResults;
+  const obligationError = obligationResults.find((result) => result?.error)?.error;
+  const decision = accountDeletionDecision({
+    openOrders: openOrdersResult.data,
+    unpaidTransfers: transfersResult.data,
+    openDisputes: disputesResult.data,
+    orders: ordersResult.data,
+    sellerAccounts: sellerAccountsResult.data,
+    orderEmailLogs: orderEmailLogsResult.data,
+    orderFeedback: orderFeedbackResult.data,
+    checkError: obligationError,
+  });
+  if (!decision.allowed) {
+    if (obligationError) {
+      console.error(`delete-account: marketplace obligation check failed for ${userId}:`, obligationError);
+    }
+    return NextResponse.json({ error: decision.message }, { status: decision.status });
+  }
+
+  // Delete user_collections first because they reference both auth.users and
+  // comics. Do not continue to auth deletion if Supabase returns an error.
+  try {
+    const { error } = await admin.from("user_collections").delete().eq("user_id", userId);
+    if (error) return databaseFailure(userId, "collection cleanup", error);
+  } catch (err) {
+    return databaseFailure(userId, "collection cleanup", err);
   }
 
   // comics rows this user created (via "+ Add manually" or a CSV import)
@@ -86,19 +179,23 @@ export async function POST(request) {
   // first (both by upload ownership and by owning comic), then the comics
   // rows themselves.
   try {
-    const { data: ownComics } = await admin
+    const { data: ownComics, error: ownComicsError } = await admin
       .from("comics")
       .select("id")
       .eq("created_by", userId);
+    if (ownComicsError) return databaseFailure(userId, "comic lookup", ownComicsError);
     const ownComicIds = (ownComics ?? []).map((c) => c.id);
 
-    await admin.from("comic_covers").delete().eq("uploaded_by", userId);
+    const { error: uploadedCoverError } = await admin.from("comic_covers").delete().eq("uploaded_by", userId);
+    if (uploadedCoverError) return databaseFailure(userId, "uploaded cover cleanup", uploadedCoverError);
     if (ownComicIds.length > 0) {
-      await admin.from("comic_covers").delete().in("comic_id", ownComicIds);
+      const { error: comicCoverError } = await admin.from("comic_covers").delete().in("comic_id", ownComicIds);
+      if (comicCoverError) return databaseFailure(userId, "comic cover cleanup", comicCoverError);
     }
-    await admin.from("comics").delete().eq("created_by", userId);
+    const { error: comicsError } = await admin.from("comics").delete().eq("created_by", userId);
+    if (comicsError) return databaseFailure(userId, "comic cleanup", comicsError);
   } catch (err) {
-    console.warn(`delete-account: comics/comic_covers cleanup failed for ${userId}:`, err);
+    return databaseFailure(userId, "comics/comic_covers cleanup", err);
   }
 
   // Best-effort: delete uploaded library covers under comic-covers/library/<collection_id>.*
@@ -108,9 +205,10 @@ export async function POST(request) {
   // Profile row — has FK to auth.users.id, so deletion order matters in some
   // configurations. Delete profile FIRST, then auth row.
   try {
-    await admin.from("profiles").delete().eq("id", userId);
+    const { error } = await admin.from("profiles").delete().eq("id", userId);
+    if (error) return databaseFailure(userId, "profile delete", error);
   } catch (err) {
-    console.warn(`delete-account: profile delete failed for ${userId}:`, err);
+    return databaseFailure(userId, "profile delete", err);
   }
 
   // The hard requirement: remove the auth.users row.

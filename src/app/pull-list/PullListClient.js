@@ -26,6 +26,7 @@ function SeriesSearch({ onAdded }) {
     const controller = new AbortController();
     const timer = setTimeout(async () => {
       try {
+        setError(null);
         const response = await fetch(`/api/search/series?q=${encodeURIComponent(term)}&limit=5`, {
           signal: controller.signal,
         });
@@ -33,7 +34,10 @@ function SeriesSearch({ onAdded }) {
         if (!response.ok) throw new Error("Search is unavailable right now.");
         setResults((body.series ?? []).filter((row) => row.gcd_id));
       } catch (searchError) {
-        if (searchError.name !== "AbortError") setError(searchError.message);
+        if (searchError.name !== "AbortError") {
+          setResults([]);
+          setError(searchError.message);
+        }
       }
     }, 250);
     return () => {

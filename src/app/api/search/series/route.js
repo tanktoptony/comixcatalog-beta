@@ -11,6 +11,7 @@ import { resolveSeriesCardCovers } from "@/lib/catalog/seriesCardCovers";
 import { aliasTermsFor } from "@/lib/searchAliases";
 import { unstable_cache } from "next/cache";
 import { createServerTiming } from "@/lib/serverTiming";
+import { SEARCH_UNAVAILABLE_MESSAGE, searchRoutePolicy } from "@/lib/searchAvailability";
 import { cachedSearchTerm } from "@/lib/searchTermCache";
 import { formatTag, formatTagTitle, isCollectedEdition } from "@/lib/seriesFormat";
 import { foldWorks, summarizeEditions } from "@/lib/searchWorks";
@@ -314,7 +315,11 @@ async function computeSeriesResponse(req) {
       rows = dedupeById(candidateSets.flat());
     } catch (fetchError) {
       console.error("GET /api/search/series failed:", fetchError);
-      return json({ series: [], degraded: true });
+      const policy = searchRoutePolicy({ failed: true });
+      return json(
+        { error: SEARCH_UNAVAILABLE_MESSAGE },
+        { status: policy.status, headers: { "Cache-Control": policy.cacheControl } }
+      );
     }
 
     // Found live 2026-08-28 spot-checking "Amazing Spider-Man" results: GCD
@@ -613,11 +618,18 @@ async function computeSeriesResponse(req) {
     }
 
     // A degraded result must not sit in the CDN for ten minutes.
-    if (searchDegraded) return json({ series, degraded: true });
+    if (searchDegraded) {
+      const policy = searchRoutePolicy({ degraded: true });
+      return json({ series, degraded: true }, { headers: { "Cache-Control": policy.cacheControl } });
+    }
     return json({ series }, { headers: CDN_CACHE_SHORT });
   } catch (err) {
     console.error("GET /api/search/series crashed:", err);
-    return json({ series: [], degraded: true });
+    const policy = searchRoutePolicy({ failed: true });
+    return json(
+      { error: SEARCH_UNAVAILABLE_MESSAGE },
+      { status: policy.status, headers: { "Cache-Control": policy.cacheControl } }
+    );
   }
 }
 
@@ -630,6 +642,7 @@ async function computeSeriesTerm(normalizedTerm, askedYear) {
   );
   const serverTiming = response.headers.get("Server-Timing") || "";
   const result = await response.json();
+  if (!response.ok) throw new Error(result.error || SEARCH_UNAVAILABLE_MESSAGE);
   return { ...result, _serverTiming: serverTiming };
 }
 
@@ -743,14 +756,20 @@ export async function GET(req) {
     const works = searchParams.get("works") === "1";
     const result = await timing.measure("search_cache", () => getCachedSeriesSearch(q, { limit, timing, runs, works }));
     const { _serverTiming, _cacheState, ...body } = result;
-    const headers = result.degraded ? undefined : CDN_CACHE_SHORT;
+    const headers = result.degraded
+      ? { "Cache-Control": searchRoutePolicy({ degraded: true }).cacheControl }
+      : CDN_CACHE_SHORT;
     const response = timing.measureSync("serialization", () => NextResponse.json(body, { headers }));
     response.headers.set("X-Search-Cache", _cacheState);
     response.headers.set("Server-Timing", [_serverTiming, timing.header()].filter(Boolean).join(", "));
     return response;
   } catch (err) {
     console.error("GET /api/search/series crashed:", err);
-    const response = NextResponse.json({ series: [], degraded: true });
+    const policy = searchRoutePolicy({ failed: true });
+    const response = NextResponse.json(
+      { error: SEARCH_UNAVAILABLE_MESSAGE },
+      { status: policy.status, headers: { "Cache-Control": policy.cacheControl } }
+    );
     response.headers.set("Server-Timing", timing.header());
     return response;
   }

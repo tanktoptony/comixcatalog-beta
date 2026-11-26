@@ -190,6 +190,9 @@ jobs:
           npm run test:search-works
           npm run test:work-page
 
+      - name: Search availability tests
+        run: npm run test:search-availability
+
       - name: Password policy tests
         run: npm run test:password-policy
 
@@ -246,6 +249,12 @@ jobs:
 
       - name: Marketplace checkout tests
         run: npm run test:marketplace-checkout
+
+      - name: Account deletion tests
+        run: npm run test:account-delete
+
+      - name: Data push retry tests
+        run: npm run test:ci-push-retry
 
       - name: Marketplace order page tests
         run: npm run test:marketplace-orders-ui

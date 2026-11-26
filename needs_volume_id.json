@@ -85742,9 +85742,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T13:10:22.811330+00:00",
-    "retry_after": "2026-11-26T13:10:22.811348+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T14:08:04.064959+00:00",
+    "retry_after": "2026-12-26T14:08:04.064977+00:00",
     "search_hydrated": true
   },
   {
@@ -85789,9 +85789,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T13:10:22.811362+00:00",
-    "retry_after": "2026-11-26T13:10:22.811365+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T14:08:04.064995+00:00",
+    "retry_after": "2026-12-26T14:08:04.064997+00:00",
     "search_hydrated": true
   },
   {
@@ -85800,9 +85800,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T13:10:22.811374+00:00",
-    "retry_after": "2026-11-26T13:10:22.811376+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T14:08:04.065007+00:00",
+    "retry_after": "2026-12-26T14:08:04.065009+00:00",
     "search_hydrated": true
   },
   {
@@ -85811,9 +85811,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T13:10:23.880550+00:00",
-    "retry_after": "2026-11-26T13:10:23.880567+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T14:08:04.771796+00:00",
+    "retry_after": "2026-12-26T14:08:04.771814+00:00",
     "search_hydrated": true
   },
   {
@@ -96663,8 +96663,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-26T13:02:59.846833+00:00",
-    "retry_after": "2026-11-27T13:02:59.846850+00:00",
+    "last_attempt_at": "2026-11-26T14:03:31.353818+00:00",
+    "retry_after": "2026-11-27T14:03:31.353832+00:00",
     "search_hydrated": true
   },
   {
@@ -100829,9 +100829,9 @@
     "year": 2001,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T13:02:03.064623+00:00",
-    "retry_after": "2026-11-26T13:02:03.064641+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-26T14:01:57.283951+00:00",
+    "retry_after": "2026-11-29T14:01:57.283967+00:00",
     "search_hydrated": true
   },
   {
@@ -100840,9 +100840,9 @@
     "year": 2001,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T13:07:35.931094+00:00",
-    "retry_after": "2026-11-26T13:07:35.931111+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-26T14:08:24.719836+00:00",
+    "retry_after": "2026-11-29T14:08:24.719853+00:00",
     "search_hydrated": true
   },
   {
@@ -101342,6 +101342,41 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-26T11:07:12.312147+00:00",
     "retry_after": "2026-11-27T11:07:12.312153+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The New Bondage Fairies: Fairie Fetish",
+    "publisher": "Fantagraphics",
+    "year": 2003,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 28164,
+        "name": "The New Bondage Fairies: Fairie Fetish",
+        "publisher": "Eros Comix",
+        "start_year": 1998
+      },
+      {
+        "id": 66777,
+        "name": "The New Bondage Fairies: Fairie Fetish",
+        "publisher": "Eros Comix",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T14:08:24.719930+00:00",
+    "retry_after": "2026-11-27T14:08:24.719933+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Incredible Hulk: Planet Hulk Prelude",
+    "publisher": "Marvel Comics",
+    "year": 2010,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T14:08:24.719946+00:00",
+    "retry_after": "2026-11-27T14:08:24.719948+00:00",
     "search_hydrated": true
   }
 ]

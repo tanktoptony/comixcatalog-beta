@@ -5947,9 +5947,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T06:17:12.123963+00:00",
-    "retry_after": "2026-11-26T06:17:12.123964+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T07:10:42.672341+00:00",
+    "retry_after": "2026-12-26T07:10:42.672345+00:00",
     "search_hydrated": true
   },
   {
@@ -6184,9 +6184,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T06:17:12.123946+00:00",
-    "retry_after": "2026-11-26T06:17:12.123947+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T07:10:42.672280+00:00",
+    "retry_after": "2026-12-26T07:10:42.672288+00:00",
     "search_hydrated": true
   },
   {
@@ -6308,9 +6308,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T06:17:12.123954+00:00",
-    "retry_after": "2026-11-26T06:17:12.123956+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T07:10:42.672314+00:00",
+    "retry_after": "2026-12-26T07:10:42.672319+00:00",
     "search_hydrated": true
   },
   {
@@ -14351,9 +14351,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T06:17:12.123934+00:00",
-    "retry_after": "2026-11-26T06:17:12.123937+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T07:03:51.132988+00:00",
+    "retry_after": "2026-12-26T07:03:51.133003+00:00",
     "search_hydrated": true
   },
   {
@@ -37302,9 +37302,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T06:17:12.123901+00:00",
-    "retry_after": "2026-11-26T06:17:12.123918+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T07:10:42.672218+00:00",
+    "retry_after": "2026-12-26T07:10:42.672238+00:00",
     "search_hydrated": true
   },
   {
@@ -51324,9 +51324,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-23T06:06:00.004510+00:00",
-    "retry_after": "2026-11-26T06:06:00.004527+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-26T07:06:26.417513+00:00",
+    "retry_after": "2026-12-03T07:06:26.417518+00:00",
     "search_hydrated": true
   },
   {
@@ -96644,16 +96644,16 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 122513,
-        "name": "Pink Lemonade",
-        "publisher": "It's Alive",
-        "start_year": 2019
-      },
-      {
         "id": 145289,
         "name": "Pink Lemonade",
         "publisher": "Oni Press",
         "start_year": 2022
+      },
+      {
+        "id": 122513,
+        "name": "Pink Lemonade",
+        "publisher": "It's Alive",
+        "start_year": 2019
       },
       {
         "id": 151940,
@@ -96663,8 +96663,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-26T06:03:16.322176+00:00",
-    "retry_after": "2026-11-27T06:03:16.322190+00:00",
+    "last_attempt_at": "2026-11-26T07:06:58.983410+00:00",
+    "retry_after": "2026-11-27T07:06:58.983425+00:00",
     "search_hydrated": true
   },
   {
@@ -100647,9 +100647,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T06:04:36.547899+00:00",
-    "retry_after": "2026-11-26T06:04:36.547917+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-26T07:06:26.417582+00:00",
+    "retry_after": "2026-11-29T07:06:26.417585+00:00",
     "search_hydrated": true
   },
   {
@@ -100700,9 +100700,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T07:04:02.029805+00:00",
-    "retry_after": "2026-11-26T07:04:02.029821+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-26T07:06:05.258006+00:00",
+    "retry_after": "2026-11-29T07:06:05.258010+00:00",
     "search_hydrated": true
   },
   {
@@ -100711,9 +100711,9 @@
     "year": 2011,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T07:04:02.029849+00:00",
-    "retry_after": "2026-11-26T07:04:02.029853+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-26T07:06:05.257884+00:00",
+    "retry_after": "2026-11-29T07:06:05.257889+00:00",
     "search_hydrated": true
   },
   {
@@ -100741,9 +100741,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T07:04:02.029890+00:00",
-    "retry_after": "2026-11-26T07:04:02.029892+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-26T07:06:05.257844+00:00",
+    "retry_after": "2026-11-29T07:06:05.257859+00:00",
     "search_hydrated": true
   },
   {
@@ -100759,9 +100759,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T07:09:54.418051+00:00",
-    "retry_after": "2026-11-26T07:09:54.418068+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-26T07:10:54.797848+00:00",
+    "retry_after": "2026-11-29T07:10:54.797864+00:00",
     "search_hydrated": true
   },
   {
@@ -101273,6 +101273,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-26T06:07:21.473838+00:00",
     "retry_after": "2026-11-27T06:07:21.473843+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Devil's Dictionary: The Acerbic Wit of Ambrose Bierce",
+    "publisher": "Fantagraphics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T07:10:54.797896+00:00",
+    "retry_after": "2026-11-27T07:10:54.797900+00:00",
     "search_hydrated": true
   }
 ]

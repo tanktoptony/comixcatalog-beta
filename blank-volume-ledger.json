@@ -31,7 +31,7 @@
       "v2#4 (16)"
     ],
     "checked_at": "2026-11-25T09:02:53.709Z",
-    "tries": 2
+    "tries": 3
   },
   "1701": {
     "status": "ask",
@@ -248,6 +248,35 @@
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
   },
+  "4462": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Motormouth",
+    "publisher": "Marvel UK",
+    "year": 1992,
+    "count": 5,
+    "collected": false,
+    "blank": [
+      "4",
+      "5",
+      "2",
+      "3"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
+  },
+  "4687": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Death 3",
+    "publisher": "Marvel",
+    "year": 1993,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
+  },
   "4770": {
     "status": "ask",
     "reason": "publisher differs",
@@ -313,7 +342,7 @@
       "3"
     ],
     "checked_at": "2026-11-26T05:02:15.630Z",
-    "tries": 1
+    "tries": 2
   },
   "5570": {
     "status": "sure",
@@ -364,6 +393,26 @@
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
   },
+  "6166": {
+    "status": "sure",
+    "volume": {
+      "id": 19022,
+      "name": "The Kingdom",
+      "publisher": "DC Comics",
+      "start_year": 1999,
+      "count": 2
+    },
+    "name": "The Kingdom",
+    "publisher": "DC",
+    "year": 1999,
+    "count": 2,
+    "collected": false,
+    "blank": [
+      "2"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z",
+    "tries": 1
+  },
   "6212": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -389,6 +438,73 @@
       "1"
     ],
     "checked_at": "2026-11-25T09:02:53.709Z"
+  },
+  "9850": {
+    "status": "ask",
+    "reason": "year differs",
+    "options": [
+      {
+        "id": 18263,
+        "name": "Juggernaut",
+        "publisher": "Marvel",
+        "start_year": 1997,
+        "count": 1,
+        "why": [
+          "year differs"
+        ]
+      }
+    ],
+    "name": "Juggernaut",
+    "publisher": "Marvel",
+    "year": 1999,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
+  },
+  "9900": {
+    "status": "ask",
+    "reason": "title differs",
+    "options": [
+      {
+        "id": 9165,
+        "name": "Marvel Action Hour: Fantastic Four",
+        "publisher": "Marvel",
+        "start_year": 1994,
+        "count": 8,
+        "why": [
+          "title differs"
+        ]
+      }
+    ],
+    "name": "Marvel Action Hour, Featuring the Fantastic Four",
+    "publisher": "Marvel",
+    "year": 1994,
+    "count": 8,
+    "collected": false,
+    "blank": [
+      "3",
+      "2"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
+  },
+  "10221": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Fantastic Four: 1234",
+    "publisher": "Marvel",
+    "year": 2001,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "2",
+      "1",
+      "3",
+      "4"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
   },
   "11033": {
     "status": "ask",
@@ -448,6 +564,32 @@
     "checked_at": "2026-11-25T09:02:53.709Z",
     "tries": 1
   },
+  "12255": {
+    "status": "ask",
+    "reason": "issue count differs",
+    "options": [
+      {
+        "id": 11309,
+        "name": "New Invaders",
+        "publisher": "Marvel",
+        "start_year": 2004,
+        "count": 8,
+        "why": [
+          "issue count differs"
+        ]
+      }
+    ],
+    "name": "The New Invaders",
+    "publisher": "Marvel",
+    "year": 2004,
+    "count": 10,
+    "collected": false,
+    "blank": [
+      "0",
+      "1"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
+  },
   "12465": {
     "status": "ask",
     "reason": "issue count differs",
@@ -474,6 +616,117 @@
       "14"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "13304": {
+    "status": "ask",
+    "reason": "already pinned to ComicVine 147187",
+    "options": [
+      {
+        "id": 40471,
+        "name": "Judge Dredd Legends of the Law",
+        "publisher": "DC Comics",
+        "start_year": 1994,
+        "count": 13,
+        "why": [
+          "pinned elsewhere"
+        ]
+      }
+    ],
+    "name": "Judge Dredd: Legends of the Law",
+    "publisher": "DC",
+    "year": 1994,
+    "count": 13,
+    "collected": false,
+    "blank": [
+      "5",
+      "8",
+      "2",
+      "12",
+      "13",
+      "4",
+      "6",
+      "10",
+      "9",
+      "7",
+      "11",
+      "3"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
+  },
+  "13378": {
+    "status": "ask",
+    "reason": "title differs",
+    "options": [
+      {
+        "id": 22899,
+        "name": "Marvels Comics: Spider-Man #1",
+        "publisher": "Marvel",
+        "start_year": 2000,
+        "count": 1,
+        "why": [
+          "title differs"
+        ]
+      }
+    ],
+    "name": "Marvels Comics: Spider-Man",
+    "publisher": "Marvel",
+    "year": 2000,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
+  },
+  "13379": {
+    "status": "ask",
+    "reason": "title differs",
+    "options": [
+      {
+        "id": 33850,
+        "name": "Marvels Comics: Thor #1",
+        "publisher": "Marvel",
+        "start_year": 2000,
+        "count": 1,
+        "why": [
+          "title differs"
+        ]
+      }
+    ],
+    "name": "Marvels Comics: Thor",
+    "publisher": "Marvel",
+    "year": 2000,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
+  },
+  "13380": {
+    "status": "ask",
+    "reason": "title differs",
+    "options": [
+      {
+        "id": 27996,
+        "name": "Marvels Comics: X-Men #1",
+        "publisher": "Marvel",
+        "start_year": 2000,
+        "count": 1,
+        "why": [
+          "title differs"
+        ]
+      }
+    ],
+    "name": "Marvels Comics: X-Men",
+    "publisher": "Marvel",
+    "year": 2000,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
   },
   "13453": {
     "status": "ask",
@@ -661,6 +914,33 @@
     ],
     "checked_at": "2026-11-25T09:02:53.709Z"
   },
+  "16046": {
+    "status": "sure",
+    "volume": {
+      "id": 18625,
+      "name": "Justice",
+      "publisher": "DC Comics",
+      "start_year": 2005,
+      "count": 12
+    },
+    "name": "Justice",
+    "publisher": "DC",
+    "year": 2005,
+    "count": 12,
+    "collected": false,
+    "blank": [
+      "8",
+      "6",
+      "3",
+      "9",
+      "10",
+      "1",
+      "11",
+      "7"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z",
+    "tries": 1
+  },
   "16128": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -732,6 +1012,19 @@
     "checked_at": "2026-11-26T05:02:15.630Z",
     "tries": 1
   },
+  "17702": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Faust",
+    "publisher": "Northstar",
+    "year": 1989,
+    "count": 6,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
+  },
   "20634": {
     "status": "sure",
     "volume": {
@@ -798,6 +1091,31 @@
     "checked_at": "2026-11-25T07:02:10.053Z",
     "tries": 3
   },
+  "20857": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 63545,
+        "name": "Livingstone Mountain",
+        "publisher": "Adventure",
+        "start_year": 1991,
+        "count": 4,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "Livingstone Mountain",
+    "publisher": "Malibu",
+    "year": 1991,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
+  },
   "21096": {
     "status": "ask",
     "reason": "title differs",
@@ -822,6 +1140,31 @@
       "1"
     ],
     "checked_at": "2026-11-25T09:02:53.709Z"
+  },
+  "21497": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 33875,
+        "name": "The Mighty World of Marvel",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1972,
+        "count": 329,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "The Mighty World of Marvel",
+    "publisher": "Marvel UK",
+    "year": 1972,
+    "count": 329,
+    "collected": false,
+    "blank": [
+      "27"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
   },
   "22106": {
     "status": "sure",
@@ -864,6 +1207,31 @@
     "checked_at": "2026-11-25T09:02:53.709Z",
     "tries": 1
   },
+  "24622": {
+    "status": "ask",
+    "reason": "issue count differs",
+    "options": [
+      {
+        "id": 73369,
+        "name": "Funnytime Features",
+        "publisher": "Eenie Weenie Comics",
+        "start_year": 1995,
+        "count": 5,
+        "why": [
+          "issue count differs"
+        ]
+      }
+    ],
+    "name": "Funnytime Features",
+    "publisher": "Eenieweenie Comics",
+    "year": 1994,
+    "count": 9,
+    "collected": false,
+    "blank": [
+      "4"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
+  },
   "24916": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -876,6 +1244,19 @@
       "4"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "26131": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Freshmen",
+    "publisher": "Image",
+    "year": 2005,
+    "count": 7,
+    "collected": false,
+    "blank": [
+      "3"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
   },
   "28104": {
     "status": "ask",
@@ -942,6 +1323,26 @@
       "1"
     ],
     "checked_at": "2026-11-25T09:02:53.709Z",
+    "tries": 1
+  },
+  "31405": {
+    "status": "sure",
+    "volume": {
+      "id": 23080,
+      "name": "New Man",
+      "publisher": "Image",
+      "start_year": 1996,
+      "count": 4
+    },
+    "name": "NewMan",
+    "publisher": "Image",
+    "year": 1996,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z",
     "tries": 1
   },
   "32444": {
@@ -1013,7 +1414,7 @@
       "[1]"
     ],
     "checked_at": "2026-11-26T05:02:15.630Z",
-    "tries": 1
+    "tries": 2
   },
   "36937": {
     "status": "ask",
@@ -1072,6 +1473,43 @@
       "0"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "38428": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Essential X-Men",
+    "publisher": "Panini UK",
+    "year": 1995,
+    "count": 178,
+    "collected": false,
+    "blank": [
+      "102",
+      "52",
+      "31",
+      "108",
+      "44",
+      "105",
+      "109",
+      "39",
+      "27",
+      "111",
+      "41",
+      "50"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
+  },
+  "39052": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Mayhem!",
+    "publisher": "Image",
+    "year": 2009,
+    "count": 3,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
   },
   "39497": {
     "status": "sure",
@@ -1150,6 +1588,34 @@
     ],
     "checked_at": "2026-11-25T09:02:53.709Z"
   },
+  "41133": {
+    "status": "ask",
+    "reason": "issue count differs",
+    "options": [
+      {
+        "id": 6091,
+        "name": "Mage: The Hero Defined",
+        "publisher": "Image",
+        "start_year": 1997,
+        "count": 16,
+        "why": [
+          "issue count differs"
+        ]
+      }
+    ],
+    "name": "Mage: The Hero Defined",
+    "publisher": "Image",
+    "year": 1998,
+    "count": 4,
+    "collected": true,
+    "blank": [
+      "3",
+      "4",
+      "1",
+      "2"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
+  },
   "44210": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -1201,6 +1667,19 @@
       "1"
     ],
     "checked_at": "2026-11-25T09:02:53.709Z"
+  },
+  "53873": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Grimmax",
+    "publisher": "Defiant",
+    "year": 1994,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "0"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
   },
   "53944": {
     "status": "sure",
@@ -1302,6 +1781,27 @@
       "4"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z",
+    "tries": 1
+  },
+  "55824": {
+    "status": "sure",
+    "volume": {
+      "id": 39055,
+      "name": "Hawkeye: Blind Spot",
+      "publisher": "Marvel",
+      "start_year": 2011,
+      "count": 4
+    },
+    "name": "Hawkeye: Blindspot",
+    "publisher": "Marvel",
+    "year": 2011,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "2",
+      "1"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z",
     "tries": 1
   },
   "59045": {
@@ -1510,6 +2010,32 @@
     ],
     "checked_at": "2026-11-26T05:02:15.630Z"
   },
+  "69621": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 53474,
+        "name": "Nodwick",
+        "publisher": "Dork Storm",
+        "start_year": 2000,
+        "count": 36,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "Nodwick",
+    "publisher": "Henchman Publishing; Do Gooder Press",
+    "year": 1999,
+    "count": 36,
+    "collected": false,
+    "blank": [
+      "2",
+      "21"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
+  },
   "73684": {
     "status": "sure",
     "volume": {
@@ -1530,6 +2056,31 @@
     ],
     "checked_at": "2026-11-25T09:02:53.709Z",
     "tries": 1
+  },
+  "74275": {
+    "status": "ask",
+    "reason": "title differs",
+    "options": [
+      {
+        "id": 54670,
+        "name": "Image Firsts: The Manhattan Project",
+        "publisher": "Image",
+        "start_year": 2012,
+        "count": 1,
+        "why": [
+          "title differs"
+        ]
+      }
+    ],
+    "name": "Image Firsts: Manhattan Projects",
+    "publisher": "Image",
+    "year": 2012,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
   },
   "76698": {
     "status": "none",
@@ -1615,6 +2166,26 @@
       "1"
     ],
     "checked_at": "2026-11-25T09:02:53.709Z"
+  },
+  "89865": {
+    "status": "sure",
+    "volume": {
+      "id": 82359,
+      "name": "Giant Size Little Marvel: AvX",
+      "publisher": "Marvel",
+      "start_year": 2015,
+      "count": 4
+    },
+    "name": "Giant-Size Little Marvel: AvX",
+    "publisher": "Marvel",
+    "year": 2015,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "4"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z",
+    "tries": 1
   },
   "90551": {
     "status": "ask",
@@ -1833,6 +2404,48 @@
     "checked_at": "2026-11-25T09:02:53.709Z",
     "tries": 1
   },
+  "98464": {
+    "status": "ask",
+    "reason": "title differs",
+    "options": [
+      {
+        "id": 88937,
+        "name": "Legends of Tomorrow Anthology",
+        "publisher": "DC Comics",
+        "start_year": 2016,
+        "count": 6,
+        "why": [
+          "title differs"
+        ]
+      }
+    ],
+    "name": "Legends of Tomorrow",
+    "publisher": "DC",
+    "year": 2016,
+    "count": 6,
+    "collected": false,
+    "blank": [
+      "5"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
+  },
+  "102203": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Mae",
+    "publisher": "Dark Horse",
+    "year": 2016,
+    "count": 6,
+    "collected": false,
+    "blank": [
+      "3",
+      "5",
+      "2",
+      "6",
+      "4"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
+  },
   "103813": {
     "status": "sure",
     "volume": {
@@ -1894,6 +2507,33 @@
     "checked_at": "2026-11-25T09:02:53.709Z",
     "tries": 1
   },
+  "107194": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 91891,
+        "name": "Hillbilly",
+        "publisher": "Exploding Albatross Funnybooks",
+        "start_year": 2016,
+        "count": 12,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "Hillbilly",
+    "publisher": "Albatross",
+    "year": 2016,
+    "count": 12,
+    "collected": false,
+    "blank": [
+      "6",
+      "5",
+      "4"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
+  },
   "109768": {
     "status": "ask",
     "reason": "publisher differs",
@@ -1938,6 +2578,39 @@
     ],
     "checked_at": "2026-11-25T09:02:53.709Z"
   },
+  "111273": {
+    "status": "sure",
+    "volume": {
+      "id": 97902,
+      "name": "The Deep",
+      "publisher": "Boom! Studios",
+      "start_year": 2017,
+      "count": 6
+    },
+    "name": "The Deep",
+    "publisher": "Boom! Studios",
+    "year": 2017,
+    "count": 6,
+    "collected": false,
+    "blank": [
+      "3"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z",
+    "tries": 1
+  },
+  "112619": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Into the Badlands Special",
+    "publisher": "DC",
+    "year": 2015,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
+  },
   "115078": {
     "status": "ask",
     "reason": "title differs",
@@ -1981,7 +2654,32 @@
       "4"
     ],
     "checked_at": "2026-11-26T05:02:15.630Z",
-    "tries": 1
+    "tries": 2
+  },
+  "117589": {
+    "status": "ask",
+    "reason": "issue count differs",
+    "options": [
+      {
+        "id": 177942,
+        "name": "Judge",
+        "publisher": "Judge",
+        "start_year": 1881,
+        "count": 18,
+        "why": [
+          "issue count differs"
+        ]
+      }
+    ],
+    "name": "Judge",
+    "publisher": "Judge",
+    "year": 1881,
+    "count": 2804,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
   },
   "119418": {
     "status": "sure",
@@ -2147,6 +2845,54 @@
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
   },
+  "134768": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 115545,
+        "name": "Marvel Action: Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2018,
+        "count": 12,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "Marvel Action: Spider-Man",
+    "publisher": "IDW",
+    "year": 2018,
+    "count": 12,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
+  },
+  "135460": {
+    "status": "sure",
+    "volume": {
+      "id": 115884,
+      "name": "Goddess Mode",
+      "publisher": "DC Comics",
+      "start_year": 2018,
+      "count": 6
+    },
+    "name": "Goddess Mode",
+    "publisher": "DC",
+    "year": 2019,
+    "count": 6,
+    "collected": false,
+    "blank": [
+      "3",
+      "5",
+      "6",
+      "4"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z",
+    "tries": 1
+  },
   "142999": {
     "status": "sure",
     "volume": {
@@ -2168,6 +2914,69 @@
     "checked_at": "2026-11-26T05:02:15.630Z",
     "tries": 1
   },
+  "145492": {
+    "status": "ask",
+    "reason": "title differs",
+    "options": [
+      {
+        "id": 119183,
+        "name": "True Believers: Marvel's Greatest Creators: Luke Cage, Power Man",
+        "publisher": "Marvel",
+        "start_year": 2019,
+        "count": 1,
+        "why": [
+          "title differs"
+        ]
+      }
+    ],
+    "name": "Marvel's Greatest Creators: Luke Cage, Power Man - Piranha!",
+    "publisher": "Marvel",
+    "year": 2019,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
+  },
+  "146180": {
+    "status": "ask",
+    "reason": "title differs",
+    "options": [
+      {
+        "id": 119407,
+        "name": "True Believers: Marvel's Greatest Creators: Silver Surfer: Rude Awakening",
+        "publisher": "Marvel",
+        "start_year": 2019,
+        "count": 1,
+        "why": [
+          "title differs"
+        ]
+      }
+    ],
+    "name": "Marvel's Greatest Creators: Silver Surfer - Rude Awakening",
+    "publisher": "Marvel",
+    "year": 2019,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
+  },
+  "146181": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Marvel's Greatest Creators: Spider-Man - Kraven's Last Hunt",
+    "publisher": "Marvel",
+    "year": 2019,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
+  },
   "146182": {
     "status": "sure",
     "volume": {
@@ -2188,6 +2997,19 @@
     ],
     "checked_at": "2026-11-25T09:02:53.709Z",
     "tries": 1
+  },
+  "148555": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Gridiron",
+    "publisher": "Le Duc Comics",
+    "year": 2011,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
   },
   "150345": {
     "status": "none",
@@ -2216,6 +3038,41 @@
     ],
     "checked_at": "2026-11-26T05:02:15.630Z"
   },
+  "151952": {
+    "status": "ask",
+    "reason": "several volumes fit",
+    "options": [
+      {
+        "id": 122623,
+        "name": "gen:LOCK",
+        "publisher": "DC Comics",
+        "start_year": 2019,
+        "count": 5,
+        "why": [
+          "issue count differs"
+        ]
+      },
+      {
+        "id": 121457,
+        "name": "gen:LOCK",
+        "publisher": "DC Comics",
+        "start_year": 2019,
+        "count": 14,
+        "why": [
+          "issue count differs"
+        ]
+      }
+    ],
+    "name": "gen:LOCK",
+    "publisher": "DC",
+    "year": 2020,
+    "count": 6,
+    "collected": false,
+    "blank": [
+      "3"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z"
+  },
   "152844": {
     "status": "sure",
     "volume": {
@@ -2236,6 +3093,26 @@
       "4"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z",
+    "tries": 1
+  },
+  "154784": {
+    "status": "sure",
+    "volume": {
+      "id": 124278,
+      "name": "Marvel's Black Widow Prelude",
+      "publisher": "Marvel",
+      "start_year": 2020,
+      "count": 2
+    },
+    "name": "Marvel's Black Widow Prelude",
+    "publisher": "Marvel",
+    "year": 2020,
+    "count": 2,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-26T07:02:15.708Z",
     "tries": 1
   },
   "156215": {

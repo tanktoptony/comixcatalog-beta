@@ -836,9 +836,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-23T23:28:20.507875+00:00",
-    "retry_after": "2026-11-26T23:28:20.507878+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-26T23:31:34.113394+00:00",
+    "retry_after": "2026-12-03T23:31:34.113398+00:00",
     "search_hydrated": true
   },
   {
@@ -34682,21 +34682,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 5191,
-        "name": "Predator vs. Magnus Robot Fighter",
-        "publisher": "Valiant/Acclaim",
-        "start_year": 1993
-      },
-      {
         "id": 54243,
         "name": "Predator vs. Magnus Robot Fighter",
         "publisher": "Valiant/Acclaim",
         "start_year": 1994
+      },
+      {
+        "id": 5191,
+        "name": "Predator vs. Magnus Robot Fighter",
+        "publisher": "Valiant/Acclaim",
+        "start_year": 1993
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-19T23:27:09.994779+00:00",
-    "retry_after": "2026-11-26T23:27:09.994797+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T23:31:34.113238+00:00",
+    "retry_after": "2026-12-10T23:31:34.113252+00:00",
     "search_hydrated": true
   },
   {
@@ -93250,9 +93250,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-18T16:05:28.490103+00:00",
-    "retry_after": "2026-11-25T16:05:28.490121+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T23:36:15.372613+00:00",
+    "retry_after": "2026-12-10T23:36:15.372628+00:00",
     "search_hydrated": true
   },
   {
@@ -96657,8 +96657,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-26T23:04:09.410199+00:00",
-    "retry_after": "2026-11-27T23:04:09.410215+00:00",
+    "last_attempt_at": "2026-11-26T23:32:19.016499+00:00",
+    "retry_after": "2026-11-27T23:32:19.016512+00:00",
     "search_hydrated": true
   },
   {
@@ -97598,9 +97598,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-23T23:28:20.507814+00:00",
-    "retry_after": "2026-11-26T23:28:20.507819+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-26T23:32:04.446642+00:00",
+    "retry_after": "2026-12-03T23:32:04.446657+00:00",
     "search_hydrated": true
   },
   {
@@ -101595,6 +101595,75 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-26T23:06:07.638346+00:00",
     "retry_after": "2026-11-27T23:06:07.638351+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Abraham Stone: Country Mouse, City Rat",
+    "publisher": "Malibu Comics",
+    "year": 1991,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 22757,
+        "name": "Abraham Stone: Country Mouse, City Rat",
+        "publisher": "Platinum Studios Comics",
+        "start_year": 1991
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T23:36:43.173946+00:00",
+    "retry_after": "2026-11-27T23:36:43.173960+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Links",
+    "publisher": "VIZ Media",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 148145,
+        "name": "Links",
+        "publisher": "Milky Way Ediciones",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T23:36:43.174028+00:00",
+    "retry_after": "2026-11-27T23:36:43.174034+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Marvel Comic Classics Series Featuring Robinson Crusoe",
+    "publisher": "Marvel Comics",
+    "year": 1990,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T23:36:43.174057+00:00",
+    "retry_after": "2026-11-27T23:36:43.174061+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Radix Special Preview Edition 2001",
+    "publisher": "Image Comics",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T23:36:43.174076+00:00",
+    "retry_after": "2026-11-27T23:36:43.174078+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Secret War [Marvel Ultimate Alliance Mini-Comic]",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T23:36:43.174092+00:00",
+    "retry_after": "2026-11-27T23:36:43.174095+00:00",
     "search_hydrated": true
   }
 ]

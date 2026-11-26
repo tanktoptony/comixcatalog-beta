@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import EmptyState from "./EmptyState";
 import { coverThumb } from "@/lib/coverThumb";
 import { useAuth } from "@/context/AuthContext";
 import { issueNumberSuffix } from "@/lib/issueNumberLabel";
+import { authedFetch } from "@/lib/apiClient";
 
 const VIEW_STORAGE_KEY = "cc:profile-view";
 const INITIAL_GRID_ITEMS = 60;
@@ -86,7 +87,7 @@ const SORT_OPTIONS = [
   { value: "added-asc",   label: "Oldest added" },
 ];
 
-export default function ProfileTabs({ collection, isOwner, visibility = {}, profileUsername }) {
+export default function ProfileTabs({ collection, summary = {}, initialPage, isOwner, visibility = {}, profileUsername }) {
   const { user } = useAuth();
   // Filter out tabs whose section is hidden by privacy settings (unless owner).
   const visibleTabs = TAB_DEFS.filter((t) => {
@@ -95,13 +96,23 @@ export default function ProfileTabs({ collection, isOwner, visibility = {}, prof
     return visibility[t.visibilityKey] !== false;
   });
 
-  const [activeTab, setActiveTab] = useState(
-    visibleTabs[0]?.id || "owned"
-  );
+  const [activeTab, setActiveTab] = useState(initialPage?.tab || visibleTabs[0]?.id || "owned");
   // Default: title A–Z. Collectors typically want to scan a shelf by series.
-  const [sortMode, setSortMode] = useState("title-asc");
-  const [visibleGridItems, setVisibleGridItems] = useState(INITIAL_GRID_ITEMS);
+  const [sortMode, setSortMode] = useState(initialPage?.sort || "title-asc");
   const [tradeOnly, setTradeOnly] = useState(false);
+  const [items, setItems] = useState(collection);
+  const [page, setPage] = useState(initialPage ?? { total: collection.length, hasMore: false });
+  const [searchInput, setSearchInput] = useState("");
+  const [search, setSearch] = useState("");
+  const [searchPending, setSearchPending] = useState(false);
+  const [publisher, setPublisher] = useState("");
+  const [decade, setDecade] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const requestNumber = useRef(0);
+  const sentinelRef = useRef(null);
+  const firstRequest = useRef(true);
+  const retryRequest = useRef({ offset: 0, append: false });
   // View mode: "grid" (cards) or "rows" (one row per series, expand to see issues).
   // Default to rows on narrow viewports; persists in localStorage.
   const [viewMode, setViewMode] = useState("grid");
@@ -127,11 +138,73 @@ export default function ProfileTabs({ collection, isOwner, visibility = {}, prof
     try { localStorage.setItem(VIEW_STORAGE_KEY, next); } catch {}
   };
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSearch(searchInput.trim());
+      setSearchPending(false);
+    }, 250);
+    return () => clearTimeout(timer);
+  }, [searchInput]);
+
+  const requestPage = useCallback(async (offset, append = false) => {
+    if (activeTab === "activity") return;
+    retryRequest.current = { offset, append };
+    const currentRequest = ++requestNumber.current;
+    setLoading(true);
+    setError("");
+    const params = new URLSearchParams({
+      username: profileUsername,
+      tab: activeTab,
+      sort: sortMode,
+      offset: String(offset),
+      limit: String(INITIAL_GRID_ITEMS),
+    });
+    if (search) params.set("q", search);
+    if (publisher) params.set("publisher", publisher);
+    if (decade) params.set("decade", decade);
+    if (tradeOnly && activeTab === "owned") params.set("trade", "1");
+    try {
+      const response = await authedFetch(`/api/public-profile?${params.toString()}`);
+      const body = await response.json().catch(() => null);
+      if (!response.ok || !body?.collection || !body?.page) throw new Error(body?.error || "Could not load this shelf.");
+      if (currentRequest !== requestNumber.current) return;
+      setItems((current) => append
+        ? [...new Map([...current, ...body.collection].map((item) => [item.id, item])).values()]
+        : body.collection);
+      setPage(body.page);
+    } catch (requestError) {
+      if (currentRequest !== requestNumber.current) return;
+      setError(requestError?.message || "Could not load this shelf.");
+    } finally {
+      if (currentRequest === requestNumber.current) setLoading(false);
+    }
+  }, [activeTab, decade, profileUsername, publisher, search, sortMode, tradeOnly]);
+
+  useEffect(() => {
+    if (firstRequest.current) {
+      firstRequest.current = false;
+      return;
+    }
+    // The query controls changed, so replace the visible server page.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (activeTab !== "activity") requestPage(0, false);
+  }, [activeTab, requestPage]);
+
+  useEffect(() => {
+    const node = sentinelRef.current;
+    if (!node || !page?.hasMore || loading || error) return undefined;
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) requestPage(items.length, true);
+    }, { rootMargin: "400px" });
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [error, items.length, loading, page?.hasMore, requestPage]);
+
   const grouped = useMemo(() => {
     const owned = [];
     const wishlist = [];
     const forSale = [];
-    for (const item of collection) {
+    for (const item of items) {
       // A book listed for sale is still a book you own, so it stays on the
       // Owned shelf too (the Owned stat counts it); For Sale is the subset.
       if (item.status === "owned") owned.push(item);
@@ -139,77 +212,21 @@ export default function ProfileTabs({ collection, isOwner, visibility = {}, prof
       else if (item.status === "for_sale") { owned.push(item); forSale.push(item); }
     }
     return { owned, wishlist, forSale };
-  }, [collection]);
+  }, [items]);
 
   const counts = {
-    owned: grouped.owned.length,
-    wishlist: grouped.wishlist.length,
-    for_sale: grouped.forSale.length,
-    activity: collection.length,
+    owned: summary.counts?.owned ?? grouped.owned.length,
+    wishlist: summary.counts?.wishlist ?? grouped.wishlist.length,
+    for_sale: summary.counts?.for_sale ?? grouped.forSale.length,
+    activity: summary.counts?.activity ?? items.length,
   };
 
-  const rawActiveItemsBase =
-    activeTab === "owned"
-      ? grouped.owned
-      : activeTab === "wishlist"
-      ? grouped.wishlist
-      : activeTab === "for_sale"
-      ? grouped.forSale
-      : [];
-  const tradeCount = grouped.owned.filter((item) => item.open_to_trade).length;
+  const tradeCount = summary.tradeCount ?? grouped.owned.filter((item) => item.open_to_trade).length;
   const rawActiveItems = activeTab === "owned" && tradeOnly && tradeCount > 0
-    ? rawActiveItemsBase.filter((item) => item.open_to_trade)
-    : rawActiveItemsBase;
+    ? items.filter((item) => item.open_to_trade)
+    : items;
 
-  // Sort. We sort against display.* (resolved title/year/issue) so the order
-  // matches what the user actually sees on the cards, not the raw row data.
-  const activeItems = useMemo(() => {
-    if (activeTab === "activity") return rawActiveItems;
-    const items = [...rawActiveItems];
-    const safeTitle = (i) => String(i.display?.title ?? "").toLowerCase();
-    const safeIssue = (i) => issueSortValue(i.display?.issueNumber);
-    const safeYear = (i) => Number(i.display?.year ?? 0);
-    const safeAdded = (i) => i.created_at ?? "";
-    switch (sortMode) {
-      case "issue-asc":
-        items.sort((a, b) => {
-          const t = safeTitle(a).localeCompare(safeTitle(b));
-          return t !== 0 ? t : safeIssue(a) - safeIssue(b);
-        });
-        break;
-      case "issue-desc":
-        items.sort((a, b) => {
-          const t = safeTitle(a).localeCompare(safeTitle(b));
-          return t !== 0 ? t : safeIssue(b) - safeIssue(a);
-        });
-        break;
-      case "title-asc":
-        items.sort((a, b) => {
-          const t = safeTitle(a).localeCompare(safeTitle(b));
-          return t !== 0 ? t : safeIssue(a) - safeIssue(b);
-        });
-        break;
-      case "title-desc":
-        items.sort((a, b) => {
-          const t = safeTitle(b).localeCompare(safeTitle(a));
-          return t !== 0 ? t : safeIssue(a) - safeIssue(b);
-        });
-        break;
-      case "year-asc":
-        items.sort((a, b) => safeYear(a) - safeYear(b));
-        break;
-      case "year-desc":
-        items.sort((a, b) => safeYear(b) - safeYear(a));
-        break;
-      case "added-desc":
-        items.sort((a, b) => String(safeAdded(b)).localeCompare(String(safeAdded(a))));
-        break;
-      case "added-asc":
-        items.sort((a, b) => String(safeAdded(a)).localeCompare(String(safeAdded(b))));
-        break;
-    }
-    return items;
-  }, [rawActiveItems, sortMode, activeTab]);
+  const activeItems = rawActiveItems;
 
   return (
     <div className="profile-tabs-wrap">
@@ -223,7 +240,6 @@ export default function ProfileTabs({ collection, isOwner, visibility = {}, prof
             className={`profile-tab ${activeTab === tab.id ? "is-active" : ""}`}
             onClick={() => {
               setActiveTab(tab.id);
-              setVisibleGridItems(INITIAL_GRID_ITEMS);
             }}
           >
             <span className="profile-tab-label">{tab.label}</span>
@@ -233,9 +249,28 @@ export default function ProfileTabs({ collection, isOwner, visibility = {}, prof
       </div>
 
       <div className="profile-tab-panel">
-        {activeTab !== "activity" && activeItems.length > 0 && (
+        {activeTab !== "activity" && counts[activeTab] > 0 && (
           <div className="profile-toolbar">
             {activeTab === "owned" && tradeCount > 0 && <button type="button" className={`profile-trade-chip${tradeOnly ? " is-active" : ""}`} aria-pressed={tradeOnly} onClick={() => setTradeOnly((value) => !value)}>Open to trade ({tradeCount})</button>}
+            <input
+              className="profile-filter-input"
+              type="search"
+              value={searchInput}
+              placeholder="Search this collection"
+              aria-label="Search this collection"
+              onChange={(event) => {
+                setSearchPending(true);
+                setSearchInput(event.target.value);
+              }}
+            />
+            <select className="profile-sort-select" value={publisher} aria-label="Filter by publisher" onChange={(event) => setPublisher(event.target.value)}>
+              <option value="">All publishers</option>
+              {(summary.facets?.publishers ?? []).map((facet) => <option key={facet.value} value={facet.value}>{facet.value} ({facet.count})</option>)}
+            </select>
+            <select className="profile-sort-select" value={decade} aria-label="Filter by decade" onChange={(event) => setDecade(event.target.value)}>
+              <option value="">All decades</option>
+              {(summary.facets?.decades ?? []).map((facet) => <option key={facet.value} value={facet.value}>{facet.value}s ({facet.count})</option>)}
+            </select>
             <div className="profile-view-toggle" role="group" aria-label="View">
               <button
                 type="button"
@@ -262,7 +297,6 @@ export default function ProfileTabs({ collection, isOwner, visibility = {}, prof
                 value={sortMode}
                 onChange={(e) => {
                   setSortMode(e.target.value);
-                  setVisibleGridItems(INITIAL_GRID_ITEMS);
                 }}
               >
                 {SORT_OPTIONS.map((opt) => (
@@ -272,17 +306,24 @@ export default function ProfileTabs({ collection, isOwner, visibility = {}, prof
                 ))}
               </select>
             </div>
+            {(loading || searchPending) && <span className="profile-page-status" role="status">Loading books...</span>}
+          </div>
+        )}
+        {error && (
+          <div className="profile-page-error" role="alert">
+            <span>{error}</span>
+            <button type="button" className="primary-btn" onClick={() => requestPage(retryRequest.current.offset, retryRequest.current.append)}>Retry</button>
           </div>
         )}
         {activeTab === "activity" ? (
-          <ActivityList items={collection.slice(0, 20)} />
+          <ActivityList items={summary.activity ?? collection.slice(0, 20)} />
         ) : activeItems.length === 0 ? (
           <EmptyTab tab={activeTab} isOwner={isOwner} />
         ) : viewMode === "rows" ? (
           <SeriesRowsView items={activeItems} activeTab={activeTab} askAbout={!isOwner && user ? profileUsername : null} />
         ) : (
           <div className={`comic-grid${activeTab === "owned" ? " comic-grid--wall" : ""}`}>
-            {activeItems.slice(0, visibleGridItems).map((item) => {
+            {activeItems.map((item) => {
               const d = item.display;
               if (!d) return null;
               // "The Case" is a showcase, not a management view — the owned
@@ -388,17 +429,30 @@ export default function ProfileTabs({ collection, isOwner, visibility = {}, prof
                 </div>
               );
             })}
-            {activeItems.length > visibleGridItems && (
+            {page?.hasMore && (
               <button
+                ref={sentinelRef}
                 type="button"
                 className="primary-btn"
                 style={{ gridColumn: "1 / -1", justifySelf: "center" }}
-                onClick={() => setVisibleGridItems(activeItems.length)}
+                disabled={loading}
+                onClick={() => requestPage(items.length, true)}
               >
-                Show all {activeItems.length} books
+                {loading ? "Loading books..." : `Load more books (${items.length} of ${page.total})`}
               </button>
             )}
           </div>
+        )}
+        {activeTab !== "activity" && viewMode === "rows" && page?.hasMore && (
+          <button
+            ref={sentinelRef}
+            type="button"
+            className="primary-btn"
+            disabled={loading}
+            onClick={() => requestPage(items.length, true)}
+          >
+            {loading ? "Loading books..." : `Load more books (${items.length} of ${page.total})`}
+          </button>
         )}
       </div>
     </div>

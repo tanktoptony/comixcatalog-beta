@@ -25,8 +25,9 @@ function formatCurrency(n) {
 export default function CollectionInsightSidebar({
   collection,
   showCostBasis = false,
+  insights: precomputedInsights,
 }) {
-  const insights = useMemo(() => {
+  const computedInsights = useMemo(() => {
     const decadeCounts = {};
     const publisherCounts = {};
     let owned = 0;
@@ -87,6 +88,7 @@ export default function CollectionInsightSidebar({
       hasCostData,
     };
   }, [collection]);
+  const insights = precomputedInsights ?? computedInsights;
 
   const hasAny =
     insights.dominantDecade ||

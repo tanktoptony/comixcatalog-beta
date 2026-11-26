@@ -83,11 +83,13 @@ export default function CollectionStatsStrip({
   collection,
   visibility = {},
   autoMarketValues, // optional — only the library page passes this
+  stats: precomputedStats,
 }) {
-  const stats = useMemo(
+  const computedStats = useMemo(
     () => getCollectionStats(collection, autoMarketValues),
     [collection, autoMarketValues]
   );
+  const stats = precomputedStats ?? computedStats;
 
   const showWantlist = visibility.wantlist !== false;
   const showForSale = visibility.for_sale !== false;

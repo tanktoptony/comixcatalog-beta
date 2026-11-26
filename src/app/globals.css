@@ -10719,6 +10719,41 @@ button.nav-link {
   flex-wrap: wrap;
 }
 
+.profile-filter-input {
+  min-width: 180px;
+  flex: 1 1 220px;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.04);
+  color: inherit;
+  font: inherit;
+  font-size: 0.82rem;
+}
+
+.profile-filter-input:focus {
+  outline: none;
+  border-color: #F4D03F;
+}
+
+.profile-page-status {
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+
+.profile-page-error {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+  padding: 0.75rem;
+  border: 1px solid rgba(239,68,68,0.4);
+  border-radius: 8px;
+  background: rgba(239,68,68,0.08);
+  color: #fca5a5;
+}
+
 .profile-view-toggle {
   display: inline-flex;
   border: 1px solid rgba(255,255,255,0.12);

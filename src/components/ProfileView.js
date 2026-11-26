@@ -53,7 +53,7 @@ function formatAddedAgo(iso) {
 }
 
 export default function ProfileView({ data, isOwner = false }) {
-  const { profile, collection, visibility = {}, sellerFeedback } = data;
+  const { profile, collection, visibility = {}, sellerFeedback, summary = {} } = data;
   const username = profile.username;
   // Stats + insights are computed inside CollectionStatsStrip and
   // CollectionInsightSidebar from the raw `collection` array. We used to
@@ -69,11 +69,8 @@ export default function ProfileView({ data, isOwner = false }) {
   // map is needed here the way /library passes one.
   const showValue = visibility.value !== false;
   const ownedItems = collection.filter((item) => isOwnedStatus(item.status));
-  let collectionValue = 0;
-  for (const item of ownedItems) {
-    const v = Number(item.market_value);
-    if (!Number.isNaN(v) && v > 0) collectionValue += v;
-  }
+  const ownedCount = Number(summary.stats?.owned ?? ownedItems.length);
+  const collectionValue = Number(summary.stats?.value ?? 0);
   // Top Shelf isn't price-only — see key_issues table (migration 0026) and
   // CLAUDE.md's caveat that our current auto_market_value comes from eBay
   // *listing* prices, not confirmed sales. A curated key issue (1st
@@ -89,7 +86,7 @@ export default function ProfileView({ data, isOwner = false }) {
     }
     return value;
   };
-  const topShelf = ownedItems
+  const topShelf = summary.topShelf ?? ownedItems
     .filter((item) => item.display && (item.key_issue || Number(item.market_value) > 0))
     .sort((a, b) => topShelfScore(b) - topShelfScore(a))
     .slice(0, 5);
@@ -101,7 +98,7 @@ export default function ProfileView({ data, isOwner = false }) {
   // with Top Shelf is fine and expected (a just-added grail should show up
   // in both); this section is about recency, not exclusivity.
   //
-  const recentlyAdded = ownedItems.filter((item) => item.display).slice(0, 10);
+  const recentlyAdded = summary.recentlyAdded ?? ownedItems.filter((item) => item.display).slice(0, 10);
 
   const joinDate = formatJoinDate(profile.created_at);
   const avatarSrc = avatarForProfile(profile, { width: 264, height: 264 });
@@ -211,7 +208,7 @@ export default function ProfileView({ data, isOwner = false }) {
                 {formatCurrency(collectionValue)}
               </div>
               <div className="profile-value-plaque-meta">
-                {ownedItems.length} book{ownedItems.length === 1 ? "" : "s"}
+                {ownedCount} book{ownedCount === 1 ? "" : "s"}
               </div>
               <PriceChartingCredit />
             </div>
@@ -350,6 +347,7 @@ export default function ProfileView({ data, isOwner = false }) {
           value is suppressed here — see the plaque above. */}
       <CollectionStatsStrip
         collection={collection}
+        stats={summary.stats}
         visibility={{ ...visibility, value: false }}
       />
 
@@ -383,6 +381,8 @@ export default function ProfileView({ data, isOwner = false }) {
         <div className="profile-body-main">
           <ProfileTabs
             collection={collection}
+            summary={summary}
+            initialPage={data.page}
             isOwner={isOwner}
             visibility={visibility}
             profileUsername={profile.username}
@@ -399,10 +399,11 @@ export default function ProfileView({ data, isOwner = false }) {
           {/* Unified sidebar widgets — same component used on /library. */}
           <CollectionInsightSidebar
             collection={collection}
+            insights={summary.insights}
             showCostBasis={isOwner}
           />
 
-          {isOwner && collection.length === 0 && (
+          {isOwner && Number(summary.counts?.activity ?? collection.length) === 0 && (
             <div className="profile-side-card">
               <h3 className="profile-side-title">Get started</h3>
               <ol className="profile-getstarted">

@@ -26959,9 +26959,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-23T19:04:11.932707+00:00",
-    "retry_after": "2026-11-26T19:04:11.932726+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-26T19:04:21.371436+00:00",
+    "retry_after": "2026-12-03T19:04:21.371451+00:00",
     "search_hydrated": true
   },
   {
@@ -86223,9 +86223,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T19:06:34.037555+00:00",
-    "retry_after": "2026-11-26T19:06:34.037568+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T19:08:05.379846+00:00",
+    "retry_after": "2026-12-26T19:08:05.379860+00:00",
     "search_hydrated": true
   },
   {
@@ -86241,9 +86241,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T19:06:34.279873+00:00",
-    "retry_after": "2026-11-26T19:06:34.279888+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T19:08:05.708492+00:00",
+    "retry_after": "2026-12-26T19:08:05.708507+00:00",
     "search_hydrated": true
   },
   {
@@ -86259,9 +86259,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T19:06:34.279930+00:00",
-    "retry_after": "2026-11-26T19:06:34.279934+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T19:08:05.708543+00:00",
+    "retry_after": "2026-12-26T19:08:05.708547+00:00",
     "search_hydrated": true
   },
   {
@@ -86304,10 +86304,10 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 3982,
+        "id": 25567,
         "name": "Black Orchid",
         "publisher": "DC Comics",
-        "start_year": 1988
+        "start_year": 1991
       },
       {
         "id": 4952,
@@ -86316,15 +86316,15 @@
         "start_year": 1993
       },
       {
-        "id": 25567,
+        "id": 3982,
         "name": "Black Orchid",
         "publisher": "DC Comics",
-        "start_year": 1991
+        "start_year": 1988
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T19:06:30.557141+00:00",
-    "retry_after": "2026-11-26T19:06:30.557158+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T19:08:00.675582+00:00",
+    "retry_after": "2026-12-26T19:08:00.675587+00:00",
     "search_hydrated": true
   },
   {
@@ -96639,21 +96639,15 @@
   },
   {
     "name": "Pink Lemonade",
-    "publisher": "It's Alive Press",
+    "publisher": "Oni Press",
     "year": 2019,
-    "reason": "publisher_mismatch",
+    "reason": "multiple_candidates",
     "candidates": [
       {
         "id": 145289,
         "name": "Pink Lemonade",
         "publisher": "Oni Press",
         "start_year": 2022
-      },
-      {
-        "id": 122513,
-        "name": "Pink Lemonade",
-        "publisher": "It's Alive",
-        "start_year": 2019
       },
       {
         "id": 151940,
@@ -96663,8 +96657,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-26T18:03:14.295148+00:00",
-    "retry_after": "2026-11-27T18:03:14.295162+00:00",
+    "last_attempt_at": "2026-11-26T19:04:21.371502+00:00",
+    "retry_after": "2026-11-27T19:04:21.371506+00:00",
     "search_hydrated": true
   },
   {
@@ -97378,9 +97372,9 @@
         "start_year": 2001
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-23T18:03:20.039184+00:00",
-    "retry_after": "2026-11-26T18:03:20.039187+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-26T19:03:05.056576+00:00",
+    "retry_after": "2026-12-03T19:03:05.056592+00:00",
     "search_hydrated": true
   },
   {
@@ -97402,9 +97396,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-23T18:03:20.039220+00:00",
-    "retry_after": "2026-11-26T18:03:20.039223+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-26T19:04:12.450541+00:00",
+    "retry_after": "2026-12-03T19:04:12.450557+00:00",
     "search_hydrated": true
   },
   {
@@ -97413,9 +97407,9 @@
     "year": 2024,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-23T18:08:07.653672+00:00",
-    "retry_after": "2026-11-26T18:08:07.653688+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-26T19:08:00.675417+00:00",
+    "retry_after": "2026-12-03T19:08:00.675432+00:00",
     "search_hydrated": true
   },
   {
@@ -100887,9 +100881,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T18:06:55.637338+00:00",
-    "retry_after": "2026-11-26T18:06:55.637356+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-26T19:08:04.755868+00:00",
+    "retry_after": "2026-11-29T19:08:04.755882+00:00",
     "search_hydrated": true
   },
   {
@@ -101341,6 +101335,93 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-26T14:08:24.719946+00:00",
     "retry_after": "2026-11-27T14:08:24.719948+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Witchblade / Tomb Raider",
+    "publisher": "Image; Wizard",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 74149,
+        "name": "Witchblade / Tomb Raider",
+        "publisher": "Image",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T19:02:26.380725+00:00",
+    "retry_after": "2026-11-27T19:02:26.380740+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Outcast",
+    "publisher": "Editorial Kamite",
+    "year": 2017,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 52950,
+        "name": "The Outcast",
+        "publisher": "Chick Publications",
+        "start_year": 2001
+      },
+      {
+        "id": 71857,
+        "name": "The Outcast",
+        "publisher": "Seven Seas Entertainment",
+        "start_year": 2007
+      },
+      {
+        "id": 132560,
+        "name": "Outcast",
+        "publisher": "Cross Cult",
+        "start_year": 2015
+      },
+      {
+        "id": 108451,
+        "name": "Outcast",
+        "publisher": "Delcourt",
+        "start_year": 2015
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T19:03:05.056664+00:00",
+    "retry_after": "2026-11-27T19:03:05.056668+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Teenage Mutant Ninja Turtles: The Armageddon Game Pre Game",
+    "publisher": "IDW Publishing",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T19:08:22.048355+00:00",
+    "retry_after": "2026-11-27T19:08:22.048371+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Achewood: Worst Song, Played on Ugliest Guitar",
+    "publisher": "Dark Horse Comics",
+    "year": 2009,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T19:08:22.048396+00:00",
+    "retry_after": "2026-11-27T19:08:22.048400+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Chasing Dogma Trade Paperback",
+    "publisher": "Image Comics",
+    "year": 2001,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T19:08:22.048416+00:00",
+    "retry_after": "2026-11-27T19:08:22.048419+00:00",
     "search_hydrated": true
   }
 ]

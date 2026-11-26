@@ -7272,9 +7272,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-17T14:05:36.791790+00:00",
-    "retry_after": "2026-11-24T14:05:36.791795+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T23:05:53.838317+00:00",
+    "retry_after": "2026-12-10T23:05:53.838325+00:00",
     "search_hydrated": true
   },
   {
@@ -22896,9 +22896,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-17T13:06:03.902380+00:00",
-    "retry_after": "2026-11-24T13:06:03.902384+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T23:05:53.838275+00:00",
+    "retry_after": "2026-12-10T23:05:53.838279+00:00",
     "search_hydrated": true
   },
   {
@@ -25138,9 +25138,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-19T22:05:34.248771+00:00",
-    "retry_after": "2026-11-26T22:05:34.248786+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T23:02:57.190180+00:00",
+    "retry_after": "2026-12-10T23:02:57.190196+00:00",
     "search_hydrated": true
   },
   {
@@ -59323,9 +59323,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-19T22:05:34.248811+00:00",
-    "retry_after": "2026-11-26T22:05:34.248815+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T23:02:36.111426+00:00",
+    "retry_after": "2026-12-10T23:02:36.111445+00:00",
     "search_hydrated": true
   },
   {
@@ -93221,9 +93221,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-18T13:06:02.073214+00:00",
-    "retry_after": "2026-11-25T13:06:02.073217+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T23:05:53.838238+00:00",
+    "retry_after": "2026-12-10T23:05:53.838254+00:00",
     "search_hydrated": true
   },
   {
@@ -96657,8 +96657,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-26T22:03:17.470169+00:00",
-    "retry_after": "2026-11-27T22:03:17.470187+00:00",
+    "last_attempt_at": "2026-11-26T23:04:09.410199+00:00",
+    "retry_after": "2026-11-27T23:04:09.410215+00:00",
     "search_hydrated": true
   },
   {
@@ -101566,6 +101566,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-26T22:07:27.218741+00:00",
     "retry_after": "2026-11-27T22:07:27.218743+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deadworld: The Last Siesta",
+    "publisher": "IDW Publishing",
+    "year": 2011,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 75600,
+        "name": "Deadworld: The Last Siesta",
+        "publisher": "Caliber Comics",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T23:06:07.638270+00:00",
+    "retry_after": "2026-11-27T23:06:07.638285+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Punisher Anniversary Special",
+    "publisher": "Marvel Comics",
+    "year": 1994,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T23:06:07.638346+00:00",
+    "retry_after": "2026-11-27T23:06:07.638351+00:00",
     "search_hydrated": true
   }
 ]

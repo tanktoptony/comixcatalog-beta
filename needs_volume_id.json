@@ -36425,9 +36425,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-14T08:10:23.175991+00:00",
-    "retry_after": "2026-11-21T08:10:23.176009+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T11:07:13.701292+00:00",
+    "retry_after": "2026-12-10T11:07:13.701306+00:00",
     "search_hydrated": true
   },
   {
@@ -85572,9 +85572,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T09:10:26.562617+00:00",
-    "retry_after": "2026-11-26T09:10:26.562628+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T11:07:11.809103+00:00",
+    "retry_after": "2026-12-26T11:07:11.809114+00:00",
     "search_hydrated": true
   },
   {
@@ -93239,9 +93239,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-18T16:05:32.793603+00:00",
-    "retry_after": "2026-11-25T16:05:32.793619+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T11:07:12.441759+00:00",
+    "retry_after": "2026-12-10T11:07:12.441774+00:00",
     "search_hydrated": true
   },
   {
@@ -93325,9 +93325,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-19T09:05:37.989550+00:00",
-    "retry_after": "2026-11-26T09:05:37.989566+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T11:07:12.570317+00:00",
+    "retry_after": "2026-12-10T11:07:12.570334+00:00",
     "search_hydrated": true
   },
   {
@@ -93343,9 +93343,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-19T09:05:38.107254+00:00",
-    "retry_after": "2026-11-26T09:05:38.107270+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-26T11:07:12.710088+00:00",
+    "retry_after": "2026-12-10T11:07:12.710105+00:00",
     "search_hydrated": true
   },
   {
@@ -96663,8 +96663,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-26T10:03:21.987528+00:00",
-    "retry_after": "2026-11-27T10:03:21.987544+00:00",
+    "last_attempt_at": "2026-11-26T11:03:21.377773+00:00",
+    "retry_after": "2026-11-27T11:03:21.377787+00:00",
     "search_hydrated": true
   },
   {
@@ -101306,6 +101306,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-26T10:07:46.222081+00:00",
     "retry_after": "2026-11-27T10:07:46.222086+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Spy Seal",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 103528,
+        "name": "Spy Seal",
+        "publisher": "Image",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T11:07:12.234698+00:00",
+    "retry_after": "2026-11-27T11:07:12.234714+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Absolute Authority",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 37762,
+        "name": "Absolute Authority",
+        "publisher": "DC Comics",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T11:07:12.312147+00:00",
+    "retry_after": "2026-11-27T11:07:12.312153+00:00",
     "search_hydrated": true
   }
 ]

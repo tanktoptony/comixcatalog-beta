@@ -30942,9 +30942,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-23T00:04:40.631643+00:00",
-    "retry_after": "2026-11-26T00:04:40.631658+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-26T01:02:09.801808+00:00",
+    "retry_after": "2026-12-03T01:02:09.801822+00:00",
     "search_hydrated": true
   },
   {
@@ -38183,9 +38183,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-23T01:01:55.721656+00:00",
-    "retry_after": "2026-11-26T01:01:55.721672+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-26T01:02:53.722517+00:00",
+    "retry_after": "2026-12-03T01:02:53.722523+00:00",
     "search_hydrated": true
   },
   {
@@ -55769,9 +55769,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T01:05:43.971509+00:00",
-    "retry_after": "2026-11-26T01:05:43.971511+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T01:06:50.810545+00:00",
+    "retry_after": "2026-12-26T01:06:50.810547+00:00",
     "search_hydrated": true
   },
   {
@@ -85440,9 +85440,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T01:05:43.971459+00:00",
-    "retry_after": "2026-11-26T01:05:43.971476+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T01:06:50.810477+00:00",
+    "retry_after": "2026-12-26T01:06:50.810492+00:00",
     "search_hydrated": true
   },
   {
@@ -85451,9 +85451,9 @@
     "year": 2020,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T01:05:43.971493+00:00",
-    "retry_after": "2026-11-26T01:05:43.971496+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-26T01:06:50.810514+00:00",
+    "retry_after": "2026-12-26T01:06:50.810518+00:00",
     "search_hydrated": true
   },
   {
@@ -96663,8 +96663,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-26T00:03:08.924835+00:00",
-    "retry_after": "2026-11-27T00:03:08.924847+00:00",
+    "last_attempt_at": "2026-11-26T01:03:10.254003+00:00",
+    "retry_after": "2026-11-27T01:03:10.254019+00:00",
     "search_hydrated": true
   },
   {
@@ -100410,9 +100410,9 @@
         "start_year": 1999
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T00:03:40.658093+00:00",
-    "retry_after": "2026-11-26T00:03:40.658098+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-26T01:02:53.722610+00:00",
+    "retry_after": "2026-11-29T01:02:53.722614+00:00",
     "search_hydrated": true
   },
   {
@@ -100428,9 +100428,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T00:03:40.658171+00:00",
-    "retry_after": "2026-11-26T00:03:40.658174+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-26T01:02:35.533320+00:00",
+    "retry_after": "2026-11-29T01:02:35.533335+00:00",
     "search_hydrated": true
   },
   {
@@ -100446,9 +100446,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T00:03:53.441234+00:00",
-    "retry_after": "2026-11-26T00:03:53.441238+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-26T01:02:35.533440+00:00",
+    "retry_after": "2026-11-29T01:02:35.533443+00:00",
     "search_hydrated": true
   },
   {
@@ -100464,9 +100464,9 @@
         "start_year": 1986
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-25T00:03:53.441293+00:00",
-    "retry_after": "2026-11-26T00:03:53.441299+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-26T01:02:53.722450+00:00",
+    "retry_after": "2026-11-29T01:02:53.722474+00:00",
     "search_hydrated": true
   },
   {
@@ -101072,6 +101072,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-26T00:07:12.018494+00:00",
     "retry_after": "2026-11-27T00:07:12.018509+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Millennium Edition: Flash Comics No. 1",
+    "publisher": "DC Comics",
+    "year": 2000,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-26T01:07:01.590659+00:00",
+    "retry_after": "2026-11-27T01:07:01.590674+00:00",
     "search_hydrated": true
   }
 ]

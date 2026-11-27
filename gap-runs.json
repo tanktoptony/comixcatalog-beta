@@ -364,6 +364,13 @@
     "series_gcd_id": 152850
   },
   {
+    "name": "ThunderCats",
+    "publisher": "Dynamite Entertainment",
+    "year": 2026,
+    "volume_id": 177682,
+    "series_gcd_id": 241396
+  },
+  {
     "name": "Liberty Meadows",
     "publisher": "Insight Studios Group",
     "year": 1999,
@@ -588,13 +595,6 @@
     "series_gcd_id": 44560
   },
   {
-    "name": "Lovecraft: Unknown Kadath",
-    "publisher": "Ablaze Publishing",
-    "year": 2022,
-    "volume_id": 154749,
-    "series_gcd_id": 189397
-  },
-  {
     "name": "Knights of the Dinner Table Illustrated",
     "publisher": "Kenzer and Company",
     "year": 2000,
@@ -735,13 +735,6 @@
     "series_gcd_id": 10527
   },
   {
-    "name": "The Forever Home",
-    "publisher": "Oni Press",
-    "year": 2026,
-    "volume_id": 176901,
-    "series_gcd_id": 240351
-  },
-  {
     "name": "The Exiled",
     "publisher": "Massive",
     "year": 2023,
@@ -861,6 +854,13 @@
     "series_gcd_id": 10096
   },
   {
+    "name": "The Forever Home",
+    "publisher": "Oni Press",
+    "year": 2026,
+    "volume_id": 176901,
+    "series_gcd_id": 240351
+  },
+  {
     "name": "CMX Manga Sampler",
     "publisher": "DC",
     "year": 2004,
@@ -917,11 +917,11 @@
     "series_gcd_id": 24622
   },
   {
-    "name": "Superman / Supergirl: Maelstrom",
-    "publisher": "DC",
-    "year": 2009,
-    "volume_id": 165989,
-    "series_gcd_id": 32444
+    "name": "Executive Assistant: Iris",
+    "publisher": "Aspen",
+    "year": 2018,
+    "volume_id": 115107,
+    "series_gcd_id": 161183
   },
   {
     "name": "Superman / Wonder Woman",
@@ -929,6 +929,13 @@
     "year": 2015,
     "volume_id": 138173,
     "series_gcd_id": 94164
+  },
+  {
+    "name": "The Eye Collector",
+    "publisher": "Image",
+    "year": 2026,
+    "volume_id": 173285,
+    "series_gcd_id": 238478
   },
   {
     "name": "Clayface: Celebrity Dirt",
@@ -1111,13 +1118,6 @@
     "year": 2026,
     "volume_id": 170952,
     "series_gcd_id": 234848
-  },
-  {
-    "name": "The Eye Collector",
-    "publisher": "Image",
-    "year": 2026,
-    "volume_id": 173285,
-    "series_gcd_id": 238478
   },
   {
     "name": "Slingers",
@@ -1414,13 +1414,6 @@
     "series_gcd_id": 5306
   },
   {
-    "name": "Death of Wolverine: The Weapon X Program",
-    "publisher": "Marvel",
-    "year": 2015,
-    "volume_id": 77940,
-    "series_gcd_id": 84384
-  },
-  {
     "name": "Marvel Action Hour, Featuring Iron Man",
     "publisher": "Marvel",
     "year": 1994,
@@ -1496,5 +1489,12 @@
     "year": 2009,
     "volume_id": 24399,
     "series_gcd_id": 33370
+  },
+  {
+    "name": "Vampirella and the Scarlet Legion",
+    "publisher": "Dynamite Entertainment",
+    "year": 2011,
+    "volume_id": 40213,
+    "series_gcd_id": 58743
   }
 ]

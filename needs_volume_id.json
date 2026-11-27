@@ -93931,9 +93931,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-16T13:29:50.028340+00:00",
-    "retry_after": "2026-11-19T13:29:50.028356+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T15:06:53.656003+00:00",
+    "retry_after": "2026-12-04T15:06:53.656018+00:00",
     "search_hydrated": true
   },
   {
@@ -93949,9 +93949,9 @@
         "start_year": 2004
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-16T13:29:50.028401+00:00",
-    "retry_after": "2026-11-19T13:29:50.028402+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T15:06:53.656070+00:00",
+    "retry_after": "2026-12-04T15:06:53.656073+00:00",
     "search_hydrated": true
   },
   {
@@ -94028,9 +94028,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-16T14:05:41.685080+00:00",
-    "retry_after": "2026-11-19T14:05:41.685096+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T15:06:48.204935+00:00",
+    "retry_after": "2026-12-04T15:06:48.204952+00:00",
     "search_hydrated": true
   },
   {
@@ -94046,9 +94046,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-16T13:29:50.174309+00:00",
-    "retry_after": "2026-11-19T13:29:50.174324+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T15:06:53.797457+00:00",
+    "retry_after": "2026-12-04T15:06:53.797471+00:00",
     "search_hydrated": true
   },
   {
@@ -96651,8 +96651,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-27T14:03:21.707118+00:00",
-    "retry_after": "2026-11-28T14:03:21.707136+00:00",
+    "last_attempt_at": "2026-11-27T15:02:58.177530+00:00",
+    "retry_after": "2026-11-28T15:02:58.177545+00:00",
     "search_hydrated": true
   },
   {
@@ -102054,6 +102054,30 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-27T14:07:40.874054+00:00",
     "retry_after": "2026-11-28T14:07:40.874070+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kinetic",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 11251,
+        "name": "Kinetic",
+        "publisher": "DC Comics",
+        "start_year": 2004
+      },
+      {
+        "id": 44008,
+        "name": "Kinetic",
+        "publisher": "DC Comics",
+        "start_year": 2005
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T15:06:48.204987+00:00",
+    "retry_after": "2026-11-28T15:06:48.204991+00:00",
     "search_hydrated": true
   }
 ]

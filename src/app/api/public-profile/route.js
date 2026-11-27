@@ -1,3 +1,5 @@
+import { gunzipSync, gzipSync } from "node:zlib";
+import { unstable_cache } from "next/cache";
 import { NextResponse } from "next/server";
 import { getServiceClient } from "@/lib/supabase/service";
 import { getAuthedUser } from "@/lib/authServer";
@@ -10,15 +12,32 @@ import { fetchAllPages } from "@/lib/supabase/fetchAllPages";
 import { bestYearFor, parseYear } from "@/lib/years";
 import { createServerTiming } from "@/lib/serverTiming";
 import { resolveCovers } from "@/lib/catalog/covers";
-import { coverBatches, numbersByKey } from "@/lib/coverBatches";
+import { coverBatches } from "@/lib/coverBatches";
+import {
+  parsePublicProfileQuery,
+  profileResponseAllowed,
+  queryPublicProfileRows,
+  selectPublicProfileHighlights,
+  summarizePublicProfileRows,
+} from "@/lib/publicProfilePaging";
 
-// publication_date is null on ~65% of gcd_issues rows; key_date (GCD's sortable
-// approximation) fills most of that gap. Without this fallback a collector's
-// owned issues show "Unknown" year ~⅔ of the time AND lose their cover (the
-// year-aware matcher below requires a non-null year).
-// Two reads at a time per call, as before: one profile load never has more than
-// four in flight.
+const IN_CHUNK = 500;
+const norm = (value) => String(value ?? "").trim().toLowerCase();
+
+function displayNumbersByKey(rows, keyOf) {
+  const numbers = new Map();
+  for (const row of rows) {
+    const key = keyOf(row);
+    const issueNumber = row.display?.issueNumber;
+    if (key == null || issueNumber == null) continue;
+    if (!numbers.has(key)) numbers.set(key, new Set());
+    numbers.get(key).add(issueNumber);
+  }
+  return numbers;
+}
+
 async function readBatches(batches, read) {
+  if (!batches.length) return [];
   const results = new Array(batches.length);
   let next = 0;
   await Promise.all(Array.from({ length: Math.min(2, batches.length) }, async () => {
@@ -31,69 +50,352 @@ async function readBatches(batches, read) {
   return results.flat();
 }
 
-function norm(value) {
-  return String(value ?? "").trim().toLowerCase();
+async function readInChunks(ids, read, orderCol = "id") {
+  const rows = [];
+  for (let index = 0; index < ids.length; index += IN_CHUNK) {
+    rows.push(...await fetchAllPages(() => read(ids.slice(index, index + IN_CHUNK)), orderCol));
+  }
+  return rows;
+}
+
+function visibleCollectionRows(rows, visibility) {
+  return rows.filter((item) => {
+    if (item.status === "owned" && !visibility.collection) return false;
+    if (item.status === "wishlist" && !visibility.wantlist) return false;
+    if (item.status === "for_sale" && !visibility.for_sale) return false;
+    return true;
+  });
+}
+
+async function loadProfileIndex(profileId, visibility) {
+  const supabase = getServiceClient();
+  let degraded = false;
+  const collection = visibleCollectionRows(await fetchAllPages(() =>
+    supabase.from("user_collections").select(`
+      id, status, condition, grade_numeric, slab_company, purchase_price,
+      market_value, created_at, comic_id, gcd_issue_id, user_cover_url,
+      variant_label, copy_number, open_to_trade,
+      comics!user_collections_comic_id_fkey (
+        id, issue_number, release_year, series_title, publisher,
+        comic_covers ( image_path, is_primary )
+      )
+    `).eq("user_id", profileId), "id"), visibility);
+
+  const gcdIds = [...new Set(collection.map((item) => item.gcd_issue_id).filter((id) => id != null))];
+  const hasForSale = collection.some((item) => item.status === "for_sale");
+  const [issues, keyResult, listingResult] = await Promise.all([
+    readInChunks(gcdIds, (chunk) => supabase
+      .from("gcd_issues")
+      .select("gcd_id, series_gcd_id, issue_number, publication_date, key_date")
+      .in("gcd_id", chunk), "gcd_id"),
+    gcdIds.length
+      ? readInChunks(gcdIds, (chunk) => supabase
+          .from("key_issues")
+          .select("id, gcd_issue_id, character, reason, tier")
+          .in("gcd_issue_id", chunk), "id")
+          .then((data) => ({ data, error: null }), (error) => ({ data: [], error }))
+      : { data: [], error: null },
+    hasForSale
+      ? fetchAllPages(() => supabase
+          .from("listings")
+          .select("id, collection_id, price_cents")
+          .eq("seller_id", profileId)
+          .eq("status", "active"), "id")
+          .then((data) => ({ data, error: null }), (error) => ({ data: [], error }))
+      : { data: [], error: null },
+  ]);
+
+  if (keyResult.error) {
+    console.error("public profile key issue lookup failed:", keyResult.error.code, keyResult.error.message);
+    degraded = true;
+  }
+  if (listingResult.error) {
+    console.error("public profile listing price lookup failed:", listingResult.error.code, listingResult.error.message);
+    degraded = true;
+  }
+
+  const seriesIds = [...new Set(issues.map((issue) => issue.series_gcd_id).filter(Boolean))];
+  const seriesRows = await readInChunks(seriesIds, (chunk) => supabase
+    .from("series")
+    .select("id, gcd_id, title, resolved_publisher_cached, year_start_cached, year_end_cached, publisher:publisher_id(name)")
+    .in("gcd_id", chunk), "id");
+  const issueById = new Map(issues.map((issue) => [Number(issue.gcd_id), issue]));
+  const seriesById = new Map(seriesRows.map((series) => [Number(series.gcd_id), series]));
+  const keyByIssue = new Map((keyResult.data ?? []).map((row) => [Number(row.gcd_issue_id), {
+    character: row.character,
+    reason: row.reason,
+    tier: row.tier,
+  }]));
+  const listingByCollection = new Map((listingResult.data ?? []).map((row) => [row.collection_id, row]));
+
+  const indexed = collection.map((item) => {
+    const issue = item.gcd_issue_id == null ? null : issueById.get(Number(item.gcd_issue_id));
+    const series = issue ? seriesById.get(Number(issue.series_gcd_id)) : null;
+    const comic = item.comics;
+    const communityCover = comic?.comic_covers?.find((cover) => cover.is_primary) ?? comic?.comic_covers?.[0];
+    const listing = listingByCollection.get(item.id);
+    const display = issue ? {
+      title: series?.title ?? "Untitled",
+      issueNumber: issue.issue_number ?? "",
+      year: bestYearFor(issue),
+      publisher: series?.resolved_publisher_cached ?? series?.publisher?.name ?? null,
+      href: `/issue/gcd-${issue.gcd_id}`,
+    } : comic ? {
+      title: comic.series_title || "Untitled",
+      issueNumber: comic.issue_number ?? "",
+      year: comic.release_year ?? null,
+      publisher: comic.publisher ?? null,
+      href: `/comic/${comic.id}`,
+    } : null;
+    if (!display) return null;
+    return {
+      id: item.id,
+      status: item.status,
+      condition: item.condition,
+      grade_numeric: item.grade_numeric,
+      slab_company: item.slab_company,
+      purchase_price: visibility.value ? item.purchase_price : null,
+      market_value: visibility.value ? item.market_value : null,
+      created_at: item.created_at,
+      gcd_issue_id: item.gcd_issue_id,
+      variant_label: item.variant_label,
+      copy_number: item.copy_number,
+      open_to_trade: item.open_to_trade,
+      listing_id: item.status === "for_sale" ? listing?.id ?? null : undefined,
+      listing_price: item.status === "for_sale" && listing?.price_cents != null ? listing.price_cents / 100 : undefined,
+      display,
+      key_issue: item.gcd_issue_id == null ? null : keyByIssue.get(Number(item.gcd_issue_id)) ?? null,
+      _series_gcd_id: issue?.series_gcd_id ?? null,
+      _series_year_start: series?.year_start_cached ?? null,
+      _series_year_end: series?.year_end_cached ?? null,
+      _user_cover_path: item.user_cover_url ?? null,
+      _community_cover_path: communityCover?.image_path ?? null,
+    };
+  }).filter(Boolean);
+
+  if (visibility.value) {
+    const gradeSignals = indexed
+      .filter((item) => isOwnedStatus(item.status) && item.gcd_issue_id != null)
+      .map((item) => ({
+        collection_id: item.id,
+        gcd_issue_id: item.gcd_issue_id,
+        grade_numeric: item.grade_numeric,
+        slab_company: item.slab_company,
+        condition: item.condition,
+        release_year: item.display.year,
+      }));
+    try {
+      const values = await getMarketValuesBulk({ supabase, items: gradeSignals });
+      for (const item of indexed) {
+        const manual = Number(item.market_value);
+        if (Number.isFinite(manual) && manual > 0) continue;
+        const automatic = values.get(item.id);
+        if (automatic?.value > 0) item.market_value = automatic.value;
+      }
+    } catch (error) {
+      console.error("public profile value lookup failed:", error?.code, error?.message);
+      degraded = true;
+    }
+  }
+  return { rows: indexed, degraded };
+}
+
+const cachedProfileIndex = unstable_cache(async (profileId, visibilityJson) => {
+  const loaded = await loadProfileIndex(profileId, JSON.parse(visibilityJson));
+  return gzipSync(Buffer.from(JSON.stringify(loaded))).toString("base64");
+}, ["public-profile-index-v1"], { revalidate: 60 });
+
+async function getProfileIndex(profileId, visibility, cacheable) {
+  if (!cacheable) return loadProfileIndex(profileId, visibility);
+  const compressed = await cachedProfileIndex(profileId, JSON.stringify(visibility));
+  return JSON.parse(gunzipSync(Buffer.from(compressed, "base64")).toString("utf8"));
+}
+
+function yearOfCover(cover) {
+  return parseYear(cover.cover_date) ?? (cover.series_year != null ? Number(cover.series_year) : null);
+}
+
+function pickStoragePath(candidates, issueYear, seriesYearStart, seriesYearEnd) {
+  if (!candidates?.length) return null;
+  if (issueYear != null) {
+    let best = null;
+    let bestDiff = Infinity;
+    for (const candidate of candidates) {
+      const year = yearOfCover(candidate);
+      if (year == null) continue;
+      const difference = Math.abs(year - issueYear);
+      if (difference <= 1 && difference < bestDiff) {
+        best = candidate;
+        bestDiff = difference;
+      }
+    }
+    return best?.storage_path ?? null;
+  }
+  if (seriesYearStart != null) {
+    const low = Number(seriesYearStart) - 1;
+    const high = Number(seriesYearEnd ?? Number(seriesYearStart) + 30) + 1;
+    const inWindow = candidates
+      .map((candidate) => ({ candidate, year: yearOfCover(candidate) }))
+      .filter(({ year }) => year != null && year >= low && year <= high)
+      .sort((left, right) => left.year - right.year)[0];
+    if (inWindow) return inWindow.candidate.storage_path;
+  }
+  return [...candidates].sort((left, right) => (yearOfCover(left) ?? Infinity) - (yearOfCover(right) ?? Infinity))[0]?.storage_path ?? null;
+}
+
+async function resolvePageItems(supabase, rows) {
+  if (!rows.length) return [];
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const gcdRows = rows.filter((item) => item.gcd_issue_id != null);
+  const seriesIds = [...new Set(gcdRows.map((item) => item._series_gcd_id).filter(Boolean))];
+  const titles = [...new Set(gcdRows.map((item) => item.display.title).filter(Boolean))];
+  const numbersBySeries = displayNumbersByKey(gcdRows, (item) => item._series_gcd_id);
+  const numbersByTitle = displayNumbersByKey(gcdRows, (item) => item.display.title);
+  const [idCovers, titleCovers] = await Promise.all([
+    readBatches(coverBatches(seriesIds, numbersBySeries), ({ group, numbers }) => supabase
+      .from("canonical_covers")
+      .select("id, series_gcd_id, issue_number, series_year, cover_date, storage_path")
+      .in("series_gcd_id", group)
+      .in("issue_number", numbers)
+      .not("storage_path", "is", null)),
+    readBatches(coverBatches(titles, numbersByTitle), ({ group, numbers }) => supabase
+      .from("canonical_covers")
+      .select("id, series_title, issue_number, series_year, cover_date, storage_path")
+      .in("series_title", [...new Set(group.flatMap(titleVariants))])
+      .in("issue_number", numbers)
+      .not("storage_path", "is", null)),
+  ]);
+  const bySeries = new Map();
+  const byTitle = new Map();
+  for (const cover of idCovers) {
+    const key = `${cover.series_gcd_id}::${norm(cover.issue_number)}`;
+    if (!bySeries.has(key)) bySeries.set(key, []);
+    bySeries.get(key).push(cover);
+  }
+  for (const cover of titleCovers) {
+    const key = `${normTitle(cover.series_title)}::${norm(cover.issue_number)}`;
+    if (!byTitle.has(key)) byTitle.set(key, []);
+    byTitle.get(key).push(cover);
+  }
+
+  const pathById = new Map();
+  for (const item of gcdRows) {
+    const number = norm(item.display.issueNumber);
+    const idKey = `${item._series_gcd_id}::${number}`;
+    const titleKey = `${normTitle(item.display.title)}::${number}`;
+    const path = pickStoragePath(bySeries.get(idKey), item.display.year, item._series_year_start, item._series_year_end)
+      ?? pickStoragePath(byTitle.get(titleKey), item.display.year, item._series_year_start, item._series_year_end);
+    if (path) pathById.set(item.id, path);
+  }
+
+  const blanks = gcdRows.filter((item) => !pathById.has(item.id));
+  if (blanks.length) {
+    const resolved = await resolveCovers(supabase, blanks.map((item) => ({
+      gcd_issue_id: item.gcd_issue_id,
+      series_gcd_id: item._series_gcd_id,
+      series_title: item.display.title,
+      issue_number: item.display.issueNumber,
+      year: item.display.year,
+      series_year_start: item._series_year_start,
+      series_year_end: item._series_year_end,
+      publisher: item.display.publisher,
+    }))).catch((error) => {
+      console.error("public-profile: shared cover fallback failed", error?.message);
+      return new Map();
+    });
+    for (const item of blanks) {
+      const path = resolved.get(item.gcd_issue_id)?.storage_path;
+      if (path) pathById.set(item.id, path);
+    }
+  }
+
+  // Local-only cover lookups use the same title and issue-number batching as
+  // GCD rows. One unbounded pair of in() clauses used to produce a 400 for
+  // large hand-entered collections.
+  const localRows = rows.filter((item) => item.gcd_issue_id == null);
+  const localTitles = [...new Set(localRows.map((item) => item.display.title).filter(Boolean))];
+  const localNumbers = displayNumbersByKey(localRows, (item) => item.display.title);
+  const localCovers = await readBatches(coverBatches(localTitles, localNumbers), ({ group, numbers }) => supabase
+    .from("canonical_covers")
+    .select("id, series_title, issue_number, series_year, cover_date, storage_path")
+    .in("series_title", [...new Set(group.flatMap(titleVariants))])
+    .in("issue_number", numbers)
+    .not("storage_path", "is", null));
+  const localByKey = new Map();
+  for (const cover of localCovers) {
+    const key = `${normTitle(cover.series_title)}::${norm(cover.issue_number)}`;
+    if (!localByKey.has(key)) localByKey.set(key, []);
+    localByKey.get(key).push(cover);
+  }
+  for (const item of localRows) {
+    const key = `${normTitle(item.display.title)}::${norm(item.display.issueNumber)}`;
+    const path = pickStoragePath(localByKey.get(key), item.display.year, null, null);
+    if (path) pathById.set(item.id, path);
+  }
+
+  return rows.map((item) => {
+    const canonicalPath = pathById.get(item.id);
+    const display = {
+      ...item.display,
+      canonicalCoverUrl: canonicalPath ? `${supabaseUrl}/storage/v1/object/public/canonical-covers/${canonicalPath}` : null,
+      personalCoverUrl: item._user_cover_path ? `${supabaseUrl}/storage/v1/object/public/comic-covers/${item._user_cover_path}` : null,
+      communityCoverUrl: item._community_cover_path ? `${supabaseUrl}/storage/v1/object/public/comic-covers/${item._community_cover_path}` : null,
+    };
+    return {
+      id: item.id,
+      status: item.status,
+      condition: item.condition,
+      grade_numeric: item.grade_numeric,
+      slab_company: item.slab_company,
+      purchase_price: item.purchase_price,
+      market_value: item.market_value,
+      created_at: item.created_at,
+      gcd_issue_id: item.gcd_issue_id,
+      variant_label: item.variant_label,
+      copy_number: item.copy_number,
+      open_to_trade: item.open_to_trade,
+      ...(item.status === "for_sale" ? { listing_id: item.listing_id, listing_price: item.listing_price } : {}),
+      display,
+      key_issue: item.key_issue,
+    };
+  });
+}
+
+function defaultTabFor(visibility) {
+  if (visibility.collection) return "owned";
+  if (visibility.wantlist) return "wishlist";
+  if (visibility.for_sale) return "for_sale";
+  return "owned";
 }
 
 export async function GET(req) {
   const timing = createServerTiming();
-  for (const phase of [
-    "auth", "profile", "collection", "covers", "series_publishers",
-    "listings", "key_issues", "values", "serialization",
-  ]) timing.set(phase);
-
+  for (const phase of ["auth", "profile", "collection", "covers", "series_publishers", "listings", "key_issues", "values", "serialization"]) timing.set(phase);
   let hasVerifiedViewer = false;
   const json = (body, init) => {
     const response = timing.measureSync("serialization", () => NextResponse.json(body, init));
-    response.headers.set(
-      "Cache-Control",
-      hasVerifiedViewer
-        ? "private, no-store"
-        : "public, s-maxage=60, stale-while-revalidate=300"
-    );
+    response.headers.set("Cache-Control", hasVerifiedViewer ? "private, no-store" : "public, s-maxage=60, stale-while-revalidate=300");
     response.headers.set("Vary", "Authorization");
     response.headers.set("Server-Timing", timing.header());
     return response;
   };
-  const supabase = getServiceClient();
-  let degraded = false;
 
   const { searchParams } = new URL(req.url);
   const username = searchParams.get("username");
-  // Optional auth — anonymous visitors can still view public profiles.
-  // A viewer_id can only mean "you are the owner" if it's backed by a real
-  // verified session; a spoofable query param would let anyone see a
-  // non-public profile's private data by guessing its owner's id.
-  if (!username) {
-    return json({ error: "Username required" }, { status: 400 });
-  }
-
-  // Viewer auth and the public profile lookup are independent. Starting both
-  // together removes one Supabase round trip from every request.
+  if (!username) return json({ error: "Username required" }, { status: 400 });
+  const supabase = getServiceClient();
   const [authedViewer, profileResult] = await Promise.all([
     timing.measure("auth", () => getAuthedUser(req)),
-    timing.measure("profile", () => supabase
-      .from("profiles")
-      .select(
-        "id, username, is_public, avatar_key, avatar_url, is_founding_collector, is_pro, membership_tier, is_patron, created_at, display_name, location, bio, website_url, show_collection, show_wantlist, show_for_sale, show_value, showcase_badges"
-      )
-      .eq("username", username)
-      .single()),
+    timing.measure("profile", () => supabase.from("profiles")
+      .select("id, username, is_public, avatar_key, avatar_url, is_founding_collector, is_pro, membership_tier, is_patron, created_at, display_name, location, bio, website_url, show_collection, show_wantlist, show_for_sale, show_value, showcase_badges")
+      .eq("username", username).single()),
   ]);
   hasVerifiedViewer = Boolean(authedViewer?.id);
+  const profile = profileResult.data;
+  if (profileResult.error || !profile) return json({ error: "Not found" }, { status: 404 });
+
   const viewerId = authedViewer?.id ?? null;
-  const { data: profile, error: profileError } = profileResult;
-
-  if (profileError || !profile) {
-    return json({ error: "Not found" }, { status: 404 });
-  }
-
   const ownerViewer = Boolean(viewerId && viewerId === profile.id);
-
-  // Tony's accounts (admin + @test_tony) see private members' profiles in
-  // full, on the profile page itself (Tony, 2026-11-24: "i should be able to
-  // see private profile pages ... im not going to another page"). Same gate
-  // as /admin/private-members: the admin account needs a two-factor session.
   let privateMemberViewer = false;
   if (!ownerViewer && !profile.is_public && canSeePrivateMembers(viewerId)) {
     if (viewerId === ADMIN_ID && aalFromToken(bearerToken(req)) !== "aal2") {
@@ -101,604 +403,58 @@ export async function GET(req) {
     }
     privateMemberViewer = true;
   }
-  const isOwner = ownerViewer || privateMemberViewer;
-
-  // Everyone else is blocked from non-public profiles entirely.
-  if (!isOwner && !profile.is_public) {
+  if (!profileResponseAllowed({ isPublic: profile.is_public, ownerViewer, privateMemberViewer })) {
     return json({ error: "Not found" }, { status: 404 });
   }
 
-  // Per-section privacy. Owners (and the private-member viewers above) see
-  // everything regardless.
+  const isOwner = ownerViewer || privateMemberViewer;
   const visibility = {
     collection: isOwner || profile.show_collection !== false,
     wantlist: isOwner || profile.show_wantlist !== false,
     for_sale: isOwner || profile.show_for_sale !== false,
     value: isOwner || profile.show_value !== false,
   };
-
-  let collection;
+  let loaded;
   try {
-    collection = await timing.measure("collection", () => fetchAllPages(() =>
-      supabase.from("user_collections").select(`
-      id,
-      status,
-      condition,
-      grade_numeric,
-      slab_company,
-      purchase_price,
-      market_value,
-      created_at,
-      comic_id,
-      gcd_issue_id,
-      user_cover_url,
-      variant_label,
-      copy_number,
-      open_to_trade,
-      comics!user_collections_comic_id_fkey (
-        id,
-        issue_number,
-        release_year,
-        series_title,
-        publisher,
-        comic_covers ( image_path, is_primary )
-      )
-    `).eq("user_id", profile.id),
-      "id"
-    ));
-    collection.sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)));
-    // Do not resolve covers, metadata, key issues, listings, or values for a
-    // section that this viewer cannot see. The collection read stays whole so
-    // its simple indexed pagination remains reliable; expensive enrichment is
-    // limited to the rows that can reach the response.
-    collection = collection.filter((item) => {
-      if (item.status === "owned" && !visibility.collection) return false;
-      if (item.status === "wishlist" && !visibility.wantlist) return false;
-      if (item.status === "for_sale" && !visibility.for_sale) return false;
-      return true;
-    });
-  } catch (collectionError) {
-    console.error("public profile collection lookup failed:", collectionError?.code, collectionError?.message);
-    return json(
-      { error: "Failed to load collection" },
-      { status: 500 }
-    );
+    loaded = await timing.measure("collection", () => getProfileIndex(profile.id, visibility, Boolean(profile.is_public && !isOwner)));
+  } catch (error) {
+    console.error("public profile collection lookup failed:", error?.code, error?.message);
+    return json({ error: "Failed to load collection" }, { status: 500 });
   }
 
-  // For-sale books show the seller's asking price, never an estimate. Look
-  // listings up by seller (not an .in() of collection ids, which overflows
-  // the URL for big for-sale shelves) and page past the 1000-row cap.
-  const listingsPromise = (collection ?? []).some((item) => item.status === "for_sale")
-    ? timing.measure("listings", () => fetchAllPages(
-        () =>
-          supabase
-            .from("listings")
-            .select("id, collection_id, price_cents")
-            .eq("seller_id", profile.id)
-            .eq("status", "active"),
-        "id"
-      )).catch((error) => ({ error }))
-    : Promise.resolve([]);
-
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const gcdIds = [
-    ...new Set(
-      (collection || [])
-        .map((c) => c.gcd_issue_id)
-        .filter((v) => v != null)
-    ),
-  ];
-
-  // Key-issue lookup (migration 0026) — "featured" shouldn't be price-only,
-  // see keyIssuesSeed.js. A tiny reference table, cheap to check per-request
-  // rather than caching; revisit if this profile route ever needs to shed
-  // round-trips.
-  const keyIssuesPromise = gcdIds.length > 0
-    ? timing.measure("key_issues", async () => {
-        const rows = [];
-        for (let i = 0; i < gcdIds.length; i += 500) {
-          const { data, error } = await supabase
-            .from("key_issues")
-            .select("gcd_issue_id, character, reason, tier")
-            .in("gcd_issue_id", gcdIds.slice(i, i + 500));
-          if (error) return { data: rows, error };
-          rows.push(...(data ?? []));
-        }
-        return { data: rows, error: null };
-      })
-    : Promise.resolve({ data: [], error: null });
-
-  const gcdDisplayLookup = {};
-
-  if (gcdIds.length > 0) {
-    // Paged and chunked: a plain .in() here stopped at PostgREST's 1,000-row
-    // cap, so a collection past 1,000 GCD books silently lost the rest.
-    const issuesPromise = timing.measure("collection", async () => {
-      const rows = [];
-      for (let i = 0; i < gcdIds.length; i += 500) {
-        const chunk = gcdIds.slice(i, i + 500);
-        rows.push(
-          ...(await fetchAllPages(
-            () =>
-              supabase
-                .from("gcd_issues")
-                .select("gcd_id, series_gcd_id, issue_number, publication_date, key_date")
-                .in("gcd_id", chunk),
-            "gcd_id"
-          ))
-        );
-      }
-      return rows;
-    });
-    let issues;
-    try {
-      issues = await issuesPromise;
-    } catch (issuesError) {
-      console.error("public profile issue lookup failed:", issuesError?.code, issuesError?.message);
-      return json({ error: "Failed to load profile collection" }, { status: 502 });
-    }
-
-    const issueList = issues || [];
-
-    const seriesGcdIds = [
-      ...new Set(issueList.map((i) => i.series_gcd_id).filter(Boolean)),
-    ];
-
-    // This cover path needs only issue metadata, so overlap it with the
-    // series and publisher lookups below.
-    const finishCoverTiming = timing.start("covers");
-    const numbersBySeries = numbersByKey(issueList, (i) => i.series_gcd_id);
-    const idCoversPromise = readBatches(coverBatches(seriesGcdIds, numbersBySeries), ({ group, numbers }) =>
-      supabase
-        .from("canonical_covers")
-        .select("series_gcd_id, issue_number, series_year, cover_date, storage_path")
-        .in("series_gcd_id", group)
-        .in("issue_number", numbers)
-        .not("storage_path", "is", null));
-    // Awaited further down, after the series reads: without this a failure
-    // before that point is an unhandled rejection.
-    idCoversPromise.catch(() => {});
-
-    // Paged and chunked like the issue read above: a large, varied collection
-    // can pass 1,000 series or publishers, and a plain .in() stops there.
-    const readChunked = async (table, select, ids, orderCol) => {
-      const rows = [];
-      for (let i = 0; i < ids.length; i += 500) {
-        const chunk = ids.slice(i, i + 500);
-        rows.push(
-          ...(await fetchAllPages(() => supabase.from(table).select(select).in("gcd_id", chunk), orderCol))
-        );
-      }
-      return rows;
-    };
-    let seriesRows;
-    try {
-      seriesRows = await timing.measure("series_publishers", () => readChunked(
-        "series",
-        "gcd_id, title, resolved_publisher_cached, year_start_cached, year_end_cached, publisher:publisher_id(name)",
-        seriesGcdIds,
-        "id"
-      ));
-    } catch (err) {
-      console.error("public profile series/publisher lookup failed:", err?.code, err?.message);
-      return json({ error: "Failed to load profile collection" }, { status: 502 });
-    }
-    const seriesResult = { data: seriesRows };
-
-    const seriesLookup = Object.fromEntries(
-      (seriesResult.data ?? []).map((r) => [String(r.gcd_id), r])
-    );
-
-    const intermediate = issueList.map((issue) => {
-      const seriesRow = seriesLookup[String(issue.series_gcd_id)];
-      return {
-        gcd_id: issue.gcd_id,
-        issue_number: issue.issue_number,
-        year: bestYearFor(issue),
-        seriesYearStart: seriesRow?.year_start_cached ?? null,
-        seriesYearEnd: seriesRow?.year_end_cached ?? null,
-        seriesTitle: seriesRow?.title ?? null,
-        // resolved_publisher_cached is the year-aware, audited value. No
-        // fallback to gcd_issues.publisher_gcd_id: for most rows that is GCD's
-        // indicia publisher id, not a gcd_publishers id, so it named an
-        // unrelated publisher (see scripts/refreshSeriesSearchCache.js).
-        publisher:
-          seriesRow?.resolved_publisher_cached ??
-          seriesRow?.publisher?.name ??
-          null,
-      };
-    });
-
-    const seriesTitles = [
-      ...new Set(intermediate.map((r) => r.seriesTitle).filter(Boolean)),
-    ];
-    // Both cover reads below are narrowed to the issue numbers this
-    // collection actually holds, same as /api/library-hydrate. Without it
-    // they pulled every cover of every series in the collection: about
-    // 23,000 rows in ~24 sequential pages for a 214-book profile, 4-13s per
-    // load (measured 2026-10-05).
-    // Year-aware cover lookup — same disambiguation as /api/library-hydrate.
-    // Without it, multiple volumes of the same series_title share covers and
-    // a 2011 IDW TMNT issue ends up with a 1984 Mirage cover.
-    //
-    // Two-path: prefer ID-based join (canonical_covers.series_gcd_id, set by
-    // migration 0009 backfill + new ingests). Falls back to title-string for
-    // legacy rows still NULL. The ID path is immune to mojibake / casing /
-    // punctuation drift between CV titles and our series titles.
-    const COVER_YEAR_TOLERANCE = 1;
-    const coversByIdKey = new Map();
-    const coversByKey = new Map();
-
-    // The two passes are independent and run together, two reads each.
-    const numbersByTitle = numbersByKey(intermediate, (r) => r.seriesTitle);
-    const [idCovers, covers] = await Promise.all([
-      idCoversPromise,
-      readBatches(coverBatches(seriesTitles, numbersByTitle), ({ group, numbers }) =>
-        supabase
-          .from("canonical_covers")
-          .select("series_title, issue_number, series_year, cover_date, storage_path")
-          // Title variants + normTitle keys, same as /api/library-hydrate.
-          .in("series_title", [...new Set(group.flatMap(titleVariants))])
-          .in("issue_number", numbers)
-          .not("storage_path", "is", null)),
-    ]);
-    for (const c of idCovers) {
-      const key = `${c.series_gcd_id}::${norm(c.issue_number)}`;
-      if (!coversByIdKey.has(key)) coversByIdKey.set(key, []);
-      coversByIdKey.get(key).push(c);
-    }
-    for (const c of covers) {
-      const key = `${normTitle(c.series_title)}::${norm(c.issue_number)}`;
-      if (!coversByKey.has(key)) coversByKey.set(key, []);
-      coversByKey.get(key).push(c);
-    }
-
-    // cover_date is THIS issue's publication date — it's the authoritative
-    // year signal for per-issue matching. series_year is when the series
-    // started; for long-running annuals it's many years off this issue's
-    // actual year, which would falsely reject correct covers.
-    const yearOf = (c) => {
-      const cd = parseYear(c.cover_date);
-      if (cd != null) return cd;
-      return c.series_year != null ? Number(c.series_year) : null;
-    };
-
-    // Pick the best storage_path from a candidate pool using year disambiguation.
-    // Returns null if no candidate passes tolerance — caller can then try a
-    // fallback pool (e.g. title path after ID path comes up empty).
-    function pickStoragePath(candidates, issueYear, seriesYearStart, seriesYearEnd) {
-      if (!candidates || candidates.length === 0) return null;
-      if (issueYear != null) {
-        let best = null;
-        let bestDiff = Infinity;
-        for (const c of candidates) {
-          const cy = yearOf(c);
-          if (cy == null) continue;
-          const diff = Math.abs(cy - issueYear);
-          if (diff > COVER_YEAR_TOLERANCE) continue;
-          if (diff < bestDiff) { best = c; bestDiff = diff; }
-        }
-        return best?.storage_path ?? null;
-      }
-      // No issueYear: use the SERIES's active years as the window. Stops
-      // 1985 Transformers issues from grabbing IDW/2025 reboot covers when
-      // gcd_issues.publication_date is null. Pick the earliest in-window
-      // match.
-      if (seriesYearStart != null) {
-        const lo = seriesYearStart - COVER_YEAR_TOLERANCE;
-        const hi = (seriesYearEnd ?? seriesYearStart + 30) + COVER_YEAR_TOLERANCE;
-        let best = null;
-        let bestYear = Infinity;
-        for (const c of candidates) {
-          const cy = yearOf(c);
-          if (cy == null) continue;
-          if (cy < lo || cy > hi) continue;
-          if (cy < bestYear) { best = c; bestYear = cy; }
-        }
-        if (best) return best.storage_path;
-      }
-      // Last resort: earliest dated candidate (safer than newest).
-      let best = null;
-      let bestYear = Infinity;
-      for (const c of candidates) {
-        const cy = yearOf(c);
-        if (cy != null && cy < bestYear) { best = c; bestYear = cy; }
-        else if (!best) best = c;
-      }
-      return best?.storage_path ?? null;
-    }
-
-    const issueById = new Map(issueList.map((issue) => [issue.gcd_id, issue]));
-    for (const row of intermediate) {
-      const issueRow = issueById.get(row.gcd_id);
-      const idKey = issueRow?.series_gcd_id
-        ? `${issueRow.series_gcd_id}::${norm(row.issue_number)}`
-        : null;
-      const coverKey = `${normTitle(row.seriesTitle)}::${norm(row.issue_number)}`;
-      const issueYear = row.year;
-
-      // Try ID path first. If it yields no usable path (no candidates OR
-      // candidates outside year tolerance), fall back to title path with
-      // the series's active year-window as the bound.
-      let storagePath = pickStoragePath(
-        (idKey && coversByIdKey.get(idKey)) || null,
-        issueYear,
-        row.seriesYearStart,
-        row.seriesYearEnd
-      );
-      if (!storagePath) {
-        storagePath = pickStoragePath(
-          coversByKey.get(coverKey) || null,
-          issueYear,
-          row.seriesYearStart,
-          row.seriesYearEnd
-        );
-      }
-
-      const canonicalUrl = storagePath
-        ? `${supabaseUrl}/storage/v1/object/public/canonical-covers/${storagePath}`
-        : null;
-      gcdDisplayLookup[row.gcd_id] = {
-        title: row.seriesTitle ?? "Untitled",
-        issueNumber: row.issue_number ?? "",
-        year: row.year,
-        publisher: row.publisher,
-        canonicalCoverUrl: canonicalUrl,
-        // personalCoverUrl is set per-row later (it's on user_collections, not
-        // on the GCD lookup which is shared across users).
-        href: `/issue/gcd-${row.gcd_id}`,
-      };
-    }
-    // Same fallback as /api/library-hydrate: blanks go to the shared
-    // resolver issue pages use, so a profile never shows a blank the issue
-    // page fills. Only blanks are filled.
-    const blank = intermediate.filter((row) => !gcdDisplayLookup[row.gcd_id]?.canonicalCoverUrl);
-    if (blank.length) {
-      const resolved = await resolveCovers(supabase, blank.map((row) => ({
-        gcd_issue_id: row.gcd_id,
-        series_gcd_id: issueById.get(row.gcd_id)?.series_gcd_id ?? null,
-        series_title: row.seriesTitle,
-        issue_number: row.issue_number,
-        year: row.year,
-        series_year_start: row.seriesYearStart,
-        series_year_end: row.seriesYearEnd,
-        publisher: row.publisher,
-      }))).catch((error) => {
-        console.error("public-profile: shared cover fallback failed", error?.message);
-        return new Map();
-      });
-      for (const row of blank) {
-        const storagePath = resolved.get(row.gcd_id)?.storage_path;
-        if (storagePath && gcdDisplayLookup[row.gcd_id]) {
-          gcdDisplayLookup[row.gcd_id].canonicalCoverUrl = `${supabaseUrl}/storage/v1/object/public/canonical-covers/${storagePath}`;
-        }
-      }
-    }
-    finishCoverTiming();
+  const query = parsePublicProfileQuery(searchParams, defaultTabFor(visibility));
+  const result = queryPublicProfileRows(loaded.rows, query);
+  const highlights = selectPublicProfileHighlights(loaded.rows);
+  const requestedRows = [...new Map([
+    ...result.items,
+    ...highlights.topShelf,
+    ...highlights.recentlyAdded,
+    ...highlights.activity,
+  ].map((item) => [item.id, item])).values()];
+  let enriched;
+  try {
+    enriched = await timing.measure("covers", () => resolvePageItems(supabase, requestedRows));
+  } catch (error) {
+    console.error("public profile page enrichment failed:", error?.code, error?.message);
+    return json({ error: "Failed to load books" }, { status: 502 });
   }
-
-  const listingByCollectionId = new Map();
-  const listings = await listingsPromise;
-  if (listings?.error) {
-    console.error("public profile listing price lookup failed:", listings.error?.code, listings.error?.message);
-    degraded = true;
-  } else {
-    for (const listing of listings) listingByCollectionId.set(listing.collection_id, listing);
+  const enrichedById = new Map(enriched.map((item) => [item.id, item]));
+  const toEnriched = (items) => items.map((item) => enrichedById.get(item.id)).filter(Boolean);
+  const summary = summarizePublicProfileRows(loaded.rows);
+  summary.topShelf = toEnriched(highlights.topShelf);
+  summary.recentlyAdded = toEnriched(highlights.recentlyAdded);
+  summary.activity = toEnriched(highlights.activity);
+  if (!isOwner) {
+    summary.insights.costBasis = 0;
+    summary.insights.hasCostData = false;
   }
-
-  const keyIssueLookup = {};
-  const { data: keyIssues, error: keyIssuesError } = await keyIssuesPromise;
-  if (keyIssuesError) {
-    console.error("public profile key issue lookup failed:", keyIssuesError.code, keyIssuesError.message);
-    degraded = true;
-  }
-  for (const row of keyIssues ?? []) {
-    keyIssueLookup[row.gcd_issue_id] = {
-      character: row.character,
-      reason: row.reason,
-      tier: row.tier,
-    };
-  }
-
-  // Canonical cover lookup for local comics
-  const localItems = (collection || []).filter((i) => i.gcd_issue_id == null && i.comics);
-  const localSeriesTitles = [...new Set(localItems.map((i) => i.comics?.series_title).filter(Boolean))];
-  const localIssueNumbers = [...new Set(localItems.map((i) => i.comics?.issue_number).filter((v) => v != null))];
-  const localCanonicalByKey = new Map();
-
-  if (localSeriesTitles.length > 0 && localIssueNumbers.length > 0) {
-    const { data: localCovers, error: localCoversError } = await timing.measure("covers", () => supabase
-      .from("canonical_covers")
-      .select("series_title, issue_number, series_year, cover_date, storage_path")
-      .in("series_title", localSeriesTitles)
-      .in("issue_number", localIssueNumbers)
-      .not("storage_path", "is", null));
-    if (localCoversError) {
-      console.error("public profile local cover lookup failed:", localCoversError.code, localCoversError.message);
-      degraded = true;
-    }
-
-    for (const c of localCovers ?? []) {
-      const key = `${norm(c.series_title)}::${norm(c.issue_number)}`;
-      if (!localCanonicalByKey.has(key)) localCanonicalByKey.set(key, []);
-      localCanonicalByKey.get(key).push(c);
-    }
-  }
-
-  // Build URL helpers — cheap, reused per row.
-  const personalUrlFromPath = (path) =>
-    path ? `${supabaseUrl}/storage/v1/object/public/comic-covers/${path}` : null;
-
-  // Keep the wire shape limited to fields the shared profile renderer uses.
-  // In particular, do not serialize the joined comics row or raw cover path
-  // again after they have been resolved into display.
-  const presentItem = (item, display, keyIssue = null) => ({
-    id: item.id,
-    status: item.status,
-    condition: item.condition,
-    grade_numeric: item.grade_numeric,
-    slab_company: item.slab_company,
-    purchase_price: item.purchase_price,
-    market_value: item.market_value,
-    created_at: item.created_at,
-    gcd_issue_id: item.gcd_issue_id,
-    variant_label: item.variant_label,
-    copy_number: item.copy_number,
-    open_to_trade: item.open_to_trade,
-    display,
-    key_issue: keyIssue,
-  });
-
-  const normalizedCollection = (collection || [])
-    .map((item) => {
-      // Personal cover lives on the user_collections row itself and applies
-      // equally to GCD-linked and local-only rows. Resolved once per item.
-      const personalCoverUrl = personalUrlFromPath(item.user_cover_url);
-
-      if (item.gcd_issue_id != null) {
-        const baseDisplay = gcdDisplayLookup[item.gcd_issue_id];
-        if (!baseDisplay) return null;
-        // Public-profile context: canonical wins for the primary cover; the
-        // caller can still surface personalCoverUrl as an overlay/badge if
-        // they want to highlight that the owner has a photo of their copy.
-        const display = {
-          ...baseDisplay,
-          personalCoverUrl,
-          communityCoverUrl: null,
-          // Keep coverUrl pointing at the canonical (already set in the GCD
-          // lookup) so existing UI keeps rendering as before.
-        };
-        return presentItem(item, display, keyIssueLookup[item.gcd_issue_id] ?? null);
-      }
-
-      const comic = item.comics;
-      if (!comic) return null;
-
-      const coverKey = `${norm(comic.series_title)}::${norm(comic.issue_number)}`;
-      const candidates = localCanonicalByKey.get(coverKey) ?? [];
-      const issueYear = comic.release_year ?? null;
-      const COVER_YEAR_TOLERANCE = 1;
-
-      let canonicalCoverUrl = null;
-      if (candidates.length > 0) {
-        const yearOf = (c) => {
-          const cd = parseYear(c.cover_date);
-          if (cd != null) return cd;
-          return c.series_year != null ? Number(c.series_year) : null;
-        };
-        let best = null;
-        let bestDiff = Infinity;
-        for (const c of candidates) {
-          const cy = yearOf(c);
-          if (cy == null) { if (!best) best = c; continue; }
-          if (issueYear == null) { best = c; break; }
-          const diff = Math.abs(cy - issueYear);
-          if (diff > COVER_YEAR_TOLERANCE) continue;
-          if (diff < bestDiff) { best = c; bestDiff = diff; }
-        }
-        if (best) canonicalCoverUrl = `${supabaseUrl}/storage/v1/object/public/canonical-covers/${best.storage_path}`;
-      }
-
-      // Community cover: comic_covers.image_path — uploaded by some user (often
-      // the owner themselves) when adding to /library/add. Treated as the
-      // weakest catalog-quality fallback for local-only rows where we have no
-      // canonical at all.
-      const primaryCover =
-        comic.comic_covers?.find((c) => c.is_primary) ||
-        comic.comic_covers?.[0];
-      const communityCoverUrl = primaryCover
-        ? `${supabaseUrl}/storage/v1/object/public/comic-covers/${primaryCover.image_path}`
-        : null;
-
-      const display = {
-        title: comic.series_title || "Untitled",
-        issueNumber: comic.issue_number ?? "",
-        year: comic.release_year ?? null,
-        publisher: comic.publisher ?? null,
-        // Public-profile priority: canonical > community fallback. Personal
-        // surfaces as an overlay if the UI wants it.
-        canonicalCoverUrl,
-        personalCoverUrl,
-        communityCoverUrl,
-        href: `/comic/${comic.id}`,
-      };
-
-      return presentItem(item, display);
-    })
-    .filter(Boolean);
-
-  // market_value straight off the row is the USER's manual override —
-  // almost nobody sets one, so without this it's null for nearly every
-  // item and the Collection Value plaque / Top Shelf / stats strip all
-  // read as $0 regardless of real auto-priced value. /api/library-hydrate
-  // already resolves this the right way (getMarketValuesBulk against
-  // market_comps, same grade-bucket + cover-price-floor chain as
-  // getMarketValue()); this route just never called it. Found live
-  // 2026-08-31 comparing a real profile against a design mockup that
-  // happened to include the plaque with real numbers, which the actual
-  // page wasn't producing for any auto-priced item.
-  const gradeSignals = normalizedCollection
-    .filter((item) => isOwnedStatus(item.status) && item.gcd_issue_id != null)
-    .map((item) => ({
-      collection_id: item.id,
-      gcd_issue_id: item.gcd_issue_id,
-      grade_numeric: item.grade_numeric,
-      slab_company: item.slab_company,
-      condition: item.condition,
-      release_year: item.display?.year ?? null,
-    }));
-
-  let autoValueByCollectionId = new Map();
-  if (visibility.value && gradeSignals.length > 0) {
-    autoValueByCollectionId = await timing.measure("values", () =>
-      getMarketValuesBulk({ supabase, items: gradeSignals })
-    );
-  }
-
-  const pricedCollection = normalizedCollection.map((item) => {
-    const listing = listingByCollectionId.get(item.id);
-    const listingFields = item.status === "for_sale"
-      ? {
-          listing_id: listing?.id ?? null,
-          listing_price: listing?.price_cents != null ? listing.price_cents / 100 : null,
-        }
-      : {};
-    const existing = Number(item.market_value);
-    if (!Number.isNaN(existing) && existing > 0) return { ...item, ...listingFields }; // user override wins
-    const auto = autoValueByCollectionId.get(item.id);
-    if (auto?.value > 0) return { ...item, market_value: auto.value, ...listingFields };
-    return { ...item, ...listingFields };
-  });
-
-  // Apply per-section privacy. Owners see everything. Non-owners get items
-  // filtered by status, and value fields zeroed out if show_value is off.
-  const visibleCollection = pricedCollection
-    .filter((item) => {
-      if (item.status === "owned" && !visibility.collection) return false;
-      if (item.status === "wishlist" && !visibility.wantlist) return false;
-      if (item.status === "for_sale" && !visibility.for_sale) return false;
-      return true;
-    })
-    .map((item) => {
-      if (visibility.value) return item;
-      return { ...item, market_value: null, purchase_price: null };
-    });
-
-  const publisherCounts = {};
-  visibleCollection.forEach((item) => {
-    const pub = item.display?.publisher;
-    if (!pub) return;
-    publisherCounts[pub] = (publisherCounts[pub] || 0) + 1;
-  });
-
-  const dominantPublisher =
-    Object.entries(publisherCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || null;
-
   return json({
     profile,
     visibility,
-    collection: visibleCollection,
-    dominantPublisher,
-    degraded,
+    collection: toEnriched(result.items),
+    summary,
+    page: result.page,
+    dominantPublisher: summary.dominantPublisher,
+    degraded: loaded.degraded,
   });
 }

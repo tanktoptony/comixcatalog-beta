@@ -170,6 +170,23 @@ async function headOk(url) {
   }
 }
 
+async function profileShelf(username, tab) {
+  const items = [];
+  for (let offset = 0; ; offset += 60) {
+    const url = new URL("/api/public-profile", BASE);
+    url.searchParams.set("username", username);
+    url.searchParams.set("tab", tab);
+    url.searchParams.set("sort", "added-desc");
+    url.searchParams.set("offset", String(offset));
+    url.searchParams.set("limit", "60");
+    const response = await fetch(url, { headers: { "cache-control": "no-cache" } });
+    if (!response.ok) throw new Error(`profile API returned ${response.status}`);
+    const body = await response.json();
+    items.push(...(body.collection ?? []));
+    if (!body.page?.hasMore) return items;
+  }
+}
+
 async function main() {
   console.log(`Checking against ${BASE}\n`);
 
@@ -211,14 +228,17 @@ async function main() {
       continue;
     }
 
-    const url = `${BASE}/api/public-profile?username=${encodeURIComponent(profile.username)}`;
-    const res = await fetch(url, { headers: { "cache-control": "no-cache" } });
-    if (!res.ok) {
-      skipped.push({ userId, username: profile.username, owned, why: `profile API returned ${res.status}` });
+    let items;
+    try {
+      const [ownedItems, wantedItems] = await Promise.all([
+        profileShelf(profile.username, "owned"),
+        profileShelf(profile.username, "wishlist"),
+      ]);
+      items = [...ownedItems, ...wantedItems];
+    } catch (error) {
+      skipped.push({ userId, username: profile.username, owned, why: error.message });
       continue;
     }
-    const json = await res.json();
-    const items = Array.isArray(json?.collection) ? json.collection : [];
 
     // The endpoint applies the owner's privacy settings, so a short list
     // here is a visibility choice, not a missing-cover bug. Say so rather
@@ -236,7 +256,7 @@ async function main() {
       if (owned) checked += 1;
       else wishlistChecked += 1;
 
-      const cover = item?.display?.coverUrl;
+      const cover = item?.display?.canonicalCoverUrl || item?.display?.communityCoverUrl || item?.display?.personalCoverUrl;
       if (!cover) {
         userMisses.push({
           username: profile.username,

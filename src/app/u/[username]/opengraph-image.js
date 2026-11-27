@@ -1,7 +1,6 @@
 import { getPublicProfile } from "@/lib/pageData";
 import { renderShelfCard, OG_SIZE } from "@/lib/og/card";
 import { homeImage } from "@/app/opengraph-image";
-import { isOwnedStatus } from "@/lib/collectionStatus";
 import { getProfileBadges, selectShowcaseBadges } from "@/lib/badges/server";
 import { badgeSvgDataUrl } from "@/lib/badges/svg";
 import { cachedCard } from "@/lib/og/cache";
@@ -23,24 +22,21 @@ export function generateStaticParams() {
 // Only what the public profile itself shows: getPublicProfile answers
 // { notFound: true } for private profiles, and leaves `collection` empty
 // when the owner hides it. Values are never drawn, even when public.
-const owned = (data) => (data?.collection ?? []).filter((x) => isOwnedStatus(x.status));
 const coverOf = (x) => x.display?.canonicalCoverUrl || x.display?.personalCoverUrl || x.display?.communityCoverUrl;
-const shelfScore = (x) => (x.key_issue ? (x.key_issue.tier === 1 ? 2_000_000 : 1_000_000) : 0) + (Number(x.market_value) || 0);
 
 // The profile page's own order: its Top Shelf (keys first, then value),
 // then Recently Added.
 export function profileCovers(data) {
-  const books = owned(data).filter((x) => x.display);
-  const top = books.filter((x) => x.key_issue || Number(x.market_value) > 0).sort((a, b) => shelfScore(b) - shelfScore(a));
-  return [...new Set([...top.slice(0, 5), ...books].map(coverOf).filter(Boolean))];
+  const top = data?.summary?.topShelf ?? [];
+  const recent = data?.summary?.recentlyAdded ?? [];
+  return [...new Set([...top, ...recent].map(coverOf).filter(Boolean))];
 }
 
 export function profileStats(data) {
-  const books = owned(data);
   return [
-    { value: books.length, label: "books" },
-    { value: new Set(books.map((x) => x.display?.title).filter(Boolean)).size, label: "series" },
-    { value: books.filter((x) => x.key_issue).length, label: "keys" },
+    { value: data?.summary?.stats?.owned ?? 0, label: "books" },
+    { value: data?.summary?.ownedSeries ?? 0, label: "series" },
+    { value: data?.summary?.keyCount ?? 0, label: "keys" },
   ];
 }
 

@@ -94242,9 +94242,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-17T06:50:25.886020+00:00",
-    "retry_after": "2026-11-20T06:50:25.886036+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T17:17:55.491724+00:00",
+    "retry_after": "2026-12-04T17:17:55.491757+00:00",
     "search_hydrated": true
   },
   {
@@ -96651,8 +96651,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-27T17:02:49.772546+00:00",
-    "retry_after": "2026-11-28T17:02:49.772562+00:00",
+    "last_attempt_at": "2026-11-27T17:17:04.159853+00:00",
+    "retry_after": "2026-11-28T17:17:04.159875+00:00",
     "search_hydrated": true
   },
   {
@@ -102089,6 +102089,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-27T17:07:25.085898+00:00",
     "retry_after": "2026-11-28T17:07:25.085925+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Cerebus Bi-Weekly",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 1988,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 66263,
+        "name": "Cerebus Bi-Weekly",
+        "publisher": "Aardvark",
+        "start_year": 1988
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T17:16:52.482821+00:00",
+    "retry_after": "2026-11-28T17:16:52.482826+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Dick Tracy Presents the Family Fun Book",
+    "publisher": "Fawcett Comics",
+    "year": 1940,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T17:18:08.304536+00:00",
+    "retry_after": "2026-11-28T17:18:08.304551+00:00",
     "search_hydrated": true
   }
 ]

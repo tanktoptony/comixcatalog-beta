@@ -13148,9 +13148,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-18T02:05:22.727606+00:00",
-    "retry_after": "2026-11-25T02:05:22.727607+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T04:08:09.784749+00:00",
+    "retry_after": "2026-12-11T04:08:09.784751+00:00",
     "search_hydrated": true
   },
   {
@@ -14846,9 +14846,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-24T04:02:16.688120+00:00",
-    "retry_after": "2026-11-27T04:02:16.688122+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T04:02:53.267697+00:00",
+    "retry_after": "2026-12-04T04:02:53.267715+00:00",
     "search_hydrated": true
   },
   {
@@ -17828,9 +17828,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-15T00:05:47.879930+00:00",
-    "retry_after": "2026-11-22T00:05:47.879932+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T04:08:09.784715+00:00",
+    "retry_after": "2026-12-11T04:08:09.784732+00:00",
     "search_hydrated": true
   },
   {
@@ -59211,17 +59211,11 @@
         "name": "Batman / Aliens",
         "publisher": "Norma Editorial",
         "start_year": 2001
-      },
-      {
-        "id": 6820,
-        "name": "Batman/Aliens",
-        "publisher": "DC Comics",
-        "start_year": 1997
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-24T04:03:52.353449+00:00",
-    "retry_after": "2026-11-27T04:03:52.353452+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T04:04:29.993838+00:00",
+    "retry_after": "2026-12-04T04:04:29.993855+00:00",
     "search_hydrated": true
   },
   {
@@ -93456,9 +93450,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-19T03:05:49.784332+00:00",
-    "retry_after": "2026-11-26T03:05:49.784336+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T04:08:09.784762+00:00",
+    "retry_after": "2026-12-11T04:08:09.784763+00:00",
     "search_hydrated": true
   },
   {
@@ -96657,8 +96651,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-27T03:03:35.308524+00:00",
-    "retry_after": "2026-11-28T03:03:35.308537+00:00",
+    "last_attempt_at": "2026-11-27T04:03:57.472328+00:00",
+    "retry_after": "2026-11-28T04:03:57.472346+00:00",
     "search_hydrated": true
   },
   {
@@ -97679,9 +97673,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-24T03:08:44.050645+00:00",
-    "retry_after": "2026-11-27T03:08:44.050661+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T04:02:33.777671+00:00",
+    "retry_after": "2026-12-04T04:02:33.777691+00:00",
     "search_hydrated": true
   },
   {
@@ -101812,6 +101806,53 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-27T03:08:02.944151+00:00",
     "retry_after": "2026-11-28T03:08:02.944154+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mage: The Hero Defined",
+    "publisher": "Image Comics",
+    "year": 1998,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 6091,
+        "name": "Mage: The Hero Defined",
+        "publisher": "Image",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T04:02:51.295424+00:00",
+    "retry_after": "2026-11-28T04:02:51.295443+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Vuzz",
+    "publisher": "Titan Comics",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 85799,
+        "name": "Vuzz",
+        "publisher": "Dargaud",
+        "start_year": 1974
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T04:08:22.183480+00:00",
+    "retry_after": "2026-11-28T04:08:22.183498+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Green Hornet One Night in Bangkok, One Shot",
+    "publisher": "Dynamite Entertainment",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T04:08:22.842951+00:00",
+    "retry_after": "2026-11-28T04:08:22.842969+00:00",
     "search_hydrated": true
   }
 ]

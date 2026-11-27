@@ -82551,9 +82551,9 @@
         "start_year": 1992
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-20T22:16:29.089529+00:00",
-    "retry_after": "2026-11-27T22:16:29.089546+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T23:02:19.209529+00:00",
+    "retry_after": "2026-12-11T23:02:19.209547+00:00",
     "search_hydrated": true
   },
   {
@@ -94474,9 +94474,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-18T03:05:46.302360+00:00",
-    "retry_after": "2026-11-21T03:05:46.302362+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T23:06:41.766804+00:00",
+    "retry_after": "2026-12-04T23:06:41.766821+00:00",
     "search_hydrated": true
   },
   {
@@ -94485,9 +94485,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-18T03:05:46.302373+00:00",
-    "retry_after": "2026-11-21T03:05:46.302375+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T23:06:41.766848+00:00",
+    "retry_after": "2026-12-04T23:06:41.766851+00:00",
     "search_hydrated": true
   },
   {
@@ -96651,8 +96651,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-27T22:02:55.221936+00:00",
-    "retry_after": "2026-11-28T22:02:55.221954+00:00",
+    "last_attempt_at": "2026-11-27T23:03:00.605988+00:00",
+    "retry_after": "2026-11-28T23:03:00.606002+00:00",
     "search_hydrated": true
   },
   {
@@ -98081,12 +98081,6 @@
     "reason": "multiple_same_start_year_tied",
     "candidates": [
       {
-        "id": 78654,
-        "name": "Thanos: A God Up There Listening",
-        "publisher": "Marvel",
-        "start_year": 2014
-      },
-      {
         "id": 75391,
         "name": "Thanos: A God Up There Listening",
         "publisher": "Marvel",
@@ -98097,11 +98091,17 @@
         "name": "Thanos: A God Up There Listening",
         "publisher": "Marvel",
         "start_year": 2014
+      },
+      {
+        "id": 78654,
+        "name": "Thanos: A God Up There Listening",
+        "publisher": "Marvel",
+        "start_year": 2014
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-24T23:02:51.873739+00:00",
-    "retry_after": "2026-11-27T23:02:51.873744+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T23:03:12.933995+00:00",
+    "retry_after": "2026-12-04T23:03:12.934013+00:00",
     "search_hydrated": true
   },
   {
@@ -101479,9 +101479,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-26T22:07:27.218681+00:00",
-    "retry_after": "2026-11-27T22:07:27.218700+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-27T23:06:55.444449+00:00",
+    "retry_after": "2026-11-30T23:06:55.444467+00:00",
     "search_hydrated": true
   },
   {
@@ -101497,9 +101497,9 @@
         "start_year": 1994
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-26T22:07:27.218723+00:00",
-    "retry_after": "2026-11-27T22:07:27.218726+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-27T23:06:55.444496+00:00",
+    "retry_after": "2026-11-30T23:06:55.444499+00:00",
     "search_hydrated": true
   },
   {
@@ -101515,9 +101515,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-26T22:07:27.218741+00:00",
-    "retry_after": "2026-11-27T22:07:27.218743+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-27T23:06:55.444520+00:00",
+    "retry_after": "2026-11-30T23:06:55.444521+00:00",
     "search_hydrated": true
   },
   {
@@ -101533,9 +101533,9 @@
         "start_year": 2014
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-26T23:06:07.638270+00:00",
-    "retry_after": "2026-11-27T23:06:07.638285+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-27T23:06:55.444534+00:00",
+    "retry_after": "2026-11-30T23:06:55.444536+00:00",
     "search_hydrated": true
   },
   {

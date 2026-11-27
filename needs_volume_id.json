@@ -43474,9 +43474,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-15T02:05:40.630376+00:00",
-    "retry_after": "2026-11-22T02:05:40.630378+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T07:01:03.462914+00:00",
+    "retry_after": "2026-12-11T07:01:03.462932+00:00",
     "search_hydrated": true
   },
   {
@@ -93527,9 +93527,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-19T13:05:31.460042+00:00",
-    "retry_after": "2026-11-26T13:05:31.460052+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T07:01:03.462950+00:00",
+    "retry_after": "2026-12-11T07:01:03.462953+00:00",
     "search_hydrated": true
   },
   {
@@ -93621,9 +93621,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-19T13:05:37.736151+00:00",
-    "retry_after": "2026-11-26T13:05:37.736157+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T07:01:08.761436+00:00",
+    "retry_after": "2026-12-11T07:01:08.761451+00:00",
     "search_hydrated": true
   },
   {
@@ -93639,9 +93639,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-19T13:05:37.864563+00:00",
-    "retry_after": "2026-11-26T13:05:37.864569+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T07:01:08.872375+00:00",
+    "retry_after": "2026-12-11T07:01:08.872390+00:00",
     "search_hydrated": true
   },
   {
@@ -96651,8 +96651,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-27T06:03:07.660546+00:00",
-    "retry_after": "2026-11-28T06:03:07.660564+00:00",
+    "last_attempt_at": "2026-11-27T06:57:07.220762+00:00",
+    "retry_after": "2026-11-28T06:57:07.220780+00:00",
     "search_hydrated": true
   },
   {
@@ -101157,30 +101157,6 @@
     "search_hydrated": true
   },
   {
-    "name": "All-Star Comics",
-    "publisher": "DC Comics",
-    "year": 1976,
-    "reason": "multiple_candidates",
-    "candidates": [
-      {
-        "id": 2833,
-        "name": "All-Star Comics",
-        "publisher": "DC Comics",
-        "start_year": 1940
-      },
-      {
-        "id": 6596,
-        "name": "All Star Comics",
-        "publisher": "DC Comics",
-        "start_year": 1999
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-26T06:03:30.616809+00:00",
-    "retry_after": "2026-11-27T06:03:30.616821+00:00",
-    "search_hydrated": true
-  },
-  {
     "name": "Super Creepshow",
     "publisher": "Image Comics",
     "year": 2025,
@@ -101193,9 +101169,9 @@
         "start_year": 2026
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-26T06:07:10.281398+00:00",
-    "retry_after": "2026-11-27T06:07:10.281414+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-27T07:01:05.774905+00:00",
+    "retry_after": "2026-11-30T07:01:05.774922+00:00",
     "search_hydrated": true
   },
   {
@@ -101911,6 +101887,46 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-27T06:07:14.464483+00:00",
     "retry_after": "2026-11-28T06:07:14.464499+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Scales & Scoundrels",
+    "publisher": "Image Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 104077,
+        "name": "Scales & Scoundrels",
+        "publisher": "Image",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T07:01:06.515451+00:00",
+    "retry_after": "2026-11-28T07:01:06.515454+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Crisis on Infinite Earths 11 (Facsimile Edition)",
+    "publisher": "DC Comics",
+    "year": 2025,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T07:01:17.584562+00:00",
+    "retry_after": "2026-11-28T07:01:17.584582+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Living Corpse Haunted One-Shot",
+    "publisher": "Dynamite Entertainment",
+    "year": 2013,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T07:01:17.584600+00:00",
+    "retry_after": "2026-11-28T07:01:17.584602+00:00",
     "search_hydrated": true
   }
 ]

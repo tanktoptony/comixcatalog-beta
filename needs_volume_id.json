@@ -28129,9 +28129,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-20T08:02:07.791043+00:00",
-    "retry_after": "2026-11-27T08:02:07.791046+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T08:02:28.882200+00:00",
+    "retry_after": "2026-12-11T08:02:28.882218+00:00",
     "search_hydrated": true
   },
   {
@@ -93551,9 +93551,9 @@
         "start_year": 2015
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-19T13:05:31.460080+00:00",
-    "retry_after": "2026-11-26T13:05:31.460082+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T08:07:19.918519+00:00",
+    "retry_after": "2026-12-11T08:07:19.918537+00:00",
     "search_hydrated": true
   },
   {
@@ -93592,9 +93592,9 @@
         "start_year": 2025
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-19T14:06:01.800765+00:00",
-    "retry_after": "2026-11-26T14:06:01.800781+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T08:07:19.918632+00:00",
+    "retry_after": "2026-12-11T08:07:19.918637+00:00",
     "search_hydrated": true
   },
   {
@@ -93603,9 +93603,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-19T14:06:01.800810+00:00",
-    "retry_after": "2026-11-26T14:06:01.800814+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T08:07:19.918661+00:00",
+    "retry_after": "2026-12-11T08:07:19.918664+00:00",
     "search_hydrated": true
   },
   {
@@ -96651,8 +96651,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-27T07:08:40.144428+00:00",
-    "retry_after": "2026-11-28T07:08:40.144445+00:00",
+    "last_attempt_at": "2026-11-27T08:03:27.269956+00:00",
+    "retry_after": "2026-11-28T08:03:27.269972+00:00",
     "search_hydrated": true
   },
   {
@@ -101927,6 +101927,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-27T07:12:40.816859+00:00",
     "retry_after": "2026-11-28T07:12:40.816863+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mouse Guard: Baldwin the Brave & Other Tales",
+    "publisher": "BOOM! Studios",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 78073,
+        "name": "Mouse Guard: Baldwin the Brave & Other Tales",
+        "publisher": "Archaia",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T08:07:32.932018+00:00",
+    "retry_after": "2026-11-28T08:07:32.932034+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "New Mutants #98 Facsimile Edition",
+    "publisher": "Marvel Comics",
+    "year": 2019,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T08:07:32.932070+00:00",
+    "retry_after": "2026-11-28T08:07:32.932074+00:00",
     "search_hydrated": true
   }
 ]

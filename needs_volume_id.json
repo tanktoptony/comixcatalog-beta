@@ -94289,9 +94289,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-17T10:05:32.004413+00:00",
-    "retry_after": "2026-11-20T10:05:32.004415+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T18:07:12.105373+00:00",
+    "retry_after": "2026-12-04T18:07:12.105407+00:00",
     "search_hydrated": true
   },
   {
@@ -96651,8 +96651,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-27T17:17:04.159853+00:00",
-    "retry_after": "2026-11-28T17:17:04.159875+00:00",
+    "last_attempt_at": "2026-11-27T18:03:06.557167+00:00",
+    "retry_after": "2026-11-28T18:03:06.557182+00:00",
     "search_hydrated": true
   },
   {
@@ -98069,9 +98069,9 @@
     "year": 2004,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-24T18:02:28.777204+00:00",
-    "retry_after": "2026-11-27T18:02:28.777216+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T18:02:37.751315+00:00",
+    "retry_after": "2026-12-04T18:02:37.751331+00:00",
     "search_hydrated": true
   },
   {
@@ -102118,6 +102118,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-27T17:18:08.304536+00:00",
     "retry_after": "2026-11-28T17:18:08.304551+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Custom Visa One United 2022 Comic [Investing in Each Other]",
+    "publisher": "Marvel Comics",
+    "year": 2022,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T18:07:34.529842+00:00",
+    "retry_after": "2026-11-28T18:07:34.529860+00:00",
     "search_hydrated": true
   }
 ]

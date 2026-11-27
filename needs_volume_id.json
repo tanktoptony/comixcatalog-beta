@@ -21586,9 +21586,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-20T02:05:51.688493+00:00",
-    "retry_after": "2026-11-27T02:05:51.688513+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T03:02:30.642865+00:00",
+    "retry_after": "2026-12-11T03:02:30.642882+00:00",
     "search_hydrated": true
   },
   {
@@ -54490,9 +54490,9 @@
     "year": 2023,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-20T02:06:19.221113+00:00",
-    "retry_after": "2026-11-27T02:06:19.221117+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T03:03:11.820910+00:00",
+    "retry_after": "2026-12-11T03:03:11.820915+00:00",
     "search_hydrated": true
   },
   {
@@ -56640,9 +56640,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-18T02:05:22.727595+00:00",
-    "retry_after": "2026-11-25T02:05:22.727597+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T03:07:36.483204+00:00",
+    "retry_after": "2026-12-11T03:07:36.483207+00:00",
     "search_hydrated": true
   },
   {
@@ -93423,9 +93423,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-19T02:05:32.580072+00:00",
-    "retry_after": "2026-11-26T02:05:32.580075+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T03:07:36.483145+00:00",
+    "retry_after": "2026-12-11T03:07:36.483161+00:00",
     "search_hydrated": true
   },
   {
@@ -93434,9 +93434,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-19T03:05:49.784294+00:00",
-    "retry_after": "2026-11-26T03:05:49.784309+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T03:07:36.483183+00:00",
+    "retry_after": "2026-12-11T03:07:36.483188+00:00",
     "search_hydrated": true
   },
   {
@@ -96657,8 +96657,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-27T01:02:58.539339+00:00",
-    "retry_after": "2026-11-28T01:02:58.539353+00:00",
+    "last_attempt_at": "2026-11-27T03:03:35.308524+00:00",
+    "retry_after": "2026-11-28T03:03:35.308537+00:00",
     "search_hydrated": true
   },
   {
@@ -101740,6 +101740,78 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-27T01:07:08.612022+00:00",
     "retry_after": "2026-11-28T01:07:08.612025+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "I'm Still Alive",
+    "publisher": "BOOM! Studios",
+    "year": 2022,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 147126,
+        "name": "I'm Still Alive",
+        "publisher": "Archaia",
+        "start_year": 2022
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T03:08:02.944049+00:00",
+    "retry_after": "2026-11-28T03:08:02.944064+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Files of Ms. Tree",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 1984,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 76620,
+        "name": "The Files of Ms. Tree",
+        "publisher": "Aardvark",
+        "start_year": 1984
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T03:08:02.944097+00:00",
+    "retry_after": "2026-11-28T03:08:02.944102+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Boo and the Midnight Monsters",
+    "publisher": "IDW Publishing",
+    "year": 2019,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 122409,
+        "name": "Johnny Boo and the Midnight Monsters",
+        "publisher": "Top Shelf",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T03:08:02.944127+00:00",
+    "retry_after": "2026-11-28T03:08:02.944130+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Death",
+    "publisher": "DC Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 40889,
+        "name": "Death",
+        "publisher": "Panini Verlag",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T03:08:02.944151+00:00",
+    "retry_after": "2026-11-28T03:08:02.944154+00:00",
     "search_hydrated": true
   }
 ]

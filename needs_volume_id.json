@@ -5,9 +5,9 @@
     "year": 2007,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-24T08:36:38.431368+00:00",
-    "retry_after": "2026-11-27T08:36:38.431372+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T09:04:04.775413+00:00",
+    "retry_after": "2026-12-04T09:04:04.775428+00:00",
     "search_hydrated": true
   },
   {
@@ -24629,9 +24629,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-15T05:03:29.241969+00:00",
-    "retry_after": "2026-11-22T05:03:29.241972+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T09:10:57.727611+00:00",
+    "retry_after": "2026-12-11T09:10:57.727626+00:00",
     "search_hydrated": true
   },
   {
@@ -29420,9 +29420,9 @@
     "year": 2000,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-20T09:02:19.359906+00:00",
-    "retry_after": "2026-11-27T09:02:19.359924+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T09:04:04.775451+00:00",
+    "retry_after": "2026-12-11T09:04:04.775455+00:00",
     "search_hydrated": true
   },
   {
@@ -96651,8 +96651,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-27T08:03:27.269956+00:00",
-    "retry_after": "2026-11-28T08:03:27.269972+00:00",
+    "last_attempt_at": "2026-11-27T09:07:05.326354+00:00",
+    "retry_after": "2026-11-28T09:07:05.326370+00:00",
     "search_hydrated": true
   },
   {
@@ -97747,9 +97747,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-24T08:04:42.697039+00:00",
-    "retry_after": "2026-11-27T08:04:42.697058+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T09:04:04.775471+00:00",
+    "retry_after": "2026-12-04T09:04:04.775473+00:00",
     "search_hydrated": true
   },
   {
@@ -97759,21 +97759,21 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 71868,
-        "name": "Futurama Comics",
-        "publisher": "Dino Comics",
-        "start_year": 2001
-      },
-      {
         "id": 18364,
         "name": "Futurama Comics",
         "publisher": "Bongo",
         "start_year": 2000
+      },
+      {
+        "id": 71868,
+        "name": "Futurama Comics",
+        "publisher": "Dino Comics",
+        "start_year": 2001
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-24T08:04:42.697095+00:00",
-    "retry_after": "2026-11-27T08:04:42.697098+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T09:04:04.775513+00:00",
+    "retry_after": "2026-12-04T09:04:04.775516+00:00",
     "search_hydrated": true
   },
   {
@@ -97842,9 +97842,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-24T09:06:40.001433+00:00",
-    "retry_after": "2026-11-27T09:06:40.001450+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T09:06:49.921111+00:00",
+    "retry_after": "2026-12-04T09:06:49.921123+00:00",
     "search_hydrated": true
   },
   {
@@ -101956,6 +101956,71 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-27T08:07:32.932070+00:00",
     "retry_after": "2026-11-28T08:07:32.932074+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Johnny Boo and the Silly Blizzard",
+    "publisher": "IDW Publishing",
+    "year": 2021,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 133882,
+        "name": "Johnny Boo and the Silly Blizzard",
+        "publisher": "Top Shelf",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T09:11:20.989106+00:00",
+    "retry_after": "2026-11-28T09:11:20.989122+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Simpsorama",
+    "publisher": "Titan Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 65122,
+        "name": "Simpsons Comics: Simpsorama",
+        "publisher": "HarperCollins",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T09:11:20.989205+00:00",
+    "retry_after": "2026-11-28T09:11:20.989211+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Angel Zero",
+    "publisher": "Rebellion",
+    "year": 2016,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T09:11:20.989230+00:00",
+    "retry_after": "2026-11-28T09:11:20.989233+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Gli Albi dei Super-Eroi",
+    "publisher": "Marvel Comics",
+    "year": 1996,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 34647,
+        "name": "Gli Albi dei Super-Eroi",
+        "publisher": "Editoriale Corno",
+        "start_year": 1973
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T09:11:20.989256+00:00",
+    "retry_after": "2026-11-28T09:11:20.989258+00:00",
     "search_hydrated": true
   }
 ]

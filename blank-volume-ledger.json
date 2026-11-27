@@ -33,6 +33,31 @@
     "checked_at": "2026-11-25T09:02:53.709Z",
     "tries": 3
   },
+  "1192": {
+    "status": "ask",
+    "reason": "issue count differs",
+    "options": [
+      {
+        "id": 1768,
+        "name": "House of Secrets",
+        "publisher": "DC Comics",
+        "start_year": 1956,
+        "count": 80,
+        "why": [
+          "issue count differs"
+        ]
+      }
+    ],
+    "name": "House of Secrets",
+    "publisher": "DC",
+    "year": 1956,
+    "count": 154,
+    "collected": false,
+    "blank": [
+      "92"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
+  },
   "1701": {
     "status": "ask",
     "reason": "issue count differs",
@@ -315,6 +340,31 @@
     ],
     "checked_at": "2026-11-26T09:02:04.751Z"
   },
+  "4685": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 5002,
+        "name": "Dark Guard",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993,
+        "count": 4,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "Dark Guard",
+    "publisher": "Marvel UK",
+    "year": 1993,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
+  },
   "4687": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -458,6 +508,56 @@
     ],
     "checked_at": "2026-11-27T07:04:34.916Z"
   },
+  "5004": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 5292,
+        "name": "Death Metal",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1994,
+        "count": 4,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "Death Metal",
+    "publisher": "Marvel UK",
+    "year": 1994,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "2"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
+  },
+  "5005": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 20528,
+        "name": "Death Wreck",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1994,
+        "count": 4,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "Death Wreck",
+    "publisher": "Marvel UK",
+    "year": 1994,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "2"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
+  },
   "5406": {
     "status": "sure",
     "volume": {
@@ -594,7 +694,7 @@
       "3"
     ],
     "checked_at": "2026-11-27T07:04:34.916Z",
-    "tries": 1
+    "tries": 2
   },
   "5933": {
     "status": "ask",
@@ -879,6 +979,19 @@
     ],
     "checked_at": "2026-11-25T09:02:53.709Z"
   },
+  "11045": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Don Pendleton's Mack Bolan: The Executioner",
+    "publisher": "Innovation",
+    "year": 1993,
+    "count": 3,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
+  },
   "11228": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -891,6 +1004,19 @@
       "1"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "11267": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Demi's Strange Bedfellows",
+    "publisher": "Carnal Comics; Opus Graphics",
+    "year": 2001,
+    "count": 6,
+    "collected": false,
+    "blank": [
+      "2"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
   },
   "11361": {
     "status": "none",
@@ -1550,6 +1676,39 @@
     ],
     "checked_at": "2026-11-26T07:02:15.708Z"
   },
+  "18556": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "The Futurians by Dave Cockrum",
+    "publisher": "Lodestone",
+    "year": 1985,
+    "count": 3,
+    "collected": false,
+    "blank": [
+      "3"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
+  },
+  "19125": {
+    "status": "sure",
+    "volume": {
+      "id": 41077,
+      "name": "French Ticklers",
+      "publisher": "Kitchen Sink",
+      "start_year": 1989,
+      "count": 3
+    },
+    "name": "French Ticklers",
+    "publisher": "Kitchen Sink Press",
+    "year": 1989,
+    "count": 3,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z",
+    "tries": 1
+  },
   "19165": {
     "status": "ask",
     "reason": "title differs",
@@ -1574,6 +1733,19 @@
       "1"
     ],
     "checked_at": "2026-11-27T07:04:34.916Z"
+  },
+  "19820": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Creed/Teenage Mutant Ninja Turtles",
+    "publisher": "Lightning Comics [1990s]",
+    "year": 1996,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
   },
   "20634": {
     "status": "sure",
@@ -1812,6 +1984,26 @@
       "4"
     ],
     "checked_at": "2026-11-27T05:02:25.940Z"
+  },
+  "21766": {
+    "status": "sure",
+    "volume": {
+      "id": 17994,
+      "name": "Gargoyles",
+      "publisher": "SLG Publishing",
+      "start_year": 2006,
+      "count": 8
+    },
+    "name": "Gargoyles",
+    "publisher": "Slave Labor",
+    "year": 2006,
+    "count": 8,
+    "collected": false,
+    "blank": [
+      "6"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z",
+    "tries": 1
   },
   "22106": {
     "status": "sure",
@@ -2059,6 +2251,68 @@
     ],
     "checked_at": "2026-11-25T09:02:53.709Z"
   },
+  "28128": {
+    "status": "sure",
+    "volume": {
+      "id": 54638,
+      "name": "Highway 13",
+      "publisher": "SLG Publishing",
+      "start_year": 2001,
+      "count": 10
+    },
+    "name": "Highway 13",
+    "publisher": "Slave Labor",
+    "year": 2001,
+    "count": 10,
+    "collected": false,
+    "blank": [
+      "2"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z",
+    "tries": 1
+  },
+  "28729": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Faust [Rebel Edition]",
+    "publisher": "Rebel Studios",
+    "year": 1991,
+    "count": 6,
+    "collected": false,
+    "blank": [
+      "4",
+      "2",
+      "6",
+      "3",
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
+  },
+  "28826": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 20781,
+        "name": "Ezra",
+        "publisher": "Arcana Studio",
+        "start_year": 2004,
+        "count": 4,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "Ezra",
+    "publisher": "Arcana",
+    "year": 2004,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
+  },
   "29195": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -2074,6 +2328,19 @@
       "7"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "29509": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Fantastic Comics",
+    "publisher": "Image",
+    "year": 2008,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "24"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
   },
   "30407": {
     "status": "sure",
@@ -2094,6 +2361,37 @@
     ],
     "checked_at": "2026-11-25T09:02:53.709Z",
     "tries": 1
+  },
+  "30610": {
+    "status": "ask",
+    "reason": "several volumes fit",
+    "options": [
+      {
+        "id": 19937,
+        "name": "Dark Crossings: Dark Clouds Overhead",
+        "publisher": "Image",
+        "start_year": 2000,
+        "count": 1,
+        "why": []
+      },
+      {
+        "id": 151917,
+        "name": "Dark Crossings: Dark Clouds Overhead",
+        "publisher": "Image",
+        "start_year": 2000,
+        "count": 1,
+        "why": []
+      }
+    ],
+    "name": "Dark Crossings: Dark Clouds Overhead",
+    "publisher": "Image",
+    "year": 2000,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
   },
   "31405": {
     "status": "sure",
@@ -2238,6 +2536,26 @@
       "1"
     ],
     "checked_at": "2026-11-27T05:02:25.940Z"
+  },
+  "35510": {
+    "status": "sure",
+    "volume": {
+      "id": 26097,
+      "name": "Destroyer",
+      "publisher": "Marvel",
+      "start_year": 2009,
+      "count": 5
+    },
+    "name": "Destroyer",
+    "publisher": "Marvel",
+    "year": 2009,
+    "count": 5,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z",
+    "tries": 1
   },
   "36656": {
     "status": "sure",
@@ -2634,6 +2952,19 @@
       "0"
     ],
     "checked_at": "2026-11-26T09:02:04.751Z"
+  },
+  "50906": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Judge Child",
+    "publisher": "Titan",
+    "year": 1983,
+    "count": 3,
+    "collected": true,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
   },
   "53873": {
     "status": "none",
@@ -3138,6 +3469,20 @@
     ],
     "checked_at": "2026-11-26T07:02:15.708Z"
   },
+  "74420": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "EC Classics",
+    "publisher": "Russ Cochran",
+    "year": 1985,
+    "count": 12,
+    "collected": false,
+    "blank": [
+      "2",
+      "5"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
+  },
   "75117": {
     "status": "none",
     "reason": "its covers are already filed under another series",
@@ -3151,6 +3496,39 @@
       "1"
     ],
     "checked_at": "2026-11-26T09:02:04.751Z"
+  },
+  "75809": {
+    "status": "ask",
+    "reason": "several volumes fit",
+    "options": [
+      {
+        "id": 64806,
+        "name": "Guardians of the Galaxy: Tomorrow's Avengers",
+        "publisher": "Marvel",
+        "start_year": 2013,
+        "count": 1,
+        "why": []
+      },
+      {
+        "id": 55905,
+        "name": "Guardians of the Galaxy: Tomorrow's Avengers",
+        "publisher": "Marvel",
+        "start_year": 2013,
+        "count": 2,
+        "why": [
+          "issue count differs"
+        ]
+      }
+    ],
+    "name": "Guardians of the Galaxy: Tomorrow's Avengers",
+    "publisher": "Marvel",
+    "year": 2013,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
   },
   "76084": {
     "status": "none",
@@ -3378,6 +3756,19 @@
     ],
     "checked_at": "2026-11-26T07:02:15.708Z",
     "tries": 1
+  },
+  "90544": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Eternal Soulfire",
+    "publisher": "Aspen",
+    "year": 2015,
+    "count": 6,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
   },
   "90551": {
     "status": "ask",
@@ -3862,6 +4253,31 @@
     ],
     "checked_at": "2026-11-25T09:02:53.709Z"
   },
+  "111013": {
+    "status": "ask",
+    "reason": "issue count differs",
+    "options": [
+      {
+        "id": 97419,
+        "name": "Grimm Fairy Tales",
+        "publisher": "Zenescope Entertainment",
+        "start_year": 2016,
+        "count": 101,
+        "why": [
+          "issue count differs"
+        ]
+      }
+    ],
+    "name": "Grimm Fairy Tales",
+    "publisher": "Zenescope Entertainment",
+    "year": 2016,
+    "count": 100,
+    "collected": false,
+    "blank": [
+      "50"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
+  },
   "111273": {
     "status": "sure",
     "volume": {
@@ -3919,6 +4335,31 @@
       "1"
     ],
     "checked_at": "2026-11-25T09:02:53.709Z"
+  },
+  "115368": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 102791,
+        "name": "Dread Gods",
+        "publisher": "Ominous Press",
+        "start_year": 2017,
+        "count": 4,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "Dread Gods",
+    "publisher": "IDW",
+    "year": 2017,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
   },
   "116551": {
     "status": "sure",
@@ -4585,7 +5026,7 @@
       "2"
     ],
     "checked_at": "2026-11-27T07:04:34.916Z",
-    "tries": 1
+    "tries": 2
   },
   "151952": {
     "status": "ask",
@@ -4781,6 +5222,32 @@
     ],
     "checked_at": "2026-11-27T07:04:34.916Z"
   },
+  "179884": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 136775,
+        "name": "Freak Snow",
+        "publisher": "Happy Tank",
+        "start_year": 2021,
+        "count": 4,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "Freak Snow",
+    "publisher": "Behemoth Comics",
+    "year": 2021,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "2",
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
+  },
   "179947": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -4819,6 +5286,27 @@
     ],
     "checked_at": "2026-11-27T07:04:34.916Z"
   },
+  "182269": {
+    "status": "sure",
+    "volume": {
+      "id": 141851,
+      "name": "DIE!namite Never Dies",
+      "publisher": "Dynamite Entertainment",
+      "start_year": 2022,
+      "count": 5
+    },
+    "name": "Die!namite Never Dies!",
+    "publisher": "Dynamite Entertainment",
+    "year": 2022,
+    "count": 5,
+    "collected": false,
+    "blank": [
+      "4",
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z",
+    "tries": 1
+  },
   "182525": {
     "status": "sure",
     "volume": {
@@ -4854,6 +5342,19 @@
       "2"
     ],
     "checked_at": "2026-11-27T05:02:25.940Z"
+  },
+  "182985": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Heavy Metal Drummer",
+    "publisher": "Behemoth Comics",
+    "year": 2022,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
   },
   "183962": {
     "status": "none",
@@ -4930,6 +5431,19 @@
       "1"
     ],
     "checked_at": "2026-11-27T07:04:34.916Z"
+  },
+  "187904": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Cradle of Filth: Maledictus Athenaeum",
+    "publisher": "Opus Comics",
+    "year": 2022,
+    "count": 5,
+    "collected": false,
+    "blank": [
+      "2"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
   },
   "189392": {
     "status": "none",
@@ -5024,6 +5538,26 @@
     ],
     "checked_at": "2026-11-27T07:04:34.916Z"
   },
+  "193756": {
+    "status": "sure",
+    "volume": {
+      "id": 146843,
+      "name": "Danger Street",
+      "publisher": "DC Comics",
+      "start_year": 2022,
+      "count": 12
+    },
+    "name": "Danger Street",
+    "publisher": "DC",
+    "year": 2023,
+    "count": 12,
+    "collected": false,
+    "blank": [
+      "6"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z",
+    "tries": 1
+  },
   "195192": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -5056,6 +5590,19 @@
     ],
     "checked_at": "2026-11-27T05:02:25.940Z",
     "tries": 2
+  },
+  "195665": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "The Greatest Name In Comics Daredevil",
+    "publisher": "Lev Gleason [2020s]",
+    "year": 2022,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
   },
   "195668": {
     "status": "ask",
@@ -5106,7 +5653,20 @@
       "2"
     ],
     "checked_at": "2026-11-27T07:04:34.916Z",
-    "tries": 1
+    "tries": 2
+  },
+  "197362": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Gargoyles Facsimile Edition",
+    "publisher": "Dynamite Entertainment",
+    "year": 2023,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
   },
   "197984": {
     "status": "none",
@@ -5353,6 +5913,19 @@
     ],
     "checked_at": "2026-11-27T07:04:34.916Z"
   },
+  "203438": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Final Boss",
+    "publisher": "Massive",
+    "year": 2023,
+    "count": 3,
+    "collected": false,
+    "blank": [
+      "3"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
+  },
   "205587": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -5391,6 +5964,62 @@
       "4"
     ],
     "checked_at": "2026-11-27T07:04:34.916Z"
+  },
+  "211320": {
+    "status": "ask",
+    "reason": "year differs",
+    "options": [
+      {
+        "id": 127023,
+        "name": "Giant-Size Hulk",
+        "publisher": "Marvel",
+        "start_year": 2008,
+        "count": 1,
+        "why": [
+          "year differs"
+        ]
+      },
+      {
+        "id": 157692,
+        "name": "Giant-Size Incredible Hulk",
+        "publisher": "Marvel",
+        "start_year": 2024,
+        "count": 1,
+        "why": [
+          "title differs"
+        ]
+      }
+    ],
+    "name": "Giant-Size Hulk",
+    "publisher": "Marvel",
+    "year": 2024,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
+  },
+  "211709": {
+    "status": "sure",
+    "volume": {
+      "id": 157940,
+      "name": "Deadpool & Wolverine WWIII",
+      "publisher": "Marvel",
+      "start_year": 2024,
+      "count": 3
+    },
+    "name": "Deadpool & Wolverine: WWIII",
+    "publisher": "Marvel",
+    "year": 2024,
+    "count": 3,
+    "collected": false,
+    "blank": [
+      "3",
+      "2"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z",
+    "tries": 1
   },
   "212397": {
     "status": "none",
@@ -5506,6 +6135,26 @@
     ],
     "checked_at": "2026-11-27T07:04:34.916Z"
   },
+  "215582": {
+    "status": "sure",
+    "volume": {
+      "id": 160896,
+      "name": "DuckTales",
+      "publisher": "Dynamite Entertainment",
+      "start_year": 2024,
+      "count": 12
+    },
+    "name": "DuckTales",
+    "publisher": "Dynamite Entertainment",
+    "year": 2024,
+    "count": 12,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z",
+    "tries": 1
+  },
   "216305": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -5539,6 +6188,19 @@
     "checked_at": "2026-11-27T05:02:25.940Z",
     "tries": 2
   },
+  "217056": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "How to Steal an Election (Before Someone Else Does)",
+    "publisher": "Black Mask Studios",
+    "year": 2024,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
+  },
   "219107": {
     "status": "ask",
     "reason": "its covers are already filed under another series",
@@ -5563,6 +6225,20 @@
       "3"
     ],
     "checked_at": "2026-11-27T07:04:34.916Z"
+  },
+  "219594": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Deathrage",
+    "publisher": "Merc Publishing",
+    "year": 2022,
+    "count": 6,
+    "collected": false,
+    "blank": [
+      "5",
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
   },
   "219859": {
     "status": "none",
@@ -5589,6 +6265,44 @@
       "1"
     ],
     "checked_at": "2026-11-27T05:02:25.940Z"
+  },
+  "220766": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Fantastic Freaks",
+    "publisher": "Michelle Lodge",
+    "year": 2024,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
+  },
+  "227931": {
+    "status": "ask",
+    "reason": "issue count differs",
+    "options": [
+      {
+        "id": 171916,
+        "name": "He-Man and the Masters of the Universe",
+        "publisher": "Dark Horse Comics",
+        "start_year": 2026,
+        "count": 3,
+        "why": [
+          "issue count differs"
+        ]
+      }
+    ],
+    "name": "He-Man and the Masters of the Universe",
+    "publisher": "Dark Horse",
+    "year": 2025,
+    "count": 7,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
   },
   "228872": {
     "status": "none",
@@ -5643,6 +6357,24 @@
     ],
     "checked_at": "2026-11-25T09:02:53.709Z"
   },
+  "233427": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Deathstroke: The Terminator",
+    "publisher": "DC",
+    "year": 2026,
+    "count": 8,
+    "collected": false,
+    "blank": [
+      "1 [Carmine Di Giandomenico Cover]",
+      "4 [Carmine Di Giandomenico Cover]",
+      "3 [Carmine Di Giandomenico Cover]",
+      "6 [Carmine Di Giandomenico Cover]",
+      "2 [Carmine Di Giandomenico Cover]",
+      "8"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
+  },
   "234577": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -5657,6 +6389,19 @@
       "1"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "234580": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "EroTech",
+    "publisher": "SHP Comics",
+    "year": 2025,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
   },
   "236130": {
     "status": "ask",
@@ -5724,5 +6469,18 @@
       "1"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "239753": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "The Escapades of Ponchi Panda",
+    "publisher": "Cosmic Lion Productions",
+    "year": 2026,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-27T09:02:16.978Z"
   }
 }

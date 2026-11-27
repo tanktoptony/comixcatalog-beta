@@ -93461,9 +93461,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-19T05:05:19.473833+00:00",
-    "retry_after": "2026-11-26T05:05:19.473852+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T05:13:56.308865+00:00",
+    "retry_after": "2026-12-11T05:13:56.308884+00:00",
     "search_hydrated": true
   },
   {
@@ -93472,9 +93472,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-19T05:05:19.473870+00:00",
-    "retry_after": "2026-11-26T05:05:19.473874+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T05:13:56.308900+00:00",
+    "retry_after": "2026-12-11T05:13:56.308903+00:00",
     "search_hydrated": true
   },
   {
@@ -96651,8 +96651,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-27T04:03:57.472328+00:00",
-    "retry_after": "2026-11-28T04:03:57.472346+00:00",
+    "last_attempt_at": "2026-11-27T05:09:10.089915+00:00",
+    "retry_after": "2026-11-28T05:09:10.089929+00:00",
     "search_hydrated": true
   },
   {
@@ -97691,21 +97691,21 @@
         "start_year": 2016
       },
       {
-        "id": 107804,
-        "name": "Hillbilly",
-        "publisher": "Delcourt",
-        "start_year": 2018
-      },
-      {
         "id": 100431,
         "name": "Hillbilly",
         "publisher": "Exploding Albatross Funnybooks",
         "start_year": 2017
+      },
+      {
+        "id": 107804,
+        "name": "Hillbilly",
+        "publisher": "Delcourt",
+        "start_year": 2018
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-24T04:11:25.364579+00:00",
-    "retry_after": "2026-11-27T04:11:25.364598+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T05:04:56.525826+00:00",
+    "retry_after": "2026-12-04T05:04:56.525842+00:00",
     "search_hydrated": true
   },
   {
@@ -97725,9 +97725,9 @@
     "year": 2016,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-24T05:09:05.564495+00:00",
-    "retry_after": "2026-11-27T05:09:05.564511+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T05:09:39.670735+00:00",
+    "retry_after": "2026-12-04T05:09:39.670751+00:00",
     "search_hydrated": true
   },
   {
@@ -101032,9 +101032,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-26T02:06:48.439698+00:00",
-    "retry_after": "2026-11-27T02:06:48.439718+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-27T05:14:07.169273+00:00",
+    "retry_after": "2026-11-30T05:14:07.169288+00:00",
     "search_hydrated": true
   },
   {
@@ -101050,9 +101050,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-26T02:06:48.566352+00:00",
-    "retry_after": "2026-11-27T02:06:48.566368+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-27T05:14:07.279535+00:00",
+    "retry_after": "2026-11-30T05:14:07.279550+00:00",
     "search_hydrated": true
   },
   {
@@ -101853,6 +101853,46 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-27T04:08:22.842951+00:00",
     "retry_after": "2026-11-28T04:08:22.842969+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Sea of Stars",
+    "publisher": "Image Comics",
+    "year": 2020,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 120024,
+        "name": "Sea of Stars",
+        "publisher": "Image",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T05:14:06.715720+00:00",
+    "retry_after": "2026-11-28T05:14:06.715736+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Disney One Saturday Morning Adventures: A Comics Anthology",
+    "publisher": "Fantagraphics",
+    "year": 2023,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T05:14:23.107017+00:00",
+    "retry_after": "2026-11-28T05:14:23.107033+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Iron Man No. 311 [Marvel Legends Reprint]",
+    "publisher": "Marvel Comics",
+    "year": 2006,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T05:14:23.107050+00:00",
+    "retry_after": "2026-11-28T05:14:23.107053+00:00",
     "search_hydrated": true
   }
 ]

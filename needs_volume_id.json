@@ -14897,9 +14897,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-17T15:06:00.011773+00:00",
-    "retry_after": "2026-11-24T15:06:00.011791+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T00:07:52.455694+00:00",
+    "retry_after": "2026-12-11T00:07:52.455710+00:00",
     "search_hydrated": true
   },
   {
@@ -93274,9 +93274,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-18T16:05:28.490153+00:00",
-    "retry_after": "2026-11-25T16:05:28.490156+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T00:07:52.455743+00:00",
+    "retry_after": "2026-12-11T00:07:52.455746+00:00",
     "search_hydrated": true
   },
   {
@@ -96657,8 +96657,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-26T23:32:19.016499+00:00",
-    "retry_after": "2026-11-27T23:32:19.016512+00:00",
+    "last_attempt_at": "2026-11-27T00:03:26.752118+00:00",
+    "retry_after": "2026-11-28T00:03:26.752137+00:00",
     "search_hydrated": true
   },
   {
@@ -101664,6 +101664,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-26T23:36:43.174092+00:00",
     "retry_after": "2026-11-27T23:36:43.174095+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Big Book of Bart Simpson",
+    "publisher": "Titan Comics",
+    "year": 2002,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 62660,
+        "name": "Big Book of Bart Simpson",
+        "publisher": "HarperCollins",
+        "start_year": 2002
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T00:08:04.337757+00:00",
+    "retry_after": "2026-11-28T00:08:04.337775+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kick-Ass 2 Prelude: Hit Girl",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58598,
+        "name": "Kick-Ass 2 Prelude: Hit-Girl",
+        "publisher": "Icon Books",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T00:08:04.337800+00:00",
+    "retry_after": "2026-11-28T00:08:04.337803+00:00",
     "search_hydrated": true
   }
 ]

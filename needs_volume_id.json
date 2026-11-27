@@ -3558,9 +3558,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-18T03:05:46.302347+00:00",
-    "retry_after": "2026-11-25T03:05:46.302349+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T06:07:03.896726+00:00",
+    "retry_after": "2026-12-11T06:07:03.896729+00:00",
     "search_hydrated": true
   },
   {
@@ -22469,9 +22469,9 @@
     "year": 1986,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-12T21:02:02.243895+00:00",
-    "retry_after": "2026-11-26T21:02:02.243912+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-27T06:03:22.704612+00:00",
+    "retry_after": "2026-12-27T06:03:22.704627+00:00",
     "search_hydrated": true
   },
   {
@@ -93483,9 +93483,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-19T06:17:09.686627+00:00",
-    "retry_after": "2026-11-26T06:17:09.686643+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T06:07:03.896670+00:00",
+    "retry_after": "2026-12-11T06:07:03.896685+00:00",
     "search_hydrated": true
   },
   {
@@ -93494,9 +93494,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-19T07:05:30.607906+00:00",
-    "retry_after": "2026-11-26T07:05:30.607924+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T06:07:03.896707+00:00",
+    "retry_after": "2026-12-11T06:07:03.896710+00:00",
     "search_hydrated": true
   },
   {
@@ -93505,9 +93505,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-19T12:05:33.994906+00:00",
-    "retry_after": "2026-11-26T12:05:33.994908+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-27T06:07:03.896757+00:00",
+    "retry_after": "2026-12-11T06:07:03.896759+00:00",
     "search_hydrated": true
   },
   {
@@ -96651,8 +96651,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-27T05:09:10.089915+00:00",
-    "retry_after": "2026-11-28T05:09:10.089929+00:00",
+    "last_attempt_at": "2026-11-27T06:03:07.660546+00:00",
+    "retry_after": "2026-11-28T06:03:07.660564+00:00",
     "search_hydrated": true
   },
   {
@@ -101893,6 +101893,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-27T05:14:23.107050+00:00",
     "retry_after": "2026-11-28T05:14:23.107053+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Kick Ass 2 Prelude: Hit Girl",
+    "publisher": "Titan Comics",
+    "year": 2013,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 58598,
+        "name": "Kick-Ass 2 Prelude: Hit-Girl",
+        "publisher": "Icon Books",
+        "start_year": 2013
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T06:07:14.464483+00:00",
+    "retry_after": "2026-11-28T06:07:14.464499+00:00",
     "search_hydrated": true
   }
 ]

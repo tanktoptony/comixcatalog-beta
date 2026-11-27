@@ -75732,21 +75732,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 31300,
-        "name": "High Moon",
-        "publisher": "DC Comics",
-        "start_year": 2009
-      },
-      {
         "id": 60577,
         "name": "High Moon",
         "publisher": "DC Comics",
         "start_year": 2010
+      },
+      {
+        "id": 31300,
+        "name": "High Moon",
+        "publisher": "DC Comics",
+        "start_year": 2009
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-10-28T04:07:20.883557+00:00",
-    "retry_after": "2026-10-31T04:07:20.883576+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T19:04:44.876326+00:00",
+    "retry_after": "2026-12-04T19:04:44.876343+00:00",
     "search_hydrated": true
   },
   {
@@ -96651,8 +96651,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-27T18:03:06.557167+00:00",
-    "retry_after": "2026-11-28T18:03:06.557182+00:00",
+    "last_attempt_at": "2026-11-27T19:03:03.023638+00:00",
+    "retry_after": "2026-11-28T19:03:03.023655+00:00",
     "search_hydrated": true
   },
   {
@@ -98047,9 +98047,9 @@
     "year": 1986,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-24T18:03:44.953140+00:00",
-    "retry_after": "2026-11-27T18:03:44.953153+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T19:02:31.312886+00:00",
+    "retry_after": "2026-12-04T19:02:31.312902+00:00",
     "search_hydrated": true
   },
   {
@@ -102093,6 +102093,77 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-27T18:07:34.529842+00:00",
     "retry_after": "2026-11-28T18:07:34.529860+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Witchblade / Tomb Raider",
+    "publisher": "Image; Wizard",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 74149,
+        "name": "Witchblade / Tomb Raider",
+        "publisher": "Image",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T19:02:04.986361+00:00",
+    "retry_after": "2026-11-28T19:02:04.986379+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "All-Star Comics",
+    "publisher": "DC Comics",
+    "year": 1976,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2833,
+        "name": "All-Star Comics",
+        "publisher": "DC Comics",
+        "start_year": 1940
+      },
+      {
+        "id": 6596,
+        "name": "All Star Comics",
+        "publisher": "DC Comics",
+        "start_year": 1999
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T19:03:23.829020+00:00",
+    "retry_after": "2026-11-28T19:03:23.829036+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Doctor Doom",
+    "publisher": "Marvel Comics",
+    "year": 2020,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 121896,
+        "name": "Doctor Doom",
+        "publisher": "Marvel",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T19:05:22.115742+00:00",
+    "retry_after": "2026-11-28T19:05:22.115757+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Deathlok Vol.1 No.3 [Marvel Legends Reprint]",
+    "publisher": "Marvel Comics",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T19:07:13.772803+00:00",
+    "retry_after": "2026-11-28T19:07:13.772819+00:00",
     "search_hydrated": true
   }
 ]

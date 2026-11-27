@@ -93960,9 +93960,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-16T13:29:43.071689+00:00",
-    "retry_after": "2026-11-19T13:29:43.071707+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T14:07:25.881492+00:00",
+    "retry_after": "2026-12-04T14:07:25.881508+00:00",
     "search_hydrated": true
   },
   {
@@ -93971,9 +93971,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-16T13:29:43.071723+00:00",
-    "retry_after": "2026-11-19T13:29:43.071725+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T14:07:25.881529+00:00",
+    "retry_after": "2026-12-04T14:07:25.881533+00:00",
     "search_hydrated": true
   },
   {
@@ -96651,8 +96651,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-27T13:02:59.049632+00:00",
-    "retry_after": "2026-11-28T13:02:59.049651+00:00",
+    "last_attempt_at": "2026-11-27T14:03:21.707118+00:00",
+    "retry_after": "2026-11-28T14:03:21.707136+00:00",
     "search_hydrated": true
   },
   {
@@ -102043,6 +102043,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-27T13:07:05.098110+00:00",
     "retry_after": "2026-11-28T13:07:05.098114+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "My Little Pony Fun Pack: Princess Celestia [Micro Comic Fun Pack Series 2]",
+    "publisher": "IDW Publishing",
+    "year": 2014,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T14:07:40.874054+00:00",
+    "retry_after": "2026-11-28T14:07:40.874070+00:00",
     "search_hydrated": true
   }
 ]

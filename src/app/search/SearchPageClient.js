@@ -18,6 +18,7 @@ import { compareIssueNumbers, normalizeTitle } from "@/lib/coverMatch";
 import { SEARCH_WORKS_SIZE } from "@/lib/searchCache";
 import { buildFacets, filterResults } from "@/lib/searchFacets";
 import { issueNumberSuffix } from "@/lib/issueNumberLabel";
+import { searchClientState } from "@/lib/searchAvailability";
 
 const PAGE_SIZE = 36;
 const emptySelection = () => ({ formats: new Set(), decades: new Set(), publishers: new Set() });
@@ -134,7 +135,15 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
 
   const [isLoading, setIsLoading] = useState(false);
   const [isFirstLoad, setIsFirstLoad] = useState(Boolean(initialQuery) && !initialComics);
-  const [loadError, setLoadError] = useState(null);
+  const [comicSearchHealth, setComicSearchHealth] = useState({
+    term: initialComics !== null ? initialQuery : null,
+    state: initialComics !== null ? "ready" : "pending",
+  });
+  const [seriesSearchHealth, setSeriesSearchHealth] = useState({
+    term: initialSeries !== null ? initialQuery : null,
+    state: initialSeries !== null ? "ready" : "pending",
+  });
+  const [retryKey, setRetryKey] = useState(0);
   const [mutationError, setMutationError] = useState(null);
   const [hasMore, setHasMore] = useState(initialComics ? initialComics.length === PAGE_SIZE : true);
 
@@ -163,7 +172,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
     const timeout = setTimeout(async () => {
       try {
         setIsLoading(true);
-        setLoadError(null);
+        setComicSearchHealth({ term, state: "pending" });
 
         const url = `/api/search/comics?q=${encodeURIComponent(term)}&limit=${PAGE_SIZE}&offset=${page * PAGE_SIZE}`;
 
@@ -186,6 +195,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
         }
 
         setHasMore(comics.length === PAGE_SIZE);
+        setComicSearchHealth({ term, state: data.degraded ? "degraded" : "ready" });
 
         setSupabaseComics((prev) => {
           const merged = page === 0 ? comics : [...prev, ...comics];
@@ -202,7 +212,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
       } catch (err) {
         console.error("Search comics load failed:", err);
         if (!cancelled) {
-          setLoadError("Could not load comics right now. Please try again.");
+          setComicSearchHealth({ term, state: "failed" });
           if (page === 0) setSupabaseComics([]);
         }
       } finally {
@@ -220,7 +230,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
     // `user` is read for the event only; re-fetching on auth changes would
     // double-load the page.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [term, page, awaitingUrlSeed]);
+  }, [term, page, awaitingUrlSeed, retryKey]);
 
   // ── Reset page/filter on new query (keep old results visible until new ones arrive) ──
   // Same derive-during-render pattern as the URL sync above: reset paging
@@ -238,7 +248,8 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
     setLastQuery(term);
     setPage(0);
     setHasMore(true);
-    setLoadError(null);
+    setComicSearchHealth({ term, state: "pending" });
+    setSeriesSearchHealth({ term, state: "pending" });
     setSelected(emptySelection());
     setFiltersOpen(false);
     setSupabaseComics([]);
@@ -259,6 +270,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
 
     const timeout = setTimeout(async () => {
       try {
+        setSeriesSearchHealth({ term, state: "pending" });
         const res = await fetch(
           `/api/search/series?q=${encodeURIComponent(term)}&works=1&limit=${SEARCH_WORKS_SIZE}`,
           { cache: "no-store" }
@@ -267,10 +279,14 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
         const data = await res.json();
         if (!cancelled) {
           setSeriesResults(Array.isArray(data?.series) ? data.series.filter(Boolean) : []);
+          setSeriesSearchHealth({ term, state: data.degraded ? "degraded" : "ready" });
         }
       } catch (err) {
         console.error("Series search failed:", err);
-        if (!cancelled) setSeriesResults([]);
+        if (!cancelled) {
+          setSeriesResults([]);
+          setSeriesSearchHealth({ term, state: "failed" });
+        }
       }
     }, 250);
 
@@ -278,13 +294,13 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
       cancelled = true;
       clearTimeout(timeout);
     };
-  }, [term]);
+  }, [term, retryKey]);
 
   // ── Full runs, for the end of the issue list ────────────────────────────────
   // The shelf above keeps two runs per title for variety; the end-of-list
   // links ask for every run with the searched title (runs=1), so "superman"
   // ends with Superman (1987) too. Fetched once the issue list is exhausted.
-  const [fullRuns, setFullRuns] = useState({ term: null, series: [], titleRuns: null });
+  const [fullRuns, setFullRuns] = useState({ term: null, series: [], titleRuns: null, failed: false });
   const issuesExhausted = !hasMore && !isLoading && !isFirstLoad && supabaseComics.length > 0;
   useEffect(() => {
     if (!term || (!showEveryRun && !issuesExhausted) || fullRuns.term === term) return;
@@ -296,20 +312,43 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
           term,
           series: Array.isArray(data?.series) ? data.series.filter(Boolean) : [],
           titleRuns: data?.title_runs ?? null,
+          failed: false,
         });
       })
       .catch((err) => {
         console.error("Full-runs fetch failed:", err);
-        if (!cancelled) setFullRuns({ term, series: [], titleRuns: null });
+        if (!cancelled) setFullRuns({ term, series: [], titleRuns: null, failed: true });
       });
     return () => {
       cancelled = true;
     };
   }, [term, issuesExhausted, fullRuns.term, showEveryRun]);
   const endRuns = (fullRuns.term === term && fullRuns.series.length ? fullRuns.series : seriesResults).filter((s) => s?.id);
+  const fullRunsFailed = fullRuns.term === term && fullRuns.failed;
   const topRuns = fullRuns.titleRuns
     ? endRuns.filter((s) => normalizeTitle(s.title) === normalizeTitle(fullRuns.titleRuns.title))
     : endRuns;
+
+  const availability = searchClientState([
+    {
+      state: comicSearchHealth.term === term ? comicSearchHealth.state : "pending",
+      resultCount: supabaseComics.length,
+    },
+    {
+      state: seriesSearchHealth.term === term ? seriesSearchHealth.state : "pending",
+      resultCount: seriesResults.length,
+    },
+  ]);
+  const searchUnavailable = availability === "failed";
+  const searchDegraded = availability === "degraded";
+  const retrySearch = () => {
+    setPage(0);
+    setHasMore(true);
+    setComicSearchHealth({ term, state: "pending" });
+    setSeriesSearchHealth({ term, state: "pending" });
+    setFullRuns({ term: null, series: [], titleRuns: null, failed: false });
+    setRetryKey((value) => value + 1);
+  };
 
 
   // ── Map + dedupe comics ──────────────────────────────────────────────────────
@@ -550,7 +589,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
         );
       })()}
 
-      {nothingMatches && <div className="search-filter-empty">
+      {!searchUnavailable && nothingMatches && <div className="search-filter-empty">
         <p>Nothing matches these filters.</p>
         <button type="button" className="work-btn work-btn--quiet" onClick={clearFilters}>Clear filters</button>
       </div>}
@@ -576,14 +615,24 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
       </div>
 
       {/* Error state */}
-      {loadError && (
-        <div className="empty-state" style={{ color: "rgba(255,100,100,0.9)" }}>
-          {loadError}
+      {searchUnavailable && (
+        <div className="empty-state" role="alert">
+          <h2>ComixCatalog search hit a snag.</h2>
+          <p>We could not load reliable results right now.</p>
+          <button type="button" className="comic-btn" onClick={retrySearch}>
+            Retry
+          </button>
         </div>
       )}
 
+      {searchDegraded && !searchUnavailable && (
+        <p className="muted" role="status">
+          Some results may be missing. <button type="button" className="comic-btn" onClick={retrySearch}>Retry</button>
+        </p>
+      )}
+
       {/* Result count */}
-      {!isFirstLoad && !loadError && (
+      {!isFirstLoad && !searchUnavailable && (
         <p className="muted">
           {results.length} result{results.length === 1 ? "" : "s"}
           {` for "${shownQuery}"`}
@@ -591,7 +640,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
       )}
 
       {/* Empty state */}
-      {!isLoading && !loadError && !isFirstLoad && orderedComics.length === 0 && seriesResults.length === 0 && (
+      {!isLoading && !searchUnavailable && !searchDegraded && !isFirstLoad && orderedComics.length === 0 && seriesResults.length === 0 && (
         <div>
           <EmptyState
             icon="🔍"
@@ -774,9 +823,13 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
       {/* End of the issue matches. Search keeps a term's top matches (120
           issues), so a big run like Superman stops partway; the series page
           has every issue. End with somewhere to go instead of a dead end. */}
-      {!hasMore && !isLoading && !isFirstLoad && results.length > 0 && (
+      {!hasMore && !isLoading && !isFirstLoad && !searchUnavailable && !searchDegraded && results.length > 0 && (
         <div className="search-runs-end">
-          {endRuns.length > 0 ? (
+          {fullRunsFailed ? (
+            <p className="search-runs-end-lead">
+              More run links are unavailable right now. <button type="button" className="comic-btn" onClick={() => setFullRuns({ term: null, series: [], titleRuns: null, failed: false })}>Retry</button>
+            </p>
+          ) : endRuns.length > 0 ? (
             <>
               <p className="search-runs-end-lead">
                 That&apos;s the end of the issue matches. Every issue of a run lives on its series page:
@@ -815,9 +868,9 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
           ) : (
             <p className="search-runs-end-lead">That&apos;s every issue match for this search.</p>
           )}
-          <p className="search-request-link">
+          {!fullRunsFailed && <p className="search-request-link">
             Not here? <Link href={`/request?from=search&q=${encodeURIComponent(shownQuery)}&title=${encodeURIComponent(shownQuery)}`}>Request it</Link>
-          </p>
+          </p>}
         </div>
       )}
       </>}

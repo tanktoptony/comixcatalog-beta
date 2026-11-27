@@ -10,6 +10,7 @@ export default function FirstRunLibrary() {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [seriesMatches, setSeriesMatches] = useState([]);
+  const [searchError, setSearchError] = useState("");
 
   useEffect(() => {
     let cancelled = false;
@@ -32,13 +33,20 @@ export default function FirstRunLibrary() {
 
     const controller = new AbortController();
     const timer = window.setTimeout(() => {
+      setSearchError("");
       fetch(`/api/search/series?q=${encodeURIComponent(q)}&limit=5`, {
         signal: controller.signal,
       })
-        .then((response) => response.json())
+        .then((response) => {
+          if (!response.ok) throw new Error("Search is unavailable right now.");
+          return response.json();
+        })
         .then((data) => setSeriesMatches(Array.isArray(data?.series) ? data.series : []))
         .catch((error) => {
-          if (error.name !== "AbortError") setSeriesMatches([]);
+          if (error.name !== "AbortError") {
+            setSeriesMatches([]);
+            setSearchError(error.message);
+          }
         });
     }, 250);
 
@@ -84,6 +92,8 @@ export default function FirstRunLibrary() {
             Find series
           </button>
         </form>
+
+        {searchError && <p className="pull-inline-error" role="alert">{searchError}</p>}
 
         {query.trim().length >= 2 && seriesMatches.length > 0 && (
           <div className="first-run-series-matches">

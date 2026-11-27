@@ -77,6 +77,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.ref }}
 
       - uses: actions/setup-node@v4
         with:
@@ -85,11 +86,22 @@ jobs:
       - run: npm ci --no-audit --no-fund
 
       - name: Probe ComicVine for recent releases (14 days)
-        run: node scripts/probeNewReleases.js --days=14 --apply
+        id: probe_releases
+        run: |
+          if node scripts/probeNewReleases.js --days=14 --apply; then
+            echo "failed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "failed=true" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Probe user-collected series with no canonical coverage
-        run: node scripts/generateUserCollectedGap.js --append-to-manual
-        continue-on-error: true
+        id: probe_collected
+        run: |
+          if node scripts/generateUserCollectedGap.js --append-to-manual; then
+            echo "failed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "failed=true" >> "$GITHUB_OUTPUT"
+          fi
 
       # Second invocation, no --append-to-manual: that mode returns early
       # and never writes gap-user-collected.json, so the file itself was
@@ -99,25 +111,41 @@ jobs:
       # exactly the way gap-width/gap-depth did for 11 weeks. Cheap — it's
       # Supabase reads only, no ComicVine budget.
       - name: Regenerate gap-user-collected.json
-        run: node scripts/generateUserCollectedGap.js
-        continue-on-error: true
+        id: regenerate_collected
+        run: |
+          if node scripts/generateUserCollectedGap.js; then
+            echo "failed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "failed=true" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Resolve single-candidate volume-id backlog
-        run: node scripts/resolveNeedsVolumeIdBacklog.js
-        continue-on-error: true
+        id: resolve_pins
+        run: |
+          if node scripts/resolveNeedsVolumeIdBacklog.js; then
+            echo "failed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "failed=true" >> "$GITHUB_OUTPUT"
+          fi
 
       # Series with no cover at all, mainstream and newest first (migration
       # 0091). Supabase reads only. A failure keeps yesterday's file.
       - name: Regenerate gap-backfill.json
+        id: regenerate_backfill
         run: |
-          if ! node scripts/generateCoverBackfillGap.js --apply; then
-            echo "::warning::Backfill generator failed; keeping the previous gap-backfill.json."
+          if node scripts/generateCoverBackfillGap.js --apply; then
+            echo "failed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "failed=true" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Regenerate gap-runs.json
+        id: regenerate_runs
         run: |
-          if ! node scripts/generateRunCompletionGap.js --apply; then
-            echo "::warning::Run-completion generator failed; keeping the previous gap-runs.json."
+          if node scripts/generateRunCompletionGap.js --apply; then
+            echo "failed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "failed=true" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Commit gap-manual / gap-pinned additions
@@ -136,5 +164,33 @@ jobs:
           # by cron-watchdog at once), whichever pushes second gets rejected
           # with "fetch first". Found live 2026-08-31. Rebase picks up the
           # other's commit cleanly since the file sets don't overlap.
-          git pull --rebase origin main
-          git push
+          bash scripts/ci/push-with-retry.sh origin main
+
+      - name: Report lane outcomes
+        if: always()
+        run: |
+          fail=0
+          check() {
+            if [ "$2" = "true" ] || [ "$3" = "failure" ]; then
+              echo "  FAILED   $1"
+              fail=1
+            elif [ "$3" = "skipped" ]; then
+              echo "  skipped  $1"
+            else
+              echo "  ok       $1"
+            fi
+          }
+          echo "Gap probe lane outcomes:"
+          check "recent-releases" "${{ steps.probe_releases.outputs.failed }}" "${{ steps.probe_releases.outcome }}"
+          check "collected-manual" "${{ steps.probe_collected.outputs.failed }}" "${{ steps.probe_collected.outcome }}"
+          check "collected-file" "${{ steps.regenerate_collected.outputs.failed }}" "${{ steps.regenerate_collected.outcome }}"
+          check "resolve-pins" "${{ steps.resolve_pins.outputs.failed }}" "${{ steps.resolve_pins.outcome }}"
+          check "backfill" "${{ steps.regenerate_backfill.outputs.failed }}" "${{ steps.regenerate_backfill.outcome }}"
+          check "run-completion" "${{ steps.regenerate_runs.outputs.failed }}" "${{ steps.regenerate_runs.outcome }}"
+          if [ "$fail" -eq 1 ]; then
+            echo ""
+            echo "FAIL: at least one gap probe lane exited non-zero."
+            exit 1
+          fi
+          echo ""
+          echo "All gap probe lanes completed."

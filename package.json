@@ -61,6 +61,7 @@
     "test:search-variety": "node --test src/lib/searchVariety.test.js",
     "test:search-aliases": "node --test src/lib/searchAliases.test.js",
     "test:search-cache": "node --test src/lib/searchCache.test.js src/lib/searchTermCache.test.js",
+    "test:search-availability": "node --test src/lib/searchAvailability.test.js",
     "test:us-market": "node --test src/lib/usMarket.test.js",
     "test:password-policy": "node --test src/lib/passwordPolicy.test.js",
     "test:launch-flags": "node --test src/lib/launchFlags.test.js",
@@ -135,6 +136,8 @@
     "test:marketplace-fraud": "node --test src/lib/buyerLimits.test.js src/lib/messageContent.test.js src/lib/marketplaceWebhook.test.js",
     "test:marketplace-sellers": "node --test src/lib/marketplaceFlags.test.js src/lib/sellerStanding.test.js",
     "test:marketplace-checkout": "node --test src/lib/checkoutSession.test.js src/lib/marketplaceWebhook.test.js scripts/lib/marketplaceSweep.test.js",
+    "test:account-delete": "node --test src/lib/accountDeletion.test.js",
+    "test:ci-push-retry": "node --test scripts/ci/pushWithRetry.test.js",
     "test:email-prefs": "node --test src/lib/emailPrefs.test.js src/lib/emailCap.test.js",
     "test:blog-crosspost": "node --test scripts/lib/blogCrossPost.test.js"
   },

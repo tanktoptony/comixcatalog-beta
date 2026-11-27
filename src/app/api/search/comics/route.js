@@ -14,6 +14,7 @@ import { unstable_cache } from "next/cache";
 import { createServerTiming } from "@/lib/serverTiming";
 import { cachedSearchTerm } from "@/lib/searchTermCache";
 import { stripSearchQualifiers } from "@/lib/searchQuery";
+import { SEARCH_UNAVAILABLE_MESSAGE, searchRoutePolicy } from "@/lib/searchAvailability";
 import { getCachedSeriesSearch } from "@/app/api/search/series/route";
 import {
   DegradedSearchError,
@@ -441,7 +442,11 @@ async function computeComicsResponse(req) {
     return json({ comics }, { headers: viewer ? { "Cache-Control": "private, no-store" } : CDN_CACHE_SHORT });
   } catch (err) {
     console.error("GET /api/search/comics crashed:", err);
-    return json({ comics: [], degraded: true });
+    const policy = searchRoutePolicy({ failed: true });
+    return json(
+      { error: SEARCH_UNAVAILABLE_MESSAGE },
+      { status: policy.status, headers: { "Cache-Control": policy.cacheControl } }
+    );
   }
 }
 
@@ -454,6 +459,7 @@ async function computeComicsTerm(normalizedTerm) {
   );
   const serverTiming = response.headers.get("Server-Timing") || "";
   const result = await response.json();
+  if (!response.ok) throw new Error(result.error || SEARCH_UNAVAILABLE_MESSAGE);
   return { ...result, _serverTiming: serverTiming };
 }
 
@@ -602,7 +608,11 @@ export async function GET(req) {
     return response;
   } catch (err) {
     console.error("GET /api/search/comics crashed:", err);
-    const response = NextResponse.json({ comics: [], degraded: true });
+    const policy = searchRoutePolicy({ failed: true });
+    const response = NextResponse.json(
+      { error: SEARCH_UNAVAILABLE_MESSAGE },
+      { status: policy.status, headers: { "Cache-Control": policy.cacheControl } }
+    );
     response.headers.set("Server-Timing", timing.header());
     return response;
   }

@@ -58,13 +58,15 @@ function SingleNoMatch({ result, onPick }) {
   const notInCatalog = result.outcome === "not_in_catalog";
   return (
     <div className="scan-callout">
-      {notInCatalog
-        ? <>We don&apos;t have this one yet.{result.free && " It did not count against your daily scans."}</>
-        : readNoTitle(result.extracted) ? NO_TITLE_TEXT : "We couldn't match this cover. Try another photo, or search for the book."}
-      <div className="scan-callout-actions">
-        <button type="button" className="scan-btn scan-btn-primary" onClick={() => setSearching(true)}>Search for it</button>
-        {notInCatalog && <RequestBookLink row={{ source: "photo", scanId: result.scan_id, extracted: result.extracted }} />}
-      </div>
+      {!searching && <>
+        {notInCatalog
+          ? <>We don&apos;t have this one yet.{result.free && " It did not count against your daily scans."}</>
+          : readNoTitle(result.extracted) ? NO_TITLE_TEXT : "We couldn't match this cover. Try another photo, or search for the book."}
+        <div className="scan-callout-actions">
+          <button type="button" className="scan-btn scan-btn-primary" onClick={() => setSearching(true)}>Search for it</button>
+          {notInCatalog && <RequestBookLink row={{ source: "photo", scanId: result.scan_id, extracted: result.extracted }} />}
+        </div>
+      </>}
       {searching && <SearchPicker row={{ selected: null }} onClose={() => setSearching(false)} onPick={(match) => { setSearching(false); onPick(match); }} />}
     </div>
   );
@@ -141,7 +143,8 @@ function searchMatch(item) {
 function SearchPicker({ row, onPick, onClose }) {
   const [query, setQuery] = useState([row.selected?.series_title, row.selected?.issue_number].filter(Boolean).join(" "));
   const [results, setResults] = useState([]), [busy, setBusy] = useState(false);
-  async function search(e) { e.preventDefault(); setBusy(true); try { const response = await fetch(`/api/search/comics?q=${encodeURIComponent(query)}&limit=12&offset=0`); const data = await response.json(); setResults((data.comics ?? []).map(searchMatch)); } finally { setBusy(false); } }
+  const [error, setError] = useState(null);
+  async function search(e) { e.preventDefault(); setBusy(true); setError(null); try { const response = await fetch(`/api/search/comics?q=${encodeURIComponent(query)}&limit=12&offset=0`); const data = await response.json(); if (!response.ok) throw new Error(data.error || "Search is unavailable right now."); setResults((data.comics ?? []).map(searchMatch)); } catch (searchError) { setResults([]); setError(searchError.message); } finally { setBusy(false); } }
   // A searched issue gets the same version list a scan match carries.
   async function pick(match) {
     setBusy(true);
@@ -154,7 +157,7 @@ function SearchPicker({ row, onPick, onClose }) {
       onPick(match);
     } finally { setBusy(false); }
   }
-  return <div className="scan-search"><form onSubmit={search}><input value={query} onChange={(e) => setQuery(e.target.value)} aria-label="Search catalog" /><button className="scan-btn scan-btn-primary">{busy ? "Searching..." : "Search"}</button><button type="button" className="scan-btn scan-btn-secondary" onClick={onClose}>Close</button></form><div className="scan-search-results">{results.filter((item) => String(item.id).startsWith("gcd-")).map((item) => <button key={item.id} type="button" disabled={busy} onClick={() => pick(item)}><img src={item.cover_path || "/fallback-cover.png"} alt="" /><span>{item.series_title} {issueNumberText(item.issue_number)}<small>{[item.publisher, item.year].filter(Boolean).join(" · ")}</small></span></button>)}</div></div>;
+  return <div className="scan-search"><form onSubmit={search}><input value={query} onChange={(e) => setQuery(e.target.value)} aria-label="Search catalog" /><button className="scan-btn scan-btn-primary">{busy ? "Searching..." : "Search"}</button><button type="button" className="scan-btn scan-btn-secondary" onClick={onClose}>Close</button></form>{error && <p className="cover-scan-error" role="alert">{error}</p>}<div className="scan-search-results">{results.filter((item) => String(item.id).startsWith("gcd-")).map((item) => <button key={item.id} type="button" disabled={busy} onClick={() => pick(item)}><img src={item.cover_path || "/fallback-cover.png"} alt="" /><span>{item.series_title} {issueNumberText(item.issue_number)}<small>{[item.publisher, item.year].filter(Boolean).join(" · ")}</small></span></button>)}</div></div>;
 }
 
 function PrintingReport({ item, scanId }) {
@@ -177,14 +180,14 @@ function ReviewRow({ row, update, remove, compact = false }) {
   const [searching, setSearching] = useState(false); const selected = row.selected;
   return <article className={`scan-review-row${compact ? " is-compact" : ""}`}>
     <div className="scan-review-covers"><div>{row.photoUrl ? <img src={row.photoUrl} alt="Your scan" /> : row.source === "barcode" ? <div className="scan-photo-missing scan-barcode-card">{row.barcode}</div> : <div className="scan-photo-missing">Photo unavailable</div>}<small>{row.source === "barcode" ? "Barcode" : "Your scan"}</small></div>{selected && <div><img src={selected.cover_path || "/fallback-cover.png"} alt="Matched cover" /><small>Match</small></div>}</div>
-    <div className="scan-review-body"><div className="scan-review-heading"><div><span className={`scan-state is-${row.status}`}>{row.status === "identifying" ? "Identifying" : row.status === "matched" ? (row.candidates?.length > 1 ? "Needs a pick" : "Matched") : row.status === "no-match" ? "No match" : "Could not scan"}</span>{selected && <h3>{selected.series_title} {issueNumberText(selected.issue_number)}</h3>}{selected?.version_name && selected.version_name !== "Regular edition" && <p className="scan-version-name">{selected.version_name}</p>}{selected && <p>{[selected.publisher, selected.year].filter(Boolean).join(" · ")}</p>}</div>{!compact && <button type="button" className="scan-remove" onClick={remove}>Remove</button>}</div>
+    <div className="scan-review-body"><div className="scan-review-heading"><div><span className={`scan-state is-${row.status}`}>{searching && row.status === "no-match" ? "Search catalog" : row.status === "identifying" ? "Identifying" : row.status === "matched" ? (row.candidates?.length > 1 ? "Needs a pick" : "Matched") : row.status === "no-match" ? "No match" : "Could not scan"}</span>{selected && <h3>{selected.series_title} {issueNumberText(selected.issue_number)}</h3>}{selected?.version_name && selected.version_name !== "Regular edition" && <p className="scan-version-name">{selected.version_name}</p>}{selected && <p>{[selected.publisher, selected.year].filter(Boolean).join(" · ")}</p>}</div>{!compact && <button type="button" className="scan-remove" onClick={remove}>Remove</button>}</div>
       {row.status === "matched" && <>{row.candidates?.length > 1 ? <label className="scan-match-picker">Swap match<select value={candidateFor(row.candidates, selected)?.gcd_issue_id ?? ""} onChange={(e) => update({ selected: row.candidates.find((item) => Number(item.gcd_issue_id) === Number(e.target.value)) })}>{!selected && <option value="" disabled>Pick the issue</option>}{row.candidates.map((item) => <option key={item.gcd_issue_id} value={item.gcd_issue_id}>{item.series_title} {issueNumberText(item.issue_number)} ({item.year || "year unknown"})</option>)}</select></label> : <button type="button" className="scan-text-button" onClick={() => setSearching(true)}>Search instead</button>}
         <VersionPicker selected={selected} candidate={candidateFor(row.candidates, selected)} onPick={(next) => update({ selected: next })} /></>}
-      {row.status === "no-match" && <><NoTitleNote extracted={row.extracted} /><button type="button" className="scan-text-button" onClick={() => setSearching(true)}>Search instead</button></>}
+      {row.status === "no-match" && !searching && <><NoTitleNote extracted={row.extracted} /><button type="button" className="scan-text-button" onClick={() => setSearching(true)}>Search instead</button></>}
       {searching &&<SearchPicker row={row} onClose={() => setSearching(false)} onPick={(match) => { update({ status: "matched", selected: match, candidates: [...(row.candidates ?? []), match] }); setSearching(false); }} />}
       {row.status === "matched" && !compact && row.owned && <fieldset className="scan-owned-choice"><legend>Already owned</legend><label><input type="radio" checked={row.ownedChoice === "another"} onChange={() => update({ ownedChoice: "another" })} /> Add another copy</label><label><input type="radio" checked={row.ownedChoice === "skip"} onChange={() => update({ ownedChoice: "skip" })} /> Skip</label></fieldset>}
       {row.status === "matched" && !compact && <><ScanDetails value={row.details} onChange={(details) => update({ details })} /><label className="scan-wantlist"><input type="checkbox" checked={row.wantlist} onChange={(e) => update({ wantlist: e.target.checked })} /> Add to wantlist instead</label></>}
-      {row.status === "no-match" && <RequestBookLink row={row} />}
+      {row.status === "no-match" && !searching && <RequestBookLink row={row} />}
       {row.error && <p className="cover-scan-error">{row.error}</p>}</div>
   </article>;
 }

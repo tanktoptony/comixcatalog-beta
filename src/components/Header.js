@@ -82,6 +82,9 @@ export default function Header() {
   const seriesResults = seriesFound.q === currentQuery ? seriesFound.rows : NO_ROWS;
   const titleRuns = seriesFound.q === currentQuery ? seriesFound.titleRuns ?? null : null;
   const comicResults = comicsFound.q === currentQuery ? comicsFound.rows : NO_ROWS;
+  const searchUnavailable =
+    (seriesFound.q === currentQuery && seriesFound.failed) ||
+    (comicsFound.q === currentQuery && comicsFound.failed);
   // Covers the debounce gap too, so "No results" never flashes between a
   // keystroke and its request.
   const awaitingResults = Boolean(currentQuery) && (seriesFound.q !== currentQuery || comicsFound.q !== currentQuery);
@@ -229,7 +232,10 @@ export default function Header() {
         if (pending === 0 && !cancelled) setSearchLoading(false);
       };
       const load = (url, pick, store) => fetch(url, { cache: "no-store" })
-        .then((res) => (res.ok ? res.json() : null))
+        .then((res) => {
+          if (!res.ok) throw new Error(`Search request failed: ${res.status}`);
+          return res.json();
+        })
         .then((data) => {
           if (cancelled) return;
           const picked = pick(data);
@@ -239,7 +245,7 @@ export default function Header() {
         .catch((err) => {
           console.error("Header search failed:", err);
           if (!cancelled) {
-            store({ q, rows: NO_ROWS });
+            store({ q, rows: NO_ROWS, failed: true });
             setSearchOpen(true);
           }
         })
@@ -401,7 +407,13 @@ export default function Header() {
                 <div className="header-search-state">Searching…</div>
               )}
 
-              {!searchLoading && !awaitingResults && !hasResults && query.trim() && (
+              {!searchLoading && !awaitingResults && searchUnavailable && (
+                <div className="header-search-state">
+                  Search is unavailable right now. Try again shortly.
+                </div>
+              )}
+
+              {!searchLoading && !awaitingResults && !searchUnavailable && !hasResults && query.trim() && (
                 <div className="header-search-state">
                   No results for “{query}”.
                 </div>

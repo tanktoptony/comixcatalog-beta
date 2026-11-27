@@ -619,7 +619,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
         <div className="empty-state" role="alert">
           <h2>ComixCatalog search hit a snag.</h2>
           <p>We could not load reliable results right now.</p>
-          <button type="button" className="comic-btn" onClick={retrySearch}>
+          <button type="button" className="comic-btn" style={{ width: "auto", padding: "8px 22px" }} onClick={retrySearch}>
             Retry
           </button>
         </div>
@@ -627,7 +627,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
 
       {searchDegraded && !searchUnavailable && (
         <p className="muted" role="status">
-          Some results may be missing. <button type="button" className="comic-btn" onClick={retrySearch}>Retry</button>
+          Some results may be missing. <button type="button" className="comic-btn" style={{ width: "auto", marginLeft: 6 }} onClick={retrySearch}>Retry</button>
         </p>
       )}
 
@@ -827,7 +827,7 @@ export default function SearchPageClient({ initialQuery = "", initialComics = nu
         <div className="search-runs-end">
           {fullRunsFailed ? (
             <p className="search-runs-end-lead">
-              More run links are unavailable right now. <button type="button" className="comic-btn" onClick={() => setFullRuns({ term: null, series: [], titleRuns: null, failed: false })}>Retry</button>
+              More run links are unavailable right now. <button type="button" className="comic-btn" style={{ width: "auto", marginLeft: 6 }} onClick={() => setFullRuns({ term: null, series: [], titleRuns: null, failed: false })}>Retry</button>
             </p>
           ) : endRuns.length > 0 ? (
             <>

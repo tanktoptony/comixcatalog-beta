@@ -94108,9 +94108,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-16T20:06:02.612455+00:00",
-    "retry_after": "2026-11-19T20:06:02.612457+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T17:07:14.247122+00:00",
+    "retry_after": "2026-12-04T17:07:14.247138+00:00",
     "search_hydrated": true
   },
   {
@@ -94137,9 +94137,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-16T22:05:41.799590+00:00",
-    "retry_after": "2026-11-19T22:05:41.799593+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-27T17:07:14.247171+00:00",
+    "retry_after": "2026-12-04T17:07:14.247175+00:00",
     "search_hydrated": true
   },
   {
@@ -96651,8 +96651,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-27T16:02:56.273032+00:00",
-    "retry_after": "2026-11-28T16:02:56.273045+00:00",
+    "last_attempt_at": "2026-11-27T17:02:49.772546+00:00",
+    "retry_after": "2026-11-28T17:02:49.772562+00:00",
     "search_hydrated": true
   },
   {
@@ -102078,6 +102078,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-27T15:06:48.204987+00:00",
     "retry_after": "2026-11-28T15:06:48.204991+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Incal: The Epic Journey",
+    "publisher": "DC Comics",
+    "year": 2005,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-27T17:07:25.085898+00:00",
+    "retry_after": "2026-11-28T17:07:25.085925+00:00",
     "search_hydrated": true
   }
 ]

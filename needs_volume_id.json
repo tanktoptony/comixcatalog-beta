@@ -23180,9 +23180,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-25T19:03:42.418013+00:00",
-    "retry_after": "2026-11-28T19:03:42.418016+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T20:02:10.006943+00:00",
+    "retry_after": "2026-12-05T20:02:10.006960+00:00",
     "search_hydrated": true
   },
   {
@@ -87786,9 +87786,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T20:05:39.795583+00:00",
-    "retry_after": "2026-11-28T20:05:39.795586+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T20:06:43.963819+00:00",
+    "retry_after": "2026-12-28T20:06:43.963837+00:00",
     "search_hydrated": true
   },
   {
@@ -95088,9 +95088,9 @@
         "start_year": 2002
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-18T21:03:44.140267+00:00",
-    "retry_after": "2026-11-19T21:03:44.140283+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T20:06:43.963982+00:00",
+    "retry_after": "2026-12-01T20:06:43.963986+00:00",
     "search_hydrated": true
   },
   {
@@ -96633,8 +96633,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-28T19:02:40.856157+00:00",
-    "retry_after": "2026-11-29T19:02:40.856175+00:00",
+    "last_attempt_at": "2026-11-28T20:02:56.294785+00:00",
+    "retry_after": "2026-11-29T20:02:56.294803+00:00",
     "search_hydrated": true
   },
   {
@@ -99106,9 +99106,9 @@
     "year": 1996,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-25T19:03:42.417962+00:00",
-    "retry_after": "2026-11-28T19:03:42.417980+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T20:02:56.294900+00:00",
+    "retry_after": "2026-12-05T20:02:56.294902+00:00",
     "search_hydrated": true
   },
   {
@@ -99130,9 +99130,9 @@
         "start_year": 1964
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-25T19:04:35.122537+00:00",
-    "retry_after": "2026-11-28T19:04:35.122553+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T20:02:56.294881+00:00",
+    "retry_after": "2026-12-05T20:02:56.294885+00:00",
     "search_hydrated": true
   },
   {
@@ -102045,30 +102045,6 @@
     "attempts": 2,
     "last_attempt_at": "2026-11-28T19:06:46.016163+00:00",
     "retry_after": "2026-12-01T19:06:46.016181+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "All-Star Comics",
-    "publisher": "DC Comics",
-    "year": 1976,
-    "reason": "multiple_candidates",
-    "candidates": [
-      {
-        "id": 2833,
-        "name": "All-Star Comics",
-        "publisher": "DC Comics",
-        "start_year": 1940
-      },
-      {
-        "id": 6596,
-        "name": "All Star Comics",
-        "publisher": "DC Comics",
-        "start_year": 1999
-      }
-    ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-27T19:03:23.829020+00:00",
-    "retry_after": "2026-11-28T19:03:23.829036+00:00",
     "search_hydrated": true
   },
   {

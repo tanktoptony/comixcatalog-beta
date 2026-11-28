@@ -90927,9 +90927,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-18T00:05:14.770784+00:00",
-    "retry_after": "2026-11-25T00:05:14.770802+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-28T02:06:25.535289+00:00",
+    "retry_after": "2026-12-12T02:06:25.535308+00:00",
     "search_hydrated": true
   },
   {
@@ -94901,9 +94901,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-18T05:05:28.429001+00:00",
-    "retry_after": "2026-11-19T05:05:28.429018+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T02:06:25.535327+00:00",
+    "retry_after": "2026-12-01T02:06:25.535329+00:00",
     "search_hydrated": true
   },
   {
@@ -96651,8 +96651,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-28T01:10:17.113331+00:00",
-    "retry_after": "2026-11-29T01:10:17.113348+00:00",
+    "last_attempt_at": "2026-11-28T02:02:37.070665+00:00",
+    "retry_after": "2026-11-29T02:02:37.070683+00:00",
     "search_hydrated": true
   },
   {
@@ -98332,9 +98332,9 @@
         "start_year": 1986
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-25T02:02:24.975138+00:00",
-    "retry_after": "2026-11-28T02:02:24.975149+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T02:02:49.903167+00:00",
+    "retry_after": "2026-12-05T02:02:49.903184+00:00",
     "search_hydrated": true
   },
   {
@@ -102200,6 +102200,35 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-28T01:14:02.990040+00:00",
     "retry_after": "2026-11-29T01:14:02.990053+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Jam-Packed Jamboree",
+    "publisher": "Titan Comics",
+    "year": 2006,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 46780,
+        "name": "Simpsons Comics: Jam-Packed Jamboree",
+        "publisher": "Bongo",
+        "start_year": 2006
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-28T02:06:39.956502+00:00",
+    "retry_after": "2026-11-29T02:06:39.956520+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Angela Trade Paperback",
+    "publisher": "Image Comics",
+    "year": 1995,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-28T02:06:39.956539+00:00",
+    "retry_after": "2026-11-29T02:06:39.956542+00:00",
     "search_hydrated": true
   }
 ]

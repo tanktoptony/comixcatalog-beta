@@ -40895,9 +40895,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T15:08:19.302013+00:00",
-    "retry_after": "2026-11-28T15:08:19.302015+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T16:07:08.763586+00:00",
+    "retry_after": "2026-12-28T16:07:08.763588+00:00",
     "search_hydrated": true
   },
   {
@@ -41394,9 +41394,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T15:08:19.302003+00:00",
-    "retry_after": "2026-11-28T15:08:19.302005+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T16:07:08.763552+00:00",
+    "retry_after": "2026-12-28T16:07:08.763569+00:00",
     "search_hydrated": true
   },
   {
@@ -96633,8 +96633,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-28T15:02:37.545257+00:00",
-    "retry_after": "2026-11-29T15:02:37.545276+00:00",
+    "last_attempt_at": "2026-11-28T16:03:12.710315+00:00",
+    "retry_after": "2026-11-29T16:03:12.710329+00:00",
     "search_hydrated": true
   },
   {
@@ -102499,6 +102499,36 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-28T15:06:55.953214+00:00",
     "retry_after": "2026-11-29T15:06:55.953216+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "All Star Superman",
+    "publisher": "DC Comics",
+    "year": 2009,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 18139,
+        "name": "All Star Superman",
+        "publisher": "DC Comics",
+        "start_year": 2006
+      },
+      {
+        "id": 32640,
+        "name": "All Star Superman",
+        "publisher": "DC Comics",
+        "start_year": 2007
+      },
+      {
+        "id": 43166,
+        "name": "All Star Superman",
+        "publisher": "DC Comics",
+        "start_year": 2011
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-28T16:07:20.347370+00:00",
+    "retry_after": "2026-11-29T16:07:20.347387+00:00",
     "search_hydrated": true
   }
 ]

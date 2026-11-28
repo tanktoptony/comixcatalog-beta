@@ -31302,21 +31302,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 18177,
-        "name": "The Sensational Spider-Man",
-        "publisher": "Marvel",
-        "start_year": 2006
-      },
-      {
         "id": 5788,
         "name": "The Sensational Spider-Man",
         "publisher": "Marvel",
         "start_year": 1996
+      },
+      {
+        "id": 18177,
+        "name": "The Sensational Spider-Man",
+        "publisher": "Marvel",
+        "start_year": 2006
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-25T07:05:04.117354+00:00",
-    "retry_after": "2026-11-28T07:05:04.117369+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T08:02:35.667732+00:00",
+    "retry_after": "2026-12-05T08:02:35.667735+00:00",
     "search_hydrated": true
   },
   {
@@ -86846,9 +86846,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T06:11:02.997394+00:00",
-    "retry_after": "2026-11-28T06:11:02.997397+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T08:07:15.967991+00:00",
+    "retry_after": "2026-12-28T08:07:15.968021+00:00",
     "search_hydrated": true
   },
   {
@@ -86857,9 +86857,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T06:11:02.997411+00:00",
-    "retry_after": "2026-11-28T06:11:02.997413+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T08:07:15.968038+00:00",
+    "retry_after": "2026-12-28T08:07:15.968041+00:00",
     "search_hydrated": true
   },
   {
@@ -86903,9 +86903,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T07:32:41.783428+00:00",
-    "retry_after": "2026-11-28T07:32:41.783445+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T08:07:15.968071+00:00",
+    "retry_after": "2026-12-28T08:07:15.968074+00:00",
     "search_hydrated": true
   },
   {
@@ -96651,8 +96651,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-28T07:03:33.661587+00:00",
-    "retry_after": "2026-11-29T07:03:33.661601+00:00",
+    "last_attempt_at": "2026-11-28T08:03:31.478808+00:00",
+    "retry_after": "2026-11-29T08:03:31.478825+00:00",
     "search_hydrated": true
   },
   {
@@ -98711,9 +98711,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-25T07:04:02.029980+00:00",
-    "retry_after": "2026-11-28T07:04:02.029982+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T08:02:35.667681+00:00",
+    "retry_after": "2026-12-05T08:02:35.667699+00:00",
     "search_hydrated": true
   },
   {
@@ -98735,9 +98735,9 @@
         "start_year": 2006
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-25T07:05:04.117398+00:00",
-    "retry_after": "2026-11-28T07:05:04.117400+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T08:02:35.667804+00:00",
+    "retry_after": "2026-12-05T08:02:35.667807+00:00",
     "search_hydrated": true
   },
   {
@@ -98777,9 +98777,9 @@
         "start_year": 2012
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-25T07:07:28.124332+00:00",
-    "retry_after": "2026-11-28T07:07:28.124347+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T08:02:35.667769+00:00",
+    "retry_after": "2026-12-05T08:02:35.667771+00:00",
     "search_hydrated": true
   },
   {
@@ -98821,9 +98821,9 @@
     "year": 1999,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-25T08:03:06.179300+00:00",
-    "retry_after": "2026-11-28T08:03:06.179335+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T08:03:31.478882+00:00",
+    "retry_after": "2026-12-05T08:03:31.478885+00:00",
     "search_hydrated": true
   },
   {
@@ -98845,9 +98845,9 @@
         "start_year": 1998
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-25T08:03:06.179391+00:00",
-    "retry_after": "2026-11-28T08:03:06.179395+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T08:03:16.444434+00:00",
+    "retry_after": "2026-12-05T08:03:16.444449+00:00",
     "search_hydrated": true
   },
   {
@@ -101866,9 +101866,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-27T07:12:27.836053+00:00",
-    "retry_after": "2026-11-28T07:12:27.836058+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T08:07:19.018862+00:00",
+    "retry_after": "2026-12-01T08:07:19.018865+00:00",
     "search_hydrated": true
   },
   {
@@ -101877,9 +101877,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-27T07:12:40.816818+00:00",
-    "retry_after": "2026-11-28T07:12:40.816834+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T08:07:29.423287+00:00",
+    "retry_after": "2026-12-01T08:07:29.423302+00:00",
     "search_hydrated": true
   },
   {
@@ -101888,9 +101888,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-27T07:12:40.816859+00:00",
-    "retry_after": "2026-11-28T07:12:40.816863+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T08:07:29.423326+00:00",
+    "retry_after": "2026-12-01T08:07:29.423329+00:00",
     "search_hydrated": true
   },
   {
@@ -102343,6 +102343,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-28T07:07:39.882939+00:00",
     "retry_after": "2026-11-29T07:07:39.882955+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Belle: Dead of Winter One-Shot",
+    "publisher": "Zenescope Entertainment",
+    "year": 2021,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-28T08:07:29.423389+00:00",
+    "retry_after": "2026-11-29T08:07:29.423391+00:00",
     "search_hydrated": true
   }
 ]

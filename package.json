@@ -115,6 +115,8 @@
     "test:pricecharting": "node --test scripts/lib/priceCharting.test.js src/lib/priceGuide.test.js src/lib/pcValue.test.js src/lib/copyValue.test.js src/lib/guideCopyValue.test.js",
     "test:json-ld": "node --test src/lib/jsonLd.test.js",
     "test:issue-details": "node --test src/lib/issueDetails.test.js",
+    "test:comic-details": "node --test scripts/lib/comicDetails.test.js",
+    "test:link-comics-gcd": "node --test scripts/lib/linkComicsToGcd.test.js",
     "test:profile-access": "node --test src/lib/profileAccess.test.js",
     "test:public-profile-paging": "node --test src/lib/publicProfilePaging.test.js",
     "test:amory-wars": "node --test scripts/lib/amoryWars.test.js",

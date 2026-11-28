@@ -14119,11 +14119,17 @@ select.input {
 .issue-discogs-table td small { display: block; margin-top: 3px; color: var(--cc-text-muted); }
 .issue-mono { color: var(--cc-gold-soft); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
 .issue-row-button { display: inline-flex; min-height: 38px; align-items: center; justify-content: center; padding: 0 12px; border: 1px solid var(--cc-line); border-radius: 9px; color: var(--cc-text); font-weight: 800; text-decoration: none; white-space: nowrap; }
+.issue-detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 18px; margin-bottom: 22px; }
+.issue-detail-list { margin: 0; }
+.issue-detail-row { display: grid; grid-template-columns: minmax(92px, 34%) 1fr; gap: 12px; padding: 7px 0; border-top: 1px solid rgba(255,255,255,.08); }
+.issue-detail-row dt, .issue-detail-row dd { margin: 0; }
+.issue-detail-row dd { min-width: 0; overflow-wrap: anywhere; }
 /* Plain tags, not buttons: they aren't clickable, and bold pills outweighed
    the credits and contents beside them. */
 .issue-character-list { display: flex; gap: 6px; flex-wrap: wrap; }
 .issue-character-list > span { padding: 4px 9px; border: 1px solid var(--cc-line); border-radius: 6px; background: transparent; color: color-mix(in srgb, var(--cc-text) 82%, transparent); font-size: .84rem; font-weight: 500; line-height: 1.35; }
 .issue-character-list small { margin-left: 4px; color: var(--cc-text-muted); font-size: .74rem; font-weight: 400; }
+.issue-character-toggle { margin-top: 10px; padding: 0; border: 0; background: transparent; cursor: pointer; }
 .issue-story-credits { display: grid; gap: 4px; margin-top: 9px; font-size: .84rem; }
 .issue-story-credits > div { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 10px; }
 .issue-story-credits > div > span:first-child { color: var(--cc-text-muted); font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
@@ -14135,6 +14141,7 @@ select.input {
 .issue-data-footer div span:first-child { color: #7bd88f; }
 .issue-data-footer p { margin: 0; }
 .issue-below-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(240px, 2fr); gap: 28px; align-items: start; }
+.issue-below-grid.is-side-only, .issue-below-grid.is-main-only { grid-template-columns: minmax(0, 1fr); }
 .issue-below-side { display: grid; gap: 28px; }
 .issue-nearby { margin-top: 48px; }
 .issue-nearby-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr)); gap: 12px; margin-top: 12px; }

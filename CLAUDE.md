@@ -102,7 +102,8 @@ Note: `target_volumes_seed.py` was referenced in older briefings but has been re
 - **GCD bulk-dump audit (May 19, 2026):** investigated whether the dump's `gcd_cover` table could 10x our coverage. **DEAD END.** Two reasons: (a) the user's local dump is metadata-only — no cover tables at all; (b) even if we had cover IDs, `files1.comics.org` is fully Cloudflare-walled — every request returns `Cf-Mitigated: challenge` regardless of User-Agent or Referer. This also explains why `gcd_scraper_to_supabase.py` never wrote a row: same Cloudflare wall. Treat that script as dead code pending removal.
 
 ### ComicVine
-- Used **only for cover images** — not a metadata source
+- Used **only for cover images** for the GCD catalog, not as a general metadata source
+- Member-added books that are not on GCD are the narrow exception: `scripts/syncComicDetails.js` supplies dates, credits, characters and story arcs from ComicVine. It never requests or stores descriptions or decks.
 - Ingested via `comicvine_api_to_supabase.py`
 - Free tier only: ~200 req/hour, 1 req/sec, ~150k req/month ceiling. **No paid tier appears to exist** since Fandom acquired CBS Interactive's API portfolio.
 - This constrains our cover ingestion strategy: pure-ComicVine path can't scale fast. Must combine with GCD covers and user uploads.
@@ -193,6 +194,10 @@ Columns: `status`, `condition`, `grade_numeric` (numeric), `slab_company`, `slab
 PK `id` (uuid). FKs: `series_id` → `series.id`, `created_by` → `auth.users.id`.
 Columns: `series_title`, `issue_number`, `publisher`, `release_year` (int4), `variant_name`, `created_at`, `gcd_id` (int4 — when this user-comic was matched to a GCD issue).
 - ~140 actual user-contributed rows. The rest were legacy GCD-ingest duplicates, deduped May 2026 via `scripts/dedupeComicsByContent.js`.
+- `comic_details` (migration 0121) stores one ComicVine issue match per approved member-added book: dates, grouped creator roles, character names, story arc names, source URL and sync time. RLS exposes a row only while its comic is approved; service role is the only writer.
+- `scripts/syncComicDetails.js` fills missing `comic_details` rows only for approved comics whose `gcd_id` is null. It is dry-run by default, accepts exact issue pins through `--map`, and never requests or stores ComicVine descriptions or decks. Volume discovery uses the ComicVine volumes endpoint with exact `name:` filters for both leading-`The` title forms, pages up to 500 results per form, and still requires exactly one title, publisher, and start-year match. Pure matching and shaping live in `scripts/lib/comicDetails.js`; tests run with `npm run test:comic-details`.
+- `scripts/linkComicsToGcd.js` is the one-time collection relinker for approved comics with a verified `gcd_id`. It is dry-run by default and prints each member, book, source comic, and target GCD issue. `--apply` updates one `user_collections` row at a time with the same narrow shape as `/api/library/catalog-link`: set `gcd_issue_id`, null `comic_id`, and carry a comic cover only when the row has no personal cover. Grade fields and `variant_label` remain untouched, the existing database trigger syncs active listings, and destination collisions or open orders are skipped. Planning is in `scripts/lib/linkComicsToGcd.js`; tests run with `npm run test:link-comics-gcd`.
+- `/comic/<uuid>` checks the comic's verified `gcd_id` on the server. When that `gcd_issues` row exists, it permanently redirects to `/issue/gcd-<gcd_id>`. `/comic/<uuid>/edit` remains the local editing route. Comics without a GCD link keep the member-added detail page.
 
 #### `comic_covers` (user-submitted covers for `comics`)
 PK `id` (uuid). FK `comic_id` → `comics.id`, `uploaded_by` → `auth.users.id`.

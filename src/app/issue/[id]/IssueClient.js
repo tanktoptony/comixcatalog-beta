@@ -737,21 +737,14 @@ export default function IssueClient({ initialIssue = null }) {
             </div>
             )}
 
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))",
-                gap: "18px",
-                marginBottom: "22px",
-              }}
-            >
+            <div className="issue-detail-grid">
               <div className="metadata-section" style={{ margin: 0 }}>
                 <h3 className="issue-section-title">Details</h3>
-                <dl style={{ margin: 0 }}>
+                <dl className="issue-detail-list">
                   {detailRows.map((row) => (
-                    <div key={row.label} style={{ display: "grid", gridTemplateColumns: "minmax(92px, 34%) 1fr", gap: "12px", padding: "7px 0", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-                      <dt className="muted" style={{ margin: 0 }}>{row.label}</dt>
-                      <dd style={{ margin: 0, minWidth: 0, overflowWrap: "anywhere" }}>{row.label === "Editing" ? <EditingCredits value={row.value} creators={issue.credits} /> : row.href ? <Link href={row.href}>{row.value}</Link> : row.value}</dd>
+                    <div key={row.label} className="issue-detail-row">
+                      <dt className="muted">{row.label}</dt>
+                      <dd>{row.label === "Editing" ? <EditingCredits value={row.value} creators={issue.credits} /> : row.href ? <Link href={row.href}>{row.value}</Link> : row.value}</dd>
                     </div>
                   ))}
                 </dl>

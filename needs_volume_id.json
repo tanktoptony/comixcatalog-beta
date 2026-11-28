@@ -87367,9 +87367,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T17:03:10.336844+00:00",
-    "retry_after": "2026-11-28T17:03:10.336860+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T18:01:03.902952+00:00",
+    "retry_after": "2026-12-28T18:01:03.902966+00:00",
     "search_hydrated": true
   },
   {
@@ -87385,9 +87385,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T17:03:10.336902+00:00",
-    "retry_after": "2026-11-28T17:03:10.336904+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T18:01:03.903011+00:00",
+    "retry_after": "2026-12-28T18:01:03.903015+00:00",
     "search_hydrated": true
   },
   {
@@ -87408,21 +87408,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 49395,
+        "id": 54011,
         "name": "Spider-Men",
         "publisher": "Marvel",
         "start_year": 2012
       },
       {
-        "id": 54011,
+        "id": 49395,
         "name": "Spider-Men",
         "publisher": "Marvel",
         "start_year": 2012
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T16:07:57.980840+00:00",
-    "retry_after": "2026-11-28T16:07:57.980843+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T18:00:54.792391+00:00",
+    "retry_after": "2026-12-28T18:00:54.792405+00:00",
     "search_hydrated": true
   },
   {
@@ -87438,9 +87438,9 @@
         "start_year": 2009
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T17:03:10.336935+00:00",
-    "retry_after": "2026-11-28T17:03:10.336937+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T18:01:03.903054+00:00",
+    "retry_after": "2026-12-28T18:01:03.903057+00:00",
     "search_hydrated": true
   },
   {
@@ -87456,9 +87456,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T17:03:10.336966+00:00",
-    "retry_after": "2026-11-28T17:03:10.336968+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T18:01:03.903103+00:00",
+    "retry_after": "2026-12-28T18:01:03.903106+00:00",
     "search_hydrated": true
   },
   {
@@ -87528,9 +87528,9 @@
         "start_year": 1972
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T17:03:06.552374+00:00",
-    "retry_after": "2026-11-28T17:03:06.552389+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T18:00:54.792511+00:00",
+    "retry_after": "2026-12-28T18:00:54.792516+00:00",
     "search_hydrated": true
   },
   {
@@ -87666,9 +87666,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T17:03:10.403750+00:00",
-    "retry_after": "2026-11-28T17:03:10.403764+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T18:01:04.749067+00:00",
+    "retry_after": "2026-12-28T18:01:04.749081+00:00",
     "search_hydrated": true
   },
   {
@@ -96633,8 +96633,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-28T17:05:27.187044+00:00",
-    "retry_after": "2026-11-29T17:05:27.187060+00:00",
+    "last_attempt_at": "2026-11-28T17:59:34.518379+00:00",
+    "retry_after": "2026-11-29T17:59:34.518394+00:00",
     "search_hydrated": true
   },
   {
@@ -102026,9 +102026,9 @@
     "year": 2005,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-27T17:07:25.085898+00:00",
-    "retry_after": "2026-11-28T17:07:25.085925+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T18:01:15.008872+00:00",
+    "retry_after": "2026-12-01T18:01:15.008887+00:00",
     "search_hydrated": true
   },
   {
@@ -102044,9 +102044,9 @@
         "start_year": 1988
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-27T17:16:52.482821+00:00",
-    "retry_after": "2026-11-28T17:16:52.482826+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T17:59:17.494428+00:00",
+    "retry_after": "2026-12-01T17:59:17.494432+00:00",
     "search_hydrated": true
   },
   {
@@ -102055,9 +102055,9 @@
     "year": 1940,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-27T17:18:08.304536+00:00",
-    "retry_after": "2026-11-28T17:18:08.304551+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T18:01:15.008910+00:00",
+    "retry_after": "2026-12-01T18:01:15.008914+00:00",
     "search_hydrated": true
   },
   {

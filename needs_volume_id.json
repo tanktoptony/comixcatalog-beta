@@ -87712,9 +87712,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T19:05:35.344368+00:00",
-    "retry_after": "2026-11-28T19:05:35.344384+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T19:06:28.890784+00:00",
+    "retry_after": "2026-12-28T19:06:28.890802+00:00",
     "search_hydrated": true
   },
   {
@@ -94912,9 +94912,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-18T10:05:57.538415+00:00",
-    "retry_after": "2026-11-19T10:05:57.538429+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T19:06:33.731306+00:00",
+    "retry_after": "2026-12-01T19:06:33.731320+00:00",
     "search_hydrated": true
   },
   {
@@ -94930,9 +94930,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-18T10:06:06.996290+00:00",
-    "retry_after": "2026-11-19T10:06:06.996307+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T19:06:33.845467+00:00",
+    "retry_after": "2026-12-01T19:06:33.845479+00:00",
     "search_hydrated": true
   },
   {
@@ -96633,8 +96633,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-28T18:06:02.091276+00:00",
-    "retry_after": "2026-11-29T18:06:02.091290+00:00",
+    "last_attempt_at": "2026-11-28T19:02:40.856157+00:00",
+    "retry_after": "2026-11-29T19:02:40.856175+00:00",
     "search_hydrated": true
   },
   {
@@ -99084,9 +99084,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-25T18:06:48.643748+00:00",
-    "retry_after": "2026-11-28T18:06:48.643769+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T19:06:30.664648+00:00",
+    "retry_after": "2026-12-05T19:06:30.664666+00:00",
     "search_hydrated": true
   },
   {
@@ -102042,9 +102042,9 @@
     "year": 2022,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-27T18:07:34.529842+00:00",
-    "retry_after": "2026-11-28T18:07:34.529860+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T19:06:46.016163+00:00",
+    "retry_after": "2026-12-01T19:06:46.016181+00:00",
     "search_hydrated": true
   },
   {
@@ -102084,9 +102084,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-27T19:05:22.115742+00:00",
-    "retry_after": "2026-11-28T19:05:22.115757+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T19:06:32.507932+00:00",
+    "retry_after": "2026-12-01T19:06:32.507948+00:00",
     "search_hydrated": true
   },
   {
@@ -102487,6 +102487,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-28T17:04:29.468677+00:00",
     "retry_after": "2026-11-29T17:04:29.468681+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Nextwave: Agents of H.A.T.E. - The Complete Collection",
+    "publisher": "Marvel Comics",
+    "year": 2015,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-28T19:06:46.016203+00:00",
+    "retry_after": "2026-11-29T19:06:46.016205+00:00",
     "search_hydrated": true
   }
 ]

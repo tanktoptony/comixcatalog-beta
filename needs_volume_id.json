@@ -38162,9 +38162,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-25T11:03:38.248637+00:00",
-    "retry_after": "2026-11-28T11:03:38.248655+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T12:03:03.242934+00:00",
+    "retry_after": "2026-12-05T12:03:03.242939+00:00",
     "search_hydrated": true
   },
   {
@@ -87040,9 +87040,9 @@
         "start_year": 2005
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T09:10:44.681826+00:00",
-    "retry_after": "2026-11-28T09:10:44.681828+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T12:06:42.021909+00:00",
+    "retry_after": "2026-12-28T12:06:42.021913+00:00",
     "search_hydrated": true
   },
   {
@@ -87115,9 +87115,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T09:10:44.810566+00:00",
-    "retry_after": "2026-11-28T09:10:44.810583+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T12:06:42.080689+00:00",
+    "retry_after": "2026-12-28T12:06:42.080704+00:00",
     "search_hydrated": true
   },
   {
@@ -87133,9 +87133,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T09:10:44.951682+00:00",
-    "retry_after": "2026-11-28T09:10:44.951699+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T12:06:42.140289+00:00",
+    "retry_after": "2026-12-28T12:06:42.140303+00:00",
     "search_hydrated": true
   },
   {
@@ -87151,9 +87151,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T09:10:45.310159+00:00",
-    "retry_after": "2026-11-28T09:10:45.310179+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T12:06:42.265532+00:00",
+    "retry_after": "2026-12-28T12:06:42.265546+00:00",
     "search_hydrated": true
   },
   {
@@ -96651,8 +96651,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-28T11:03:28.163342+00:00",
-    "retry_after": "2026-11-29T11:03:28.163358+00:00",
+    "last_attempt_at": "2026-11-28T12:03:03.242840+00:00",
+    "retry_after": "2026-11-29T12:03:03.242856+00:00",
     "search_hydrated": true
   },
   {
@@ -102389,6 +102389,53 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-28T11:07:38.603831+00:00",
     "retry_after": "2026-11-29T11:07:38.603848+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Coffin Bound",
+    "publisher": "Image Comics",
+    "year": 2020,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 120540,
+        "name": "Coffin Bound",
+        "publisher": "Image",
+        "start_year": 2019
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-28T12:06:41.765598+00:00",
+    "retry_after": "2026-11-29T12:06:41.765614+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Hack/Slash: Resurrection",
+    "publisher": "Image Comics",
+    "year": 2018,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 105530,
+        "name": "Hack/Slash: Resurrection",
+        "publisher": "Image",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-28T12:06:42.319673+00:00",
+    "retry_after": "2026-11-29T12:06:42.319687+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Smax Collected Edition",
+    "publisher": "DC Comics",
+    "year": 2004,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-28T12:06:52.124231+00:00",
+    "retry_after": "2026-11-29T12:06:52.124246+00:00",
     "search_hydrated": true
   }
 ]

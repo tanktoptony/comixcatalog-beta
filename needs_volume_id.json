@@ -10616,9 +10616,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-25T11:02:46.100070+00:00",
-    "retry_after": "2026-11-28T11:02:46.100073+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T11:03:02.222565+00:00",
+    "retry_after": "2026-12-05T11:03:02.222567+00:00",
     "search_hydrated": true
   },
   {
@@ -11641,9 +11641,9 @@
         "start_year": 1998
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-25T11:02:46.099947+00:00",
-    "retry_after": "2026-11-28T11:02:46.099965+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T11:03:11.430710+00:00",
+    "retry_after": "2026-12-05T11:03:11.430713+00:00",
     "search_hydrated": true
   },
   {
@@ -87073,9 +87073,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T10:10:21.608317+00:00",
-    "retry_after": "2026-11-28T10:10:21.608338+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T11:07:26.497001+00:00",
+    "retry_after": "2026-12-28T11:07:26.497034+00:00",
     "search_hydrated": true
   },
   {
@@ -87085,21 +87085,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 33020,
-        "name": "Neil Gaiman and Charles Vess' Stardust",
-        "publisher": "DC Comics",
-        "start_year": 1998
-      },
-      {
         "id": 5970,
         "name": "Neil Gaiman and Charles Vess' Stardust",
         "publisher": "DC Comics",
         "start_year": 1997
+      },
+      {
+        "id": 33020,
+        "name": "Neil Gaiman and Charles Vess' Stardust",
+        "publisher": "DC Comics",
+        "start_year": 1998
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T10:10:21.608388+00:00",
-    "retry_after": "2026-11-28T10:10:21.608392+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T11:07:26.497074+00:00",
+    "retry_after": "2026-12-28T11:07:26.497077+00:00",
     "search_hydrated": true
   },
   {
@@ -87162,9 +87162,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T10:10:24.861575+00:00",
-    "retry_after": "2026-11-28T10:10:24.861594+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T11:07:26.497090+00:00",
+    "retry_after": "2026-12-28T11:07:26.497092+00:00",
     "search_hydrated": true
   },
   {
@@ -96651,8 +96651,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-28T10:02:29.443484+00:00",
-    "retry_after": "2026-11-29T10:02:29.443499+00:00",
+    "last_attempt_at": "2026-11-28T11:03:28.163342+00:00",
+    "retry_after": "2026-11-29T11:03:28.163358+00:00",
     "search_hydrated": true
   },
   {
@@ -98941,9 +98941,9 @@
         "start_year": null
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-25T10:03:00.319459+00:00",
-    "retry_after": "2026-11-28T10:03:00.319478+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T11:02:34.552949+00:00",
+    "retry_after": "2026-12-05T11:02:34.552969+00:00",
     "search_hydrated": true
   },
   {
@@ -98952,9 +98952,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-25T11:02:46.100084+00:00",
-    "retry_after": "2026-11-28T11:02:46.100086+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T11:03:02.222505+00:00",
+    "retry_after": "2026-12-05T11:03:02.222525+00:00",
     "search_hydrated": true
   },
   {
@@ -102378,6 +102378,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-28T10:06:15.941193+00:00",
     "retry_after": "2026-11-29T10:06:15.941210+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Avengers: Hawkeye Solo",
+    "publisher": "Marvel Comics",
+    "year": 2012,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-28T11:07:38.603831+00:00",
+    "retry_after": "2026-11-29T11:07:38.603848+00:00",
     "search_hydrated": true
   }
 ]

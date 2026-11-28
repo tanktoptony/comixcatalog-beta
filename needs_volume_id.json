@@ -10842,9 +10842,9 @@
         "start_year": 2008
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-25T17:03:01.705278+00:00",
-    "retry_after": "2026-11-28T17:03:01.705295+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T17:04:29.468589+00:00",
+    "retry_after": "2026-12-05T17:04:29.468604+00:00",
     "search_hydrated": true
   },
   {
@@ -87291,9 +87291,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T16:07:57.980697+00:00",
-    "retry_after": "2026-11-28T16:07:57.980710+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T17:07:12.809105+00:00",
+    "retry_after": "2026-12-28T17:07:12.809121+00:00",
     "search_hydrated": true
   },
   {
@@ -87302,9 +87302,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T16:07:57.980746+00:00",
-    "retry_after": "2026-11-28T16:07:57.980750+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T17:07:12.809172+00:00",
+    "retry_after": "2026-12-28T17:07:12.809178+00:00",
     "search_hydrated": true
   },
   {
@@ -87313,9 +87313,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T16:07:57.980766+00:00",
-    "retry_after": "2026-11-28T16:07:57.980769+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T17:07:12.809196+00:00",
+    "retry_after": "2026-12-28T17:07:12.809198+00:00",
     "search_hydrated": true
   },
   {
@@ -87396,9 +87396,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T16:07:57.980798+00:00",
-    "retry_after": "2026-11-28T16:07:57.980801+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T17:07:12.809231+00:00",
+    "retry_after": "2026-12-28T17:07:12.809235+00:00",
     "search_hydrated": true
   },
   {
@@ -96633,8 +96633,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-28T16:03:12.710315+00:00",
-    "retry_after": "2026-11-29T16:03:12.710329+00:00",
+    "last_attempt_at": "2026-11-28T17:05:27.187044+00:00",
+    "retry_after": "2026-11-29T17:05:27.187060+00:00",
     "search_hydrated": true
   },
   {
@@ -99055,9 +99055,9 @@
     "year": 1989,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-25T17:03:01.705315+00:00",
-    "retry_after": "2026-11-28T17:03:01.705318+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T17:04:29.468628+00:00",
+    "retry_after": "2026-12-05T17:04:29.468632+00:00",
     "search_hydrated": true
   },
   {
@@ -102493,6 +102493,24 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-28T16:07:20.347370+00:00",
     "retry_after": "2026-11-29T16:07:20.347387+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Witchblade / Tomb Raider",
+    "publisher": "Image; Wizard",
+    "year": 1999,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 74149,
+        "name": "Witchblade / Tomb Raider",
+        "publisher": "Image",
+        "start_year": 2000
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-28T17:04:29.468677+00:00",
+    "retry_after": "2026-11-29T17:04:29.468681+00:00",
     "search_hydrated": true
   }
 ]

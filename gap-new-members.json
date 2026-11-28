@@ -1,9 +1,27 @@
 [
   {
+    "name": "Fantastic Four",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "series_gcd_id": 225304
+  },
+  {
+    "name": "Avengers",
+    "publisher": "Marvel Comics",
+    "year": 2027,
+    "series_gcd_id": 239257
+  },
+  {
     "name": "The Darkness [Level]",
     "publisher": "Image Comics",
     "year": 2006,
     "series_gcd_id": 26090
+  },
+  {
+    "name": "Batman / Green Arrow / The Question: Arcadia",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "series_gcd_id": 229094
   },
   {
     "name": "Witchblade Annual",
@@ -148,12 +166,6 @@
     "publisher": "Marvel Comics",
     "year": 1999,
     "series_gcd_id": 11228
-  },
-  {
-    "name": "Batman / Green Arrow / The Question: Arcadia",
-    "publisher": "DC Comics",
-    "year": 2026,
-    "series_gcd_id": 229094
   },
   {
     "name": "Lady Death: The Crucible",
@@ -352,12 +364,6 @@
     "publisher": "Marvel Comics",
     "year": 2023,
     "series_gcd_id": 192395
-  },
-  {
-    "name": "Fantastic Four",
-    "publisher": "Marvel Comics",
-    "year": 2025,
-    "series_gcd_id": 225304
   },
   {
     "name": "Event Horizon: Dark Descent",
@@ -2520,12 +2526,6 @@
     "series_gcd_id": 229870
   },
   {
-    "name": "Border Worlds",
-    "publisher": "Kitchen Sink Press",
-    "year": 1986,
-    "series_gcd_id": 3212
-  },
-  {
     "name": "Battletide",
     "publisher": "Marvel Comics",
     "year": 1992,
@@ -2574,28 +2574,10 @@
     "series_gcd_id": 234258
   },
   {
-    "name": "Batman versus Predator II: Bloodmatch",
-    "publisher": "Dark Horse Comics",
-    "year": 1994,
-    "series_gcd_id": 14748
-  },
-  {
-    "name": "Batman / Teenage Mutant Ninja Turtles",
-    "publisher": "DC Comics",
-    "year": 2016,
-    "series_gcd_id": 94745
-  },
-  {
     "name": "Batman / Superman: World's Finest 2026 Annual",
     "publisher": "DC Comics",
     "year": 2026,
     "series_gcd_id": 239349
-  },
-  {
-    "name": "Aristocratic Xtraterrestrial Time-Traveling Thieves",
-    "publisher": "Fictioneer Books",
-    "year": 1987,
-    "series_gcd_id": 3494
   },
   {
     "name": "Avengers Strike File",
@@ -2634,12 +2616,6 @@
     "series_gcd_id": 227710
   },
   {
-    "name": "Araña: The Heart of the Spider",
-    "publisher": "Marvel Comics",
-    "year": 2005,
-    "series_gcd_id": 46396
-  },
-  {
     "name": "The Amazing Spider-Man",
     "publisher": "Marvel Comics",
     "year": 2022,
@@ -2668,12 +2644,6 @@
     "publisher": "Fleetway/Quality",
     "year": 1987,
     "series_gcd_id": 3510
-  },
-  {
-    "name": "10th Muse",
-    "publisher": "Avatar Press",
-    "year": 2000,
-    "series_gcd_id": 28506
   },
   {
     "name": "Adventure Time: The Bubbline College Special",

@@ -12636,9 +12636,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-21T01:04:19.026406+00:00",
-    "retry_after": "2026-11-28T01:04:19.026410+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-28T01:09:55.770591+00:00",
+    "retry_after": "2026-12-12T01:09:55.770593+00:00",
     "search_hydrated": true
   },
   {
@@ -14815,9 +14815,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-17T23:06:02.764505+00:00",
-    "retry_after": "2026-11-20T23:06:02.764509+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T01:13:46.167132+00:00",
+    "retry_after": "2026-12-05T01:13:46.167145+00:00",
     "search_hydrated": true
   },
   {
@@ -27595,9 +27595,9 @@
     "year": 2018,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 3,
-    "last_attempt_at": "2026-11-21T01:07:35.545705+00:00",
-    "retry_after": "2026-11-28T01:07:35.545721+00:00",
+    "attempts": 4,
+    "last_attempt_at": "2026-11-28T01:09:55.770556+00:00",
+    "retry_after": "2026-12-12T01:09:55.770573+00:00",
     "search_hydrated": true
   },
   {
@@ -96651,8 +96651,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-28T01:03:21.282002+00:00",
-    "retry_after": "2026-11-29T01:03:21.282005+00:00",
+    "last_attempt_at": "2026-11-28T01:10:17.113331+00:00",
+    "retry_after": "2026-11-29T01:10:17.113348+00:00",
     "search_hydrated": true
   },
   {
@@ -102164,6 +102164,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-27T19:07:13.772803+00:00",
     "retry_after": "2026-11-28T19:07:13.772819+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Chu",
+    "publisher": "Image Comics",
+    "year": 2021,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 128907,
+        "name": "Chu",
+        "publisher": "Image",
+        "start_year": 2020
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-28T01:13:49.402849+00:00",
+    "retry_after": "2026-11-29T01:13:49.402856+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Héritage pervers",
+    "publisher": "Dynamite Entertainment",
+    "year": 2024,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 161986,
+        "name": "Héritage Pervers",
+        "publisher": "Tabou Editions",
+        "start_year": 2024
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-28T01:14:02.990040+00:00",
+    "retry_after": "2026-11-29T01:14:02.990053+00:00",
     "search_hydrated": true
   }
 ]

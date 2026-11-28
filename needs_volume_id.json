@@ -96633,8 +96633,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-28T13:02:28.003620+00:00",
-    "retry_after": "2026-11-29T13:02:28.003634+00:00",
+    "last_attempt_at": "2026-11-28T14:02:25.398446+00:00",
+    "retry_after": "2026-11-29T14:02:25.398462+00:00",
     "search_hydrated": true
   },
   {
@@ -101975,9 +101975,9 @@
     "year": 2006,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-27T13:07:05.098060+00:00",
-    "retry_after": "2026-11-28T13:07:05.098079+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T14:06:28.900797+00:00",
+    "retry_after": "2026-12-01T14:06:28.900817+00:00",
     "search_hydrated": true
   },
   {
@@ -101986,9 +101986,9 @@
     "year": 2013,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-27T13:07:05.098110+00:00",
-    "retry_after": "2026-11-28T13:07:05.098114+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T14:06:28.900837+00:00",
+    "retry_after": "2026-12-01T14:06:28.900840+00:00",
     "search_hydrated": true
   },
   {
@@ -102483,6 +102483,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-28T13:06:38.354243+00:00",
     "retry_after": "2026-11-29T13:06:38.354246+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Fourth World Gallery",
+    "publisher": "DC Comics",
+    "year": 1996,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-28T14:06:28.900853+00:00",
+    "retry_after": "2026-11-29T14:06:28.900855+00:00",
     "search_hydrated": true
   }
 ]

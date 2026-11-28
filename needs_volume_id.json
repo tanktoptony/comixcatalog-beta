@@ -94536,27 +94536,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-18T05:05:33.371323+00:00",
-    "retry_after": "2026-11-21T05:05:33.371339+00:00",
-    "search_hydrated": true
-  },
-  {
-    "name": "Snotgirl",
-    "publisher": "Image Comics",
-    "year": 2017,
-    "reason": "series_hint_year_mismatch",
-    "candidates": [
-      {
-        "id": 92387,
-        "name": "Snotgirl",
-        "publisher": "Image",
-        "start_year": 2016
-      }
-    ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-18T05:05:33.447413+00:00",
-    "retry_after": "2026-11-21T05:05:33.447427+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T13:06:16.632364+00:00",
+    "retry_after": "2026-12-05T13:06:16.632378+00:00",
     "search_hydrated": true
   },
   {
@@ -94799,9 +94781,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-18T23:04:21.717148+00:00",
-    "retry_after": "2026-11-21T23:04:21.717163+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T13:06:25.779677+00:00",
+    "retry_after": "2026-12-05T13:06:25.779700+00:00",
     "search_hydrated": true
   },
   {
@@ -94828,9 +94810,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-17T23:50:33.964122+00:00",
-    "retry_after": "2026-11-18T23:50:33.964133+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T13:06:28.631825+00:00",
+    "retry_after": "2026-12-01T13:06:28.631839+00:00",
     "search_hydrated": true
   },
   {
@@ -94912,9 +94894,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-18T09:05:54.845789+00:00",
-    "retry_after": "2026-11-19T09:05:54.845792+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T13:06:28.564289+00:00",
+    "retry_after": "2026-12-01T13:06:28.564305+00:00",
     "search_hydrated": true
   },
   {
@@ -96651,8 +96633,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-28T12:03:03.242840+00:00",
-    "retry_after": "2026-11-29T12:03:03.242856+00:00",
+    "last_attempt_at": "2026-11-28T13:02:28.003620+00:00",
+    "retry_after": "2026-11-29T13:02:28.003634+00:00",
     "search_hydrated": true
   },
   {
@@ -102436,6 +102418,71 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-28T12:06:52.124231+00:00",
     "retry_after": "2026-11-29T12:06:52.124246+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ordinary Gods",
+    "publisher": "Image Comics",
+    "year": 2022,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 137469,
+        "name": "Ordinary Gods",
+        "publisher": "Image",
+        "start_year": 2021
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-28T13:06:15.851820+00:00",
+    "retry_after": "2026-11-29T13:06:15.851834+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Shade, the Changing Girl",
+    "publisher": "DC Comics",
+    "year": 2017,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 94661,
+        "name": "Shade, The Changing Girl",
+        "publisher": "DC Comics",
+        "start_year": 2016
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-28T13:06:16.695778+00:00",
+    "retry_after": "2026-11-29T13:06:16.695791+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Ion: The Torchbearer",
+    "publisher": "DC Comics",
+    "year": 2007,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-28T13:06:38.354192+00:00",
+    "retry_after": "2026-11-29T13:06:38.354208+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Les Aventures d'une étudiante lesbienne",
+    "publisher": "Dynamite Entertainment",
+    "year": 2010,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 130157,
+        "name": "Les Aventures d'une Étudiante Lesbienne",
+        "publisher": "Dynamite (France)",
+        "start_year": 2010
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-28T13:06:38.354243+00:00",
+    "retry_after": "2026-11-29T13:06:38.354246+00:00",
     "search_hydrated": true
   }
 ]

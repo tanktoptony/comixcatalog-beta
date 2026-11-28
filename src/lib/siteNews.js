@@ -6,6 +6,8 @@
 //
 // href is optional; point it at the place the change can be seen.
 
+import { MEMBERSHIP_SALES_OPEN } from "@/lib/membershipSales";
+
 export const SITE_NEWS = [
   {
     date: "2026-11-21",
@@ -247,12 +249,12 @@ export const SITE_NEWS = [
     body: "Sold something? Mark it sold with what it went for. It comes off your shelf and into a private sold history only you can see. Listing a book now also nudges you to add a price and a photo of your copy.",
     href: "/library",
   },
-  {
+  ...(MEMBERSHIP_SALES_OPEN ? [{
     date: "2026-10-12",
     title: "Collector+ is here",
     body: "The first 100 members still get Pro free for life, and most of those spots are still open. After that, supporting the site is Collector+, $4 a month or $36 a year. Everything you need to track a collection stays free either way.",
     href: "/upgrade",
-  },
+  }] : []),
   {
     date: "2026-10-12",
     title: "A fresh coat of paint",

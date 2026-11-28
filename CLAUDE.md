@@ -330,8 +330,8 @@ Always use these terms correctly in code, comments, and UI copy:
 | **Supporter** (Patreon) | $3/mo | Badge, Discord access, behind-the-scenes updates |
 | **Collector Beta** (Patreon) | $8/mo | Early feature access, feature voting, beta previews |
 | **Founding Collector** (Patreon) | $20/mo | Limited tier. Permanent badge, name on founders page, roadmap access |
-| **Collector+** (in-app) | $4/mo or $36/year | Supporter tier: Collector+ profile badge and no upgrade prompts in house promos. The complete collector toolkit remains free. |
-| **Collector Pro** (legacy) | Not sold | Founders, comped users, and admin keep their existing Pro membership and badge. |
+| **Collector Pro** (in-app) | Sales closed | No memberships are for sale until the Founding 100 fill. `MEMBERSHIP_SALES_OPEN` in `src/lib/membershipSales.js` restores the paid page, checkout, and sales prompts when set to `true`; write the Collector Pro page before launch. |
+| **Legacy Pro access** | Not sold | Founders, comped users, and admin keep their existing Pro membership and badge. |
 | **Vault** (in-app) | $18/mo | PDF reports, private sharing link, priority marketplace placement. **Phase 2.** |
 | **Verified Collector badge** | $10 one-time | Links CGC registry to profile. Marketplace credential. |
 

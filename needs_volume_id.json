@@ -1162,10 +1162,10 @@
     "reason": "publisher_mismatch",
     "candidates": [
       {
-        "id": 93039,
+        "id": 22636,
         "name": "The Astonishing Spider-Man",
         "publisher": "Marvel UK/Panini UK",
-        "start_year": 2016
+        "start_year": 2007
       },
       {
         "id": 23202,
@@ -1180,33 +1180,33 @@
         "start_year": 2009
       },
       {
-        "id": 22636,
-        "name": "The Astonishing Spider-Man",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 2007
-      },
-      {
         "id": 68249,
         "name": "The Astonishing Spider-Man",
         "publisher": "Marvel UK/Panini UK",
         "start_year": 2013
       },
       {
-        "id": 110867,
-        "name": "The Astonishing Spider-Man",
-        "publisher": "Marvel UK/Panini UK",
-        "start_year": 2018
-      },
-      {
         "id": 79511,
         "name": "The Astonishing Spider-Man",
         "publisher": "Marvel UK/Panini UK",
         "start_year": 2015
+      },
+      {
+        "id": 93039,
+        "name": "The Astonishing Spider-Man",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 2016
+      },
+      {
+        "id": 110867,
+        "name": "The Astonishing Spider-Man",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 2018
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-25T00:02:15.921198+00:00",
-    "retry_after": "2026-11-28T00:02:15.921215+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T00:02:40.167742+00:00",
+    "retry_after": "2026-12-05T00:02:40.167757+00:00",
     "search_hydrated": true
   },
   {
@@ -10222,9 +10222,9 @@
         "start_year": 2023
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-24T23:02:51.873587+00:00",
-    "retry_after": "2026-11-27T23:02:51.873605+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T00:02:55.989134+00:00",
+    "retry_after": "2026-12-05T00:02:55.989150+00:00",
     "search_hydrated": true
   },
   {
@@ -32832,9 +32832,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-13T23:10:29.526043+00:00",
-    "retry_after": "2026-11-27T23:10:29.526061+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T00:07:12.260624+00:00",
+    "retry_after": "2026-12-28T00:07:12.260662+00:00",
     "search_hydrated": true
   },
   {
@@ -34660,9 +34660,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-25T00:03:00.027670+00:00",
-    "retry_after": "2026-11-28T00:03:00.027687+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T00:03:20.004928+00:00",
+    "retry_after": "2026-12-05T00:03:20.004933+00:00",
     "search_hydrated": true
   },
   {
@@ -94609,9 +94609,9 @@
     "year": 2017,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-18T06:05:51.308975+00:00",
-    "retry_after": "2026-11-21T06:05:51.308978+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T00:07:12.260723+00:00",
+    "retry_after": "2026-12-05T00:07:12.260728+00:00",
     "search_hydrated": true
   },
   {
@@ -96651,8 +96651,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-27T23:03:00.605988+00:00",
-    "retry_after": "2026-11-28T23:03:00.606002+00:00",
+    "last_attempt_at": "2026-11-28T00:03:20.005051+00:00",
+    "retry_after": "2026-11-29T00:03:20.005055+00:00",
     "search_hydrated": true
   },
   {
@@ -98187,9 +98187,9 @@
     "year": 2026,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-24T23:03:17.946380+00:00",
-    "retry_after": "2026-11-27T23:03:17.946395+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T00:03:20.004861+00:00",
+    "retry_after": "2026-12-05T00:03:20.004876+00:00",
     "search_hydrated": true
   },
   {
@@ -98198,9 +98198,9 @@
     "year": 2025,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-24T23:03:41.179297+00:00",
-    "retry_after": "2026-11-27T23:03:41.179316+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T00:02:55.989292+00:00",
+    "retry_after": "2026-12-05T00:02:55.989294+00:00",
     "search_hydrated": true
   },
   {
@@ -98209,9 +98209,9 @@
     "year": 2009,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-24T23:03:41.179346+00:00",
-    "retry_after": "2026-11-27T23:03:41.179350+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T00:02:55.989366+00:00",
+    "retry_after": "2026-12-05T00:02:55.989368+00:00",
     "search_hydrated": true
   },
   {
@@ -101544,9 +101544,9 @@
     "year": 1994,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-26T23:06:07.638346+00:00",
-    "retry_after": "2026-11-27T23:06:07.638351+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T00:07:29.271327+00:00",
+    "retry_after": "2026-12-01T00:07:29.271342+00:00",
     "search_hydrated": true
   },
   {
@@ -101562,9 +101562,9 @@
         "start_year": 1991
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-26T23:36:43.173946+00:00",
-    "retry_after": "2026-11-27T23:36:43.173960+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T00:07:29.271398+00:00",
+    "retry_after": "2026-12-01T00:07:29.271403+00:00",
     "search_hydrated": true
   },
   {
@@ -101580,9 +101580,9 @@
         "start_year": 2020
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-26T23:36:43.174028+00:00",
-    "retry_after": "2026-11-27T23:36:43.174034+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T00:07:29.271434+00:00",
+    "retry_after": "2026-12-01T00:07:29.271437+00:00",
     "search_hydrated": true
   },
   {
@@ -101591,9 +101591,9 @@
     "year": 1990,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-26T23:36:43.174057+00:00",
-    "retry_after": "2026-11-27T23:36:43.174061+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T00:07:29.271454+00:00",
+    "retry_after": "2026-12-01T00:07:29.271457+00:00",
     "search_hydrated": true
   },
   {
@@ -101602,9 +101602,9 @@
     "year": 2001,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-26T23:36:43.174076+00:00",
-    "retry_after": "2026-11-27T23:36:43.174078+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T00:07:29.271470+00:00",
+    "retry_after": "2026-12-01T00:07:29.271473+00:00",
     "search_hydrated": true
   },
   {

@@ -406,6 +406,13 @@
     "series_gcd_id": 241064
   },
   {
+    "name": "DC Finest: Teen Titans: Terra in the Night",
+    "publisher": "DC Comics",
+    "year": 2026,
+    "volume_id": null,
+    "series_gcd_id": 241611
+  },
+  {
     "name": "DC Finest: The Doom Patrol: The End Sanctifies the Means",
     "publisher": "DC Comics",
     "year": 2026,
@@ -1076,13 +1083,6 @@
     "year": 2026,
     "volume_id": null,
     "series_gcd_id": 241518
-  },
-  {
-    "name": "ROM",
-    "publisher": "Image Comics",
-    "year": 2026,
-    "volume_id": null,
-    "series_gcd_id": 238108
   },
   {
     "name": "ROM Special",
@@ -5768,13 +5768,6 @@
     "series_gcd_id": 204757
   },
   {
-    "name": "The Deviant",
-    "publisher": "Image Comics",
-    "year": 2023,
-    "volume_id": null,
-    "series_gcd_id": 205799
-  },
-  {
     "name": "The Fellspyre Chronicles",
     "publisher": "DC Comics",
     "year": 2023,
@@ -7805,13 +7798,6 @@
     "series_gcd_id": 172155
   },
   {
-    "name": "Mercy",
-    "publisher": "Image Comics",
-    "year": 2020,
-    "volume_id": null,
-    "series_gcd_id": 156888
-  },
-  {
     "name": "Morbius Epic Collection",
     "publisher": "Marvel Comics",
     "year": 2020,
@@ -8797,13 +8783,6 @@
     "year": 2019,
     "volume_id": null,
     "series_gcd_id": 144221
-  },
-  {
-    "name": "Savage Sword of Conan",
-    "publisher": "Marvel Comics",
-    "year": 2019,
-    "volume_id": null,
-    "series_gcd_id": 140323
   },
   {
     "name": "September Mourning",
@@ -11466,13 +11445,6 @@
     "series_gcd_id": 119024
   },
   {
-    "name": "Snotgirl",
-    "publisher": "Image Comics",
-    "year": 2017,
-    "volume_id": null,
-    "series_gcd_id": 112382
-  },
-  {
     "name": "Spider-Man by David Michelinie and Erik Larsen Omnibus",
     "publisher": "Marvel Comics",
     "year": 2017,
@@ -13298,13 +13270,6 @@
     "year": 2016,
     "volume_id": 88201,
     "series_gcd_id": 97269
-  },
-  {
-    "name": "Drax: Guardian of the Galaxy",
-    "publisher": "Marvel Comics",
-    "year": 2016,
-    "volume_id": 93657,
-    "series_gcd_id": 105773
   },
   {
     "name": "E Is for Extinction: Warzones!",
@@ -20998,5 +20963,40 @@
     "year": 2013,
     "volume_id": null,
     "series_gcd_id": 74592
+  },
+  {
+    "name": "Iron Man Habit Heroes",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "volume_id": null,
+    "series_gcd_id": 159200
+  },
+  {
+    "name": "Iron Man: Armored Vengeance",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "volume_id": 68189,
+    "series_gcd_id": 215106
+  },
+  {
+    "name": "Iron Man: Season One",
+    "publisher": "Marvel Comics",
+    "year": 2013,
+    "volume_id": null,
+    "series_gcd_id": 73591
+  },
+  {
+    "name": "JLA Earth 2: The Deluxe Edition",
+    "publisher": "DC Comics",
+    "year": 2013,
+    "volume_id": null,
+    "series_gcd_id": 110422
+  },
+  {
+    "name": "Joe Kubert Presents",
+    "publisher": "DC Comics",
+    "year": 2013,
+    "volume_id": 69217,
+    "series_gcd_id": 77664
   }
 ]

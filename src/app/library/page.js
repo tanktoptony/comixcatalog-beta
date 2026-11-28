@@ -28,6 +28,7 @@ import { readLocal, writeLocal } from "@/lib/localCache";
 import { fetchWithRetry } from "@/lib/fetchWithRetry";
 import { isOwnedStatus } from "@/lib/collectionStatus";
 import { chunk } from "@/lib/chunk";
+import { MEMBERSHIP_SALES_OPEN } from "@/lib/membershipSales";
 import { normalizePublisherDisplayName } from "@/lib/publisher";
 import { isUnlinkedForSale, listingCompleteness } from "@/lib/listingCompleteness";
 import { buildLibraryItems, groupLibraryRows } from "@/lib/libraryView";
@@ -1298,7 +1299,7 @@ function LibraryPageContent() {
         <div className="library-upgrade-banner success" role="status">
           <span className="library-upgrade-banner-icon" aria-hidden="true">✓</span>
           <div className="library-upgrade-banner-body">
-            <strong>Welcome to {searchParams.get("tier") === "plus" ? "Collector+" : "Collector Pro"}.</strong> Thanks for supporting ComixCatalog.
+            <strong>Welcome to Collector Pro.</strong> Thanks for supporting ComixCatalog.
           </div>
           <button
             type="button"
@@ -1313,7 +1314,8 @@ function LibraryPageContent() {
       {upgradeBanner === "cancelled" && (
         <div className="library-upgrade-banner cancelled" role="status">
           <div className="library-upgrade-banner-body">
-            Checkout cancelled - no charge. <Link href="/upgrade">Try again</Link> when you&rsquo;re ready.
+            Checkout cancelled. No charge.
+            {MEMBERSHIP_SALES_OPEN && <> <Link href="/upgrade">Try again</Link> when you&rsquo;re ready.</>}
           </div>
           <button
             type="button"

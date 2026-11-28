@@ -23,6 +23,7 @@ import ARTICLES from "@/app/reads/articles";
 import { SITE_URL } from "@/lib/siteUrl";
 import { PUBLISHER_BY_SLUG } from "@/lib/publisherPages";
 import { creatorSlugRange, seriesGcdIdsWithKeyPages } from "@/lib/sitemapCore";
+import { MEMBERSHIP_SALES_OPEN } from "@/lib/membershipSales";
 
 export { SITE_URL };
 
@@ -63,7 +64,7 @@ const STATIC_ROUTES = [
   { path: "/search", changeFrequency: "weekly", priority: 0.9 },
   { path: "/founding-collectors", changeFrequency: "monthly", priority: 0.8 },
   { path: "/newsletter", changeFrequency: "monthly", priority: 0.6 },
-  { path: "/upgrade", changeFrequency: "monthly", priority: 0.7 },
+  ...(MEMBERSHIP_SALES_OPEN ? [{ path: "/upgrade", changeFrequency: "monthly", priority: 0.7 }] : []),
   // Content
   { path: "/blog", changeFrequency: "weekly", priority: 0.8 },
   { path: "/reads", changeFrequency: "weekly", priority: 0.6 },

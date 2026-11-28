@@ -7,6 +7,7 @@ import { useAuth } from "@/context/AuthContext";
 import { authedFetch } from "@/lib/apiClient";
 import FoundingQueryMessage from "@/components/FoundingQueryMessage";
 import ShareCardButton from "@/components/ShareCardButton";
+import { FOUNDING_MEMBERSHIP_COPY } from "@/lib/membershipSales";
 import { fillMosaic } from "@/lib/foundingShowcasePick";
 
 // initialRemaining comes from the server-rendered page (see page.js) - this
@@ -170,7 +171,7 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
             <span>{soldOut ? "are claimed." : "the first hundred."}</span>
           </h1>
           <p className="fc-lede">
-            The first hundred collectors get a lifetime membership, free, with no card: no upgrade prompts, and a numbered Founding Collector badge nobody after No. 100 can get. After that, membership is $4 a month. Your name goes on the wall below, for good.
+            {FOUNDING_MEMBERSHIP_COPY.intro}
           </p>
 
           {!claimStateKnown ? (
@@ -370,9 +371,9 @@ export default function FoundingCollectorsClient({ initialRemaining = null, rost
       <section className="fc-perks">
         <h2>What you keep, for life</h2>
         <div className="fc-perk-grid">
-          <div className="fc-perk"><b>Lifetime membership</b><span>After the first 100, Collector+ costs $4 a month. The collector toolkit stays free for everyone. Your membership is free, for life.</span></div>
-          <div className="fc-perk"><b>No upgrade prompts</b><span>House promos will not ask you to upgrade.</span></div>
-          <div className="fc-perk"><b>The badge</b><span>A permanent Founding Collector badge on your profile.</span></div>
+          {FOUNDING_MEMBERSHIP_COPY.perks.map((perk) => (
+            <div className="fc-perk" key={perk.title}><b>{perk.title}</b><span>{perk.description}</span></div>
+          ))}
         </div>
       </section>
 

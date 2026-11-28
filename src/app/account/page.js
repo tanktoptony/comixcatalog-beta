@@ -22,6 +22,12 @@ import { getSupabaseClient } from "@/lib/supabase/client";
 import styles from "./account.module.css";
 import PayoutsPrompt from "@/components/PayoutsPrompt";
 import { ACTIVITY_MODE_LABELS, ACTIVITY_MODES, DEFAULT_PREFS, prefsFromRow } from "@/lib/emailPrefs";
+import { authedFetch } from "@/lib/apiClient";
+import {
+  MEMBERSHIP_SALES_OPEN,
+  membershipMenuLink,
+  shouldShowMembershipUi,
+} from "@/lib/membershipSales";
 
 export default function AccountSettingsPage() {
   const { user, profile, loading, signOut } = useAuth();
@@ -38,6 +44,8 @@ export default function AccountSettingsPage() {
   const [activityMsg, setActivityMsg] = useState(null);
   const [digestMsg, setDigestMsg] = useState(null);
   const [tipsMsg, setTipsMsg] = useState(null);
+  const [membershipBusy, setMembershipBusy] = useState(false);
+  const [membershipMsg, setMembershipMsg] = useState(null);
 
   // Mirror profile.is_public into local state once profile resolves so the
   // checkbox is checked correctly on first render. Adjusted during render
@@ -198,6 +206,40 @@ export default function AccountSettingsPage() {
     }
   }
 
+  async function handleManageMembership() {
+    setMembershipBusy(true);
+    setMembershipMsg(null);
+    try {
+      const response = await authedFetch("/api/stripe/portal", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({}),
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok || !data.url) {
+        setMembershipMsg(data.error || "Could not open billing portal");
+        return;
+      }
+      window.location.assign(data.url);
+    } catch {
+      setMembershipMsg("Network error. Please try again.");
+    } finally {
+      setMembershipBusy(false);
+    }
+  }
+
+  const hasPaidMembership = profile?.membership_tier === "collector_plus";
+  const showMembershipUi = shouldShowMembershipUi({
+    isPro: profile?.is_pro,
+    isFounding: profile?.is_founding_collector,
+    membershipTier: profile?.membership_tier,
+  });
+  const accountMembershipLink = membershipMenuLink({
+    membershipTier: profile?.membership_tier,
+    hasMembershipPass: showMembershipUi,
+  });
+  const showMembershipRow = showMembershipUi || Boolean(accountMembershipLink);
+
   return (
     <main className={styles.shell}>
       <header className={styles.header}>
@@ -209,20 +251,31 @@ export default function AccountSettingsPage() {
           <p className={styles.subtitle}>
             Manage your sign-in, email, privacy, and account data.
           </p>
-          <div className={styles.membershipRow}>
+          {showMembershipRow && <div className={styles.membershipRow}>
             <div className="profile-badges" aria-label="Membership status">
               {profile?.is_founding_collector && (
                 <span className="profile-badge founding">★ Founding Collector</span>
               )}
               {profile?.is_pro && <span className="profile-badge pro">PRO</span>}
               {profile?.membership_tier === "collector_plus" && (
-                <span className="profile-badge pro">Collector+</span>
+                <span className="profile-badge pro">Collector Pro</span>
               )}
             </div>
-            <Link href="/upgrade" className={styles.membershipLink}>
-              Manage membership
-            </Link>
-          </div>
+            {hasPaidMembership && !MEMBERSHIP_SALES_OPEN && <button
+              type="button"
+              className={styles.membershipLink}
+              onClick={handleManageMembership}
+              disabled={membershipBusy}
+            >
+              {membershipBusy ? "Opening..." : "Manage membership"}
+            </button>}
+            {accountMembershipLink && (!hasPaidMembership || MEMBERSHIP_SALES_OPEN) && (
+              <Link href={accountMembershipLink.href} className={styles.membershipLink}>
+                {accountMembershipLink.label}
+              </Link>
+            )}
+            {membershipMsg && <span className={styles.membershipError} role="alert">{membershipMsg}</span>}
+          </div>}
         </div>
         <Link href="/library" className={styles.backLink}>
           ← Back to library

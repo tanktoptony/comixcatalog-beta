@@ -11,8 +11,12 @@ import {
 import { ADMIN_ID } from "@/lib/admin";
 import { getAuthedUser } from "@/lib/authServer";
 import { validateCheckoutSelection, validateMembershipEligibility } from "@/lib/stripeMembership";
+import { MEMBERSHIP_SALES_OPEN } from "@/lib/membershipSales";
 
 export async function POST(req) {
+  if (!MEMBERSHIP_SALES_OPEN) {
+    return NextResponse.json({ error: "Membership sales are closed" }, { status: 503 });
+  }
   try {
     const authedUser = await getAuthedUser(req);
     if (!authedUser) {

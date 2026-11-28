@@ -205,6 +205,9 @@ jobs:
       - name: Password policy tests
         run: npm run test:password-policy
 
+      - name: Membership sales visibility tests
+        run: npm run test:membership-sales
+
       - name: Build
         run: npm run build
 

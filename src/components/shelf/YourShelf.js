@@ -11,6 +11,7 @@ import InviteButton from "@/components/InviteButton";
 import CollectorFeed from "./CollectorFeed";
 import styles from "./YourShelf.module.css";
 import { issueNumberText } from "@/lib/issueNumberLabel";
+import { MEMBERSHIP_SALES_OPEN } from "@/lib/membershipSales";
 
 const SHORT_DATE = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
 const TODAY = new Intl.DateTimeFormat("en-US", { weekday: "long", month: "long", day: "numeric" });
@@ -21,8 +22,7 @@ const cents = { format: (v) => Number.isInteger(Number(v)) ? money.format(v) : d
 const count = (n) => Number(n ?? 0).toLocaleString("en-US");
 
 // The support card links here and shows to every member, founders included.
-// Set to null to fall back to Collector+, which only members without a
-// membership can join.
+// Set to null to use the membership fallback when sales are open.
 const PATREON_URL = "https://www.patreon.com/comixcatalog";
 
 function Skeleton({ tall = false }) { return <div className={`${styles.skeleton}${tall ? ` ${styles.tall}` : ""}`} aria-label="Loading" />; }
@@ -74,7 +74,7 @@ export default function YourShelf() {
   const wantlist = hunt.data?.wantlist;
   const market = hunt.data?.market;
   const selling = hunt.data?.selling;
-  const canJoinPlus = !isFounding && !isPro && !isPlus;
+  const canJoinPlus = MEMBERSHIP_SALES_OPEN && !isFounding && !isPro && !isPlus;
   const showSupport = Boolean(PATREON_URL) || canJoinPlus;
 
   // A section, not <main>: the root layout already wraps every page in one.

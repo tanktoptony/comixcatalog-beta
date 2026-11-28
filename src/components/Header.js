@@ -19,6 +19,7 @@ import InviteButton from "@/components/InviteButton";
 import { authedFetch } from "@/lib/apiClient";
 import { Inbox, LibraryBig, ListChecks, Package, ShoppingBag, Users } from "lucide-react";
 import { issueNumberSuffix } from "@/lib/issueNumberLabel";
+import { membershipMenuLink } from "@/lib/membershipSales";
 
 const NAV_ICON_PROPS = { size: 20, strokeWidth: 1.75, "aria-hidden": true };
 
@@ -831,6 +832,10 @@ const UserMenu = forwardRef(function UserMenu(
   // which account you were signed into.
   const email = user?.email ?? null;
   const displayName = profile?.display_name || username || email || "Account";
+  const membershipLink = membershipMenuLink({
+    membershipTier: profile?.membership_tier,
+    hasMembershipPass: hasSupporterPerks,
+  });
   // Right after sign-in there's no cached profile, so we know who you are
   // before we have your photo. Draw an empty circle while that read is in
   // flight; the stock badge is for a profile with no photo (or a failed
@@ -898,7 +903,7 @@ const UserMenu = forwardRef(function UserMenu(
               </div>
             )}
             {isPro && <span className="user-menu-pro-pill">PRO</span>}
-            {isPlus && <span className="user-menu-pro-pill">Collector+</span>}
+            {isPlus && <span className="user-menu-pro-pill">Collector Pro</span>}
             {username && <span className="user-menu-showcase">View my Showcase</span>}
           </UserMenuHead>
 
@@ -955,16 +960,17 @@ const UserMenu = forwardRef(function UserMenu(
 
           <div className="user-menu-divider" />
 
-          <Link
-            href="/upgrade"
-            className={`user-menu-item ${hasSupporterPerks ? "" : "user-menu-item-cta"}`}
-            role="menuitem"
-            onClick={handleItem()}
-          >
-            {hasSupporterPerks ? "Manage membership" : "Join Collector+"}
-          </Link>
-
-          <div className="user-menu-divider" />
+          {membershipLink && <>
+            <Link
+              href={membershipLink.href}
+              className={`user-menu-item ${hasSupporterPerks ? "" : "user-menu-item-cta"}`}
+              role="menuitem"
+              onClick={handleItem()}
+            >
+              {membershipLink.label}
+            </Link>
+            <div className="user-menu-divider" />
+          </>}
 
           <button
             type="button"

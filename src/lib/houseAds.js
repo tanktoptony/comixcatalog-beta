@@ -1,4 +1,5 @@
 import { hasSupporterPerks } from "@/lib/membership";
+import { MEMBERSHIP_SALES_OPEN } from "@/lib/membershipSales";
 
 // House-ad inventory for <AdSlot />. Every slot on the site renders one of
 // these today; nothing here is a paid ad and nothing here loads a third
@@ -37,7 +38,7 @@ export const HOUSE_ADS = [
     body: "Grading, values, exports and the insurance PDF cost nothing. Collector+ is how you support an independent, solo-built site.",
     cta: "See Collector+",
     href: "/upgrade",
-    show: (viewer) => !hasSupporterPerks(viewer),
+    show: (viewer) => MEMBERSHIP_SALES_OPEN && !hasSupporterPerks(viewer),
   },
   {
     id: "contribute",

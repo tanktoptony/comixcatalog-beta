@@ -5895,6 +5895,20 @@ button.nav-link {
   align-items: center;
 }
 
+/* An open copy editor needs the row's width. Left as a third column, the
+   action buttons keep their one-line width and squeeze the editor into a
+   sliver, so they move under it while it is open. */
+@media (min-width: 901px) {
+  .library-list-row:has(.grade-editor-panel) {
+    grid-template-columns: 76px minmax(0, 1fr);
+    align-items: start;
+  }
+  .library-list-row:has(.grade-editor-panel) .library-list-actions {
+    grid-column: 2 / -1;
+    flex-wrap: wrap;
+  }
+}
+
 .library-row-btn.primary {
   background: rgba(255,255,255,0.12);
 }

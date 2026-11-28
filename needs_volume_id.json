@@ -87197,9 +87197,9 @@
         "start_year": 2011
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T14:54:08.095887+00:00",
-    "retry_after": "2026-11-28T14:54:08.095904+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T15:06:33.389133+00:00",
+    "retry_after": "2026-12-28T15:06:33.389153+00:00",
     "search_hydrated": true
   },
   {
@@ -87215,9 +87215,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T14:54:10.620652+00:00",
-    "retry_after": "2026-11-28T14:54:10.620666+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T15:06:40.945162+00:00",
+    "retry_after": "2026-12-28T15:06:40.945180+00:00",
     "search_hydrated": true
   },
   {
@@ -87233,9 +87233,9 @@
         "start_year": 2016
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T14:54:10.620735+00:00",
-    "retry_after": "2026-11-28T14:54:10.620739+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T15:06:40.945225+00:00",
+    "retry_after": "2026-12-28T15:06:40.945227+00:00",
     "search_hydrated": true
   },
   {
@@ -87251,9 +87251,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T14:54:10.756602+00:00",
-    "retry_after": "2026-11-28T14:54:10.756615+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T15:06:41.037206+00:00",
+    "retry_after": "2026-12-28T15:06:41.037220+00:00",
     "search_hydrated": true
   },
   {
@@ -87269,9 +87269,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T14:54:10.898671+00:00",
-    "retry_after": "2026-11-28T14:54:10.898686+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T15:06:41.127888+00:00",
+    "retry_after": "2026-12-28T15:06:41.127903+00:00",
     "search_hydrated": true
   },
   {
@@ -87280,9 +87280,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T14:54:08.095946+00:00",
-    "retry_after": "2026-11-28T14:54:08.095951+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T15:02:20.207308+00:00",
+    "retry_after": "2026-12-28T15:02:20.207326+00:00",
     "search_hydrated": true
   },
   {
@@ -87331,9 +87331,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T14:54:11.205401+00:00",
-    "retry_after": "2026-11-28T14:54:11.205416+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T15:06:41.307517+00:00",
+    "retry_after": "2026-12-28T15:06:41.307532+00:00",
     "search_hydrated": true
   },
   {
@@ -87349,9 +87349,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T14:54:11.205457+00:00",
-    "retry_after": "2026-11-28T14:54:11.205460+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T15:06:41.307579+00:00",
+    "retry_after": "2026-12-28T15:06:41.307581+00:00",
     "search_hydrated": true
   },
   {
@@ -96633,8 +96633,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-28T14:02:25.398446+00:00",
-    "retry_after": "2026-11-29T14:02:25.398462+00:00",
+    "last_attempt_at": "2026-11-28T15:02:37.545257+00:00",
+    "retry_after": "2026-11-29T15:02:37.545276+00:00",
     "search_hydrated": true
   },
   {
@@ -98975,21 +98975,21 @@
     "reason": "multiple_candidates",
     "candidates": [
       {
-        "id": 70862,
-        "name": "Shadowland",
-        "publisher": "Fantagraphics",
-        "start_year": 1989
-      },
-      {
         "id": 65888,
         "name": "Shadowland",
         "publisher": "Fantagraphics",
         "start_year": 2006
+      },
+      {
+        "id": 70862,
+        "name": "Shadowland",
+        "publisher": "Fantagraphics",
+        "start_year": 1989
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-25T14:07:19.120082+00:00",
-    "retry_after": "2026-11-28T14:07:19.120085+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T15:02:37.545335+00:00",
+    "retry_after": "2026-12-05T15:02:37.545337+00:00",
     "search_hydrated": true
   },
   {
@@ -98998,9 +98998,9 @@
     "year": 1995,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-25T14:07:19.120042+00:00",
-    "retry_after": "2026-11-28T14:07:19.120046+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T15:01:56.893642+00:00",
+    "retry_after": "2026-12-05T15:01:56.893644+00:00",
     "search_hydrated": true
   },
   {
@@ -99031,17 +99031,11 @@
         "name": "The Clock",
         "publisher": "Image",
         "start_year": 2020
-      },
-      {
-        "id": 53375,
-        "name": "Clock!",
-        "publisher": "Zoo Arsonist Press",
-        "start_year": 1996
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-25T14:07:19.120004+00:00",
-    "retry_after": "2026-11-28T14:07:19.120019+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T15:01:56.893614+00:00",
+    "retry_after": "2026-12-05T15:01:56.893626+00:00",
     "search_hydrated": true
   },
   {
@@ -101997,9 +101991,9 @@
     "year": 2014,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-27T14:07:40.874054+00:00",
-    "retry_after": "2026-11-28T14:07:40.874070+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T15:06:55.953165+00:00",
+    "retry_after": "2026-12-01T15:06:55.953186+00:00",
     "search_hydrated": true
   },
   {
@@ -102494,6 +102488,17 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-28T14:06:28.900853+00:00",
     "retry_after": "2026-11-29T14:06:28.900855+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Power of Iron Man",
+    "publisher": "Marvel Comics",
+    "year": 1984,
+    "reason": "no_title_match",
+    "candidates": [],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-28T15:06:55.953214+00:00",
+    "retry_after": "2026-11-29T15:06:55.953216+00:00",
     "search_hydrated": true
   }
 ]

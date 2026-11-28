@@ -86718,9 +86718,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T05:11:07.495124+00:00",
-    "retry_after": "2026-11-28T05:11:07.495141+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T07:07:30.824265+00:00",
+    "retry_after": "2026-12-28T07:07:30.824281+00:00",
     "search_hydrated": true
   },
   {
@@ -86736,9 +86736,9 @@
         "start_year": 2002
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T05:11:07.495176+00:00",
-    "retry_after": "2026-11-28T05:11:07.495178+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T07:07:30.824313+00:00",
+    "retry_after": "2026-12-28T07:07:30.824315+00:00",
     "search_hydrated": true
   },
   {
@@ -86754,9 +86754,9 @@
         "start_year": 2007
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T05:11:07.495200+00:00",
-    "retry_after": "2026-11-28T05:11:07.495202+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T07:07:30.824337+00:00",
+    "retry_after": "2026-12-28T07:07:30.824339+00:00",
     "search_hydrated": true
   },
   {
@@ -86800,9 +86800,9 @@
         "start_year": 2017
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T05:11:04.606716+00:00",
-    "retry_after": "2026-11-28T05:11:04.606718+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T07:07:25.328332+00:00",
+    "retry_after": "2026-12-28T07:07:25.328349+00:00",
     "search_hydrated": true
   },
   {
@@ -86824,9 +86824,9 @@
         "start_year": 1997
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T06:11:02.997328+00:00",
-    "retry_after": "2026-11-28T06:11:02.997345+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T07:07:25.328373+00:00",
+    "retry_after": "2026-12-28T07:07:25.328376+00:00",
     "search_hydrated": true
   },
   {
@@ -86835,9 +86835,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T06:11:02.997373+00:00",
-    "retry_after": "2026-11-28T06:11:02.997377+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T07:07:25.328393+00:00",
+    "retry_after": "2026-12-28T07:07:25.328408+00:00",
     "search_hydrated": true
   },
   {
@@ -96651,8 +96651,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-28T06:03:33.966369+00:00",
-    "retry_after": "2026-11-29T06:03:33.966383+00:00",
+    "last_attempt_at": "2026-11-28T07:03:33.661587+00:00",
+    "retry_after": "2026-11-29T07:03:33.661601+00:00",
     "search_hydrated": true
   },
   {
@@ -101808,9 +101808,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-27T05:14:06.715720+00:00",
-    "retry_after": "2026-11-28T05:14:06.715736+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T07:07:30.310743+00:00",
+    "retry_after": "2026-12-01T07:07:30.310759+00:00",
     "search_hydrated": true
   },
   {
@@ -102265,6 +102265,84 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-28T04:07:46.506079+00:00",
     "retry_after": "2026-11-29T04:07:46.506082+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Avengers",
+    "publisher": "Marvel Comics",
+    "year": 2027,
+    "reason": "multiple_candidates",
+    "candidates": [
+      {
+        "id": 2128,
+        "name": "The Avengers",
+        "publisher": "Marvel",
+        "start_year": 1963
+      },
+      {
+        "id": 7084,
+        "name": "Avengers",
+        "publisher": "Marvel",
+        "start_year": 1998
+      },
+      {
+        "id": 110496,
+        "name": "Avengers",
+        "publisher": "Marvel",
+        "start_year": 2018
+      },
+      {
+        "id": 54428,
+        "name": "Avengers",
+        "publisher": "Marvel",
+        "start_year": 2013
+      },
+      {
+        "id": 95402,
+        "name": "Avengers",
+        "publisher": "Marvel",
+        "start_year": 2017
+      },
+      {
+        "id": 33227,
+        "name": "Avengers",
+        "publisher": "Marvel",
+        "start_year": 2010
+      },
+      {
+        "id": 150431,
+        "name": "Avengers",
+        "publisher": "Marvel",
+        "start_year": 2023
+      },
+      {
+        "id": 6742,
+        "name": "Avengers",
+        "publisher": "Marvel",
+        "start_year": 1996
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-28T07:02:29.617695+00:00",
+    "retry_after": "2026-11-29T07:02:29.617712+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Simpsons Comics Shake-Up",
+    "publisher": "Titan Comics",
+    "year": 2014,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 70715,
+        "name": "Simpsons Comics: Shake-Up",
+        "publisher": "Bongo",
+        "start_year": 2014
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-28T07:07:39.882939+00:00",
+    "retry_after": "2026-11-29T07:07:39.882955+00:00",
     "search_hydrated": true
   }
 ]

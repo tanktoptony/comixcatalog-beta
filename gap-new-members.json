@@ -1,5 +1,17 @@
 [
   {
+    "name": "Fantastic Four",
+    "publisher": "Marvel Comics",
+    "year": 2025,
+    "series_gcd_id": 225304
+  },
+  {
+    "name": "Avengers",
+    "publisher": "Marvel Comics",
+    "year": 2027,
+    "series_gcd_id": 239257
+  },
+  {
     "name": "The Darkness [Level]",
     "publisher": "Image Comics",
     "year": 2006,
@@ -352,12 +364,6 @@
     "publisher": "Marvel Comics",
     "year": 2023,
     "series_gcd_id": 192395
-  },
-  {
-    "name": "Fantastic Four",
-    "publisher": "Marvel Comics",
-    "year": 2025,
-    "series_gcd_id": 225304
   },
   {
     "name": "Event Horizon: Dark Descent",

@@ -4,6 +4,14 @@ import { getAuthedUser } from "@/lib/authServer";
 import { ADMIN_ID } from "@/lib/admin";
 import { canSeeComic } from "@/lib/review";
 
+let loggedComicDetailsReadError = false;
+
+function logComicDetailsReadError(error) {
+  if (loggedComicDetailsReadError) return;
+  loggedComicDetailsReadError = true;
+  console.error("comic details lookup failed:", error?.code, error?.message);
+}
+
 // GET /api/comics/[id]
 //
 // Serves user-contributed comics only (UUID ids). GCD issues are served by
@@ -44,6 +52,13 @@ export async function GET(req, context) {
     const coverPath =
       comic.comic_covers?.find((c) => c.is_primary)?.image_path ?? null;
 
+    const { data: details, error: detailsError } = await supabase
+      .from("comic_details")
+      .select("comicvine_issue_id,issue_name,cover_date,store_date,credits,characters,story_arcs,source_url,synced_at")
+      .eq("comic_id", comic.id)
+      .maybeSingle();
+    if (detailsError) logComicDetailsReadError(detailsError);
+
     return NextResponse.json({
       issue: {
         id: comic.id,
@@ -56,6 +71,7 @@ export async function GET(req, context) {
           ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/comic-covers/${coverPath}`
           : null,
         created_by: comic.created_by ?? null,
+        details: detailsError ? null : details ?? null,
       },
     });
   } catch (err) {

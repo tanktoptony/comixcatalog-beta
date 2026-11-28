@@ -1,5 +1,5 @@
-import { chooseSeries, issueKey, issueNumberOrFilter, matchIssue, normalizeKey } from "@/lib/csvImport/matchRow";
-import { legacySeriesAlias, narrowHolders, seriesFormatLabel, shownNumber, titleSpellings } from "@/lib/import/import";
+import { chooseSeries, issueKey, issueNumberOrFilter, matchIssue, normalizeKey } from "../csvImport/matchRow.js";
+import { legacySeriesAlias, narrowHolders, seriesFormatLabel, shownNumber, titleSpellings } from "./import.js";
 
 const SERIES_COLUMNS = "id,gcd_id,title,title_normalized,year_start_cached,issue_count_cached,resolved_publisher_cached,us_market";
 

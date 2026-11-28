@@ -86381,9 +86381,9 @@
         "start_year": 1985
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T02:10:46.170284+00:00",
-    "retry_after": "2026-11-28T02:10:46.170288+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T04:07:46.506221+00:00",
+    "retry_after": "2026-12-28T04:07:46.506224+00:00",
     "search_hydrated": true
   },
   {
@@ -86399,9 +86399,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T02:10:46.311726+00:00",
-    "retry_after": "2026-11-28T02:10:46.311741+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T04:07:46.647644+00:00",
+    "retry_after": "2026-12-28T04:07:46.647681+00:00",
     "search_hydrated": true
   },
   {
@@ -86594,9 +86594,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T02:10:35.864190+00:00",
-    "retry_after": "2026-11-28T02:10:35.864192+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T04:07:40.044019+00:00",
+    "retry_after": "2026-12-28T04:07:40.044035+00:00",
     "search_hydrated": true
   },
   {
@@ -86612,9 +86612,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T02:10:46.469379+00:00",
-    "retry_after": "2026-11-28T02:10:46.469395+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T04:07:46.790382+00:00",
+    "retry_after": "2026-12-28T04:07:46.790396+00:00",
     "search_hydrated": true
   },
   {
@@ -86630,9 +86630,9 @@
         "start_year": 2018
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T02:10:46.630797+00:00",
-    "retry_after": "2026-11-28T02:10:46.630812+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T04:07:46.920730+00:00",
+    "retry_after": "2026-12-28T04:07:46.920744+00:00",
     "search_hydrated": true
   },
   {
@@ -96651,8 +96651,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-28T03:02:52.824173+00:00",
-    "retry_after": "2026-11-29T03:02:52.824191+00:00",
+    "last_attempt_at": "2026-11-28T04:03:42.511849+00:00",
+    "retry_after": "2026-11-29T04:03:42.511861+00:00",
     "search_hydrated": true
   },
   {
@@ -98406,9 +98406,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 2,
-    "last_attempt_at": "2026-11-25T03:03:38.371931+00:00",
-    "retry_after": "2026-11-28T03:03:38.371945+00:00",
+    "attempts": 3,
+    "last_attempt_at": "2026-11-28T04:02:39.010087+00:00",
+    "retry_after": "2026-12-05T04:02:39.010105+00:00",
     "search_hydrated": true
   },
   {
@@ -101707,9 +101707,9 @@
         "start_year": 2022
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-27T03:08:02.944049+00:00",
-    "retry_after": "2026-11-28T03:08:02.944064+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T04:07:56.442691+00:00",
+    "retry_after": "2026-12-01T04:07:56.442707+00:00",
     "search_hydrated": true
   },
   {
@@ -101725,9 +101725,9 @@
         "start_year": 1984
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-27T03:08:02.944097+00:00",
-    "retry_after": "2026-11-28T03:08:02.944102+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T04:07:56.442747+00:00",
+    "retry_after": "2026-12-01T04:07:56.442752+00:00",
     "search_hydrated": true
   },
   {
@@ -101743,9 +101743,9 @@
         "start_year": 2019
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-27T03:08:02.944127+00:00",
-    "retry_after": "2026-11-28T03:08:02.944130+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T04:07:56.442778+00:00",
+    "retry_after": "2026-12-01T04:07:56.442782+00:00",
     "search_hydrated": true
   },
   {
@@ -101761,9 +101761,9 @@
         "start_year": 2010
       }
     ],
-    "attempts": 1,
-    "last_attempt_at": "2026-11-27T03:08:02.944151+00:00",
-    "retry_after": "2026-11-28T03:08:02.944154+00:00",
+    "attempts": 2,
+    "last_attempt_at": "2026-11-28T04:07:56.442803+00:00",
+    "retry_after": "2026-12-01T04:07:56.442806+00:00",
     "search_hydrated": true
   },
   {
@@ -102229,6 +102229,42 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-28T02:06:39.956539+00:00",
     "retry_after": "2026-11-29T02:06:39.956542+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Mage: The Hero Defined",
+    "publisher": "Image Comics",
+    "year": 1998,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 6091,
+        "name": "Mage: The Hero Defined",
+        "publisher": "Image",
+        "start_year": 1997
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-28T04:02:42.628586+00:00",
+    "retry_after": "2026-11-29T04:02:42.628596+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "The Old Guard",
+    "publisher": "Image Comics",
+    "year": 2020,
+    "reason": "series_hint_year_mismatch",
+    "candidates": [
+      {
+        "id": 99042,
+        "name": "The Old Guard",
+        "publisher": "Image",
+        "start_year": 2017
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-28T04:07:46.506079+00:00",
+    "retry_after": "2026-11-29T04:07:46.506082+00:00",
     "search_hydrated": true
   }
 ]

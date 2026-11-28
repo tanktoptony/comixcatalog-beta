@@ -116,6 +116,7 @@
     "test:json-ld": "node --test src/lib/jsonLd.test.js",
     "test:issue-details": "node --test src/lib/issueDetails.test.js",
     "test:comic-details": "node --test scripts/lib/comicDetails.test.js",
+    "test:match-comics-gcd": "node --test scripts/lib/matchComicsToGcd.test.js",
     "test:link-comics-gcd": "node --test scripts/lib/linkComicsToGcd.test.js",
     "test:profile-access": "node --test src/lib/profileAccess.test.js",
     "test:public-profile-paging": "node --test src/lib/publicProfilePaging.test.js",

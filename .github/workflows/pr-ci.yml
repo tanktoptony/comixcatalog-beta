@@ -82,6 +82,9 @@ jobs:
       - name: Member-added comic detail tests
         run: npm run test:comic-details
 
+      - name: Member-added comic GCD match tests
+        run: npm run test:match-comics-gcd
+
       - name: Member-added comic GCD link tests
         run: npm run test:link-comics-gcd
 

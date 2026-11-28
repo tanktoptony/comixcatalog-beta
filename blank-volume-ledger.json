@@ -224,6 +224,40 @@
     ],
     "checked_at": "2026-11-26T05:02:15.630Z"
   },
+  "3212": {
+    "status": "sure",
+    "volume": {
+      "id": 3660,
+      "name": "Border Worlds",
+      "publisher": "Kitchen Sink",
+      "start_year": 1986,
+      "count": 7
+    },
+    "name": "Border Worlds",
+    "publisher": "Kitchen Sink Press",
+    "year": 1986,
+    "count": 7,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z",
+    "tries": 1
+  },
+  "3322": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "2000 AD Presents",
+    "publisher": "Quality Periodicals",
+    "year": 1986,
+    "count": 9,
+    "collected": false,
+    "blank": [
+      "8",
+      "7"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
+  },
   "3325": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -260,6 +294,39 @@
     "checked_at": "2026-11-26T05:02:15.630Z",
     "tries": 1
   },
+  "3494": {
+    "status": "sure",
+    "volume": {
+      "id": 3914,
+      "name": "Aristocratic X-Traterrestrial Time-Traveling Thieves",
+      "publisher": "Fictioneer Books",
+      "start_year": 1987,
+      "count": 12
+    },
+    "name": "Aristocratic Xtraterrestrial Time-Traveling Thieves",
+    "publisher": "Fictioneer Books",
+    "year": 1987,
+    "count": 12,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z",
+    "tries": 1
+  },
+  "3510": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "2000 A. D. Presents",
+    "publisher": "Fleetway/Quality",
+    "year": 1987,
+    "count": 11,
+    "collected": false,
+    "blank": [
+      "14"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
+  },
   "3748": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -285,6 +352,31 @@
       "1"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "4436": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 19062,
+        "name": "BattleTide",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1992,
+        "count": 4,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "Battletide",
+    "publisher": "Marvel UK",
+    "year": 1992,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "4"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
   },
   "4440": {
     "status": "none",
@@ -558,6 +650,31 @@
     ],
     "checked_at": "2026-11-27T09:02:16.978Z"
   },
+  "5155": {
+    "status": "ask",
+    "reason": "title differs",
+    "options": [
+      {
+        "id": 27938,
+        "name": "Mighty Morphin Power Rangers",
+        "publisher": "Hamilton Comics",
+        "start_year": 1994,
+        "count": 6,
+        "why": [
+          "title differs"
+        ]
+      }
+    ],
+    "name": "Saban's Mighty Morphin Power Rangers",
+    "publisher": "Hamilton Comics",
+    "year": 1994,
+    "count": 6,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
+  },
   "5406": {
     "status": "sure",
     "volume": {
@@ -591,6 +708,32 @@
       "2"
     ],
     "checked_at": "2026-11-27T05:02:25.940Z"
+  },
+  "5447": {
+    "status": "ask",
+    "reason": "issue count differs",
+    "options": [
+      {
+        "id": 64611,
+        "name": "TUG & Buster",
+        "publisher": "Art & Soul",
+        "start_year": 1995,
+        "count": 2,
+        "why": [
+          "issue count differs"
+        ]
+      }
+    ],
+    "name": "TUG & buster",
+    "publisher": "Art & Soul",
+    "year": 1995,
+    "count": 7,
+    "collected": false,
+    "blank": [
+      "5",
+      "2"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
   },
   "5480": {
     "status": "ask",
@@ -813,6 +956,19 @@
     ],
     "checked_at": "2026-11-26T09:02:04.751Z",
     "tries": 2
+  },
+  "9806": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Avengers Strike File",
+    "publisher": "Marvel",
+    "year": 1994,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
   },
   "9847": {
     "status": "none",
@@ -1097,6 +1253,19 @@
     "checked_at": "2026-11-25T09:02:53.709Z",
     "tries": 1
   },
+  "11867": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Avengers / JLA",
+    "publisher": "DC",
+    "year": 2003,
+    "count": 2,
+    "collected": false,
+    "blank": [
+      "4"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
+  },
   "12255": {
     "status": "ask",
     "reason": "issue count differs",
@@ -1160,6 +1329,31 @@
       "1"
     ],
     "checked_at": "2026-11-26T09:02:04.751Z"
+  },
+  "12346": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 11393,
+        "name": "Blue Beetle",
+        "publisher": "Modern",
+        "start_year": 1977,
+        "count": 2,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "Blue Beetle",
+    "publisher": "Modern [1970s]",
+    "year": 1977,
+    "count": 2,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
   },
   "12465": {
     "status": "ask",
@@ -1440,6 +1634,41 @@
     "checked_at": "2026-11-26T05:02:15.630Z",
     "tries": 1
   },
+  "14377": {
+    "status": "ask",
+    "reason": "several volumes fit",
+    "options": [
+      {
+        "id": 18361,
+        "name": "Cyberforce",
+        "publisher": "Image",
+        "start_year": 1993,
+        "count": 35,
+        "why": [
+          "issue count differs"
+        ]
+      },
+      {
+        "id": 18360,
+        "name": "Cyber Force",
+        "publisher": "Image",
+        "start_year": 1992,
+        "count": 5,
+        "why": [
+          "issue count differs"
+        ]
+      }
+    ],
+    "name": "Cyberforce",
+    "publisher": "Image",
+    "year": 1993,
+    "count": 36,
+    "collected": false,
+    "blank": [
+      "0"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
+  },
   "14420": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -1452,6 +1681,31 @@
       "0"
     ],
     "checked_at": "2026-11-27T05:02:25.940Z"
+  },
+  "14610": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 18337,
+        "name": "Codename: Genetix",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993,
+        "count": 4,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "Codename: Genetix",
+    "publisher": "Marvel UK",
+    "year": 1993,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
   },
   "14650": {
     "status": "sure",
@@ -1471,6 +1725,29 @@
       "1"
     ],
     "checked_at": "2026-11-26T05:02:15.630Z",
+    "tries": 1
+  },
+  "14748": {
+    "status": "sure",
+    "volume": {
+      "id": 19928,
+      "name": "Batman Versus Predator II: Bloodmatch",
+      "publisher": "DC Comics",
+      "start_year": 1993,
+      "count": 4
+    },
+    "name": "Batman versus Predator II: Bloodmatch",
+    "publisher": "DC; Dark Horse",
+    "year": 1994,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "2",
+      "3",
+      "4",
+      "1"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z",
     "tries": 1
   },
   "14762": {
@@ -1604,6 +1881,19 @@
       "0"
     ],
     "checked_at": "2026-11-25T09:02:53.709Z"
+  },
+  "16161": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Cherry",
+    "publisher": "Kitchen Sink Press",
+    "year": 1993,
+    "count": 19,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
   },
   "16319": {
     "status": "none",
@@ -2026,6 +2316,19 @@
     "checked_at": "2026-11-26T05:02:15.630Z",
     "tries": 1
   },
+  "23396": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Cerebus",
+    "publisher": "Aardvark-Vanaheim",
+    "year": 1993,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "0"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
+  },
   "23538": {
     "status": "sure",
     "volume": {
@@ -2207,6 +2510,19 @@
     ],
     "checked_at": "2026-11-27T07:04:34.916Z"
   },
+  "26090": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "The Darkness [Level]",
+    "publisher": "Image",
+    "year": 2006,
+    "count": 6,
+    "collected": false,
+    "blank": [
+      "Level 4"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
+  },
   "26131": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -2219,6 +2535,31 @@
       "3"
     ],
     "checked_at": "2026-11-26T07:02:15.708Z"
+  },
+  "26833": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 22957,
+        "name": "Cable TV",
+        "publisher": "Express Publications",
+        "start_year": 1993,
+        "count": 1,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "Cable TV",
+    "publisher": "Entity-Parody",
+    "year": 1993,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
   },
   "28104": {
     "status": "ask",
@@ -2269,6 +2610,26 @@
       "2"
     ],
     "checked_at": "2026-11-27T09:02:16.978Z",
+    "tries": 1
+  },
+  "28506": {
+    "status": "sure",
+    "volume": {
+      "id": 21685,
+      "name": "10th Muse",
+      "publisher": "Image",
+      "start_year": 2000,
+      "count": 9
+    },
+    "name": "10th Muse",
+    "publisher": "Image",
+    "year": 2000,
+    "count": 9,
+    "collected": false,
+    "blank": [
+      "5"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z",
     "tries": 1
   },
   "28729": {
@@ -2914,6 +3275,26 @@
     ],
     "checked_at": "2026-11-27T05:02:25.940Z"
   },
+  "46396": {
+    "status": "sure",
+    "volume": {
+      "id": 18110,
+      "name": "Araña: Heart of the Spider",
+      "publisher": "Marvel",
+      "start_year": 2005,
+      "count": 12
+    },
+    "name": "Araña: The Heart of the Spider",
+    "publisher": "Marvel",
+    "year": 2005,
+    "count": 12,
+    "collected": false,
+    "blank": [
+      "7"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z",
+    "tries": 1
+  },
   "48396": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -2926,6 +3307,31 @@
       "3"
     ],
     "checked_at": "2026-11-26T09:02:04.751Z"
+  },
+  "48526": {
+    "status": "ask",
+    "reason": "year differs",
+    "options": [
+      {
+        "id": 30365,
+        "name": "Infinity Gauntlet",
+        "publisher": "Marvel",
+        "start_year": 2006,
+        "count": 1,
+        "why": [
+          "year differs"
+        ]
+      }
+    ],
+    "name": "Infinity Gauntlet",
+    "publisher": "Marvel",
+    "year": 1992,
+    "count": 1,
+    "collected": true,
+    "blank": [
+      "[nn]"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
   },
   "49834": {
     "status": "none",
@@ -2965,6 +3371,31 @@
       "1"
     ],
     "checked_at": "2026-11-27T09:02:16.978Z"
+  },
+  "51107": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 45991,
+        "name": "The Blonde: Double Cross",
+        "publisher": "Eros Comix",
+        "start_year": 1991,
+        "count": 3,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "The Blonde: Double Cross",
+    "publisher": "Fantagraphics",
+    "year": 1991,
+    "count": 3,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
   },
   "53873": {
     "status": "none",
@@ -3483,6 +3914,37 @@
     ],
     "checked_at": "2026-11-27T09:02:16.978Z"
   },
+  "74427": {
+    "status": "ask",
+    "reason": "several volumes fit",
+    "options": [
+      {
+        "id": 69786,
+        "name": "Avengers: The Enemy Within",
+        "publisher": "Marvel",
+        "start_year": 2013,
+        "count": 1,
+        "why": []
+      },
+      {
+        "id": 61317,
+        "name": "Avengers: The Enemy Within",
+        "publisher": "Marvel",
+        "start_year": 2013,
+        "count": 1,
+        "why": []
+      }
+    ],
+    "name": "Avengers: The Enemy Within",
+    "publisher": "Marvel",
+    "year": 2013,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
+  },
   "75117": {
     "status": "none",
     "reason": "its covers are already filed under another series",
@@ -3906,6 +4368,26 @@
     "checked_at": "2026-11-26T05:02:15.630Z",
     "tries": 1
   },
+  "94745": {
+    "status": "sure",
+    "volume": {
+      "id": 86521,
+      "name": "Batman/Teenage Mutant Ninja Turtles",
+      "publisher": "DC Comics",
+      "start_year": 2015,
+      "count": 6
+    },
+    "name": "Batman / Teenage Mutant Ninja Turtles",
+    "publisher": "DC",
+    "year": 2016,
+    "count": 6,
+    "collected": false,
+    "blank": [
+      "2"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z",
+    "tries": 1
+  },
   "94945": {
     "status": "sure",
     "volume": {
@@ -4311,6 +4793,19 @@
     ],
     "checked_at": "2026-11-26T07:02:15.708Z"
   },
+  "114284": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "CBS Presents Action Zone",
+    "publisher": "Image",
+    "year": 1994,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
+  },
   "115078": {
     "status": "ask",
     "reason": "title differs",
@@ -4453,6 +4948,31 @@
     ],
     "checked_at": "2026-11-26T09:02:04.751Z"
   },
+  "119030": {
+    "status": "ask",
+    "reason": "year differs",
+    "options": [
+      {
+        "id": 106491,
+        "name": "Aquaman Annual",
+        "publisher": "DC Comics",
+        "start_year": 2016,
+        "count": 2,
+        "why": [
+          "year differs"
+        ]
+      }
+    ],
+    "name": "Aquaman Annual",
+    "publisher": "DC",
+    "year": 2018,
+    "count": 2,
+    "collected": false,
+    "blank": [
+      "2"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
+  },
   "119413": {
     "status": "ask",
     "reason": "title differs",
@@ -4506,6 +5026,31 @@
     ],
     "checked_at": "2026-11-25T07:02:10.053Z",
     "tries": 1
+  },
+  "119938": {
+    "status": "ask",
+    "reason": "title differs",
+    "options": [
+      {
+        "id": 29127,
+        "name": "The Boys #1: Dynamite Edition",
+        "publisher": "Dynamite Entertainment",
+        "start_year": 2009,
+        "count": 1,
+        "why": [
+          "title differs"
+        ]
+      }
+    ],
+    "name": "The Boys Dynamite Edition",
+    "publisher": "Dynamite Entertainment",
+    "year": 2009,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
   },
   "126584": {
     "status": "ask",
@@ -5209,6 +5754,31 @@
     "checked_at": "2026-11-27T07:04:34.916Z",
     "tries": 1
   },
+  "178418": {
+    "status": "ask",
+    "reason": "already pinned to ComicVine 2896",
+    "options": [
+      {
+        "id": 140222,
+        "name": "Black Panther",
+        "publisher": "Marvel",
+        "start_year": 2022,
+        "count": 15,
+        "why": [
+          "pinned elsewhere"
+        ]
+      }
+    ],
+    "name": "Black Panther",
+    "publisher": "Marvel",
+    "year": 2021,
+    "count": 15,
+    "collected": false,
+    "blank": [
+      "12 (209)"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
+  },
   "179882": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -5247,6 +5817,31 @@
       "1"
     ],
     "checked_at": "2026-11-27T09:02:16.978Z"
+  },
+  "179890": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 137931,
+        "name": "Cinnamon",
+        "publisher": "Happy Tank",
+        "start_year": 2021,
+        "count": 3,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "Cinnamon",
+    "publisher": "Behemoth Comics",
+    "year": 2021,
+    "count": 3,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
   },
   "179947": {
     "status": "none",
@@ -5305,7 +5900,7 @@
       "1"
     ],
     "checked_at": "2026-11-27T09:02:16.978Z",
-    "tries": 1
+    "tries": 2
   },
   "182525": {
     "status": "sure",
@@ -5369,6 +5964,31 @@
     ],
     "checked_at": "2026-11-27T05:02:25.940Z"
   },
+  "185962": {
+    "status": "ask",
+    "reason": "publisher differs",
+    "options": [
+      {
+        "id": 37637,
+        "name": "Body Count",
+        "publisher": "Marvel UK/Panini UK",
+        "start_year": 1993,
+        "count": 1,
+        "why": [
+          "publisher differs"
+        ]
+      }
+    ],
+    "name": "Body Count",
+    "publisher": "Marvel UK",
+    "year": 1993,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
+  },
   "186140": {
     "status": "ask",
     "reason": "issue count differs",
@@ -5431,6 +6051,21 @@
       "1"
     ],
     "checked_at": "2026-11-27T07:04:34.916Z"
+  },
+  "187419": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Artist's Elite Presents",
+    "publisher": "Artist Elite Publishing",
+    "year": 2022,
+    "count": 6,
+    "collected": false,
+    "blank": [
+      "2",
+      "3",
+      "1"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
   },
   "187904": {
     "status": "none",
@@ -5558,6 +6193,19 @@
     "checked_at": "2026-11-27T09:02:16.978Z",
     "tries": 1
   },
+  "194103": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Bonecheck",
+    "publisher": "Legends",
+    "year": 2022,
+    "count": 3,
+    "collected": false,
+    "blank": [
+      "3"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
+  },
   "195192": {
     "status": "none",
     "reason": "nothing close on ComicVine",
@@ -5680,6 +6328,20 @@
       "3"
     ],
     "checked_at": "2026-11-27T05:02:25.940Z"
+  },
+  "199083": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Alpha Betas",
+    "publisher": "Massive",
+    "year": 2022,
+    "count": 4,
+    "collected": false,
+    "blank": [
+      "1",
+      "2"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
   },
   "199276": {
     "status": "ask",
@@ -5843,6 +6505,39 @@
       "8"
     ],
     "checked_at": "2026-11-25T07:02:10.053Z"
+  },
+  "202068": {
+    "status": "ask",
+    "reason": "several volumes fit",
+    "options": [
+      {
+        "id": 151915,
+        "name": "Captain America ",
+        "publisher": "Marvel",
+        "start_year": 2023,
+        "count": 1,
+        "why": []
+      },
+      {
+        "id": 153610,
+        "name": "Captain America",
+        "publisher": "Marvel",
+        "start_year": 2023,
+        "count": 16,
+        "why": [
+          "issue count differs"
+        ]
+      }
+    ],
+    "name": "Captain America",
+    "publisher": "Marvel",
+    "year": 2023,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "750"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
   },
   "202179": {
     "status": "ask",
@@ -6019,7 +6714,7 @@
       "2"
     ],
     "checked_at": "2026-11-27T09:02:16.978Z",
-    "tries": 1
+    "tries": 2
   },
   "212397": {
     "status": "none",
@@ -6153,7 +6848,7 @@
       "1"
     ],
     "checked_at": "2026-11-27T09:02:16.978Z",
-    "tries": 1
+    "tries": 2
   },
   "216305": {
     "status": "none",
@@ -6279,6 +6974,106 @@
     ],
     "checked_at": "2026-11-27T09:02:16.978Z"
   },
+  "222373": {
+    "status": "ask",
+    "reason": "year differs",
+    "options": [
+      {
+        "id": 113068,
+        "name": "Fantastic Four No. 1 Facsimile Edition",
+        "publisher": "Marvel",
+        "start_year": 2018,
+        "count": 1,
+        "why": [
+          "year differs"
+        ]
+      },
+      {
+        "id": 163560,
+        "name": "Fantastic Four No. 4 Facsimile Edition",
+        "publisher": "Marvel",
+        "start_year": 2025,
+        "count": 1,
+        "why": [
+          "title differs"
+        ]
+      },
+      {
+        "id": 162413,
+        "name": "Fantastic Four No. 2 Facsimile Edition",
+        "publisher": "Marvel",
+        "start_year": 2025,
+        "count": 1,
+        "why": [
+          "title differs"
+        ]
+      }
+    ],
+    "name": "Fantastic Four No. 1 Facsimile Edition",
+    "publisher": "Marvel",
+    "year": 2025,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "[nn]"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
+  },
+  "224374": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Bone Grinder",
+    "publisher": "Cosmic Lion Productions",
+    "year": 2025,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "1"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
+  },
+  "225453": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Charlamagne Tha God Presents: Illuminati",
+    "publisher": "AWA Studios [Artists Writers & Artisans]",
+    "year": 2025,
+    "count": 5,
+    "collected": false,
+    "blank": [
+      "1",
+      "5",
+      "2",
+      "3",
+      "4"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
+  },
+  "226095": {
+    "status": "ask",
+    "reason": "title differs",
+    "options": [
+      {
+        "id": 165540,
+        "name": "EC Catacomb of Torment",
+        "publisher": "Oni Press",
+        "start_year": 2025,
+        "count": 15,
+        "why": [
+          "title differs"
+        ]
+      }
+    ],
+    "name": "Catacomb of Torment",
+    "publisher": "Oni Press",
+    "year": 2025,
+    "count": 15,
+    "collected": false,
+    "blank": [
+      "9"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
+  },
   "227931": {
     "status": "ask",
     "reason": "issue count differs",
@@ -6303,6 +7098,26 @@
       "1"
     ],
     "checked_at": "2026-11-27T09:02:16.978Z"
+  },
+  "228316": {
+    "status": "sure",
+    "volume": {
+      "id": 167314,
+      "name": "Adventure Time: The Bubbline College Special",
+      "publisher": "Oni Press",
+      "start_year": 2025,
+      "count": 1
+    },
+    "name": "Adventure Time: The Bubbline College Special",
+    "publisher": "Oni Press",
+    "year": 2025,
+    "count": 1,
+    "collected": false,
+    "blank": [
+      "001"
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z",
+    "tries": 1
   },
   "228872": {
     "status": "none",
@@ -6482,5 +7297,18 @@
       "1"
     ],
     "checked_at": "2026-11-27T09:02:16.978Z"
+  },
+  "240048": {
+    "status": "none",
+    "reason": "nothing close on ComicVine",
+    "name": "Batman: The Dark Knight Returns",
+    "publisher": "DC",
+    "year": 2026,
+    "count": 1,
+    "collected": true,
+    "blank": [
+      null
+    ],
+    "checked_at": "2026-11-28T05:02:08.814Z"
   }
 }

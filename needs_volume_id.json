@@ -25377,9 +25377,9 @@
         "start_year": 2024
       }
     ],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T09:10:41.366239+00:00",
-    "retry_after": "2026-11-28T09:10:41.366243+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T10:06:03.302376+00:00",
+    "retry_after": "2026-12-28T10:06:03.302380+00:00",
     "search_hydrated": true
   },
   {
@@ -87051,9 +87051,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T09:10:41.366129+00:00",
-    "retry_after": "2026-11-28T09:10:41.366147+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T10:06:03.302273+00:00",
+    "retry_after": "2026-12-28T10:06:03.302288+00:00",
     "search_hydrated": true
   },
   {
@@ -87062,9 +87062,9 @@
     "year": 2019,
     "reason": "no_title_match",
     "candidates": [],
-    "attempts": 4,
-    "last_attempt_at": "2026-11-14T09:10:41.366169+00:00",
-    "retry_after": "2026-11-28T09:10:41.366173+00:00",
+    "attempts": 5,
+    "last_attempt_at": "2026-11-28T10:06:03.302308+00:00",
+    "retry_after": "2026-12-28T10:06:03.302312+00:00",
     "search_hydrated": true
   },
   {
@@ -96651,8 +96651,8 @@
       }
     ],
     "attempts": 1,
-    "last_attempt_at": "2026-11-28T09:52:02.065746+00:00",
-    "retry_after": "2026-11-29T09:52:02.065760+00:00",
+    "last_attempt_at": "2026-11-28T10:02:29.443484+00:00",
+    "retry_after": "2026-11-29T10:02:29.443499+00:00",
     "search_hydrated": true
   },
   {
@@ -102354,6 +102354,30 @@
     "attempts": 1,
     "last_attempt_at": "2026-11-28T08:07:29.423389+00:00",
     "retry_after": "2026-11-29T08:07:29.423391+00:00",
+    "search_hydrated": true
+  },
+  {
+    "name": "Batman / Judge Dredd: The Ultimate Riddle",
+    "publisher": "DC Comics",
+    "year": 1995,
+    "reason": "publisher_mismatch",
+    "candidates": [
+      {
+        "id": 60661,
+        "name": "Batman / Judge Dredd: The Ultimate Riddle",
+        "publisher": "Hamlyn",
+        "start_year": 1996
+      },
+      {
+        "id": 74048,
+        "name": "Batman / Judge Dredd: The Ultimate Riddle",
+        "publisher": "Fleetway",
+        "start_year": 1995
+      }
+    ],
+    "attempts": 1,
+    "last_attempt_at": "2026-11-28T10:06:15.941193+00:00",
+    "retry_after": "2026-11-29T10:06:15.941210+00:00",
     "search_hydrated": true
   }
 ]
